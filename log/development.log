@@ -10778,3 +10778,379 @@ Started GET "/assets/speakers-8f6eecd1178ef85964369ec66d33c4f1.js?body=1" for 12
 
 
 Started GET "/assets/application-d00ee1ff401e9b9eddd04141530c64f3.js?body=1" for 127.0.0.1 at 2015-01-27 00:32:39 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateContacts (20150126223456)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.6ms)[0m  [1mCREATE TABLE "contacts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "surname" varchar, "telephone" varchar, "email" varchar, "skype" varchar, "location_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150126223456"]]
+  [1m[36m (113.4ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/contacts" for 127.0.0.1 at 2015-01-27 00:36:00 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ContactsController#index as HTML
+  [1m[35mContact Load (0.7ms)[0m  SELECT "contacts".* FROM "contacts"
+  Rendered contacts/index.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 664ms (Views: 621.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/bootstrap.min-232f6e7ff6ac5cc865763d507e1be397.css?body=1" for 127.0.0.1 at 2015-01-27 00:36:01 +0200
+
+
+Started GET "/assets/conferences-069e88c06b889877799890854d7f4c40.css?body=1" for 127.0.0.1 at 2015-01-27 00:36:01 +0200
+
+
+Started GET "/assets/header-08ba2b484a87caad1bb09dd543029b22.css?body=1" for 127.0.0.1 at 2015-01-27 00:36:02 +0200
+
+
+Started GET "/assets/scaffolds-983306cc3a19bee7662872313efea625.css?body=1" for 127.0.0.1 at 2015-01-27 00:36:02 +0200
+
+
+Started GET "/assets/jquery-eb3e278249152b5b5d5170b73d9dbf52.js?body=1" for 127.0.0.1 at 2015-01-27 00:36:02 +0200
+
+
+Started GET "/assets/application-80a89d9d5024595395d5569164496be3.css?body=1" for 127.0.0.1 at 2015-01-27 00:36:02 +0200
+
+
+Started GET "/assets/locations-069e88c06b889877799890854d7f4c40.css?body=1" for 127.0.0.1 at 2015-01-27 00:36:02 +0200
+
+
+Started GET "/assets/speakers-eadc67b61b626d362863bece1a27dfd3.css?body=1" for 127.0.0.1 at 2015-01-27 00:36:02 +0200
+
+
+Started GET "/assets/contacts-069e88c06b889877799890854d7f4c40.css?body=1" for 127.0.0.1 at 2015-01-27 00:36:02 +0200
+
+
+Started GET "/assets/jquery_ujs-0b8f09cf5aec4ba1be1abd9f915c77e2.js?body=1" for 127.0.0.1 at 2015-01-27 00:36:02 +0200
+
+
+Started GET "/assets/turbolinks-924184401b7d116eadaaefc96895fa84.js?body=1" for 127.0.0.1 at 2015-01-27 00:36:02 +0200
+
+
+Started GET "/assets/conferences-8f6eecd1178ef85964369ec66d33c4f1.js?body=1" for 127.0.0.1 at 2015-01-27 00:36:02 +0200
+
+
+Started GET "/assets/contacts-8f6eecd1178ef85964369ec66d33c4f1.js?body=1" for 127.0.0.1 at 2015-01-27 00:36:02 +0200
+
+
+Started GET "/assets/speakers-8f6eecd1178ef85964369ec66d33c4f1.js?body=1" for 127.0.0.1 at 2015-01-27 00:36:02 +0200
+
+
+Started GET "/assets/locations-8f6eecd1178ef85964369ec66d33c4f1.js?body=1" for 127.0.0.1 at 2015-01-27 00:36:02 +0200
+
+
+Started GET "/assets/application-367c100594a401afda66dc00316e49ba.js?body=1" for 127.0.0.1 at 2015-01-27 00:36:02 +0200
+
+
+Started GET "/contacts/new" for 127.0.0.1 at 2015-01-27 00:36:04 +0200
+Processing by ContactsController#new as HTML
+  Rendered contacts/_form.html.erb (27.6ms)
+  Rendered contacts/new.html.erb within layouts/application (33.7ms)
+Completed 200 OK in 160ms (Views: 148.5ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/contacts" for 127.0.0.1 at 2015-01-27 00:36:15 +0200
+Processing by ContactsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OuQdi9OQ3rhAByh4HTRLBtrwOcrdepCcSGfinMugjy5TfM8PAWYLHuVGrMotM6/h5QE6sjdGN4qLj8EkiLTIJg==", "contact"=>{"name"=>"Vad", "surname"=>"Kirdan", "telephone"=>"0630620750", "email"=>"hog_dubno@gmail.com", "skype"=>"hog_dubno", "location_id"=>"1"}, "commit"=>"Create Contact"}
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "contacts" ("name", "surname", "telephone", "email", "skype", "location_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["name", "Vad"], ["surname", "Kirdan"], ["telephone", "0630620750"], ["email", "hog_dubno@gmail.com"], ["skype", "hog_dubno"], ["location_id", 1], ["created_at", "2015-01-26 22:36:15.465040"], ["updated_at", "2015-01-26 22:36:15.465040"]]
+  [1m[36m (370.8ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/contacts/1
+Completed 302 Found in 383ms (ActiveRecord: 371.5ms)
+
+
+Started GET "/contacts/1" for 127.0.0.1 at 2015-01-27 00:36:15 +0200
+Processing by ContactsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mContact Load (0.6ms)[0m  SELECT  "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered contacts/show.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 168ms (Views: 153.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/bootstrap.min-232f6e7ff6ac5cc865763d507e1be397.css?body=1" for 127.0.0.1 at 2015-01-27 00:36:16 +0200
+
+
+Started GET "/assets/conferences-069e88c06b889877799890854d7f4c40.css?body=1" for 127.0.0.1 at 2015-01-27 00:36:16 +0200
+
+
+Started GET "/assets/contacts-069e88c06b889877799890854d7f4c40.css?body=1" for 127.0.0.1 at 2015-01-27 00:36:16 +0200
+
+
+Started GET "/assets/header-08ba2b484a87caad1bb09dd543029b22.css?body=1" for 127.0.0.1 at 2015-01-27 00:36:16 +0200
+
+
+Started GET "/assets/locations-069e88c06b889877799890854d7f4c40.css?body=1" for 127.0.0.1 at 2015-01-27 00:36:16 +0200
+
+
+Started GET "/assets/scaffolds-983306cc3a19bee7662872313efea625.css?body=1" for 127.0.0.1 at 2015-01-27 00:36:16 +0200
+
+
+Started GET "/assets/application-80a89d9d5024595395d5569164496be3.css?body=1" for 127.0.0.1 at 2015-01-27 00:36:16 +0200
+
+
+Started GET "/assets/speakers-eadc67b61b626d362863bece1a27dfd3.css?body=1" for 127.0.0.1 at 2015-01-27 00:36:16 +0200
+
+
+Started GET "/assets/jquery-eb3e278249152b5b5d5170b73d9dbf52.js?body=1" for 127.0.0.1 at 2015-01-27 00:36:16 +0200
+
+
+Started GET "/assets/turbolinks-924184401b7d116eadaaefc96895fa84.js?body=1" for 127.0.0.1 at 2015-01-27 00:36:16 +0200
+
+
+Started GET "/assets/jquery_ujs-0b8f09cf5aec4ba1be1abd9f915c77e2.js?body=1" for 127.0.0.1 at 2015-01-27 00:36:16 +0200
+
+
+Started GET "/assets/conferences-8f6eecd1178ef85964369ec66d33c4f1.js?body=1" for 127.0.0.1 at 2015-01-27 00:36:16 +0200
+
+
+Started GET "/assets/contacts-8f6eecd1178ef85964369ec66d33c4f1.js?body=1" for 127.0.0.1 at 2015-01-27 00:36:16 +0200
+
+
+Started GET "/assets/application-367c100594a401afda66dc00316e49ba.js?body=1" for 127.0.0.1 at 2015-01-27 00:36:16 +0200
+
+
+Started GET "/assets/locations-8f6eecd1178ef85964369ec66d33c4f1.js?body=1" for 127.0.0.1 at 2015-01-27 00:36:16 +0200
+
+
+Started GET "/assets/speakers-8f6eecd1178ef85964369ec66d33c4f1.js?body=1" for 127.0.0.1 at 2015-01-27 00:36:16 +0200
+
+
+Started GET "/contacts" for 127.0.0.1 at 2015-01-27 00:36:18 +0200
+Processing by ContactsController#index as HTML
+  [1m[36mContact Load (0.3ms)[0m  [1mSELECT "contacts".* FROM "contacts"[0m
+  Rendered contacts/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 140ms (Views: 138.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/contacts/new" for 127.0.0.1 at 2015-01-27 00:36:19 +0200
+Processing by ContactsController#new as HTML
+  Rendered contacts/_form.html.erb (5.1ms)
+  Rendered contacts/new.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 123ms (Views: 122.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/contacts" for 127.0.0.1 at 2015-01-27 00:36:41 +0200
+Processing by ContactsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZMBnJrRsSHLrBcSbcjcUlYS1cE4mtzBzdasVI+NwKXYNWLWiZpqd1E5EQClCMPByu0RzNsyLl2W2QzaboGRufg==", "contact"=>{"name"=>"Vova", "surname"=>"Kamin", "telephone"=>"0630620751", "email"=>"vova_lviv@gmail.com", "skype"=>"vova_lviv", "location_id"=>"1"}, "commit"=>"Create Contact"}
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "contacts" ("name", "surname", "telephone", "email", "skype", "location_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Vova"], ["surname", "Kamin"], ["telephone", "0630620751"], ["email", "vova_lviv@gmail.com"], ["skype", "vova_lviv"], ["location_id", 1], ["created_at", "2015-01-26 22:36:41.441448"], ["updated_at", "2015-01-26 22:36:41.441448"]]
+  [1m[35m (186.3ms)[0m  commit transaction
+Redirected to http://localhost:3000/contacts/2
+Completed 302 Found in 199ms (ActiveRecord: 187.0ms)
+
+
+Started GET "/contacts/2" for 127.0.0.1 at 2015-01-27 00:36:41 +0200
+Processing by ContactsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mContact Load (0.2ms)[0m  [1mSELECT  "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered contacts/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 149ms (Views: 146.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/bootstrap.min-232f6e7ff6ac5cc865763d507e1be397.css?body=1" for 127.0.0.1 at 2015-01-27 00:36:42 +0200
+
+
+Started GET "/assets/conferences-069e88c06b889877799890854d7f4c40.css?body=1" for 127.0.0.1 at 2015-01-27 00:36:42 +0200
+
+
+Started GET "/assets/contacts-069e88c06b889877799890854d7f4c40.css?body=1" for 127.0.0.1 at 2015-01-27 00:36:42 +0200
+
+
+Started GET "/assets/scaffolds-983306cc3a19bee7662872313efea625.css?body=1" for 127.0.0.1 at 2015-01-27 00:36:42 +0200
+
+
+Started GET "/assets/header-08ba2b484a87caad1bb09dd543029b22.css?body=1" for 127.0.0.1 at 2015-01-27 00:36:42 +0200
+
+
+Started GET "/assets/locations-069e88c06b889877799890854d7f4c40.css?body=1" for 127.0.0.1 at 2015-01-27 00:36:42 +0200
+
+
+Started GET "/assets/speakers-eadc67b61b626d362863bece1a27dfd3.css?body=1" for 127.0.0.1 at 2015-01-27 00:36:42 +0200
+
+
+Started GET "/assets/application-80a89d9d5024595395d5569164496be3.css?body=1" for 127.0.0.1 at 2015-01-27 00:36:42 +0200
+
+
+Started GET "/assets/jquery-eb3e278249152b5b5d5170b73d9dbf52.js?body=1" for 127.0.0.1 at 2015-01-27 00:36:42 +0200
+
+
+Started GET "/assets/jquery_ujs-0b8f09cf5aec4ba1be1abd9f915c77e2.js?body=1" for 127.0.0.1 at 2015-01-27 00:36:42 +0200
+
+
+Started GET "/assets/turbolinks-924184401b7d116eadaaefc96895fa84.js?body=1" for 127.0.0.1 at 2015-01-27 00:36:42 +0200
+
+
+Started GET "/assets/conferences-8f6eecd1178ef85964369ec66d33c4f1.js?body=1" for 127.0.0.1 at 2015-01-27 00:36:42 +0200
+
+
+Started GET "/assets/contacts-8f6eecd1178ef85964369ec66d33c4f1.js?body=1" for 127.0.0.1 at 2015-01-27 00:36:42 +0200
+
+
+Started GET "/assets/locations-8f6eecd1178ef85964369ec66d33c4f1.js?body=1" for 127.0.0.1 at 2015-01-27 00:36:42 +0200
+
+
+Started GET "/assets/speakers-8f6eecd1178ef85964369ec66d33c4f1.js?body=1" for 127.0.0.1 at 2015-01-27 00:36:42 +0200
+
+
+Started GET "/assets/application-367c100594a401afda66dc00316e49ba.js?body=1" for 127.0.0.1 at 2015-01-27 00:36:42 +0200
+
+
+Started GET "/contacts" for 127.0.0.1 at 2015-01-27 00:36:43 +0200
+Processing by ContactsController#index as HTML
+  [1m[35mContact Load (0.3ms)[0m  SELECT "contacts".* FROM "contacts"
+  Rendered contacts/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 126ms (Views: 124.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/contacts/new" for 127.0.0.1 at 2015-01-27 00:36:44 +0200
+Processing by ContactsController#new as HTML
+  Rendered contacts/_form.html.erb (4.3ms)
+  Rendered contacts/new.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 118ms (Views: 116.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/contacts" for 127.0.0.1 at 2015-01-27 00:36:57 +0200
+Processing by ContactsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"A36k1wdFHd/my4FexxKj/gML8f0NzuQNRDmdyxbV2PVq5nZT1bPIeUOKBez3FUcZPPryhefyQxuH0b5zVcGf/Q==", "contact"=>{"name"=>"Uriy", "surname"=>"Gnat", "telephone"=>"0630750620", "email"=>"gnat_zv@gmail.com", "skype"=>"gnat_zv", "location_id"=>"2"}, "commit"=>"Create Contact"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "contacts" ("name", "surname", "telephone", "email", "skype", "location_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["name", "Uriy"], ["surname", "Gnat"], ["telephone", "0630750620"], ["email", "gnat_zv@gmail.com"], ["skype", "gnat_zv"], ["location_id", 2], ["created_at", "2015-01-26 22:36:57.994325"], ["updated_at", "2015-01-26 22:36:57.994325"]]
+  [1m[36m (161.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/contacts/3
+Completed 302 Found in 169ms (ActiveRecord: 161.5ms)
+
+
+Started GET "/contacts/3" for 127.0.0.1 at 2015-01-27 00:36:58 +0200
+Processing by ContactsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mContact Load (0.2ms)[0m  SELECT  "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered contacts/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 143ms (Views: 141.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/bootstrap.min-232f6e7ff6ac5cc865763d507e1be397.css?body=1" for 127.0.0.1 at 2015-01-27 00:36:58 +0200
+
+
+Started GET "/assets/conferences-069e88c06b889877799890854d7f4c40.css?body=1" for 127.0.0.1 at 2015-01-27 00:36:58 +0200
+
+
+Started GET "/assets/contacts-069e88c06b889877799890854d7f4c40.css?body=1" for 127.0.0.1 at 2015-01-27 00:36:58 +0200
+
+
+Started GET "/assets/locations-069e88c06b889877799890854d7f4c40.css?body=1" for 127.0.0.1 at 2015-01-27 00:36:58 +0200
+
+
+Started GET "/assets/scaffolds-983306cc3a19bee7662872313efea625.css?body=1" for 127.0.0.1 at 2015-01-27 00:36:58 +0200
+
+
+Started GET "/assets/header-08ba2b484a87caad1bb09dd543029b22.css?body=1" for 127.0.0.1 at 2015-01-27 00:36:58 +0200
+
+
+Started GET "/assets/speakers-eadc67b61b626d362863bece1a27dfd3.css?body=1" for 127.0.0.1 at 2015-01-27 00:36:58 +0200
+
+
+Started GET "/assets/application-80a89d9d5024595395d5569164496be3.css?body=1" for 127.0.0.1 at 2015-01-27 00:36:58 +0200
+
+
+Started GET "/assets/jquery-eb3e278249152b5b5d5170b73d9dbf52.js?body=1" for 127.0.0.1 at 2015-01-27 00:36:58 +0200
+
+
+Started GET "/assets/turbolinks-924184401b7d116eadaaefc96895fa84.js?body=1" for 127.0.0.1 at 2015-01-27 00:36:58 +0200
+
+
+Started GET "/assets/conferences-8f6eecd1178ef85964369ec66d33c4f1.js?body=1" for 127.0.0.1 at 2015-01-27 00:36:58 +0200
+
+
+Started GET "/assets/contacts-8f6eecd1178ef85964369ec66d33c4f1.js?body=1" for 127.0.0.1 at 2015-01-27 00:36:58 +0200
+
+
+Started GET "/assets/jquery_ujs-0b8f09cf5aec4ba1be1abd9f915c77e2.js?body=1" for 127.0.0.1 at 2015-01-27 00:36:58 +0200
+
+
+Started GET "/assets/locations-8f6eecd1178ef85964369ec66d33c4f1.js?body=1" for 127.0.0.1 at 2015-01-27 00:36:58 +0200
+
+
+Started GET "/assets/speakers-8f6eecd1178ef85964369ec66d33c4f1.js?body=1" for 127.0.0.1 at 2015-01-27 00:36:58 +0200
+
+
+Started GET "/assets/application-367c100594a401afda66dc00316e49ba.js?body=1" for 127.0.0.1 at 2015-01-27 00:36:58 +0200
+
+
+Started GET "/contacts" for 127.0.0.1 at 2015-01-27 00:37:00 +0200
+Processing by ContactsController#index as HTML
+  [1m[36mContact Load (0.3ms)[0m  [1mSELECT "contacts".* FROM "contacts"[0m
+  Rendered contacts/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 126ms (Views: 124.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/contacts/new" for 127.0.0.1 at 2015-01-27 00:37:01 +0200
+Processing by ContactsController#new as HTML
+  Rendered contacts/_form.html.erb (4.9ms)
+  Rendered contacts/new.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 138ms (Views: 137.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/contacts" for 127.0.0.1 at 2015-01-27 00:37:13 +0200
+Processing by ContactsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zA1ukHZK8uzsk0VLrydkS5U+IqEGun2TrXIDGOaJghWllbwUpLwnSknSwfmfIICsqs8h2eyG2oVumiCgpZ3FHQ==", "contact"=>{"name"=>"Andriy", "surname"=>"Lozuk", "telephone"=>"0630750676", "email"=>"andr_loz@gmail.com", "skype"=>"andr_loz", "location_id"=>"2"}, "commit"=>"Create Contact"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "contacts" ("name", "surname", "telephone", "email", "skype", "location_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Andriy"], ["surname", "Lozuk"], ["telephone", "0630750676"], ["email", "andr_loz@gmail.com"], ["skype", "andr_loz"], ["location_id", 2], ["created_at", "2015-01-26 22:37:13.053697"], ["updated_at", "2015-01-26 22:37:13.053697"]]
+  [1m[35m (315.2ms)[0m  commit transaction
+Redirected to http://localhost:3000/contacts/4
+Completed 302 Found in 323ms (ActiveRecord: 315.7ms)
+
+
+Started GET "/contacts/4" for 127.0.0.1 at 2015-01-27 00:37:13 +0200
+Processing by ContactsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mContact Load (0.5ms)[0m  [1mSELECT  "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT 1[0m  [["id", 4]]
+  Rendered contacts/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 155ms (Views: 151.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/conferences-069e88c06b889877799890854d7f4c40.css?body=1" for 127.0.0.1 at 2015-01-27 00:37:13 +0200
+
+
+Started GET "/assets/bootstrap.min-232f6e7ff6ac5cc865763d507e1be397.css?body=1" for 127.0.0.1 at 2015-01-27 00:37:13 +0200
+
+
+Started GET "/assets/contacts-069e88c06b889877799890854d7f4c40.css?body=1" for 127.0.0.1 at 2015-01-27 00:37:13 +0200
+
+
+Started GET "/assets/header-08ba2b484a87caad1bb09dd543029b22.css?body=1" for 127.0.0.1 at 2015-01-27 00:37:13 +0200
+
+
+Started GET "/assets/speakers-eadc67b61b626d362863bece1a27dfd3.css?body=1" for 127.0.0.1 at 2015-01-27 00:37:13 +0200
+
+
+Started GET "/assets/application-80a89d9d5024595395d5569164496be3.css?body=1" for 127.0.0.1 at 2015-01-27 00:37:13 +0200
+
+
+Started GET "/assets/scaffolds-983306cc3a19bee7662872313efea625.css?body=1" for 127.0.0.1 at 2015-01-27 00:37:14 +0200
+
+
+Started GET "/assets/locations-069e88c06b889877799890854d7f4c40.css?body=1" for 127.0.0.1 at 2015-01-27 00:37:14 +0200
+
+
+Started GET "/assets/jquery-eb3e278249152b5b5d5170b73d9dbf52.js?body=1" for 127.0.0.1 at 2015-01-27 00:37:14 +0200
+
+
+Started GET "/assets/jquery_ujs-0b8f09cf5aec4ba1be1abd9f915c77e2.js?body=1" for 127.0.0.1 at 2015-01-27 00:37:14 +0200
+
+
+Started GET "/assets/turbolinks-924184401b7d116eadaaefc96895fa84.js?body=1" for 127.0.0.1 at 2015-01-27 00:37:14 +0200
+
+
+Started GET "/assets/conferences-8f6eecd1178ef85964369ec66d33c4f1.js?body=1" for 127.0.0.1 at 2015-01-27 00:37:14 +0200
+
+
+Started GET "/assets/contacts-8f6eecd1178ef85964369ec66d33c4f1.js?body=1" for 127.0.0.1 at 2015-01-27 00:37:14 +0200
+
+
+Started GET "/assets/locations-8f6eecd1178ef85964369ec66d33c4f1.js?body=1" for 127.0.0.1 at 2015-01-27 00:37:14 +0200
+
+
+Started GET "/assets/speakers-8f6eecd1178ef85964369ec66d33c4f1.js?body=1" for 127.0.0.1 at 2015-01-27 00:37:14 +0200
+
+
+Started GET "/assets/application-367c100594a401afda66dc00316e49ba.js?body=1" for 127.0.0.1 at 2015-01-27 00:37:14 +0200
