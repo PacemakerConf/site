@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :locations
+
   #get ':name', to: 'conferences#show', as: :conferences
   
   resources :conferences
