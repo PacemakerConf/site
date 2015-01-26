@@ -10409,3 +10409,174 @@ Started GET "/assets/speakers-8f6eecd1178ef85964369ec66d33c4f1.js?body=1" for 12
 
 
 Started GET "/assets/application-18f10afd70767e0049304380ce89b979.js?body=1" for 127.0.0.1 at 2015-01-26 17:54:15 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateEvents (20150125205743)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  DROP TABLE "events"
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20150125205743"]]
+  [1m[35m (100.3ms)[0m  commit transaction
+Migrating to CreateEventsTypes (20150125205638)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  DROP TABLE "events_types"
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20150125205638"]]
+  [1m[35m (94.6ms)[0m  commit transaction
+Migrating to CreateSpeakers (20150125205259)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  DROP TABLE "speakers"
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20150125205259"]]
+  [1m[35m (90.4ms)[0m  commit transaction
+Migrating to CreateConferences (20150125205244)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  DROP TABLE "conferences"
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20150125205244"]]
+  [1m[35m (78.1ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateConferences (20150125205244)
+  [1m[35m (0.7ms)[0m  begin transaction
+  [1m[36m (0.6ms)[0m  [1mCREATE TABLE "conferences" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "year" integer, "date" date, "attenders" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150125205244"]]
+  [1m[36m (81.1ms)[0m  [1mcommit transaction[0m
+Migrating to CreateSpeakers (20150125205259)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "speakers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150125205259"]]
+  [1m[36m (105.2ms)[0m  [1mcommit transaction[0m
+Migrating to CreateEventsTypes (20150125205638)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "events_types" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "eventstype" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150125205638"]]
+  [1m[36m (101.7ms)[0m  [1mcommit transaction[0m
+Migrating to CreateEvents (20150125205743)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (1.2ms)[0m  [1mCREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "timestart" datetime, "conference_id" integer, "speaker_id" integer, "events_type_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150125205743"]]
+  [1m[36m (100.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (80.4ms)[0m  [1mCREATE TABLE "conferences" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "year" integer, "date" date, "attenders" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (90.7ms)[0m  CREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "timestart" datetime, "conference_id" integer, "speaker_id" integer, "events_type_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (123.4ms)[0m  [1mCREATE TABLE "events_types" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "eventstype" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (125.0ms)[0m  CREATE TABLE "speakers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (111.4ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.3ms)[0m  select sqlite_version(*)
+  [1m[36m (124.8ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.4ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (107.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150125205743')[0m
+  [1m[35m (92.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150125205638')
+  [1m[36m (92.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150125205259')[0m
+  [1m[35m (117.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150125205244')
+  [1m[36m (96.1ms)[0m  [1mCREATE TABLE "conferences" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "year" integer, "date" date, "attenders" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (82.1ms)[0m  CREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "timestart" datetime, "conference_id" integer, "speaker_id" integer, "events_type_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (74.0ms)[0m  [1mCREATE TABLE "events_types" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "eventstype" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (74.0ms)[0m  CREATE TABLE "speakers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (92.4ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  select sqlite_version(*)
+  [1m[36m (107.2ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.2ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (192.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150125205743')[0m
+  [1m[35m (117.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150125205638')
+  [1m[36m (117.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150125205259')[0m
+  [1m[35m (125.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150125205244')
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "events_types" ("eventstype", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["eventstype", "topic"], ["created_at", "2015-01-26 22:28:47.395854"], ["updated_at", "2015-01-26 22:28:47.395854"]]
+  [1m[35m (104.2ms)[0m  commit transaction
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "events_types" ("eventstype", "created_at", "updated_at") VALUES (?, ?, ?)  [["eventstype", "lightning"], ["created_at", "2015-01-26 22:28:47.507860"], ["updated_at", "2015-01-26 22:28:47.507860"]]
+  [1m[36m (110.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "events_types" ("eventstype", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["eventstype", "registration"], ["created_at", "2015-01-26 22:28:47.625099"], ["updated_at", "2015-01-26 22:28:47.625099"]]
+  [1m[35m (112.2ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "events_types" ("eventstype", "created_at", "updated_at") VALUES (?, ?, ?)  [["eventstype", "beer-break"], ["created_at", "2015-01-26 22:28:47.743902"], ["updated_at", "2015-01-26 22:28:47.743902"]]
+  [1m[36m (134.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "speakers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Frodo Baggins"], ["created_at", "2015-01-26 22:28:47.894437"], ["updated_at", "2015-01-26 22:28:47.894437"]]
+  [1m[35m (278.7ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "speakers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "Gandalf the Grey"], ["created_at", "2015-01-26 22:28:48.177946"], ["updated_at", "2015-01-26 22:28:48.177946"]]
+  [1m[36m (130.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "speakers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Gimli"], ["created_at", "2015-01-26 22:28:48.315283"], ["updated_at", "2015-01-26 22:28:48.315283"]]
+  [1m[35m (119.2ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "speakers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "Samwise Gamgee"], ["created_at", "2015-01-26 22:28:48.441103"], ["updated_at", "2015-01-26 22:28:48.441103"]]
+  [1m[36m (111.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "speakers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Fangorn the Ent"], ["created_at", "2015-01-26 22:28:48.559477"], ["updated_at", "2015-01-26 22:28:48.559477"]]
+  [1m[35m (111.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "conferences" ("name", "year", "date", "attenders", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "One Ring-2014"], ["year", 2014], ["date", "2014-12-12"], ["attenders", 79], ["created_at", "2015-01-26 22:28:48.691564"], ["updated_at", "2015-01-26 22:28:48.691564"]]
+  [1m[36m (98.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "conferences" ("name", "year", "date", "attenders", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Victory-2015"], ["year", 2015], ["date", "2015-11-12"], ["attenders", 72], ["created_at", "2015-01-26 22:28:48.796479"], ["updated_at", "2015-01-26 22:28:48.796479"]]
+  [1m[35m (100.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "events" ("title", "timestart", "events_type_id", "conference_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "registration"], ["timestart", "2014-12-12 12:00:00.000000"], ["events_type_id", 3], ["conference_id", 1], ["created_at", "2015-01-26 22:28:48.942024"], ["updated_at", "2015-01-26 22:28:48.942024"]]
+  [1m[36m (100.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "events" ("title", "timestart", "events_type_id", "speaker_id", "conference_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["title", "How i get the Ring. History of success"], ["timestart", "2014-12-12 12:15:00.000000"], ["events_type_id", 1], ["speaker_id", 1], ["conference_id", 1], ["created_at", "2015-01-26 22:28:49.054445"], ["updated_at", "2015-01-26 22:28:49.054445"]]
+  [1m[35m (72.3ms)[0m  commit transaction
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "events" ("title", "timestart", "events_type_id", "conference_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Beer-break"], ["timestart", "2014-12-12 13:30:00.000000"], ["events_type_id", 4], ["conference_id", 1], ["created_at", "2015-01-26 22:28:49.135764"], ["updated_at", "2015-01-26 22:28:49.135764"]]
+  [1m[36m (99.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "events" ("title", "timestart", "events_type_id", "speaker_id", "conference_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["title", "The challenge for kamikaze"], ["timestart", "2014-12-12 15:30:00.000000"], ["events_type_id", 1], ["speaker_id", 2], ["conference_id", 1], ["created_at", "2015-01-26 22:28:49.245684"], ["updated_at", "2015-01-26 22:28:49.245684"]]
+  [1m[35m (75.0ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "events" ("title", "timestart", "events_type_id", "speaker_id", "conference_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["title", "A long way in the dunes"], ["timestart", "2015-11-12 15:30:00.000000"], ["events_type_id", 1], ["speaker_id", 1], ["conference_id", 2], ["created_at", "2015-01-26 22:28:49.330338"], ["updated_at", "2015-01-26 22:28:49.330338"]]
+  [1m[36m (74.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "events" ("title", "timestart", "events_type_id", "speaker_id", "conference_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["title", "How many orcs i'll kill"], ["timestart", "2014-12-12 16:30:00.000000"], ["events_type_id", 2], ["speaker_id", 3], ["conference_id", 1], ["created_at", "2015-01-26 22:28:49.413970"], ["updated_at", "2015-01-26 22:28:49.413970"]]
+  [1m[35m (75.4ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "events" ("title", "timestart", "events_type_id", "speaker_id", "conference_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["title", "How to cook Gollum"], ["timestart", "2014-12-12 17:25:52.000000"], ["events_type_id", 1], ["speaker_id", 4], ["conference_id", 1], ["created_at", "2015-01-26 22:28:49.498106"], ["updated_at", "2015-01-26 22:28:49.498106"]]
+  [1m[36m (76.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "events" ("title", "timestart", "events_type_id", "speaker_id", "conference_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["title", "Houmm-arr-orghh"], ["timestart", "2014-12-12 17:25:52.000000"], ["events_type_id", 2], ["speaker_id", 5], ["conference_id", 1], ["created_at", "2015-01-26 22:28:49.582703"], ["updated_at", "2015-01-26 22:28:49.582703"]]
+  [1m[35m (93.1ms)[0m  commit transaction
+
+
+Started GET "/conferences" for 127.0.0.1 at 2015-01-27 00:29:02 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ConferencesController#index as HTML
+  [1m[35mConference Load (0.6ms)[0m  SELECT "conferences".* FROM "conferences"
+  Rendered conferences/index.html.erb within layouts/application (16.7ms)
+Completed 200 OK in 1346ms (Views: 1320.1ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/bootstrap.min-232f6e7ff6ac5cc865763d507e1be397.css?body=1" for 127.0.0.1 at 2015-01-27 00:29:04 +0200
+
+
+Started GET "/assets/scaffolds-983306cc3a19bee7662872313efea625.css?body=1" for 127.0.0.1 at 2015-01-27 00:29:04 +0200
+
+
+Started GET "/assets/speakers-eadc67b61b626d362863bece1a27dfd3.css?body=1" for 127.0.0.1 at 2015-01-27 00:29:04 +0200
+
+
+Started GET "/assets/conferences-069e88c06b889877799890854d7f4c40.css?body=1" for 127.0.0.1 at 2015-01-27 00:29:04 +0200
+
+
+Started GET "/assets/header-08ba2b484a87caad1bb09dd543029b22.css?body=1" for 127.0.0.1 at 2015-01-27 00:29:04 +0200
+
+
+Started GET "/assets/application-80a89d9d5024595395d5569164496be3.css?body=1" for 127.0.0.1 at 2015-01-27 00:29:04 +0200
+
+
+Started GET "/assets/jquery-eb3e278249152b5b5d5170b73d9dbf52.js?body=1" for 127.0.0.1 at 2015-01-27 00:29:04 +0200
+
+
+Started GET "/assets/jquery_ujs-0b8f09cf5aec4ba1be1abd9f915c77e2.js?body=1" for 127.0.0.1 at 2015-01-27 00:29:04 +0200
+
+
+Started GET "/assets/turbolinks-924184401b7d116eadaaefc96895fa84.js?body=1" for 127.0.0.1 at 2015-01-27 00:29:04 +0200
+
+
+Started GET "/assets/speakers-8f6eecd1178ef85964369ec66d33c4f1.js?body=1" for 127.0.0.1 at 2015-01-27 00:29:04 +0200
+
+
+Started GET "/assets/conferences-8f6eecd1178ef85964369ec66d33c4f1.js?body=1" for 127.0.0.1 at 2015-01-27 00:29:04 +0200
+
+
+Started GET "/assets/application-18f10afd70767e0049304380ce89b979.js?body=1" for 127.0.0.1 at 2015-01-27 00:29:04 +0200
