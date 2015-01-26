@@ -40,12 +40,16 @@ ent = Speaker.create(
 #conferences
 onering2014 = Conference.create(
 	name: 'One Ring-2014',
-	date: '2014-12-12'
+	year: 2014,
+	date: '2014-12-12',
+	attenders: 79
 	)
 
 victory2015 = Conference.create(
 	name: 'Victory-2015',
-	date: '2015-11-12'
+	year: 2015,
+	date: '2015-11-12',
+	attenders: 72
 	)
 
 

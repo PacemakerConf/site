@@ -36,3 +36,5 @@ build/
 
 development.sqlite3
 test.sqlite3
+schema.rb
+development.log
