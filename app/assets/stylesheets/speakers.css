@@ -47,6 +47,12 @@
 	font-size: 1.2em;
 }
 
+.lightning-speaker-container{
+	width: 100%;
+	float: left;
+	font-size: 1.2em;
+}
+
 .one-speaker{
 	float: none;
 	min-height: 75px;

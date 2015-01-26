@@ -4,7 +4,7 @@ class SpeakersController < ApplicationController
   # GET /speakers
   # GET /speakers.json
   def index
-    @speakers = Conference.find(params[:conference_id]).speakers
+    @speakers = Speaker.all
   end
 
   # GET /speakers/1
