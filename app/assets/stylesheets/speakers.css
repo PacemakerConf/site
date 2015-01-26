@@ -47,6 +47,13 @@
 	font-size: 1.2em;
 }
 
+.full-speaker-container{
+	margin-top: 10px;
+	width: 100%;
+	float: left;
+	clear: both;
+}
+
 .lightning-speaker-container{
 	width: 100%;
 	float: left;
@@ -66,6 +73,15 @@
 	background-color: grey;
 
 	text-align: center;
+}
+
+.speaker-info{
+	float: left;
+}
+
+.speech{
+	float: left;
+	clear: both;
 }
 
 .speech-info{
