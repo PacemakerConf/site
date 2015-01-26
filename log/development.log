@@ -7604,3 +7604,466 @@ Processing by ConferencesController#show as HTML
   [1m[36mEvent Load (0.4ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."speaker_id" = ?[0m  [["speaker_id", 3]]
   Rendered conferences/show.html.erb within layouts/application (24.3ms)
 Completed 200 OK in 345ms (Views: 337.7ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-01-26 10:49:54 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/tlumko/.rvm/gems/ruby-2.2.0/gems/railties-4.2.0/lib/rails/templates/rails/welcome/index.html.erb (6.6ms)
+Completed 200 OK in 114ms (Views: 58.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-01-26 10:49:55 +0200
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/tlumko/.rvm/gems/ruby-2.2.0/gems/railties-4.2.0/lib/rails/templates/rails/welcome/index.html.erb (0.2ms)
+Completed 200 OK in 8ms (Views: 4.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/conferences" for 127.0.0.1 at 2015-01-26 10:49:59 +0200
+Processing by ConferencesController#index as HTML
+  [1m[35mConference Load (0.7ms)[0m  SELECT "conferences".* FROM "conferences"
+  Rendered conferences/index.html.erb within layouts/application (34.4ms)
+Completed 200 OK in 4238ms (Views: 4206.5ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/assets/bootstrap.min-232f6e7ff6ac5cc865763d507e1be397.css?body=1" for 127.0.0.1 at 2015-01-26 10:50:05 +0200
+
+
+Started GET "/assets/conferences-069e88c06b889877799890854d7f4c40.css?body=1" for 127.0.0.1 at 2015-01-26 10:50:05 +0200
+
+
+Started GET "/assets/header-99ff9a4afc6c55d0e1b6aa0eec6f3823.css?body=1" for 127.0.0.1 at 2015-01-26 10:50:05 +0200
+
+
+Started GET "/assets/scaffolds-e55366dc500fd29c41ac6ae33a03d567.css?body=1" for 127.0.0.1 at 2015-01-26 10:50:05 +0200
+
+
+Started GET "/assets/speakers-745aa8a5b20ecbe859d7802fb9ac949e.css?body=1" for 127.0.0.1 at 2015-01-26 10:50:05 +0200
+
+
+Started GET "/assets/application-59582393affec7d851e49f8538b593c9.css?body=1" for 127.0.0.1 at 2015-01-26 10:50:05 +0200
+
+
+Started GET "/assets/jquery-eb3e278249152b5b5d5170b73d9dbf52.js?body=1" for 127.0.0.1 at 2015-01-26 10:50:05 +0200
+
+
+Started GET "/assets/jquery_ujs-0b8f09cf5aec4ba1be1abd9f915c77e2.js?body=1" for 127.0.0.1 at 2015-01-26 10:50:05 +0200
+
+
+Started GET "/assets/turbolinks-924184401b7d116eadaaefc96895fa84.js?body=1" for 127.0.0.1 at 2015-01-26 10:50:05 +0200
+
+
+Started GET "/assets/conferences-8f6eecd1178ef85964369ec66d33c4f1.js?body=1" for 127.0.0.1 at 2015-01-26 10:50:05 +0200
+
+
+Started GET "/assets/speakers-8f6eecd1178ef85964369ec66d33c4f1.js?body=1" for 127.0.0.1 at 2015-01-26 10:50:05 +0200
+
+
+Started GET "/assets/application-18f10afd70767e0049304380ce89b979.js?body=1" for 127.0.0.1 at 2015-01-26 10:50:05 +0200
+
+
+Started GET "/conferences/1" for 127.0.0.1 at 2015-01-26 10:50:11 +0200
+Processing by ConferencesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mConference Load (0.8ms)[0m  [1mSELECT  "conferences".* FROM "conferences" WHERE "conferences"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mSpeaker Load (0.9ms)[0m  SELECT "speakers".* FROM "speakers" INNER JOIN "events" ON "speakers"."id" = "events"."speaker_id" WHERE "events"."conference_id" = ?  [["conference_id", 1]]
+  [1m[36mEvent Load (0.8ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."speaker_id" = ?[0m  [["speaker_id", 1]]
+  [1m[35mEvent Load (0.5ms)[0m  SELECT "events".* FROM "events" WHERE "events"."speaker_id" = ?  [["speaker_id", 2]]
+  [1m[36mEvent Load (0.4ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."speaker_id" = ?[0m  [["speaker_id", 3]]
+  Rendered conferences/show.html.erb within layouts/application (219.9ms)
+Completed 200 OK in 605ms (Views: 547.4ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/speakers/1" for 127.0.0.1 at 2015-01-26 10:50:13 +0200
+Processing by SpeakersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSpeaker Load (0.7ms)[0m  SELECT  "speakers".* FROM "speakers" WHERE "speakers"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mEvent Load (1.4ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."speaker_id" = ?  ORDER BY "events"."timeStart" DESC[0m  [["speaker_id", 1]]
+  [1m[35mConference Load (0.4ms)[0m  SELECT  "conferences".* FROM "conferences" WHERE "conferences"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mConference Load (0.5ms)[0m  [1mSELECT  "conferences".* FROM "conferences" WHERE "conferences"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered speakers/show.html.erb within layouts/application (29.3ms)
+Completed 200 OK in 412ms (Views: 400.9ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/conferences/1" for 127.0.0.1 at 2015-01-26 10:50:15 +0200
+Processing by ConferencesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mConference Load (0.5ms)[0m  SELECT  "conferences".* FROM "conferences" WHERE "conferences"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mSpeaker Load (0.5ms)[0m  [1mSELECT "speakers".* FROM "speakers" INNER JOIN "events" ON "speakers"."id" = "events"."speaker_id" WHERE "events"."conference_id" = ?[0m  [["conference_id", 1]]
+  [1m[35mEvent Load (0.6ms)[0m  SELECT "events".* FROM "events" WHERE "events"."speaker_id" = ?  [["speaker_id", 1]]
+  [1m[36mEvent Load (0.7ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."speaker_id" = ?[0m  [["speaker_id", 2]]
+  [1m[35mEvent Load (0.5ms)[0m  SELECT "events".* FROM "events" WHERE "events"."speaker_id" = ?  [["speaker_id", 3]]
+  Rendered conferences/show.html.erb within layouts/application (22.2ms)
+Completed 200 OK in 376ms (Views: 367.1ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/conferences" for 127.0.0.1 at 2015-01-26 10:51:04 +0200
+Processing by ConferencesController#index as HTML
+  [1m[36mConference Load (1.2ms)[0m  [1mSELECT "conferences".* FROM "conferences"[0m
+  Rendered conferences/index.html.erb within layouts/application (11.7ms)
+Completed 200 OK in 406ms (Views: 400.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/bootstrap.min-232f6e7ff6ac5cc865763d507e1be397.css?body=1" for 127.0.0.1 at 2015-01-26 10:51:05 +0200
+
+
+Started GET "/assets/conferences-069e88c06b889877799890854d7f4c40.css?body=1" for 127.0.0.1 at 2015-01-26 10:51:05 +0200
+
+
+Started GET "/assets/speakers-745aa8a5b20ecbe859d7802fb9ac949e.css?body=1" for 127.0.0.1 at 2015-01-26 10:51:05 +0200
+
+
+Started GET "/assets/application-59582393affec7d851e49f8538b593c9.css?body=1" for 127.0.0.1 at 2015-01-26 10:51:05 +0200
+
+
+Started GET "/assets/scaffolds-e55366dc500fd29c41ac6ae33a03d567.css?body=1" for 127.0.0.1 at 2015-01-26 10:51:05 +0200
+
+
+Started GET "/assets/header-99ff9a4afc6c55d0e1b6aa0eec6f3823.css?body=1" for 127.0.0.1 at 2015-01-26 10:51:05 +0200
+
+
+Started GET "/assets/jquery-eb3e278249152b5b5d5170b73d9dbf52.js?body=1" for 127.0.0.1 at 2015-01-26 10:51:05 +0200
+
+
+Started GET "/assets/jquery_ujs-0b8f09cf5aec4ba1be1abd9f915c77e2.js?body=1" for 127.0.0.1 at 2015-01-26 10:51:05 +0200
+
+
+Started GET "/assets/turbolinks-924184401b7d116eadaaefc96895fa84.js?body=1" for 127.0.0.1 at 2015-01-26 10:51:05 +0200
+
+
+Started GET "/assets/conferences-8f6eecd1178ef85964369ec66d33c4f1.js?body=1" for 127.0.0.1 at 2015-01-26 10:51:05 +0200
+
+
+Started GET "/" for 127.0.0.1 at 2015-01-26 10:51:05 +0200
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/tlumko/.rvm/gems/ruby-2.2.0/gems/railties-4.2.0/lib/rails/templates/rails/welcome/index.html.erb (0.4ms)
+Completed 200 OK in 11ms (Views: 6.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/speakers-8f6eecd1178ef85964369ec66d33c4f1.js?body=1" for 127.0.0.1 at 2015-01-26 10:51:05 +0200
+
+
+Started GET "/assets/application-18f10afd70767e0049304380ce89b979.js?body=1" for 127.0.0.1 at 2015-01-26 10:51:05 +0200
+
+
+Started GET "/" for 127.0.0.1 at 2015-01-26 10:51:47 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+ActionController::RoutingError (uninitialized constant ConferenceController):
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:261:in `const_get'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:261:in `block in constantize'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:259:in `each'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:259:in `inject'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:259:in `constantize'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:69:in `controller_reference'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:59:in `controller'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:38:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:18:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /home/tlumko/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/tlumko/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/tlumko/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/tlumko/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (13.1ms)
+  Rendered /home/tlumko/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_route.html.erb (10.7ms)
+  Rendered /home/tlumko/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_table.html.erb (37.6ms)
+  Rendered /home/tlumko/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (51.6ms)
+  Rendered /home/tlumko/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (5.0ms)
+  Rendered /home/tlumko/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/routing_error.html.erb within rescues/layout (302.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-01-26 10:52:04 +0200
+
+ActionController::RoutingError (uninitialized constant ConferenceController):
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:261:in `const_get'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:261:in `block in constantize'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:259:in `each'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:259:in `inject'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:259:in `constantize'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:69:in `controller_reference'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:59:in `controller'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:38:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:18:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /home/tlumko/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/tlumko/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/tlumko/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/tlumko/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (12.5ms)
+  Rendered /home/tlumko/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_route.html.erb (9.0ms)
+  Rendered /home/tlumko/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_table.html.erb (10.3ms)
+  Rendered /home/tlumko/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (7.0ms)
+  Rendered /home/tlumko/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (4.9ms)
+  Rendered /home/tlumko/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/routing_error.html.erb within rescues/layout (192.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-01-26 10:52:36 +0200
+
+ActionController::RoutingError (uninitialized constant ConferenceController):
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:261:in `const_get'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:261:in `block in constantize'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:259:in `each'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:259:in `inject'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:259:in `constantize'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:69:in `controller_reference'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:59:in `controller'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:38:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:18:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /home/tlumko/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/tlumko/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/tlumko/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/tlumko/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (13.5ms)
+  Rendered /home/tlumko/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_route.html.erb (10.0ms)
+  Rendered /home/tlumko/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_table.html.erb (7.1ms)
+  Rendered /home/tlumko/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (6.7ms)
+  Rendered /home/tlumko/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (4.9ms)
+  Rendered /home/tlumko/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/routing_error.html.erb within rescues/layout (195.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-01-26 10:52:40 +0200
+
+ActionController::RoutingError (uninitialized constant ConferenceController):
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:261:in `const_get'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:261:in `block in constantize'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:259:in `each'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:259:in `inject'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:259:in `constantize'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:69:in `controller_reference'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:59:in `controller'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:38:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:18:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /home/tlumko/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/tlumko/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/tlumko/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/tlumko/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (13.3ms)
+  Rendered /home/tlumko/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_route.html.erb (9.4ms)
+  Rendered /home/tlumko/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_table.html.erb (8.5ms)
+  Rendered /home/tlumko/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (6.5ms)
+  Rendered /home/tlumko/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (5.0ms)
+  Rendered /home/tlumko/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/routing_error.html.erb within rescues/layout (210.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-01-26 10:53:03 +0200
+Processing by ConferencesController#index as HTML
+  [1m[35mConference Load (1.4ms)[0m  SELECT "conferences".* FROM "conferences"
+  Rendered conferences/index.html.erb within layouts/application (35.0ms)
+Completed 200 OK in 631ms (Views: 597.4ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-01-26 10:53:04 +0200
+Processing by ConferencesController#index as HTML
+  [1m[36mConference Load (0.8ms)[0m  [1mSELECT "conferences".* FROM "conferences"[0m
+  Rendered conferences/index.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 370ms (Views: 366.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/conferences-069e88c06b889877799890854d7f4c40.css?body=1" for 127.0.0.1 at 2015-01-26 10:53:04 +0200
+
+
+Started GET "/assets/bootstrap.min-232f6e7ff6ac5cc865763d507e1be397.css?body=1" for 127.0.0.1 at 2015-01-26 10:53:05 +0200
+
+
+Started GET "/assets/scaffolds-e55366dc500fd29c41ac6ae33a03d567.css?body=1" for 127.0.0.1 at 2015-01-26 10:53:05 +0200
+
+
+Started GET "/assets/header-99ff9a4afc6c55d0e1b6aa0eec6f3823.css?body=1" for 127.0.0.1 at 2015-01-26 10:53:05 +0200
+
+
+Started GET "/assets/application-59582393affec7d851e49f8538b593c9.css?body=1" for 127.0.0.1 at 2015-01-26 10:53:05 +0200
+
+
+Started GET "/assets/speakers-745aa8a5b20ecbe859d7802fb9ac949e.css?body=1" for 127.0.0.1 at 2015-01-26 10:53:05 +0200
+
+
+Started GET "/assets/jquery-eb3e278249152b5b5d5170b73d9dbf52.js?body=1" for 127.0.0.1 at 2015-01-26 10:53:05 +0200
+
+
+Started GET "/assets/jquery_ujs-0b8f09cf5aec4ba1be1abd9f915c77e2.js?body=1" for 127.0.0.1 at 2015-01-26 10:53:05 +0200
+
+
+Started GET "/assets/turbolinks-924184401b7d116eadaaefc96895fa84.js?body=1" for 127.0.0.1 at 2015-01-26 10:53:05 +0200
+
+
+Started GET "/assets/conferences-8f6eecd1178ef85964369ec66d33c4f1.js?body=1" for 127.0.0.1 at 2015-01-26 10:53:05 +0200
+
+
+Started GET "/assets/speakers-8f6eecd1178ef85964369ec66d33c4f1.js?body=1" for 127.0.0.1 at 2015-01-26 10:53:05 +0200
+
+
+Started GET "/assets/application-18f10afd70767e0049304380ce89b979.js?body=1" for 127.0.0.1 at 2015-01-26 10:53:05 +0200
