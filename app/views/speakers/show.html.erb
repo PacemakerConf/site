@@ -1,0 +1,61 @@
+<div class='speaker-container one-speaker'>
+	<div class='speaker-photo'>
+		PHOTO
+	</div>
+
+	<div class='speaker-name'>
+		<%= @speaker.name %>
+	</div>
+
+	<hr>
+
+</div>
+
+<div class = 'speeches-list'>
+
+	<div>
+		<div>
+			<h2> Conferences: </h2>	
+		</div>
+
+		<div class='speech-details'>
+			<h2> Speeches: </h2>
+		</div>
+	</div>
+
+	<% @speaker.events.order(timeStart: :desc).each do |speech| %>
+
+		<% if Time.now < speech.timestart %>
+			<!-- ongoing -->
+
+			<div class='ongoing-speech-container'>
+				<div class='speech-conference'>
+					<h2> <%= link_to speech.conference.name, conference_path(speech.conference) %> </h2>	
+				</div>
+
+				<div class='speech-details'>
+					<h2> <%= speech.title %> </h2>
+					<p>1</p>
+					<p>2</p>
+				</div>
+			</div>
+
+		<% else %>
+			<!-- old speeches -->
+
+			<div class='speech-container'>
+				<div class='speech-conference'>
+					<h2> <%= link_to speech.conference.name, conference_path(speech.conference) %> </h2>	
+				</div>
+
+				<div class='speech-details'>
+					<h2> <%= speech.title %> </h2>
+					<p>1</p>
+					<p>2</p>
+				</div>
+			</div>
+
+		<% end %>		
+	<% end %>		
+	
+</div>

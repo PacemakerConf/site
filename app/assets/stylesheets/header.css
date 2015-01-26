@@ -1,0 +1,44 @@
+.container{
+	background-color: #F6F6F6;
+}
+.main-context{
+	background-color: #F6F6F6;
+	height: 100%;
+}
+
+.conference-det{
+	background-color: #006687;
+	height: 100px;
+	margin: 5px;
+
+}
+.conference-det-2{
+	background-color: #002C3A;
+	height: 100px;
+	margin: 5px;
+
+}
+.conference-det-2 ul{
+	padding: 10px;
+}
+.conference-det-2 li{
+	list-style: none;
+	color: #F6F6F6;
+	font-size: 1em;
+}
+.name h1{
+		color: #F6F6F6;
+	text-align: right;
+	margin: 0;
+	padding: 25px 25px;
+}
+.conference-name{
+	margin: 10px 0px;
+	padding: 10px;
+	color: #F6F6F6;
+	text-align: right;
+}
+.main-speakers h2{
+	text-align: center;
+	color: #172F3A;
+}

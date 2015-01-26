@@ -1,48 +1,77 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+topic = EventsType.create(
+	eventstype: 'topic'
+	)
 
-first_conf = Conference.create(name: 'One Ring', about: 'the threat 
-	to the entie universe', date: '2014-12-21 12:00:00')
+lightning = EventsType.create(
+	eventstype: 'lightning'
+	)
 
-frodo = Speaker.create(name: 'Frodo Baggins', about: 'Ring holder')
+registration = EventsType.create(
+	eventstype: 'registration'
+	)
 
-gandalf = Speaker.create(name: 'Gandalf the Grey', about: 'Wizard, big nob')
+beerbreak = EventsType.create(
+	eventstype: 'beer-break'
+	)
 
-first_conf.events.create(title: 'registration', about: 'first meeting
- of The Fellowship of the Ring', timeStart: '2014-12-21 12:00:00', 
- timeStop: '2014-12-21 12:58:32')
+frodo = Speaker.create(
+	name: 'Frodo Baggins'
+	)
 
-first_conf.events.create(title: 'beer-break', about: 'it\'s to
- hard to speak so long time', timeStart: '2014-12-21 13:55:00', 
- timeStop: '2014-12-21 16:55:00')
+gandalf = Speaker.create(
+	name: 'Gandalf the Grey'
+	)
 
-frodo.speeches.create(title: 'Pre-history', about: 'How i get the
-	Ring. History of success', timeStart: '2014-12-21 13:05:00', 
- timeStop: '2014-12-21 13:55:00', conference_id: 1)
+gimli = Speaker.create(
+	name: 'Gimli'
+	)
 
-gandalf.speeches.create(title: 'ToDo', about: 'The challenge for 
-	kamikaze. Adoption of volunteers', timeStart: '2014-12-21 16:55:00', 
- timeStop: '2014-12-21 16:56:00', conference_id: 1)
+onering2014 = Conference.create(
+	name: 'One Ring-2014',
+	date: '2014-12-12'
+	)
 
-secong_conf = Conference.create(name: 'Victory!', about: 'The punishment
- of the innocent, awarding uninvolved', date: '2015-01-29 13:00:00')
+victory2015 = Conference.create(
+	name: 'Victory-2015',
+	date: '2015-11-12'
+	)
 
-gimly = Speaker.create(name: 'Gimly', about: 'dwarf with capital letter D')
+onering2014.events.create(
+	title: 'registration',
+	timestart: '2014-12-12 12:00:00',
+	events_type: registration
+	)
 
-secong_conf.events.create(title: 'registration', about: 'last meeting
- of The Fellowship of the Ring', timeStart: '2015-01-29 13:00:00', 
- timeStop: '2015-01-29 13:58:32')
+onering2014.events.create(
+	title: 'How i get the Ring. History of success',
+	timestart: '2014-12-12 12:15:00',
+	events_type: topic,
+	speaker: frodo
+	)
 
-gandalf.speeches.create(title: 'Balrog', about: 'Fantasies about big 
-	fight with a fearsome monster', timeStart: '2015-01-29 16:55:00', 
- timeStop: '2015-01-30 16:56:00', conference_id: 2)
+onering2014.events.create(
+	title: 'Beer-break',
+	timestart: '2014-12-12 13:30:00',
+	events_type: beerbreak
+	)
 
-gimly.speeches.create(title: 'Our victory', about: 'How many orcs I 
-	killed', timeStart: '2015-01-30 16:55:00', 
- timeStop: '2015-02-01 16:56:00', conference_id: 2)
+onering2014.events.create(
+	title: 'The challenge for kamikaze',
+	timestart: '2014-12-12 15:30:00',
+	events_type: topic,
+	speaker: gandalf
+	)
 
+victory2015.events.create(
+	title: 'A long way in the dunes',
+	timestart: '2015-11-12 15:30:00',
+	events_type: topic,
+	speaker: frodo
+	)
+
+onering2014.events.create(
+	title: 'How many orcs i\'ll kill',
+	timestart: '2014-12-12 16:30:00',
+	events_type: lightning,
+	speaker: gimli
+	)

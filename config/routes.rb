@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
+
+  #get ':name', to: 'conferences#show', as: :conferences
+  
   resources :conferences
-
-  resources :events
-
   resources :speakers
 
   # The priority is based upon order of creation: first created -> highest priority.
