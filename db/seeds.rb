@@ -1,3 +1,4 @@
+#eventtypes
 topic = EventsType.create(
 	eventstype: 'topic'
 	)
@@ -14,6 +15,8 @@ beerbreak = EventsType.create(
 	eventstype: 'beer-break'
 	)
 
+
+#speakers
 frodo = Speaker.create(
 	name: 'Frodo Baggins'
 	)
@@ -26,16 +29,31 @@ gimli = Speaker.create(
 	name: 'Gimli'
 	)
 
+sam = Speaker.create(
+	name: 'Samwise Gamgee'
+	)
+
+ent = Speaker.create(
+	name: 'Fangorn the Ent'
+	)
+
+#conferences
 onering2014 = Conference.create(
 	name: 'One Ring-2014',
-	date: '2014-12-12'
+	year: 2014,
+	date: '2014-12-12',
+	attenders: 79
 	)
 
 victory2015 = Conference.create(
 	name: 'Victory-2015',
-	date: '2015-11-12'
+	year: 2015,
+	date: '2015-11-12',
+	attenders: 72
 	)
 
+
+#events
 onering2014.events.create(
 	title: 'registration',
 	timestart: '2014-12-12 12:00:00',
@@ -74,4 +92,18 @@ onering2014.events.create(
 	timestart: '2014-12-12 16:30:00',
 	events_type: lightning,
 	speaker: gimli
+	)
+
+onering2014.events.create(
+	title: 'How to cook Gollum',
+	timestart: '2014-12-12 17:25:52',
+	events_type: topic,
+	speaker: sam
+	)
+
+onering2014.events.create(
+	title: 'Houmm-arr-orghh',
+	timestart: '2014-12-12 17:25:52',
+	events_type: lightning,
+	speaker: ent
 	)

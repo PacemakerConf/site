@@ -10,7 +10,6 @@ class ConferencesController < ApplicationController
   # GET /conferences/1
   # GET /conferences/1.json
   def show
-    @topic = EventsType.where(eventstype: 'topic')
   end
 
   # GET /conferences/new
