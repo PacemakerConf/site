@@ -66,6 +66,7 @@ GEM
     debugger-linecache (1.2.0)
     erubis (2.7.0)
     execjs (2.2.2)
+    geocoder (1.2.6)
     globalid (0.3.0)
       activesupport (>= 4.1.0)
     hike (1.2.3)
@@ -161,6 +162,7 @@ PLATFORMS
 DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
+  geocoder
   jbuilder (~> 2.0)
   jquery-datatables-rails!
   jquery-rails
