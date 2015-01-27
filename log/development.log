@@ -8067,3 +8067,339 @@ Started GET "/assets/speakers-8f6eecd1178ef85964369ec66d33c4f1.js?body=1" for 12
 
 
 Started GET "/assets/application-18f10afd70767e0049304380ce89b979.js?body=1" for 127.0.0.1 at 2015-01-26 10:53:05 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddLinksToConf (20150126095833)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (28.8ms)[0m  [1mALTER TABLE "conferences" ADD "report" varchar[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150126095833"]]
+  [1m[36m (148.4ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to AddLinksToConf (20150126095833)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  CREATE TEMPORARY TABLE "aconferences" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "date" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "report" varchar) 
+  [1m[36m (0.2ms)[0m  [1mSELECT * FROM "conferences"[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "aconferences" ("id","name","date","created_at","updated_at","report") VALUES (1, 'One Ring-2014', '2014-12-12', '2015-01-26 08:36:24.751897', '2015-01-26 08:36:24.751897', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "aconferences" ("id","name","date","created_at","updated_at","report") VALUES (2, 'Victory-2015', '2015-11-12', '2015-01-26 08:36:24.895549', '2015-01-26 08:36:24.895549', NULL)[0m
+  [1m[35m (0.4ms)[0m  DROP TABLE "conferences"
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "conferences" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "date" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "aconferences"
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "conferences" ("id","name","date","created_at","updated_at") VALUES (1, 'One Ring-2014', '2014-12-12', '2015-01-26 08:36:24.751897', '2015-01-26 08:36:24.751897')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "conferences" ("id","name","date","created_at","updated_at") VALUES (2, 'Victory-2015', '2015-11-12', '2015-01-26 08:36:24.895549', '2015-01-26 08:36:24.895549')
+  [1m[36m (0.3ms)[0m  [1mDROP TABLE "aconferences"[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?  [["version", "20150126095833"]]
+  [1m[36m (154.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddLinksToConf (20150126095833)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "conferences" ADD "report" varchar[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "conferences" ADD "location" varchar
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "conferences" ADD "photo" varchar[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "conferences" ADD "video" varchar
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150126095833"]]
+  [1m[35m (133.9ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/articles/3" for 127.0.0.1 at 2015-01-26 12:03:30 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+ActionController::RoutingError (No route matches [GET] "/articles/3"):
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:22:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /home/marko/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/marko/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/marko/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/marko/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (7.3ms)
+  Rendered /home/marko/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_route.html.erb (3.9ms)
+  Rendered /home/marko/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_table.html.erb (26.9ms)
+  Rendered /home/marko/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (19.8ms)
+  Rendered /home/marko/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.8ms)
+  Rendered /home/marko/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/routing_error.html.erb within rescues/layout (134.2ms)
+
+
+Started GET "/articles/3" for 127.0.0.1 at 2015-01-26 12:03:38 +0200
+
+ActionController::RoutingError (No route matches [GET] "/articles/3"):
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:22:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /home/marko/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/marko/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/marko/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/marko/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /home/marko/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_route.html.erb (2.5ms)
+  Rendered /home/marko/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_table.html.erb (2.2ms)
+  Rendered /home/marko/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.9ms)
+  Rendered /home/marko/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.6ms)
+  Rendered /home/marko/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/routing_error.html.erb within rescues/layout (47.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-01-26 12:03:48 +0200
+Processing by ConferencesController#index as HTML
+  [1m[35mConference Load (0.3ms)[0m  SELECT "conferences".* FROM "conferences"
+  Rendered conferences/index.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 1548ms (Views: 1511.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/bootstrap.min-232f6e7ff6ac5cc865763d507e1be397.css?body=1" for 127.0.0.1 at 2015-01-26 12:03:50 +0200
+
+
+Started GET "/assets/conferences-069e88c06b889877799890854d7f4c40.css?body=1" for 127.0.0.1 at 2015-01-26 12:03:50 +0200
+
+
+Started GET "/assets/header-99ff9a4afc6c55d0e1b6aa0eec6f3823.css?body=1" for 127.0.0.1 at 2015-01-26 12:03:50 +0200
+
+
+Started GET "/assets/scaffolds-0407fe756a9b527da18f90322083d17e.css?body=1" for 127.0.0.1 at 2015-01-26 12:03:50 +0200
+
+
+Started GET "/assets/application-f610625a9c5d5ec5856a94650ceb821c.css?body=1" for 127.0.0.1 at 2015-01-26 12:03:50 +0200
+
+
+Started GET "/assets/speakers-745aa8a5b20ecbe859d7802fb9ac949e.css?body=1" for 127.0.0.1 at 2015-01-26 12:03:50 +0200
+
+
+Started GET "/assets/speakers-8f6eecd1178ef85964369ec66d33c4f1.js?body=1" for 127.0.0.1 at 2015-01-26 12:03:50 +0200
+
+
+Started GET "/assets/conferences-8f6eecd1178ef85964369ec66d33c4f1.js?body=1" for 127.0.0.1 at 2015-01-26 12:03:50 +0200
+
+
+Started GET "/conferences/2" for 127.0.0.1 at 2015-01-26 12:03:53 +0200
+Processing by ConferencesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mConference Load (0.3ms)[0m  [1mSELECT  "conferences".* FROM "conferences" WHERE "conferences"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mSpeaker Load (0.4ms)[0m  SELECT "speakers".* FROM "speakers" INNER JOIN "events" ON "speakers"."id" = "events"."speaker_id" WHERE "events"."conference_id" = ?  [["conference_id", 2]]
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."speaker_id" = ?[0m  [["speaker_id", 1]]
+  Rendered conferences/show.html.erb within layouts/application (129.8ms)
+Completed 200 OK in 253ms (Views: 215.7ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/conferences/2" for 127.0.0.1 at 2015-01-26 12:04:03 +0200
+Processing by ConferencesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mConference Load (0.2ms)[0m  SELECT  "conferences".* FROM "conferences" WHERE "conferences"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mSpeaker Load (0.6ms)[0m  [1mSELECT "speakers".* FROM "speakers" INNER JOIN "events" ON "speakers"."id" = "events"."speaker_id" WHERE "events"."conference_id" = ?[0m  [["conference_id", 2]]
+  [1m[35mEvent Load (0.1ms)[0m  SELECT "events".* FROM "events" WHERE "events"."speaker_id" = ?  [["speaker_id", 1]]
+  Rendered conferences/show.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 109ms (Views: 105.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/conferences/2" for 127.0.0.1 at 2015-01-26 12:04:06 +0200
+Processing by ConferencesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mConference Load (0.2ms)[0m  [1mSELECT  "conferences".* FROM "conferences" WHERE "conferences"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mSpeaker Load (0.2ms)[0m  SELECT "speakers".* FROM "speakers" INNER JOIN "events" ON "speakers"."id" = "events"."speaker_id" WHERE "events"."conference_id" = ?  [["conference_id", 2]]
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."speaker_id" = ?[0m  [["speaker_id", 1]]
+  Rendered conferences/show.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 113ms (Views: 110.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/conferences/2" for 127.0.0.1 at 2015-01-26 12:04:08 +0200
+Processing by ConferencesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mConference Load (0.2ms)[0m  SELECT  "conferences".* FROM "conferences" WHERE "conferences"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mSpeaker Load (0.2ms)[0m  [1mSELECT "speakers".* FROM "speakers" INNER JOIN "events" ON "speakers"."id" = "events"."speaker_id" WHERE "events"."conference_id" = ?[0m  [["conference_id", 2]]
+  [1m[35mEvent Load (0.1ms)[0m  SELECT "events".* FROM "events" WHERE "events"."speaker_id" = ?  [["speaker_id", 1]]
+  Rendered conferences/show.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 103ms (Views: 100.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/conferences/" for 127.0.0.1 at 2015-01-26 12:05:12 +0200
+Processing by ConferencesController#index as HTML
+  [1m[36mConference Load (0.3ms)[0m  [1mSELECT "conferences".* FROM "conferences"[0m
+  Rendered conferences/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 99ms (Views: 97.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/conferences/2" for 127.0.0.1 at 2015-01-26 12:05:16 +0200
+Processing by ConferencesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mConference Load (0.2ms)[0m  SELECT  "conferences".* FROM "conferences" WHERE "conferences"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mSpeaker Load (0.1ms)[0m  [1mSELECT "speakers".* FROM "speakers" INNER JOIN "events" ON "speakers"."id" = "events"."speaker_id" WHERE "events"."conference_id" = ?[0m  [["conference_id", 2]]
+  [1m[35mEvent Load (0.1ms)[0m  SELECT "events".* FROM "events" WHERE "events"."speaker_id" = ?  [["speaker_id", 1]]
+  Rendered conferences/show.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 97ms (Views: 95.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-01-26 12:58:35 +0200
+Processing by ConferencesController#index as HTML
+  [1m[36mConference Load (0.3ms)[0m  [1mSELECT "conferences".* FROM "conferences"[0m
+  Rendered conferences/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 106ms (Views: 104.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/conferences/2" for 127.0.0.1 at 2015-01-26 18:03:21 +0200
+Processing by ConferencesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mConference Load (0.2ms)[0m  SELECT  "conferences".* FROM "conferences" WHERE "conferences"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mSpeaker Load (0.2ms)[0m  [1mSELECT "speakers".* FROM "speakers" INNER JOIN "events" ON "speakers"."id" = "events"."speaker_id" WHERE "events"."conference_id" = ?[0m  [["conference_id", 2]]
+  [1m[35mEvent Load (0.1ms)[0m  SELECT "events".* FROM "events" WHERE "events"."speaker_id" = ?  [["speaker_id", 1]]
+  Rendered conferences/show.html.erb within layouts/application (22.0ms)
+Completed 200 OK in 221ms (Views: 202.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/conferences/" for 127.0.0.1 at 2015-01-26 18:03:54 +0200
+Processing by ConferencesController#index as HTML
+  [1m[36mConference Load (0.3ms)[0m  [1mSELECT "conferences".* FROM "conferences"[0m
+  Rendered conferences/index.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 119ms (Views: 118.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/conferences/2" for 127.0.0.1 at 2015-01-26 18:03:59 +0200
+Processing by ConferencesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mConference Load (0.2ms)[0m  SELECT  "conferences".* FROM "conferences" WHERE "conferences"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mSpeaker Load (0.1ms)[0m  [1mSELECT "speakers".* FROM "speakers" INNER JOIN "events" ON "speakers"."id" = "events"."speaker_id" WHERE "events"."conference_id" = ?[0m  [["conference_id", 2]]
+  [1m[35mEvent Load (0.1ms)[0m  SELECT "events".* FROM "events" WHERE "events"."speaker_id" = ?  [["speaker_id", 1]]
+  Rendered conferences/show.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 94ms (Views: 92.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/greetings/hello" for 127.0.0.1 at 2015-01-26 18:11:00 +0200
+
+ActionController::RoutingError (No route matches [GET] "/greetings/hello"):
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:22:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /home/marko/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/marko/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/marko/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/marko/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /home/marko/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_route.html.erb (2.3ms)
+  Rendered /home/marko/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_table.html.erb (1.9ms)
+  Rendered /home/marko/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.9ms)
+  Rendered /home/marko/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.4ms)
+  Rendered /home/marko/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/routing_error.html.erb within rescues/layout (58.4ms)
+
+
+Started GET "/conferences/2" for 127.0.0.1 at 2015-01-26 19:52:23 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ConferencesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mConference Load (0.2ms)[0m  SELECT  "conferences".* FROM "conferences" WHERE "conferences"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mSpeaker Load (0.1ms)[0m  [1mSELECT "speakers".* FROM "speakers" INNER JOIN "events" ON "speakers"."id" = "events"."speaker_id" WHERE "events"."conference_id" = ?[0m  [["conference_id", 2]]
+  [1m[35mEvent Load (0.1ms)[0m  SELECT "events".* FROM "events" WHERE "events"."speaker_id" = ?  [["speaker_id", 1]]
+  Rendered conferences/show.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 104ms (Views: 101.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/bootstrap.min-232f6e7ff6ac5cc865763d507e1be397.css?body=1" for 127.0.0.1 at 2015-01-26 19:52:24 +0200
+
+
+Started GET "/assets/application-f610625a9c5d5ec5856a94650ceb821c.css?body=1" for 127.0.0.1 at 2015-01-26 19:52:24 +0200
+
+
+Started GET "/assets/speakers-745aa8a5b20ecbe859d7802fb9ac949e.css?body=1" for 127.0.0.1 at 2015-01-26 19:52:24 +0200
+
+
+Started GET "/assets/conferences-069e88c06b889877799890854d7f4c40.css?body=1" for 127.0.0.1 at 2015-01-26 19:52:24 +0200
+
+
+Started GET "/assets/header-99ff9a4afc6c55d0e1b6aa0eec6f3823.css?body=1" for 127.0.0.1 at 2015-01-26 19:52:24 +0200
+
+
+Started GET "/assets/scaffolds-0407fe756a9b527da18f90322083d17e.css?body=1" for 127.0.0.1 at 2015-01-26 19:52:24 +0200
+
+
+Started GET "/assets/jquery-eb3e278249152b5b5d5170b73d9dbf52.js?body=1" for 127.0.0.1 at 2015-01-26 19:52:24 +0200
+
+
+Started GET "/assets/jquery_ujs-0b8f09cf5aec4ba1be1abd9f915c77e2.js?body=1" for 127.0.0.1 at 2015-01-26 19:52:24 +0200
+
+
+Started GET "/assets/turbolinks-924184401b7d116eadaaefc96895fa84.js?body=1" for 127.0.0.1 at 2015-01-26 19:52:24 +0200
+
+
+Started GET "/assets/speakers-8f6eecd1178ef85964369ec66d33c4f1.js?body=1" for 127.0.0.1 at 2015-01-26 19:52:24 +0200
+
+
+Started GET "/assets/application-18f10afd70767e0049304380ce89b979.js?body=1" for 127.0.0.1 at 2015-01-26 19:52:24 +0200
+
+
+Started GET "/assets/conferences-8f6eecd1178ef85964369ec66d33c4f1.js?body=1" for 127.0.0.1 at 2015-01-26 19:52:24 +0200
+
+
+Started GET "/speakers/1" for 127.0.0.1 at 2015-01-26 19:52:34 +0200
+Processing by SpeakersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSpeaker Load (0.4ms)[0m  [1mSELECT  "speakers".* FROM "speakers" WHERE "speakers"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mEvent Load (8.2ms)[0m  SELECT "events".* FROM "events" WHERE "events"."speaker_id" = ?  ORDER BY "events"."timeStart" DESC  [["speaker_id", 1]]
+  [1m[36mConference Load (0.2ms)[0m  [1mSELECT  "conferences".* FROM "conferences" WHERE "conferences"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mConference Load (0.1ms)[0m  SELECT  "conferences".* FROM "conferences" WHERE "conferences"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered speakers/show.html.erb within layouts/application (17.2ms)
+Completed 200 OK in 134ms (Views: 123.0ms | ActiveRecord: 8.8ms)
+
+
+Started GET "/conferences/2" for 127.0.0.1 at 2015-01-26 19:52:44 +0200
+Processing by ConferencesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mConference Load (0.2ms)[0m  [1mSELECT  "conferences".* FROM "conferences" WHERE "conferences"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mSpeaker Load (0.2ms)[0m  SELECT "speakers".* FROM "speakers" INNER JOIN "events" ON "speakers"."id" = "events"."speaker_id" WHERE "events"."conference_id" = ?  [["conference_id", 2]]
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."speaker_id" = ?[0m  [["speaker_id", 1]]
+  Rendered conferences/show.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 103ms (Views: 100.6ms | ActiveRecord: 0.5ms)
