@@ -2,14 +2,16 @@ Rails.application.routes.draw do
 
   resources :contacts
 
-  resources :locations
+  
 
   #get ':name', to: 'conferences#show', as: :conferences
   get '/conferences/:id/about', to: 'conferences#show', as: 'conference'
   get '/conferences/:id/speakers', to: 'conferences#speakers'
   
 
-  resources :conferences
+  resources :conferences do
+    resources :locations
+  end
   resources :speakers
 
   root 'conferences#index'

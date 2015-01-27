@@ -1,33 +1,40 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Locations</h1>
+<h1>Direction map</h1>
 
+<iframe width="580" height="480" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?q=<%= @conference.location.latitude %>,<%= @conference.location.longitude %>&amp;z=15&amp;output=embed"></iframe>
+
+
+<h1>Address</h1>
+<p><%= @location.address %></p>
+
+
+<h1>Contacts</h1>
 <table>
   <thead>
     <tr>
-      <th>Address</th>
-      <th>Latitude</th>
-      <th>Longitude</th>
-      <th>Conference</th>
+      <th>Name</th>
+      <th>Surname</th>
+      <th>E-mail</th>
+      <th>Telephone</th>
+      <th>Skype</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @locations.each do |location| %>
+    <% @location.contacts.each do |contact| %>
       <tr>
-        <td><%= location.address %></td>
-        <td><%= location.latitude %></td>
-        <td><%= location.longitude %></td>
-        <td><%= location.conference_id %></td>
-        <td><%= link_to 'Show', location%></td>
-        <td><%= link_to 'Edit', edit_location_path(location) %></td>
-        <td><%= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= contact.name %></td>
+        <td><%= contact.surname %></td>
+        <td><%= contact.email %></td>
+        <td><%= contact.telephone %></td>
+        <td><%= contact.skype %></td>
+        <td><%= link_to 'Show', contact %></td>
+        <td><%= link_to 'Edit', edit_contact_path(contact) %></td>
+        <td><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Location', new_location_path %>
