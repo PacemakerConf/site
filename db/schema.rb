@@ -11,8 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema.define(version: 20150126223456) do
 
-ActiveRecord::Schema.define(version: 20150126095833) do
   create_table "conferences", force: :cascade do |t|
     t.string   "name"
     t.integer  "year"
