@@ -11900,3 +11900,647 @@ Started GET "/assets/contacts-8f6eecd1178ef85964369ec66d33c4f1.js?body=1" for 12
 
 
 Started GET "/assets/application-367c100594a401afda66dc00316e49ba.js?body=1" for 127.0.0.1 at 2015-01-27 00:41:00 +0200
+
+
+Started GET "/locations" for 127.0.0.1 at 2015-01-27 09:01:06 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by LocationsController#index as HTML
+  [1m[35mLocation Load (0.6ms)[0m  SELECT "locations".* FROM "locations"
+  Rendered locations/index.html.erb within layouts/application (23.7ms)
+Completed 200 OK in 582ms (Views: 477.6ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/assets/bootstrap.min-232f6e7ff6ac5cc865763d507e1be397.css?body=1" for 127.0.0.1 at 2015-01-27 09:01:07 +0200
+
+
+Started GET "/assets/conferences-069e88c06b889877799890854d7f4c40.css?body=1" for 127.0.0.1 at 2015-01-27 09:01:07 +0200
+
+
+Started GET "/assets/contacts-069e88c06b889877799890854d7f4c40.css?body=1" for 127.0.0.1 at 2015-01-27 09:01:07 +0200
+
+
+Started GET "/assets/header-08ba2b484a87caad1bb09dd543029b22.css?body=1" for 127.0.0.1 at 2015-01-27 09:01:07 +0200
+
+
+Started GET "/assets/locations-069e88c06b889877799890854d7f4c40.css?body=1" for 127.0.0.1 at 2015-01-27 09:01:07 +0200
+
+
+Started GET "/assets/scaffolds-983306cc3a19bee7662872313efea625.css?body=1" for 127.0.0.1 at 2015-01-27 09:01:07 +0200
+
+
+Started GET "/assets/speakers-eadc67b61b626d362863bece1a27dfd3.css?body=1" for 127.0.0.1 at 2015-01-27 09:01:07 +0200
+
+
+Started GET "/assets/jquery-eb3e278249152b5b5d5170b73d9dbf52.js?body=1" for 127.0.0.1 at 2015-01-27 09:01:07 +0200
+
+
+Started GET "/assets/application-80a89d9d5024595395d5569164496be3.css?body=1" for 127.0.0.1 at 2015-01-27 09:01:07 +0200
+
+
+Started GET "/assets/jquery_ujs-0b8f09cf5aec4ba1be1abd9f915c77e2.js?body=1" for 127.0.0.1 at 2015-01-27 09:01:07 +0200
+
+
+Started GET "/assets/turbolinks-924184401b7d116eadaaefc96895fa84.js?body=1" for 127.0.0.1 at 2015-01-27 09:01:07 +0200
+
+
+Started GET "/assets/conferences-8f6eecd1178ef85964369ec66d33c4f1.js?body=1" for 127.0.0.1 at 2015-01-27 09:01:07 +0200
+
+
+Started GET "/assets/contacts-8f6eecd1178ef85964369ec66d33c4f1.js?body=1" for 127.0.0.1 at 2015-01-27 09:01:07 +0200
+
+
+Started GET "/assets/locations-8f6eecd1178ef85964369ec66d33c4f1.js?body=1" for 127.0.0.1 at 2015-01-27 09:01:07 +0200
+
+
+Started GET "/assets/speakers-8f6eecd1178ef85964369ec66d33c4f1.js?body=1" for 127.0.0.1 at 2015-01-27 09:01:07 +0200
+
+
+Started GET "/assets/application-367c100594a401afda66dc00316e49ba.js?body=1" for 127.0.0.1 at 2015-01-27 09:01:07 +0200
+
+
+Started GET "/locations/2" for 127.0.0.1 at 2015-01-27 09:01:11 +0200
+Processing by LocationsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mLocation Load (0.6ms)[0m  [1mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered locations/show.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 185ms (Views: 116.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/conferences" for 127.0.0.1 at 2015-01-27 09:01:28 +0200
+Processing by ConferencesController#index as HTML
+  [1m[35mConference Load (0.6ms)[0m  SELECT "conferences".* FROM "conferences"
+  Rendered conferences/index.html.erb within layouts/application (13.7ms)
+Completed 200 OK in 762ms (Views: 284.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/bootstrap.min-232f6e7ff6ac5cc865763d507e1be397.css?body=1" for 127.0.0.1 at 2015-01-27 09:01:29 +0200
+
+
+Started GET "/assets/conferences-069e88c06b889877799890854d7f4c40.css?body=1" for 127.0.0.1 at 2015-01-27 09:01:29 +0200
+
+
+Started GET "/assets/contacts-069e88c06b889877799890854d7f4c40.css?body=1" for 127.0.0.1 at 2015-01-27 09:01:29 +0200
+
+
+Started GET "/assets/header-08ba2b484a87caad1bb09dd543029b22.css?body=1" for 127.0.0.1 at 2015-01-27 09:01:29 +0200
+
+
+Started GET "/assets/locations-069e88c06b889877799890854d7f4c40.css?body=1" for 127.0.0.1 at 2015-01-27 09:01:29 +0200
+
+
+Started GET "/assets/speakers-eadc67b61b626d362863bece1a27dfd3.css?body=1" for 127.0.0.1 at 2015-01-27 09:01:29 +0200
+
+
+Started GET "/assets/scaffolds-983306cc3a19bee7662872313efea625.css?body=1" for 127.0.0.1 at 2015-01-27 09:01:29 +0200
+
+
+Started GET "/assets/application-80a89d9d5024595395d5569164496be3.css?body=1" for 127.0.0.1 at 2015-01-27 09:01:29 +0200
+
+
+Started GET "/assets/jquery-eb3e278249152b5b5d5170b73d9dbf52.js?body=1" for 127.0.0.1 at 2015-01-27 09:01:30 +0200
+
+
+Started GET "/assets/turbolinks-924184401b7d116eadaaefc96895fa84.js?body=1" for 127.0.0.1 at 2015-01-27 09:01:30 +0200
+
+
+Started GET "/assets/jquery_ujs-0b8f09cf5aec4ba1be1abd9f915c77e2.js?body=1" for 127.0.0.1 at 2015-01-27 09:01:30 +0200
+
+
+Started GET "/assets/conferences-8f6eecd1178ef85964369ec66d33c4f1.js?body=1" for 127.0.0.1 at 2015-01-27 09:01:30 +0200
+
+
+Started GET "/assets/contacts-8f6eecd1178ef85964369ec66d33c4f1.js?body=1" for 127.0.0.1 at 2015-01-27 09:01:30 +0200
+
+
+Started GET "/assets/locations-8f6eecd1178ef85964369ec66d33c4f1.js?body=1" for 127.0.0.1 at 2015-01-27 09:01:30 +0200
+
+
+Started GET "/assets/speakers-8f6eecd1178ef85964369ec66d33c4f1.js?body=1" for 127.0.0.1 at 2015-01-27 09:01:30 +0200
+
+
+Started GET "/assets/application-367c100594a401afda66dc00316e49ba.js?body=1" for 127.0.0.1 at 2015-01-27 09:01:30 +0200
+
+
+Started GET "/conferences/2" for 127.0.0.1 at 2015-01-27 09:01:33 +0200
+Processing by ConferencesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mConference Load (0.3ms)[0m  [1mSELECT  "conferences".* FROM "conferences" WHERE "conferences"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mSpeaker Load (0.6ms)[0m  SELECT "speakers".* FROM "speakers" INNER JOIN "events" ON "speakers"."id" = "events"."speaker_id" WHERE "events"."conference_id" = ?  [["conference_id", 2]]
+  [1m[36mEvent Load (0.4ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."speaker_id" = ?[0m  [["speaker_id", 1]]
+  [1m[35mEventsType Load (0.4ms)[0m  SELECT  "events_types".* FROM "events_types" WHERE "events_types"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered conferences/show.html.erb within layouts/application (220.1ms)
+Completed 200 OK in 349ms (Views: 342.6ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/conferences/2locations" for 127.0.0.1 at 2015-01-27 09:01:45 +0200
+Processing by ConferencesController#show as HTML
+  Parameters: {"id"=>"2locations"}
+  [1m[36mConference Load (1.2ms)[0m  [1mSELECT  "conferences".* FROM "conferences" WHERE "conferences"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mSpeaker Load (0.5ms)[0m  SELECT "speakers".* FROM "speakers" INNER JOIN "events" ON "speakers"."id" = "events"."speaker_id" WHERE "events"."conference_id" = ?  [["conference_id", 2]]
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."speaker_id" = ?[0m  [["speaker_id", 1]]
+  [1m[35mEventsType Load (0.2ms)[0m  SELECT  "events_types".* FROM "events_types" WHERE "events_types"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered conferences/show.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 150ms (Views: 143.6ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/assets/bootstrap.min-232f6e7ff6ac5cc865763d507e1be397.css?body=1" for 127.0.0.1 at 2015-01-27 09:01:46 +0200
+
+
+Started GET "/assets/conferences-069e88c06b889877799890854d7f4c40.css?body=1" for 127.0.0.1 at 2015-01-27 09:01:46 +0200
+
+
+Started GET "/assets/contacts-069e88c06b889877799890854d7f4c40.css?body=1" for 127.0.0.1 at 2015-01-27 09:01:46 +0200
+
+
+Started GET "/assets/locations-069e88c06b889877799890854d7f4c40.css?body=1" for 127.0.0.1 at 2015-01-27 09:01:46 +0200
+
+
+Started GET "/assets/header-08ba2b484a87caad1bb09dd543029b22.css?body=1" for 127.0.0.1 at 2015-01-27 09:01:46 +0200
+
+
+Started GET "/assets/scaffolds-983306cc3a19bee7662872313efea625.css?body=1" for 127.0.0.1 at 2015-01-27 09:01:46 +0200
+
+
+Started GET "/assets/speakers-eadc67b61b626d362863bece1a27dfd3.css?body=1" for 127.0.0.1 at 2015-01-27 09:01:46 +0200
+
+
+Started GET "/assets/application-80a89d9d5024595395d5569164496be3.css?body=1" for 127.0.0.1 at 2015-01-27 09:01:46 +0200
+
+
+Started GET "/assets/jquery-eb3e278249152b5b5d5170b73d9dbf52.js?body=1" for 127.0.0.1 at 2015-01-27 09:01:46 +0200
+
+
+Started GET "/assets/conferences-8f6eecd1178ef85964369ec66d33c4f1.js?body=1" for 127.0.0.1 at 2015-01-27 09:01:46 +0200
+
+
+Started GET "/assets/jquery_ujs-0b8f09cf5aec4ba1be1abd9f915c77e2.js?body=1" for 127.0.0.1 at 2015-01-27 09:01:46 +0200
+
+
+Started GET "/assets/turbolinks-924184401b7d116eadaaefc96895fa84.js?body=1" for 127.0.0.1 at 2015-01-27 09:01:46 +0200
+
+
+Started GET "/assets/contacts-8f6eecd1178ef85964369ec66d33c4f1.js?body=1" for 127.0.0.1 at 2015-01-27 09:01:46 +0200
+
+
+Started GET "/assets/locations-8f6eecd1178ef85964369ec66d33c4f1.js?body=1" for 127.0.0.1 at 2015-01-27 09:01:46 +0200
+
+
+Started GET "/assets/speakers-8f6eecd1178ef85964369ec66d33c4f1.js?body=1" for 127.0.0.1 at 2015-01-27 09:01:46 +0200
+
+
+Started GET "/assets/application-367c100594a401afda66dc00316e49ba.js?body=1" for 127.0.0.1 at 2015-01-27 09:01:46 +0200
+
+
+Started GET "/conferences/2/locations" for 127.0.0.1 at 2015-01-27 09:01:51 +0200
+
+ActionController::RoutingError (No route matches [GET] "/conferences/2/locations"):
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:22:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /home/vad/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/vad/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/vad/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/vad/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /home/vad/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_route.html.erb (4.7ms)
+  Rendered /home/vad/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_table.html.erb (45.1ms)
+  Rendered /home/vad/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (2.1ms)
+  Rendered /home/vad/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.9ms)
+  Rendered /home/vad/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/routing_error.html.erb within rescues/layout (135.1ms)
+
+
+Started GET "/conferences/2/locations" for 127.0.0.1 at 2015-01-27 09:01:51 +0200
+
+ActionController::RoutingError (No route matches [GET] "/conferences/2/locations"):
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:22:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /home/vad/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/vad/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/vad/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/vad/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (5.2ms)
+  Rendered /home/vad/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_route.html.erb (5.5ms)
+  Rendered /home/vad/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_table.html.erb (2.4ms)
+  Rendered /home/vad/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (3.7ms)
+  Rendered /home/vad/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.9ms)
+  Rendered /home/vad/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/routing_error.html.erb within rescues/layout (69.4ms)
+
+
+Started GET "/conferences" for 127.0.0.1 at 2015-01-27 09:18:32 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ConferencesController#index as HTML
+  [1m[35mConference Load (0.3ms)[0m  SELECT "conferences".* FROM "conferences"
+  Rendered conferences/index.html.erb within layouts/application (15.7ms)
+Completed 200 OK in 609ms (Views: 538.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/bootstrap.min-232f6e7ff6ac5cc865763d507e1be397.css?body=1" for 127.0.0.1 at 2015-01-27 09:18:33 +0200
+
+
+Started GET "/assets/contacts-069e88c06b889877799890854d7f4c40.css?body=1" for 127.0.0.1 at 2015-01-27 09:18:33 +0200
+
+
+Started GET "/assets/conferences-069e88c06b889877799890854d7f4c40.css?body=1" for 127.0.0.1 at 2015-01-27 09:18:33 +0200
+
+
+Started GET "/assets/header-08ba2b484a87caad1bb09dd543029b22.css?body=1" for 127.0.0.1 at 2015-01-27 09:18:33 +0200
+
+
+Started GET "/assets/scaffolds-983306cc3a19bee7662872313efea625.css?body=1" for 127.0.0.1 at 2015-01-27 09:18:33 +0200
+
+
+Started GET "/assets/speakers-eadc67b61b626d362863bece1a27dfd3.css?body=1" for 127.0.0.1 at 2015-01-27 09:18:33 +0200
+
+
+Started GET "/assets/locations-069e88c06b889877799890854d7f4c40.css?body=1" for 127.0.0.1 at 2015-01-27 09:18:33 +0200
+
+
+Started GET "/assets/application-80a89d9d5024595395d5569164496be3.css?body=1" for 127.0.0.1 at 2015-01-27 09:18:33 +0200
+
+
+Started GET "/assets/jquery_ujs-0b8f09cf5aec4ba1be1abd9f915c77e2.js?body=1" for 127.0.0.1 at 2015-01-27 09:18:34 +0200
+
+
+Started GET "/assets/jquery-eb3e278249152b5b5d5170b73d9dbf52.js?body=1" for 127.0.0.1 at 2015-01-27 09:18:34 +0200
+
+
+Started GET "/assets/turbolinks-924184401b7d116eadaaefc96895fa84.js?body=1" for 127.0.0.1 at 2015-01-27 09:18:34 +0200
+
+
+Started GET "/assets/conferences-8f6eecd1178ef85964369ec66d33c4f1.js?body=1" for 127.0.0.1 at 2015-01-27 09:18:34 +0200
+
+
+Started GET "/assets/contacts-8f6eecd1178ef85964369ec66d33c4f1.js?body=1" for 127.0.0.1 at 2015-01-27 09:18:34 +0200
+
+
+Started GET "/assets/application-367c100594a401afda66dc00316e49ba.js?body=1" for 127.0.0.1 at 2015-01-27 09:18:34 +0200
+
+
+Started GET "/assets/locations-8f6eecd1178ef85964369ec66d33c4f1.js?body=1" for 127.0.0.1 at 2015-01-27 09:18:34 +0200
+
+
+Started GET "/assets/speakers-8f6eecd1178ef85964369ec66d33c4f1.js?body=1" for 127.0.0.1 at 2015-01-27 09:18:34 +0200
+
+
+Started GET "/conferences/1" for 127.0.0.1 at 2015-01-27 09:18:36 +0200
+Processing by ConferencesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mConference Load (0.4ms)[0m  [1mSELECT  "conferences".* FROM "conferences" WHERE "conferences"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mSpeaker Load (0.4ms)[0m  SELECT "speakers".* FROM "speakers" INNER JOIN "events" ON "speakers"."id" = "events"."speaker_id" WHERE "events"."conference_id" = ?  [["conference_id", 1]]
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."speaker_id" = ?[0m  [["speaker_id", 1]]
+  [1m[35mEventsType Load (0.7ms)[0m  SELECT  "events_types".* FROM "events_types" WHERE "events_types"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."speaker_id" = ?[0m  [["speaker_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "events_types".* FROM "events_types" WHERE "events_types"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."speaker_id" = ?[0m  [["speaker_id", 3]]
+  [1m[35mEventsType Load (0.1ms)[0m  SELECT  "events_types".* FROM "events_types" WHERE "events_types"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."speaker_id" = ?[0m  [["speaker_id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "events_types".* FROM "events_types" WHERE "events_types"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."speaker_id" = ?[0m  [["speaker_id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "events_types".* FROM "events_types" WHERE "events_types"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered conferences/show.html.erb within layouts/application (168.3ms)
+Completed 200 OK in 611ms (Views: 373.8ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/assets/bootstrap.min-232f6e7ff6ac5cc865763d507e1be397.css?body=1" for 127.0.0.1 at 2015-01-27 09:18:37 +0200
+
+
+Started GET "/assets/conferences-069e88c06b889877799890854d7f4c40.css?body=1" for 127.0.0.1 at 2015-01-27 09:18:37 +0200
+
+
+Started GET "/assets/contacts-069e88c06b889877799890854d7f4c40.css?body=1" for 127.0.0.1 at 2015-01-27 09:18:37 +0200
+
+
+Started GET "/assets/header-08ba2b484a87caad1bb09dd543029b22.css?body=1" for 127.0.0.1 at 2015-01-27 09:18:37 +0200
+
+
+Started GET "/assets/locations-069e88c06b889877799890854d7f4c40.css?body=1" for 127.0.0.1 at 2015-01-27 09:18:37 +0200
+
+
+Started GET "/assets/scaffolds-983306cc3a19bee7662872313efea625.css?body=1" for 127.0.0.1 at 2015-01-27 09:18:37 +0200
+
+
+Started GET "/assets/speakers-eadc67b61b626d362863bece1a27dfd3.css?body=1" for 127.0.0.1 at 2015-01-27 09:18:37 +0200
+
+
+Started GET "/assets/jquery-eb3e278249152b5b5d5170b73d9dbf52.js?body=1" for 127.0.0.1 at 2015-01-27 09:18:37 +0200
+
+
+Started GET "/assets/application-80a89d9d5024595395d5569164496be3.css?body=1" for 127.0.0.1 at 2015-01-27 09:18:37 +0200
+
+
+Started GET "/assets/jquery_ujs-0b8f09cf5aec4ba1be1abd9f915c77e2.js?body=1" for 127.0.0.1 at 2015-01-27 09:18:37 +0200
+
+
+Started GET "/assets/turbolinks-924184401b7d116eadaaefc96895fa84.js?body=1" for 127.0.0.1 at 2015-01-27 09:18:37 +0200
+
+
+Started GET "/assets/conferences-8f6eecd1178ef85964369ec66d33c4f1.js?body=1" for 127.0.0.1 at 2015-01-27 09:18:37 +0200
+
+
+Started GET "/assets/contacts-8f6eecd1178ef85964369ec66d33c4f1.js?body=1" for 127.0.0.1 at 2015-01-27 09:18:37 +0200
+
+
+Started GET "/assets/application-367c100594a401afda66dc00316e49ba.js?body=1" for 127.0.0.1 at 2015-01-27 09:18:37 +0200
+
+
+Started GET "/assets/speakers-8f6eecd1178ef85964369ec66d33c4f1.js?body=1" for 127.0.0.1 at 2015-01-27 09:18:37 +0200
+
+
+Started GET "/assets/locations-8f6eecd1178ef85964369ec66d33c4f1.js?body=1" for 127.0.0.1 at 2015-01-27 09:18:37 +0200
+
+
+Started GET "/conferences/1/locations" for 127.0.0.1 at 2015-01-27 09:18:42 +0200
+Processing by LocationsController#index as HTML
+  Parameters: {"conference_id"=>"1"}
+  [1m[36mLocation Load (0.3ms)[0m  [1mSELECT "locations".* FROM "locations"[0m
+  Rendered locations/index.html.erb within layouts/application (164.5ms)
+Completed 500 Internal Server Error in 281ms
+
+ActionView::Template::Error (undefined method `location_path' for #<#<Class:0x007fe1c8c1c0d0>:0x007fe1c8c20770>):
+    20:         <td><%= location.latitude %></td>
+    21:         <td><%= location.longitude %></td>
+    22:         <td><%= location.conference_id %></td>
+    23:         <td><%= link_to 'Show', location %></td>
+    24:         <td><%= link_to 'Edit', edit_location_path(location) %></td>
+    25:         <td><%= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    26:       </tr>
+  app/views/locations/index.html.erb:23:in `block in _app_views_locations_index_html_erb___3086013756577710132_70303856276740'
+  app/views/locations/index.html.erb:17:in `_app_views_locations_index_html_erb___3086013756577710132_70303856276740'
+
+
+  Rendered /home/vad/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (14.1ms)
+  Rendered /home/vad/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (4.9ms)
+  Rendered /home/vad/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.9ms)
+  Rendered /home/vad/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (3.2ms)
+  Rendered /home/vad/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (88.1ms)
+
+
+Started GET "/conferences/1/locations/1" for 127.0.0.1 at 2015-01-27 09:18:46 +0200
+Processing by LocationsController#show as HTML
+  Parameters: {"conference_id"=>"1", "id"=>"1"}
+  [1m[35mLocation Load (0.4ms)[0m  SELECT  "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered locations/show.html.erb within layouts/application (34.5ms)
+Completed 500 Internal Server Error in 42ms
+
+ActionView::Template::Error (undefined method `edit_location_path' for #<#<Class:0x007fe1c8c1c0d0>:0x007fe1b0ba5a10>):
+    22: 
+    23: <iframe width="580" height="480" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?q=<%= @location.latitude %>,<%= @location.longitude %>&amp;z=15&amp;output=embed"></iframe>
+    24: 
+    25: <%= link_to 'Edit', edit_location_path(@location) %> |
+    26: <%= link_to 'Back', locations_path %>
+  app/views/locations/show.html.erb:25:in `_app_views_locations_show_html_erb___3325935937925827513_70303654616660'
+
+
+  Rendered /home/vad/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (11.7ms)
+  Rendered /home/vad/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (4.8ms)
+  Rendered /home/vad/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (2.1ms)
+  Rendered /home/vad/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.4ms)
+  Rendered /home/vad/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (45.8ms)
+
+
+Started GET "/conferences/2/locations" for 127.0.0.1 at 2015-01-27 09:20:40 +0200
+Processing by LocationsController#index as HTML
+  Parameters: {"conference_id"=>"2"}
+  [1m[36mLocation Load (15.8ms)[0m  [1mSELECT "locations".* FROM "locations"[0m
+  Rendered locations/index.html.erb within layouts/application (50.0ms)
+Completed 500 Internal Server Error in 55ms
+
+ActionView::Template::Error (undefined method `location_path' for #<#<Class:0x007fe1c8c1c0d0>:0x007fe1b05d8218>):
+    20:         <td><%= location.latitude %></td>
+    21:         <td><%= location.longitude %></td>
+    22:         <td><%= location.conference_id %></td>
+    23:         <td><%= link_to 'Show', location %></td>
+    24:         <td><%= link_to 'Edit', edit_location_path(location) %></td>
+    25:         <td><%= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    26:       </tr>
+  app/views/locations/index.html.erb:23:in `block in _app_views_locations_index_html_erb___3086013756577710132_70303856276740'
+  app/views/locations/index.html.erb:17:in `_app_views_locations_index_html_erb___3086013756577710132_70303856276740'
+
+
+  Rendered /home/vad/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (12.6ms)
+  Rendered /home/vad/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (4.7ms)
+  Rendered /home/vad/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (2.7ms)
+  Rendered /home/vad/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.4ms)
+  Rendered /home/vad/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (49.8ms)
+
+
+Started GET "/conferences/2/locations" for 127.0.0.1 at 2015-01-27 09:26:32 +0200
+Processing by LocationsController#index as HTML
+  Parameters: {"conference_id"=>"2"}
+  [1m[35mLocation Load (0.3ms)[0m  SELECT "locations".* FROM "locations"
+  Rendered locations/index.html.erb within layouts/application (10.0ms)
+Completed 500 Internal Server Error in 21ms
+
+ActionView::Template::Error (undefined method `location' for nil:NilClass):
+    20:         <td><%= location.latitude %></td>
+    21:         <td><%= location.longitude %></td>
+    22:         <td><%= location.conference_id %></td>
+    23:         <td><%= link_to 'Show', @conference.location %></td>
+    24:         <td><%= link_to 'Edit', edit_location_path(location) %></td>
+    25:         <td><%= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    26:       </tr>
+  app/views/locations/index.html.erb:23:in `block in _app_views_locations_index_html_erb___3086013756577710132_70303816784960'
+  app/views/locations/index.html.erb:17:in `_app_views_locations_index_html_erb___3086013756577710132_70303816784960'
+
+
+  Rendered /home/vad/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (14.3ms)
+  Rendered /home/vad/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (5.6ms)
+  Rendered /home/vad/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /home/vad/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.5ms)
+  Rendered /home/vad/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (59.2ms)
+
+
+Started GET "/conferences/2/locations" for 127.0.0.1 at 2015-01-27 09:26:51 +0200
+Processing by LocationsController#index as HTML
+  Parameters: {"conference_id"=>"2"}
+  [1m[36mLocation Load (0.2ms)[0m  [1mSELECT "locations".* FROM "locations"[0m
+  Rendered locations/index.html.erb within layouts/application (5.5ms)
+Completed 500 Internal Server Error in 13ms
+
+ActionView::Template::Error (undefined method `conference' for nil:NilClass):
+    20:         <td><%= location.latitude %></td>
+    21:         <td><%= location.longitude %></td>
+    22:         <td><%= location.conference_id %></td>
+    23:         <td><%= link_to 'Show', @location.conference %></td>
+    24:         <td><%= link_to 'Edit', edit_location_path(location) %></td>
+    25:         <td><%= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    26:       </tr>
+  app/views/locations/index.html.erb:23:in `block in _app_views_locations_index_html_erb___3086013756577710132_70303654616020'
+  app/views/locations/index.html.erb:17:in `_app_views_locations_index_html_erb___3086013756577710132_70303654616020'
+
+
+  Rendered /home/vad/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (13.0ms)
+  Rendered /home/vad/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (6.2ms)
+  Rendered /home/vad/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /home/vad/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (2.2ms)
+  Rendered /home/vad/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (50.5ms)
+
+
+Started GET "/conferences/2/locations" for 127.0.0.1 at 2015-01-27 09:28:36 +0200
+Processing by LocationsController#index as HTML
+  Parameters: {"conference_id"=>"2"}
+  [1m[35mLocation Load (0.3ms)[0m  SELECT "locations".* FROM "locations"
+  Rendered locations/index.html.erb within layouts/application (32.1ms)
+Completed 500 Internal Server Error in 41ms
+
+ActionView::Template::Error (undefined method `location_path' for #<#<Class:0x007fe1c8c1c0d0>:0x007fe1c8b0c8c0>):
+    20:         <td><%= location.latitude %></td>
+    21:         <td><%= location.longitude %></td>
+    22:         <td><%= location.conference_id %></td>
+    23:         <td><%= link_to 'Show', location%></td>
+    24:         <td><%= link_to 'Edit', edit_location_path(location) %></td>
+    25:         <td><%= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    26:       </tr>
+  app/views/locations/index.html.erb:23:in `block in _app_views_locations_index_html_erb___3086013756577710132_70303855695320'
+  app/views/locations/index.html.erb:17:in `_app_views_locations_index_html_erb___3086013756577710132_70303855695320'
+
+
+  Rendered /home/vad/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (12.4ms)
+  Rendered /home/vad/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (4.6ms)
+  Rendered /home/vad/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (2.6ms)
+  Rendered /home/vad/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.4ms)
+  Rendered /home/vad/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (45.7ms)
+
+
+Started GET "/conferences/2/locations" for 127.0.0.1 at 2015-01-27 09:29:13 +0200
+Processing by LocationsController#index as HTML
+  Parameters: {"conference_id"=>"2"}
+  [1m[36mLocation Load (0.5ms)[0m  [1mSELECT "locations".* FROM "locations"[0m
+  Rendered locations/index.html.erb within layouts/application (30.3ms)
+Completed 500 Internal Server Error in 35ms
+
+ActionView::Template::Error (undefined method `location_path' for #<#<Class:0x007fe1c8c1c0d0>:0x007fe1c8193140>):
+    20:         <td><%= location.latitude %></td>
+    21:         <td><%= location.longitude %></td>
+    22:         <td><%= location.conference_id %></td>
+    23:         <td><%= link_to 'Show', location%></td>
+    24:         <td><%= link_to 'Edit', edit_location_path(location) %></td>
+    25:         <td><%= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    26:       </tr>
+  app/views/locations/index.html.erb:23:in `block in _app_views_locations_index_html_erb___3086013756577710132_70303855695320'
+  app/views/locations/index.html.erb:17:in `_app_views_locations_index_html_erb___3086013756577710132_70303855695320'
+
+
+  Rendered /home/vad/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (12.1ms)
+  Rendered /home/vad/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (5.6ms)
+  Rendered /home/vad/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /home/vad/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.4ms)
+  Rendered /home/vad/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (45.4ms)
+
+
+Started GET "/conferences/2/locations" for 127.0.0.1 at 2015-01-27 10:58:02 +0200
+Processing by LocationsController#index as HTML
+  Parameters: {"conference_id"=>"2"}
+  [1m[35mLocation Load (69.0ms)[0m  SELECT "locations".* FROM "locations"
+  Rendered locations/index.html.erb within layouts/application (116.2ms)
+Completed 500 Internal Server Error in 334ms
+
+ActionView::Template::Error (undefined method `location_path' for #<#<Class:0x007fe1c8c1c0d0>:0x00000004fafce0>):
+    20:         <td><%= location.latitude %></td>
+    21:         <td><%= location.longitude %></td>
+    22:         <td><%= location.conference_id %></td>
+    23:         <td><%= link_to 'Show', location%></td>
+    24:         <td><%= link_to 'Edit', edit_location_path(location) %></td>
+    25:         <td><%= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    26:       </tr>
+  app/views/locations/index.html.erb:23:in `block in _app_views_locations_index_html_erb___3086013756577710132_70303855695320'
+  app/views/locations/index.html.erb:17:in `_app_views_locations_index_html_erb___3086013756577710132_70303855695320'
+
+
+  Rendered /home/vad/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (12.9ms)
+  Rendered /home/vad/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (5.1ms)
+  Rendered /home/vad/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (2.5ms)
+  Rendered /home/vad/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (2.0ms)
+  Rendered /home/vad/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (71.2ms)
+
+
+Started GET "/conferences/1/locations" for 127.0.0.1 at 2015-01-27 11:04:19 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by LocationsController#index as HTML
+  Parameters: {"conference_id"=>"1"}
+  [1m[35mLocation Load (0.3ms)[0m  SELECT "locations".* FROM "locations"
+  Rendered locations/index.html.erb within layouts/application (62.4ms)
+Completed 500 Internal Server Error in 130ms
+
+ActionView::Template::Error (undefined method `location_path' for #<#<Class:0x00000003d8e278>:0x007f26b45c9888>):
+    20:         <td><%= location.latitude %></td>
+    21:         <td><%= location.longitude %></td>
+    22:         <td><%= location.conference_id %></td>
+    23:         <td><%= link_to 'Show', location%></td>
+    24:         <td><%= link_to 'Edit', edit_location_path(location) %></td>
+    25:         <td><%= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    26:       </tr>
+  app/views/locations/index.html.erb:23:in `block in _app_views_locations_index_html_erb___475308767461566029_32146840'
+  app/views/locations/index.html.erb:17:in `_app_views_locations_index_html_erb___475308767461566029_32146840'
+
+
+  Rendered /home/vad/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (12.6ms)
+  Rendered /home/vad/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (4.5ms)
+  Rendered /home/vad/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /home/vad/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (2.3ms)
+  Rendered /home/vad/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (46.7ms)
+
+
+Started GET "/conferences/2/locations" for 127.0.0.1 at 2015-01-27 11:04:25 +0200
+Processing by LocationsController#index as HTML
+  Parameters: {"conference_id"=>"2"}
+  [1m[36mLocation Load (0.3ms)[0m  [1mSELECT "locations".* FROM "locations"[0m
+  Rendered locations/index.html.erb within layouts/application (35.2ms)
+Completed 500 Internal Server Error in 40ms
+
+ActionView::Template::Error (undefined method `location_path' for #<#<Class:0x00000003d8e278>:0x007f26b519fb30>):
+    20:         <td><%= location.latitude %></td>
+    21:         <td><%= location.longitude %></td>
+    22:         <td><%= location.conference_id %></td>
+    23:         <td><%= link_to 'Show', location%></td>
+    24:         <td><%= link_to 'Edit', edit_location_path(location) %></td>
+    25:         <td><%= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    26:       </tr>
+  app/views/locations/index.html.erb:23:in `block in _app_views_locations_index_html_erb___475308767461566029_32146840'
+  app/views/locations/index.html.erb:17:in `_app_views_locations_index_html_erb___475308767461566029_32146840'
+
+
+  Rendered /home/vad/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (14.8ms)
+  Rendered /home/vad/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (5.8ms)
+  Rendered /home/vad/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (2.4ms)
+  Rendered /home/vad/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.6ms)
+  Rendered /home/vad/.rvm/gems/ruby-2.2.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (50.7ms)
