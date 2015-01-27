@@ -1,6 +1,6 @@
 class SpeakersController < ApplicationController
   before_action :set_speaker, only: [:show, :edit, :update, :destroy]
-
+  
   # GET /speakers
   # GET /speakers.json
   def index
