@@ -7,17 +7,18 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
 	<div class="Main menu"></div>
 		<div class="container ">
 			<div class="row">
 				<div class="col-lg-6 col-md-6 col-sm-12">
 					<ul class="nav nav-pills">
-  						<li><%= link_to "About", '#' %></a></li>
-  						<li><%= link_to "Speakers", '#'%></a></li>
-  						<li><%= link_to "Schedual", '#'%></a></li>
-  						<li><%= link_to "Location", '#'%></a></li>
-  						<li><%= link_to "Report", '#' %></a></li>
+						<% if @conference %>
+							<li><%= link_to "About", conference_path %></a></li>
+							<li><%= link_to "Speakers", conference_speakers_path%></a></li>
+							<li><%= link_to "Schedual", '#'%></a></li>
+							<li><%= link_to "Location", '#'%></a></li>
+							<li><%= link_to "Report", '#' %></a></li>
+						<% end %>
 					</ul>
 				</div>
 				<div class="col-lg-6 col-md-6"></div>
@@ -27,8 +28,8 @@
 					<div class="col-lg-9 col-md-9 col-sm-7 col-xs-8">
 						<div class="blockquotes-container">
 							<div class="pull-right">
-  								<h4>It takes all the running you can do, to keep in the same place.<br>If you want to get somewhere else, you must run at least twice as fast as that!</h4>
-  								<small>Red Queen</small>
+								<h4>It takes all the running you can do, to keep in the same place.<br>If you want to get somewhere else, you must run at least twice as fast as that!</h4>
+								<small>Red Queen</small>
 							</div>
 						</div>
 					</div>
@@ -40,15 +41,26 @@
 			<div class="row first">
 				<div class="name-conteiner col-lg-9 col-md-9 col-sm-8 col-xs-8">
 					<div class="conference-name">
-						<h1>Pacemaker: Web UI</h1>
+						<h1> Pacemaker
+							<% if @conference %>
+								: <%= @conference.name %>
+							<% end %>
+						</h1>
 					</div>
 				</div>
 				<div class=" contacts col-lg-3 col-md-3 col-sm-4 col-xs-4">
 					<div class="conference-det-2">
 						<ul>
-							<li>70 participant</li>
-							<li>2</li>
-							<li>3</li>
+							<% if @conference %>
+								<li>
+									This time <strong><%= @conference.attenders %> lucky people</strong> 
+								</li>
+								<li>
+									will meet on <strong><%=@conference.date %></strong>
+								</li>
+								<li>
+									in a beautiful city of <strong> Lviv</strong></li>
+							<% end %>	
 						</ul>
 					</div>
 				</div>

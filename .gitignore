@@ -8,6 +8,7 @@
 /test/tmp/
 /test/version_tmp/
 /tmp/
+/log/development.log
 
 ## Specific to RubyMotion:
 .dat*
@@ -34,7 +35,7 @@ build/
 .rvmrc
 
 
-development.sqlite3
-test.sqlite3
-schema.rb
-development.log
+db/development.sqlite3
+db/test.sqlite3
+db/schema.rb
+log/development.log

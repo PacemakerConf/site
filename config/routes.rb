@@ -3,9 +3,13 @@ Rails.application.routes.draw do
   resources :event_types
 
   #get ':name', to: 'conferences#show', as: :conferences
+  get '/conferences/:id/about', to: 'conferences#show', as: 'conference'
+  get '/conferences/:id/speakers', to: 'conferences#speakers', as: 'conference_speakers'
   
   resources :conferences
   resources :speakers
+  resources :contacts
+  resources :locations  
 
   root 'conferences#index'
 

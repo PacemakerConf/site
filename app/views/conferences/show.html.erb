@@ -35,7 +35,7 @@
 							</div>
 
 							<div class='speech-info'>
-								<%= speaker.events[0].title %>
+								<%= speaker.events.where(conference: @conference)[0].title%>
 							</div>
 
 							<div class='speaker-name speech-info'>
