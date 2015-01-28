@@ -1,5 +1,90 @@
+<html>
+	<style type="text/css">
+		body { background-color: #fefefe; padding-left: 2%; padding-bottom: 100px; color: #101010; }
+		footer{ font-size:small;position:fixed;right:5px;bottom:5px; }
+		a:link, a:visited  { color: #0000ee; }
+		pre{ background-color: #eeeeee; margin-left: 1%; margin-right: 2%; padding: 2% 2% 2% 5%; }
+		p { font-size: 0.9rem; }
+		ul { font-size: 0.9rem; }
+		hr { border: 2px solid #eeeeee; margin: 2% 0% 2% -3%; }
+		h3 { border-bottom: 2px solid #eeeeee; margin: 2rem 0 2rem -1%; padding-left: 1%; padding-bottom: 0.1em; }
+		h4 { border-bottom: 1px solid #eeeeee; margin-top: 2rem; margin-left: -1%; padding-left: 1%; padding-bottom: 0.1em; }
+	</style>
+
+	<!--Requirement jQuery-->
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<!--Load Script and Stylesheet -->
+	<script type="text/javascript" src="javascripts/jquery.simple-dtpicker.js"></script>
+	<link type="text/css" href="stylesheets/jquery.simple-dtpicker.css" rel="stylesheet" />
+
 <h1>New Conference</h1>
 
 <%= render 'form' %>
+<!-- Registration form - START -->
+<div class="container">
+    <div class="row">
+        <form role="form">
+            <div class="col-lg-6">
+                <div class="well well-sm"><strong><span class="glyphicon glyphicon-asterisk"></span>Required Field</strong></div>
+                <div class="form-group">
+                    <label for="InputName">Event Name*:</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="InputName" id="InputName" placeholder="Conference Name" required>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="InputYear">Event Year*:</label>
+                    <div class="input-group">
+                        <input type="number" 
+                        min="2015"
+                        value="1"
+                        class="form-control" name="InputName" id="InputName" placeholder="Conference Year" required>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                    </div>
+                </div>
+
+		        <div class="form-group">
+		        <label for="InputMessage">Event date:</label><br>
+				<input type="text" name="date15" value="">
+
+				<script type="text/javascript">
+					$(function(){
+						$('*[name=date15]').appendDtpicker({
+							"dateOnly": true,
+							"dateFormat": "DD-MM-YYYY"
+						});
+					});
+				</script>
+
+                <div class="form-group">
+                    <label for="Attenders count">Attenders count:</label>
+                    <div class="input-group">
+                        <input type="number" 
+                        min="1"
+                        value="1"
+                        class="form-control" name="InputAttenders" id="InputAttenders" placeholder="Input count of attenders" required>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk">
+                        </span></span>
+                    </div>
+                </div>
+
+	                <div class="form-group">
+                    <label for="InputMessage">Enter Message:</label>
+                    <div class="input-group">
+                        <textarea name="InputMessage" id="InputMessage" class="form-control" rows="5" required></textarea>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                    </div>
+                </div>
+                <input type="submit" name="submit" id="submit" value="Submit" class="btn btn-info pull-right">
+                <button type="reset" class="btn">Cancel</button>
+
+            </div>
+        </form>
+
+    </div>
+</div>
 
 <%= link_to 'Back', conferences_path %>
+</html>>

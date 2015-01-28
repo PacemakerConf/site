@@ -1,27 +1,78 @@
 <p id="notice"><%= notice %></p>
 
+<!-- <style type="text/css" href="//cdn.datatables.net/1.10.4/css/jquery.dataTables.css"></style>
+
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<script type="text/javascript" src="//cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js"></script> -->
+
 <h1>Listing Conferences</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
     <% @conferences.each do |conference| %>
-      <tr>
-        <td><%= conference.name %></td>
-        <td><%= link_to 'Show', conference %></td>
-        <td><%= link_to 'Edit', edit_conference_path(conference) %></td>
-        <td><%= link_to 'Destroy', conference, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<table id="datatable" class="display" width="80%" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Event Name</th>
+                <th>Event Year</th>
+                <th>Date</th>
+                <th>Attenders</th>
+                <th>Location</th>
+                <th>Report</th>
+                <th>Actions</th>
+                <th colspan="3"></th>
+            </tr>
+            <tr>
+              <tfoot>
+                <th>Event Name</th>
+                <th>Event Year</th>
+                <th>Date</th>
+                <th>Attenders</th>
+                <th>Location</th>
+                <th>Report</th>
+                <th>Actions</th>
+                <th colspan="3"></th>
+              </tfoot>
+            </tr>
+
+        </thead>
+         <tbody>
+            <tr>
+                <td data-search="Jonas Alexander">Ruby</td>
+                <td>2014</td>
+                <td>02.02.2014</td>
+                <td>30</td>
+                <td data-order="1279062000">Kyiv</td>
+                <td data-order="86500">edit</td>
+            </tr>
+            <tr>
+                <td data-search="Michael Bruce">Javascript</td>
+                <td>2015</td>
+                <td>03.03.2015</td>
+                <td>29</td>
+                <td data-order="1309129200">Lviv</td>
+                <td data-order="183000">delete</td>
+            </tr>
+            <tr>
+              <td><%= conference.name %></td>
+              <td><%= link_to 'Show', conference %></td>
+              <td><%= link_to 'Edit', edit_conference_path(conference) %></td>
+              <td><%= link_to 'Destroy', conference, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
     <% end %>
   </tbody>
 </table>
-
+<!-- 
+<script type="text/javascript">
+    $(document).ready(function() {
+    $('#example').dataTable();
+} );
+</script> 
+-->
+<script type="text/javascript">
+$('.datatable').dataTable({
+  "sPaginationType": "bootstrap"
+});
+</script>
 <br>
 
 <%= link_to 'New Conference', new_conference_path %>
