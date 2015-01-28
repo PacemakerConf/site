@@ -1,0 +1,17 @@
+<% @speakers.each do |speaker| %>
+
+	<div class = 'full-speaker-container'>
+		<div class = 'speaker-photo'></div>
+		<div class = 'speaker-about'>
+			<div class='speaker-name speech-info'>
+				<%= link_to speaker.name, speaker_path(speaker) %>
+			</div>
+			<div><%= speaker.description %></div>
+		</div>
+		<div class = 'speech-about'>
+			<div><strong><%= speaker.events.where(conference_id: params[:id])[0].title %></strong></div>
+			<div><%= speaker.events.where(conference_id: params[:id])[0].description %></div>
+		</div>
+	</div>
+
+<% end %>

@@ -1,10 +1,10 @@
 class SpeakersController < ApplicationController
   before_action :set_speaker, only: [:show, :edit, :update, :destroy]
-
+  
   # GET /speakers
   # GET /speakers.json
   def index
-    @speakers = Conference.find(params[:conference_id]).speakers
+    @speakers = Speaker.all
   end
 
   # GET /speakers/1
