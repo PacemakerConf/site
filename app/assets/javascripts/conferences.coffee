@@ -8,4 +8,4 @@ jQuery ->
     bJQueryUI: true
     bProcessing: true
     bServerSide: true
-    sAjaxSource: $('#products').data('source')
+    sAjaxSource: $('#Conferences').data('source')
