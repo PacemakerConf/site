@@ -46,5 +46,6 @@ end
 group :test do
 	gem 'rspec-rails'
 	gem 'factory_girl'
+	gem 'shoulda-matchers', require: false
 end
 
