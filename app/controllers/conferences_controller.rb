@@ -11,13 +11,9 @@ class ConferencesController < ApplicationController
     @conferences = Conference.all
   end
 
-def index
-  respond_to do |format|
-    format.html
-    format.json { render json: ProductsDatatable.new(view_context) }
-  end
+ def index
+@conferences = Conference.all
 end
-
 
   # GET /conferences/1
   # GET /conferences/1.json
