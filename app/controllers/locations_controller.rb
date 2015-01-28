@@ -4,8 +4,9 @@ class LocationsController < ApplicationController
   # GET /locations
   # GET /locations.json
   def index
-    @conference = Conference.find(params[:conference_id])
-    @location = @conference.location
+    #@conference = Conference.find(params[:conference_id])
+    #@location = @conference.location
+    @locations = Location.all
   end
 
   # GET /locations/1
