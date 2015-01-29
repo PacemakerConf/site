@@ -1,18 +1,18 @@
 #eventtypes
-topic = EventsType.create(
-	eventstype: 'topic'
+topic = EventType.create(
+	name: 'topic'
 	)
 
-lightning = EventsType.create(
-	eventstype: 'lightning'
+lightning = EventType.create(
+	name: 'lightning'
 	)
 
-registration = EventsType.create(
-	eventstype: 'registration'
+registration = EventType.create(
+	name: 'registration'
 	)
 
-beerbreak = EventsType.create(
-	eventstype: 'beer-break'
+beerbreak = EventType.create(
+	name: 'beer-break'
 	)
 
 
@@ -65,7 +65,7 @@ victory2015 = Conference.create(
 onering2014.events.create(
 	title: 'registration',
 	timestart: '2014-12-12 12:00:00',
-	events_type: registration
+	event_type: registration
 	)
 
 onering2014.events.create(
@@ -73,53 +73,53 @@ onering2014.events.create(
 	timestart: '2014-12-12 12:15:00',
 	description: 'Evetything you need to know about One Ring,
 				  but afffraid to ask',
-	events_type: topic,
+	event_type: topic,
 	speaker: frodo
 	)
 
 onering2014.events.create(
 	title: 'Beer-break',
 	timestart: '2014-12-12 13:30:00',
-	events_type: beerbreak
+	event_type: beerbreak
 	)
 
 onering2014.events.create(
 	title: 'The challenge for kamikaze',
 	timestart: '2014-12-12 15:30:00',
-	events_type: topic,
 	speaker: gandalf,
-	description: 'When fatherland is calling you'
+	description: 'When fatherland is calling you',
+	event_type: topic
 	)
 
 victory2015.events.create(
 	title: 'A long way in the dunes',
 	timestart: '2015-11-12 15:30:00',
-	events_type: topic,
 	speaker: frodo,
-	description: 'How to play piano, using only 9 fingers'
+	description: 'How to play piano, using only 9 fingers',
+	event_type: topic
 	)
 
 onering2014.events.create(
 	title: 'How many orcs i\'ll kill',
 	timestart: '2014-12-12 16:30:00',
-	events_type: lightning,
-	speaker: gimli,
 	description: 'I was drinking at the bar last night, so I took
 				  a bus home...That may not be a big deal to you,
-				  but I\'ve never driven a bus before.'
+				  but I\'ve never driven a bus before.',
+	event_type: lightning,
+	speaker: gimli
 	)
 
 onering2014.events.create(
 	title: 'How to cook Gollum',
 	timestart: '2014-12-12 17:25:52',
-	events_type: topic,
-	speaker: sam,
-	description: 'awful dishes'
+	description: 'awful dishes',
+	event_type: topic,
+	speaker: sam
 	)
 
 onering2014.events.create(
 	title: 'Houmm-arr-orghh',
 	timestart: '2014-12-12 17:25:52',
-	events_type: lightning,
+	event_type: lightning,
 	speaker: ent
 	)

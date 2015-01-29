@@ -51,14 +51,25 @@ ActiveRecord::Schema.define(version: 20150129113350) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "event_types", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.integer  "defaultDuration"
+    t.string   "color"
+    t.integer  "image"
+    t.integer  "speakerEvent"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
   create_table "events", force: :cascade do |t|
     t.string   "title"
     t.datetime "timestart"
     t.integer  "conference_id"
     t.integer  "speaker_id"
-    t.integer  "events_type_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.integer  "event_type_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.text     "description"
   end
 
