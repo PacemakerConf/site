@@ -1,18 +1,18 @@
 #eventtypes
-topic = EventsType.create(
-	eventstype: 'topic'
+topic = EventType.create(
+	name: 'topic'
 	)
 
-lightning = EventsType.create(
-	eventstype: 'lightning'
+lightning = EventType.create(
+	name: 'lightning'
 	)
 
-registration = EventsType.create(
-	eventstype: 'registration'
+registration = EventType.create(
+	name: 'registration'
 	)
 
-beerbreak = EventsType.create(
-	eventstype: 'beer-break'
+beerbreak = EventType.create(
+	name: 'beer-break'
 	)
 
 
@@ -57,53 +57,53 @@ victory2015 = Conference.create(
 onering2014.events.create(
 	title: 'registration',
 	timestart: '2014-12-12 12:00:00',
-	events_type: registration
+	event_type: registration
 	)
 
 onering2014.events.create(
 	title: 'How i get the Ring. History of success',
 	timestart: '2014-12-12 12:15:00',
-	events_type: topic,
+	event_type: topic,
 	speaker: frodo
 	)
 
 onering2014.events.create(
 	title: 'Beer-break',
 	timestart: '2014-12-12 13:30:00',
-	events_type: beerbreak
+	event_type: beerbreak
 	)
 
 onering2014.events.create(
 	title: 'The challenge for kamikaze',
 	timestart: '2014-12-12 15:30:00',
-	events_type: topic,
+	event_type: topic,
 	speaker: gandalf
 	)
 
 victory2015.events.create(
 	title: 'A long way in the dunes',
 	timestart: '2015-11-12 15:30:00',
-	events_type: topic,
+	event_type: topic,
 	speaker: frodo
 	)
 
 onering2014.events.create(
 	title: 'How many orcs i\'ll kill',
 	timestart: '2014-12-12 16:30:00',
-	events_type: lightning,
+	event_type: lightning,
 	speaker: gimli
 	)
 
 onering2014.events.create(
 	title: 'How to cook Gollum',
 	timestart: '2014-12-12 17:25:52',
-	events_type: topic,
+	event_type: topic,
 	speaker: sam
 	)
 
 onering2014.events.create(
 	title: 'Houmm-arr-orghh',
 	timestart: '2014-12-12 17:25:52',
-	events_type: lightning,
+	event_type: lightning,
 	speaker: ent
 	)

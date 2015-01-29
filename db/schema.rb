@@ -38,9 +38,9 @@ ActiveRecord::Schema.define(version: 20150127231012) do
     t.datetime "timestart"
     t.integer  "conference_id"
     t.integer  "speaker_id"
-    t.integer  "events_type_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.integer  "event_type_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "events_types", force: :cascade do |t|

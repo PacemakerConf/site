@@ -5,7 +5,7 @@
 
 			<div>	
 				<% @conference.speakers.each do |speaker| %>
-					<% if speaker.events[0].events_type.eventstype == 'topic' %>
+					<% if speaker.events[0].event_type.name == 'topic' %>
 						<div class='speaker-container'>
 							<div class='speaker-photo'>
 								PHOTO
@@ -28,7 +28,7 @@
 			<h2>Lightning talks:</h2>
 			<div>	
 				<% @conference.speakers.each do |speaker| %>
-					<% if speaker.events[0].events_type.eventstype == 'lightning' %>
+					<% if speaker.events[0].event_type.name == 'lightning' %>
 						<div class='lightning-speaker-container'>
 							<div class='speaker-photo'>
 								PHOTO
