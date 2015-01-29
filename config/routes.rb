@@ -3,14 +3,11 @@ Rails.application.routes.draw do
   devise_for :admins
   resources :event_types
   resources :contacts
-
   
-  resources :event_types
   #get ':name', to: 'conferences#show', as: :conferences
   get '/conferences/:id/about', to: 'conferences#show', as: 'conference'
   get '/conferences/:id/speakers', to: 'conferences#speakers', as: 'conference_speakers'
   
-
   resources :conferences do
     member do
       resources :locations
@@ -18,6 +15,7 @@ Rails.application.routes.draw do
   end
 
   resources :speakers
+
   resources :locations  
 
   root 'conferences#index'
