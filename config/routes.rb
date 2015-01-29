@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :admins
   resources :event_types
 
   #get ':name', to: 'conferences#show', as: :conferences
