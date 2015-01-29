@@ -1,13 +1,29 @@
 Rails.application.routes.draw do
 
+<<<<<<< HEAD
   devise_for :admins
   resources :event_types
 
+=======
+  resources :contacts
+
+  
+>>>>>>> kirdan
   #get ':name', to: 'conferences#show', as: :conferences
   get '/conferences/:id/about', to: 'conferences#show', as: 'conference'
   get '/conferences/:id/speakers', to: 'conferences#speakers', as: 'conference_speakers'
   
+<<<<<<< HEAD
   resources :conferences
+=======
+
+  resources :conferences do
+    member do
+      resources :locations
+    end
+  end
+
+>>>>>>> kirdan
   resources :speakers
   resources :contacts
   resources :locations  
