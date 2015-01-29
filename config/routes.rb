@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   end
 
   resources :speakers
-  resources :contacts
+  
 
   root 'conferences#index'
 
