@@ -1,0 +1,67 @@
+[1mdiff --git a/Gemfile b/Gemfile[m
+[1mindex 20538bc..1648021 100644[m
+[1m--- a/Gemfile[m
+[1m+++ b/Gemfile[m
+[36m@@ -20,6 +20,7 @@[m [mgroup :assets do[m
+   gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'[m
+   gem 'jquery-ui-rails'[m
+ end[m
+[32m+[m[32mgem 'will_paginate'[m
+ # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks[m
+ gem 'turbolinks'[m
+ # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder[m
+[1mdiff --git a/app/assets/javascripts/conferences.coffee b/app/assets/javascripts/conferences.coffee[m
+[1mindex f188551..9eaebec 100644[m
+[1m--- a/app/assets/javascripts/conferences.coffee[m
+[1m+++ b/app/assets/javascripts/conferences.coffee[m
+[36m@@ -4,3 +4,8 @@[m
+ [m
+ jQuery ->[m
+   $('#Conferences').dataTable()[m
+[32m+[m	[32msPaginationType: "full_numbers"[m
+[32m+[m[32m    bJQueryUI: true[m
+[32m+[m[32m    bProcessing: true[m
+[32m+[m[32m    bServerSide: true[m
+[32m+[m[32m    sAjaxSource: $('#products').data('source')[m
+\ No newline at end of file[m
+[1mdiff --git a/app/controllers/conferences_controller.rb b/app/controllers/conferences_controller.rb[m
+[1mindex 1c0d14e..4fe67a1 100644[m
+[1m--- a/app/controllers/conferences_controller.rb[m
+[1m+++ b/app/controllers/conferences_controller.rb[m
+[36m@@ -11,6 +11,14 @@[m [mclass ConferencesController < ApplicationController[m
+     @conferences = Conference.all[m
+   end[m
+ [m
+[32m+[m[32mdef index[m
+[32m+[m[32m  respond_to do |format|[m
+[32m+[m[32m    format.html[m
+[32m+[m[32m    format.json { render json: ProductsDatatable.new(view_context) }[m
+[32m+[m[32m  end[m
+[32m+[m[32mend[m
+[32m+[m
+[32m+[m
+   # GET /conferences/1[m
+   # GET /conferences/1.json[m
+   def show[m
+[1mdiff --git a/app/views/conferences/index.html.erb b/app/views/conferences/index.html.erb[m
+[1mindex 89cc4fc..82c4553 100644[m
+[1m--- a/app/views/conferences/index.html.erb[m
+[1m+++ b/app/views/conferences/index.html.erb[m
+[36m@@ -9,7 +9,7 @@[m
+ <h1>Listing Conferences</h1>[m
+ [m
+     <% @conferences.each do |conference| %>[m
+[31m-<table id="datatable" class="display" width="80%" cellspacing="0">[m
+[32m+[m[32m<table id="conferences" class="display" width="80%" cellspacing="0">[m
+         <thead>[m
+             <tr>[m
+                 <th>Event Name</th>[m
+[36m@@ -69,7 +69,7 @@[m
+ </script> [m
+ -->[m
+ <script type="text/javascript">[m
+[31m-$('.datatable').dataTable({[m
+[32m+[m[32m$('#conferences').dataTable({[m
+   "sPaginationType": "bootstrap"[m
+ });[m
+ </script>[m
