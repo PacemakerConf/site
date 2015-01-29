@@ -1,23 +1,20 @@
 Rails.application.routes.draw do
 
   devise_for :admins
-  resources :event_types
-  resources :contacts
-  
-  #get ':name', to: 'conferences#show', as: :conferences
-  get '/conferences/:id/about', to: 'conferences#show', as: 'conference'
-  get '/conferences/:id/speakers', to: 'conferences#speakers', as: 'conference_speakers'
-  
+   
   resources :conferences do
     member do
-      resources :locations
-    end
+      get 'location', to: 'conferences#location'
+      get 'about', to: 'conferences#show'
+      get 'speakers', to: 'conferences#speakers'
+      end
   end
 
   resources :speakers
-
+  resources :contacts
   resources :locations  
-
+  resources :event_types
+ 
   root 'conferences#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

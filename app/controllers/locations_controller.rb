@@ -6,7 +6,7 @@ class LocationsController < ApplicationController
   def index
     #@conference = Conference.find(params[:conference_id])
     #@location = @conference.location
-    @locations = Location.find(Conference.find(params[:id]))
+    @location = Location.all
   end
 
   # GET /locations/1
