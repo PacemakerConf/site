@@ -46,15 +46,15 @@ ent = Speaker.create(
 	)
 
 #conferences
-onering2014 = Conference.create(
-	name: 'One Ring-2014',
+onering = Conference.create(
+	name: 'One Ring',
 	year: 2014,
 	date: '2014-12-12',
 	attenders: 79
 	)
 
-victory2015 = Conference.create(
-	name: 'Victory-2015',
+victory = Conference.create(
+	name: 'Victory',
 	year: 2015,
 	date: '2015-11-12',
 	attenders: 72
@@ -62,13 +62,13 @@ victory2015 = Conference.create(
 
 
 #events
-onering2014.events.create(
+onering.events.create(
 	title: 'registration',
 	timestart: '2014-12-12 12:00:00',
 	event_type: registration
 	)
 
-onering2014.events.create(
+onering.events.create(
 	title: 'How i get the Ring. History of success',
 	timestart: '2014-12-12 12:15:00',
 	description: 'Evetything you need to know about One Ring,
@@ -77,13 +77,13 @@ onering2014.events.create(
 	speaker: frodo
 	)
 
-onering2014.events.create(
+onering.events.create(
 	title: 'Beer-break',
 	timestart: '2014-12-12 13:30:00',
 	event_type: beerbreak
 	)
 
-onering2014.events.create(
+onering.events.create(
 	title: 'The challenge for kamikaze',
 	timestart: '2014-12-12 15:30:00',
 	speaker: gandalf,
@@ -91,7 +91,7 @@ onering2014.events.create(
 	event_type: topic
 	)
 
-victory2015.events.create(
+victory.events.create(
 	title: 'A long way in the dunes',
 	timestart: '2015-11-12 15:30:00',
 	speaker: frodo,
@@ -99,7 +99,7 @@ victory2015.events.create(
 	event_type: topic
 	)
 
-onering2014.events.create(
+onering.events.create(
 	title: 'How many orcs i\'ll kill',
 	timestart: '2014-12-12 16:30:00',
 	description: 'I was drinking at the bar last night, so I took
@@ -109,7 +109,7 @@ onering2014.events.create(
 	speaker: gimli
 	)
 
-onering2014.events.create(
+onering.events.create(
 	title: 'How to cook Gollum',
 	timestart: '2014-12-12 17:25:52',
 	description: 'awful dishes',
@@ -117,7 +117,7 @@ onering2014.events.create(
 	speaker: sam
 	)
 
-onering2014.events.create(
+onering.events.create(
 	title: 'Houmm-arr-orghh',
 	timestart: '2014-12-12 17:25:52',
 	event_type: lightning,
@@ -125,15 +125,13 @@ onering2014.events.create(
 	)
 
 
-#kirdan vadym information
-
-
+#locations
 pasternaka = Location.create(
 	id: 1,
 	address: 'Pasternaka 5, Lviv',
 	latitude: 49.8327337,
 	longitude: 23.9992261,
-	conference: onering2014
+	conference: onering
 	)
 
 sadova = Location.create(
@@ -141,9 +139,11 @@ sadova = Location.create(
 	address: 'Sadova 2a, Lviv',
 	latitude: 49.8210367,
 	longitude: 23.9875698,
-	conference: victory2015
+	conference: victory
 	)
 
+
+#contacts
 vad = Contact.create(
 	id: 1,
 	name: 'Vad',
@@ -183,5 +183,3 @@ andriy = Contact.create(
 	skype: 'andr_loz',
 	location: pasternaka
 	)
-
-#########################################

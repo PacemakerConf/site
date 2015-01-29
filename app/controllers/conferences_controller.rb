@@ -1,7 +1,5 @@
 class ConferencesController < ApplicationController
   before_action :set_conference, only: [:location, :speakers, :show, :edit, :update, :destroy]
-  # GET /conferences
-  # GET /conferences.json
  
   def location 
     @location = @conference.location
@@ -15,9 +13,9 @@ class ConferencesController < ApplicationController
     @conferences = Conference.all
   end
 
-  # GET /conferences/1
-  # GET /conferences/1.json
   def show
+    @topic = EventType.where(name: 'topic')
+    @lightning = EventType.where(name: 'lightning')
   end
 
   # GET /conferences/new

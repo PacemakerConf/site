@@ -7,91 +7,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<div class="Main menu"></div>
-		<div class="container ">
-			<div class="row">
-				<div class="col-lg-6 col-md-6 col-sm-12">
-					<ul class="nav nav-pills">
-						<% unless @conference.nil? || @conference.id.nil? %>
-							<li><%= link_to "About", about_conference_path %></a></li>
-							<li><%= link_to "Speakers", speakers_conference_path%></a></li>
-							<li><%= link_to "Schedual", '#'%></a></li>
-							<li><%= link_to "Location", location_conference_path%></a></li>
-							<li><%= link_to "Report", '#' %></a></li>
-						<% end %>
-					</ul>
-				</div>
-				<div class="col-lg-6 col-md-6"></div>
-			</div>
-			
-				<div class="row slogo">
-					<div class="col-lg-9 col-md-9 col-sm-7 col-xs-8">
-						<div class="blockquotes-container">
-							<div class="pull-right">
-								<h4>It takes all the running you can do, to keep in the same place.<br>If you want to get somewhere else, you must run at least twice as fast as that!</h4>
-								<small>Red Queen</small>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-3 col-sm-5 col-xs-4 logo-img" >
-						<img alt="logo" src="/assets/pacemaker_logo.png">
-					</div>
-				</div>
-			
-			<div class="row first">
-				<div class="name-conteiner col-lg-9 col-md-9 col-sm-8 col-xs-8">
-					<div class="conference-name">
-						<h1> Pacemaker
-							<% if @conference %>
-								: <%= @conference.name %>
-							<% end %>
-						</h1>
-					</div>
-				</div>
-				<div class=" contacts col-lg-3 col-md-3 col-sm-4 col-xs-4">
-					<div class="conference-det-2">
-						<ul>
-							<% if @conference %>
-								<li>
-									This time <strong><%= @conference.attenders %> lucky people</strong> 
-								</li>
-								<li>
-									will meet on <strong><%=@conference.date %></strong>
-								</li>
-								<li>
-									in a beautiful city of <strong> Lviv</strong></li>
-							<% end %>	
-						</ul>
-					</div>
-				</div>
-			</div>
+		<%= render 'layouts/header' %>
 			<div class="row main-content">
 				<%= yield %>
 			</div>
-			<footer class="row logoes">
-				<ul class="social-network col-lg-12 col-md-12 col-sm-12">
-
-					<li class="logo fb">
-						<a href="https://www.facebook.com/SoftServe.Career?fref=ts">
-								<img alt="facebook" src="/assets/facebook29.svg">
-						</a>
-					</li> 
-					<li class="logo twit">
-						<a href="https://twitter.com/SoftServeInc" target="_blank">
-							<img src="/assets/twitter13.svg">
-						</a>
-					</li>
-					<li class="logo lind">
-						<a href="https://www.linkedin.com/company/softserve?trk=prof-following-company-logo" 
-							target="_blank">
-							<img src="/assets/linkedin12.svg">
-						</a>
-					</li>
-					<li class="soft">
-						<a href="https://softserve.ua/" target="_blank">© SoftServe LTD, 2010-2014</a>
-					</li>
-				</ul>
-			</footer>
-		</div>
+		<%= render 'layouts/footer' %>
 </body>
 </html>
