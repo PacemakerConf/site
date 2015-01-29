@@ -123,3 +123,65 @@ onering2014.events.create(
 	events_type: lightning,
 	speaker: ent
 	)
+
+
+#kirdan vadym information
+
+
+pasternaka = Location.create(
+	id: 1,
+	address: 'Pasternaka 5, Lviv',
+	latitude: 49.8327337,
+	longitude: 23.9992261,
+	conference: onering2014
+	)
+
+sadova = Location.create(
+	id: 2,
+	address: 'Sadova 2a, Lviv',
+	latitude: 49.8210367,
+	longitude: 23.9875698,
+	conference: victory2015
+	)
+
+vad = Contact.create(
+	id: 1,
+	name: 'Vad',
+	surname: 'Kirdan',
+	telephone: '0630620750',
+	email: 'hog_dubno@gmail.com',
+	skype: 'hog_dubno',
+	location: pasternaka
+	)
+
+uriy = Contact.create(
+	id: 2,
+	name: 'Uriy',
+	surname: 'Gnat',
+	telephone: '0630620751',
+	email: 'gnat_zv@gmail.com',
+	skype: 'gnat_zv',
+	location: sadova
+	)
+
+vova = Contact.create(
+	id: 3,
+	name: 'Vova',
+	surname: 'Kamin',
+	telephone: '0630750620',
+	email: 'vova_lviv@gmail.com',
+	skype: 'vova_lviv',
+	location: sadova
+	)
+
+andriy = Contact.create(
+	id: 4,
+	name: 'Andriy',
+	surname: 'Lozuk',
+	telephone: '0630750676',
+	email: 'andr_loz@gmail.com',
+	skype: 'andr_loz',
+	location: pasternaka
+	)
+
+#########################################
