@@ -38,6 +38,10 @@ ActiveRecord::Schema.define(version: 20150129113350) do
     t.integer  "attenders"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "report"
+    t.string   "location"
+    t.string   "photo"
+    t.string   "video"
   end
 
   create_table "contacts", force: :cascade do |t|

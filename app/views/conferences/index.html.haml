@@ -1,0 +1,9 @@
+%table
+  - @confereynces.each do |s|
+    %tr
+      %td= best_in_place s, :name
+:javascript
+$(document).ready(function() {
+  /* Activating Best In Place */
+  jQuery(".best_in_place").best_in_place();
+});
