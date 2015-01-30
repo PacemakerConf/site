@@ -12,5 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
+//= require jquery-ui/datepicker
+//= require ../../../vendor/assets/javascripts/jquery-1.11.2.js
+//= require ../../../vendor/assets/dataTables/js/jquery.dataTables.js
 //= require turbolinks
 //= require_tree .

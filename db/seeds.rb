@@ -60,7 +60,6 @@ victory = Conference.create(
 	attenders: 72
 	)
 
-
 #events
 onering.events.create(
 	title: 'registration',
