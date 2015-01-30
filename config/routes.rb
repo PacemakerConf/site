@@ -1,20 +1,21 @@
 Rails.application.routes.draw do
 
-  devise_for :admins
-   
-  resources :conferences do
+  resources :conferences, shallow: true do
     member do
-      get 'location', to: 'conferences#location'
       get 'about', to: 'conferences#show'
       get 'speakers', to: 'conferences#speakers'
-      end
+      get 'location', to: 'conferences#location'
+    end
   end
 
-  resources :speakers
-  resources :contacts
-  resources :locations  
-  resources :event_types
- 
+  devise_for :admins
+
+    resources :speakers, param: :name
+    resources :conferences
+    resources :contacts
+    resources :locations  
+    resources :event_types
+  
   root 'conferences#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

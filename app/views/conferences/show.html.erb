@@ -16,7 +16,7 @@
 
 						<div class='speaker-name speech-info'>
 							<% speaker = event.speaker %>
-							<%= link_to speaker.name, speaker_path(speaker) %>
+							<%= link_to speaker.name, speaker_path(speaker.name) %>
 						</div>
 					</div>
 				<% end %>
@@ -37,7 +37,7 @@
 
 							<div class='speaker-name speech-info'>
 								<% speaker = event.speaker %>
-								<%= link_to speaker.name, speaker_path(speaker) %>
+								<%= link_to speaker.name, speaker_path(speaker.name) %>
 							</div>
 						</div>
 				<% end %>
