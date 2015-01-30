@@ -1,18 +1,18 @@
 #eventtypes
-topic = EventsType.create(
-	eventstype: 'topic'
+topic = EventType.create(
+	name: 'topic'
 	)
 
-lightning = EventsType.create(
-	eventstype: 'lightning'
+lightning = EventType.create(
+	name: 'lightning'
 	)
 
-registration = EventsType.create(
-	eventstype: 'registration'
+registration = EventType.create(
+	name: 'registration'
 	)
 
-beerbreak = EventsType.create(
-	eventstype: 'beer-break'
+beerbreak = EventType.create(
+	name: 'beer-break'
 	)
 
 
@@ -46,15 +46,15 @@ ent = Speaker.create(
 	)
 
 #conferences
-onering2014 = Conference.create(
-	name: 'One Ring-2014',
+onering = Conference.create(
+	name: 'One Ring',
 	year: 2014,
 	date: '2014-12-12',
 	attenders: 79
 	)
 
-victory2015 = Conference.create(
-	name: 'Victory-2015',
+victory = Conference.create(
+	name: 'Victory',
 	year: 2015,
 	date: '2015-11-12',
 	attenders: 72
@@ -62,64 +62,124 @@ victory2015 = Conference.create(
 
 
 #events
-onering2014.events.create(
+onering.events.create(
 	title: 'registration',
 	timestart: '2014-12-12 12:00:00',
-	events_type: registration
+	event_type: registration
 	)
 
-onering2014.events.create(
+onering.events.create(
 	title: 'How i get the Ring. History of success',
 	timestart: '2014-12-12 12:15:00',
 	description: 'Evetything you need to know about One Ring,
 				  but afffraid to ask',
-	events_type: topic,
+	event_type: topic,
 	speaker: frodo
 	)
 
-onering2014.events.create(
+onering.events.create(
 	title: 'Beer-break',
 	timestart: '2014-12-12 13:30:00',
-	events_type: beerbreak
+	event_type: beerbreak
 	)
 
-onering2014.events.create(
+onering.events.create(
 	title: 'The challenge for kamikaze',
 	timestart: '2014-12-12 15:30:00',
-	events_type: topic,
 	speaker: gandalf,
-	description: 'When fatherland is calling you'
+	description: 'When fatherland is calling you',
+	event_type: topic
 	)
 
-victory2015.events.create(
+victory.events.create(
 	title: 'A long way in the dunes',
 	timestart: '2015-11-12 15:30:00',
-	events_type: topic,
 	speaker: frodo,
-	description: 'How to play piano, using only 9 fingers'
+	description: 'How to play piano, using only 9 fingers',
+	event_type: topic
 	)
 
-onering2014.events.create(
+onering.events.create(
 	title: 'How many orcs i\'ll kill',
 	timestart: '2014-12-12 16:30:00',
-	events_type: lightning,
-	speaker: gimli,
 	description: 'I was drinking at the bar last night, so I took
 				  a bus home...That may not be a big deal to you,
-				  but I\'ve never driven a bus before.'
+				  but I\'ve never driven a bus before.',
+	event_type: lightning,
+	speaker: gimli
 	)
 
-onering2014.events.create(
+onering.events.create(
 	title: 'How to cook Gollum',
 	timestart: '2014-12-12 17:25:52',
-	events_type: topic,
-	speaker: sam,
-	description: 'awful dishes'
+	description: 'awful dishes',
+	event_type: topic,
+	speaker: sam
 	)
 
-onering2014.events.create(
+onering.events.create(
 	title: 'Houmm-arr-orghh',
 	timestart: '2014-12-12 17:25:52',
-	events_type: lightning,
+	event_type: lightning,
 	speaker: ent
+	)
+
+
+#locations
+pasternaka = Location.create(
+	id: 1,
+	address: 'Pasternaka 5, Lviv',
+	latitude: 49.8327337,
+	longitude: 23.9992261,
+	conference: onering
+	)
+
+sadova = Location.create(
+	id: 2,
+	address: 'Sadova 2a, Lviv',
+	latitude: 49.8210367,
+	longitude: 23.9875698,
+	conference: victory
+	)
+
+
+#contacts
+vad = Contact.create(
+	id: 1,
+	name: 'Vad',
+	surname: 'Kirdan',
+	telephone: '0630620750',
+	email: 'hog_dubno@gmail.com',
+	skype: 'hog_dubno',
+	location: pasternaka
+	)
+
+uriy = Contact.create(
+	id: 2,
+	name: 'Uriy',
+	surname: 'Gnat',
+	telephone: '0630620751',
+	email: 'gnat_zv@gmail.com',
+	skype: 'gnat_zv',
+	location: sadova
+	)
+
+vova = Contact.create(
+	id: 3,
+	name: 'Vova',
+	surname: 'Kamin',
+	telephone: '0630750620',
+	email: 'vova_lviv@gmail.com',
+	skype: 'vova_lviv',
+	location: sadova
+	)
+
+andriy = Contact.create(
+	id: 4,
+	name: 'Andriy',
+	surname: 'Lozuk',
+	telephone: '0630750676',
+	email: 'andr_loz@gmail.com',
+	skype: 'andr_loz',
+	location: pasternaka
 	)

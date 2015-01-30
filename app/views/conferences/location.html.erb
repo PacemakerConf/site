@@ -2,10 +2,10 @@
 
 <h1>Direction map</h1>
 
-<iframe width="580" height="480" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?q=<%= @locations.latitude %>,<%= @locations.longitude %>&amp;z=15&amp;output=embed"></iframe>
+<iframe width="580" height="480" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?q=<%= @location.latitude %>,<%= @location.longitude %>&amp;z=15&amp;output=embed"></iframe>
 
 <h1>Address</h1>
-<p><%= @locations.address %></p>
+<p><%= @location.address %></p>
 
 <h1>Contacts</h1>
   <table>
@@ -21,7 +21,7 @@
     </thead>
 
     <tbody>
-      <% @locations.contacts.each do |contact| %>
+      <% @location.contacts.each do |contact| %>
         <tr>
         <td><%= contact.name %></td>
         <td><%= contact.surname %></td>
@@ -32,3 +32,6 @@
       <% end %>
     </tbody>
   </table>
+
+
+

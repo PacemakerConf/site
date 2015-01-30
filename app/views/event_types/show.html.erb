@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @event_type.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @event_type.description %>
+</p>
+
+<p>
+  <strong>Defaultduration:</strong>
+  <%= @event_type.defaultDuration %>
+</p>
+
+<p>
+  <strong>Color:</strong>
+  <%= @event_type.color %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @event_type.image %>
+</p>
+
+<p>
+  <strong>Speakerevent:</strong>
+  <%= @event_type.speakerEvent %>
+</p>
+
+<%= link_to 'Edit', edit_event_type_path(@event_type) %> |
+<%= link_to 'Back', event_types_path %>
