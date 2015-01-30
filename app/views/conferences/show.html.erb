@@ -4,46 +4,42 @@
 			<h2>Speakers:</h2>
 
 			<div>	
-				<% @conference.speakers.each do |speaker| %>
-					<% if speaker.events[0].events_type.eventstype == 'topic' %>
-						<div class='speaker-container'>
-							<div class='speaker-photo'>
-								PHOTO
-							</div>
-
-							<div class='speech-info'>
-								<%= speaker.events[0].title %>
-							</div>
-
-							<div class='speaker-name speech-info'>
-								<%= link_to speaker.name, speaker_path(speaker) %>
-							</div>
+				<% @conference.events.where(event_type: @topic).each do |event| %>
+					<div class='speaker-container'>
+						<div class='speaker-photo'>
+							PHOTO
 						</div>
-					<% end %>
-					
+
+						<div class='speech-info'>
+							<%= event.title %>
+						</div>
+
+						<div class='speaker-name speech-info'>
+							<% speaker = event.speaker %>
+							<%= link_to speaker.name, speaker_path(speaker) %>
+						</div>
+					</div>
 				<% end %>
 			</div>
 		</div>
 		<div class='lightning-talks-list'>
 			<h2>Lightning talks:</h2>
 			<div>	
-				<% @conference.speakers.each do |speaker| %>
-					<% if speaker.events[0].events_type.eventstype == 'lightning' %>
+				<% @conference.events.where(event_type: @lightning).each do |event| %>
 						<div class='lightning-speaker-container'>
 							<div class='speaker-photo'>
 								PHOTO
 							</div>
 
 							<div class='speech-info'>
-								<%= speaker.events.where(conference: @conference)[0].title%>
+								<%= event.title%>
 							</div>
 
 							<div class='speaker-name speech-info'>
+								<% speaker = event.speaker %>
 								<%= link_to speaker.name, speaker_path(speaker) %>
 							</div>
 						</div>
-					<% end %>
-					
 				<% end %>
 			</div>
 

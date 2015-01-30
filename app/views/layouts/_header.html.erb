@@ -1,14 +1,14 @@
 
-		<div class="Main menu"></div>
+	<div class="Main menu"></div>
 		<div class="container ">
 			<div class="row">
 				<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 					<ul class="nav nav-pills">
-						<% if @conference %>
-							<li><%= link_to "About", conference_path %></a></li>
-							<li><%= link_to "Speakers", conference_speakers_path%></a></li>
+						<% unless @conference.nil? || @conference.id.nil? %>
+							<li><%= link_to "About", about_conference_path %></a></li>
+							<li><%= link_to "Speakers", speakers_conference_path%></a></li>
 							<li><%= link_to "Schedual", '#'%></a></li>
-							<li><%= link_to "Location", '#'%></a></li>
+							<li><%= link_to "Location", location_conference_path%></a></li>
 							<li><%= link_to "Report", '#' %></a></li>
 						<% end %>
 					</ul>
