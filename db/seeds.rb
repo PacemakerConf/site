@@ -60,13 +60,6 @@ victory2015 = Conference.create(
 	attenders: 72
 	)
 
-victory2016 = Conference.create(
-	name: 'Victory-2015',
-	year: 2016,
-	date: '2015-11-12',
-	attenders: 72
-	)
-
 #events
 onering2014.events.create(
 	title: 'registration',

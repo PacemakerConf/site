@@ -12,11 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require dataTables/jquery.dataTables
-//= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
-//= require dataTables/extras/dataTables.colReorder.js
-//= require dataTables/extras/dataTables.tableTools.js
-<!-- //= require jquery-ui -->
-//= require best_in_place
+//= require jquery-ui
+//= require jquery-ui/datepicker
+//= require ../../../vendor/assets/javascripts/jquery-1.11.2.js
+//= require ../../../vendor/assets/dataTables/js/jquery.dataTables.js
 //= require turbolinks
 //= require_tree .

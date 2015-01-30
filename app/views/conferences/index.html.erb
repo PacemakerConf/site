@@ -5,11 +5,11 @@
 <p id="notice"><%= notice %></p>
 
 <!-- DataTables CSS -->
-<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.4/css/jquery.dataTables.css">
-<!-- jQuery -->
-<script type="text/javascript" src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link rel="stylesheet" type="text/css" href="vendor/assets/dataTables/css/jquery.dataTables.css">
 <!-- DataTables -->
-<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.4/js/jquery.dataTables.js"></script> 
+<script type="text/javascript" charset="utf8" src="vendor/assets/dataTables/js/jquery.dataTables.js"></script> 
+<!-- jQuery -->
+<script type="text/javascript" src="vendor/assets/javascripts/jquery-1.11.2.js"></script>
 </head>
 <body>
 
@@ -55,28 +55,6 @@
           <td><%= link_to 'Edit', edit_conference_path(conference) %></td>
           <td><%= link_to 'Destroy', conference, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-       <tr>
-          <td>Ruby</td>
-          <td>2014</td>
-          <td>02.02.2014</td>
-          <td>30</td>
-          <td>Kyiv</td>
-          <td><%= conference.report %></td>
-          <td><%= link_to 'Show', conference %></td>
-          <td><%= link_to 'Edit', edit_conference_path(conference) %></td>
-          <td><%= link_to 'Destroy', conference, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-      <tr>
-          <td>Javascript</td>
-          <td>2015</td>
-          <td>03.03.2015</td>
-          <td>29</td>
-          <td>Lviv</td>
-          <td>report</td>
-          <td><%= link_to 'Show', conference %></td>
-          <td><%= link_to 'Edit', edit_conference_path(conference) %></td>
-          <td><%= link_to 'Destroy', conference, method: :delete, data: { confirm: 'Are you sure?' } %></td> 
-      </tr>  
     <% end %>
   </tbody>
 </table>
@@ -84,7 +62,6 @@
 $(document).ready(function() {
 $('#conference').dataTable({
       paging: true
-
 });
 });
 </script>
