@@ -1,42 +1,58 @@
 
-	<div class="Main menu"></div>
-		<div class="container">
+		<div class="Main menu"></div>
+		<div class="container ">
 			<div class="row">
-				<div class="col-lg-6 col-md-6 col-sm-12">
+				<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 					<ul class="nav nav-pills">
-  						<li><a href="#">About</a></li>
-  						<li><a href="#">Speakers</a></li>
-  						<li><a href="#">Schedual</a></li>
-  						<li><a href="#">Location</a></li>
-  						<li><a href="#">Report</a></li>
+						<% if @conference %>
+							<li><%= link_to "About", conference_path %></a></li>
+							<li><%= link_to "Speakers", conference_speakers_path%></a></li>
+							<li><%= link_to "Schedual", '#'%></a></li>
+							<li><%= link_to "Location", '#'%></a></li>
+							<li><%= link_to "Report", '#' %></a></li>
+						<% end %>
 					</ul>
 				</div>
 				<div class="col-lg-6 col-md-6"></div>
 			</div>
-			<div class="conteiner main-context">
-				<div class="row">
-					<div class="col-lg-12 col-md-12 col-sm-12">
+			
+				<div class="row slogo">
+					<div class="col-lg-9 col-md-9 col-sm-7 col-xs-8">
 						<div class="blockquotes-container">
-							<blockquote class="pull-right">
-  								<p>It takes all the running you can do, to keep in the same place.<br> If you want to get somewhere else, you must run at least twice as fast as that!</p>
-  								<small>Red Queen</small>
-							</blockquote>
+							<div class="pull-right">
+								<h4>It takes all the running you can do, to keep in the same place.<br>If you want to get somewhere else, you must run at least twice as fast as that!</h4>
+								<small>Red Queen</small>
+							</div>
 						</div>
 					</div>
-				</div>
-			</div>
-			<div class="row first">
-				<div class="col-lg-8 col-md-8 col-sm-12">
-					<div class="conference-det">
-						<div class="name"><h1>Pacemaker: Web UI</h1></div>
+					<div class="col-lg-3 col-md-3 col-sm-5 col-xs-4 logo-img" >
+						<img alt="logo" src="/assets/pacemaker_logo.png">
 					</div>
 				</div>
-				<div class="col-lg-4 col-md-4 col-sm-12">
+			
+			<div class="row first">
+				<div class="name-conteiner col-lg-9 col-md-9 col-sm-8 col-xs-8">
+					<div class="conference-name">
+						<h1> Pacemaker
+							<% if @conference %>
+								: <%= @conference.name %>
+							<% end %>
+						</h1>
+					</div>
+				</div>
+				<div class=" contacts col-lg-3 col-md-3 col-sm-4 col-xs-4">
 					<div class="conference-det-2">
-						<ul class="contacts">
-							<li>70 participant</li>
-							<li>2</li>
-							<li>3</li>
+						<ul>
+							<% if @conference %>
+								<li>
+									This time <strong><%= @conference.attenders %> lucky people</strong> 
+								</li>
+								<li>
+									will meet on <strong><%=@conference.date %></strong>
+								</li>
+								<li>
+									in a beautiful city of <strong> Lviv</strong></li>
+							<% end %>	
 						</ul>
 					</div>
 				</div>
