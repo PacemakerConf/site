@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :conferences do
+  resources :conferences, param: :name do
     member do
       get 'about', to: 'conferences#show'
       get 'speakers', to: 'conferences#speakers'
@@ -11,7 +11,6 @@ Rails.application.routes.draw do
   devise_for :admins
 
     resources :speakers, param: :name
-    resources :conferences
     resources :contacts
     resources :locations  
     resources :event_types

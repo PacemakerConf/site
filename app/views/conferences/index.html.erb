@@ -44,8 +44,8 @@
           <td><%= conference.attenders %></td>
           <td><%= conference.location.address %></td>
           <td><%= conference.report %></td>
-          <td><%= link_to 'Show', conference %></td>
-          <td><%= link_to 'Edit', edit_conference_path(conference) %></td>
+          <td><%= link_to 'Show', conference_path(conference.name.to_s + "-" + conference.year.to_s) %></td>
+          <td><%= link_to 'Edit', edit_conference_path(conference.name.to_s + "-" + conference.year.to_s) %></td>
           <td><%= link_to 'Destroy', conference, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

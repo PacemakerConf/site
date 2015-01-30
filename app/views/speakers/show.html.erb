@@ -30,7 +30,8 @@
 
 			<div class='ongoing-speech-container'>
 				<div class='speech-conference'>
-					<h2> <%= link_to speech.conference.name, conference_path(speech.conference) %> </h2>	
+					<% conf = speech.conference.name.to_s + "-" + speech.conference.year.to_s %>
+					<h2> <%= link_to speech.conference.name, conference_path( conf ) %> </h2>	
 				</div>
 
 				<div class='speech-details'>
@@ -45,7 +46,8 @@
 
 			<div class='speech-container'>
 				<div class='speech-conference'>
-					<h2> <%= link_to speech.conference.name, conference_path(speech.conference) %> </h2>	
+					<% conf = speech.conference.name.to_s + "-" + speech.conference.year.to_s %>
+					<h2> <%= link_to speech.conference.name, conference_path(conf) %> </h2>	
 				</div>
 
 				<div class='speech-details'>

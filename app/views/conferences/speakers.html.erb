@@ -9,8 +9,8 @@
 			<div><%= speaker.description %></div>
 		</div>
 		<div class = 'speech-about'>
-			<div><strong><%= speaker.events.where(conference_id: params[:id])[0].title %></strong></div>
-			<div><%= speaker.events.where(conference_id: params[:id])[0].description %></div>
+			<div><strong><%= speaker.events.where(conference: @conference)[0].title %></strong></div>
+			<div><%= speaker.events.where(conference: @conference)[0].description %></div>
 		</div>
 	</div>
 

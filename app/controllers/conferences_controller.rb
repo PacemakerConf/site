@@ -70,7 +70,16 @@ class ConferencesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_conference
-      @conference = Conference.find(params[:id])
+      
+      #CHANGE IT. conf/destroy must receive name, not id
+      if(params[:name].size > 3)
+        border = params[:name].rindex('-')
+        name = params[:name].slice(0, border)
+        year = params[:name].slice(border+1, 4)
+        @conference = Conference.where(name: name).where(year: year)[0]
+      else
+        @conference = Conference.find(params[:name])
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
