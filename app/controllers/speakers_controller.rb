@@ -64,11 +64,10 @@ class SpeakersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_speaker
-      if(params[:name].size > 3)
-        
-        @speaker = Speaker.where(name: params[:name])[0]
-      else
+      if(params[:name].to_i.to_s === params[:name].to_s)
         @speaker = Speaker.find(params[:name])
+      else
+        @speaker = Speaker.where(name: params[:name])[0]
       end
     end
 
