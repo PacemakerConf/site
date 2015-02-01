@@ -21,6 +21,11 @@ class SpeakersController < ApplicationController
   def edit
   end
 
+  def invite 
+    @invite = @conference.invite
+  end
+
+
   # POST /speakers
   # POST /speakers.json
   def create
@@ -75,4 +80,5 @@ class SpeakersController < ApplicationController
     def speaker_params
       params.require(:speaker).permit(:name)
     end
+
 end
