@@ -87,6 +87,8 @@ ActiveRecord::Schema.define(version: 20150129113350) do
   end
 
   create_table "speakers", force: :cascade do |t|
+    #t.id uid(uniqueid)not null
+    #t.invitationsentat
     t.string   "name"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false

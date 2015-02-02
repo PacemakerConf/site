@@ -22,7 +22,6 @@ class SpeakersController < ApplicationController
   end
 
   def invite 
-    @invite = @conference.invite
   end
 
 
