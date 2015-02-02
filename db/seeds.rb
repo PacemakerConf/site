@@ -60,6 +60,27 @@ victory = Conference.create(
 	attenders: 72
 	)
 
+ror2012 = Conference.create(
+	name: 'RoR',
+	year: 2012,
+	date: '2012-11-12',
+	attenders: 12
+	)
+
+ror2013 = Conference.create(
+	name: 'RoR',
+	year: 2013,
+	date: '2013-11-12',
+	attenders: 22
+	)
+
+ror2014 = Conference.create(
+	name: 'RoR',
+	year: 2014,
+	date: '2014-11-12',
+	attenders: 372
+	)
+
 #events
 onering.events.create(
 	title: 'registration',
