@@ -10,7 +10,11 @@ Rails.application.routes.draw do
 
   devise_for :admins
 
-    resources :speakers, param: :name
+    resources :speakers, param: :name do
+      collection do
+        get 'invite', to: 'speakers#invite'
+      end
+    end 
     resources :contacts
     resources :locations  
     resources :event_types

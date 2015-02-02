@@ -77,12 +77,6 @@ ActiveRecord::Schema.define(version: 20150129113350) do
     t.text     "description"
   end
 
-  create_table "events_types", force: :cascade do |t|
-    t.string   "eventstype"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "locations", force: :cascade do |t|
     t.string   "address"
     t.float    "latitude"
@@ -93,6 +87,8 @@ ActiveRecord::Schema.define(version: 20150129113350) do
   end
 
   create_table "speakers", force: :cascade do |t|
+    #t.id uid(uniqueid)not null
+    #t.invitationsentat
     t.string   "name"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
