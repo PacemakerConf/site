@@ -18,8 +18,13 @@ beerbreak = EventType.create(
 
 #speakers
 frodo = Speaker.create(
-	name: 'Frodo Baggins',
-	description: 'A little but brave Hobbit. Love jewels very much'
+	name: 'Harry',
+	surname: 'Potter',
+	description: 'A little but brave Hobbit. Love jewels very much',
+	email: 'harrypotter@mail.com',
+    facebook: 'fb/harrik',
+    linkedin: 'Havrentiy Potter',
+    site: 'http://potter-shop.com'
 	)
 
 gandalf = Speaker.create(
