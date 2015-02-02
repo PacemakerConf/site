@@ -77,7 +77,7 @@ class SpeakersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def speaker_params
-      params.require(:speaker).permit(:name)
+      params.require(:speaker).permit(:name, :surname, :description, :email, :facebook, :linkedin, :site)
     end
 
 end
