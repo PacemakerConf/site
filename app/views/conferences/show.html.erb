@@ -7,10 +7,11 @@
 				<% @conference.events.where(event_type: @topic).each do |event| %>
 					<div class='speaker-container'>
 						<div class='speaker-photo'>
-							PHOTO
+							<% speaker = event.speaker %>
+							<% src = speaker.photo %>	
+							<img class='photo' src='/assets/pacemaker_logo.png' alt='photo' >
 						</div>
 						<div class='speaker-name speech-info'>
-							<% speaker = event.speaker %>
 							<%= link_to "#{speaker.name} #{speaker.surname}", speaker_path(speaker) %>
 						</div>
 						<div class='speech-info'>
@@ -29,11 +30,11 @@
 				<% @conference.events.where(event_type: @lightning).each do |event| %>
 						<div class='lightning-speaker-container'>
 							<div class='speaker-photo'>
-								PHOTO
+								<% speaker = event.speaker %>	
+								<img class='photo' src='/assets/pacemaker_logo.png' alt='photo' >
 							</div>
 							<div class='speaker-name speech-info'>
-								<% speaker = event.speaker %>
-								<%= link_to speaker.name, speaker_path(speaker.name) %>
+								<%= link_to speaker.name, speaker_path(speaker) %>
 							</div>
 							<div class='speech-info'>
 								<%= event.title%>

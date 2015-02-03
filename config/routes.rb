@@ -1,17 +1,18 @@
 Rails.application.routes.draw do
 
-  get ':name/about', to: 'conferences#show', as: :about_conference
-  get ':name', to: 'conferences#show'
-  get ':name/speakers', to: 'conferences#speakers', as: :speakers_conference
-  get ':name/location', to: 'conferences#location', as: :location_conference
+  last_conference = Conference.order(date: :desc)[0]
+  last_conference_path = last_conference.name.to_s + '-' + last_conference.year.to_s
+  root 'conferences#show', name: last_conference_path
+
 
   resources :conferences, param: :name do
     member do
-      get 'about', to: 'conferences#show'
-      get 'speakers', to: 'conferences#speakers'
-      get 'location', to: 'conferences#location'
     end
   end
+
+  get ':name/about', to: 'conferences#show', as: :about_conference
+  get ':name/speakers', to: 'conferences#speakers', as: :speakers_conference
+  get ':name/location', to: 'conferences#location', as: :location_conference
 
   devise_for :admins, 
     :path => "", :path_names => {:sign_in => 'login', :sign_out => 'logout'} 
@@ -25,7 +26,6 @@ Rails.application.routes.draw do
     resources :locations  
     resources :event_types
   
-  root 'conferences#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

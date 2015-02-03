@@ -23,7 +23,8 @@ frodo = Speaker.create(
 	description: 'A little but brave Hobbit. Love jewels very much',
 	email: 'frodo@ring.one',
     facebook: 'fb/goldy',
-    site: 'http://the-best-jewels.com'
+    site: 'http://the-best-jewels.com',
+    photo: '/assets/images/frodo.jpg'
 	)
 
 harry = Speaker.create(
@@ -76,13 +77,6 @@ onering = Conference.create(
 	attenders: 79
 	)
 
-victory = Conference.create(
-	name: 'Victory',
-	year: 2015,
-	date: '2015-11-12',
-	attenders: 72
-	)
-
 ror2012 = Conference.create(
 	name: 'RoR',
 	year: 2012,
@@ -103,6 +97,14 @@ ror2014 = Conference.create(
 	date: '2014-11-12',
 	attenders: 372
 	)
+
+victory = Conference.create(
+	name: 'Victory',
+	year: 2015,
+	date: '2015-11-12',
+	attenders: 72
+	)
+
 
 #events
 onering.events.create(
