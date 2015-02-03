@@ -24,7 +24,7 @@ frodo = Speaker.create(
 	email: 'frodo@ring.one',
     facebook: 'fb/goldy',
     site: 'http://the-best-jewels.com',
-    photo: '/assets/images/frodo.jpg'
+    photo: '/assets/frodo.jpg'
 	)
 
 harry = Speaker.create(
@@ -47,8 +47,8 @@ gandalf = Speaker.create(
 	email: 'gangan@mail.com',
     facebook: 'fb/gandalfgrey',
     linkedin: 'Gandalyk Gand',
-    site: 'http://gan-gan.com'
-
+    site: 'http://gan-gan.com',
+    photo: '/assets/gandalf.jpg'
 	)
 
 gimli = Speaker.create(
@@ -66,7 +66,8 @@ sam = Speaker.create(
 ent = Speaker.create(
 	name: 'Fangorn',
 	surname: 'Ent',
-	description: 'Hum-hum-hum'
+	description: 'Hum-hum-hum',
+	photo: '/assets/fangorn.jpg'
 	)
 
 #conferences
@@ -105,7 +106,6 @@ victory = Conference.create(
 	attenders: 72
 	)
 
-
 #events
 onering.events.create(
 	title: 'registration',
@@ -136,14 +136,6 @@ onering.events.create(
 	event_type: topic
 	)
 
-victory.events.create(
-	title: 'A long way in the dunes',
-	timestart: '2015-11-12 15:30:00',
-	speaker: frodo,
-	description: 'How to play piano, using only 9 fingers',
-	event_type: topic
-	)
-
 onering.events.create(
 	title: 'How many orcs i\'ll kill',
 	timestart: '2014-12-12 16:30:00',
@@ -167,6 +159,22 @@ onering.events.create(
 	timestart: '2014-12-12 17:25:52',
 	event_type: lightning,
 	speaker: ent
+	)
+
+victory.events.create(
+	title: 'A long way in the dunes',
+	timestart: '2015-11-12 15:30:00',
+	speaker: frodo,
+	description: 'How to play piano, using only 9 fingers',
+	event_type: topic
+	)
+
+victory.events.create(
+	title: 'The Eagles',
+	timestart: '2015-11-12 17:30:00',
+	speaker: gandalf,
+	description: 'Lightning, as a form of air defence',
+	event_type: lightning
 	)
 
 
