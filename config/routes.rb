@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  get ':name/about', to: 'conferences#show', as: :about_conference
+  get ':name', to: 'conferences#show'
+  get ':name/speakers', to: 'conferences#speakers', as: :speakers_conference
+  get ':name/location', to: 'conferences#location', as: :location_conference
+
   resources :conferences, param: :name do
     member do
       get 'about', to: 'conferences#show'

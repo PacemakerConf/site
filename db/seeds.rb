@@ -18,9 +18,18 @@ beerbreak = EventType.create(
 
 #speakers
 frodo = Speaker.create(
+	name: 'Frodo',
+	surname: 'Baggins',
+	description: 'A little but brave Hobbit. Love jewels very much',
+	email: 'frodo@ring.one',
+    facebook: 'fb/goldy',
+    site: 'http://the-best-jewels.com'
+	)
+
+harry = Speaker.create(
 	name: 'Harry',
 	surname: 'Potter',
-	description: 'A little but brave Hobbit. Love jewels very much',
+	description: 'The bespactacled One',
 	email: 'harrypotter@mail.com',
     facebook: 'fb/harrik',
     linkedin: 'Havrentiy Potter',
@@ -217,3 +226,9 @@ andriy = Contact.create(
 	skype: 'andr_loz',
 	location: pasternaka
 	)
+
+admin = Admin.new
+    admin.email = "admin@example.com" 
+	admin.password = "00000000"
+	admin.password_confirmation = "00000000"
+    admin.save!
