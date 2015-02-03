@@ -1,37 +1,40 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-lg-7">
+    <p id="notice"><%= notice %></p>
+    <h1>Direction map</h1>
 
-<h1>Direction map</h1>
+    <iframe width="580" height="480" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" 
+    src="http://maps.google.com/maps?q=<%= @location.latitude %>,<%= @location.longitude %>&amp;z=15&amp;output=embed"></iframe>
+  </div>
+  <div class="col-lg-5">
+    <h1>Address</h1>
+     <p><%= @location.address %></p>  
+        <h1>Contacts</h1>
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>E-mail</th>
+                <th>Telephone</th>
+                <th>Skype</th>
+                <th colspan="3"></th>
+              </tr>
+            </thead>
 
-<iframe width="580" height="480" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?q=<%= @location.latitude %>,<%= @location.longitude %>&amp;z=15&amp;output=embed"></iframe>
-
-<h1>Address</h1>
-<p><%= @location.address %></p>
-
-<h1>Contacts</h1>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Surname</th>
-        <th>E-mail</th>
-        <th>Telephone</th>
-        <th>Skype</th>
-        <th colspan="3"></th>
-        </tr>
-    </thead>
-
-    <tbody>
-      <% @location.contacts.each do |contact| %>
-        <tr>
-        <td><%= contact.name %></td>
-        <td><%= contact.surname %></td>
-        <td><%= contact.email %></td>
-        <td><%= contact.telephone %></td>
-        <td><%= contact.skype %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-
+           <tbody>
+            <% @location.contacts.each do |contact| %>
+              <tr>
+                <td><%= contact.name %></td>
+                <td><%= contact.surname %></td>
+                <td><%= contact.email %></td>
+                <td><%= contact.telephone %></td>
+                <td><%= contact.skype %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+  </div>
+</div>
 
 
