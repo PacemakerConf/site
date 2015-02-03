@@ -162,7 +162,10 @@ onering.events.create(
 #locations
 pasternaka = Location.create(
 	id: 1,
-	address: 'Pasternaka 5, Lviv',
+	place_type: 'Hotel',
+	name: 'California',
+	city: 'Lviv',
+	address: 'Pasternaka 5',
 	latitude: 49.8327337,
 	longitude: 23.9992261,
 	conference: onering
@@ -170,7 +173,10 @@ pasternaka = Location.create(
 
 sadova = Location.create(
 	id: 2,
-	address: 'Sadova 2a, Lviv',
+	place_type: 'Palace',
+	name: 'Best',
+	city: 'Lviv',
+	address: 'Sadova 2a',
 	latitude: 49.8210367,
 	longitude: 23.9875698,
 	conference: victory
