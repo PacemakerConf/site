@@ -21,6 +21,10 @@ class SpeakersController < ApplicationController
   def edit
   end
 
+  def invite 
+  end
+
+
   # POST /speakers
   # POST /speakers.json
   def create
@@ -64,11 +68,16 @@ class SpeakersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_speaker
-      @speaker = Speaker.find(params[:id])
+      if(params[:name].to_i.to_s === params[:name].to_s)
+        @speaker = Speaker.find(params[:name])
+      else
+        @speaker = Speaker.where(name: params[:name])[0]
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def speaker_params
-      params.require(:speaker).permit(:name)
+      params.require(:speaker).permit(:name, :surname, :description, :email, :facebook, :linkedin, :site)
     end
+
 end

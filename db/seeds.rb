@@ -18,30 +18,44 @@ beerbreak = EventType.create(
 
 #speakers
 frodo = Speaker.create(
-	name: 'Frodo Baggins',
-	description: 'A little but brave Hobbit. Love jewels very much'
+	name: 'Harry',
+	surname: 'Potter',
+	description: 'A little but brave Hobbit. Love jewels very much',
+	email: 'harrypotter@mail.com',
+    facebook: 'fb/harrik',
+    linkedin: 'Havrentiy Potter',
+    site: 'http://potter-shop.com'
 	)
 
 gandalf = Speaker.create(
-	name: 'Gandalf the Grey',
+	name: 'Gandalf',
+	surname: 'Grey',
 	description: 'Wizard. The big nob. Oh, i mean the biggest wizard 
 					of the Middle-earth, leader of the army of the 
 					West, also know as Mithrandir, The Grey Pilgrim,
-					The White Rider, Stormcrow etc'
+					The White Rider, Stormcrow etc',
+	email: 'gangan@mail.com',
+    facebook: 'fb/gandalfgrey',
+    linkedin: 'Gandalyk Gand',
+    site: 'http://gan-gan.com'
+
 	)
 
 gimli = Speaker.create(
 	name: 'Gimli',
+	surname: 'Grisli',
 	description: 'A dwarf with capital D'
 	)
 
 sam = Speaker.create(
-	name: 'Samwise Gamgee',
+	name: 'Samwise',
+	surname: 'Gamgee',
 	description: 'Sam, just Sam'
 	)
 
 ent = Speaker.create(
-	name: 'Fangorn the Ent',
+	name: 'Fangorn',
+	surname: 'Ent',
 	description: 'Hum-hum-hum'
 	)
 
@@ -58,6 +72,27 @@ victory = Conference.create(
 	year: 2015,
 	date: '2015-11-12',
 	attenders: 72
+	)
+
+ror2012 = Conference.create(
+	name: 'RoR',
+	year: 2012,
+	date: '2012-11-12',
+	attenders: 12
+	)
+
+ror2013 = Conference.create(
+	name: 'RoR',
+	year: 2013,
+	date: '2013-11-12',
+	attenders: 22
+	)
+
+ror2014 = Conference.create(
+	name: 'RoR',
+	year: 2014,
+	date: '2014-11-12',
+	attenders: 372
 	)
 
 #events

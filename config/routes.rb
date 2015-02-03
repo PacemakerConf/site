@@ -1,35 +1,25 @@
 Rails.application.routes.draw do
 
-
-
-  devise_for :admins
-  resources :event_types  
-
-  #get ':name', to: 'conferences#show', as: :conferences
-  get '/conferences/:id/about', to: 'conferences#show', as: 'conference'
-  get '/conferences/:id/speakers', to: 'conferences#speakers', as: 'conference_speakers'
-  
-
-
-  resources :conferences
-
-
-
-  resources :conferences do
+  resources :conferences, param: :name do
     member do
-      get 'location', to: 'conferences#location'
       get 'about', to: 'conferences#show'
       get 'speakers', to: 'conferences#speakers'
-      end
+      get 'location', to: 'conferences#location'
+    end
   end
 
+  devise_for :admins, 
+    :path => "", :path_names => {:sign_in => 'login', :sign_out => 'logout'} 
 
-  resources :speakers
-  resources :contacts
-  resources :locations  
-  resources :event_types
- 
-
+    resources :speakers, param: :name do
+      collection do
+        get 'invite', to: 'speakers#invite'
+      end
+    end 
+    resources :contacts
+    resources :locations  
+    resources :event_types
+  
   root 'conferences#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

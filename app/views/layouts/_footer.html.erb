@@ -21,5 +21,15 @@
 						<a href="https://softserve.ua/" target="_blank">© SoftServe LTD, 2010-2014</a>
 					</li>
 				</ul>
+				<div id ="admin_nav">	
+					<% if admin_signed_in? %>
+	 				Logged in as <strong><%= current_admin.email%></strong>.
+		 			<%= link_to "Logout", destroy_admin_session_path, method: :delete %>
+					<% else %>
+	  				<%= link_to "Login", new_admin_session_path %>
+					<% end %>
+  				</div>	
+  				<p class="notice"><%= notice %></p>
+  				<p class="alert"><%= alert %></p>
 			</footer>
 		</div>
