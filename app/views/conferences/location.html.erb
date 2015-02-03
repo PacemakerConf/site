@@ -1,9 +1,11 @@
 <div class="row">
-  <div class="col-lg-9 map">
-   <h1>Direction map</h1>
+  <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+      <h1>Direction map</h1>
+    <div class="map">
       <iframe width="580" height="480" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?q=<%= @location.latitude %>,<%= @location.longitude %>&amp;z=15&amp;output=embed"></iframe>
+    </div>
   </div>
-  <div class="col-lh-3 adress">
+  <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 address-box ">
         <h1>Address</h1>
         <p><%= @location.address %></p>
         <h1>Contacts</h1>
