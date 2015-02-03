@@ -217,3 +217,9 @@ andriy = Contact.create(
 	skype: 'andr_loz',
 	location: pasternaka
 	)
+
+admin = Admin.new
+    admin.email = "admin@example.com" 
+	admin.password = "00000000"
+	admin.password_confirmation = "00000000"
+    admin.save!
