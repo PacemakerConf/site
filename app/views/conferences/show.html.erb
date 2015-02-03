@@ -1,27 +1,28 @@
 	
-	<div class='content'>
+<div class="row">
+	<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
 		<div class='speakers-list'>
 			<h2>Speakers:</h2>
-
-			<div>	
+			<div class="main-speakers-box">	
 				<% @conference.events.where(event_type: @topic).each do |event| %>
 					<div class='speaker-container'>
 						<div class='speaker-photo'>
 							PHOTO
 						</div>
-
-						<div class='speech-info'>
-							<%= event.title %>
-						</div>
-
 						<div class='speaker-name speech-info'>
 							<% speaker = event.speaker %>
 							<%= link_to speaker.name, speaker_path(speaker) %>
+						</div>
+						<div class='speech-info'>
+							<%= event.title %>
 						</div>
 					</div>
 				<% end %>
 			</div>
 		</div>
+	</div>	
+	<div class="col-lg-3 col-md-3"></div>
+	<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
 		<div class='lightning-talks-list'>
 			<h2>Lightning talks:</h2>
 			<div>	
@@ -30,18 +31,17 @@
 							<div class='speaker-photo'>
 								PHOTO
 							</div>
-
-							<div class='speech-info'>
-								<%= event.title%>
-							</div>
-
 							<div class='speaker-name speech-info'>
 								<% speaker = event.speaker %>
 								<%= link_to speaker.name, speaker_path(speaker) %>
 							</div>
+							<div class='speech-info'>
+								<%= event.title%>
+							</div>
 						</div>
 				<% end %>
 			</div>
-
 		</div>
 	</div>
+	<div class="col-lg-3"></div>
+</div>

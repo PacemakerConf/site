@@ -3,6 +3,19 @@
 .container{
 	background-color: #F6F6F6;
 }
+.conference-menu{
+	padding-left:12px;
+	background-color: #eeeeee;
+}
+
+.conference-menu li{
+	display: inline-block;
+	list-style:none;
+}
+
+.conference-menu li img{
+	height:58px;
+}
 
 .name-conteiner{
 	padding:0px 5px;
@@ -11,21 +24,26 @@
 .conference-name{
 	background-color: #006687;
 	margin: 5px;
-	padding-right:20px;
-	padding:16px;
+	padding:13px 10px 24px 13px;
+}
+.conference-name h1{
+	margin:10px;
 }
 
-.contacts{
-	padding:0px 16px;
+.conference-name br{
+	height:5px;
 }
 
 .conference-det-2{
 	background-color: #002C3A;
 	margin: 5px;
+	padding: 20px 10px;
 }
 
 .conference-det-2 ul{
-	padding: 20px 10px;
+	padding:0;
+	margin:10px;
+	margin-top:0;
 }
 
 .conference-det-2 li{
