@@ -18,9 +18,19 @@ beerbreak = EventType.create(
 
 #speakers
 frodo = Speaker.create(
+	name: 'Frodo',
+	surname: 'Baggins',
+	description: 'A little but brave Hobbit. Love jewels very much',
+	email: 'frodo@ring.one',
+    facebook: 'fb/goldy',
+    site: 'http://the-best-jewels.com',
+    photo: '/assets/frodo.jpg'
+	)
+
+harry = Speaker.create(
 	name: 'Harry',
 	surname: 'Potter',
-	description: 'A little but brave Hobbit. Love jewels very much',
+	description: 'The bespactacled One',
 	email: 'harrypotter@mail.com',
     facebook: 'fb/harrik',
     linkedin: 'Havrentiy Potter',
@@ -37,8 +47,8 @@ gandalf = Speaker.create(
 	email: 'gangan@mail.com',
     facebook: 'fb/gandalfgrey',
     linkedin: 'Gandalyk Gand',
-    site: 'http://gan-gan.com'
-
+    site: 'http://gan-gan.com',
+    photo: '/assets/gandalf.jpg'
 	)
 
 gimli = Speaker.create(
@@ -56,7 +66,8 @@ sam = Speaker.create(
 ent = Speaker.create(
 	name: 'Fangorn',
 	surname: 'Ent',
-	description: 'Hum-hum-hum'
+	description: 'Hum-hum-hum',
+	photo: '/assets/fangorn.jpg'
 	)
 
 #conferences
@@ -65,13 +76,6 @@ onering = Conference.create(
 	year: 2014,
 	date: '2014-12-12',
 	attenders: 79
-	)
-
-victory = Conference.create(
-	name: 'Victory',
-	year: 2015,
-	date: '2015-11-12',
-	attenders: 72
 	)
 
 ror2012 = Conference.create(
@@ -93,6 +97,13 @@ ror2014 = Conference.create(
 	year: 2014,
 	date: '2014-11-12',
 	attenders: 372
+	)
+
+victory = Conference.create(
+	name: 'Victory',
+	year: 2015,
+	date: '2015-11-12',
+	attenders: 72
 	)
 
 #events
@@ -125,14 +136,6 @@ onering.events.create(
 	event_type: topic
 	)
 
-victory.events.create(
-	title: 'A long way in the dunes',
-	timestart: '2015-11-12 15:30:00',
-	speaker: frodo,
-	description: 'How to play piano, using only 9 fingers',
-	event_type: topic
-	)
-
 onering.events.create(
 	title: 'How many orcs i\'ll kill',
 	timestart: '2014-12-12 16:30:00',
@@ -156,6 +159,22 @@ onering.events.create(
 	timestart: '2014-12-12 17:25:52',
 	event_type: lightning,
 	speaker: ent
+	)
+
+victory.events.create(
+	title: 'A long way in the dunes',
+	timestart: '2015-11-12 15:30:00',
+	speaker: frodo,
+	description: 'How to play piano, using only 9 fingers',
+	event_type: topic
+	)
+
+victory.events.create(
+	title: 'The Eagles',
+	timestart: '2015-11-12 17:30:00',
+	speaker: gandalf,
+	description: 'Lightning, as a form of air defence',
+	event_type: lightning
 	)
 
 
@@ -223,3 +242,9 @@ andriy = Contact.create(
 	skype: 'andr_loz',
 	location: pasternaka
 	)
+
+admin = Admin.new
+    admin.email = "admin@example.com" 
+	admin.password = "00000000"
+	admin.password_confirmation = "00000000"
+    admin.save!
