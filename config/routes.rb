@@ -7,8 +7,9 @@ Rails.application.routes.draw do
   get ':name/about', to: 'conferences#show', as: :about_conference
   get ':name/speakers', to: 'conferences#speakers', as: :speakers_conference
   get ':name/location', to: 'conferences#location', as: :location_conference
-
-
+  
+  #get 'location/new', to: 'location#new', name: Conference.name
+  #get 'location/new/:name' , to: 'location#new' , as: :new_location
 
   devise_for :admins, 
     :path => "", :path_names => {:sign_in => 'login', :sign_out => 'logout'} 
@@ -19,6 +20,7 @@ Rails.application.routes.draw do
         get 'invite', to: 'speakers#invite'
       end
     end 
+
     resources :contacts
     resources :locations  
     resources :event_types
