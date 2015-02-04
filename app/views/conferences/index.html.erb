@@ -35,7 +35,7 @@
           <td><%= unless(conference.location.nil?)
                     link_to "#{conference.location.address}", location_conference_path(conf) 
                   end %></td>
-          <td><%= conference.report %></td>
+          <td><%= link_to 'Report', conference.report %></td>
           <td><%= link_to 'Show', about_conference_path(conference.name.to_s + "-" + conference.year.to_s) %></td>
           <td><%= link_to 'Edit', edit_conference_path(conference.name.to_s + "-" + conference.year.to_s) %></td>
           <td><%= link_to 'Destroy', conference, method: :delete, data: { confirm: 'Are you sure?' } %></td>
