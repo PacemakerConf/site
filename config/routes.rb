@@ -1,22 +1,13 @@
 Rails.application.routes.draw do
 
-  
-  last_conference = Conference.order(date: :desc)[0]
-  last_conference_path = last_conference.name.to_s + '-' + last_conference.year.to_s
-  root 'conferences#show', name: last_conference_path
-
-
-  resources :conferences, param: :name do
-    member do
-    end
-  end
+  root 'conferences#show', name: Conference.last_conference
 
   resources :conferences, param: :name
-  
+
   get ':name/about', to: 'conferences#show', as: :about_conference
   get ':name/speakers', to: 'conferences#speakers', as: :speakers_conference
   get ':name/location', to: 'conferences#location', as: :location_conference
-  
+
   #get 'location/new', to: 'location#new', name: Conference.name
   #get 'location/new/:name' , to: 'location#new' , as: :new_location
 
@@ -27,17 +18,14 @@ Rails.application.routes.draw do
       delete 'logout' => 'devise/sessions#destroy', :as => :destroy_admin_session 
     end
 
-  get "conferences" => "conferences"
+  resources :speakers, param: :name do
+    collection do
+      get 'invite', to: 'speakers#invite'
+    end
+  end 
 
-
-    resources :speakers, param: :name do
-      collection do
-        get 'invite', to: 'speakers#invite'
-      end
-    end 
-
-    resources :contacts
-    resources :locations  
-    resources :event_types
+  resources :contacts
+  resources :locations  
+  resources :event_types
 
 end
