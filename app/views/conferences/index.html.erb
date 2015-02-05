@@ -33,7 +33,9 @@
           <% conf = conference.name.to_s + "-" + conference.year.to_s %>
 
           <td><%= unless(conference.location.nil?)
-                    link_to "#{conference.location.address}", location_conference_path(conf) 
+                    link_to "#{conference.location.address}", location_conference_path(conf)
+                  else
+                    link_to "Create", new_location_path()
                   end %></td>
           <td><%= link_to 'Report', conference.report %></td>
           <td><%= link_to 'Show', about_conference_path(conference.name.to_s + "-" + conference.year.to_s) %></td>
