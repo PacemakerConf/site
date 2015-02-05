@@ -1,76 +1,52 @@
-<div class='speaker-container one-speaker'>
-	<div class='speaker-photo'>
-		PHOTO
-	</div>
-
-	<div class='speaker-name'>
-		<%= @speaker.name %>
-		<%= @speaker.surname %>
-	</div>
-
-	<div>
-		<%= @speaker.description %>
-	</div>
-
-	<div>
-		<p><%= @speaker.email %></p>
-		<p><%= @speaker.facebook %></p>
-		<p><%= @speaker.linkedin %></p>
-		<p><%= @speaker.site %></p>
-	</div>
-	<hr>
-
-</div>
-
-<div class = 'speeches-list'>
-
-	<div>
+	<div class='speaker-container one-speaker'>
+		<div class='speaker-photo'>
+			PHOTO
+		</div>
+		<div class='speaker-name'>
+			<%= @speaker.name %>
+			<%= @speaker.surname %>
+		</div>
 		<div>
-			<h2> Conferences: </h2>	
+			<%= @speaker.description %>
 		</div>
-
-		<div class='speech-details'>
-			<h2> Speeches: </h2>
+		<div class="speaker-contacts">
+			<p><%= @speaker.email %></p>
+			<p><%= @speaker.facebook %></p>
+			<p><%= @speaker.linkedin %></p>
+			<p><%= @speaker.site %></p>
 		</div>
+		<hr>
 	</div>
+	<div class = 'speeches-list'>
 
-	<% @speaker.events.order(timeStart: :desc).each do |speech| %>
-
+		<% @speaker.events.order(timeStart: :desc).each do |speech| %>
 		<% if Time.now < speech.timestart %>
 			<!-- ongoing -->
-
-			<div class='ongoing-speech-container'>
-				<div class='speech-conference'>
-					<% conf = speech.conference.name.to_s + "-" + speech.conference.year.to_s %>
-					<h2> <%= link_to speech.conference.name, about_conference_path( conf ) %> </h2>	
-				</div>
-
-				<div class='speech-details'>
-					<h1> <%= speech.title %> </h1>
-					<h3>
-						<%= speech.description %>
-					</h3>
-				</div>
+		<div class='ongoing-speech-container'>
+			<div class='speech-conference'>
+				<% conf = speech.conference.name.to_s + "-" + speech.conference.year.to_s %>					<h2> <%= link_to speech.conference.name, about_conference_path( conf ) %> </h2>	
 			</div>
 
+			<div class='speech-details'>
+				<h1> <%= speech.title %> </h1>
+				<h3>
+					<%= speech.description %>
+				</h3>
+			</div>
+		</div>
 		<% else %>
 			<!-- old speeches -->
-
-			<div class='speech-container'>
-				<div class='speech-conference'>
-					<% conf = speech.conference.name.to_s + "-" + speech.conference.year.to_s %>
-					<h2> <%= link_to speech.conference.name, about_conference_path(conf) %> </h2>	
-				</div>
-
-				<div class='speech-details'>
-					<h1> <%= speech.title %> </h1>
-					<h3> 
-						<%= speech.description %>
-					</h3>
-				</div>
+		<div class='speech-container'>
+			<div class='speech-conference'>
+				<% conf = speech.conference.name.to_s + "-" + speech.conference.year.to_s %>					<h3> <%= link_to speech.conference.name, about_conference_path(conf) %> </h3>	
 			</div>
-
+			<div class='speech-details'>
+				<h2> <%= speech.title %> </h2>
+				<h4> 
+					<%= speech.description %>
+				</h4>
+			</div>
+		</div>
 		<% end %>		
-	<% end %>		
-	
-</div>
+		<% end %>		
+	</div>
