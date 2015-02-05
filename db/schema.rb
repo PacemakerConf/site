@@ -77,12 +77,6 @@ ActiveRecord::Schema.define(version: 20150203191107) do
     t.text     "description"
   end
 
-  create_table "events_types", force: :cascade do |t|
-    t.string   "eventstype"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "locations", force: :cascade do |t|
     t.string   "address"
     t.float    "latitude"
