@@ -5,14 +5,17 @@
   </div>
   <div class="col-lh-3 adress">
         <h1>Address</h1>
-        <p><%= @location.address %></p>
-        <h1>Contacts</h1>
+          <p><b>Place Type: </b><%= @location.place_type %></p>
+          <p><b>Name: </b><%= @location.name %></p>
+          <p><b>Address: </b><%= @location.address %>, <%= @location.city %></p>
+          
+          <h1>Contacts</h1>
         <% @location.contacts.each do |contact| %>
-        <div>
-          <p><b><%= contact.name %> <%= contact.surname %></b><p>
-          <p><b>Mail:</b> <%= contact.email %></p>
-          <p><b>Tel:</b> <%= contact.telephone %></p>
-        </div>
+          <div>
+              <p><b><%= contact.name %> <%= contact.surname %></b><p>
+              <p><b>Mail:</b> <%= contact.email %></p>
+              <p><b>Tel:</b> <%= contact.telephone %></p>
+          </div>
       <% end %>
   </div>
 </div>

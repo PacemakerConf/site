@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  *= require jquery-ui
- *= require jquery-ui/datepicker
+ *= require ../../../vendor/assets/stylesheets/jquery.datetimepicker
  *= require ../../../vendor/assets/dataTables/css/jquery.dataTables.css
  */
 
