@@ -3,6 +3,21 @@
 <% @location.each  do |location| %>
 
 <p>
+ <strong>Place Type:</strong>
+  <%= location.place_type %>
+</p>
+
+<p>
+ <strong>Name:</strong>
+  <%= location.name %>
+</p>
+
+<p>
+ <strong>City:</strong>
+  <%= location.city %>
+</p>
+
+<p>
  <strong>Address:</strong>
   <%= location.address %>
 </p>
@@ -21,5 +36,7 @@
   <strong>Conference:</strong>
   <%= location.conference_id %>
 </p>
+
+<br />
 
 <% end %>

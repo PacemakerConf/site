@@ -34,7 +34,9 @@
 	background-color: grey;
 	text-align: center;
 }
+
 .speakers-det .speaker-photo, .one-speaker .speaker-photo{
+
 	width: 75px;
 	height: 75px;
 	margin-right: 5px;
@@ -42,6 +44,11 @@
 	text-align: center;
 	float: left;
 	margin: 5px;
+}
+
+.photo {
+ width: 75px;
+ height: 75px;
 }
 
 .speech-info{
