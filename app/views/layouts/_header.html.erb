@@ -8,7 +8,9 @@
 	    width: auto;
 	    margin-right: 0 0 0 25px; 
 		}
-		.main-menu ul div li{
+		.main-menu ul div li p a{
+		color: black;
+	    background-color: transparent;
 		}
 
 		.old-other {
@@ -26,29 +28,18 @@
 		.old-other{
 		display: none;
 		}
-        p{
+        .conference-menu p{
         margin: -90%;
         font-style: 24px, bold;
         text-align: center;	
         text-decoration:underline,;
-        color: #ffffff; 
+        color: #white; 
     	background: transparent; 
     	padding: 2px; 
         }
         img {
         width: auto;	
         }
-        a {
-	    color: white;
-	    background-color: transparent;
-	    }
-	    a:visited {
-	    color: #cecece;
-	    }
-	    a:active {
-	    color: #ffff00;
-	    }
-
 	</style>
 	<div class="container ">
 		<div class="main-menu">
@@ -56,68 +47,68 @@
 				<div id="greyBtn">
 					<li class="other">
 						<img src="/assets/GREY.png">
-						<p><a href="http://localhost:3000/about">Event</a></p>
+						<p><a href="http://localhost:3000/">Event</a></p>
 					</li>
 				</div>
 				<div id="redBtn">
 					<li class="year">
 						<img src="/assets/RED.png">
-						<p><a href="http://localhost:3000/conferences/about">2013</a></p>
+						<p><a href="http://localhost:3000/conferences/">2013</a></p>
 					<li class="old-other">
 						<img src="/assets/GREY.png">
-						<p><a href="http://localhost:3000/about">RUBY</a></p>
+						<p><a href="http://localhost:3000/">RUBY</a></p>
 					</li>
 					<li class="old-other">
 						<img src="/assets/GREY.png">
-						<p><a href="http://localhost:3000/about">JAVA</a></p>
+						<p><a href="http://localhost:3000/">JAVA</a></p>
 					</li>					
 					<li class="old-other">
 						<img src="/assets/GREY.png">
-						<p><a href="http://localhost:3000/about">C++</a></p>
+						<p><a href="http://localhost:3000/">C++</a></p>
 					</li>					
 					<li class="old-other">
 						<img src="/assets/GREY.png">
-						<p><a href="http://localhost:3000/about">.NET</a></p>
+						<p><a href="http://localhost:3000/">.NET</a></p>
 					</li>
 					</li>
 				</div>
 				<div id="blueBtn">
 					<li class="inside">
 						<img src="/assets/BLUE.png">
-						<p><a href="http://localhost:3000/conferences/about">2014</a></p>
+						<p><a href="http://localhost:3000/conferences/">2014</a></p>
 					<li class="year-other">
 						<img src="/assets/GREY.png">
-						<p><a href="http://localhost:3000/about">LAMP</a></p>
+						<p><a href="http://localhost:3000/">LAMP</a></p>
 					</li>					
 					<li class="year-other">
 						<img src="/assets/GREY.png">
-						<p><a href="http://localhost:3000/about">Web-UI</a></p>
+						<p><a href="http://localhost:3000/">Web-UI</a></p>
 					</li>					
 					<li class="year-other">
 						<img src="/assets/GREY.png">
-						<p><a href="http://localhost:3000/about">JScrip</a></p>
+						<p><a href="http://localhost:3000/">JScrip</a></p>
 					</li>					
 					<li class="year-other">
 						<img src="/assets/GREY.png">
-						<p><a href="http://localhost:3000/about">CSS3</a></p>
+						<p><a href="http://localhost:3000/">CSS3</a></p>
 					</li>
 					</li>
 				</div>
 				<div id="greenBtn">
 					<li class="current-year">
 						<img src="/assets/GREEN.png">
-						<p><a href="http://localhost:3000/conferences/about">2015</a></p>
+						<p><a href="http://localhost:3000/conferences/">2015</a></p>
 					<li class="future-other">
 						<img src="/assets/GREY.png">
-						<p><a href="http://localhost:3000/about">RUBY</a></p>
+						<p><a href="http://localhost:3000/">RUBY</a></p>
 					</li>
 					<li class="future-other">
 						<img src="/assets/GREY.png">
-						<p><a href="http://localhost:3000/about">JAVA</a></p>
+						<p><a href="http://localhost:3000/">JAVA</a></p>
 					</li>					
 					<li class="future-other">
 						<img src="/assets/GREY.png">
-						<p><a href="http://localhost:3000/about">C++</a></p>
+						<p><a href="http://localhost:3000/">C++</a></p>
 					</li>					
 					</li>
 				</div>
@@ -125,33 +116,36 @@
 		</div>
 
 	<script>
+	/*	$(document).ready(function () {
+			function menuToggle(flag,btn){	
+				$(flag).hide();
+				$( btn ).click(function() {
+					$(this).parent().find( flag ).first().toggle( "fast", function showNext() {
+						$( this ).next( flag ).toggle( "fast", showNext );
+					});
+				});
+			}; 
+			menuToggle('.old-other',"#redBtn");
+			menuToggle('.year-other',"#redBtn");*/
 		$(document).ready(function () {
- 			$('.old-other').hide();
-		$( "#redBtn" ).click(function() {
-		$(this).parent().find( ".old-other" ).first().toggle( "fast", function showNext() {
-		$( this ).next( ".old-other" ).toggle( "fast", showNext );
-		});
-		});
-		});
-	</script>
-	<script>
-		$(document).ready(function () {
-			$('.year-other').hide();
-		$( "#blueBtn" ).click(function() {
-		$( ".year-other" ).first().toggle( "fast", function showNext() {
-		$( this ).next( ".year-other" ).toggle( "fast", showNext );
-		});
-		});
-		});
-	</script>
-	<script>
-		$(document).ready(function () {
-			$('.future-other').hide();
-		$( "#greenBtn").click(function() {
-		$( ".future-other" ).first().toggle( "fast", function showNext() {
-		$( this ).next( ".future-other" ).toggle( "fast", showNext );
-		});
-		});
+ 		$('.old-other').hide();
+ 		$('.year-other').hide();
+ 		$('.future-other').hide();
+			$( "#redBtn" ).click(function() {
+				$(this).parent().find( ".old-other" ).first().toggle( "fast", function showNext() {
+					$( this ).next( ".old-other" ).toggle( "fast", showNext );
+				});
+			});
+			$( "#blueBtn" ).click(function() {
+				$( ".year-other" ).first().toggle( "fast", function showNext() {
+					$( this ).next( ".year-other" ).toggle( "fast", showNext );
+				});
+			});
+			$( "#greenBtn").click(function() {
+				$( ".future-other" ).first().toggle( "fast", function showNext() {
+					$( this ).next( ".future-other" ).toggle( "fast", showNext );
+				});
+			});
 		});
 	</script>
 			<div class="row">
