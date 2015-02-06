@@ -4,7 +4,7 @@ require 'shoulda/matchers'
 describe Location do
 
 	before do
-		@location = Location.new(adress: 'Pasternaka 5, Lviv', conference_id: 1, latitude: 49.8327337, longitude: 23.9992261)
+		@location = Location.new(address: 'Pasternaka 5, Lviv', conference_id: 1, latitude: 49.8327337, longitude: 23.9992261)
 	end
 	
 	it "should be valid with address and conference_id" do
