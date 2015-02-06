@@ -4,21 +4,22 @@
 }
 
 .speakers-list{
-	width: 60%;
-	float: left;
 	margin-left: 20px;
 }
 
 .speaker-container{
-	width: 50%;
+	width: 45%;
 	float: left;
 	font-size: 1.2em;
+	margin: 10px;
+	margin-right: 20px;
 }
 
 .lightning-speaker-container{
-	width: 100%;
+	width: 45%;
 	float: left;
 	font-size: 1.2em;
+	margin: 10px;
 }
 
 .one-speaker{
@@ -29,47 +30,70 @@
 .speaker-photo{
 	width: 75px;
 	height: 75px;
-	float: left;
 	margin-right: 5px;
 	background-color: grey;
-
 	text-align: center;
+}
+
+.speakers-det .speaker-photo, .one-speaker .speaker-photo{
+
+	width: 75px;
+	height: 75px;
+	margin-right: 5px;
+	background-color: grey;
+	text-align: center;
+	float: left;
+	margin: 5px;
+}
+
+.photo {
+ width: 75px;
+ height: 75px;
 }
 
 .speech-info{
 	padding: 0.5em 0;
 }
 
-.speaker-name a{
-	text-decoration: none;
-	font-style: italic;
-	color: blue;
+.lightning-talks-list{
+	margin-left: 20px;
 }
 
-.lightning-talks-list{
-	float: left;
-	width: 30%;
+.speech-title h2{
+	display: inline-block;
+	margin: 5px;
+	padding: 10px;
 }
 
 .speech-container{
-	background-color: #e7e7d4;
+	background-color: rgba(255,255,255,0.31);
+	margin: 5px;
+	padding: 5px;
+}
+
+.speech-container div{
+	display: inline-block;
 }
 
 .ongoing-speech-container{
-	background-color: #4ddb4d;
+	background-color: rgba(144,155,19,1);
+	padding: 5px;
+	margin: 5px;
+}
+
+.ongoing-speech-container div{
+	display: inline-block;
 }
 
 .speech-conference{
-	float: left;
-	text-align: right;
-	width: 18%;
-	margin-top: 15px; 
+	text-align: center;
+	margin: 10px;
+	padding: 10px;
+	width: 20%;
 }
-
 .speech-details{
-	border-left: 1px solid black;
-	padding-left: 10px;
-	margin-left: 20%;
+	margin: 10px;
+	padding: 10px;
 }
 
 .full-speaker-container{
@@ -79,8 +103,7 @@
 }
 
 .speaker-about{
-	padding: 10px;
-	background-color: #eee;
+	padding: 5px;
 }
 
 .speech-about{

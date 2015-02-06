@@ -1,15 +1,16 @@
 <% @speakers.each do |speaker| %>
 
-	<div class="row">
+	<div class="row speakers-det">
 		<div class = 'full-speaker-container col-lg-9'>
-			<div class = 'speaker-photo'></div>
+			<div class = 'speaker-photo'>
+				<img class='photo' alt= <%= speaker.name + speaker.surname %> src= <%= speaker.photo || "/assets/pacemaker_logo.png" %> >
+			</div>
 			<div class = 'speaker-about'>
 				<div class='speaker-name speech-info'>
-					<%= link_to speaker.name, speaker_path(speaker.name) %>
+					<%= link_to "#{speaker.name} #{speaker.surname}", speaker_path(speaker) %>
 				</div>
 				<div><%= speaker.description %></div>
-			</div>
-		
+			</div>	
 		</div>
 
 		<div class = 'speech-about col-lg-3'>

@@ -38,31 +38,56 @@ beerbreak = EventType.create(
 
 #speakers
 frodo = Speaker.create(
-	name: 'Frodo Baggins',
-	description: 'A little but brave Hobbit. Love jewels very much'
+	name: 'Frodo',
+	surname: 'Baggins',
+	description: 'A little but brave Hobbit. Love jewels very much',
+	email: 'frodo@ring.one',
+    facebook: 'fb/goldy',
+    site: 'http://the-best-jewels.com',
+    photo: '/assets/frodo.jpg'
+	)
+
+harry = Speaker.create(
+	name: 'Harry',
+	surname: 'Potter',
+	description: 'The bespactacled One',
+	email: 'harrypotter@mail.com',
+    facebook: 'fb/harrik',
+    linkedin: 'Havrentiy Potter',
+    site: 'http://potter-shop.com'
 	)
 
 gandalf = Speaker.create(
-	name: 'Gandalf the Grey',
+	name: 'Gandalf',
+	surname: 'Grey',
 	description: 'Wizard. The big nob. Oh, i mean the biggest wizard 
 					of the Middle-earth, leader of the army of the 
 					West, also know as Mithrandir, The Grey Pilgrim,
-					The White Rider, Stormcrow etc'
+					The White Rider, Stormcrow etc',
+	email: 'gangan@mail.com',
+    facebook: 'fb/gandalfgrey',
+    linkedin: 'Gandalyk Gand',
+    site: 'http://gan-gan.com',
+    photo: '/assets/gandalf.jpg'
 	)
 
 gimli = Speaker.create(
 	name: 'Gimli',
+	surname: 'Grisli',
 	description: 'A dwarf with capital D'
 	)
 
 sam = Speaker.create(
-	name: 'Samwise Gamgee',
+	name: 'Samwise',
+	surname: 'Gamgee',
 	description: 'Sam, just Sam'
 	)
 
 ent = Speaker.create(
-	name: 'Fangorn the Ent',
-	description: 'Hum-hum-hum'
+	name: 'Fangorn',
+	surname: 'Ent',
+	description: 'Hum-hum-hum',
+	photo: '/assets/fangorn.jpg'
 	)
 
 #conferences
@@ -71,6 +96,27 @@ onering = Conference.create(
 	year: 2014,
 	date: '2014-12-12',
 	attenders: 79
+	)
+
+ror2012 = Conference.create(
+	name: 'RoR',
+	year: 2012,
+	date: '2012-11-12',
+	attenders: 12
+	)
+
+ror2013 = Conference.create(
+	name: 'RoR',
+	year: 2013,
+	date: '2013-11-12',
+	attenders: 22
+	)
+
+ror2014 = Conference.create(
+	name: 'RoR',
+	year: 2014,
+	date: '2014-11-12',
+	attenders: 372
 	)
 
 victory = Conference.create(
@@ -110,14 +156,6 @@ onering.events.create(
 	event_type: topic
 	)
 
-victory.events.create(
-	title: 'A long way in the dunes',
-	timestart: '2015-11-12 15:30:00',
-	speaker: frodo,
-	description: 'How to play piano, using only 9 fingers',
-	event_type: topic
-	)
-
 onering.events.create(
 	title: 'How many orcs i\'ll kill',
 	timestart: '2014-12-12 16:30:00',
@@ -143,11 +181,30 @@ onering.events.create(
 	speaker: ent
 	)
 
+victory.events.create(
+	title: 'A long way in the dunes',
+	timestart: '2015-11-12 15:30:00',
+	speaker: frodo,
+	description: 'How to play piano, using only 9 fingers',
+	event_type: topic
+	)
+
+victory.events.create(
+	title: 'The Eagles',
+	timestart: '2015-11-12 17:30:00',
+	speaker: gandalf,
+	description: 'Lightning, as a form of air defence',
+	event_type: lightning
+	)
+
 
 #locations
 pasternaka = Location.create(
 	id: 1,
-	address: 'Pasternaka 5, Lviv',
+	place_type: 'Hotel',
+	name: 'California',
+	city: 'Lviv',
+	address: 'Pasternaka 5',
 	latitude: 49.8327337,
 	longitude: 23.9992261,
 	conference: onering
@@ -155,7 +212,10 @@ pasternaka = Location.create(
 
 sadova = Location.create(
 	id: 2,
-	address: 'Sadova 2a, Lviv',
+	place_type: 'Palace',
+	name: 'Best',
+	city: 'Lviv',
+	address: 'Sadova 2a',
 	latitude: 49.8210367,
 	longitude: 23.9875698,
 	conference: victory
@@ -202,3 +262,9 @@ andriy = Contact.create(
 	skype: 'andr_loz',
 	location: pasternaka
 	)
+
+admin = Admin.new
+    admin.email = "admin@example.com" 
+	admin.password = "00000000"
+	admin.password_confirmation = "00000000"
+    admin.save!

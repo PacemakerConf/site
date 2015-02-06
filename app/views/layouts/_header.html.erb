@@ -1,6 +1,111 @@
+<link rel="stylesheet" type="text/css" href="style/menuStyle.css">
+	<div class="container ">
+		<div class="main-menu">
+			<ul class="conference-menu">
+				<div id="greyBtn">
+					<li class="other">
+						<img src="/assets/GREY.png">
+						<p><a href="http://localhost:3000/">Event</a></p>
+					</li>
+				</div>
+				<div id="redBtn">
+					<li class="year">
+						<img src="/assets/RED.png">
+						<p><a href="http://localhost:3000/conferences/">2013</a></p>
+					<li class="old-other">
+						<img src="/assets/GREY.png">
+						<p><a href="http://localhost:3000/">RUBY</a></p>
+					</li>
+					<li class="old-other">
+						<img src="/assets/GREY.png">
+						<p><a href="http://localhost:3000/">JAVA</a></p>
+					</li>					
+					<li class="old-other">
+						<img src="/assets/GREY.png">
+						<p><a href="http://localhost:3000/">C++</a></p>
+					</li>					
+					<li class="old-other">
+						<img src="/assets/GREY.png">
+						<p><a href="http://localhost:3000/">.NET</a></p>
+					</li>
+					</li>
+				</div>
+				<div id="blueBtn">
+					<li class="inside">
+						<img src="/assets/BLUE.png">
+						<p><a href="http://localhost:3000/conferences/">2014</a></p>
+					<li class="year-other">
+						<img src="/assets/GREY.png">
+						<p><a href="http://localhost:3000/">LAMP</a></p>
+					</li>					
+					<li class="year-other">
+						<img src="/assets/GREY.png">
+						<p><a href="http://localhost:3000/">Web-UI</a></p>
+					</li>					
+					<li class="year-other">
+						<img src="/assets/GREY.png">
+						<p><a href="http://localhost:3000/">JScrip</a></p>
+					</li>					
+					<li class="year-other">
+						<img src="/assets/GREY.png">
+						<p><a href="http://localhost:3000/">CSS3</a></p>
+					</li>
+					</li>
+				</div>
+				<div id="greenBtn">
+					<li class="current-year">
+						<img src="/assets/GREEN.png">
+						<p><a href="http://localhost:3000/conferences/">2015</a></p>
+					<li class="future-other">
+						<img src="/assets/GREY.png">
+						<p><a href="http://localhost:3000/">RUBY</a></p>
+					</li>
+					<li class="future-other">
+						<img src="/assets/GREY.png">
+						<p><a href="http://localhost:3000/">JAVA</a></p>
+					</li>					
+					<li class="future-other">
+						<img src="/assets/GREY.png">
+						<p><a href="http://localhost:3000/">C++</a></p>
+					</li>					
+					</li>
+				</div>
+			</ul>
+		</div>
 
-	<div class="Main menu"></div>
-		<div class="container ">
+	<script>
+	/*	$(document).ready(function () {
+			function menuToggle(flag,btn){	
+				$(flag).hide();
+				$( btn ).click(function() {
+					$(this).parent().find( flag ).first().toggle( "fast", function showNext() {
+						$( this ).next( flag ).toggle( "fast", showNext );
+					});
+				});
+			}; 
+			menuToggle('.old-other',"#redBtn");
+			menuToggle('.year-other',"#redBtn");*/
+		$(document).ready(function () {
+ 		$('.old-other').hide();
+ 		$('.year-other').hide();
+ 		$('.future-other').hide();
+			$( "#redBtn" ).click(function() {
+				$(this).parent().find( ".old-other" ).first().toggle( "fast", function showNext() {
+					$( this ).next( ".old-other" ).toggle( "fast", showNext );
+				});
+			});
+			$( "#blueBtn" ).click(function() {
+				$( ".year-other" ).first().toggle( "fast", function showNext() {
+					$( this ).next( ".year-other" ).toggle( "fast", showNext );
+				});
+			});
+			$( "#greenBtn").click(function() {
+				$( ".future-other" ).first().toggle( "fast", function showNext() {
+					$( this ).next( ".future-other" ).toggle( "fast", showNext );
+				});
+			});
+		});
+	</script>
 			<div class="row">
 				<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 					<ul class="nav nav-pills">
@@ -31,27 +136,28 @@
 				</div>
 			
 			<div class="row first">
-				<div class="name-conteiner col-lg-9 col-md-9 col-sm-8 col-xs-8">
+				<div class="name-conteiner col-lg-9 col-md-9 col-sm-8 col-xs-12">
 					<div class="conference-name">
 						<h1> Pacemaker
 							<% if @conference %>
-								: <%= @conference.name %>
+								: <%= @conference.name%>
+								-<%= @conference.year %>
 							<% end %>
 						</h1>
 					</div>
 				</div>
-				<div class=" contacts col-lg-3 col-md-3 col-sm-4 col-xs-4">
+				<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 contacts">
 					<div class="conference-det-2">
 						<ul>
 							<% if @conference %>
-								<li>
-									This time <strong><%= @conference.attenders %> lucky people</strong> 
-								</li>
-								<li>
-									will meet on <strong><%=@conference.date %></strong>
-								</li>
-								<li>
-									in a beautiful city of <strong> Lviv</strong></li>
+							<li>
+								This time <strong><%= @conference.attenders %> lucky people</strong> 
+							</li>
+							<li>
+								will meet on <strong><%=@conference.date %></strong>
+							</li>
+							<li>
+							in a beautiful city of <strong> Lviv</strong></li>
 							<% end %>	
 						</ul>
 					</div>
