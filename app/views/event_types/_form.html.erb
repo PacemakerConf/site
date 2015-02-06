@@ -45,10 +45,10 @@
             <div class="ddHead">
               <span id="DropDownMark" class="btn btn-default btn-sm glyphicon glyphicon-list"></span>
                 <ul class="bs-glyphicons bs-glyphicons-list">
-                <% $i = 0 %>
+                <% @@i = 0 %>
                 <% takeGLYPHS().each do |className|%>
-                  <li><span  class="btn btn-default btn-sm glyphicon glyphicon<%= className %>" onclick="imageToField(<%= $i %>)"></span></li>
-                  <% $i=$i+1 %>
+                  <li><span  class="btn btn-default btn-sm glyphicon glyphicon<%= className %>" onclick="imageToField(<%= @@i %>)"></span></li>
+                  <% @@i=@@i+1 %>
                 <% end %>
                 </ul>
             </div>

@@ -1,6 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<table>
+<table class="table table-responsive">
+  <colgroup class="new_event_type">
+      <col></col>
+      <col></col>
+    </colgroup>
   <tbody>
     <tr>
       <th>Name:</th>
@@ -13,7 +17,7 @@
 
     <tr>
       <th>Defaultduration:</th>
-      <td><%= @event_type.defaultDuration %></td>
+      <td><%= durationReturn(@event_type.defaultDuration) %></td>
     </tr>
 
     <tr>

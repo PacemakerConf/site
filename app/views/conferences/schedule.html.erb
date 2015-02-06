@@ -1,10 +1,5 @@
-<table>
-<tbody>
+<ul>
 <% @events.each do |event| %>
-	<tr>
-		<td><%= event.title %></td>
-	</tr>
+	<li><%= event.title %></li>
 <% end %>
-</tbody>
-</table>
-
+</ul>
