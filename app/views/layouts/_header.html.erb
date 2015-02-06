@@ -112,6 +112,24 @@
 					</li>					
 					</li>
 				</div>
+				<li class="other">
+					<img src="/assets/GREY.png">
+				</li>
+				<li class="other">
+					<img src="/assets/GREY.png">
+				</li>
+				<li class="other">
+					<img src="/assets/GREY.png">
+				</li>
+				<li class="other">
+					<img src="/assets/GREY.png">
+				</li>
+				<li class="current-year">
+					<img src="/assets/GREEN.png">
+				</li>
+				<li class="current-year">
+					<img src="/assets/GREEN.png">
+				</li>
 			</ul>
 		</div>
 
@@ -154,7 +172,7 @@
 						<% unless @conference.nil? || @conference.id.nil? %>
 							<li><%= link_to "About", about_conference_path %></a></li>
 							<li><%= link_to "Speakers", speakers_conference_path%></a></li>
-							<li><%= link_to "Schedual", '#'%></a></li>
+							<li><%= link_to "Scheduale", '#'%></a></li>
 							<li><%= link_to "Location", location_conference_path%></a></li>
 							<li><%= link_to "Report", '#' %></a></li>
 						<% end %>
@@ -178,7 +196,7 @@
 				</div>
 			
 			<div class="row first">
-				<div class="name-conteiner col-lg-9 col-md-9 col-sm-8 col-xs-8">
+				<div class="name-conteiner col-lg-9 col-md-9 col-sm-8 col-xs-12">
 					<div class="conference-name">
 						<h1> Pacemaker
 							<% if @conference %>
@@ -188,18 +206,18 @@
 						</h1>
 					</div>
 				</div>
-				<div class=" contacts col-lg-3 col-md-3 col-sm-4 col-xs-4">
+				<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 contacts">
 					<div class="conference-det-2">
 						<ul>
 							<% if @conference %>
-								<li>
-									This time <strong><%= @conference.attenders %> lucky people</strong> 
-								</li>
-								<li>
-									will meet on <strong><%=@conference.date %></strong>
-								</li>
-								<li>
-									in a beautiful city of <strong> Lviv</strong></li>
+							<li>
+								This time <strong><%= @conference.attenders %> lucky people</strong> 
+							</li>
+							<li>
+								will meet on <strong><%=@conference.date %></strong>
+							</li>
+							<li>
+							in a beautiful city of <strong> Lviv</strong></li>
 							<% end %>	
 						</ul>
 					</div>
