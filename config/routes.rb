@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
- # root 'conferences#show', name: Conference.last_conference
+root 'conferences#show', name: Conference.last_conference
 
   resources :conferences, param: :name
 

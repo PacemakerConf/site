@@ -13,11 +13,11 @@
 
   <div class="field">
     <%= f.label :name %><br>
-    <%= f.text_field :name, size: "30" %>
+    <%= f.text_field :name, size: "25" %>
   </div>
   <div class="field">
     <%= f.label :year %><br>
-    <%= f.number_field :year, value: "2015", size: "30" %>
+    <%= f.number_field :year, value: "2015", size: "25" %>
     <%= select_year(Time.now) %>
   </div>
   <div class="field" id = "datetimepicker" >
@@ -27,7 +27,7 @@
   </div>
   <div class="field">
     <%= f.label :attenders_count %><br>
-    <%= f.number_field :attenders, size: "30", value: "1", min: "1" %>
+    <%= f.number_field :attenders, size: "25", value: "1", min: "1" %>
   </div>
   <div class="actions">
   <%= f.submit "Create" %>
