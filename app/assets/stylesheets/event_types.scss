@@ -1,3 +1,73 @@
 // Place all the styles related to the EventTypes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+colgroup.index_event_types col{
+  width: 5%;
+}
+colgroup.index_event_types col:nth-child(2),
+colgroup.index_event_types col:nth-child(3){
+  width: auto;
+}
+
+colgroup.new_event_type col:nth-child(1){
+  width:10%;
+}
+
+.color-choose {
+  padding: 0px;
+}
+
+div.customDropDown ul {
+        display: none;
+      }
+div.customDropDown div.ddHead:hover > ul {
+        display: block;
+      } 
+
+div.customDropDown ,
+div.customDropDown div.ddHead:hover {
+        list-style: none;
+        position: relative;
+        display: inline-table;
+      }
+div.customDropDown div.ddHead:hover:after {
+        clear: both;
+        display: block;
+      }
+div.customDropDown div.ddHead:hover ul {
+        padding: 0;
+        top: 100%;
+      }
+div.customDropDown div.ddHead:hover ul li {
+        list-style: none;
+      }
+div.customDropDown div.ddHead:hover ul li span {
+        color: #000;
+      }
+
+.bs-glyphicons {
+    overflow:hidden;
+    }
+.bs-glyphicons-list{
+    padding-left:0;
+    list-style:none;
+    }
+.bs-glyphicons li{
+    float:left;
+    height:width;
+    line-height:1.4;
+    text-align:center;
+    background-color:#f9f9f9;
+    border:1px solid #fff;
+    }
+.bs-glyphicons .glyphicon-class{
+    display:block;
+    text-align:center;
+    word-wrap:break-word;
+    }
+.bs-glyphicons li:hover{
+    background-color:#563d7c;
+    }
+
+

@@ -1,34 +1,38 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @event_type.name %>
-</p>
+<table>
+  <tbody>
+    <tr>
+      <th>Name:</th>
+      <td><%= @event_type.name %></td>
+    </tr>
+    <tr>
+      <th>Description:</th>
+      <td><%= @event_type.description %></td>
+    </tr>
 
-<p>
-  <strong>Description:</strong>
-  <%= @event_type.description %>
-</p>
+    <tr>
+      <th>Defaultduration:</th>
+      <td><%= @event_type.defaultDuration %></td>
+    </tr>
 
-<p>
-  <strong>Defaultduration:</strong>
-  <%= @event_type.defaultDuration %>
-</p>
+    <tr>
+      <th>Color:</th>
+      <td><span class="btn-xs" style="background-color:<%= @event_type.color %>"></span></td>
+    </tr>
 
-<p>
-  <strong>Color:</strong>
-  <%= @event_type.color %>
-</p>
+    <tr>
+      <th>Image:</th>
+      <td><span class="glyphicon"><span class="glyphicon<%=classImage(@event_type.image)%>"></span></span></td>
+    </tr>
 
-<p>
-  <strong>Image:</strong>
-  <%= @event_type.image %>
-</p>
+    <tr>
+      <th>Speakerevent:</th>
+      <td><span class="glyphicon"><span class="glyphicon<%=speakerEventCheck(@event_type.speakerEvent)%>"></span></span></td>
+    </tr>
+  </tbody>
+</table>
 
-<p>
-  <strong>Speakerevent:</strong>
-  <%= @event_type.speakerEvent %>
-</p>
+<%= link_to 'Edit', edit_event_type_path(@event_type), class: "btn btn-default btn-sm" %>
+<%= link_to 'Back', event_types_path, class: "btn btn-default btn-sm" %>
 
-<%= link_to 'Edit', edit_event_type_path(@event_type) %> |
-<%= link_to 'Back', event_types_path %>

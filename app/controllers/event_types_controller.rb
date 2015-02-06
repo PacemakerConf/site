@@ -28,7 +28,8 @@ class EventTypesController < ApplicationController
 
     respond_to do |format|
       if @event_type.save
-        format.html { redirect_to @event_type, notice: 'Event type was successfully created.' }
+        # format.html { redirect_to @event_type, notice: 'Event type was successfully created.' }
+        format.html { redirect_to event_types_url, notice: 'Event type was successfully created.' }
         format.json { render :show, status: :created, location: @event_type }
       else
         format.html { render :new }
@@ -42,7 +43,8 @@ class EventTypesController < ApplicationController
   def update
     respond_to do |format|
       if @event_type.update(event_type_params)
-        format.html { redirect_to @event_type, notice: 'Event type was successfully updated.' }
+        # format.html { redirect_to @event_type, notice: 'Event type was successfully updated.' }
+        format.html { redirect_to event_types_url, notice: 'Event type was successfully updated.' }
         format.json { render :show, status: :ok, location: @event_type }
       else
         format.html { render :edit }

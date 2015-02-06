@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       get 'about', to: 'conferences#show'
       get 'speakers', to: 'conferences#speakers'
       get 'location', to: 'conferences#location'
+      get 'schedule', to: 'conferences#schedule'
     end
   end
 
@@ -14,6 +15,7 @@ Rails.application.routes.draw do
     resources :contacts
     resources :locations  
     resources :event_types
+
   
   root 'conferences#index'
 

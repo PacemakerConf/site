@@ -11,51 +11,65 @@
     </div>
   <% end %>
 
-  <table class="table table-striped table-hover ">
+  <table class="table table-responsive">
+    <colgroup class="new_event_type">
+      <col></col>
+      <col></col>
+    </colgroup>
     <tr>
-      <td><%= f.label :name, class: 'col-lg-2 control-label' %></td>
-      <td><%= f.text_field :name, class: 'form-control' %></td>
+      <td><%= f.label :name, class: 'control-label' %></td>
+      <td><%= f.text_field :name, class: ' form-control'%></td>
     </tr>
 
     <tr>
-      <td><%= f.label :description, class: 'col-lg-2 control-label' %></td>
+      <td><%= f.label :description, class: 'control-label' %></td>
       <td><%= f.text_area :description, class: 'form-control' %></td>
     </tr>
 
     <tr>
-      <td>
-        <label class="col-lg-2 control-label" for="event_type_defaultDuration">Default Duration</label>
-        <!-- <%= f.label :defaultDuration %> -->
-      </td>
-      <td>
-        <%= f.select(:defaultDuration, [[0, 1], [1, 2], [2, 3], [3, 4]]) %>hr
-        <%= f.select(:defaultDuration, [[0, 1], [5, 2], [10, 3], [15, 4], [20, 5], [25, 6], [30, 7], [35, 8], [40, 9], [45, 10], [50, 11], [55, 12]]) %>min
-      </td>
+      <td><label class="control-label" for="event_type_defaultDuration">Default Duration</label></td>
+      <td><%= f.time_select :defaultDuration, {start_hour: 0, end_hour: 4, minute_step: 15, time_separator: ''}, class: 'btn-default btn-xs' %></td>
     </tr>
 
     <tr>
-      <td><%= f.label :color, class: 'col-lg-2 control-label' %></td>
-      <td><%= f.color_field :color, class: 'form-control' %></td>
+      <td><%= f.label :color, class: 'control-label' %></td>
+      <td><%= f.color_field :color, class: 'btn-default color-choose' %></td>
     </tr>
   
     <tr>
-      <td><%= f.label :image, class: 'col-lg-2 control-label' %></td>
       <td>
-        <%= f.select(:image,[[0,1],[1,2]]) %>
+        <%= f.label :image, class: 'control-label' %>
+      </td>
+      <td>
+        <div class="customDropDown">
+            <div class="ddHead">
+              <span id="DropDownMark" class="btn btn-default btn-sm glyphicon glyphicon-list"></span>
+                <ul class="bs-glyphicons bs-glyphicons-list">
+                <% $i = 0 %>
+                <% takeGLYPHS().each do |className|%>
+                  <li><span  class="btn btn-default btn-sm glyphicon glyphicon<%= className %>" onclick="imageToField(<%= $i %>)"></span></li>
+                  <% $i=$i+1 %>
+                <% end %>
+                </ul>
+            </div>
+          </div>
+
+        <%= f.text_area :image, class: 'hide' %>
       </td>
     </tr>
 
     <tr>
       <td>
-        <label class="col-lg-2 control-label" for="event_type_speakerEvent">Speaker Event</label>
-        <!-- <%= f.label :speakerEvent %>  -->
-      </td>
-      <td><%= f.check_box :speakerEvent %></td>
+        <label class="control-label" for="event_type_speakerEvent">Speaker Event</label>
+        <!-- <%#= f.label :speakerEvent %>  --></td>
+      <td>
+        <%= f.check_box :speakerEvent%></td>
     </tr>
 
   </table>
 
   <div class="actions">
-    <%= f.submit 'Add Type', class: 'btn btn-primary'%>
+    <%= f.submit 'Confirm', class: 'btn btn-primary'%>
   </div>
+
 <% end %>
