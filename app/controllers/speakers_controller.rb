@@ -21,7 +21,7 @@ class SpeakersController < ApplicationController
   def edit
   end
 
-  def invite 
+  def invite
   end
 
 
