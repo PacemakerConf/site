@@ -8,7 +8,7 @@ class Location < ActiveRecord::Base
 
 	belongs_to :conference
 
-	has_many :contacts
+	has_and_belongs_to_many :contacts
 
 	validates :address, presence: true
 	validates :conference_id, presence: true
