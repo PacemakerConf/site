@@ -1,42 +1,57 @@
-<p id="notice"><%= notice %></p>
+<!-- DataTables CSS -->
+<link rel="stylesheet" type="text/css" href="vendor/assets/dataTables/css/jquery.dataTables.css">
+<!-- DataTables -->
+<script type="text/javascript" charset="utf8" src="vendor/assets/dataTables/js/jquery.dataTables.js"></script> 
+<!-- jQuery -->
+<script type="text/javascript" src="vendor/assets/javascripts/jquery-1.11.2.js"></script>
 
-<% @location.each  do |location| %>
+<h1>Listing Locations</h1>
+<table id="location" class="display" width="100%" cellspacing="0">
+  <thead>
+    <tr>
+        <th>Place Type</th>
+        <th>Name</th>
+        <th>City</th>
+        <th>Address</th>
+        <th>Show</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+  </thead>
+  <tfoot>
+    <tr>
+        <th>Place Type</th>
+        <th>Name</th>
+        <th>City</th>
+        <th>Address</th>
+        <th>Show</th>
+        <th>Edit</th>
+        <th>Delete</th>
+   </tr>
+  </tfoot>
+  <tbody>
+       <% @location.each do |location| %>
+      <tr>
+        <td><%= location.place_type %></td>
+        <td><%= location.name %></td>
+        <td><%= location.city %></td>
+        <td><%= location.address %></td>
+        <td><%= link_to 'Show', location %></td>
+        <td><%= link_to 'Edit', edit_location_path(location) %></td>
+        <td><%= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-<p>
- <strong>Place Type:</strong>
-  <%= location.place_type %>
-</p>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#location').dataTable({
+      paging: true
+    });
+  });
+</script>
 
-<p>
- <strong>Name:</strong>
-  <%= location.name %>
-</p>
+<br>
 
-<p>
- <strong>City:</strong>
-  <%= location.city %>
-</p>
-
-<p>
- <strong>Address:</strong>
-  <%= location.address %>
-</p>
-
-<p>
-  <strong>Latitude:</strong>
-  <%= location.latitude %>
-</p>
-
-<p>
-  <strong>Longitude:</strong>
-  <%= location.longitude %>
-</p>
-
-<p>
-  <strong>Conference:</strong>
-  <%= location.conference_id %>
-</p>
-
-<br />
-
-<% end %>
+<%= link_to 'New Location', new_location_path %>
