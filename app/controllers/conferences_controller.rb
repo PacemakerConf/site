@@ -1,5 +1,6 @@
 class ConferencesController < ApplicationController
-  before_action :authenticate_admin!, except: [:show]
+  
+  before_action :authenticate_admin!, except: [:show, :location, :speakers]
   before_action :set_conference, only: [:location, :speakers, :show, :edit, :update, :destroy]
  
   def location 

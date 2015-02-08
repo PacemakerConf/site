@@ -15,9 +15,9 @@ Rails.application.routes.draw do
   as :admin do
     get 'login', to: 'devise/sessions#new', as: :new_admin_session
     post 'login', to: 'devise/sessions#create', as: :admin_session
-    delete 'logout', to: 'devise/sessions#destroy', as: :destroy_admin_session 
+    delete 'logout', to: 'devise/sessions#destroy', as: :destroy_admin_session
   end
-
+  
   resources :speakers, param: :name do
     collection do
       get 'invite', to: 'speakers#invite'
