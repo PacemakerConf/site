@@ -1,0 +1,35 @@
+<%= form_for(@conference) do |f| %>
+  <% if @conference.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@conference.errors.count, "error") %> prohibited this conference from being saved:</h2>
+
+      <ul>
+      <% @conference.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, size: "25" %>
+  </div>
+  <div class="field">
+    <%= f.label :year %><br>
+    <%= f.number_field :year, value: "2015", size: "25" %>
+    <%= select_year(Time.now) %>
+  </div>
+  <div class="field" id = "datetimepicker" >
+    <%= f.label :date %><br>
+    <%= select_date Date.today, prefix: :start_date %><br>
+    <%= f.text_field :date, :class => "datetimepicker",:method=>"get"%>
+  </div>
+  <div class="field">
+    <%= f.label :attenders_count %><br>
+    <%= f.number_field :attenders, size: "25", value: "1", min: "1" %>
+  </div>
+  <div class="actions">
+  <%= f.submit "Create" %>
+  </div>
+<% end %>

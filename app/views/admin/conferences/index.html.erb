@@ -1,0 +1,51 @@
+<h1>Listing Conferences</h1>
+<table id="conference" class="display" width="100%" cellspacing="0">
+  <thead>
+    <tr>
+        <th>Conference Name</th>
+        <th>Year</th>
+        <th>Date</th>
+        <th>Attenders</th>
+        <th>Location</th>
+        <th>Report</th>
+        <th>Show</th>
+        <th>Edit</th>
+        <th>Delete</th>
+<!-- <th colspan="3"> <center>Actions</center></th> not working? -->
+    </tr>
+  </thead>
+  <tbody>
+      <% @conferences.each do |conference| %>
+      <tr>
+          <td><%= conference.name %></td>
+          <td><%= conference.year %></td>
+          <td><%= conference.date %></td>
+          <td><%= conference.attenders %></td>
+
+          <% conf = conference.name.to_s + "-" + conference.year.to_s %>
+
+          <td><%= unless(conference.location.nil?)
+                    link_to "#{conference.location.address}", location_conference_path(conf)
+                  else
+                    link_to "Create Location", new_admin_location_path()
+                  end %></td>
+          <td><%= link_to 'Report', conference.report %></td>
+          <td><%= link_to 'Show', about_conference_path(conference.name.to_s + "-" + conference.year.to_s) %></td>
+          <td><%= link_to 'Edit', edit_admin_conference_path(conference.name.to_s + "-" + conference.year.to_s) %></td>
+          <td><%= link_to 'Destroy', admin_conference_path(conference.name.to_s + "-" + conference.year.to_s), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#conference').dataTable({
+      paging: true
+    });
+  });
+</script>
+
+<br>
+
+<%= link_to 'New Conference', new_admin_conference_path %>

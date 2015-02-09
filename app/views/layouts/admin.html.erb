@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>admin | Pacemaker</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+
+	<body>
+	
+		<%= render 'layouts/admin_links' %>
+
+		<div class="row main-content">
+			<%= yield %>
+		</div>
+
+		<div id ="admin_nav">	
+			<% if admin_signed_in? %>
+				Logged in as <strong><%= current_admin.email%></strong>.
+				<%= link_to "Logout", destroy_admin_session_path, method: :delete %>
+			<% else %>
+				<%= link_to "Login", new_admin_session_path %>
+			<% end %>
+		</div>
+
+	</body>
+</html>

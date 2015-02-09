@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'conferences#show', name: Conference.last_conference
+  #root 'conferences#show', name: Conference.last_conference
 
   #get 'location/new', to: 'location#new', name: Conference.name
   #get 'location/new/:name' , to: 'location#new' , as: :new_location
@@ -12,24 +12,25 @@ Rails.application.routes.draw do
       delete 'logout' => 'devise/sessions#destroy', :as => :destroy_admin_session 
     end
 
+  namespace :admin do
+    resources :conferences, param: :name
+    resources :speakers, param: :name
+    resources :contacts
+    resources :event_types
+    resources :locations  
+  end
+
   resources :speakers, param: :name do
     collection do
       get 'invite', to: 'speakers#invite'
     end
   end 
 
-  resources :contacts
-  resources :locations  
-  resources :event_types
   resources :conferences, param: :name
-
-  namespace :admin do
-    resources :speakers
-  end
 
   get ':name/about', to: 'conferences#show', as: :about_conference
   get ':name/speakers', to: 'conferences#speakers', as: :speakers_conference
   get ':name/location', to: 'conferences#location', as: :location_conference
   get ':name/schedule', to: 'conferences#schedule', as: :schedule_conference
 
-end
+end 
