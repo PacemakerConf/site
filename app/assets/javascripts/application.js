@@ -13,9 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
-//= require jquery.datetimepicker
-//= require jquery.datetimepicker/init.js
-//= require jquery-1.11.2.js
-//= require jquery.dataTables.js
 //= require turbolinks
 //= require_tree .
+//= require jquery.datetimepicker
+//= require jquery.datetimepicker/init
+//= require jquery-1.11.2.js
+//= require jquery.dataTables.js
+
+

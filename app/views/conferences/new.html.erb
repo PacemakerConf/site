@@ -1,9 +1,17 @@
+<title>New Conference</title>
+<h1>New Conference</h1>
 <%= render 'form' %>
 
-    <script type="text/javascript">
+<script type="text/javascript">
         $(document).ready(function() {
-        $('.datetimepicker').datetimepicker();
-        });
-    </script>
+            $('.datetimepicker').datetimepicker({
+    minDate:'2010/01/01',
+    maxDate:'2100/01/01',
+    minTime:'08:00',
+    maxTime:'12:01',
+    step:15,
+    });
+    });
+</script>
 
 <%= link_to 'Back', conferences_path %>
