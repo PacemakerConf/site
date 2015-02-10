@@ -1,21 +1,8 @@
- <!DOCTYPE html>
- <html>
- <head>
-     <title>New Conference</title>
-     <h1>New Conference</h1>
-
-          <!--Requirement jQuery-->
-          <!--  <script type="text/javascript" src="vendor/assets/javascripts/jquery-1.11.2.js"></script> -->
-    <!--script type="text/javascript" src="vendor/assets/javascripts/jquery.js"></script>
-          <! Load Script and Stylesheet -->
-      <!--script type="text/javascript" src="vendor/assets/javascripts/jquery.datetimepicker.js"></script>
-      <link type="text/css" href="vendor/assets/stylesheets/jquery.datetimepicker.css" rel="stylesheet" /-->
- </head>
- <body>
-
+<title>New Conference</title>
+<h1>New Conference</h1>
 <%= render 'form' %>
 
-    <script type="text/javascript">
+<script type="text/javascript">
         $(document).ready(function() {
             $('.datetimepicker').datetimepicker({
     minDate:'2010/01/01',
@@ -25,7 +12,6 @@
     step:15,
     });
     });
-    </script>
+</script>
 
 <%= link_to 'Back', conferences_path %>
- </html>
