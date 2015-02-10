@@ -1,6 +1,6 @@
 class SpeakersController < ApplicationController
   before_action :set_speaker, only: [:show, :edit, :update, :destroy]
-  
+  load_and_authorize_resource
   # GET /speakers
   # GET /speakers.json
   def index
@@ -19,6 +19,7 @@ class SpeakersController < ApplicationController
 
   # GET /speakers/1/edit
   def edit
+    #authorize! :update, @speaker
   end
 
   def invite 
