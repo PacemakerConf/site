@@ -2,12 +2,6 @@
 	<div class="container ">
 		<div class="main-menu">
 			<ul class="conference-menu">
-				<div id="greyBtn">
-					<li class="other">
-						<img src="/assets/GREY.png">
-						<p><a href="http://localhost:3000/">Event</a></p>
-					</li>
-				</div>
 				<div id="redBtn">
 					<li class="year">
 						<img src="/assets/RED.png">
@@ -74,17 +68,6 @@
 		</div>
 
 	<script>
-	/*	$(document).ready(function () {
-			function menuToggle(flag,btn){	
-				$(flag).hide();
-				$( btn ).click(function() {
-					$(this).parent().find( flag ).first().toggle( "fast", function showNext() {
-						$( this ).next( flag ).toggle( "fast", showNext );
-					});
-				});
-			}; 
-			menuToggle('.old-other',"#redBtn");
-			menuToggle('.year-other',"#redBtn");*/
 		$(document).ready(function () {
  		$('.old-other').hide();
  		$('.year-other').hide();
