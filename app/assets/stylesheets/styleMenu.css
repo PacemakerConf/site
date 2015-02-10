@@ -1,13 +1,20 @@
+		.container {
+		position: relative;
+		margin-top: 0px;
+		}
+
 		.main-menu {
 	    margin: 0 0 35px 0;
+	    position: relative;
+	    z-index: 1;
 		}
 		.main-menu ul div{
 	    display: inline-block;
 	    width: auto;
-	    margin-right: 0 0 0 25px; 
+
 		}
 		.main-menu ul div li p a{
-		color: black;
+		color: white;
 	    background-color: transparent;
 		}
 
