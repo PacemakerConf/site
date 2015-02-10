@@ -1,0 +1,75 @@
+<%= form_for(@event_type) do |f| %>
+  <% if @event_type.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@event_type.errors.count, "error") %> prohibited this event_type from being saved:</h2>
+
+      <ul>
+      <% @event_type.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <table class="table table-responsive">
+    <colgroup class="new_event_type">
+      <col></col>
+      <col></col>
+    </colgroup>
+    <tr>
+      <td><%= f.label :name, class: 'control-label' %></td>
+      <td><%= f.text_field :name, class: ' form-control'%></td>
+    </tr>
+
+    <tr>
+      <td><%= f.label :description, class: 'control-label' %></td>
+      <td><%= f.text_area :description, class: 'form-control' %></td>
+    </tr>
+
+    <tr>
+      <td><label class="control-label" for="event_type_defaultDuration">Default Duration</label></td>
+      <td><%= f.time_select :defaultDuration, {start_hour: 0, end_hour: 4, minute_step: 15, time_separator: ''}, class: 'btn-default btn-xs' %></td>
+    </tr>
+
+    <tr>
+      <td><%= f.label :color, class: 'control-label' %></td>
+      <td><%= f.color_field :color, class: 'btn-default color-choose' %></td>
+    </tr>
+  
+    <tr>
+      <td>
+        <%= f.label :image, class: 'control-label' %>
+      </td>
+      <td>
+        <div class="customDropDown">
+            <div class="ddHead">
+              <span id="DropDownMark" class="btn btn-default btn-sm glyphicon glyphicon-list"></span>
+                <ul class="bs-glyphicons bs-glyphicons-list">
+                <% @@i = 0 %>
+                <% takeGLYPHS().each do |className|%>
+                  <li><span  class="btn btn-default btn-sm glyphicon glyphicon<%= className %>" onclick="imageToField(<%= @@i %>)"></span></li>
+                  <% @@i=@@i+1 %>
+                <% end %>
+                </ul>
+            </div>
+          </div>
+
+        <%= f.text_area :image, class: 'hide' %>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <label class="control-label" for="event_type_speakerEvent">Speaker Event</label>
+        <!-- <%#= f.label :speakerEvent %>  --></td>
+      <td>
+        <%= f.check_box :speakerEvent%></td>
+    </tr>
+
+  </table>
+
+  <div class="actions">
+    <%= f.submit 'Confirm', class: 'btn btn-primary'%>
+  </div>
+
+<% end %>

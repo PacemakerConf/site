@@ -1,18 +1,38 @@
 #eventtypes
 topic = EventType.create(
-	name: 'topic'
+	name: 'topic',
+	description: 'some description',
+	defaultDuration: '2014-12-12 01:00:00',
+	color: '#222200',
+	image: '3',
+	speakerEvent: 1
 	)
 
 lightning = EventType.create(
-	name: 'lightning'
+	name: 'lightning',
+	description: 'some description',
+	defaultDuration: '2014-12-12 00:45:00',
+	color: '#ffff00',
+	image: '2',
+	speakerEvent: 1
 	)
 
 registration = EventType.create(
-	name: 'registration'
+	name: 'registration',
+	description: 'some description',
+	defaultDuration: '2014-12-12 00:30:00',
+	color: '#44ff44',
+	image: '1',
+	speakerEvent: 0
 	)
 
 beerbreak = EventType.create(
-	name: 'beer-break'
+	name: 'beer-break',
+	description: 'ho ho ho',
+	defaultDuration: '2014-12-12 03:00:00',
+	color: '#666600',
+	image: '0',
+	speakerEvent: 0
 	)
 
 
