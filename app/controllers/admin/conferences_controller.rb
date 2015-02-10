@@ -39,7 +39,7 @@ class Admin::ConferencesController < Admin::ApplicationController
 
     respond_to do |format|
       if @conference.save
-        format.html { redirect_to @conference, notice: 'Conference was successfully created.' }
+        format.html { redirect_to [:admin, @conference], notice: 'Conference was successfully created.' }
         format.json { render :show, status: :created, location: @conference }
       else
         format.html { render :new }
@@ -53,7 +53,7 @@ class Admin::ConferencesController < Admin::ApplicationController
   def update
     respond_to do |format|
       if @conference.update(conference_params)
-        format.html { redirect_to @conference, notice: 'Conference was successfully updated.' }
+        format.html { redirect_to [:admin, @conference], notice: 'Conference was successfully updated.' }
         format.json { render :show, status: :ok, location: @conference }
       else
         format.html { render :edit }
@@ -67,7 +67,7 @@ class Admin::ConferencesController < Admin::ApplicationController
   def destroy
     @conference.destroy
     respond_to do |format|
-      format.html { redirect_to conferences_url, notice: 'Conference was successfully destroyed.' }
+      format.html { redirect_to admin_conferences_url, notice: 'Conference was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

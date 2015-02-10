@@ -32,7 +32,7 @@ class Admin::SpeakersController < Admin::ApplicationController
 
     respond_to do |format|
       if @speaker.save
-        format.html { redirect_to @speaker, notice: 'Speaker was successfully created.' }
+        format.html { redirect_to [:admin, @speaker], notice: 'Speaker was successfully created.' }
         format.json { render :show, status: :created, location: @speaker }
       else
         format.html { render :new }
@@ -46,7 +46,7 @@ class Admin::SpeakersController < Admin::ApplicationController
   def update
     respond_to do |format|
       if @speaker.update(speaker_params)
-        format.html { redirect_to @speaker, notice: 'Speaker was successfully updated.' }
+        format.html { redirect_to [:admin, @speaker], notice: 'Speaker was successfully updated.' }
         format.json { render :show, status: :ok, location: @speaker }
       else
         format.html { render :edit }
@@ -60,7 +60,7 @@ class Admin::SpeakersController < Admin::ApplicationController
   def destroy
     @speaker.destroy
     respond_to do |format|
-      format.html { redirect_to speakers_url, notice: 'Speaker was successfully destroyed.' }
+      format.html { redirect_to admin_speakers_url, notice: 'Speaker was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
