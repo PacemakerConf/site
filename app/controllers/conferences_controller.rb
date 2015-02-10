@@ -1,6 +1,5 @@
 class ConferencesController < ApplicationController
 
-  before_action :authenticate_admin!, except: [:show, :location, :speakers]
   before_action :set_conference, only: [:schedule, :date, :location, :speakers, :show, :edit, :update, :destroy]
 
 
