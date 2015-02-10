@@ -27,6 +27,7 @@ class EventTypesController < ApplicationController
     @event_type = EventType.new(event_type_params)
 
     respond_to do |format|
+      format.js { render :file => "event_types2.js.erb" }
       if @event_type.save
         # format.html { redirect_to @event_type, notice: 'Event type was successfully created.' }
         format.html { redirect_to event_types_url, notice: 'Event type was successfully created.' }

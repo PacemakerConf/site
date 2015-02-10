@@ -43,11 +43,11 @@
       <td>
         <div class="customDropDown">
             <div class="ddHead">
-              <span id="DropDownMark" class="btn btn-default btn-sm glyphicon glyphicon-list"></span>
+              <span id="DropDownMark" class=""></span>
                 <ul class="bs-glyphicons bs-glyphicons-list">
                 <% @@i = 0 %>
                 <% takeGLYPHS().each do |className|%>
-                  <li><span  class="btn btn-default btn-sm glyphicon glyphicon<%= className %>" onclick="imageToField(<%= @@i %>)"></span></li>
+                  <li><span  class="btn btn-default btn-sm glyphicon glyphicon-<%= className %>" onclick="imageToField(<%= @@i %>)"></span></li>
                   <% @@i=@@i+1 %>
                 <% end %>
                 </ul>

@@ -1,5 +1,7 @@
 window.onload = function() {
+    // alert('0');
 	imageFromField('0');
+    // alert('1');
 }
 
 function imageFromField(){
