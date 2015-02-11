@@ -5,11 +5,11 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
 
-  def after_sign_in_path_for(admin)
+  #def after_sign_in_path_for(admin)
     #if current_admin.role == "administrator"
-      admin_conferences_path 
+   #   admin_conferences_path 
     #end
-  end
+  #end
 
   def current_user
     @current_user || 

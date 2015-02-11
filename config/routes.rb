@@ -14,9 +14,14 @@ Rails.application.routes.draw do
   
   namespace :admin do
     root 'conferences#index'
-    resources :conferences, param: :name
+    resources :conferences, param: :name do
+      member do
+        get 'shedule'
+      end
+    end
     resources :speakers, param: :name
     resources :contacts
+    resources :events
     resources :event_types
     resources :locations  
   end

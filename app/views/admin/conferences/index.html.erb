@@ -6,6 +6,7 @@
         <th>Year</th>
         <th>Date</th>
         <th>Attenders</th>
+        <th>Shedule</th>
         <th>Location</th>
         <th>Report</th>
         <th>Show</th>
@@ -21,6 +22,7 @@
           <td><%= conference.year %></td>
           <td><%= conference.date %></td>
           <td><%= conference.attenders %></td>
+          <td><%= link_to 'Shedule', shedule_admin_conference_path(conference)%></td>
 
           <% conf = conference.name.to_s + "-" + conference.year.to_s %>
 
