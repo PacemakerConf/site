@@ -1,20 +1,20 @@
 	<div class='speaker-container one-speaker'>
-		<div class='speaker-photo'>
-			PHOTO
-		</div>
+		<div class = 'speaker-photo'>
+     				PHOTO
+     			</div>
 		<div class='speaker-name'>
 			<%= @speaker.name %>
 			<%= @speaker.surname %>
 		</div>
-		<div>
-			<%= @speaker.description %>
+		<div class="speaker-description">
+			<p><%= @speaker.description %></p>
 		</div>
-		<div class="speaker-contacts">
-			<p><%= @speaker.email %></p>
-			<p><%= @speaker.facebook %></p>
-			<p><%= @speaker.linkedin %></p>
-			<p><%= @speaker.site %></p>
-		</div>
+		<ul class="speaker-contacts">
+			<li><a  <%= @speaker.email %> > <img src="/assets/twitter13.svg"></a></li>
+	    	<li><a <%= @speaker.facebook %> > <img src="/assets/facebook29.svg"></a></li>
+			<li><a <%= @speaker.linkedin %> > <img src="/assets/linkedin12.svg"></a></li>
+			<li><a> <%= @speaker.site %></a></li>
+		</ul>
 		<hr>
 	</div>
 	<div class = 'speeches-list'>
@@ -24,14 +24,14 @@
 			<!-- ongoing -->
 		<div class='ongoing-speech-container'>
 			<div class='speech-conference'>
-				<% conf = speech.conference.name.to_s + "-" + speech.conference.year.to_s %>					<h2> <%= link_to speech.conference.name, about_conference_path( conf ) %> </h2>	
+				<% conf = speech.conference.name.to_s + "-" + speech.conference.year.to_s %>					<h3> <%= link_to speech.conference.name, about_conference_path( conf ) %> </h3>	
 			</div>
 
 			<div class='speech-details'>
-				<h1> <%= speech.title %> </h1>
-				<h3>
+				<h2> <%= speech.title %> </h2>
+				<h4>
 					<%= speech.description %>
-				</h3>
+				</h4>
 			</div>
 		</div>
 		<% else %>

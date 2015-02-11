@@ -77,8 +77,8 @@
 
 .ongoing-speech-container{
 	background-color: rgba(255,255,255,0.31);
-	margin: 5px;
 	padding: 5px;
+	margin: 5px;
 }
 
 .ongoing-speech-container div{
@@ -87,11 +87,11 @@
 
 .speech-conference{
 	text-align: center;
-	margin: 5px;
+	margin: 10px;
 	padding: 10px;
 	width: 20%;
 }
-.speeches-list .speech-details{
+.speech-details{
 	margin: 5px;
 	padding: 5px;
 }
@@ -106,18 +106,10 @@
 	padding: 5px;
 }
 
+
 .speech-about{
 	float: left;
 	padding: 10px;
 	background-color: #eee;
 	margin-bottom: 8px;
-}
-
-.speaker-contacts li{
-	display: inline-block;
-	list-style: none;
-	margin: 5px;
-}
-.speaker-contacts img{
-	width:16px;
 }
