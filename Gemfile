@@ -19,7 +19,7 @@ gem 'twitter-bootstrap-rails'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 group :assets do 
-  gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
+  #gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
   gem 'jquery-ui-rails'
   gem 'jquery-datetimepicker-rails'
 end

@@ -1,3 +1,4 @@
+<<<<<<< HEAD:app/views/admin/locations/index.html.erb
 <p id="notice"><%= notice %></p>
 
 <% @location.each  do |location| %>
@@ -40,3 +41,62 @@
 <br />
 
 <% end %>
+=======
+<!-- DataTables CSS -->
+<link rel="stylesheet" type="text/css" href="vendor/assets/dataTables/css/jquery.dataTables.css">
+<!-- DataTables -->
+<script type="text/javascript" charset="utf8" src="vendor/assets/dataTables/js/jquery.dataTables.js"></script> 
+<!-- jQuery -->
+<script type="text/javascript" src="vendor/assets/javascripts/jquery-1.11.2.js"></script>
+
+<h1>Listing Locations</h1>
+<table id="location" class="display" width="100%" cellspacing="0">
+  <thead>
+    <tr>
+        <th>Place Type</th>
+        <th>Name</th>
+        <th>City</th>
+        <th>Address</th>
+        <th>Show</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+  </thead>
+  <tfoot>
+    <tr>
+        <th>Place Type</th>
+        <th>Name</th>
+        <th>City</th>
+        <th>Address</th>
+        <th>Show</th>
+        <th>Edit</th>
+        <th>Delete</th>
+   </tr>
+  </tfoot>
+  <tbody>
+       <% @location.each do |location| %>
+      <tr>
+        <td><%= location.place_type %></td>
+        <td><%= location.name %></td>
+        <td><%= location.city %></td>
+        <td><%= location.address %></td>
+        <td><%= link_to 'Show', location %></td>
+        <td><%= link_to 'Edit', edit_location_path(location) %></td>
+        <td><%= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#location').dataTable({
+      paging: true
+    });
+  });
+</script>
+
+<br>
+
+<%= link_to 'New Location', new_location_path %>
+>>>>>>> kirdan:app/views/locations/index.html.erb
