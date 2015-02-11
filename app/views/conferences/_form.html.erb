@@ -27,6 +27,10 @@
     <%= f.label :attenders_count %><br>
     <%= f.number_field :attenders, size: "25", value: "1", min: "1" %>
   </div>
+  <div class="field">
+    <%= f.label :group_event %><br>
+    <%= check_box_tag :group_event, value: "" %>
+  </div>
   <div class="actions">
   <%= f.submit "Create" %>
   </div>

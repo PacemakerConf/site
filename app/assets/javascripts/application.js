@@ -10,15 +10,15 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require_tree .
-//= require turbolinks
-//# require jquery
-//= require jquery-1.11.2
+//  require jquery
+//= require ../../../vendor/assets/javascripts/jquery-1.11.2
 //= require jquery_ujs
 //= require jquery-ui
 //= require jquery.dataTables.js
-//= require jquery.datetimepicker
-//# require jquery.datetimepicker/init
+//= require ../../../vendor/assets/javascripts/jquery.datetimepicker
+//# require ../../../vendor/assets/javascripts/jquery.datetimepicker/init
+//= require turbolinks
+//= require_tree .
 
 
 
