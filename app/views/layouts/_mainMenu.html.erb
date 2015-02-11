@@ -1,0 +1,93 @@
+<div class="main-menu">
+	<ul class="conference-menu">
+		<div id="old-year">
+			<li class="redBtn">
+				<img src="/assets/RED.png">
+				<p><a href="http://localhost:3000/conferences/">2013</a></p>
+			<li class="old-other">
+				<img src="/assets/GREY.png">
+				<p><a href="http://localhost:3000/">RUBY</a></p>
+			</li>
+			<li class="old-other">
+				<img src="/assets/GREY.png">
+				<p><a href="http://localhost:3000/">JAVA</a></p>
+			</li>					
+			<li class="old-other">
+				<img src="/assets/GREY.png">
+				<p><a href="http://localhost:3000/">C++</a></p>
+			</li>					
+			<li class="old-other">
+				<img src="/assets/GREY.png">
+				<p><a href="http://localhost:3000/">.NET</a></p>
+			</li>
+			</li>
+		</div>
+		<div id="prev-year">
+			<li class="blueBtn">
+				<img src="/assets/BLUE.png">
+				<p><a href="http://localhost:3000/conferences/">2014</a></p>
+			<li class="year-other">
+				<img src="/assets/GREY.png">
+				<p><a href="http://localhost:3000/">LAMP</a></p>
+			</li>					
+			<li class="year-other">
+				<img src="/assets/GREY.png">
+				<p><a href="http://localhost:3000/">Web-UI</a></p>
+			</li>					
+			<li class="year-other">
+				<img src="/assets/GREY.png">
+				<p><a href="http://localhost:3000/">JScrip</a></p>
+			</li>					
+			<li class="year-other">
+				<img src="/assets/GREY.png">
+				<p><a href="http://localhost:3000/">CSS3</a></p>
+			</li>
+			</li>
+		</div>
+		<div id="current-year">
+			<li class="blueBtn2">
+				<img src="/assets/BLUE.png">
+				<p><a href="http://localhost:3000/conferences/">2015</a></p>
+			<li class="future-other">
+				<img src="/assets/GREY.png">
+				<p><a href="http://localhost:3000/">RUBY</a></p>
+			</li>
+			<li class="future-other">
+				<img src="/assets/GREY.png">
+				<p><a href="http://localhost:3000/">JAVA</a></p>
+			</li>					
+			<li class="future-other">
+				<img src="/assets/GREY.png">
+				<p><a href="http://localhost:3000/">C++</a></p>
+			<li class="greenBtn">
+				<img src="/assets/GREEN.png">
+				<p><a href="http://localhost:3000/conferences/">DB</a></p>
+			</li>					
+			</li>
+		</div>
+	</ul>
+</div>
+
+<script>
+$(document).ready(function () {
+	$('.old-other').hide();
+	$('.year-other').hide();
+	$('.future-other').hide();
+	$( ".redBtn" ).click(function() {
+		$(this).parent().find( ".old-other" ).first().toggle( "fast", function showNext() {
+			$( this ).next( ".old-other" ).toggle( "fast", showNext );
+		});
+	});
+	$( ".blueBtn" ).click(function() {
+		$( ".year-other" ).first().toggle( "fast", function showNext() {
+			$( this ).next( ".year-other" ).toggle( "fast", showNext );
+		});
+	});
+	$( ".blueBtn2").click(function() {
+		$( ".future-other" ).first().toggle( "fast", function showNext() {
+			$( this ).next( ".future-other" ).toggle( "fast", showNext );
+		});
+	});
+});
+</script>
+

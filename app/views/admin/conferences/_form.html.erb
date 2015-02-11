@@ -18,12 +18,10 @@
   <div class="field">
     <%= f.label :year %><br>
     <%= f.number_field :year, value: "2015", size: "25" %>
-    <%= select_year(Time.now) %>
   </div>
-  <div class="field" id = "datetimepicker" >
+  <div class="field">
     <%= f.label :date %><br>
-    <%= select_date Date.today, prefix: :start_date %><br>
-    <%= f.text_field :date, :class => "datetimepicker",:method=>"get"%>
+    <%= f.text_field :date, :class => "datetimepicker" %>
   </div>
   <div class="field">
     <%= f.label :attenders_count %><br>
