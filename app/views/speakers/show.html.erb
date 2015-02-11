@@ -1,7 +1,7 @@
 	<div class='speaker-container one-speaker'>
 		<div class = 'speaker-photo'>
-     				PHOTO
-     			</div>
+     		<img class='photo' alt= <%= @speaker.name.to_s + @speaker.surname.to_s %> src= <%= @speaker.photo || "/assets/pacemaker_logo.png" %> >
+     	</div>
 		<div class='speaker-name'>
 			<%= @speaker.name %>
 			<%= @speaker.surname %>
@@ -22,20 +22,18 @@
 		<% @speaker.events.order(timeStart: :desc).each do |speech| %>
 		<% if Time.now < speech.timestart %>
 			<!-- ongoing -->
-		<div class='ongoing-speech-container'>
-			<div class='speech-conference'>
+			<div class='ongoing-speech-container'>
+				<div class='speech-conference'>
+					<h2> <%= link_to speech.conference.fullname, about_conference_path( speech.conference.fullname ) %> </h2>
+				</div>
 
-			<h2> <%= link_to speech.conference.fullname, about_conference_path( speech.conference.fullname ) %> </h2>
-
+				<div class='speech-details'>
+					<h2> <%= speech.title %> </h2>
+					<h4>
+						<%= speech.description %>
+					</h4>
+				</div>
 			</div>
-
-			<div class='speech-details'>
-				<h2> <%= speech.title %> </h2>
-				<h4>
-					<%= speech.description %>
-				</h4>
-			</div>
-		</div>
 		<% else %>
 			<!-- old speeches -->
 		<div class='speech-container'>
