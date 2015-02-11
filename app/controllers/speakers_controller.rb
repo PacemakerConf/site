@@ -1,6 +1,9 @@
 class SpeakersController < ApplicationController
+  
+  #load_and_authorize_resource
   before_action :set_speaker, only: [:show, :edit, :update, :destroy]
-  load_and_authorize_resource
+ 
+
   # GET /speakers
   # GET /speakers.json
   def index
@@ -15,11 +18,12 @@ class SpeakersController < ApplicationController
   # GET /speakers/new
   def new
     @speaker = Speaker.new
+
   end
 
   # GET /speakers/1/edit
   def edit
-    #authorize! :update, @speaker
+    authorize! :update, @speaker
   end
 
   def invite 
@@ -30,9 +34,9 @@ class SpeakersController < ApplicationController
   # POST /speakers.json
   def create
     @speaker = Speaker.new(speaker_params)
-
     respond_to do |format|
       if @speaker.save
+        current_user.role = User::SPEAKER
         format.html { redirect_to @speaker, notice: 'Speaker was successfully created.' }
         format.json { render :show, status: :created, location: @speaker }
       else
