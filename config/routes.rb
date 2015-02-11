@@ -1,13 +1,17 @@
 Rails.application.routes.draw do
 
+
   namespace :admin do
   get 'event/index'
   end
 
-  resources :event
+  
 
   root 'conferences#show', name: Conference.last_conference
 
+  resources :years
+
+  #root 'conferences#show', name: Conference.last_conference
   #get 'location/new', to: 'location#new', name: Conference.name
   #get 'location/new/:name' , to: 'location#new' , as: :new_location
 

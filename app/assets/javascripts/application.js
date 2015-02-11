@@ -10,6 +10,8 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+
+//= require event_types
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
@@ -19,5 +21,3 @@
 //= require jquery.datetimepicker/init
 //= require jquery-1.11.2.js
 //= require jquery.dataTables.js
-
-
