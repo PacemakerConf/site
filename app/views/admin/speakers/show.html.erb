@@ -22,23 +22,23 @@
 		<% @speaker.events.order(timeStart: :desc).each do |speech| %>
 		<% if Time.now < speech.timestart %>
 			<!-- ongoing -->
-		<div class='ongoing-speech-container'>
-			<div class='speech-conference'>
-				<% conf = speech.conference.name.to_s + "-" + speech.conference.year.to_s %>					<h2> <%= link_to speech.conference.name, about_conference_path( conf ) %> </h2>	
-			</div>
+			<div class='ongoing-speech-container'>
+				<div class='speech-conference'>
+					<h2> <%= link_to speech.conference.fullname, about_conference_path( speech.conference.fullname ) %> </h2>	
+				</div>
 
-			<div class='speech-details'>
-				<h1> <%= speech.title %> </h1>
-				<h3>
-					<%= speech.description %>
-				</h3>
+				<div class='speech-details'>
+					<h1> <%= speech.title %> </h1>
+					<h3>
+						<%= speech.description %>
+					</h3>
+				</div>
 			</div>
-		</div>
 		<% else %>
 			<!-- old speeches -->
 		<div class='speech-container'>
 			<div class='speech-conference'>
-				<% conf = speech.conference.name.to_s + "-" + speech.conference.year.to_s %>					<h3> <%= link_to speech.conference.name, about_conference_path(conf) %> </h3>	
+				<h3> <%= link_to speech.conference.fullname, about_conference_path(speech.conference.fullname) %> </h3>	
 			</div>
 			<div class='speech-details'>
 				<h2> <%= speech.title %> </h2>

@@ -9,6 +9,9 @@ class Conference < ActiveRecord::Base
 	validates :year, presence: true,
 					 inclusion: { in: 2011..2100 }
 					 
+	def fullname
+		self.name.to_s + "-" + self.year.to_s
+	end
 
 	def self.last_conference
 		if Conference && Conference.first
