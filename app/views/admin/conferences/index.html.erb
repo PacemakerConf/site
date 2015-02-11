@@ -22,7 +22,7 @@
           <td><%= conference.year %></td>
           <td><%= conference.date %></td>
           <td><%= conference.attenders %></td>
-          <td><%= link_to 'Shedule', shedule_admin_conference_path(conference)%></td>
+          <td><%= link_to 'Schedule', schedule_admin_conference_path(conference.fullname)%></td>
           <td><%= unless(conference.location.nil?)
                     link_to "#{conference.location.address}", location_conference_path(conference.fullname)
                   else

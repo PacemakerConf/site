@@ -1,5 +1,58 @@
-<ul>
-<% @events.each do |event| %>
-	<li><%= event.title %></li>
-<% end %>
-</ul>
+<h1>Conference <%= @conference.fullname %> schedule</h1>
+<table id="event" class="display" width="100%" cellspacing="0">
+  <thead>
+    <tr>
+        <th>title</th>
+        <th>start</th>
+        <th>type</th>
+        <th>conference</th>
+        <th>speaker</th>
+        <th>Show</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+  </thead>
+  <tfoot>
+    <tr>
+        <th>title</th>
+        <th>start</th>
+        <th>type</th>
+        <th>conference</th>
+        <th>speaker</th>
+        <th>Show</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+  </tfoot>
+
+  <tbody>
+    <% @events.each do |event| %>
+      <tr>
+        <td><%= event.title %></td>
+        <td><%= event.timestart %></td>
+        <td><%= event.event_type.name %></td>
+        <td><%= event.conference.name%>-<%= event.conference.year %></td>
+        <td>
+          <% unless event.speaker.nil? %>
+            <%= event.speaker.name%> <%= event.speaker.surname %>
+          <% end %>
+        </td>
+        <td><%= link_to 'Show', admin_event_path(event) %></td>
+        <td><%= link_to 'Edit', edit_admin_event_path(event) %></td>
+        <td><%= link_to 'Destroy', admin_event_path(event), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#event').dataTable({
+      paging: true
+    });
+  });
+</script>
+
+<br>
+
+<%= link_to 'New event', new_admin_event_path %>
