@@ -1,11 +1,12 @@
-class Admin::ApplicationController < ActionController::Base
+class Admin::ApplicationController < ApplicationController
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
-  protect_from_forgery with: :exception
-
   layout 'admin.html.erb'
 
   def after_sign_in_path_for(admin)
-    conferences_path
+    admin_conferences_path    
   end
+  
+  before_action :authenticate_admin!
+
 end

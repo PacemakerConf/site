@@ -27,9 +27,10 @@ class Admin::EventTypesController < Admin::ApplicationController
     @event_type = EventType.new(event_type_params)
 
     respond_to do |format|
+      
       if @event_type.save
         # format.html { redirect_to @event_type, notice: 'Event type was successfully created.' }
-        format.html { redirect_to event_types_url, notice: 'Event type was successfully created.' }
+        format.html { redirect_to [:admin, event_types_url], notice: 'Event type was successfully created.' }
         format.json { render :show, status: :created, location: @event_type }
       else
         format.html { render :new }
@@ -44,7 +45,7 @@ class Admin::EventTypesController < Admin::ApplicationController
     respond_to do |format|
       if @event_type.update(event_type_params)
         # format.html { redirect_to @event_type, notice: 'Event type was successfully updated.' }
-        format.html { redirect_to event_types_url, notice: 'Event type was successfully updated.' }
+        format.html { redirect_to [:admin, event_types_url], notice: 'Event type was successfully updated.' }
         format.json { render :show, status: :ok, location: @event_type }
       else
         format.html { render :edit }
@@ -58,7 +59,7 @@ class Admin::EventTypesController < Admin::ApplicationController
   def destroy
     @event_type.destroy
     respond_to do |format|
-      format.html { redirect_to event_types_url, notice: 'Event type was successfully destroyed.' }
+      format.html { redirect_to admin_event_types_url, notice: 'Event type was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ScheduleController, :type => :controller do
+RSpec.describe Admin::EventController, :type => :controller do
 
   describe "GET index" do
     it "returns http success" do

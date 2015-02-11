@@ -1,4 +1,11 @@
-<%= form_for(@event_type) do |f| %>
+<script>
+  var GLYPHSJS = <%= raw takeGLYPHS() %>;
+    $(document).on("ready page:load", function(){
+    imageFromField('0');
+  });
+</script>
+<%= form_for [:admin, @event_type] do |f| %>
+
   <% if @event_type.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@event_type.errors.count, "error") %> prohibited this event_type from being saved:</h2>
@@ -10,7 +17,6 @@
       </ul>
     </div>
   <% end %>
-
   <table class="table table-responsive">
     <colgroup class="new_event_type">
       <col></col>
@@ -43,11 +49,11 @@
       <td>
         <div class="customDropDown">
             <div class="ddHead">
-              <span id="DropDownMark" class="btn btn-default btn-sm glyphicon glyphicon-list"></span>
+              <span id="DropDownMark" class=""></span>
                 <ul class="bs-glyphicons bs-glyphicons-list">
                 <% @@i = 0 %>
                 <% takeGLYPHS().each do |className|%>
-                  <li><span  class="btn btn-default btn-sm glyphicon glyphicon<%= className %>" onclick="imageToField(<%= @@i %>)"></span></li>
+                  <li><span  class="btn btn-default btn-sm glyphicon glyphicon-<%= className %>" onclick="imageToField(<%= @@i %>)"></span></li>
                   <% @@i=@@i+1 %>
                 <% end %>
                 </ul>
@@ -64,6 +70,12 @@
         <!-- <%#= f.label :speakerEvent %>  --></td>
       <td>
         <%= f.check_box :speakerEvent%></td>
+    </tr>
+
+    <tr>
+      <td><%= f.label :groupable, class: 'control-label' %></td>
+      <td>
+        <%= f.check_box :groupable%></td>
     </tr>
 
   </table>

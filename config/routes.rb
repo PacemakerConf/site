@@ -2,20 +2,26 @@ Rails.application.routes.draw do
 
   root 'conferences#show', name: Conference.last_conference
 
-  get 'location/new', to: 'location#new', name: Conference.name
-  get 'location/new/:name' , to: 'location#new' , as: :new_location
+  #get 'location/new', to: 'location#new', name: Conference.name
+  #get 'location/new/:name' , to: 'location#new' , as: :new_location
 
-  devise_for :admins, :skip => [:sessions]
-    as :admin do
-      get 'login' => 'devise/sessions#new', :as => :new_admin_session
-      post 'login' => 'devise/sessions#create', :as => :admin_session
-      delete 'logout' => 'devise/sessions#destroy', :as => :destroy_admin_session 
-    end
-
+  devise_for :admins, skip: :sessions
+  as :admin do
+    get 'login', to: 'devise/sessions#new', as: :new_admin_session
+    post 'login', to: 'devise/sessions#create', as: :admin_session
+    delete 'logout', to: 'devise/sessions#destroy', as: :destroy_admin_session
+  end
+  
   namespace :admin do
-    resources :conferences, param: :name
+    root 'conferences#index'
+    resources :conferences, param: :name do
+      member do
+        get 'schedule'
+      end
+    end
     resources :speakers, param: :name
     resources :contacts
+    resources :events
     resources :event_types
     resources :locations  
   end
@@ -27,6 +33,7 @@ Rails.application.routes.draw do
   end 
 
   resources :conferences, param: :name
+  resources :years
 
   get ':name/about', to: 'conferences#show', as: :about_conference
   get ':name/speakers', to: 'conferences#speakers', as: :speakers_conference
