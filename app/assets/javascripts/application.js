@@ -10,6 +10,8 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+
+//= require event_types
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
@@ -19,3 +21,4 @@
 //= require ../../../vendor/assets/dataTables/js/jquery.dataTables.js
 //= require turbolinks
 //= require_tree .
+

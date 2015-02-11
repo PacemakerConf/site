@@ -31,9 +31,15 @@
     </tr>
 
     <tr>
-      <th>Speakerevent:</th>
-      <td><span class="glyphicon"><span class="glyphicon<%=speakerEventCheck(@event_type.speakerEvent)%>"></span></span></td>
+      <th>Speaker Event:</th>
+      <td><span class="glyphicon"><span class="glyphicon<%=trueEventCheck(@event_type.speakerEvent)%>"></span></span></td>
     </tr>
+
+    <tr>
+      <th>Groupable:</th>
+      <td><span class="glyphicon"><span class="glyphicon<%=trueEventCheck(@event_type.groupable)%>"></span></span></td>
+    </tr>
+
   </tbody>
 </table>
 

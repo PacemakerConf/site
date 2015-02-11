@@ -15,9 +15,11 @@ module EventTypesHelper
 		return GLYPHS
 	end
 
-	def speakerEventCheck(check)
+	def trueEventCheck(check)
 		if check == 1  then
-			return '-ok'			
+			return '-ok'
+		else
+			return '-remove'			
 		end
 	end
 
