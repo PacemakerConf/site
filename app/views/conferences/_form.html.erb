@@ -1,4 +1,4 @@
-<%= form_for [:admin, @conference] do |f| %>
+<%= form_for(@conference) do |f| %>
   <% if @conference.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@conference.errors.count, "error") %> prohibited this conference from being saved:</h2>
@@ -26,6 +26,10 @@
   <div class="field">
     <%= f.label :attenders_count %><br>
     <%= f.number_field :attenders, size: "25", value: "1", min: "1" %>
+  </div>
+  <div class="field">
+    <%= f.label :group_event %><br>
+    <%= check_box_tag :group_event, value: "" %>
   </div>
   <div class="actions">
   <%= f.submit "Create" %>
