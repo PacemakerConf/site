@@ -1,5 +1,5 @@
 class Contact < ActiveRecord::Base
-	has_and_belongs_to_many :location
+	belongs_to :location
 
 	validates :name, presence: true
 	validates :surname, presence: true
