@@ -264,8 +264,9 @@ andriy = Contact.create(
 	)
 
 admin = Admin.new
-	admin.email = "admin@example.com" 
-    admin.username = "admin" 
-	admin.password = "00000000"
-	admin.password_confirmation = "00000000"
+	admin.email = 'admin@example.com' 
+    admin.username = 'admin' 
+	admin.password = '00000000'
+	admin.password_confirmation = '00000000'
+	admin.role = 'administrator'
     admin.save!

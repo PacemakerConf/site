@@ -2,7 +2,6 @@ class ConferencesController < ApplicationController
 
   before_action :set_conference, only: [:schedule, :location, :speakers, :show]
 
-
   def location 
     @location = @conference.location
   end
