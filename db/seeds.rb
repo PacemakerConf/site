@@ -137,7 +137,6 @@ onering.events.create(
 onering.events.create(
 	title: 'How i get the Ring. History of success',
 	timestart: '2014-12-12 12:15:00',
-	timeend: Time.now,
 	description: 'Evetything you need to know about One Ring,
 				  but afffraid to ask',
 	event_type: topic,
@@ -186,6 +185,7 @@ onering.events.create(
 victory.events.create(
 	title: 'A long way in the dunes',
 	timestart: '2015-11-12 15:30:00',
+	timeend: Time.now,
 	speaker: frodo,
 	description: 'How to play piano, using only 9 fingers',
 	event_type: topic

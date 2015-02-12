@@ -13,8 +13,8 @@
 
   
   <div class="field">
-    <%= f.label :event_type_id %><br>
-    <%= f.text_field :event_type_id %>
+    <%= f.label :event_type %><br>
+    <%= select_tag 'event[event_type_id]', options_from_collection_for_select(EventType.all, 'id', 'name', 1) %>
   </div>
 
   <div class="field">
@@ -39,13 +39,13 @@
 
  <!-- ? -->
   <div class="field">
-    <%= f.label :conference_id %><br>
-    <%= f.text_field :conference_id %>
-  </div>
+    <%= f.label :conference %><br>
+    <%= select_tag 'event[conference_id]', options_from_collection_for_select(Conference.all, 'id', 'fullname', Conference.last.id) %>
+ </div>
 
   <div class="field">
-    <%= f.label :speaker_id %><br>
-    <%= f.text_field :speaker_id %>
+    <%= f.label :speaker %><br>
+    <%= select_tag 'event[speaker_id]', content_tag(:option,'No speaker', value: "")+options_from_collection_for_select(Speaker.all, 'id', 'name') %>
   </div>
 
 
