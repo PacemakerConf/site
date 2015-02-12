@@ -3,8 +3,7 @@
      		<%= image_tag( @speaker.photo.url(:thumb), class: 'photo', alt: @speaker.name ) %>
      	</div>
 		<div class='speaker-name'>
-			<%= @speaker.name %>
-			<%= @speaker.surname %>
+			<%= @speaker.fullname %>
 		</div>
 		<div class="speaker-description">
 			<p><%= @speaker.description %></p>

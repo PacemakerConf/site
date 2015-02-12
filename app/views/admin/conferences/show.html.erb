@@ -11,7 +11,7 @@
 							<%= image_tag( speaker.photo.url(:thumb), class: 'photo', alt: speaker.name ) %>
 						</div>
 						<div class='speaker-name speech-info'>
-							<%= link_to "#{speaker.name} #{speaker.surname}", speaker_path(speaker) %>
+							<%= link_to speaker.fullname, speaker_path(speaker) %>
 						</div>
 						<div class='speech-info'>
 							<%= event.title %>
@@ -33,7 +33,7 @@
 								<%= image_tag( speaker.photo.url(:thumb), class: 'photo', alt: speaker.name ) %>
 							</div>
 							<div class='speaker-name speech-info'>
-								<%= link_to speaker.name, speaker_path(speaker) %>
+								<%= link_to speaker.fullname, speaker_path(speaker) %>
 							</div>
 							<div class='speech-info'>
 								<%= event.title%>
