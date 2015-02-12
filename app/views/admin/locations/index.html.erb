@@ -1,45 +1,3 @@
-<p id="notice"><%= notice %></p>
-
-<% @location.each  do |location| %>
-
-<p>
- <strong>Place Type:</strong>
-  <%= location.place_type %>
-</p>
-
-<p>
- <strong>Name:</strong>
-  <%= location.name %>
-</p>
-
-<p>
- <strong>City:</strong>
-  <%= location.city %>
-</p>
-
-<p>
- <strong>Address:</strong>
-  <%= location.address %>
-</p>
-
-<p>
-  <strong>Latitude:</strong>
-  <%= location.latitude %>
-</p>
-
-<p>
-  <strong>Longitude:</strong>
-  <%= location.longitude %>
-</p>
-
-<p>
-  <strong>Conference:</strong>
-  <%= location.conference.name%>-<%= location.conference.year %>
-</p>
-
-<br />
-
-<% end %>
 <!-- DataTables CSS -->
 <link rel="stylesheet" type="text/css" href="vendor/assets/dataTables/css/jquery.dataTables.css">
 <!-- DataTables -->
@@ -78,9 +36,9 @@
         <td><%= location.name %></td>
         <td><%= location.city %></td>
         <td><%= location.address %></td>
-        <td><%= link_to 'Show', location %></td>
-        <td><%= link_to 'Edit', edit_location_path(location) %></td>
-        <td><%= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', admin_location_path(location) %></td>
+        <td><%= link_to 'Edit', edit_admin_location_path(location) %></td>
+        <td><%= link_to 'Destroy', admin_location_path(location), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -95,4 +53,6 @@
 </script>
 
 <br>
-<%= link_to 'New Location', new_location_path %>
+<%= link_to 'New Location', new_admin_location_path %>
+
+
