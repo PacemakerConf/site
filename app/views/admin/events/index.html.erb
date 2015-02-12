@@ -3,6 +3,7 @@
   <thead>
     <tr>
         <th>title</th>
+        <th>description</th>
         <th>start</th>
         <th>end</th>
         <th>type</th>
@@ -16,6 +17,7 @@
   <tfoot>
     <tr>
         <th>title</th>
+        <th>descriptioin</th>
         <th>start</th>
         <th>end</th>
         <th>type</th>
@@ -31,6 +33,7 @@
     <% @events.each do |event| %>
       <tr>
         <td><%= event.title %></td>
+        <td><%= event.description %></td>
         <td><%= event.timestart %></td>
         <td><%= event.timeend %></td>
         <td><%= event.event_type.name %></td>
