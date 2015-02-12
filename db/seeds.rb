@@ -130,12 +130,14 @@ victory = Conference.create(
 onering.events.create(
 	title: 'registration',
 	timestart: '2014-12-12 12:00:00',
+	timeend: '2014-12-12 12:10:00',
 	event_type: registration
 	)
 
 onering.events.create(
 	title: 'How i get the Ring. History of success',
 	timestart: '2014-12-12 12:15:00',
+	timeend: Time.now,
 	description: 'Evetything you need to know about One Ring,
 				  but afffraid to ask',
 	event_type: topic,

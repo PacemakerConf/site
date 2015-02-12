@@ -11,6 +11,12 @@
     </div>
   <% end %>
 
+  
+  <div class="field">
+    <%= f.label :event_type_id %><br>
+    <%= f.text_field :event_type_id %>
+  </div>
+
   <div class="field">
     <%= f.label :title %><br>
     <%= f.text_field :title %>
@@ -22,10 +28,16 @@
   </div>
 
   <div class="field">
-    <%= f.label :event_type_id %><br>
-    <%= f.text_field :event_type_id %>
+    <%= f.label :timeend %><br>
+    <%= f.text_field :timeend %>
   </div>
 
+  <div class='field'>
+    Duration
+  </div>
+
+
+ <!-- ? -->
   <div class="field">
     <%= f.label :conference_id %><br>
     <%= f.text_field :conference_id %>
