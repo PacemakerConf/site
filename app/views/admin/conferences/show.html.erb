@@ -8,7 +8,7 @@
 					<div class='speaker-container'>
 						<div class='speaker-photo'>
 							<% speaker = event.speaker %>	
-							<img class='photo' alt= <%= speaker.name.to_s + speaker.surname.to_s %> src= <%= speaker.photo || "/assets/pacemaker_logo.png" %> >
+							<%= image_tag( speaker.photo.url(:thumb), class: 'photo', alt: speaker.name ) %>
 						</div>
 						<div class='speaker-name speech-info'>
 							<%= link_to "#{speaker.name} #{speaker.surname}", speaker_path(speaker) %>
@@ -30,7 +30,7 @@
 						<div class='lightning-speaker-container'>
 							<div class='speaker-photo'>
 								<% speaker = event.speaker %>	
-							<img class='photo' alt= <%= speaker.name + speaker.surname %> src= <%= speaker.photo || "/assets/pacemaker_logo.png" %> >
+								<%= image_tag( speaker.photo.url(:thumb), class: 'photo', alt: speaker.name ) %>
 							</div>
 							<div class='speaker-name speech-info'>
 								<%= link_to speaker.name, speaker_path(speaker) %>

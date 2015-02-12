@@ -44,7 +44,10 @@ frodo = Speaker.create(
 	email: 'frodo@ring.one',
     facebook: 'fb/goldy',
     site: 'http://the-best-jewels.com',
-    photo: '/assets/frodo.jpg'
+	photo_file_name: "frodo.jpg",
+	photo_content_type: "image/jpeg",
+	photo_file_size: 8046,
+	photo_updated_at: "2015-02-12 21:23:16"
 	)
 
 harry = Speaker.create(
@@ -68,7 +71,9 @@ gandalf = Speaker.create(
     facebook: 'fb/gandalfgrey',
     linkedin: 'Gandalyk Gand',
     site: 'http://gan-gan.com',
-    photo: '/assets/gandalf.jpg'
+    photo_file_name: "1.png", 
+    photo_content_type: "image/png", 
+    photo_file_size: 1231
 	)
 
 gimli = Speaker.create(
@@ -86,8 +91,11 @@ sam = Speaker.create(
 ent = Speaker.create(
 	name: 'Fangorn',
 	surname: 'Ent',
-	description: 'Hum-hum-hum',
-	photo: '/assets/fangorn.jpg'
+	description: 'Hum-hum-hum', 
+	photo_file_name: "fangorn.jpg", 
+	photo_content_type: "image/jpeg", 
+	photo_file_size: 7718, 
+	photo_updated_at: "2015-02-12 21:22:27"
 	)
 
 #conferences
