@@ -10,6 +10,7 @@
 
   function imageToField(number) {
     document.getElementById('event_type_image').innerHTML = number;
+    document.getElementById('event_type_image').value = number;
 
     classString = "btn btn-default btn-sm glyphicon glyphicon-";
     classString += GLYPHSJS[number];

@@ -1,3 +1,29 @@
+<script src="../../../assets/jquery-ui.js"></script>
+
+<style>
+  #sortable { list-style-type: none;}
+  #sortable li {}
+  #sortable li span { position: absolute;}
+</style>
+<script>
+  $(function() {
+    $( "#sortable" ).sortable();
+    $( "#sortable" ).disableSelection();
+  });
+</script>
+
+
+<ul id="sortable" class="list-group">
+<% @events.each do |event| %>
+  <li class="ui-state-default list-group-item" ><span style="position: relative;"><%= conferenceTimeReturn(event.duration) %></span>
+  |
+  <span style="position: relative;"><%= event.title %></span>
+  <span class="badge" style="position: relative;">Speaker Name</span></li>
+<% end %>
+</ul>
+
+
+<!-- 
 <h1>Conference <%= @conference.fullname %> schedule</h1>
 <table id="event" class="display" width="100%" cellspacing="0">
   <thead>
@@ -53,6 +79,6 @@
   });
 </script>
 
-<br>
+<br> -->
 
 <%= link_to 'New event', controller: 'admin/events', action: 'new', conf_id: @conference.id, conf_fname: @conference.fullname %>
