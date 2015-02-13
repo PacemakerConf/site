@@ -1,0 +1,67 @@
+<%= form_for [:admin, @event] do |f| %>
+  <% if @event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+      <% @event.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  
+  <div class="field">
+    <%= f.label :event_type_id, 'Event type*' %><br>
+    <%= select_tag 'event[event_type_id]', options_from_collection_for_select(EventType.all, 'id', 'name', 1) %>
+  </div>
+
+  <div class="field">
+    <% if params['conf_id'] %>
+      Conference:  <%= params['conf_fname'] %>
+      <%= hidden_field( :event, :conference_id, value: params['conf_id']) %>
+    <% else %>
+      <%= f.label :conference_id, 'Conference' %><br>
+      <%= select_tag 'event[conference_id]', options_from_collection_for_select(Conference.all, 'id', 'fullname', Conference.last.id) %>
+      <% end %>
+ </div>
+
+  <div class="field">
+    <%= f.label :title, 'Name*' %><br>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :timestart %><br>
+    <%= f.text_field :timestart %>
+  </div>
+
+  <div class="field">
+    <%= f.label :timeend %><br>
+    <%= f.text_field :timeend %>
+  </div>
+
+  <div class='field'>
+    
+    Duration
+
+  </div>
+
+
+
+  <div class="field">
+    <%= f.label :speaker_id, 'Speaker' %><br>
+    <%= select_tag 'event[speaker_id]', content_tag(:option,'No speaker', value: "")+options_from_collection_for_select(Speaker.all, 'id', 'name') %>
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

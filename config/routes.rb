@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :years
-
-  #root 'conferences#show', name: Conference.last_conference
+  root 'conferences#show', name: Conference.last_conference
 
   #get 'location/new', to: 'location#new', name: Conference.name
   #get 'location/new/:name' , to: 'location#new' , as: :new_location
@@ -15,9 +13,15 @@ Rails.application.routes.draw do
   end
   
   namespace :admin do
-    resources :conferences, param: :name
+    root 'conferences#index'
+    resources :conferences, param: :name do
+      member do
+        get 'schedule'
+      end
+    end
     resources :speakers, param: :name
     resources :contacts
+    resources :events
     resources :event_types
     resources :locations  
   end
@@ -29,6 +33,7 @@ Rails.application.routes.draw do
   end 
 
   resources :conferences, param: :name
+  resources :years
 
   get ':name/about', to: 'conferences#show', as: :about_conference
   get ':name/speakers', to: 'conferences#speakers', as: :speakers_conference

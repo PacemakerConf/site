@@ -6,6 +6,7 @@
         <th>Year</th>
         <th>Date</th>
         <th>Attenders</th>
+        <th>Shedule</th>
         <th>Location</th>
         <th>Report</th>
         <th>Show</th>
@@ -21,18 +22,16 @@
           <td><%= conference.year %></td>
           <td><%= conference.date %></td>
           <td><%= conference.attenders %></td>
-
-          <% conf = conference.name.to_s + "-" + conference.year.to_s %>
-
+          <td><%= link_to 'Schedule', schedule_admin_conference_path(conference.fullname)%></td>
           <td><%= unless(conference.location.nil?)
-                    link_to "#{conference.location.address}", location_conference_path(conf)
+                    link_to "#{conference.location.address}", location_conference_path(conference.fullname)
                   else
                     link_to "Create Location", new_admin_location_path()
                   end %></td>
           <td><%= link_to 'Report', conference.report %></td>
-          <td><%= link_to 'Show', about_conference_path(conference.name.to_s + "-" + conference.year.to_s) %></td>
-          <td><%= link_to 'Edit', edit_admin_conference_path(conference.name.to_s + "-" + conference.year.to_s) %></td>
-          <td><%= link_to 'Destroy', admin_conference_path(conference.name.to_s + "-" + conference.year.to_s), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Show', about_conference_path(conference.fullname) %></td>
+          <td><%= link_to 'Edit', edit_admin_conference_path(conference.fullname) %></td>
+          <td><%= link_to 'Destroy', admin_conference_path(conference.fullname), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

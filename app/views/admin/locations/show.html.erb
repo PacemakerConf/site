@@ -9,4 +9,12 @@
 <p><b>Name: </b><%= @location.name %></p>
 <p><b>Address: </b><%= @location.address %>, <%= @location.city %></p>
 
+					<h1>Contacts</h1>
+        <% @location.contacts.each do |contact| %>
+          <div>
+            <p><b><%= contact.name %> <%= contact.surname %></b><p>
+            <p><b>Mail:</b> <%= contact.email %></p>
+            <p><b>Tel:</b> <%= contact.telephone %></p>
+          </div>
+        <% end %>
 

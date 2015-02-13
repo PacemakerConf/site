@@ -47,8 +47,8 @@
 }
 
 .photo {
- width: 75px;
- height: 75px;
+	 width: 75px;
+	 height: 75px;
 }
 
 .speech-info{
@@ -76,9 +76,9 @@
 }
 
 .ongoing-speech-container{
-	background-color: rgba(144,155,19,1);
-	padding: 5px;
+	background-color: rgba(255,255,255,0.31);
 	margin: 5px;
+	padding: 5px;
 }
 
 .ongoing-speech-container div{
@@ -87,13 +87,13 @@
 
 .speech-conference{
 	text-align: center;
-	margin: 10px;
+	margin: 5px;
 	padding: 10px;
 	width: 20%;
 }
-.speech-details{
-	margin: 10px;
-	padding: 10px;
+.speeches-list .speech-details{
+	margin: 5px;
+	padding: 5px;
 }
 
 .full-speaker-container{
@@ -111,4 +111,13 @@
 	padding: 10px;
 	background-color: #eee;
 	margin-bottom: 8px;
+}
+
+.speaker-contacts li{
+	display: inline-block;
+	list-style: none;
+	margin: 5px;
+}
+.speaker-contacts img{
+	width:16px;
 }

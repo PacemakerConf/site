@@ -15,14 +15,5 @@
 			<%= yield %>
 		</div>
 
-		<div id ="admin_nav">	
-			<% if admin_signed_in? %>
-				Logged in as <strong><%= current_admin.email%></strong>.
-				<%= link_to "Logout", destroy_admin_session_path, method: :delete %>
-			<% else %>
-				<%= link_to "Login", new_admin_session_path %>
-			<% end %>
-		</div>
-
 	</body>
 </html>

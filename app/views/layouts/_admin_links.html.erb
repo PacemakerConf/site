@@ -1,5 +1,34 @@
-<%= link_to 'conferences', admin_conferences_path %> |
-<%= link_to 'speakers', admin_speakers_path %> |
-<%= link_to 'locations', admin_locations_path %> |
-<%= link_to 'contacts', admin_contacts_path %> |
-<%= link_to 'event_types', admin_event_types_path %> 
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Pacemaker</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+      <ul class="nav navbar-nav">
+        <li><%= link_to 'conferences', admin_conferences_path %></li>
+        <li><%= link_to 'speakers', admin_speakers_path %></li>
+        <li><%= link_to 'locations', admin_locations_path %></li>
+        <li><%= link_to 'contacts', admin_contacts_path %></li>
+        <li><%= link_to 'event_types', admin_event_types_path %></li>
+        <li><%= link_to 'events', admin_events_path %></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><% if admin_signed_in? %>
+			<%= link_to "Logout", destroy_admin_session_path, method: :delete %>
+					<% else %>
+			<%= link_to "Login", new_admin_session_path %>
+			<% end %>
+		</li>
+      </ul>
+    </div>
+  </div>
+</nav>
+

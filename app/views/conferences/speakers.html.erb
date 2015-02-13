@@ -3,11 +3,11 @@
 	<div class="row speakers-det">
 		<div class = 'full-speaker-container col-lg-9'>
 			<div class = 'speaker-photo'>
-				<img class='photo' alt= <%= speaker.name + speaker.surname %> src= <%= speaker.photo || "/assets/pacemaker_logo.png" %> >
+				<%= image_tag( speaker.photo.url(:thumb), class: 'photo', alt: speaker.name ) %>
 			</div>
 			<div class = 'speaker-about'>
 				<div class='speaker-name speech-info'>
-					<%= link_to "#{speaker.name} #{speaker.surname}", speaker_path(speaker) %>
+					<%= link_to speaker.fullname, speaker_path(speaker) %>
 				</div>
 				<div><%= speaker.description %></div>
 			</div>	
