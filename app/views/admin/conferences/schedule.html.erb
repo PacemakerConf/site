@@ -15,7 +15,10 @@
 
 <ul id="sortable" class="list-group">
 <% @events.each do |event| %>
-	<li class="ui-state-default list-group-item" ><span style="position: relative;"><%= conferenceTimeReturn(event.timestart) %></span> <span style="position: relative;"><%= event.title %></span><span class="badge" style="position: relative;">Speaker Name</span></li>
+  <li class="ui-state-default list-group-item" ><span style="position: relative;"><%= conferenceTimeReturn(event.duration) %></span>
+  |
+  <span style="position: relative;"><%= event.title %></span>
+  <span class="badge" style="position: relative;">Speaker Name</span></li>
 <% end %>
 </ul>
 
