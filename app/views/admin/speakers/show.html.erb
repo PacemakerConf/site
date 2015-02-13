@@ -1,10 +1,9 @@
  	<div class='speaker-container one-speaker'>
 		<div class = 'speaker-photo'>
-     		<img class='photo' alt= <%= @speaker.name.to_s + @speaker.surname.to_s %> src= <%= @speaker.photo || "/assets/pacemaker_logo.png" %> >
+     		<%= image_tag( @speaker.photo.url(:thumb), class: 'photo', alt: @speaker.name ) %>
      	</div>
 		<div class='speaker-name'>
-			<%= @speaker.name %>
-			<%= @speaker.surname %>
+			<%= @speaker.fullname %>
 		</div>
 		<div class="speaker-description">
 			<p><%= @speaker.description %></p>
@@ -19,7 +18,7 @@
 	</div>
 	<div class = 'speeches-list'>
 
-		<% @speaker.events.order(timeStart: :desc).each do |speech| %>
+	<% @speaker.events.order(timeStart: :desc).each do |speech| %>
 		<% if Time.now < speech.timestart %>
 			<!-- ongoing -->
 			<div class='ongoing-speech-container'>
