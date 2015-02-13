@@ -1,5 +1,18 @@
-<ul>
+<style>
+  #sortable { list-style-type: none;}
+  #sortable li {}
+  #sortable li span { position: absolute;}
+</style>
+<script>
+  $(function() {
+    $( "#sortable" ).sortable();
+    $( "#sortable" ).disableSelection();
+  });
+</script>
+
+
+<ul id="sortable">
 <% @events.each do |event| %>
-	<li><%= event.title %></li>
+	<li class="ui-state-default"><%= event.title %></li>
 <% end %>
 </ul>
