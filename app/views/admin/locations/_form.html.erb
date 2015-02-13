@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-
+<%= params.inspect %>
   <div class="field">
     <%= f.label :place_type %><br>
     <%= f.text_field :place_type %>
@@ -28,16 +28,11 @@
     <%= f.text_field :address %>
   </div>
 
-  <select>
-  <% @location.contacts.each do |contact| %>
-    <option><%=contact.name %></option>
-  <% end %>
-  </select>
+   <div class="field">
+    <%= f.label :contact %><br>
+    <%= select_tag 'location[contact_id]', options_from_collection_for_select(Contact.all, 'id' ,'name', Location.last.id) %>
+ </div>
 
-  <div class="field">
-    <%= f.label :conference_id %><br>
-    <%= f.number_field :conference_id %>
-  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
