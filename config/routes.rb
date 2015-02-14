@@ -2,9 +2,6 @@ Rails.application.routes.draw do
 
   root 'conferences#show', name: Conference.last_conference
 
-  #get 'location/new', to: 'location#new', name: Conference.name
-  #get 'location/new/:name' , to: 'location#new' , as: :new_location
-
   devise_for :admins, skip: :sessions
   as :admin do
     get 'login', to: 'devise/sessions#new', as: :new_admin_session

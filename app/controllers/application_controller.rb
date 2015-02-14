@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
   
   # redefine the current_ability method for CanCan.
   def current_ability
-#    raise "user: #{current_user.inspect}, admin:#{current_admin.inspect}"
+  # raise "user: #{current_user.inspect}, admin:#{current_admin.inspect}"
     @current_ability ||= Ability.new(current_admin || current_user)
   end
 
@@ -27,5 +27,4 @@ class ApplicationController < ActionController::Base
     flash[:error] = exception.message
     redirect_to root_url 
   end
-  
 end

@@ -31,10 +31,9 @@
 			<div class="row first">
 				<div class="name-conteiner col-lg-9 col-md-9 col-sm-8 col-xs-12">
 					<div class="conference-name">
-						<h1> Pacemaker
+						<h1> Pacemaker:
 							<% if @conference %>
-								: <%= @conference.name%>
-								-<%= @conference.year %>
+								<%= @conference.fullname%>
 							<% end %>
 						</h1>
 					</div>

@@ -137,14 +137,11 @@ victory = Conference.create(
 #events
 onering.events.create(
 	title: 'registration',
-	timestart: '2014-12-12 12:00:00',
-	timeend: '2014-12-12 12:10:00',
 	event_type: registration
 	)
 
 onering.events.create(
 	title: 'How i get the Ring. History of success',
-	timestart: '2014-12-12 12:15:00',
 	description: 'Evetything you need to know about One Ring,
 				  but afffraid to ask',
 	event_type: topic,
@@ -153,13 +150,11 @@ onering.events.create(
 
 onering.events.create(
 	title: 'Beer-break',
-	timestart: '2014-12-12 13:30:00',
 	event_type: beerbreak
 	)
 
 onering.events.create(
 	title: 'The challenge for kamikaze',
-	timestart: '2014-12-12 15:30:00',
 	speaker: gandalf,
 	description: 'When fatherland is calling you',
 	event_type: topic
@@ -167,7 +162,6 @@ onering.events.create(
 
 onering.events.create(
 	title: 'How many orcs i\'ll kill',
-	timestart: '2014-12-12 16:30:00',
 	description: 'I was drinking at the bar last night, so I took
 				  a bus home...That may not be a big deal to you,
 				  but I\'ve never driven a bus before.',
@@ -177,7 +171,6 @@ onering.events.create(
 
 onering.events.create(
 	title: 'How to cook Gollum',
-	timestart: '2014-12-12 17:25:52',
 	description: 'awful dishes',
 	event_type: topic,
 	speaker: sam
@@ -185,15 +178,12 @@ onering.events.create(
 
 onering.events.create(
 	title: 'Houmm-arr-orghh',
-	timestart: '2014-12-12 17:25:52',
 	event_type: lightning,
 	speaker: ent
 	)
 
 victory.events.create(
 	title: 'A long way in the dunes',
-	timestart: '2015-11-12 15:30:00',
-	timeend: Time.now,
 	speaker: frodo,
 	description: 'How to play piano, using only 9 fingers',
 	event_type: topic
@@ -201,7 +191,6 @@ victory.events.create(
 
 victory.events.create(
 	title: 'The Eagles',
-	timestart: '2015-11-12 17:30:00',
 	speaker: gandalf,
 	description: 'Lightning, as a form of air defence',
 	event_type: lightning
