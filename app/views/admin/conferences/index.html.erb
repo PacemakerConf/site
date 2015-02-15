@@ -26,7 +26,7 @@
           <td><%= unless(conference.location.nil?)
                     link_to "#{conference.location.address}", location_conference_path(conference.fullname)
                   else
-                    link_to "Create Location", new_admin_location_path()
+                    link_to "Create Location", controller: 'admin/locations', action: 'new', conf_id: conference.id, conf_fname: conference.fullname
                   end %></td>
           <td><%= link_to 'Report', conference.report %></td>
           <td><%= link_to 'Show', about_conference_path(conference.fullname) %></td>
@@ -48,3 +48,6 @@
 <br>
 
 <%= link_to 'New Conference', new_admin_conference_path %>
+
+
+

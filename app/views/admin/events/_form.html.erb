@@ -23,7 +23,7 @@
       <%= hidden_field( :event, :conference_id, value: params['conf_id']) %>
     <% else %>
       <%= f.label :conference_id, 'Conference' %><br>
-      <%= select_tag 'event[conference_id]', options_from_collection_for_select(Conference.all, 'id', 'fullname', Conference.last.id) %>
+      <%= select_tag 'event[conference_id]', options_from_collection_for_select(Conference.all, 'id', 'fullname') %>
       <% end %>
  </div>
 
@@ -52,8 +52,6 @@
     Duration
 
   </div>
-
-
 
   <div class="field">
     <%= f.label :speaker_id, 'Speaker' %><br>
