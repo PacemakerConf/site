@@ -1,19 +1,29 @@
 class Ability
   include CanCan::Ability
 
-  def initialize(user)
-    user ||= User.new(role: User::GUEST) # guest user (not logged in)
+  def initialize(user_data)
+    user = get_user(user_data)
     if user.role == User::ADMIN
       can :manage, :all
     elsif user.role == User::SPEAKER 
-#      alias_action :edit, :create, :to => :update
-      can :update, :all
       can :create, Event
-    elsif user.role == User::GUEST
-#      raise "I am guest"
-      can :read, :all
       can :create, Speaker
+    elsif user.role == User::GUEST
+      can :read, :all
+      #can :create, Speaker
     end
+  end
+
+  private 
+
+  def get_user(user_data)
+    if user_data.blank?
+      User.new('role': User::GUEST) # guest user (not logged in)
+    elsif user_data.is_a?(Hash)
+      User.new(user_data)
+    else
+      user_data
+    end     
   end  
     # The first argument to `can` is the action you are giving the user 
     # permission to do.

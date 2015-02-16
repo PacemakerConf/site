@@ -22,7 +22,7 @@ class SpeakersController < ApplicationController
 
   # GET /speakers/1/edit
   def edit
-    authorize! :update, @speaker
+     #authorize! :create, @speaker
   end
 
   def invite 
@@ -32,10 +32,11 @@ class SpeakersController < ApplicationController
   # POST /speakers
   # POST /speakers.json
   def create
+    authorize! :create, @speaker
     @speaker = Speaker.new(speaker_params)
     respond_to do |format|
       if @speaker.save
-        current_user.role = User::SPEAKER
+        current_user['role'] = User::SPEAKER
         format.html { redirect_to @speaker, notice: 'Speaker was successfully created.' }
         format.json { render :show, status: :created, location: @speaker }
       else

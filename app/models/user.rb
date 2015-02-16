@@ -6,6 +6,6 @@ class User
 	attr_accessor :role
 
 	def initialize(args)
-		@role = args[:role]
+		@role = args['role']
 	end	
 end
