@@ -1,0 +1,39 @@
+<%= form_for [:admin, @location] do |f| %>
+  <% if @location.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@location.errors.count, "error") %> prohibited this location from being saved:</h2>
+
+      <ul>
+      <% @location.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<%= params.inspect %>
+  <div class="field">
+    <%= f.label :place_type %><br>
+    <%= f.text_field :place_type %>
+  </div>
+   <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name%>
+  </div>
+   <div class="field">
+    <%= f.label :city %><br>
+    <%= f.text_field :city %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br>
+    <%= f.text_field :address %>
+  </div>
+
+   <div class="field">
+    <%= f.label :contact %><br>
+    <%= select_tag 'location[contact_id]', options_from_collection_for_select(Contact.all, 'id' ,'name', Location.last.id) %>
+ </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

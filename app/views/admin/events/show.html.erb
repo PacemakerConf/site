@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<h2>Event <%= @event.id %> <h2>
+<h3>Title:  <%= @event.title %></h3>
+<h3>Type:  <%= @event.event_type.name %></h3>
+<h3>Conference:  <%= @event.conference.name%>-<%= @event.conference.year %></h3>
+<h3>Speaker:  
+  <% unless @event.speaker.nil? %>
+    <%= @event.speaker.name%> <%= @event.speaker.surname %>
+  <% end %>
+</h3>
+
+
+<%= link_to 'Edit', edit_admin_event_path(@event) %> |
+<%= link_to 'Back', admin_events_path %>

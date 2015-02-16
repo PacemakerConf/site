@@ -1,6 +1,7 @@
 class ConferencesController < ApplicationController
-  before_action :set_conference, only: [:location, :speakers, :show, :edit, :update, :destroy]
- 
+
+  before_action :set_conference, only: [:schedule, :location, :speakers, :show, :edit, :update, :destroy]
+
   def location 
     @location = @conference.location
   end
@@ -9,15 +10,22 @@ class ConferencesController < ApplicationController
     @speakers = @conference.speakers
   end
 
+  def schedule
+    @events = @conference.events
+  end
+
   def index
     @conferences = Conference.all
   end
 
   def show
-    @topic = EventType.where(name: 'topic')
-    @lightning = EventType.where(name: 'lightning')
+    topic = EventType.where(name: 'topic')
+    lightning = EventType.where(name: 'lightning')
+    @topics = @conference.events.where(event_type: topic)
+    @lightnings = @conference.events.where(event_type: lightning)
   end
 
+  
   # GET /conferences/new
   def new
     @conference = Conference.new
@@ -84,6 +92,6 @@ class ConferencesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def conference_params
-      params.require(:conference).permit(:name)
+      params.require(:conference).permit(:name, :year, :date, :attenders, :group_event)
     end
 end

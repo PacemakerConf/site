@@ -3,9 +3,9 @@ class CreateEventTypes < ActiveRecord::Migration
     create_table :event_types do |t|
       t.string :name
       t.string :description
-      t.integer :defaultDuration
+      t.datetime :defaultDuration
       t.string :color
-      t.integer :image
+      t.string :image
       t.integer :speakerEvent
 
       t.timestamps null: false

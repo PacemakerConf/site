@@ -1,53 +1,11 @@
-
-	
 	<div class="container ">
-		<div class="main-menu">
-			<ul class="conference-menu">
-				<li class="other">
-					<img src="/assets/GREY.png">
-				</li>
-				<li class="other">
-					<img src="/assets/GREY.png">
-				</li>
-				<li class="other">
-					<img src="/assets/GREY.png">
-				</li>
-				<li class="year">
-					<img src="/assets/RED.png">
-				</li>
-				<li class="inside">
-					<img src="/assets/BLUE.png">
-				</li>
-				<li class="inside">
-					<img src="/assets/BLUE.png">
-				</li>
-				<li class="inside">
-					<img src="/assets/BLUE.png">
-				</li>
-				<li class="other">
-					<img src="/assets/GREY.png">
-				</li>
-				<li class="other">
-					<img src="/assets/GREY.png">
-				</li>
-				<li class="current-year">
-					<img src="/assets/GREEN.png">
-				</li>
-				<li class="current-year">
-					<img src="/assets/GREEN.png">
-				</li>
-				<li class="current-year">
-					<img src="/assets/GREEN.png">
-				</li>
-			</ul>
-		</div>
 			<div class="row">
 				<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 					<ul class="nav nav-pills">
 						<% unless @conference.nil? || @conference.id.nil? %>
 							<li><%= link_to "About", about_conference_path %></a></li>
 							<li><%= link_to "Speakers", speakers_conference_path%></a></li>
-							<li><%= link_to "Schedual", '#'%></a></li>
+							<li><%= link_to "Schedule", schedule_conference_path%></a></li>
 							<li><%= link_to "Location", location_conference_path%></a></li>
 							<li><%= link_to "Report", '#' %></a></li>
 						<% end %>
@@ -71,28 +29,27 @@
 				</div>
 			
 			<div class="row first">
-				<div class="name-conteiner col-lg-9 col-md-9 col-sm-8 col-xs-8">
+				<div class="name-conteiner col-lg-9 col-md-9 col-sm-8 col-xs-12">
 					<div class="conference-name">
-						<h1> Pacemaker
+						<h1> Pacemaker:
 							<% if @conference %>
-								: <%= @conference.name%>
-								-<%= @conference.year %>
+								<%= @conference.fullname%>
 							<% end %>
 						</h1>
 					</div>
 				</div>
-				<div class=" contacts col-lg-3 col-md-3 col-sm-4 col-xs-4">
+				<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 contacts">
 					<div class="conference-det-2">
 						<ul>
 							<% if @conference %>
-								<li>
-									This time <strong><%= @conference.attenders %> lucky people</strong> 
-								</li>
-								<li>
-									will meet on <strong><%=@conference.date %></strong>
-								</li>
-								<li>
-									in a beautiful city of <strong> Lviv</strong></li>
+							<li>
+								This time <strong><%= @conference.attenders %> lucky people</strong> 
+							</li>
+							<li>
+								will meet on <strong><%=@conference.date %></strong>
+							</li>
+							<li>
+							in a beautiful city of <strong> Lviv</strong></li>
 							<% end %>	
 						</ul>
 					</div>

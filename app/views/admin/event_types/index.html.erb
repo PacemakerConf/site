@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Event Types</h1>
+
+<table class="table table-responsive">
+  <colgroup class="index_event_types">
+    <col><col><col><col><col><col><col><col><col><col>
+  </colgroup>
+  <thead>
+    <tr>
+      <th>Image</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Duration</th>
+      <th>Color</th>
+      <th>Speaker</th>
+      <th>Groupable</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @event_types.each do |event_type| %>
+      <tr>
+        <td><span class="glyphicon"><span class="glyphicon<%=classImage(event_type.image)%>"></span></span></td>
+        <td><%= event_type.name %></td>
+        <td><%= event_type.description %></td>
+        <td><%= durationReturn(event_type.defaultDuration) %></td>
+        <td ><span class="btn-xs" style="background-color:<%= event_type.color %>"></span></td>
+        <td><span class="glyphicon"><span class="glyphicon<%=trueEventCheck(event_type.speakerEvent)%>"></span></span></td>
+        <td><span class="glyphicon"><span class="glyphicon<%=trueEventCheck(event_type.groupable)%>"></span></span></td>
+        <td><%= link_to 'Show', admin_event_type_path(event_type), class: "btn btn-default btn-xs" %></td>
+        <td><%= link_to 'Edit', edit_admin_event_type_path(event_type), class: "btn btn-warning btn-xs"%></td>
+        <td><%= link_to 'Destroy', admin_event_type_path(event_type), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to 'New Event type', new_admin_event_type_path, class: "btn btn-default btn-sm" %>

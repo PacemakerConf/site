@@ -1,11 +1,3 @@
-
-<!-- DataTables CSS -->
-<link rel="stylesheet" type="text/css" href="vendor/assets/dataTables/css/jquery.dataTables.css">
-<!-- DataTables -->
-<script type="text/javascript" charset="utf8" src="vendor/assets/dataTables/js/jquery.dataTables.js"></script> 
-<!-- jQuery -->
-<script type="text/javascript" src="vendor/assets/javascripts/jquery-1.11.2.js"></script>
-
 <h1>Listing Conferences</h1>
 <table id="conference" class="display" width="100%" cellspacing="0">
   <thead>
@@ -30,15 +22,15 @@
           <td><%= conference.date %></td>
           <td><%= conference.attenders %></td>
 
-          <% conf = conference.name.to_s + "-" + conference.year.to_s %>
-
           <td><%= unless(conference.location.nil?)
-                    link_to "#{conference.location.address}", location_conference_path(conf) 
+                    link_to "#{conference.location.address}", location_conference_path(conference.fullname)
+                  else
+                    link_to "Create Location", new_admin_location_path()
                   end %></td>
           <td><%= link_to 'Report', conference.report %></td>
-          <td><%= link_to 'Show', about_conference_path(conference.name.to_s + "-" + conference.year.to_s) %></td>
-          <td><%= link_to 'Edit', edit_conference_path(conference.name.to_s + "-" + conference.year.to_s) %></td>
-          <td><%= link_to 'Destroy', conference, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Show', about_conference_path(conference.fullname) %></td>
+          <td><%= link_to 'Edit', edit_conference_path(conference.fullname) %></td>
+          <td><%= link_to 'Destroy', conference_path(conference.fullname), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

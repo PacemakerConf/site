@@ -35,18 +35,20 @@
 	text-align: center;
 }
 
-.photo{
-	width: 75px;
-	height: 75px; 
-}
+.speakers-det .speaker-photo, .one-speaker .speaker-photo{
 
-.speakers-det .speaker-photo{
 	width: 75px;
 	height: 75px;
 	margin-right: 5px;
 	background-color: grey;
 	text-align: center;
 	float: left;
+	margin: 5px;
+}
+
+.photo {
+	 width: 75px;
+	 height: 75px;
 }
 
 .speech-info{
@@ -57,25 +59,41 @@
 	margin-left: 20px;
 }
 
+.speech-title h2{
+	display: inline-block;
+	margin: 5px;
+	padding: 10px;
+}
+
 .speech-container{
-	background-color: #e7e7d4;
+	background-color: rgba(255,255,255,0.31);
+	margin: 5px;
+	padding: 5px;
+}
+
+.speech-container div{
+	display: inline-block;
 }
 
 .ongoing-speech-container{
-	background-color: #4ddb4d;
+	background-color: rgba(255,255,255,0.31);
+	margin: 5px;
+	padding: 5px;
+}
+
+.ongoing-speech-container div{
+	display: inline-block;
 }
 
 .speech-conference{
-	float: left;
-	text-align: right;
-	width: 18%;
-	margin-top: 15px; 
+	text-align: center;
+	margin: 5px;
+	padding: 10px;
+	width: 20%;
 }
-
-.speech-details{
-	border-left: 1px solid black;
-	padding-left: 10px;
-	margin-left: 20%;
+.speeches-list .speech-details{
+	margin: 5px;
+	padding: 5px;
 }
 
 .full-speaker-container{
@@ -93,4 +111,13 @@
 	padding: 10px;
 	background-color: #eee;
 	margin-bottom: 8px;
+}
+
+.speaker-contacts li{
+	display: inline-block;
+	list-style: none;
+	margin: 5px;
+}
+.speaker-contacts img{
+	width:16px;
 }

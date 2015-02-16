@@ -13,22 +13,25 @@
 
   <div class="field">
     <%= f.label :name %><br>
-    <%= f.text_field :name, size: "30x12" %>
+    <%= f.text_field :name, size: "25" %>
   </div>
   <div class="field">
     <%= f.label :year %><br>
-    <%= select_year(Time.now) %>
+    <%= f.number_field :year, value: "2015", size: "25" %>
   </div>
-  <div class="field" id = "datetimepicker" >
+  <div class="field">
     <%= f.label :date %><br>
-    <%= select_date Date.today, prefix: :start_date %><br>
-    <%= f.text_field :date, id: "datetimepicker" %>
+    <%= f.text_field :date, :class => "datetimepicker" %>
   </div>
   <div class="field">
     <%= f.label :attenders_count %><br>
-    <%= f.number_field :attenders, size: "30", min: "1" %>
+    <%= f.number_field :attenders, size: "25", value: "1", min: "1" %>
+  </div>
+  <div class="field">
+    <%= f.label :group_event %><br>
+    <%= check_box_tag :group_event, value: "" %>
   </div>
   <div class="actions">
-  <%= f.submit 'Create' %>
+  <%= f.submit "Create" %>
   </div>
 <% end %>
