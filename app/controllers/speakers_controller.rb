@@ -26,10 +26,11 @@ class SpeakersController < ApplicationController
   end
 
   def invite
-    InviteMailer.speaker_invite.deliver_later
   end
 
   def send_invitation
+    #render text: params[:email]
+    InviteMailer.speaker_invite(params[:email], params[:message]).deliver_later
     render text: "Invitation sent"
   end
 

@@ -3,7 +3,7 @@
 <%= form_tag("/speakers/send", method: "post") do %>
 <div class="field">
   <%= label_tag(:email, "Email") %><br>
-  <%= email_field(:speakers_id, :email) %>
+  <%= email_field( :email, "") %>
 </div>
 <div class="field">
   <%= label_tag(:message, "Message") %><br>
