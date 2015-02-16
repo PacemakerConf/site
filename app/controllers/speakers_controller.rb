@@ -26,6 +26,7 @@ class SpeakersController < ApplicationController
   end
 
   def invite
+    InviteMailer.speaker_invite.deliver_later
   end
 
   def send_invitation
