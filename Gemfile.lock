@@ -221,6 +221,7 @@ DEPENDENCIES
   jquery-datetimepicker-rails
   jquery-rails
   jquery-ui-rails
+  mail
   paperclip (~> 4.2)
   rails (= 4.2.0)
   rspec-rails
