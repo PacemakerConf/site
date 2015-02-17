@@ -11,7 +11,7 @@ class Admin::ConferencesController < Admin::ApplicationController
   end
 
   def schedule
-    @events = @conference.events
+    @events = @conference.events.order(:position)
   end
 
   def index
