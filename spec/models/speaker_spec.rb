@@ -6,16 +6,20 @@ describe Speaker do
 	it {should have_many(:events) }
 	it {should have_many(:conferences) }
 
-	before do
-		@speaker = Speaker.new(name: 'Agrronom')
+	it 'has valid factory' do
+		expect(FactoryGirl.create(:speaker)).to be_valid
 	end
 
-	it 'be valid with name' do
-		expect(@speaker).to be_valid
-	end
-
-	it 'should be invalid without name' do
-		@speaker.name = nil
-		expect(@speaker).not_to be_valid
+	it 'is invalid without name' do
+		expect(FactoryGirl.build(:speaker, name: nil)).not_to be_valid
 	end 
+
+	it 'is invalid without surname' do
+		expect(FactoryGirl.build(:speaker, surname: nil)).not_to be_valid
+	end 
+
+	it 'return speakers full name ' do
+		speaker = FactoryGirl.build(:speaker)
+		expect( speaker.fullname ).to eq(speaker.name.to_s + ' ' + speaker.surname.to_s)
+	end
 end
