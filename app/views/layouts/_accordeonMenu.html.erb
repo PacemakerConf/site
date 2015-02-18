@@ -1,0 +1,154 @@
+<!doctype html>
+<html>
+<head>
+<style>
+
+ul.accordion {
+  list-style-type: none;
+  position: relative;
+}
+
+ul.accordion li {
+  float: center;
+  width: 300px;
+  height: 60px;
+  display: inline-block;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+ul.accordion li.bg1 { background-image: url(""); }
+
+ul.accordion li.bg2 { background-image: url(""); }
+
+ul.accordion li.bg3 { background-image: url(""); }
+
+ul.accordion li.bg4 { background-image: url(""); }
+
+.bg1 {
+  display: inline-block;
+}
+
+ul.accordion li .description a:hover {
+  color: #333;
+  text-decoration: underline;
+}
+
+.description {
+  display: none;
+}
+
+  ul.conference-menu {
+
+background-color: rgb(0, 44, 58);
+}
+    .heading p{
+      margin: -70px 0 0 0;
+      position: relative;
+      z-index: 1;
+    }
+</style>
+</head>
+<body>
+<div class="main-menu">
+  <ul class="conference-menu">
+    <ul class="accordion" id="accordion">
+
+      <li class="bg1">
+        <div class="heading">
+          <img src="/assets/RED.png">
+          <p><a href="http://localhost:3000/conferences/"><h3>2013</h3></a></p>
+        </div>
+          <div class="description">
+            <img src="/assets/GREY.png">
+            <p><a href="http://localhost:3000/">RUBY</a></p>
+          </div>
+          <div class="description">
+            <img src="/assets/GREY.png">
+            <p><a href="http://localhost:3000/">JAVA</a></p>
+          </div>         
+          <div class="description">
+            <img src="/assets/GREY.png">
+            <p><a href="http://localhost:3000/">C++</a></p>
+          </div>         
+          <div class="description">
+            <img src="/assets/GREY.png">
+            <p><a href="http://localhost:3000/">.NET</a></p>
+          </div>
+      </li>
+      <li class="bg2">
+          <div class="heading">
+            <img src="/assets/BLUE.png">
+            <p><a href="http://localhost:3000/"><h3>2014</h3></a></p></div>
+            <div class="description">
+              <img src="/assets/GREY.png">
+              <p><a href="http://localhost:3000/">RUBY</a></p>
+            </div>
+            <div class="description">
+              <img src="/assets/GREY.png">
+              <p><a href="http://localhost:3000/">JAVA</a></p>
+            </div>         
+            <div class="description">
+              <img src="/assets/GREY.png">
+              <p><a href="http://localhost:3000/">C++</a></p>
+            </div>         
+            <div class="description">
+              <img src="/assets/GREY.png">
+              <p><a href="http://localhost:3000/">.NET</a></p>
+            </div>
+      </li>
+      <li class="bg3">
+          <div class="heading">
+            <img src="/assets/BLUE.png">
+            <p><a href="http://localhost:3000/"><h3>2015</h3></a></p></div>
+            <div class="description">
+              <img src="/assets/GREY.png">
+              <p><a href="http://localhost:3000/">RUBY</a></p>
+            </div>
+            <div class="description">
+              <img src="/assets/GREY.png">
+              <p><a href="http://localhost:3000/">JAVA</a></p>
+            </div>         
+            <div class="description">
+              <img src="/assets/GREY.png">
+              <p><a href="http://localhost:3000/">C++</a></p>
+            </div>         
+            <div class="description">
+              <img src="/assets/GREY.png">
+              <p><a href="http://localhost:3000/">.NET</a></p>
+            </div>
+      </li>
+      <div class="bg4">
+          <div class="heading">
+            <img src="/assets/GREEN.png">
+            <p><a href="http://localhost:3000/"><h4>BigData</h4></a></p></div>
+      </div>
+
+    </ul>
+  </ul>
+</div>
+
+<script>
+$(document).ready(function() {
+  $('.description').hide();
+  $(".accordion > li").hover(
+    function(){
+      var $this = $(this);
+      $this.stop().animate({"width": "250px"},200);
+      $('.heading', $this).stop(true,true).fadeOut();
+      $('.bgDescription', $this).stop(true,true).slideDown(500);
+      $('.description',$this).stop(true,true).fadeIn();
+    },
+    function(){
+      var $this = $(this);
+      $this.stop().animate({"width": "115px"},500);
+      $('.heading', $this).stop(true,true).fadeIn();
+      $('.bgDescription', $this).stop(true,true).slideUp(500);
+      $('.description',$this).stop(true,true).fadeOut();
+    }
+  )
+});
+</script>
+
+</body>
+</html>

@@ -1,4 +1,5 @@
-<%= form_for [:admin, @conference] do |f| %>
+<%= form_for( [:admin, @conference],  html: {class: 'form-horizontal'} ) do |f| %>
+
   <% if @conference.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@conference.errors.count, "error") %> prohibited this conference from being saved:</h2>
@@ -11,23 +12,44 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name, size: "25" %>
-  </div>
-  <div class="field">
-    <%= f.label :year %><br>
-    <%= f.number_field :year, value: "2015", size: "25" %>
-  </div>
-  <div class="field">
-    <%= f.label :date %><br>
-    <%= f.text_field :date, :class => "datetimepicker" %>
-  </div>
-  <div class="field">
-    <%= f.label :attenders_count %><br>
-    <%= f.number_field :attenders, size: "25", value: "1", min: "1" %>
-  </div>
-  <div class="actions">
-  <%= f.submit "Create" %>
-  </div>
+<form class="form-horizontal">
+  <fieldset>
+    <div class="form-group">
+      <%= f.label :name, class: "col-lg-2 control-label"%>
+      <div class="col-lg-10">
+        <%= f.text_field :name, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :'year', class: "col-lg-2 control-label" %>
+        <div class="col-lg-10">
+      <%= f.number_field :year, value: "2015", class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :date, class: "col-lg-2 control-label" %>
+        <div class="col-lg-10">
+      <%= f.text_field :date, :class => "datetimepicker", class: "form-control"%>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :attenders_count, class: "col-lg-2 control-label" %>
+        <div class="col-lg-10">
+      <%= f.number_field :attenders, value: "1", min: "1", class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :group_event, class: "col-lg-2 control-label" %>
+        <div class="col-lg-10">
+      <%= check_box_tag :group_event, value: "" %>
+      </div>
+    </div>
+    <div class="form-group">
+    <div class="col-lg-10 col-lg-offset-2">
+      <button type="reset" class="btn btn-default">Cancel</button>
+      <button type="submit" class="btn btn-primary">Create</button>
+    </div>
+    </div>
+  </fieldset>
+</form>
 <% end %>

@@ -12,7 +12,6 @@
 //
 //= require event_types
 //= require jquery
-//= require ../../../vendor/assets/javascripts/jquery-1.11.2
 //= require jquery_ujs
 //= require jquery-ui
 //= require jquery.dataTables.js
