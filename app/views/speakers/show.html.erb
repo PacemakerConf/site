@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <div class='speaker-container one-speaker'>
 	<div class='speaker-photo'>
 		<img class='photo' alt= <%= @speaker.name.to_s + @speaker.surname.to_s %> src= <%= @speaker.photo || "/assets/pacemaker_logo.png" %> >
@@ -26,14 +25,12 @@
 	<div>
 		<div>
 			<h2> Conferences: </h2>	
-=======
 	<div class='speaker-container one-speaker'>
 		<div class = 'speaker-photo'>
 			<%= image_tag( @speaker.photo.url(:thumb), class: 'photo', alt: @speaker.name ) %>  
 	   	</div>
 		<div class='speaker-name'>
 			<%= @speaker.fullname %>
->>>>>>> 21eaf485f32dcffe52ebba0e3e31ca098ba7b08c
 		</div>
 		<div class="speaker-description">
 			<p><%= @speaker.description %></p>
