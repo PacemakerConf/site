@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   end
 
 
+  resources :speakers, param: :name
   resources :conferences, param: :name
   resources :years
 
