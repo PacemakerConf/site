@@ -21,9 +21,14 @@ class Admin::SpeakersController < Admin::ApplicationController
   def edit
   end
 
-  def invite 
+  def invite
   end
 
+  def send_invitation
+    #render text: params[:email]
+    InviteMailer.speaker_invite(params[:email], params[:message]).deliver_later
+    render text: "Invitation sent"
+  end
 
   # POST /speakers
   # POST /speakers.json

@@ -16,19 +16,18 @@ Rails.application.routes.draw do
         get 'schedule'
       end
     end
-    resources :speakers, param: :name
     resources :contacts
     resources :events
     resources :event_types
     resources :locations  
+    resources :speakers, param: :name do
+      collection do
+        get 'invite', to: 'speakers#invite'
+        post 'send', to: 'speakers#send_invitation'
+      end
+    end 
   end
 
-  resources :speakers, param: :name do
-    collection do
-      get 'invite', to: 'speakers#invite'
-      post 'send', to: 'speakers#send_invitation'
-    end
-  end 
 
   resources :conferences, param: :name
   resources :years

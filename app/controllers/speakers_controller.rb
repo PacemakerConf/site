@@ -17,24 +17,12 @@ class SpeakersController < ApplicationController
   # GET /speakers/new
   def new
     @speaker = Speaker.new
-
   end
 
   # GET /speakers/1/edit
   def edit
     authorize! :update, @speaker
   end
-
-  def invite
-  end
-
-  def send_invitation
-    #render text: params[:email]
-    InviteMailer.speaker_invite(params[:email], params[:message]).deliver_later
-    render text: "Invitation sent"
-  end
-
-
 
   # POST /speakers
   # POST /speakers.json
