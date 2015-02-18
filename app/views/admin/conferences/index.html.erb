@@ -29,7 +29,7 @@
                     link_to "Create Location", new_admin_location_path()
                   end %></td>
           <td><%= link_to 'Report', conference.report %></td>
-          <td><%= link_to 'Show', about_conference_path(conference.fullname) %></td>
+          <td><%= link_to 'Show', admin_conference_path(conference.fullname) %></td>
           <td><%= link_to 'Edit', edit_admin_conference_path(conference.fullname) %></td>
           <td><%= link_to 'Destroy', admin_conference_path(conference.fullname), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
