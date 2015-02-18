@@ -10,7 +10,7 @@ class Conference < ActiveRecord::Base
 					 inclusion: { in: 2011..2100 }
 					 
 	def fullname
-		self.name.to_s + "-" + self.year.to_s
+		name.to_s + "-" + year.to_s
 	end
 
 	def self.last_conference

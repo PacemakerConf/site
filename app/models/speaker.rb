@@ -8,10 +8,11 @@ class Speaker < ActiveRecord::Base
 	}
 
 	validates :name, presence: true
+	validates :surname, presence: true
 
 	validates_attachment_content_type :photo, content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
 	def fullname
-		self.name.to_s + ' ' + self.surname.to_s
+		[name, surname].join ' '
 	end
 end
