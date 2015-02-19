@@ -1,5 +1,5 @@
-console.log('schedule.js');
-$(document).ready(function(){scheduleChange()});
+// console.log('schedule.js');
+// $(document).ready(function(){scheduleChange()});
 
 
 function scheduleChange(){

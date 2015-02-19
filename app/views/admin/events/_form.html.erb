@@ -1,4 +1,4 @@
-<%= form_for [:admin, @event] do |f| %>
+<%= form_for [:admin, @event],  html: {class: 'form-horizontal'}  do |f| %>
   <% if @event.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
@@ -11,47 +11,66 @@
     </div>
   <% end %>
 
-  
-  <div class="field">
-    <%= f.label :event_type_id, 'Event type*' %><br>
-    <%= select_tag 'event[event_type_id]', options_from_collection_for_select(EventType.all, 'id', 'name', 1) %>
-  </div>
 
-  <div class="field">
+  <div class="form-group">
     <% if params['conf_id'] %>
-      Conference:  <%= params['conf_fname'] %>
+      <div class="form-group">
+        <%= f.label :conference_id, 'Conference', class: "col-lg-2 control-label" %>
+        <div class="col-lg-10">
+          <input class="form-control"  disabled='true' type='text' placeholder='<%= params['conf_fname'] %>'>
+        </div>
+      </div>
       <%= hidden_field( :event, :conference_id, value: params['conf_id']) %>
     <% else %>
-      <%= f.label :conference_id, 'Conference' %><br>
-      <%= select_tag 'event[conference_id]', options_from_collection_for_select(Conference.all, 'id', 'fullname', Conference.last.id) %>
-      <% end %>
- </div>
-
-  <div class="field">
-    <%= f.label :title, 'Name*' %><br>
-    <%= f.text_field :title %>
+      <%= f.label :conference_id, 'Conference', class: "col-lg-2 control-label" %>
+      <div class="col-lg-10">
+        <%= select_tag 'event[conference_id]', options_from_collection_for_select(Conference.all, 'id', 'fullname', Conference.last.id), class: "form-control"%>
+      </div>
+    <% end %>
   </div>
 
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
+  <div class="form-group">
+    <%= f.label :event_type_id, 'Event type*', class: "col-lg-2 control-label"%>
+    <div class="col-lg-10">
+      <%= select_tag 'event[event_type_id]', options_from_collection_for_select(EventType.all, 'id', 'name', 1), class: "form-control" %>
+    </div>
   </div>
 
-  <div class='field'>
-    
-    Duration
+  <div class="form-group">
+    <%= f.label :duration, class: "col-lg-2 control-label" %>
+    <div id='event_duration_hour' class='col-lg-10'>
+      <input type='text' id='event_hours' class='form-control time-field' onchange = 'setEventHoursDuration()' value='<%= EventType.first.defaultDuration.hour %>'>
+      :
+      <input type='text' id='event_mins' class='form-control time-field' onchange = 'setEventMinsDuration()' value='<%= EventType.first.defaultDuration.min %>'>
+    </div>
+    <%= f.hidden_field :duration, value: EventType.first.defaultDuration %>
+  </div>
 
+  <div class="form-group">
+    <%= f.label :title, 'Name*', class: "col-lg-2 control-label"%>
+    <div id='event_duration_hour' class='col-lg-10'>
+      <%= f.text_field :title, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :description, class: "col-lg-2 control-label"%>
+    <div class="col-lg-10">
+      <%= f.text_area :description, class: "form-control", rows: "3" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :speaker_id, 'Speaker', class: "col-lg-2 control-label"%>
+    <div class="col-lg-10">
+      <%= select_tag 'event[speaker_id]', content_tag(:option,'No speaker', value: "")+options_from_collection_for_select(Speaker.all, 'id', 'name'), class: "form-control" %>
+    </div>
   </div>
 
 
-
-  <div class="field">
-    <%= f.label :speaker_id, 'Speaker' %><br>
-    <%= select_tag 'event[speaker_id]', content_tag(:option,'No speaker', value: "")+options_from_collection_for_select(Speaker.all, 'id', 'name') %>
-  </div>
-
-
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group">
+    <div class="col-lg-10 col-lg-offset-2">
+      <%= f.submit %>
+    </div>
   </div>
 <% end %>

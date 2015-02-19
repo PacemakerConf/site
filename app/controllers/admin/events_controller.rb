@@ -1,4 +1,7 @@
 class Admin::EventsController < Admin::ApplicationController
+
+  layout 'admin'
+
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   # GET /events
