@@ -29,6 +29,8 @@ class Admin::EventsController < Admin::ApplicationController
   def create
     @event = Event.new(event_params)
     @conference = Conference.find(event_params[:conference_id])
+    position = Event.where(conference: @conference).size + 1
+    @event.position = position
 
     respond_to do |format|
       if @event.save

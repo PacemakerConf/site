@@ -40,7 +40,7 @@ function getDefaultDuration(){
         toggleSpeakerDropdown(response.speakerEvent);
     }
   }
-  xmlhttp.open("GET", "/admin/event_types/get_default_duration?id=" + selected_event_type, true);
+  xmlhttp.open("GET", "/admin/event_types/" + selected_event_type + ".json", true);
   xmlhttp.send();
 
 }
