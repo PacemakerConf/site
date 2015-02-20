@@ -1,4 +1,6 @@
 class Admin::EventTypesController < Admin::ApplicationController
+  layout 'admin'
+  
   before_action :set_event_type, only: [:get_default_duration, :show, :edit, :update, :destroy]
 
   def get_default_duration

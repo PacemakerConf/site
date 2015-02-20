@@ -13,11 +13,9 @@
 
   <div class="form-group">
     <% if params['conf_id'] %>
-      <div class="form-group">
-        <%= f.label :conference_id, 'Conference', class: "col-lg-2 control-label" %>
-        <div class="col-lg-10">
-          <input class="form-control"  disabled='true' type='text' placeholder='<%= params['conf_fname'] %>'>
-        </div>
+      <%= f.label :conference_id, 'Conference', class: "col-lg-2 control-label" %>
+      <div class="col-lg-10">
+        <input class="form-control"  disabled='true' type='text' placeholder='<%= params['conf_fname'] %>'>
       </div>
       <%= hidden_field( :event, :conference_id, value: params['conf_id']) %>
     <% else %>
@@ -72,6 +70,8 @@
       <%= select_tag 'event[speaker_id]', content_tag(:option,'No speaker', value: "")+options_from_collection_for_select(Speaker.all, 'id', 'name', @event.speaker_id || ''), class: "form-control" %>
     </div>
   </div>
+
+  <%= f.hidden_field :position %>
 
   <div class="form-group">
     <div class="col-lg-10 col-lg-offset-2">

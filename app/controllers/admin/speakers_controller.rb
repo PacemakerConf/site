@@ -1,4 +1,6 @@
 class Admin::SpeakersController < Admin::ApplicationController
+  layout 'admin'
+
   before_action :set_speaker, only: [:show, :edit, :update, :destroy]
   
   # GET /speakers

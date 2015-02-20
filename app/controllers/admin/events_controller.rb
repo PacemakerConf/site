@@ -1,5 +1,4 @@
 class Admin::EventsController < Admin::ApplicationController
-
   layout 'admin'
 
   before_action :set_event, only: [:show, :edit, :update, :destroy]
@@ -29,10 +28,11 @@ class Admin::EventsController < Admin::ApplicationController
   # POST /events.json
   def create
     @event = Event.new(event_params)
+    @conference = Conference.find(event_params[:conference_id])
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to admin_events_path, notice: 'event was successfully created.' }
+        format.html { redirect_to schedule_admin_conference_path(@conference), notice: 'event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
       else
         format.html { render :new }

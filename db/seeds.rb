@@ -176,7 +176,7 @@ onering.events.create(
 	event_type: lightning,
 	speaker: gimli,
 	duration: '2014-12-12 01:05:00',
-	position: 0
+	position: 5
 	)
 
 onering.events.create(
@@ -185,7 +185,7 @@ onering.events.create(
 	event_type: topic,
 	speaker: sam,
 	duration: '2014-12-12 00:15:00',
-	position: 0
+	position: 6
 	)
 
 onering.events.create(
@@ -193,7 +193,7 @@ onering.events.create(
 	event_type: lightning,
 	speaker: ent,
 	duration: '2014-12-12 00:25:00',
-	position: 0
+	position: 7
 	)
 
 victory.events.create(
