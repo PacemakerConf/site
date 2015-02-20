@@ -31,13 +31,16 @@ function getDefaultDuration(){
   xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function() {
     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-        var duration = JSON.parse( xmlhttp.responseText );
-        event_hours.value = duration.hour;
-        event_mins.value = duration.min;
+        var response = JSON.parse( xmlhttp.responseText );
+        event_hours.value = response.durationHour;
+        event_mins.value = response.durationMin;
         event_hours.onchange();
         event_mins.onchange();
+        
+        toggleSpeakerDropdown(response.speakerEvent);
     }
   }
   xmlhttp.open("GET", "/admin/event_types/get_default_duration?id=" + selected_event_type, true);
   xmlhttp.send();
+
 }

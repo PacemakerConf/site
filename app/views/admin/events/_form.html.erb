@@ -11,18 +11,25 @@
     </div>
   <% end %>
 
+
   <div class="form-group">
     <% if params['conf_id'] %>
+
       <%= f.label :conference_id, 'Conference', class: "col-lg-2 control-label" %>
       <div class="col-lg-10">
-        <input class="form-control"  disabled='true' type='text' placeholder='<%= params['conf_fname'] %>'>
+        <select class="form-control"  disabled='true'>
+          <option selected="selected"> <%= params['conf_fname'] %></option>
+        </select>
       </div>
       <%= hidden_field( :event, :conference_id, value: params['conf_id']) %>
+
     <% else %>
+
       <%= f.label :conference_id, 'Conference', class: "col-lg-2 control-label" %>
       <div class="col-lg-10">
         <%= select_tag 'event[conference_id]', options_from_collection_for_select(Conference.all, 'id', 'fullname', @event.conference_id || Conference.last.id), class: "form-control"%>
       </div>
+
     <% end %>
   </div>
 
@@ -33,9 +40,11 @@
     </div>
   </div>
 
+
   <div class="form-group">
     <%= f.label :duration, class: "col-lg-2 control-label" %>
     <div id='event_duration_hour' class='col-lg-10'>
+
       <% if @event.duration %>
         <% duration_hour = @event.duration.hour %>
         <% duration_min = @event.duration.min %>
@@ -43,12 +52,16 @@
         <% duration_hour = EventType.first.defaultDuration.hour %>
         <% duration_min = EventType.first.defaultDuration.min %>
       <% end %>
+
       <input type='text' id='event_hours' class='form-control time-field' onchange = 'setEventHoursDuration()' value='<%= duration_hour %>'>
       :
       <input type='text' id='event_mins' class='form-control time-field' onchange = 'setEventMinsDuration()' value='<%= duration_min %>'>
+
     </div>
+
     <%= f.hidden_field :duration, value: @event.duration || EventType.first.defaultDuration %>
   </div>
+
 
   <div class="form-group">
     <%= f.label :title, 'Name*', class: "col-lg-2 control-label"%>
@@ -67,7 +80,7 @@
   <div class="form-group">
     <%= f.label :speaker_id, 'Speaker', class: "col-lg-2 control-label"%>
     <div class="col-lg-10">
-      <%= select_tag 'event[speaker_id]', content_tag(:option,'No speaker', value: "")+options_from_collection_for_select(Speaker.all, 'id', 'name', @event.speaker_id || ''), class: "form-control" %>
+      <%= select_tag 'event[speaker_id]', content_tag(:option,'No speaker', value: "")+options_from_collection_for_select(Speaker.all, 'id', 'name', @event.speaker_id || ''), class: "form-control", disabled: true %>
     </div>
   </div>
 
