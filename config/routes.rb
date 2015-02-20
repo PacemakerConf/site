@@ -18,11 +18,7 @@ Rails.application.routes.draw do
     end
     resources :contacts
     resources :events
-    resources :event_types do
-      collection do
-        get 'get_default_duration'
-      end
-    end
+    resources :event_types 
     resources :locations  
     resources :speakers, param: :name do
       collection do
