@@ -6,6 +6,6 @@ class Event < ActiveRecord::Base
 	validates :title, presence: true
 	validates :conference_id, presence: true
 	validates :event_type_id, presence: true
-
+	validates_with SpeakerValidator 
 end
 	
