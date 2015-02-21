@@ -42,7 +42,7 @@
 
   <div class="field">
     <%= f.label :contact_id, 'Contact' %><br>
-    <%= select_tag 'contact[location_id]', options_from_collection_for_select(Contact.all, 'id', 'name') %>
+    <%= select_tag 'location[location_id]', options_from_collection_for_select(Contact.all, 'id', 'surname', 'location.id+1') %>
   </div>
 
 
