@@ -42,10 +42,19 @@
 
   <div class="field">
     <%= f.label :contact_id, 'Contact' %><br>
-    <%= select_tag 'location[contact_id]', options_from_collection_for_select(Contact.all, 'id', 'name') %>
+    <%= select_tag 'contact[location_id]', options_from_collection_for_select(Contact.all, 'id', 'name') %>
   </div>
 
 
+
+
+
+
+  <div class="field">
+    <%= f.label :how_to_find %><br>
+    <%= f.text_area :how_to_find, as: :wysihtml5 %>
+  </div>
+  
 
 
   <div class="actions">

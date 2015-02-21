@@ -6,6 +6,8 @@ class Location < ActiveRecord::Base
     	"#{address}, #{city}"
   	end
 
+  	
+
 	belongs_to :conference
 
 	has_many :contacts

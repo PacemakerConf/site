@@ -24,7 +24,7 @@
           <td><%= conference.attenders %></td>
           <td><%= link_to 'Schedule', schedule_admin_conference_path(conference.fullname)%></td>
           <td><%= unless(conference.location.nil?)
-                    link_to "#{conference.location.address}", location_conference_path(conference.fullname)
+                    link_to "#{conference.location.address}, #{conference.location.city}", location_conference_path(conference.fullname)
                   else
                     link_to "Create Location", controller: 'admin/locations', action: 'new', conf_id: conference.id, conf_fname: conference.fullname
                   end %></td>

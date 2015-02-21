@@ -23,6 +23,15 @@
     <%= f.label :telephone %><br>
     <%= f.text_field :telephone %>
   </div>
+
+
+  <button type="button" id = "telephone">Click Me!</button>
+  <div id = "telephones" >
+    
+
+
+  </div>
+
   <div class="field">
     <%= f.label :email %><br>
     <%= f.text_field :email %>
@@ -35,3 +44,14 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+
+
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#telephone').click(function() {
+    $('#telephones').html('<p>12345</p>')
+  });
+});
+</script>
