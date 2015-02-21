@@ -2,6 +2,10 @@ source 'https://rubygems.org'
 
 gem 'paperclip', '~> 4.2'
 
+gem 'bootstrap-wysihtml5-rails', :require => 'bootstrap-wysihtml5-rails',
+                              :git => 'git://github.com/Nerian/bootstrap-wysihtml5-rails.git'
+
+gem 'nested_form'
 gem 'geocoder'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'

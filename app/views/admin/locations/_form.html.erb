@@ -10,7 +10,19 @@
       </ul>
     </div>
   <% end %>
+
 <%= params.inspect %>
+
+    <div class="field">
+      <% if params['conf_id'] %>
+        Conference:  <%= params['conf_fname'] %>
+        <%= hidden_field( :location, :conference_id, value: params['conf_id']) %>
+      <% else %>
+        <%= f.label :conference_id, 'Conference' %><br>
+        <%= select_tag 'location[conference_id]', options_from_collection_for_select(Conference.all, 'id', 'fullname') %>
+      <% end %>
+   </div>
+
   <div class="field">
     <%= f.label :place_type %><br>
     <%= f.text_field :place_type %>
@@ -28,10 +40,22 @@
     <%= f.text_field :address %>
   </div>
 
-   <div class="field">
-    <%= f.label :contact %><br>
-    <%= select_tag 'location[contact_id]', options_from_collection_for_select(Contact.all, 'id' ,'name', Location.last.id) %>
- </div>
+  <div class="field">
+    <%= f.label :contact_id, 'Contact' %><br>
+    <%= select_tag 'location[location_id]', options_from_collection_for_select(Contact.all, 'id', 'surname', 'location.id+1') %>
+  </div>
+
+
+
+
+
+
+  <div class="field">
+    <%= f.label :how_to_find %><br>
+    <%= f.text_area :how_to_find, as: :wysihtml5 %>
+  </div>
+  
+
 
   <div class="actions">
     <%= f.submit %>

@@ -25,10 +25,15 @@
   <%= @contact.skype %>
 </p>
 
-<p>
-  <strong>Location:</strong>
-  <%= @contact.location_id %>
-</p>
+<h1>Numbers</h1>
+        <% @contact.telephones.each do |telephones| %>
+          <div>
+            <p><b>Tel:</b> <%= telephones.number %></p>
+          </div>
+        <% end %>
+
+
+
 
 
 

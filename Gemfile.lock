@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/Nerian/bootstrap-wysihtml5-rails.git
+  revision: 5a88697c1d0855c1176b51e172dc85df4033e2d7
+  specs:
+    bootstrap-wysihtml5-rails (0.3.3.4)
+      railties (>= 3.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -106,6 +113,7 @@ GEM
     mini_portile (0.6.2)
     minitest (5.5.1)
     multi_json (1.10.1)
+    nested_form (0.3.2)
     nokogiri (1.6.5)
       mini_portile (~> 0.6.0)
     orm_adapter (0.5.0)
@@ -216,6 +224,7 @@ DEPENDENCIES
   autoprefixer-rails
   bcrypt (~> 3.1.7)
   bootstrap-sass (~> 3.2.0)
+  bootstrap-wysihtml5-rails!
   byebug
   cancan
   coffee-rails (~> 4.1.0)
@@ -228,6 +237,7 @@ DEPENDENCIES
   jquery-rails
   jquery-ui-rails
   mail
+  nested_form
   paperclip (~> 4.2)
   rails (= 4.2.0)
   rspec-rails

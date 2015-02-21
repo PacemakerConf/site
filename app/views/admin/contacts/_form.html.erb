@@ -1,4 +1,4 @@
-<%= form_for [:admin, @contact] do |f| %>
+<%= nested_form_for [:admin, @contact] do |f| %>
   <% if @contact.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
@@ -23,6 +23,15 @@
     <%= f.label :telephone %><br>
     <%= f.text_field :telephone %>
   </div>
+    <div>
+  <% f.fields_for :telephones do |form| %>
+      <%= form.label :number, "Number" %><br />
+      <%= form.text_field :number%>
+      <%= form.link_to_remove "Remove" %>
+  <% end %>
+  <%= f.link_to_add "Add", :telephones %>
+
+  </div>
   <div class="field">
     <%= f.label :email %><br>
     <%= f.text_field :email %>
@@ -35,3 +44,7 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+
+
+
