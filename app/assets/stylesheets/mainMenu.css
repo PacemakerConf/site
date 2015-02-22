@@ -4,9 +4,10 @@
 		}
 
 		.main-menu {
-	    margin: 0 0 35px 0;
-	    position: relative;
-	    z-index: 1;
+	    	margin: 0 0 35px 0;
+	    	position: fixed;
+	    	z-index: 1;
+
 		}
 		.main-menu ul div{
 	    display: inline-block;

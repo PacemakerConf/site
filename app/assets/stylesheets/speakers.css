@@ -65,36 +65,28 @@
 	padding: 10px;
 }
 
-.speech-container{
-	background-color: rgba(255,255,255,0.31);
-	margin: 5px;
-	padding: 5px;
-}
-
-.speech-container div{
-	display: inline-block;
-}
-
-.ongoing-speech-container{
-	background-color: rgba(255,255,255,0.31);
-	margin: 5px;
-	padding: 5px;
-}
-
-.ongoing-speech-container div{
-	display: inline-block;
-}
-
 .speech-conference{
-	text-align: center;
 	margin: 5px;
-	padding: 10px;
-	width: 20%;
+	padding: 5px;
+	border: 1px solid rgba(128,128,128, 0.5) ;
+	background-color: rgba(255,255,255,0.31) ;
 }
 .speeches-list .speech-details{
-	margin: 5px;
+	margin: 10px;
 	padding: 5px;
+	padding-bottom: 20px;
+	border: 1px solid rgba(128,128,128, 0.5) ;
+	background-color: rgba(255,255,255,0.31) ;
+		text-align: center;
 }
+
+.ongoings-speech-container .speech-conference{
+	border: 1px solid rgba(132,143,3, 0.7) ;
+}
+.ongoings-speech-container .speech-details{
+	border: 1px solid rgba(132,143,3, 0.7) ;
+}
+
 
 .full-speaker-container{
 	width: 100%;

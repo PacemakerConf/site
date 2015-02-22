@@ -208,21 +208,14 @@ div.field, div.actions {
 	display: inline-block;
 }
 
-.ongoing-speech-container{
-	background-color: rgba(144,155,19,1);
-	padding: 5px;
-	margin: 5px;
-}
 
-.ongoing-speech-container div{
-	display: inline-block;
-}
+
+
 
 .speech-conference{
 	text-align: center;
-	margin: 10px;
-	padding: 10px;
-	width: 20%;
+	margin: 5px;
+	padding: 5px;
 }
 .speech-details{
 	margin: 10px;
@@ -9047,7 +9040,7 @@ footer {
 
 		.main-menu {
 	    margin: 0 0 35px 0;
-	    position: relative;
+	    position: fixed;
 	    z-index: 1;
 		}
 		.main-menu ul div{
