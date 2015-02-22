@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
-  #load_and_authorize_resource
+  
   before_action :set_event, only: [:show, :edit, :update, :destroy]
-
+  #load_and_authorize_resource
   # GET /events
   # GET /events.json
   def index
@@ -15,6 +15,7 @@ class EventsController < ApplicationController
 
   # GET /events/new
   def new
+    authorize! :create, Event
     @event = Event.new
   end
 
@@ -25,11 +26,11 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
-    authorize! :create, @event
+    authorize! :create, Event
     @event = Event.new(event_params)
-
     respond_to do |format|
       if @event.save
+        current_user['role'] = User::GUEST
         format.html { redirect_to events_path, notice: 'event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
       else

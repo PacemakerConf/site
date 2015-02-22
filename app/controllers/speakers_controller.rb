@@ -1,8 +1,7 @@
 class SpeakersController < ApplicationController
 
-  #load_and_authorize_resource
   before_action :set_speaker, only: [:show, :edit, :update, :destroy]
-
+ 
   # GET /speakers
   # GET /speakers.json
   def index
@@ -16,13 +15,13 @@ class SpeakersController < ApplicationController
 
   # GET /speakers/new
   def new
+    
     @speaker = Speaker.new
 
   end
 
   # GET /speakers/1/edit
   def edit
-     #authorize! :create, @speaker
   end
 
   def invite 
@@ -32,7 +31,7 @@ class SpeakersController < ApplicationController
   # POST /speakers
   # POST /speakers.json
   def create
-    authorize! :create, @speaker
+    authorize! :create, Speaker
     @speaker = Speaker.new(speaker_params)
     respond_to do |format|
       if @speaker.save

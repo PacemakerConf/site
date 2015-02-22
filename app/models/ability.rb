@@ -10,7 +10,7 @@ class Ability
       can :create, Speaker
     elsif user.role == User::GUEST
       can :read, :all
-      #can :create, Speaker
+      can :create, Speaker
     end
   end
 
