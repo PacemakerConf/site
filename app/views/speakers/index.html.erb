@@ -32,9 +32,7 @@
             <% end %>
           </td>
           <td>
-            <% if can? :destroy, @speaker %>
             <%= link_to 'Destroy', speaker_path(speaker), method: :delete, data: { confirm: 'Are you sure?' } %>
-            <% end %>
           </td>
       </tr>
     <% end %>
