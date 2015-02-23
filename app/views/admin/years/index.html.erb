@@ -16,9 +16,9 @@
       <tr>
         <td><%= year.name %></td>
         <td><%= year.content %></td>
-        <td><%= link_to 'Show', year %></td>
-        <td><%= link_to 'Edit', edit_year_path(year) %></td>
-        <td><%= link_to 'Destroy', year, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', admin_year_path(yaer) %></td>
+        <td><%= link_to 'Edit', edit_admin_year_path(year) %></td>
+        <td><%= link_to 'Destroy', admin_year_path(year), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Year', new_year_path %>
+<%= link_to 'New Year', new_admin_year_path %>

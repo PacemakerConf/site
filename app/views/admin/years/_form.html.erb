@@ -1,4 +1,4 @@
-<%= form_for @year, :html => { :class => "form-horizontal year" } do |f| %>
+<%= form_for [:admin, @year], :html => { :class => "form-horizontal year" } do |f| %>
 
     <% if @year.errors.any? %>
     <div id="error_expl" class="panel panel-danger">
