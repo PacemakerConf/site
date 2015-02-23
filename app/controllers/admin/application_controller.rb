@@ -5,7 +5,7 @@ class Admin::ApplicationController < ApplicationController
   before_action :authenticate_admin!
 
   def after_sign_in_path_for(admin)
-    admin_conferences_path    
+    admin_conferences_path
   end
 
   layout 'admin'
