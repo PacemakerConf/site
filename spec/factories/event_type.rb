@@ -1,5 +1,5 @@
 FactoryGirl.define do 
-	factory :event do |f| 
+	factory :event_type do |f| 
 		f.name 'Regitstration'
 		f.speakerEvent 0
  	end
