@@ -27,7 +27,7 @@ class Admin::EventsController < Admin::ApplicationController
   # POST /events
   # POST /events.json
   def create
-    authorize! :create, Event
+    # authorize! :create, Event
     @event = Event.new(event_params)
     @conference = Conference.find(event_params[:conference_id])
     position = Event.where(conference: @conference).size + 1
@@ -77,6 +77,6 @@ class Admin::EventsController < Admin::ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:title, :description, :event_type_id, :conference_id, :speaker_id, :duration, :position)
+      params.require(:event).permit(:title, :description, :event_type_id, :conference_id, :speaker_id, :duration, :position, :responsable, :video, :materials)
     end
 end
