@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :telephone %><br>
-    <%= f.text_field :telephone %>
+    <%= f.text_field :telephone %> <%= f.link_to_add "Add Telephone", :telephones %>
   </div>
     <div>
   <% f.fields_for :telephones do |form| %>
@@ -29,7 +29,7 @@
       <%= form.text_field :number%>
       <%= form.link_to_remove "Remove" %>
   <% end %>
-  <%= f.link_to_add "Add Telephone", :telephones %>
+  
 
   </div>
   <div class="field">
