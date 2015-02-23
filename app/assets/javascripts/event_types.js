@@ -32,10 +32,14 @@ function getDefaultDuration(){
   xmlhttp.onreadystatechange = function() {
     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
         var response = JSON.parse( xmlhttp.responseText );
-        event_hours.value = response.durationHour;
-        event_mins.value = response.durationMin;
-        event_hours.onchange();
-        event_mins.onchange();
+        if(response.durationHour < 10){
+          response.durationHour = '0' + response.durationHour 
+        }
+        if(response.durationMin < 10){
+          response.durationMin = '0' + response.durationMin 
+        }
+        event_duration_4i.value = response.durationHour;
+        event_duration_5i.value = response.durationMin;
         
         toggleEventFields(response.speakerEvent);
     }

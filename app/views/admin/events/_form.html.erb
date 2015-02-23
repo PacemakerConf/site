@@ -25,30 +25,14 @@
 
   <div class="form-group">
     <%= f.label :duration, class: "col-lg-2 control-label" %>
-    <div id='event_duration_hour' class='col-lg-10'>
-
-      <% if @event.duration %>
-        <% duration_hour = @event.duration.hour %>
-        <% duration_min = @event.duration.min %>
-      <% else %>
-        <% duration_hour = EventType.first.defaultDuration.hour %>
-        <% duration_min = EventType.first.defaultDuration.min %>
-      <% end %>
-
-      <input type='text' id='event_hours' class='form-control time-field' onchange = 'setEventHoursDuration()' value='<%= duration_hour %>'>
-      :
-      <input type='text' id='event_mins' class='form-control time-field' onchange = 'setEventMinsDuration()' value='<%= duration_min %>'>
-
+    <div class='col-lg-10'>
+    <%= f.time_select :duration, {start_hour: 0, end_hour: 4, minute_step: 15, time_separator: ''}, class: 'btn-default btn-xs' %>
     </div>
-
-    <%= f.hidden_field :duration, value: @event.duration || EventType.first.defaultDuration %>
   </div>
-
-
 
   <div class="form-group">
     <%= f.label :title, 'Name*', class: "col-lg-2 control-label"%>
-    <div id='event_duration_hour' class='col-lg-10'>
+    <div class='col-lg-10'>
       <%= f.text_field :title, class: "form-control" %>
     </div>
   </div>
