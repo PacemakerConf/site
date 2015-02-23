@@ -1,6 +1,11 @@
 <fieldset class='col-lg-8'>
  
-<legend>New Event</legend>
+<legend>
+	New Event
+	<% if params['conf_id'] %>
+		 - <%= params["conf_fname"]%>
+	<% end %>
+</legend>
 
 <%= render 'form' %>
 

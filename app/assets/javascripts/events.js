@@ -15,12 +15,12 @@ function setEventMinsDuration(){
 
 }
 
-function toggleSpeakerDropdown(speakerEvent){
+function toggleEventFields(speakerEvent){
 	if ( parseInt(speakerEvent) === 0 ){
-		event_speaker_id.disabled = true;
+		$('#event_speaker_id_group').hide();
 		event_speaker_id.value = "";
 	}
 	else if( parseInt(speakerEvent) === 1 ){
-		event_speaker_id.disabled = '';
+		$('#event_speaker_id_group').show();		
 	}
 }

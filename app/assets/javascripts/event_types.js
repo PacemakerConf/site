@@ -37,7 +37,7 @@ function getDefaultDuration(){
         event_hours.onchange();
         event_mins.onchange();
         
-        toggleSpeakerDropdown(response.speakerEvent);
+        toggleEventFields(response.speakerEvent);
     }
   }
   xmlhttp.open("GET", "/admin/event_types/" + selected_event_type + ".json", true);

@@ -11,6 +11,8 @@ class Speaker < ActiveRecord::Base
 	validates :surname, presence: true
 
 	validates_attachment_content_type :photo, content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"]
+	validates_with AttachmentSizeValidator, attributes: :photo, less_than: 1.megabytes
+
 
 	def fullname
 		[name, surname].join ' '
