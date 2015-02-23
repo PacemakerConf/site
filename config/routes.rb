@@ -33,6 +33,7 @@ Rails.application.routes.draw do
   resources :conferences, param: :name
   resources :years
 
+  get ':name', to: 'conferences#show'
   get ':name/about', to: 'conferences#show', as: :about_conference
   get ':name/speakers', to: 'conferences#speakers', as: :speakers_conference
   get ':name/location', to: 'conferences#location', as: :location_conference
