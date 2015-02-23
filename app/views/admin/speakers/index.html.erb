@@ -5,6 +5,8 @@
     <tr>
         <th>Name</th>
         <th>Surname</th>
+        <th>Positioin</th>
+        <th>Description</th>
         <th>Show</th>
         <th>Edit</th>
         <th>Delete</th>
@@ -14,8 +16,10 @@
   <tfoot>
     <tr>
         <th>Name</th>
-        <th>Surname</th>
         <th>Show</th>
+        <th>Positioin</th>
+        <th>Description</th>
+        <th>Surname</th>
         <th>Edit</th>
         <th>Delete</th>
    </tr>
@@ -25,6 +29,8 @@
       <tr>
           <td><%= speaker.name %></td>
           <td><%= speaker.surname %></td>
+          <td><%= speaker.position %></td>
+          <td><%= speaker.description %></td>
           <td><%= link_to 'Show', admin_speaker_path(speaker.name) %></td>
           <td><%= link_to 'Edit', edit_admin_speaker_path(speaker.name) %></td>
           <td><%= link_to 'Destroy', admin_speaker_path(speaker), method: :delete, data: { confirm: 'Are you sure?' } %></td>
