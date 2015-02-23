@@ -23,4 +23,11 @@ describe Event do
 		expect(FactoryGirl.build(:event, event_type_id: nil)).not_to be_valid
 	end
 
+	# it 'is invalid with speakerEvent without speaker' do
+	# 	# speaker_event = EventType.where(speakerEvent: 1)[0]
+	# 	expect(FactoryGirl.build(:event)).not_to be_valid
+	# end
+
+	# it 'is invalid with speaker without speaekrEvent'
+
 end
