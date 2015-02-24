@@ -48,6 +48,7 @@
 			<li class="blueBtn2">
 				<img src="/assets/BLUE.png">
 				<p><a href="http://localhost:3000/conferences/">2015</a></p>
+			</li>
 			<li class="future-other">
 				<img src="/assets/GREY.png">
 				<p><a href="http://localhost:3000/">RUBY</a></p>
@@ -59,10 +60,10 @@
 			<li class="future-other">
 				<img src="/assets/GREY.png">
 				<p><a href="http://localhost:3000/">C++</a></p>
+			</li>
 			<li class="greenBtn">
 				<img src="/assets/GREEN.png">
-				<p><a href="http://localhost:3000/conferences/">DB</a></p>
-			</li>					
+            <%= link_to Conference.name, Conference.last_conference, :class => ('active' if current_page?(conferences_path)) %></div>			
 			</li>
 		</div>
 	</ul>
@@ -73,21 +74,38 @@ $(document).ready(function () {
 	$('.old-other').hide();
 	$('.year-other').hide();
 	$('.future-other').hide();
+
+	$('li.conference-menu').hover(function(){
+	    $(this).addClass('hovered');
+	},function(){
+	    $(this).removeClass('hovered');
+	});
+
 	$( ".redBtn" ).click(function() {
-		$(this).parent().find( ".old-other" ).first().toggle( "fast", function showNext() {
-			$( this ).next( ".old-other" ).toggle( "fast", showNext );
+		$(this).parent().find( ".old-other" ).first().toggle( 100, function showNext() {
+			$( this ).next( ".old-other" ).toggle( 100, showNext );
 		});
 	});
 	$( ".blueBtn" ).click(function() {
-		$( ".year-other" ).first().toggle( "fast", function showNext() {
-			$( this ).next( ".year-other" ).toggle( "fast", showNext );
+		$( ".year-other" ).first().toggle( 100, function showNext() {
+			$( this ).next( ".year-other" ).toggle( 100, showNext );
 		});
 	});
 	$( ".blueBtn2").click(function() {
-		$( ".future-other" ).first().toggle( "fast", function showNext() {
-			$( this ).next( ".future-other" ).toggle( "fast", showNext );
+		$( ".future-other" ).first().toggle( 100, function showNext() {
+			$( this ).next( ".future-other" ).toggle( 100, showNext );
 		});
 	});
 });
 </script>
+      <script type="text/javascript">
+         $(document).ready(function() {
+            $('li.conference-menu').hover(function() {
+               $(this).animate({
+                  backgroundColor: "black",
+                  color: "white"
+               })
+            })
+         });
+      </script>
 

@@ -2,7 +2,6 @@
 		position: relative;
 		margin-top: 0px;
 		}
-
 		.main-menu {
 	    margin: 0 0 35px 0;
 	    position: relative;
@@ -10,31 +9,16 @@
 		}
 		.main-menu ul div{
 	    display: inline-block;
-
-
 		}
 		.main-menu ul div li p a{
 		color: white;
 	    background-color: transparent;
 		}
 
-		li.old-other {
-			display: none;
-		}
-
-		li.year-other {
-			display: none;
-		}
-
-		li.future-other {
-			display: none;
-		}
-
         ul.conference-menu {
-		padding-left: 25%;
+		padding-left: 30%;
 		background-color: rgb(0, 44, 58);
         }
-
         .conference-menu p{
         font-style: 24px, bold;
         text-align: center;	
@@ -43,7 +27,29 @@
     	background: transparent; 
     	padding: 2px; 
         }
-        .conference-menu img {
-        width: auto;	
-        height: auto;	
-        }
+
+ul.accordion {
+  list-style-type: none;
+  position: relative;
+}
+
+ul.accordion li {
+  float: center;
+  width: 50px;
+  height: 60px;
+  display: inline-block;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.description {
+  display: none;
+}
+
+li.conference-menu {
+    opacity: 0.4;
+}
+
+ul li.hovered {
+    opacity: 1;
+}

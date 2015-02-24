@@ -23,14 +23,28 @@
     <div class="form-group">
       <%= f.label :'year', class: "col-lg-2 control-label" %>
         <div class="col-lg-10">
-      <%= f.number_field :year, value: "2015", class: "form-control" %>
+
+      <% years_options = ''%>
+      <% cur_year = Time.now.year %>
+      <% (cur_year-2).upto(cur_year+2) do |year| %>
+        <% if cur_year.to_s === year.to_s %>
+          <% selected = " selected='selected'" %>
+        <% else %>
+          <% selected = '' %>
+        <% end %>
+        <% years_options += " <option value=" + year.to_s + selected + " > " + year.to_s + "</option> "%>
+        <% end %>
+        <%= select_tag "conference[year]", years_options.html_safe, class: "form-control"%>
+
       </div>
     </div>
     <div class="form-group">
       <%= f.label :date, class: "col-lg-2 control-label" %>
         <div class="col-lg-10">
-      <%= f.text_field :date, :class => "datetimepicker", class: "form-control"%>
+      <%= f.text_field :date,  class: "form-control datetimepicker"%>
       </div>
+    <p>Date: <input type="text" id="datetimepicker" /></p>
+
     </div>
     <div class="form-group">
       <%= f.label :attenders_count, class: "col-lg-2 control-label" %>

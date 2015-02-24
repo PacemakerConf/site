@@ -16,6 +16,5 @@
 //= require jquery-ui
 //= require jquery.dataTables.js
 //= require ../../../vendor/assets/javascripts/jquery.datetimepicker
-//# require ../../../vendor/assets/javascripts/jquery.datetimepicker/init
 //= require turbolinks
-//= require_tree .
+//= require_tree . 
