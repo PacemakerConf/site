@@ -110,7 +110,7 @@ ent = Speaker.create(
 
 
 #conferences
-Conference.create(
+js2012 = Conference.create(
 	name: 'JS',
 	year: 2012,
 	date: '2012-02-12',
@@ -141,7 +141,7 @@ Conference.create(
 	date: '2013-01-12',
 	attenders: 22
 	)
-Conference.create(
+cloud2013 = Conference.create(
 	name: 'Cloud',
 	year: 2013,
 	date: '2013-06-29',
@@ -160,7 +160,7 @@ Conference.create(
 	date: '2014-05-12',
 	attenders: 372
 	)
-Conference.create(
+webui2014 = Conference.create(
 	name: 'WebUI',
 	year: 2014,
 	date: '2014-09-12',
@@ -271,6 +271,32 @@ victory.events.create(
 	position: 0
 	)
 
+Event.create(
+	title: '2b || !2b',
+	description: 'solve old problem',
+	speaker: frodo,
+	conference: js2012,
+	event_type: topic,
+	duration: '2014-12-12 01:30:00'
+	) 
+
+Event.create(
+	title: 'What to do when your friend is magician',
+	description: 'True story',
+	speaker: frodo,
+	conference: cloud2013,
+	event_type: lightning,
+	duration: '2014-12-12 00:15:00'
+	)
+
+Event.create(
+	title: 'The last years of Middle-earth',
+	description: 'Why',
+	speaker: frodo,
+	conference: webui2014,
+	event_type: topic,
+	duration: '2014-12-12 01:00:00'
+	)
 
 #locations
 pasternaka = Location.create(
