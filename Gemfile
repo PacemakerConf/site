@@ -29,8 +29,8 @@ gem 'jquery-rails'
 group :assets do 
   #gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
   gem 'jquery-ui-rails'
-  gem 'jquery-datetimepicker-rails'
 end
+gem 'jquery-datetimepicker-rails'
 gem 'will_paginate'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'

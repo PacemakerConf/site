@@ -13,7 +13,7 @@
 }
 
 .speaker-container{
-	width: 45%;
+	width: 40%;
 	float: left;
 	font-size: 1.2em;
 	margin: 10px;
@@ -78,6 +78,8 @@
 }
 .speech-conference a{
 	font-weight: 500;
+	font-size: 22pt;
+
 }
 .speech-conference a:hover{
 	text-decoration:none;
@@ -132,6 +134,9 @@
 	list-style: none;
 	margin: 5px;
 }
+.speaker-contacts{
+	padding-left: 5px;
+}
 .speaker-contacts img{
 	width:16px;
 }
@@ -140,3 +145,9 @@
 	color:#006687;
 	text-align: center;
 }
+
+.speech-details p{
+	font-size: 12pt;
+	font-weight: light;
+}
+

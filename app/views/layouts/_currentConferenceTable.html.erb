@@ -20,7 +20,7 @@
 								will meet on <strong><%=@conference.date.strftime('%B %d, %Y') %></strong>
 							</li>
 							<li>
-							in a beautiful city of <strong><%= @conference.location.city %></strong></li>
+							in a beautiful city of <strong><%= if(@conference.location) then @conference.location.city end %></strong></li>
 							<% end %>	
 						</ul>
 					</div>
