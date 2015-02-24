@@ -1,54 +1,60 @@
-<% content_for :title, "Pacemaker: " + 	@speaker.fullname %>
-
-<div class='speaker-container one-speaker'>
-	<div class = 'speaker-photo'>
-		<%= image_tag( @speaker.photo.url(:thumb), class: 'photo', alt: @speaker.name ) %>  
-   	</div>
-	<div class='speaker-name'>
-		<%= @speaker.fullname %>
-	</div>
-	<div class="speaker-description">
-		<p><%= @speaker.description %></p>
+	<div class="row">
+		<div class='speaker-container one-speaker'>
+			<div class = 'speaker-photo col-lg-3'>
+     				PHOTO
+    		</div>
+    	<div class="col-lg-8">
+			<div class='speaker-name'>
+				<%= @speaker.name %>
+				<%= @speaker.surname %>
+			</div>
+			<div class="speaker-description">
+				<p><%= @speaker.description %></p>
+			</div>
+		</div>
+		</div>
 	</div>
 	<ul class="speaker-contacts">
-		<li><a  <%= @speaker.email %> > <img src="/assets/twitter13.svg"></a></li>
-    	<li><a <%= @speaker.facebook %> > <img src="/assets/facebook29.svg"></a></li>
-		<li><a <%= @speaker.linkedin %> > <img src="/assets/linkedin12.svg"></a></li>
-		<li><a> <%= @speaker.site %></a></li>
-	</ul>
-	<hr>
-</div>
-<div class = 'speeches-list'>
+				<li><a <%= @speaker.email %> > <img src="/assets/twitter13.svg"></a></li>
+	  	  		<li><a <%= @speaker.facebook %> > <img src="/assets/facebook29.svg"></a></li>
+				<li><a <%= @speaker.linkedin %> > <img src="/assets/linkedin12.svg"></a></li>
+			</ul>
 
-<% @speaker.events.order(id: :desc).each do |speech| %>
-	<% if Time.now < speech.conference.date %>
+	<div class = 'speeches-list '>
 
-<!-- ongoing -->
-		<div class='ongoing-speech-container'>
-			<div class='speech-conference'>
-				<h2> <%= link_to speech.conference.fullname, about_conference_path( speech.conference.fullname ) %> </h2>
+		<% @speaker.events.order(id: :desc).each do |speech| %>
+		<% if Time.now < speech.conference.date %>	
+			<!-- ongoing -->
+		
+		<div class='ongoings-speech-container row'>
+			<div class='speech-conference col-lg-3 col-md-4 col-sm-4 col-xs-12'>
+ 				<div>
+					<h3><%= link_to speech.conference.fullname, about_conference_path( speech.conference.fullname )%> </h3>
+					<p>ongoing</p>
+				</div>
 			</div>
 
-			<div class='speech-details'>
-				<h2> <%= speech.title %> </h2>
-				<h4>
+			<div class='speech-details col-lg-8 col-md-7 col-sm-7 col-xs-12'>
+				<h3> <%= speech.title %> </h3>
+				<p>
 					<%= speech.description %>
-				</h4>
+				</p>
 			</div>
 		</div>
-	<% else %>
-<!-- old speeches -->
-	<div class='speech-container'>
-		<div class='speech-conference'>
-			<h3> <%= link_to speech.conference.fullname, about_conference_path(speech.conference.fullname) %> </h3>	
-		</div>
-		<div class='speech-details'>
-			<h2> <%= speech.title %> </h2>
-			<h4> 
-				<%= speech.description %>
-			</h4>
+		<% else %>
+			<!-- old speeches -->
+		<div class='speechs-container row'>
+			<div class='speech-conference col-lg-3 col-md-4 col-sm-4 col-xs-12'>
+				<h3> <%= link_to speech.conference.fullname, about_conference_path(speech.conference.fullname) %> </h3>	
+			</div>
+			<div class='speech-details col-lg-8 col-md-7 col-sm-7 col-xs-12'>
+				<h3> <%= speech.title %> </h3>
+				<p>
+					<%= speech.description %>
+				</p>
+			</div>
 		</div>
 	</div>
+
 	<% end %>		
 	<% end %>		
-</div>
