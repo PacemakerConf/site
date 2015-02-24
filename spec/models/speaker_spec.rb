@@ -12,7 +12,15 @@ describe Speaker do
 
 	it 'is invalid without name' do
 		expect(FactoryGirl.build(:speaker, name: nil)).not_to be_valid
-	end 
+	end
+
+	it 'is invalid without position' do
+		expect(FactoryGirl.build(:speaker, position: nil)).not_to be_valid
+	end
+
+	it 'is invalid without description' do
+		expect(FactoryGirl.build(:speaker, description: nil)).not_to be_valid
+	end
 
 	it 'is invalid without surname' do
 		expect(FactoryGirl.build(:speaker, surname: nil)).not_to be_valid

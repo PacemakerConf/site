@@ -40,6 +40,7 @@ lightning = EventType.create(
 frodo = Speaker.create(
 	name: 'Frodo',
 	surname: 'Baggins',
+	position: 'lucky pathfinder',
 	description: 'A little but brave Hobbit. Love jewels very much',
 	email: 'frodo@ring.one',
     facebook: 'fb/goldy',
@@ -53,6 +54,7 @@ frodo = Speaker.create(
 harry = Speaker.create(
 	name: 'Harry',
 	surname: 'Potter',
+	position: 'sitting position',
 	description: 'The bespactacled One',
 	email: 'harrypotter@mail.com',
     facebook: 'fb/harrik',
@@ -63,6 +65,7 @@ harry = Speaker.create(
 gandalf = Speaker.create(
 	name: 'Gandalf',
 	surname: 'Grey',
+	position: 'An awl in the ass',
 	description: 'Wizard. The big nob. Oh, i mean the biggest wizard 
 					of the Middle-earth, leader of the army of the 
 					West, also know as Mithrandir, The Grey Pilgrim,
@@ -79,18 +82,21 @@ gandalf = Speaker.create(
 gimli = Speaker.create(
 	name: 'Gimli',
 	surname: 'Grisli',
+	position: 'chief dwarf',
 	description: 'A dwarf with capital D'
 	)
 
 sam = Speaker.create(
 	name: 'Samwise',
 	surname: 'Gamgee',
+	position: 'chef cook',
 	description: 'Sam, just Sam'
 	)
 
 ent = Speaker.create(
 	name: 'Fangorn',
 	surname: 'Ent',
+	position: 'woodpeckers lover',
 	description: 'Hum-hum-hum', 
 	photo_file_name: "fangorn.jpg", 
 	photo_content_type: "image/jpeg", 

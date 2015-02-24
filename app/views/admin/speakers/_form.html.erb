@@ -14,7 +14,7 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label :photo, class: "col-lg-2 control-label"%>
+    <%= f.label :photo, 'Photo*', class: "col-lg-2 control-label"%>
     <div class="col-lg-10">
       <%= image_tag @speaker.photo.url(:thumb) %>
       <%= f.file_field :photo, class: "btn btn-default" %>
@@ -32,21 +32,27 @@
 
 
   <div class="form-group">
-    <%= f.label :name, class: "col-lg-2 control-label"%>
+    <%= f.label :name, 'Name*', class: "col-lg-2 control-label"%>
     <div class="col-lg-10">
       <%= f.text_field :name, class: "form-control" %>
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :surname, class: "col-lg-2 control-label"%>
+    <%= f.label :surname, 'Surname*', class: "col-lg-2 control-label"%>
     <div class="col-lg-10">
       <%= f.text_field :surname, class: "form-control" %>
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :description, class: "col-lg-2 control-label"%>
+    <%= f.label :position, 'Position*', class: "col-lg-2 control-label"%>
     <div class="col-lg-10">
-      <%= f.text_field :description, class: "form-control" %>
+      <%= f.text_field :position, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :description, 'Description*', class: "col-lg-2 control-label"%>
+    <div class="col-lg-10">
+      <%= f.text_area :description, class: "form-control", rows: 2 %>
     </div>
   </div>
   <div class="form-group">
