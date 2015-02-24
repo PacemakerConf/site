@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
 
+  resources :reports
+
+  get 'report/report'
+
   namespace :admin do
   get 'event/index'
   end

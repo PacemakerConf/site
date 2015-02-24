@@ -98,14 +98,25 @@ $(document).ready(function () {
 	});
 });
 </script>
-      <script type="text/javascript">
-         $(document).ready(function() {
-            $('li.conference-menu').hover(function() {
-               $(this).animate({
-                  backgroundColor: "black",
-                  color: "white"
-               })
-            })
-         });
-      </script>
+<script type="text/javascript">
+$(document).ready(function() {
+    $('li.conference-menu').hover(function() {
+        $(this).animate({
+        backgroundColor: "black",
+        color: "white"
+        })
+    })
+});
+</script>
+<script>
+$(document).ready(function() {
+$('.blueBtn').hover(function() {
+    $( ".blueBtn" ).effect( "shake", {
+        times: 10,
+        distance: 100
+        }, 2000, function()
+    );
+  });
+});
+</script>
 

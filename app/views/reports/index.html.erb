@@ -30,7 +30,7 @@
           <td><%= unless(conference.report.nil?)
                     link_to "#{conference.report.address}", report_conference_path(conf)
                   else
-                    link_to "Create", new_report_path()
+                    link_to "Create Report", new_admin_report_path()
                   end %></td>
           <td><%= link_to 'Publish', about_conference_path(conference.name.to_s + "-" + conference.year.to_s) %></td>
           <td><%= link_to 'Edit', edit_conference_path(conference.name.to_s + "-" + conference.year.to_s) %></td>
