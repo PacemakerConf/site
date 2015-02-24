@@ -285,5 +285,5 @@ admin = Admin.new
     admin.username = 'admin' 
 	admin.password = '00000000'
 	admin.password_confirmation = '00000000'
-	admin.role = 'administrator'
+	admin.role = 'Admin'
     admin.save!
