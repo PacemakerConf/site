@@ -6,7 +6,7 @@
 <h3>Conference:  <%= @event.conference.name%>-<%= @event.conference.year %></h3>
 <h3>Speaker:  
   <% unless @event.speaker.nil? %>
-    <%= @event.speaker.name%> <%= @event.speaker.surname %>
+    <%= @event.speaker.fullname %>
   <% end %>
 </h3>
 
