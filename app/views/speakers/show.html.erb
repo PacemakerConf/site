@@ -1,7 +1,7 @@
 	<div class="row">
 		<div class='speaker-container one-speaker'>
 			<div class = 'speaker-photo col-lg-3'>
-     				PHOTO
+     			<%= image_tag( @speaker.photo.url(:thumb), class: 'photo', alt: @speaker.fullname) %>
     		</div>
     	<div class="col-lg-8">
 			<div class='speaker-name'>
