@@ -15,14 +15,11 @@
 
   
   <div class="form-group">
-<<<<<<< HEAD
     <%= f.label :photo, class: "col-lg-2 control-label"%>
     <div class="col-lg-7">
       <%= image_tag @speaker.photo.url(:thumb) %>
-=======
     <%= f.label :photo, 'Photo*', class: "col-lg-2 control-label"%>
     <div class='col-lg-10'>
->>>>>>> 289296986f8db186a0354d897abf027c48b8dbdb
       <%= f.file_field :photo, class: "btn btn-default" %>
       <script>
         $("#speaker_photo").fileinput({
@@ -33,35 +30,26 @@
     </div>
   </div>
 
-
   <div class="form-group">
-<<<<<<< HEAD
     <%= f.label :name, class: "col-lg-2 control-label"%>
     <div class="col-lg-7">
-=======
     <%= f.label :name, 'Name*', class: "col-lg-2 control-label"%>
     <div class="col-lg-10">
->>>>>>> 289296986f8db186a0354d897abf027c48b8dbdb
       <%= f.text_field :name, class: "form-control" %>
     </div>
   </div>
   <div class="form-group">
-<<<<<<< HEAD
     <%= f.label :surname, class: "col-lg-2 control-label"%>
     <div class="col-lg-7">
-=======
     <%= f.label :surname, 'Surname*', class: "col-lg-2 control-label"%>
     <div class="col-lg-10">
->>>>>>> 289296986f8db186a0354d897abf027c48b8dbdb
       <%= f.text_field :surname, class: "form-control" %>
     </div>
   </div>
   <div class="form-group">
-<<<<<<< HEAD
     <%= f.label :description, class: "col-lg-2 control-label"%>
     <div class="col-lg-7">
       <%= f.text_field :description, class: "form-control" %>
-=======
     <%= f.label :position, 'Position*', class: "col-lg-2 control-label"%>
     <div class="col-lg-10">
       <%= f.text_field :position, class: "form-control" %>
@@ -71,7 +59,6 @@
     <%= f.label :description, 'Description*', class: "col-lg-2 control-label"%>
     <div class="col-lg-10">
       <%= f.text_area :description, class: "form-control", rows: 2 %>
->>>>>>> 289296986f8db186a0354d897abf027c48b8dbdb
     </div>
   </div>
   <div class="form-group">
