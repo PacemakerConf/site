@@ -11,62 +11,28 @@
     </div>
   <% end %>
 
-
-  <div class="form-group">
-    <% if params['conf_id'] %>
-
-      <%= f.label :conference_id, 'Conference', class: "col-lg-2 control-label" %>
-      <div class="col-lg-10">
-        <select class="form-control"  disabled='true'>
-          <option selected="selected"> <%= params['conf_fname'] %></option>
-        </select>
-      </div>
-      <%= hidden_field( :event, :conference_id, value: params['conf_id']) %>
-
-    <% else %>
-
-      <%= f.label :conference_id, 'Conference', class: "col-lg-2 control-label" %>
-      <div class="col-lg-10">
-        <%= select_tag 'event[conference_id]', options_from_collection_for_select(Conference.all, 'id', 'fullname', @event.conference_id || Conference.last.id), class: "form-control"%>
-      </div>
-
-    <% end %>
-  </div>
+  <%= hidden_field( :event, :conference_id, value: params["conf_id"] || 
+      if( @event.conference ) then @event.conference.id end || Conference.last.id )%> 
 
   <div class="form-group">
     <%= f.label :event_type_id, 'Event type*', class: "col-lg-2 control-label"%>
     <div class="col-lg-10">
-      <%= select_tag 'event[event_type_id]', options_from_collection_for_select(EventType.all, 'id', 'name', @event.event_type_id || 1), class: "form-control", onchange: 'getDefaultDuration()' %>
+      <% event_type_id = @event.event_type_id || 1 %>
+      <%= select_tag 'event[event_type_id]', options_from_collection_for_select(EventType.all, 'id', 'name', event_type_id), class: "form-control", onchange: 'getDefaultDuration()', speakerEvent: EventType.find(event_type_id).speakerEvent %>
     </div>
   </div>
 
 
   <div class="form-group">
     <%= f.label :duration, class: "col-lg-2 control-label" %>
-    <div id='event_duration_hour' class='col-lg-10'>
-
-      <% if @event.duration %>
-        <% duration_hour = @event.duration.hour %>
-        <% duration_min = @event.duration.min %>
-      <% else %>
-        <% duration_hour = EventType.first.defaultDuration.hour %>
-        <% duration_min = EventType.first.defaultDuration.min %>
-      <% end %>
-
-      <input type='text' id='event_hours' class='form-control time-field' onchange = 'setEventHoursDuration()' value='<%= duration_hour %>'>
-      :
-      <input type='text' id='event_mins' class='form-control time-field' onchange = 'setEventMinsDuration()' value='<%= duration_min %>'>
-
+    <div class='col-lg-10'>
+    <%= f.time_select :duration, {start_hour: 0, end_hour: 4, minute_step: 15, time_separator: ''}, class: 'btn-default btn-xs' %>
     </div>
-
-    <%= f.hidden_field :duration, value: @event.duration || EventType.first.defaultDuration %>
   </div>
-
-
 
   <div class="form-group">
     <%= f.label :title, 'Name*', class: "col-lg-2 control-label"%>
-    <div id='event_duration_hour' class='col-lg-10'>
+    <div class='col-lg-10'>
       <%= f.text_field :title, class: "form-control" %>
     </div>
   </div>
@@ -74,21 +40,38 @@
   <div class="form-group">
     <%= f.label :description, class: "col-lg-2 control-label"%>
     <div class="col-lg-10">
-      <%= f.text_area :description, class: "form-control", rows: "3" %>
+      <%= f.text_area :description, class: "form-control", rows: "2" %>
     </div>
-
-  <div class="field">
-    <%= f.label :speaker_id, 'Speaker' %><br>
-    <%= select_tag 'event[speaker_id]', content_tag(:option,'No speaker', value: "")+options_from_collection_for_select(Speaker.all, 'id', 'name') %>
-
   </div>
 
-  <div class="form-group">
+  <div class="form-group" id='event_speaker_id_group'>
     <%= f.label :speaker_id, 'Speaker', class: "col-lg-2 control-label"%>
     <div class="col-lg-10">
-      <%= select_tag 'event[speaker_id]', content_tag(:option,'No speaker', value: "")+options_from_collection_for_select(Speaker.all, 'id', 'name', @event.speaker_id || ''), class: "form-control", disabled: true %>
+      <%= select_tag 'event[speaker_id]', content_tag(:option,'No speaker', value: "")+options_from_collection_for_select(Speaker.all, 'id', 'name', @event.speaker_id || ''), class: "form-control" %>
     </div>
   </div>
+
+  <div class="form-group" id='event_materials_group'>
+    <%= f.label :materials, class: "col-lg-2 control-label"%>
+    <div class="col-lg-10">
+      <%= f.file_field :materials, class: "btn btn-default" %>
+    </div>
+  </div>
+  
+  <div class="form-group" id='event_responsable_group'>
+    <%= f.label :responsable, class: "col-lg-2 control-label"%>
+    <div class="col-lg-10">
+      <%= f.text_field :responsable, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group" >
+    <%= f.label :video, class: "col-lg-2 control-label"%>
+    <div class="col-lg-10">
+      <%= f.text_field :video, class: 'form-control' %>
+    </div>
+  </div>
+
 
   <div class="form-group">
     <div class="col-lg-10 col-lg-offset-2">
