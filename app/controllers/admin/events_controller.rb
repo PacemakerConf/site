@@ -3,7 +3,6 @@ class Admin::EventsController < Admin::ApplicationController
   before_action :authenticate_admin!, except: [:new, :create, :index]
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
-
   # GET /events
   # GET /events.json
   def index

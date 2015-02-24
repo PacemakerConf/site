@@ -15,7 +15,6 @@ class Admin::SpeakersController < Admin::ApplicationController
 
   # GET /speakers/new
   def new
-    raise params[:hash].inspect
     @speaker = Speaker.new
   end
 
