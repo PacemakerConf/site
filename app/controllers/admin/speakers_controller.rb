@@ -1,4 +1,6 @@
 class Admin::SpeakersController < Admin::ApplicationController
+  layout 'admin'
+
   before_action :set_speaker, only: [:show, :edit, :update, :destroy]
   
   # GET /speakers
@@ -21,9 +23,14 @@ class Admin::SpeakersController < Admin::ApplicationController
   def edit
   end
 
-  def invite 
+  def invite
   end
 
+  def send_invitation
+    #render text: params[:email]
+    InviteMailer.speaker_invite(params[:email], params[:message]).deliver_later
+    render text: "Invitation sent"
+  end
 
   # POST /speakers
   # POST /speakers.json
@@ -32,7 +39,7 @@ class Admin::SpeakersController < Admin::ApplicationController
 
     respond_to do |format|
       if @speaker.save
-        format.html { redirect_to [:admin, @speaker], notice: 'Speaker was successfully created.' }
+        format.html { redirect_to admin_speakers_path, notice: 'Speaker was successfully created.' }
         format.json { render :show, status: :created, location: @speaker }
       else
         format.html { render :new }
@@ -77,7 +84,7 @@ class Admin::SpeakersController < Admin::ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def speaker_params
-      params.require(:speaker).permit(:name, :surname, :description, :email, :facebook, :linkedin, :site)
+      params.require(:speaker).permit(:name, :surname, :photo, :description, :email, :facebook, :linkedin, :site)
     end
 
 end

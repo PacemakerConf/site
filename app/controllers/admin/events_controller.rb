@@ -1,5 +1,8 @@
 class Admin::EventsController < Admin::ApplicationController
+  layout 'admin'
+
   before_action :set_event, only: [:show, :edit, :update, :destroy]
+
 
   # GET /events
   # GET /events.json
@@ -25,10 +28,13 @@ class Admin::EventsController < Admin::ApplicationController
   # POST /events.json
   def create
     @event = Event.new(event_params)
+    @conference = Conference.find(event_params[:conference_id])
+    position = Event.where(conference: @conference).size + 1
+    @event.position = position
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to [:admin, @event], notice: 'event was successfully created.' }
+        format.html { redirect_to schedule_admin_conference_path(@conference), notice: 'event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
       else
         format.html { render :new }
@@ -69,6 +75,6 @@ class Admin::EventsController < Admin::ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:title, :timestart, :event_type_id, :conference_id, :speaker_id)
+      params.require(:event).permit(:title, :description, :event_type_id, :conference_id, :speaker_id, :duration, :position)
     end
 end

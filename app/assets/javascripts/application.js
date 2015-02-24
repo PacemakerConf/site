@@ -20,3 +20,6 @@
 //# require ../../../vendor/assets/javascripts/jquery.datetimepicker/init
 //= require turbolinks
 //= require_tree .
+//= require bootstrap-wysihtml5
+//= require jquery_nested_form
+

@@ -1,4 +1,6 @@
 class Admin::EventTypesController < Admin::ApplicationController
+  layout 'admin'
+  
   before_action :set_event_type, only: [:show, :edit, :update, :destroy]
 
   # GET /event_types

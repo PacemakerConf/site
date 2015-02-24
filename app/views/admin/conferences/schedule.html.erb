@@ -1,9 +1,37 @@
+<script src="../../../assets/jquery-ui.js"></script>
+
+<style>
+  #sortable { list-style-type: none;}
+  #sortable li {}
+  #sortable li span { position: absolute;}
+</style>
+<script>
+  $(function() {
+    $( "#sortable" ).sortable();
+    $( "#sortable" ).disableSelection();
+  });
+</script>
+
+
+<ul id="sortable" class="list-group">
+<% @events.each do |event| %>
+  <li class="ui-state-default list-group-item schedule-item" >
+    <span class="timestart" style="position: relative;"></span>
+    <span class="duration" style="position: relative;"><%= conferenceEventDurationReturn(event.duration) %></span>
+    |
+    <span style="position: relative;"><%= event.title %></span>
+    <span class="badge" style="position: relative;">Speaker Name</span>
+  </li>
+<% end %>
+</ul>
+
+
+<!-- 
 <h1>Conference <%= @conference.fullname %> schedule</h1>
 <table id="event" class="display" width="100%" cellspacing="0">
   <thead>
     <tr>
         <th>title</th>
-        <th>start</th>
         <th>type</th>
         <th>conference</th>
         <th>speaker</th>
@@ -15,7 +43,6 @@
   <tfoot>
     <tr>
         <th>title</th>
-        <th>start</th>
         <th>type</th>
         <th>conference</th>
         <th>speaker</th>
@@ -28,13 +55,12 @@
   <tbody>
     <% @events.each do |event| %>
       <tr>
-        <td><%= event.title %></td>
-        <td><%= event.timestart %></td>
+        <td><%= event.title %></td> 
         <td><%= event.event_type.name %></td>
         <td><%= event.conference.name%>-<%= event.conference.year %></td>
         <td>
           <% unless event.speaker.nil? %>
-            <%= event.speaker.name%> <%= event.speaker.surname %>
+            <%= event.speaker.fullname%>
           <% end %>
         </td>
         <td><%= link_to 'Show', admin_event_path(event) %></td>
@@ -53,6 +79,7 @@
   });
 </script>
 
-<br>
+<br> -->
 
-<%= link_to 'New event', new_admin_event_path %>
+<%= link_to 'New event', controller: 'admin/events', action: 'new',                       conf_id: @conference.id, 
+                         conf_fname: @conference.fullname %>

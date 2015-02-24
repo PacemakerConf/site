@@ -1,4 +1,6 @@
 class Admin::LocationsController < Admin::ApplicationController
+  layout 'admin'
+
   before_action :set_location, only: [:show, :edit, :update, :destroy]
 
   # GET /locations
@@ -71,6 +73,6 @@ class Admin::LocationsController < Admin::ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def location_params
-      params.require(:location).permit(:place_type, :name, :city, :address, :latitude, :longitude, :conference_id)
+      params.require(:location).permit(:place_type, :name, :city, :address, :latitude, :longitude, :conference_id, :how_to_find)
     end
 end

@@ -2,9 +2,6 @@ Rails.application.routes.draw do
 
   root 'conferences#show', name: Conference.last_conference
 
-  #get 'location/new', to: 'location#new', name: Conference.name
-  #get 'location/new/:name' , to: 'location#new' , as: :new_location
-
   devise_for :admins, skip: :sessions
   as :admin do
     get 'login', to: 'devise/sessions#new', as: :new_admin_session
@@ -19,19 +16,20 @@ Rails.application.routes.draw do
         get 'schedule'
       end
     end
-    resources :speakers, param: :name
     resources :contacts
     resources :events
-    resources :event_types
+    resources :event_types 
     resources :locations  
+    resources :speakers, param: :name do
+      collection do
+        get 'invite', to: 'speakers#invite'
+        post 'send', to: 'speakers#send_invitation'
+      end
+    end 
   end
 
-  resources :speakers, param: :name do
-    collection do
-      get 'invite', to: 'speakers#invite'
-    end
-  end 
-
+  resources :speakers, param: :name
+  resources :events
   resources :conferences, param: :name
   resources :years
 

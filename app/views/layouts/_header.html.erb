@@ -12,8 +12,7 @@
 					</ul>
 				</div>
 				<div class="col-lg-6 col-md-6"></div>
-			</div>
-			
+			</div>		
 				<div class="row slogo">
 					<div class="col-lg-9 col-md-9 col-sm-7 col-xs-8">
 						<div class="blockquotes-container">
@@ -27,32 +26,3 @@
 						<img alt="logo" src="/assets/pacemaker_logo.png">
 					</div>
 				</div>
-			
-			<div class="row first">
-				<div class="name-conteiner col-lg-9 col-md-9 col-sm-8 col-xs-12">
-					<div class="conference-name">
-						<h1> Pacemaker
-							<% if @conference %>
-								: <%= @conference.name%>
-								-<%= @conference.year %>
-							<% end %>
-						</h1>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 contacts">
-					<div class="conference-det-2">
-						<ul>
-							<% if @conference %>
-							<li>
-								This time <strong><%= @conference.attenders %> lucky people</strong> 
-							</li>
-							<li>
-								will meet on <strong><%=@conference.date %></strong>
-							</li>
-							<li>
-							in a beautiful city of <strong> Lviv</strong></li>
-							<% end %>	
-						</ul>
-					</div>
-				</div>
-			</div>

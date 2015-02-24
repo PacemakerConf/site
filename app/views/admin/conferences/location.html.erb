@@ -6,6 +6,7 @@
     </div>
   </div>
   <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 address-box ">
+       
         <h1>Address</h1>
           <p><b>Place Type: </b><%= @location.place_type %></p>
           <p><b>Name: </b><%= @location.name %></p>
@@ -18,6 +19,9 @@
             <p><b>Tel:</b> <%= contact.telephone %></p>
           </div>
         <% end %>
+        
+        <h1>How To Find</h1>
+        <p><%= @location.how_to_find %></p>
   </div>
 </div>
 

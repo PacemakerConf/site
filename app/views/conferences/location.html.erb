@@ -1,3 +1,4 @@
+<% content_for :title, "Pacemaker: " +  @conference.fullname %>
 <div class="row">
   <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
       <h1>Direction map</h1>
@@ -18,6 +19,9 @@
             <p><b>Tel:</b> <%= contact.telephone %></p>
           </div>
         <% end %>
+
+        <h1>How To Find</h1>
+        <p><%= @location.how_to_find %></p>
   </div>
 </div>
 

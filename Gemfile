@@ -1,5 +1,11 @@
 source 'https://rubygems.org'
 
+gem 'paperclip', '~> 4.2'
+
+gem 'bootstrap-wysihtml5-rails', :require => 'bootstrap-wysihtml5-rails',
+                              :git => 'git://github.com/Nerian/bootstrap-wysihtml5-rails.git'
+
+gem 'nested_form'
 gem 'geocoder'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
@@ -15,6 +21,8 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 
 gem 'twitter-bootstrap-rails'
+
+gem "mail"
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -53,11 +61,13 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+	gem 'rspec-rails'
+	gem 'factory_girl_rails', '~> 4.0'
 end
 
 group :test do
-	gem 'rspec-rails'
-	gem 'factory_girl'
 	gem 'shoulda-matchers', require: false
+  gem 'faker'
 end
 

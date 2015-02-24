@@ -1,22 +1,4 @@
 #eventtypes
-topic = EventType.create(
-	name: 'topic',
-	description: 'some description',
-	defaultDuration: '2014-12-12 01:00:00',
-	color: '#222200',
-	image: '3',
-	speakerEvent: 1
-	)
-
-lightning = EventType.create(
-	name: 'lightning',
-	description: 'some description',
-	defaultDuration: '2014-12-12 00:45:00',
-	color: '#ffff00',
-	image: '2',
-	speakerEvent: 1
-	)
-
 registration = EventType.create(
 	name: 'registration',
 	description: 'some description',
@@ -35,6 +17,24 @@ beerbreak = EventType.create(
 	speakerEvent: 0
 	)
 
+topic = EventType.create(
+	name: 'topic',
+	description: 'some description',
+	defaultDuration: '2014-12-12 01:00:00',
+	color: '#222200',
+	image: '3',
+	speakerEvent: 1
+	)
+
+lightning = EventType.create(
+	name: 'lightning',
+	description: 'some description',
+	defaultDuration: '2014-12-12 00:45:00',
+	color: '#ffff00',
+	image: '2',
+	speakerEvent: 1
+	)
+
 
 #speakers
 frodo = Speaker.create(
@@ -44,7 +44,10 @@ frodo = Speaker.create(
 	email: 'frodo@ring.one',
     facebook: 'fb/goldy',
     site: 'http://the-best-jewels.com',
-    photo: '/assets/frodo.jpg'
+	photo_file_name: "frodo.jpg",
+	photo_content_type: "image/jpeg",
+	photo_file_size: 8046,
+	photo_updated_at: "2015-02-12 21:23:16"
 	)
 
 harry = Speaker.create(
@@ -68,7 +71,9 @@ gandalf = Speaker.create(
     facebook: 'fb/gandalfgrey',
     linkedin: 'Gandalyk Gand',
     site: 'http://gan-gan.com',
-    photo: '/assets/gandalf.jpg'
+    photo_file_name: "1.png", 
+    photo_content_type: "image/png", 
+    photo_file_size: 1231
 	)
 
 gimli = Speaker.create(
@@ -86,8 +91,11 @@ sam = Speaker.create(
 ent = Speaker.create(
 	name: 'Fangorn',
 	surname: 'Ent',
-	description: 'Hum-hum-hum',
-	photo: '/assets/fangorn.jpg'
+	description: 'Hum-hum-hum', 
+	photo_file_name: "fangorn.jpg", 
+	photo_content_type: "image/jpeg", 
+	photo_file_size: 7718, 
+	photo_updated_at: "2015-02-12 21:22:27"
 	)
 
 #conferences
@@ -129,72 +137,81 @@ victory = Conference.create(
 #events
 onering.events.create(
 	title: 'registration',
-	timestart: '2014-12-12 12:00:00',
-	event_type: registration
+	event_type: registration,
+	duration: '2014-12-12 00:45:00',
+	position: 1
 	)
 
 onering.events.create(
 	title: 'How i get the Ring. History of success',
-	timestart: '2014-12-12 12:15:00',
 	description: 'Evetything you need to know about One Ring,
 				  but afffraid to ask',
 	event_type: topic,
-	speaker: frodo
+	speaker: frodo,
+	duration: '2014-12-12 01:00:00',
+	position: 2
 	)
 
 onering.events.create(
 	title: 'Beer-break',
-	timestart: '2014-12-12 13:30:00',
-	event_type: beerbreak
+	event_type: beerbreak,
+	duration: '2014-12-12 01:30:00',
+	position: 4
 	)
 
 onering.events.create(
 	title: 'The challenge for kamikaze',
-	timestart: '2014-12-12 15:30:00',
 	speaker: gandalf,
 	description: 'When fatherland is calling you',
-	event_type: topic
+	event_type: topic,
+	duration: '2014-12-12 01:00:00',
+	position: 3
 	)
 
 onering.events.create(
 	title: 'How many orcs i\'ll kill',
-	timestart: '2014-12-12 16:30:00',
 	description: 'I was drinking at the bar last night, so I took
 				  a bus home...That may not be a big deal to you,
 				  but I\'ve never driven a bus before.',
 	event_type: lightning,
-	speaker: gimli
+	speaker: gimli,
+	duration: '2014-12-12 01:05:00',
+	position: 5
 	)
 
 onering.events.create(
 	title: 'How to cook Gollum',
-	timestart: '2014-12-12 17:25:52',
 	description: 'awful dishes',
 	event_type: topic,
-	speaker: sam
+	speaker: sam,
+	duration: '2014-12-12 00:15:00',
+	position: 6
 	)
 
 onering.events.create(
 	title: 'Houmm-arr-orghh',
-	timestart: '2014-12-12 17:25:52',
 	event_type: lightning,
-	speaker: ent
+	speaker: ent,
+	duration: '2014-12-12 00:25:00',
+	position: 7
 	)
 
 victory.events.create(
 	title: 'A long way in the dunes',
-	timestart: '2015-11-12 15:30:00',
 	speaker: frodo,
 	description: 'How to play piano, using only 9 fingers',
-	event_type: topic
+	event_type: topic,
+	duration: '2014-12-12 01:00:00',
+	position: 0
 	)
 
 victory.events.create(
 	title: 'The Eagles',
-	timestart: '2015-11-12 17:30:00',
 	speaker: gandalf,
 	description: 'Lightning, as a form of air defence',
-	event_type: lightning
+	event_type: lightning,
+	duration: '2014-12-12 01:30:00',
+	position: 0
 	)
 
 

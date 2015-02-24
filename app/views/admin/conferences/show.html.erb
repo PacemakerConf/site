@@ -4,17 +4,17 @@
 		<div class='speakers-list'>
 			<h2>Speakers:</h2>
 			<div class="main-speakers-box">	
-				<% @conference.events.where(event_type: @topic).each do |event| %>
+				<% @topics.each do |topic| %>
 					<div class='speaker-container'>
 						<div class='speaker-photo'>
-							<% speaker = event.speaker %>	
-							<img class='photo' alt= <%= speaker.name.to_s + speaker.surname.to_s %> src= <%= speaker.photo || "/assets/pacemaker_logo.png" %> >
+							<% speaker = topic.speaker %>	
+							<%= image_tag( speaker.photo.url(:thumb), class: 'photo', alt: speaker.name ) %>
 						</div>
 						<div class='speaker-name speech-info'>
-							<%= link_to "#{speaker.name} #{speaker.surname}", speaker_path(speaker) %>
+							<%= link_to speaker.fullname, speaker_path(speaker) %>
 						</div>
 						<div class='speech-info'>
-							<%= event.title %>
+							<%= topic.title %>
 						</div>
 					</div>
 				<% end %>
@@ -26,17 +26,17 @@
 		<div class='lightning-talks-list'>
 			<h2>Lightning talks:</h2>
 			<div>	
-				<% @conference.events.where(event_type: @lightning).each do |event| %>
+				<% @lightnings.each do |lightning| %>
 						<div class='lightning-speaker-container'>
 							<div class='speaker-photo'>
-								<% speaker = event.speaker %>	
-							<img class='photo' alt= <%= speaker.name + speaker.surname %> src= <%= speaker.photo || "/assets/pacemaker_logo.png" %> >
+								<% speaker = lightning.speaker %>	
+								<%= image_tag( speaker.photo.url(:thumb), class: 'photo', alt: speaker.name ) %>
 							</div>
 							<div class='speaker-name speech-info'>
-								<%= link_to speaker.name, speaker_path(speaker) %>
+								<%= link_to speaker.fullname, speaker_path(speaker) %>
 							</div>
 							<div class='speech-info'>
-								<%= event.title%>
+								<%= lightning.title%>
 							</div>
 						</div>
 				<% end %>

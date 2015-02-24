@@ -3,7 +3,8 @@
   <thead>
     <tr>
         <th>title</th>
-        <th>start</th>
+        <th>description</th>
+        <th>duration</th>
         <th>type</th>
         <th>conference</th>
         <th>speaker</th>
@@ -15,7 +16,8 @@
   <tfoot>
     <tr>
         <th>title</th>
-        <th>start</th>
+        <th>descriptioin</th>
+        <th>duration</th>
         <th>type</th>
         <th>conference</th>
         <th>speaker</th>
@@ -29,9 +31,10 @@
     <% @events.each do |event| %>
       <tr>
         <td><%= event.title %></td>
-        <td><%= event.timestart %></td>
+        <td><%= event.description %></td>
+        <td><%= event.duration %></td>
         <td><%= event.event_type.name %></td>
-        <td><%= event.conference.name%>-<%= event.conference.year %></td>
+        <td><%= event.conference.fullname%></td>
         <td>
           <% unless event.speaker.nil? %>
             <%= event.speaker.name%> <%= event.speaker.surname %>
@@ -55,4 +58,4 @@
 
 <br>
 
-<%= link_to 'New event', new_admin_event_path %>
+<%= link_to 'New event', new_admin_event_path  %>

@@ -31,7 +31,6 @@
         <th>Delete</th>
    </tr>
   </tfoot>
-
   <tbody>
     <% @contacts.each do |contact| %>
       <tr>
@@ -40,13 +39,9 @@
         <td><%= contact.telephone %></td>
         <td><%= contact.email %></td>
         <td><%= contact.skype %></td>
-        <td><%= contact.location_id %></td>
         <td><%= link_to 'Show', admin_contact_path(contact) %></td>
         <td><%= link_to 'Edit', edit_admin_contact_path(contact) %></td>
         <td><%= link_to 'Destroy', admin_contact_path(contact), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= link_to 'Show', contact %></td>
-        <td><%= link_to 'Edit', edit_contact_path(contact) %></td>
-        <td><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

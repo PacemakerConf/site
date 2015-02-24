@@ -26,8 +26,14 @@
           <td><%= speaker.name %></td>
           <td><%= speaker.surname %></td>
           <td><%= link_to 'Show', speaker_path(speaker.name) %></td>
-          <td><%= link_to 'Edit', edit_speaker_path(speaker.name) %></td>
-          <td><%= link_to 'Destroy', speaker_path(speaker), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td>
+            <% if can? :update, @speaker %>
+            <%= link_to 'Edit', edit_speaker_path(speaker.name) %>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to 'Destroy', speaker_path(speaker), method: :delete, data: { confirm: 'Are you sure?' } %>
+          </td>
       </tr>
     <% end %>
   </tbody>
@@ -41,5 +47,6 @@
   });
 </script>
 <br>
-
+<% if can? :create, Speaker %>
 <%= link_to 'New speaker', new_speaker_path %>
+<% end %>
