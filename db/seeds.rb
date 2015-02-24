@@ -59,7 +59,11 @@ harry = Speaker.create(
 	email: 'harrypotter@mail.com',
     facebook: 'fb/harrik',
     linkedin: 'Havrentiy Potter',
-    site: 'http://potter-shop.com'
+    site: 'http://potter-shop.com',
+    photo_file_name: "colin_burns_144.jpg", 
+    photo_content_type: "image/jpeg", 
+    photo_file_size: 63840, 
+    photo_updated_at: "2015-02-24 10:05:52"
 	)
 
 gandalf = Speaker.create(

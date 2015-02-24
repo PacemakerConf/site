@@ -48,6 +48,8 @@
 </script>
 <br>
 
+<%= link_to 'Invite speaker', invite_admin_speakers_path %>
+
 <% if can? :create, Speaker %>
 <%= link_to 'New speaker', new_admin_speaker_path %>
 <% end %>
