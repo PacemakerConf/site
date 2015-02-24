@@ -1,17 +1,26 @@
 <h1>Invite speaker</h1>
 
 <%= form_tag("/admin/speakers/send", method: "post") do %>
-<div class="field">
-  <%= label_tag(:email, "Email") %><br>
-  <%= email_field( :email, "") %>
+<div class="form-group">
+  <%= label_tag(:email, "Email", class: "col-lg-2 control-label") %><br>
+  <div class="col-lg-10">
+    <%= email_field( :email, "") %><br>
+  </div>
 </div>
-<div class="field">
-  <%= label_tag(:message, "Message") %><br>
-  <%= text_area_tag(:message, "Hi! You are invited for registration at our site! Your link is ", size: "24x6") %>
+
+<div class="form-group">
+  <%= label_tag(:message, "Message", class: "col-lg-2 control-label") %><br>
+    <div class="col-lg-10">
+      <%= text_area_tag(:message, invite_message, size: "24x6", class: "form-control") %><br>
+	</div>
 </div>
+
 <div class="actions">
-  <%= submit_tag("Send") %>
+  <div class="col-lg-10 col-lg-offset-2">
+    <%= submit_tag("Send") %>
+  </div>
 </div>
 <% end %>
 
-<%= link_to 'Back', admin_conferences_path %>
+ 
+<%= link_to 'Back', admin_speakers_path %>

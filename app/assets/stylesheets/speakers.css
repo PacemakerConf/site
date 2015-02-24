@@ -2,17 +2,25 @@
 	margin: 0 20px;
 	background-color: white;
 }
-
+.main-content{
+	padding-top: 0;
+}
+.main-speakers{
+	margin-bottom: 3%;
+}
 .speakers-list{
 	margin-left: 20px;
 }
 
 .speaker-container{
-	width: 45%;
+	width: 40%;
 	float: left;
 	font-size: 1.2em;
 	margin: 10px;
 	margin-right: 20px;
+}
+.speakers-list h4, .lightning-talks-list h4{
+	text-transform: uppercase;
 }
 
 .lightning-speaker-container{
@@ -24,35 +32,30 @@
 
 .one-speaker{
 	float: none;
-	min-height: 75px;
+	min-height: 100px;
 }
 
 .speaker-photo{
-	width: 75px;
-	height: 75px;
+	width: 100px;
+	height: 100px;
 	margin-right: 5px;
-	background-color: grey;
 	text-align: center;
 }
 
 .speakers-det .speaker-photo, .one-speaker .speaker-photo{
 
-	width: 75px;
-	height: 75px;
-	margin-right: 5px;
-	background-color: grey;
-	text-align: center;
-	float: left;
+	width: 100px;
+	height: 100px;
 	margin: 5px;
 }
 
 .photo {
-	 width: 75px;
-	 height: 75px;
+	 width: 100px;
+	 height: 100px;
 }
 
-.speech-info{
-	padding: 0.5em 0;
+.speech-info h3{
+	margin: 10px 10px 10px 0;
 }
 
 .lightning-talks-list{
@@ -65,35 +68,29 @@
 	padding: 10px;
 }
 
-.speech-container{
-	background-color: rgba(255,255,255,0.31);
-	margin: 5px;
-	padding: 5px;
-}
-
-.speech-container div{
-	display: inline-block;
-}
-
-.ongoing-speech-container{
-	background-color: rgba(255,255,255,0.31);
-	margin: 5px;
-	padding: 5px;
-}
-
-.ongoing-speech-container div{
-	display: inline-block;
-}
-
 .speech-conference{
-	text-align: center;
-	margin: 5px;
-	padding: 10px;
-	width: 20%;
-}
-.speeches-list .speech-details{
-	margin: 5px;
+	margin: 10px;
 	padding: 5px;
+}
+.speech-conference h3{
+	margin-bottom: 2px;
+	text-align: center;
+}
+.speech-conference a{
+	font-weight: 500;
+	font-size: 22pt;
+
+}
+.speech-conference a:hover{
+	text-decoration:none;
+	color: #006687;
+	background-color: #F6F6F6;
+}
+
+.speeches-list .speech-details{
+	margin: 10px;
+	padding: 5px;
+	padding-bottom: 20px;
 }
 
 .full-speaker-container{
@@ -106,11 +103,30 @@
 	padding: 5px;
 }
 
+
+.speaker-name a:hover{
+	text-decoration:none;
+	color: #006687;
+	background-color: #F6F6F6;
+}
+
 .speech-about{
 	float: left;
-	padding: 10px;
+	padding:5px 5% 5% 5%;
 	background-color: #eee;
 	margin-bottom: 8px;
+}
+.speech-about:after{
+	content: "";
+    position: absolute;
+    top: 14px;
+    left: -15px;
+    border-style: solid;
+    border-width: 15px 15px 15px 0;
+    border-color: transparent #eee;
+    display: block;
+    width: 0;
+    z-index: 1;
 }
 
 .speaker-contacts li{
@@ -118,6 +134,20 @@
 	list-style: none;
 	margin: 5px;
 }
+.speaker-contacts{
+	padding-left: 5px;
+}
 .speaker-contacts img{
 	width:16px;
 }
+
+.ongoings-speech-container .speech-conference p{
+	color:#006687;
+	text-align: center;
+}
+
+.speech-details p{
+	font-size: 12pt;
+	font-weight: light;
+}
+

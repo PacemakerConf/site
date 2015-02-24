@@ -39,7 +39,7 @@
         <td><%= event.conference.fullname%></td>
         <td>
           <% unless event.speaker.nil? %>
-            <%= event.speaker.name%> <%= event.speaker.surname %>
+            <%= event.speaker.fullname %>
           <% end %>
         </td>
         <td><%= link_to 'Show', event_path(event) %></td>

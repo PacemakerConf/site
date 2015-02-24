@@ -1,8 +1,7 @@
 class Admin::SpeakersController < Admin::ApplicationController
-  layout 'admin'
   before_action :authenticate_admin!, except: [:new, :create, :index]
   before_action :set_speaker, only: [:show, :edit, :update, :destroy]
-  #load_and_authorize_resource
+  
   # GET /speakers
   # GET /speakers.json
   def index
@@ -16,7 +15,7 @@ class Admin::SpeakersController < Admin::ApplicationController
 
   # GET /speakers/new
   def new
-    authorize! :create, Speaker
+    raise params[:hash].inspect
     @speaker = Speaker.new
   end
 
@@ -29,7 +28,7 @@ class Admin::SpeakersController < Admin::ApplicationController
 
   def send_invitation
     #render text: params[:email]
-    InviteMailer.speaker_invite(params[:email], params[:message]).deliver_later
+    Speaker.invite_speaker(params[:email], params[:message])
     render text: "Invitation sent"
   end
 
@@ -38,7 +37,6 @@ class Admin::SpeakersController < Admin::ApplicationController
   def create
     authorize! :create, Speaker
     @speaker = Speaker.new(speaker_params)
-
     respond_to do |format|
       if @speaker.save
         current_user['role'] = User::SPEAKER

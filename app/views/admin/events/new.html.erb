@@ -1,6 +1,11 @@
 <fieldset class='col-lg-8'>
  
-<legend>New Event</legend>
+<legend>
+	New Event -
+     <%= params["conf_fname"] || 
+      if( @event.conference ) then @event.conference.fullname end || Conference.last.fullname%>
+
+</legend>
 
 <%= render 'form' %>
 

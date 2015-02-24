@@ -4,10 +4,10 @@
 <h3>Title:  <%= @event.title %></h3>
 <h3>Start:  <%= @event.timestart %></h3>
 <h3>Type:  <%= @event.event_type.name %></h3>
-<h3>Conference:  <%= @event.conference.name%>-<%= @event.conference.year %></h3>
+<h3>Conference:  <%= @event.conference.fullname %></h3>
 <h3>Speaker:  
   <% unless @event.speaker.nil? %>
-    <%= @event.speaker.name%> <%= @event.speaker.surname %>
+    <%= @event.speaker.fullname %>
   <% end %>
 </h3>
 

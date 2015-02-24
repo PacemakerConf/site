@@ -1,9 +1,10 @@
-<% content_for :title, "Pacemaker: " + 	@conference.fullname %>
+<% content_for :title, @conference.fullname %>
+<% content_for :conference_active_button, 'speakers' %>
 
 <% @speakers.each do |speaker| %>
 
 	<div class="row speakers-det">
-		<div class = 'full-speaker-container col-lg-9'>
+		<div class = 'full-speaker-container col-lg-7 col-md-7 col-xs-7'>
 			<div class = 'speaker-photo'>
 				<%= image_tag( speaker.photo.url(:thumb), class: 'photo', alt: speaker.name ) %>
 			</div>
@@ -15,7 +16,7 @@
 			</div>	
 		</div>
 
-		<div class = 'speech-about col-lg-3'>
+		<div class = 'speech-about col-lg-5 col-md-5 col-xs-5'>
 			<div><strong><%= speaker.events.where(conference: @conference)[0].title %></strong></div>
 			<div><%= speaker.events.where(conference: @conference)[0].description %></div>
 		</div>

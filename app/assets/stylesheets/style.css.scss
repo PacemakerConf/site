@@ -3,9 +3,8 @@
 .container{
 	background-color: #F6F6F6;
 }
-.conference-menu{
-	padding-left:12px;
-	background-color: #eeeeee;
+.first{
+	margin-bottom:5%;
 }
 
 .conference-menu li{
@@ -14,7 +13,7 @@
 }
 
 .conference-menu li img{
-	height:58px;
+	height:100%;
 }
 
 .name-conteiner{
@@ -22,13 +21,11 @@
 }
 
 .conference-name{
+	padding:2px 12px 28px 5px;
 	background-color: #006687;
-	margin: 5px;
-	padding:13px 10px 24px 13px;
-}
-
-.conference-name h1{
-	margin:10px;
+	margin: 5px 0px;
+	color: #F6F6F6;
+	text-align: right;
 }
 
 .contacts{
