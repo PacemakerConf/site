@@ -140,3 +140,17 @@
 	color:#006687;
 	text-align: center;
 }
+
+.flag-image-container {
+    position: relative;
+    width: 75px;
+    height: 100px; 
+    margin: 0 5px;
+}
+
+.flag-text{
+	position: absolute; 
+   top: 65px; 
+   left: 0; 
+   width: 100%; 
+}

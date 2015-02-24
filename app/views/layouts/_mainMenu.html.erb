@@ -1,54 +1,23 @@
 <div class="container">
 <div class="main-menu">
-	<ul class="conference-menu">
-		<div id="old-year">
-			<li class="redBtn">
-				<img src="/assets/RED.png">
-				<p><a href="http://localhost:3000/conferences/">2013</a></p>
-			<li class="old-other">
-				<img src="/assets/GREY.png">
-				<p><a href="http://localhost:3000/">RUBY</a></p>
+	<ul class="conference-menu" id='conference_menu' years='<%= Conference.uniq.pluck(:year).sort %>'>
+		<% Conference.uniq.pluck(:year).sort.each do |year| %>
+			<li class="flag-image-container flag-<%= year %>">
+				<%= image_tag('GREY.png')%>
+				<p class='flag-text'> <%= year %> </p> 
 			</li>
-			<li class="old-other">
-				<img src="/assets/GREY.png">
-				<p><a href="http://localhost:3000/">JAVA</a></p>
-			</li>					
-			<li class="old-other">
-				<img src="/assets/GREY.png">
-				<p><a href="http://localhost:3000/">C++</a></p>
-			</li>					
-			<li class="old-other">
-				<img src="/assets/GREY.png">
-				<p><a href="http://localhost:3000/">.NET</a></p>
-			</li>
-			</li>
-		</div>
-		<div id="prev-year">
-			<li class="blueBtn">
-				<img src="/assets/BLUE.png">
-				<p><a href="http://localhost:3000/conferences/">2014</a></p>
-			<li class="year-other">
-				<img src="/assets/GREY.png">
-				<p><a href="http://localhost:3000/">LAMP</a></p>
-			</li>					
-			<li class="year-other">
-				<img src="/assets/GREY.png">
-				<p><a href="http://localhost:3000/">Web-UI</a></p>
-			</li>					
-			<li class="year-other">
-				<img src="/assets/GREY.png">
-				<p><a href="http://localhost:3000/">JScrip</a></p>
-			</li>					
-			<li class="year-other">
-				<img src="/assets/GREY.png">
-				<p><a href="http://localhost:3000/">CSS3</a></p>
-			</li>
-			</li>
-		</div>
-		<div id="current-year">
+			<% Conference.where(year: year).each do |conference| %>
+				<li class="flag-image-container conference-<%= year %>" style="display:none;" >
+					<%= link_to(  image_tag('GREY.png'), conference.fullname )%>
+					<p class='flag-text'> <%= link_to conference.fullname, conference.fullname %> </p> 
+				</li>
+			<% end %>
+		<% end %>
+
+		<!-- <div id="current-year">
 			<li class="blueBtn2">
 				<img src="/assets/BLUE.png">
-				<p><a href="http://localhost:3000/conferences/">2015</a></p>
+         	</li>
 			</li>
 			<li class="future-other">
 				<img src="/assets/GREY.png">
@@ -61,13 +30,11 @@
 			<li class="future-other">
 				<img src="/assets/GREY.png">
 				<p><a href="http://localhost:3000/">C++</a></p>
-			</li>
 			</li>
 			<li class="greenBtn">					
 				<img src="/assets/GREEN.png">
-            <%= link_to Conference.name, Conference.last_conference, :class => ('active' if current_page?(conferences_path)) %>	
-			</li>
-		</div>
+       	</li>
+		</div> -->
 	</ul>
 </div>
 </div>
@@ -101,25 +68,3 @@ $(document).ready(function () {
 	});
 });
 </script>
-<script type="text/javascript">
-$(document).ready(function() {
-    $('li.conference-menu').hover(function() {
-        $(this).animate({
-        backgroundColor: "black",
-        color: "white"
-        })
-    })
-});
-</script>
-<script>
-$(document).ready(function() {
-$('.blueBtn').hover(function() {
-    $( ".blueBtn" ).effect( "shake", {
-        times: 10,
-        distance: 100
-        }, 2000, function()
-    );
-  });
-});
-</script>
-
