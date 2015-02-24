@@ -3,7 +3,6 @@ require 'shoulda/matchers'
 
 describe Event do 
 
-	
 	it { should belong_to(:speaker) }
 	it { should belong_to(:conference) }
 	it { should belong_to(:event_type) }

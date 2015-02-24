@@ -29,11 +29,11 @@
                   else
                     link_to "Create Location", controller: 'admin/locations', action: 'new', conf_id: conference.id, conf_fname: conference.fullname
                   end %></td>
-          <td><%= link_to 'Report', conference.report %></td>
-
-          <td><%= link_to 'Show', admin_conference_path(conference.fullname) %></td>
-          <td><%= link_to 'Edit', edit_admin_conference_path(conference.fullname) %></td>
-          <td><%= link_to 'Destroy', admin_conference_path(conference.fullname), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= unless(conference.report.nil?)
+                    link_to "#{conference.report.address}", report_conference_path(conf)
+                  else
+                    link_to "Create", new_report_path()
+                  end %></td>
           <td><%= link_to 'Publish', about_conference_path(conference.name.to_s + "-" + conference.year.to_s) %></td>
           <td><%= link_to 'Edit', edit_admin_conference_path(conference.name.to_s + "-" + conference.year.to_s) %></td>
           <td><%= link_to 'Destroy', admin_conference_path(conference.name.to_s + "-" + conference.year.to_s), method: :delete, data: { confirm: 'Are you sure?' } %></td>

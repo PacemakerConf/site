@@ -15,42 +15,33 @@
 
   
   <div class="form-group">
-    <%= f.label :photo, class: "col-lg-2 control-label"%>
-    <div class="col-lg-7">
-      <%= image_tag @speaker.photo.url(:thumb) %>
-    <%= f.label :photo, 'Photo*', class: "col-lg-2 control-label"%>
-    <div class='col-lg-10'>
+
+    <%= f.label :photo, 'Photo', class: "col-lg-2 control-label"%>
+    <div class="col-lg-10">
       <%= f.file_field :photo, class: "btn btn-default" %>
       <script>
         $("#speaker_photo").fileinput({
-          maxFilesNum: 1,
-          maxFileSize: 1024,
-          allowedFileExtensions: ["jpg", "gif", "png", "txt"]
+        maxFilesNum: 10,
+        allowedFileExtensions: ["jpg", "gif", "png", "txt"]
         });
       </script>
     </div>
   </div>
 
   <div class="form-group">
-    <%= f.label :name, class: "col-lg-2 control-label"%>
-    <div class="col-lg-7">
+
     <%= f.label :name, 'Name*', class: "col-lg-2 control-label"%>
     <div class="col-lg-10">
       <%= f.text_field :name, class: "form-control" %>
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :surname, class: "col-lg-2 control-label"%>
-    <div class="col-lg-7">
     <%= f.label :surname, 'Surname*', class: "col-lg-2 control-label"%>
     <div class="col-lg-10">
       <%= f.text_field :surname, class: "form-control" %>
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :description, class: "col-lg-2 control-label"%>
-    <div class="col-lg-7">
-      <%= f.text_field :description, class: "form-control" %>
     <%= f.label :position, 'Position*', class: "col-lg-2 control-label"%>
     <div class="col-lg-10">
       <%= f.text_field :position, class: "form-control" %>
