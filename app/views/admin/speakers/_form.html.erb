@@ -13,22 +13,19 @@
     </div>
   <% end %>
 
+  
   <div class="form-group">
     <%= f.label :photo, 'Photo*', class: "col-lg-2 control-label"%>
-    <div class="col-lg-10">
-      <%= image_tag @speaker.photo.url(:thumb) %>
+    <div class='col-lg-10'>
       <%= f.file_field :photo, class: "btn btn-default" %>
+      <script>
+        $("#speaker_photo").fileinput({
+          maxFilesNum: 1,
+          allowedFileExtensions: ["jpg", "gif", "png", "txt"]
+        });
+      </script>
     </div>
   </div>
-
-  <input id="input-42" type="file" multiple=true>
-  <script>
-  $("#input-42").fileinput({
-  maxFilesNum: 10,
-  allowedFileExtensions: ["jpg", "gif", "png", "txt"]
-  });
-  </script>
-
 
 
   <div class="form-group">
