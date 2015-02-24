@@ -19,6 +19,7 @@ class Admin::LocationsController < Admin::ApplicationController
   # GET /locations/new
   def new
     @location = Location.new
+    @contacts = Contact.all
   end
 
   # GET /locations/1/edit

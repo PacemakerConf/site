@@ -1,4 +1,8 @@
 class Contact < ActiveRecord::Base
+
+	def full_name
+    	"#{surname} #{name}"
+  	end
 	
 	has_many :telephones, :dependent => :destroy
 	accepts_nested_attributes_for :telephones, :reject_if => lambda { |a| a[:number].blank? }

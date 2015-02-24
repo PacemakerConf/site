@@ -21,5 +21,5 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap-wysihtml5
-//= require jquery_nested_form
+//= require ../../../vendor/assets/javascripts/nested_form
 

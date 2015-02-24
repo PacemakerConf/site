@@ -55,7 +55,7 @@
   <div class="form-group">
     <%= f.label :contact_id, 'Contact', class: "col-lg-2 control-label" %>
     <div class="col-lg-10">
-      <%= select_tag 'contact[location_id]', options_from_collection_for_select(Contact.all, 'id', 'surname'), class: "form-control" %>
+      <%= f.collection_select :contact_ids, @contacts, :id, :full_name, {}, {:multiple => true, :selected => 1} %>
     </div>
   </div>
 
