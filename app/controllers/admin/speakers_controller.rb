@@ -30,7 +30,7 @@ class Admin::SpeakersController < Admin::ApplicationController
   def send_invitation
     #render text: params[:email]
     InviteMailer.speaker_invite(params[:email], params[:message]).deliver_later
-    render text: "Invitation sent"
+    redirect_to admin_speakers_path, notice: 'Invitation was successfully sent.'
   end
 
   # POST /speakers
