@@ -60,23 +60,15 @@
     <%= f.label :surname %>
     <%= f.text_field :surname %>
   </div>
-  <div class="field">
-    <%= f.label :telephone %>
-    <%= f.text_field :telephone %>
-  </div>
-<<<<<<< HEAD
-=======
-    <div>
-  <% f.fields_for :telephones do |form| %>
-      <%= form.label :number, "Telephone" %><br />
-      <%= form.text_field :number%>
-      <%= form.link_to_remove "Remove" %>
-  <% end %>
-  <%= f.link_to_add "Add Telephone", :telephones %>
-  
 
+  <div>
+    <% f.fields_for :telephones do |form| %>
+        <%= form.label :number, "Telephone" %><br />
+        <%= form.text_field :number%>
+        <%= form.link_to_remove "Remove" %>
+    <% end %>
+    <%= f.link_to_add "Add Telephone", :telephones %>
   </div>
->>>>>>> kirdan
   <div class="field">
     <%= f.label :email %>
     <%= f.text_field :email %>

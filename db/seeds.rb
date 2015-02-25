@@ -245,7 +245,7 @@ onering.events.create(
 	)
 
 onering.events.create(
-	title: 'Little man with great poptential',
+	title: 'Little man with great potential',
 	description: 'History of the invention of the heel',
 	event_type: lightning,
 	speaker: frodo,
