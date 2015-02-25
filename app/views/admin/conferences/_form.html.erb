@@ -11,8 +11,10 @@
       </ul>
     </div>
   <% end %>
-
-<form class="form-horizontal">
+<div class="container">
+<div class="row">
+<div class='col-sm-6'>
+  <form class="form-horizontal">
   <fieldset>
     <div class="form-group">
       <%= f.label :name, class: "col-lg-2 control-label"%>
@@ -35,17 +37,30 @@
         <% years_options += " <option value=" + year.to_s + selected + " > " + year.to_s + "</option> "%>
         <% end %>
         <%= select_tag "conference[year]", years_options.html_safe, class: "form-control"%>
-
       </div>
     </div>
+
     <div class="form-group">
       <%= f.label :date, class: "col-lg-2 control-label" %>
         <div class="col-lg-10">
       <%= f.text_field :date,  class: "form-control datetimepicker"%>
       </div>
-    <p>Date: <input type="text" id="datetimepicker" /></p>
+      </div>
 
-    </div>
+    <div class="form-group">
+      <%= f.label :date, class: "col-lg-2 control-label" %>
+        <div class="col-lg-10">
+      <%= f.text_field :date, id: "datetimepicker1", class: "form-control"%>
+      </div>
+      </div>
+
+      <div class="form-group">
+      <%= f.label :date, class: "col-lg-2 control-label" %>
+        <div class="col-lg-10">
+      <%= f.text_field :date, id: "datepicker", class: "form-control"%>
+      </div>
+      </div>
+
     <div class="form-group">
       <%= f.label :attenders_count, class: "col-lg-2 control-label" %>
         <div class="col-lg-10">
@@ -64,6 +79,9 @@
       <button type="submit" class="btn btn-primary">Create</button>
     </div>
     </div>
+            </div>
+    </div>
+</div>
   </fieldset>
 </form>
 <% end %>
