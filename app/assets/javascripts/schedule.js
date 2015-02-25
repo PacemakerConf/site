@@ -1,6 +1,5 @@
 // console.log('schedule.js');
-// $(document).ready(function(){scheduleChange()});
-
+$(document).ready(function(){scheduleChange(); $('#sortable').click(function(){ scheduleChange(); }); });
 
 function scheduleChange(){
 	console.log('ScheduleTime()');
@@ -35,7 +34,7 @@ function scheduleChange(){
 		};
 	}
 	else{
-		console.log("some shit: timestartItems.length != durationItems.length");
+		console.log("some gone wrong: timestartItems.length != durationItems.length");
 	};
 
 }
@@ -46,3 +45,43 @@ function parseTime(durationItem){
 	durationArray[1] = parseInt(durationArray[1]);
 	return durationArray;
 }
+
+function sendAJAX(){
+	$.ajax({url: "/admin/events/" + 1 + ".json", method: "PUT"}).done(function(msg){alert(msg);});
+    console.log('AJAX?');
+
+    some_var = $('.okay');
+    some_var = some_var[0].value;
+
+    xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function() {
+	    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+	    	var response =  JSON.parse( xmlhttp.responseText );
+	    	console.log( response.position );
+	    	response.position = some_var;
+	    	console.log(response.position);
+	    }
+	  
+	}
+
+	xmlhttp.open("PATCH", "/admin/events/" + 1 + ".json", true);
+	xmlhttp.send();
+
+
+ //  selected_event_type =  event_event_type_id.value;
+ //  xmlhttp = new XMLHttpRequest();
+ //  xmlhttp.onreadystatechange = function() {
+ //    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+ //        var response = JSON.parse( xmlhttp.responseText );
+ //        event_hours.value = response.durationHour;
+ //        event_mins.value = response.durationMin;
+ //        event_hours.onchange();
+ //        event_mins.onchange();
+        
+ //        toggleSpeakerDropdown(response.speakerEvent);
+ //    }
+ //  }
+ //  xmlhttp.open("GET", "/admin/event_types/" + selected_event_type + ".json", true);
+ //  xmlhttp.send();
+
+ }

@@ -4,8 +4,8 @@
     imageFromField('0');
   });
 </script>
-<%= form_for [:admin, @event_type] do |f| %>
-
+<%= form_for( [:admin, @event_type], html: {class: 'form-horizontal'} ) do |f|%>
+<fieldset>
   <% if @event_type.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@event_type.errors.count, "error") %> prohibited this event_type from being saved:</h2>
@@ -17,7 +17,78 @@
       </ul>
     </div>
   <% end %>
-  <table class="table table-responsive">
+
+  <div class="form-group">
+    <%= f.label :name, class: 'col-lg-2 control-label' %>
+    <div class="col-lg-7">
+      <%= f.text_field :name, class: 'form-control'%>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :description, class: 'col-lg-2 control-label' %>
+    <div class="col-lg-7">
+      <%= f.text_area :description, class: 'form-control' %>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label class="col-lg-2 control-label" for="event_type_defaultDuration">Default Duration</label>
+    <div class="col-lg-7">
+      <%= f.time_select :defaultDuration, {start_hour: 0, end_hour: 4, minute_step: 5, time_separator: ''}, class: 'btn-default btn-xs' %>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :color, class: 'col-lg-2 control-label' %>
+    <div class="col-lg-7">
+      <%= f.color_field :color, class: 'btn-default color-choose' %>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :image, class: 'col-lg-2 control-label' %>
+    <div class="col-lg-7">
+      <div class="customDropDown">
+            <div class="ddHead">
+              <span id="DropDownMark" class=""></span>
+                <ul class="bs-glyphicons bs-glyphicons-list">
+                <% @@i = 0 %>
+                <% takeGLYPHS().each do |className|%>
+                  <li><span  class="btn btn-default btn-sm glyphicon glyphicon-<%= className %>" onclick="imageToField(<%= @@i %>)"></span></li>
+                  <% @@i=@@i+1 %>
+                <% end %>
+                </ul>
+            </div>
+          </div>
+
+        <%= f.hidden_field :image %>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label class="col-lg-2 control-label" for="event_type_speakerEvent">Speaker Event</label>
+    <div class="col-lg-7">
+      <div class="checkbox">
+        <label>
+          <%= f.check_box :speakerEvent%>
+        </label>
+      </div>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :groupable, class: 'col-lg-2 control-label' %>
+    <div class="col-lg-7">
+      <div class="checkbox">
+        <label>
+          <%= f.check_box :groupable%>
+        </label>
+      </div>
+    </div>
+  </div>
+
+<!--   <table class="table table-responsive">
     <colgroup class="new_event_type">
       <col></col>
       <col></col>
@@ -66,8 +137,8 @@
 
     <tr>
       <td>
-        <label class="control-label" for="event_type_speakerEvent">Speaker Event</label>
-        <!-- <%#= f.label :speakerEvent %>  --></td>
+        <label class="control-label" for="event_type_speakerEvent">Speaker Event</label> -->
+        <!-- <%#= f.label :speakerEvent %>  --><!--</td>
       <td>
         <%= f.check_box :speakerEvent%></td>
     </tr>
@@ -78,10 +149,13 @@
         <%= f.check_box :groupable%></td>
     </tr>
 
-  </table>
-
-  <div class="actions">
-    <%= f.submit 'Confirm', class: 'btn btn-primary'%>
+  </table> -->
+  <div class="form-group">
+    <div class="col-lg-7 col-lg-offset-2">
+      <div class="actions">
+        <%= f.submit 'Confirm', class: 'btn btn-primary'%>
+      </div>
+    </div>
   </div>
-
+</fieldset>
 <% end %>
