@@ -3,7 +3,6 @@ class Admin::EventsController < Admin::ApplicationController
   before_action :authenticate_admin!, except: [:new, :create, :index]
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
-
   # GET /events
   # GET /events.json
   def index
@@ -27,17 +26,15 @@ class Admin::EventsController < Admin::ApplicationController
   # POST /events
   # POST /events.json
   def create
-    # authorize! :create, Event
+    authorize! :create, Event
     @event = Event.new(event_params)
     @conference = Conference.find(event_params[:conference_id])
     position = Event.where(conference: @conference).size + 1
     @event.position = position
-
     respond_to do |format|
       if @event.save
         format.html { redirect_to schedule_admin_conference_path(@conference), notice: 'event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
-        current_user['role'] = User::GUEST
       else
         format.html { render :new }
         format.json { render json: @event.errors, status: :unprocessable_entity }

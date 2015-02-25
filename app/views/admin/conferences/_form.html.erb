@@ -1,4 +1,5 @@
 <%= form_for( [:admin, @conference],  html: {class: 'form-horizontal'} ) do |f| %>
+
   <% if @conference.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@conference.errors.count, "error") %> prohibited this conference from being saved:</h2>
@@ -11,38 +12,56 @@
     </div>
   <% end %>
 
-  <div class="form-group">
-    <%= f.label :name, 'Name*', class: "col-lg-2 control-label"%>
-    <div class="col-lg-7">
-      <%= f.text_field :name, class: "form-control" %>
-    </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :year, 'year', class: "col-lg-2 control-label"%>
-    <div class="col-lg-7">
-      <%= f.number_field :year,value:"2015", class: "form-control" %>
-    </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :date, 'date', class: "col-lg-2 control-label"%>
-    <div class="col-lg-7">
-      <%= f.text_field :date, class: "form-group" %>
-    </div>
-  </div>
+<form class="form-horizontal">
+  <fieldset>
     <div class="form-group">
-    <%= f.label :date, 'date', class: "col-lg-2 control-label"%>
-    <div class="col-lg-7">
-      <%= f.text_field :date, class: "form-group" %>
+      <%= f.label :name, class: "col-lg-2 control-label"%>
+      <div class="col-lg-7">
+        <%= f.text_field :name, class: "form-control" %>
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :attenders_count, 'attenders count', class: "col-lg-2 control-label"%>
-    <div class="col-lg-7">
-      <%= f.number_field :attenders_count, value:"1", class: "form-control" %>
+    <div class="form-group">
+      <%= f.label :'year', class: "col-lg-2 control-label" %>
+        <div class="col-lg-7">
+      <% years_options = ''%>
+      <% cur_year = Time.now.year %>
+      <% (cur_year-2).upto(cur_year+2) do |year| %>
+        <% if cur_year.to_s === year.to_s %>
+          <% selected = " selected='selected'" %>
+        <% else %>
+          <% selected = '' %>
+        <% end %>
+        <% years_options += " <option value=" + year.to_s + selected + " > " + year.to_s + "</option> "%>
+        <% end %>
+        <%= select_tag "conference[year]", years_options.html_safe, class: "form-control"%>
+
+      </div>
     </div>
-  <div class="form-group">
+    <div class="form-group">
+      <%= f.label :date, class: "col-lg-2 control-label" %>
+        <div class="col-lg-7">
+      <%= f.text_field :date,  class: "form-control datetimepicker"%>
+      </div>
+
+    </div>
+    <div class="form-group">
+      <%= f.label :attenders_count, class: "col-lg-2 control-label" %>
+        <div class="col-lg-7">
+      <%= f.number_field :attenders, value: "1", min: "1", class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :group_event, class: "col-lg-2 control-label" %>
+        <div class="col-lg-7">
+      <%= check_box_tag :group_event, value: "" %>
+      </div>
+    </div>
+    <div class="form-group">
     <div class="col-lg-10 col-lg-offset-2">
-      <%= f.submit "Create", class: "btn btn-primary" %>
+      <button type="reset" class="btn btn-default">Cancel</button>
+      <button type="submit" class="btn btn-primary">Create</button>
     </div>
-  </div>
+    </div>
+  </fieldset>
+</form>
 <% end %>

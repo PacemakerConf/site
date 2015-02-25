@@ -6,10 +6,6 @@
 .first{
 	margin-bottom:5%;
 }
-.conference-menu{
-	padding-left:12px;
-	background-color: #eeeeee;
-}
 
 .conference-menu li{
 	display: inline-block;
@@ -17,11 +13,11 @@
 }
 
 .conference-menu li img{
-	height:58px;
+	height:100%;
 }
 
 .name-conteiner{
-	padding:0px 5px;
+	padding:0 0 0 5px;
 }
 
 .conference-name{
@@ -74,6 +70,7 @@ footer{
 	height: 100px;
 	position: relative;
 	background-color: #eeeeee;
+	border: 1px solid #ebebeb;
 }
 
 .logoes .col-lg-12 .logo img{

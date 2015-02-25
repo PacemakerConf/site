@@ -4,7 +4,10 @@ class InviteMailer < ActionMailer::Base
 
 	def speaker_invite(email, message)
 	@message = message
-		mail( to: email, subject: "Invitation for registration")
+		mail( to: email, subject: "Invitation for registration") 
+		# do |format|
+		# 	format.html
+		# end	
 	end
 
 end

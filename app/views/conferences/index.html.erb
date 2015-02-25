@@ -21,21 +21,24 @@
           <td><%= conference.year %></td>
           <td><%= conference.date %></td>
           <td><%= conference.attenders %></td>
-
+          <% conf = conference.name.to_s + "-" + conference.year.to_s %>
           <td><%= unless(conference.location.nil?)
                     link_to "#{conference.location.address}", location_conference_path(conference.fullname)
                   else
                     link_to "Create Location", new_admin_location_path()
                   end %></td>
-          <td><%= link_to 'Report', conference.report %></td>
-          <td><%= link_to 'Show', about_conference_path(conference.fullname) %></td>
-          <td><%= link_to 'Edit', edit_conference_path(conference.fullname) %></td>
-          <td><%= link_to 'Destroy', conference_path(conference.fullname), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= unless(conference.report.nil?)
+                    link_to "#{conference.report.address}", report_conference_path(conf)
+                  else
+                    link_to "Create", new_report_path()
+                  end %></td>
+          <td><%= link_to 'Publish', about_conference_path(conference.name.to_s + "-" + conference.year.to_s) %></td>
+          <td><%= link_to 'Edit', edit_conference_path(conference.name.to_s + "-" + conference.year.to_s) %></td>
+          <td><%= link_to 'Destroy', conference, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
 <script type="text/javascript">
   $(document).ready(function() {
     $('#conference').dataTable({
@@ -43,7 +46,6 @@
     });
   });
 </script>
-
 <br>
-
 <%= link_to 'New Conference', new_conference_path %>
+<%= link_to 'New Conference', new_conference_path, class: "btn btn-default btn-sm"  %>

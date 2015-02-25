@@ -16,15 +16,16 @@ class Ability
 
   private 
 
-  def get_user(user_data)
-    if user_data.blank?
-      User.new('role': User::GUEST) # guest user (not logged in)
-    elsif user_data.is_a?(Hash)
-      User.new(user_data)
-    else
-      user_data
-    end     
-  end  
+    def get_user(user_data)
+      #if user_data.blank?
+      #  User.new('role': User::GUEST) # guest user (not logged in)
+      if user_data.is_a?(Hash)
+        User.new(user_data)
+      else
+        Admin.new('role': User::ADMIN)
+      end     
+    end 
+
     # The first argument to `can` is the action you are giving the user 
     # permission to do.
     # If you pass :manage it will apply to every action. Other common actions

@@ -1,4 +1,6 @@
-<% content_for :title, "Pacemaker: " + 	@conference.fullname %>
+<% content_for :title, @conference.fullname %>
+<% content_for :conference_active_button, 'schedule' %>
+
 <ul>
 <% @events.each do |event| %>
 	<li><%= event.title %></li>

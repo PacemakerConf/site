@@ -1,54 +1,24 @@
 <div class="container">
 <div class="main-menu">
-	<ul class="conference-menu">
-		<div id="old-year">
-			<li class="redBtn">
-				<img src="/assets/RED.png">
-				<p><a href="http://localhost:3000/conferences/">2013</a></p>
-			<li class="old-other">
-				<img src="/assets/GREY.png">
-				<p><a href="http://localhost:3000/">RUBY</a></p>
+	<ul class="conference-menu" id='conference_menu' years='<%= Conference.uniq.pluck(:year).sort %>'>
+		<% Conference.uniq.pluck(:year).sort.each do |year| %>
+			<li class="flag-image-container flag-<%= year %>">
+				<%= image_tag('GREY.png')%>
+				<p class='flag-text'> <%= year %> </p> 
 			</li>
-			<li class="old-other">
-				<img src="/assets/GREY.png">
-				<p><a href="http://localhost:3000/">JAVA</a></p>
-			</li>					
-			<li class="old-other">
-				<img src="/assets/GREY.png">
-				<p><a href="http://localhost:3000/">C++</a></p>
-			</li>					
-			<li class="old-other">
-				<img src="/assets/GREY.png">
-				<p><a href="http://localhost:3000/">.NET</a></p>
-			</li>
-			</li>
-		</div>
-		<div id="prev-year">
-			<li class="blueBtn">
-				<img src="/assets/BLUE.png">
-				<p><a href="http://localhost:3000/conferences/">2014</a></p>
-			<li class="year-other">
-				<img src="/assets/GREY.png">
-				<p><a href="http://localhost:3000/">LAMP</a></p>
-			</li>					
-			<li class="year-other">
-				<img src="/assets/GREY.png">
-				<p><a href="http://localhost:3000/">Web-UI</a></p>
-			</li>					
-			<li class="year-other">
-				<img src="/assets/GREY.png">
-				<p><a href="http://localhost:3000/">JScrip</a></p>
-			</li>					
-			<li class="year-other">
-				<img src="/assets/GREY.png">
-				<p><a href="http://localhost:3000/">CSS3</a></p>
-			</li>
-			</li>
-		</div>
-		<div id="current-year">
+			<% Conference.where(year: year).each do |conference| %>
+				<li class="flag-image-container conference-<%= year %>" style="display:none;" >
+					<%= link_to(  image_tag('GREY.png'), about_conference_path(conference.fullname) )%>
+					<p class='flag-text'> <%= link_to conference.fullname, about_conference_path(conference.fullname) %> </p> 
+				</li>
+			<% end %>
+		<% end %>
+
+		<!-- <div id="current-year">
 			<li class="blueBtn2">
 				<img src="/assets/BLUE.png">
-				<p><a href="http://localhost:3000/conferences/">2015</a></p>
+         	</li>
+			</li>
 			<li class="future-other">
 				<img src="/assets/GREY.png">
 				<p><a href="http://localhost:3000/">RUBY</a></p>
@@ -60,12 +30,11 @@
 			<li class="future-other">
 				<img src="/assets/GREY.png">
 				<p><a href="http://localhost:3000/">C++</a></p>
-			<li class="greenBtn">
-				<img class="Big" src="/assets/GREEN.png">
-				<p><a href="http://localhost:3000/conferences/">BigData</a></p>
-			</li>					
 			</li>
-		</div>
+			<li class="greenBtn">					
+				<img src="/assets/GREEN.png">
+       	</li>
+		</div> -->
 	</ul>
 </div>
 
@@ -74,21 +43,27 @@ $(document).ready(function () {
 	$('.old-other').hide();
 	$('.year-other').hide();
 	$('.future-other').hide();
+
+	$('li.conference-menu').hover(function(){
+	    $(this).addClass('hovered');
+	},function(){
+	    $(this).removeClass('hovered');
+	});
+
 	$( ".redBtn" ).click(function() {
-		$(this).parent().find( ".old-other" ).first().toggle( "fast", function showNext() {
-			$( this ).next( ".old-other" ).toggle( "fast", showNext );
+		$(this).parent().find( ".old-other" ).first().toggle( 100, function showNext() {
+			$( this ).next( ".old-other" ).toggle( 100, showNext );
 		});
 	});
 	$( ".blueBtn" ).click(function() {
-		$( ".year-other" ).first().toggle( "fast", function showNext() {
-			$( this ).next( ".year-other" ).toggle( "fast", showNext );
+		$( ".year-other" ).first().toggle( 100, function showNext() {
+			$( this ).next( ".year-other" ).toggle( 100, showNext );
 		});
 	});
 	$( ".blueBtn2").click(function() {
-		$( ".future-other" ).first().toggle( "fast", function showNext() {
-			$( this ).next( ".future-other" ).toggle( "fast", showNext );
+		$( ".future-other" ).first().toggle( 100, function showNext() {
+			$( this ).next( ".future-other" ).toggle( 100, showNext );
 		});
 	});
 });
 </script>
-

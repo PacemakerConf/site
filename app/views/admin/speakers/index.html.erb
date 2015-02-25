@@ -47,6 +47,9 @@
   });
 </script>
 <br>
+<% if can? :create, Speaker %>
+<%= link_to 'Invite speaker', invite_admin_speakers_path %>
+<% end %>
 
 <% if can? :create, Speaker %>
 <%= link_to 'New speaker', new_admin_speaker_path %>
