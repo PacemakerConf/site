@@ -8,8 +8,8 @@
 			</li>
 			<% Conference.where(year: year).each do |conference| %>
 				<li class="flag-image-container conference-<%= year %>" style="display:none;" >
-					<%= link_to(  image_tag('GREY.png'), conference.fullname )%>
-					<p class='flag-text'> <%= link_to conference.fullname, conference.fullname %> </p> 
+					<%= link_to(  image_tag('GREY.png'), about_conference_path(conference.fullname) )%>
+					<p class='flag-text'> <%= link_to conference.fullname, about_conference_path(conference.fullname) %> </p> 
 				</li>
 <!-- 				<li class="flag-image-c conference-<%= year %>">
 					<%= link_to(  image_tag('GREEN.png'), conference.fullname )%>
@@ -18,7 +18,6 @@
 			<% end %>
 		<% end %>
 	</ul>
-</div>
 </div>
 
 <script>

@@ -43,8 +43,8 @@ frodo = Speaker.create(
 	position: 'lucky pathfinder',
 	description: 'A little but brave Hobbit. Love jewels very much',
 	email: 'frodo@ring.one',
-    facebook: 'fb/goldy',
-    site: 'http://the-best-jewels.com',
+  facebook: 'fb/goldy',
+  site: 'http://the-best-jewels.com',
 	photo_file_name: "frodo.jpg",
 	photo_content_type: "image/jpeg",
 	photo_file_size: 8046,
@@ -57,13 +57,13 @@ harry = Speaker.create(
 	position: 'sitting position',
 	description: 'The bespactacled One',
 	email: 'harrypotter@mail.com',
-    facebook: 'fb/harrik',
-    linkedin: 'Havrentiy Potter',
-    site: 'http://potter-shop.com',
-    photo_file_name: "colin_burns_144.jpg", 
-    photo_content_type: "image/jpeg", 
-    photo_file_size: 63840, 
-    photo_updated_at: "2015-02-24 10:05:52"
+  facebook: 'fb/harrik',
+  linkedin: 'Havrentiy Potter',
+  site: 'http://potter-shop.com',
+  photo_file_name: "colin_burns_144.jpg", 
+  photo_content_type: "image/jpeg", 
+  photo_file_size: 63840, 
+  photo_updated_at: "2015-02-24 10:05:52"
 	)
 
 gandalf = Speaker.create(
@@ -108,48 +108,86 @@ ent = Speaker.create(
 	photo_updated_at: "2015-02-12 21:22:27"
 	)
 
-#conferences
-onering = Conference.create(
-	name: 'One Ring',
-	year: 2014,
-	date: '2014-12-12',
-	attenders: 79
-	)
 
-ror2012 = Conference.create(
-	name: 'RoR',
+#conferences
+js2012 = Conference.create(
+	name: 'JS',
+	year: 2012,
+	date: '2012-02-12',
+	attenders: 12
+	)
+Conference.create(
+	name: 'JAVA',
+	year: 2012,
+	date: '2012-05-22',
+	attenders: 12
+	)
+Conference.create(
+	name: 'LAMP',
+	year: 2012,
+	date: '2012-08-08',
+	attenders: 12
+	)
+Conference.create(
+	name: 'OPS',
 	year: 2012,
 	date: '2012-11-12',
 	attenders: 12
 	)
 
-ror2013 = Conference.create(
-	name: 'RoR',
+Conference.create(
+	name: 'Java',
+	year: 2013,
+	date: '2013-01-12',
+	attenders: 22
+	)
+cloud2013 = Conference.create(
+	name: 'Cloud',
+	year: 2013,
+	date: '2013-06-29',
+	attenders: 22
+	)
+Conference.create(
+	name: 'Data',
 	year: 2013,
 	date: '2013-11-12',
 	attenders: 22
 	)
 
-ror2014 = Conference.create(
-	name: 'RoR',
+Conference.create(
+	name: 'Mobile',
 	year: 2014,
-	date: '2014-11-12',
+	date: '2014-05-12',
 	attenders: 372
 	)
-
+webui2014 = Conference.create(
+	name: 'WebUI',
+	year: 2014,
+	date: '2014-09-12',
+	attenders: 372
+	)
 victory = Conference.create(
-	name: 'Victory',
+	name: 'JAVA',
+	year: 2014,
+	date: '2014-12-12',
+	attenders: 79
+	)
+
+onering = Conference.create(
+	name: 'BigData',
 	year: 2015,
 	date: '2015-11-12',
 	attenders: 72
 	)
+
 
 #events
 onering.events.create(
 	title: 'registration',
 	event_type: registration,
 	duration: '2014-12-12 00:45:00',
-	position: 1
+	position: 1,
+	video: "https://www.youtube.com/watch?v=Rn3JnBizsZ4"
 	)
 
 onering.events.create(
@@ -206,6 +244,15 @@ onering.events.create(
 	position: 7
 	)
 
+onering.events.create(
+	title: 'Little man with great poptential',
+	description: 'History of the invention of the heel',
+	event_type: lightning,
+	speaker: frodo,
+	duration: '2014-12-12 00:15:00',
+	position: 8
+	)
+
 victory.events.create(
 	title: 'A long way in the dunes',
 	speaker: frodo,
@@ -224,6 +271,32 @@ victory.events.create(
 	position: 0
 	)
 
+Event.create(
+	title: '2b || !2b',
+	description: 'solve old problem',
+	speaker: frodo,
+	conference: js2012,
+	event_type: topic,
+	duration: '2014-12-12 01:30:00'
+	) 
+
+Event.create(
+	title: 'What to do when your friend is magician',
+	description: 'True story',
+	speaker: frodo,
+	conference: cloud2013,
+	event_type: lightning,
+	duration: '2014-12-12 00:15:00'
+	)
+
+Event.create(
+	title: 'The last years of Middle-earth',
+	description: 'Why',
+	speaker: frodo,
+	conference: webui2014,
+	event_type: topic,
+	duration: '2014-12-12 01:00:00'
+	)
 
 #locations
 pasternaka = Location.create(
@@ -295,5 +368,5 @@ admin = Admin.new
     admin.username = 'admin' 
 	admin.password = '00000000'
 	admin.password_confirmation = '00000000'
-	admin.role = 'administrator'
+	admin.role = 'Admin'
     admin.save!

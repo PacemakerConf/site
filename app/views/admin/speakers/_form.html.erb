@@ -1,4 +1,3 @@
-
 <%= form_for( [:admin, @speaker],  html: {class: 'form-horizontal'} ) do |f| %>
    
   <% if @speaker.errors.any? %>
@@ -15,10 +14,8 @@
 
   
   <div class="form-group">
-
     <%= f.label :photo, 'Photo', class: "col-lg-2 control-label"%>
     <div class="col-lg-7">
-
       <%= f.file_field :photo, class: "btn btn-default" %>
       <script>
         $("#speaker_photo").fileinput({
