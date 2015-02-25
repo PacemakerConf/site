@@ -1,8 +1,7 @@
 class Admin::SpeakersController < Admin::ApplicationController
-  layout 'admin'
   before_action :authenticate_admin!, except: [:new, :create, :index]
   before_action :set_speaker, only: [:show, :edit, :update, :destroy]
-  #load_and_authorize_resource
+  
   # GET /speakers
   # GET /speakers.json
   def index
@@ -16,7 +15,6 @@ class Admin::SpeakersController < Admin::ApplicationController
 
   # GET /speakers/new
   def new
-    # authorize! :create, Speaker
     @speaker = Speaker.new
   end
 
@@ -29,16 +27,15 @@ class Admin::SpeakersController < Admin::ApplicationController
 
   def send_invitation
     #render text: params[:email]
-    InviteMailer.speaker_invite(params[:email], params[:message]).deliver_later
-    redirect_to admin_speakers_path, notice: 'Invitation was successfully sent.'
+    Speaker.invite_speaker(params[:email], params[:message])
+    render text: "Invitation sent"
   end
 
   # POST /speakers
   # POST /speakers.json
   def create
-    # authorize! :create, Speaker
+    authorize! :create, Speaker
     @speaker = Speaker.new(speaker_params)
-
     respond_to do |format|
       if @speaker.save
         current_user['role'] = User::SPEAKER
@@ -87,7 +84,7 @@ class Admin::SpeakersController < Admin::ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def speaker_params
-      params.require(:speaker).permit(:name, :surname, :photo, :position, :description, :email, :facebook, :linkedin, :site)
+      params.require(:speaker).permit(:name, :surname, :photo, :description, :email, :facebook, :linkedin, :site)
     end
 
 end

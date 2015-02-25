@@ -2,13 +2,9 @@ require 'rails_helper'
 require 'shoulda/matchers'
 
 describe Location do
-
-	before do
-		@location = Location.new(address: 'Pasternaka 5, Lviv', conference_id: 1, latitude: 49.8327337, longitude: 23.9992261)
-	end
 	
-	it "should be valid with address and conference_id" do
-     expect(@location).to be_valid
+	it "should have valid factory" do
+   	   expect(FactoryGirl.create(:location)).to be_valid
  	end
 
  	it "should be invalid without an address" do
@@ -28,6 +24,6 @@ describe Location do
 	end
 
  	it { should belong_to(:conference) }
-  	it { should have_many(:contacts) }
+  	it { should has_and_belongs_to_many(:contacts) }
 	
 end

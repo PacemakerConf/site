@@ -19,6 +19,7 @@ class Admin::LocationsController < Admin::ApplicationController
   # GET /locations/new
   def new
     @location = Location.new
+    @contacts = Contact.all
   end
 
   # GET /locations/1/edit
@@ -73,6 +74,6 @@ class Admin::LocationsController < Admin::ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def location_params
-      params.require(:location).permit(:place_type, :name, :city, :address, :latitude, :longitude, :conference_id, :how_to_find)
+      params.require(:location).permit(:place_type, :name, :city, :address, :latitude, :longitude, :conference_id, :how_to_find, :contact_ids => [])
     end
 end
