@@ -47,7 +47,9 @@ ul.conference-menu {
   display: none;
 }
 
-.flag-image-container {
+
+.flag-image-container, .flag-year-image-container {
+
     position: relative;
     height: 80px; 
 }

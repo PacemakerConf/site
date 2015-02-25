@@ -1,27 +1,53 @@
 <div class="container">
 <div class="main-menu">
+
 	<% years = Conference.uniq.pluck(:year).sort %>
 	<% years = years[0...-1] %>
-	<ul class="conference-menu" id='conference_menu' years='<%= years %>'>
+	<% active_year = @conference.year %>
+
+
+	<ul class="conference-menu" id='conference_menu' years='<%= years %>' active='<%= yield :active_conference %>'>
+
 		<% years.each do |year| %>
-			<li class="flag-image-container" id="flag-<%=year%>" year='<%=year%>'>
+
+			<% if year === active_year %>
+				<% flag_settings = {conf_display: ''} %>
+			<% else %>
+				<% flag_settings = {conf_display: "display:none;"} %>
+			<% end %>
+
+			<li class="flag-year-image-container" id="flag-<%=year%>" year='<%=year%>'>
 				<%= image_tag('RED.png')%>
 				<p class='flag-text'> <%= year %> </p> 
 			</li>
-			<% Conference.where(year: year).each do |conference| %>
-				<li class="flag-image-container conference-<%= year %> conference-flag" style="display:none;" >
-					<%= link_to(image_tag('GREY.png'))%>
-					<div class='flag-text'> <%= link_to  conference.name + " " + conference.year.to_s, about_conference_path(conference.fullname) %> </div> 
+
+			<% Conference.where(year: year).order(date: :asc).each do |conference| %>
+
+				<% if conference === @conference %>
+					<% flag_settings[:flag_color] = 'BLUE.png' %>
+				<% else %>
+					<% flag_settings[:flag_color] = 'GREY.png' %>
+				<% end %>
+
+				<li class="flag-image-container conference-<%= year %> conference-flag" style="<%=flag_settings[:conf_display]%>" >
+					<%= link_to(  image_tag(flag_settings[:flag_color]), about_conference_path(conference.fullname) )%>
+					<div class='flag-text'> <%= link_to  conference.name + " " + conference.year.to_s, about_conference_path(conference.fullname) %> </div>  
+
 				</li>
+
 			<% end %>
+
 		<% end %>
+
 		<% current_year = years[-1].to_i + 1 %>
+
 		<% Conference.where(year: current_year).each do |conference| %>
 			<li class="flag-image-container conference-<%= current_year %> conference-flag" >
 				<%= link_to(  image_tag('GREEN.png'), about_conference_path(conference.fullname) )%>
 				<div class='flag-text'> <%= link_to  conference.name + " " + conference.year.to_s, about_conference_path(conference.fullname) %> </div> 
 			</li>
 		<% end %>
+
 </ul>
 </div>
 
