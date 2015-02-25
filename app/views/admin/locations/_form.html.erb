@@ -1,4 +1,4 @@
-<%= form_for [:admin, @location] do |f| %>
+<%= form_for [:admin, @location],  html: {class: 'form-horizontal'}  do |f| %>
   <% if @location.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@location.errors.count, "error") %> prohibited this location from being saved:</h2>
@@ -13,51 +13,63 @@
 
 <%= params.inspect %>
 
-    <div class="field">
+    <div class="form-group">
       <% if params['conf_id'] %>
-        Conference:  <%= params['conf_fname'] %>
+      <div class="col-lg-7">
+        <h4>Conference:  <%= params['conf_fname'] %> </h4>
+      </div>
         <%= hidden_field( :location, :conference_id, value: params['conf_id']) %>
       <% else %>
-        <%= f.label :conference_id, 'Conference' %><br>
-        <%= select_tag 'location[conference_id]', options_from_collection_for_select(Conference.all, 'id', 'fullname') %>
+        <%= f.label :conference_id, 'Conference', class: "col-lg-2 control-label" %>
+        <div class="col-lg-7">
+        <%= select_tag 'location[conference_id]', options_from_collection_for_select(Conference.all, 'id', 'fullname'), class: "form-control" %>
+        </div>
       <% end %>
    </div>
 
-  <div class="field">
-    <%= f.label :place_type %><br>
-    <%= f.text_field :place_type %>
+  <div class="form-group">
+    <%= f.label :place_type, class: "col-lg-2 control-label" %>
+    <div class="col-lg-7">
+      <%= f.text_field :place_type, class: "form-control" %>
+    </div>
   </div>
-   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name%>
+   <div class="form-group">
+    <%= f.label :name, class: "col-lg-2 control-label" %>
+    <div class="col-lg-7">
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
   </div>
-   <div class="field">
-    <%= f.label :city %><br>
-    <%= f.text_field :city %>
+   <div class="form-group">
+    <%= f.label :city, class: "col-lg-2 control-label" %>
+    <div class="col-lg-7">
+      <%= f.text_field :city, class: "form-control" %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :address %><br>
-    <%= f.text_field :address %>
+  <div class="form-group">
+    <%= f.label :address, class: "col-lg-2 control-label" %>
+    <div class="col-lg-7">
+      <%= f.text_field :address, class: "form-control" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :contact_id, 'Contact' %><br>
-    <%= select_tag 'location[location_id]', options_from_collection_for_select(Contact.all, 'id', 'surname', 'location.id+1') %>
+  <div class="form-group">
+    <%= f.label :contact_id, 'Contact', class: "col-lg-2 control-label" %>
+    <div class="col-lg-7">
+      <%= f.collection_select :contact_ids, @contacts, :id, :full_name, {}, {:multiple => true} %>
+    </div>
   </div>
 
 
-
-
-
-
-  <div class="field">
-    <%= f.label :how_to_find %><br>
-    <%= f.text_area :how_to_find, as: :wysihtml5 %>
+  <div class="form-group">
+    <%= f.label :how_to_find, class: "col-lg-2 control-label" %>
+    <div class="col-lg-7">
+      <%= f.text_area :how_to_find, class: "form-control" %>
+    </div>
   </div>
   
-
-
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group">
+    <div class="col-lg-10 col-lg-offset-2">
+      <%= f.submit %>
+    </div>
   </div>
 <% end %>
