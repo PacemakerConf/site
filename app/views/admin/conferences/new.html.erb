@@ -2,20 +2,14 @@
 <fieldset class='col-lg-8'>
 <legend>New Conference</legend>
 
-<title>New Conference</title>
 <%= render 'form' %>
 <script type="text/javascript">
-    jQuery(document).ready(function() {
-        ('.datetimepicker').datetimepicker({
-            minDate:'2010/01/01',
-            maxDate:'2100/01/01',
-            minTime:'08:00',
-            maxTime:'12:01',
-            step:15,
-        });
-    });
+            $(function () {
+                $('#datetimepicker1').datetimepicker({
+                	
+		    });
+            });
 </script>
 <ul class="pager">
     <li class="previous"><%= link_to 'Back', conferences_path %></li>
-</ul>
-
+</ul> 

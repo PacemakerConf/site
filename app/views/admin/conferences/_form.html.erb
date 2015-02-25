@@ -11,18 +11,21 @@
       </ul>
     </div>
   <% end %>
-
-<form class="form-horizontal">
+<!-- <div class="container"> -->
+<div class='col-sm-6'>
+  <form class="form-horizontal">
   <fieldset>
     <div class="form-group">
-      <%= f.label :name, class: "col-lg-2 control-label"%>
-      <div class="col-lg-7">
+
+      <%= f.label :name, "Name*", class: "col-lg-2 control-label"%>
+      <div class="col-lg-10">
         <%= f.text_field :name, class: "form-control" %>
       </div>
-    </div>
-    <div class="form-group">
-      <%= f.label :'year', class: "col-lg-2 control-label" %>
-        <div class="col-lg-7">
+      </div>
+        <div class="form-group">
+      <%= f.label :'year', "Year*", class: "col-lg-2 control-label" %>
+    <div class="col-lg-10">
+
       <% years_options = ''%>
       <% cur_year = Time.now.year %>
       <% (cur_year-2).upto(cur_year+2) do |year| %>
@@ -34,16 +37,20 @@
         <% years_options += " <option value=" + year.to_s + selected + " > " + year.to_s + "</option> "%>
         <% end %>
         <%= select_tag "conference[year]", years_options.html_safe, class: "form-control"%>
-
       </div>
     </div>
+
     <div class="form-group">
       <%= f.label :date, class: "col-lg-2 control-label" %>
-        <div class="col-lg-7">
-      <%= f.text_field :date,  class: "form-control datetimepicker"%>
+      <div class="col-lg-10">
+        <div class="input-group">
+          <%= f.text_field :date, id: "datetimepicker1", class: "form-control"%>
+          <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+        </div>
       </div>
 
     </div>
+
     <div class="form-group">
       <%= f.label :attenders_count, class: "col-lg-2 control-label" %>
         <div class="col-lg-7">
@@ -62,6 +69,8 @@
       <button type="submit" class="btn btn-primary">Create</button>
     </div>
     </div>
+    </div>
+</div>
   </fieldset>
 </form>
 <% end %>

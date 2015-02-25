@@ -20,5 +20,8 @@
 //= require_tree .
 //= require bootstrap-wysihtml5
 //= require fileinput.min
-//= require ../../../vendor/assets/javascripts/nested_form
 
+//= require moment
+//= require bootstrap-datetimepicker
+
+//= require ../../../vendor/assets/javascripts/nested_form

@@ -18,6 +18,8 @@
  *= require mainMenu.css
  *= require bootstrap-wysihtml5
  *= require fileinput.min
+ *= require bootstrap
+ *= require bootstrap-datetimepicker
 */
  
 
