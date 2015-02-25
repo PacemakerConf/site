@@ -2,7 +2,7 @@
 <div class="main-menu">
 	<ul class="conference-menu" id='conference_menu' years='<%= Conference.uniq.pluck(:year).sort %>'>
 		<% Conference.uniq.pluck(:year).sort.each do |year| %>
-			<li class="flag-image-container flag-<%= year %>">
+			<li class="flag-image-container" id="flag-<%=year%>" year='<%=year%>'>
 				<%= image_tag('GREY.png')%>
 				<p class='flag-text'> <%= year %> </p> 
 			</li>
@@ -11,38 +11,36 @@
 					<%= link_to(  image_tag('GREY.png'), about_conference_path(conference.fullname) )%>
 					<p class='flag-text'> <%= link_to conference.fullname, about_conference_path(conference.fullname) %> </p> 
 				</li>
-<!-- 				<li class="flag-image-c conference-<%= year %>">
-					<%= link_to(  image_tag('GREEN.png'), conference.fullname )%>
-					<p class='flag-t'> <%= link_to conference.fullname, Conference.last_conference %> </p> 
-				</li>  -->
 			<% end %>
 		<% end %>
 	</ul>
 </div>
 
+
+
 <script>
-$(document).ready(function () {
+// $(document).ready(function () {
 
-	$('li.conference-menu').hover(function(){
-	    $(this).addClass('hovered');
-	},function(){
-	    $(this).removeClass('hovered');
-	});
+// 	$('li.conference-menu').hover(function(){
+// 	    $(this).addClass('hovered');
+// 	},function(){
+// 	    $(this).removeClass('hovered');
+// 	});
 
-	$( ".redBtn" ).click(function() {
-		$(this).parent().find( ".old-other" ).first().toggle( 100, function showNext() {
-			$( this ).next( ".old-other" ).toggle( 100, showNext );
-		});
-	});
-	$( ".blueBtn" ).click(function() {
-		$( ".year-other" ).first().toggle( 100, function showNext() {
-			$( this ).next( ".year-other" ).toggle( 100, showNext );
-		});
-	});
-	$( ".blueBtn2").click(function() {
-		$( ".future-other" ).first().toggle( 100, function showNext() {
-			$( this ).next( ".future-other" ).toggle( 100, showNext );
-		});
-	});
-});
+// 	$( ".redBtn" ).click(function() {
+// 		$(this).parent().find( ".old-other" ).first().toggle( 100, function showNext() {
+// 			$( this ).next( ".old-other" ).toggle( 100, showNext );
+// 		});
+// 	});
+// 	$( ".blueBtn" ).click(function() {
+// 		$( ".year-other" ).first().toggle( 100, function showNext() {
+// 			$( this ).next( ".year-other" ).toggle( 100, showNext );
+// 		});
+// 	});
+// 	$( ".blueBtn2").click(function() {
+// 		$( ".future-other" ).first().toggle( 100, function showNext() {
+// 			$( this ).next( ".future-other" ).toggle( 100, showNext );
+// 		});
+// 	});
+// });
 </script>
