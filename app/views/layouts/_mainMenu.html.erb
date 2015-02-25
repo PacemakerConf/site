@@ -10,7 +10,7 @@
 
 		<% years.each do |year| %>
 
-			<% if year == active_year %>
+			<% if year === active_year %>
 				<% flag_settings = {conf_display: ''} %>
 			<% else %>
 				<% flag_settings = {conf_display: "display:none;"} %>
@@ -22,10 +22,18 @@
 			</li>
 
 			<% Conference.where(year: year).order(date: :asc).each do |conference| %>
+
+				<% if conference === @conference %>
+					<% flag_settings[:flag_color] = 'BLUE.png' %>
+				<% else %>
+					<% flag_settings[:flag_color] = 'GREY.png' %>
+				<% end %>
+
 				<li class="flag-image-container conference-<%= year %> conference-flag" style="<%=flag_settings[:conf_display]%>" >
-					<%= link_to(  image_tag('GREY.png'), about_conference_path(conference.fullname) )%>
+					<%= link_to(  image_tag(flag_settings[:flag_color]), about_conference_path(conference.fullname) )%>
 					<p class='flag-text'> <%= link_to conference.fullname, about_conference_path(conference.fullname) %> </p> 
 				</li>
+
 			<% end %>
 
 		<% end %>
