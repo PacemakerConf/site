@@ -3,6 +3,7 @@ class SpeakersController < ApplicationController
   before_action :set_speaker, only: [:show, :edit, :update, :destroy]
  
   def show
+    @conference = Conference.all.order(date: :desc)[0]
   end
 
   private

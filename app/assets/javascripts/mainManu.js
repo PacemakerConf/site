@@ -9,7 +9,7 @@ function conferencePageLoad(){
 	}
 	
 	if( typeof conference_menu != 'undefined'){
-		$('.flag-image-container').click(function(){
+		$('.flag-year-image-container').click(function(){
 			var years = conference_menu.getAttribute('years');
 			years = years.slice(1, years.length-1);
 			years = years.split(', ');
@@ -23,7 +23,6 @@ function conferencePageLoad(){
 					$('.conference-' + years[i]).toggle();
 				}	
 			}
-			
 		});
 	}
 

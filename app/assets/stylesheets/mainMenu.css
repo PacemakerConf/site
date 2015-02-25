@@ -45,7 +45,7 @@ ul li.hovered {
   opacity: 1;
 }
 
-.flag-image-container {
+.flag-image-container, .flag-year-image-container {
     position: relative;
     width: 75px;
     height: 100px; 
