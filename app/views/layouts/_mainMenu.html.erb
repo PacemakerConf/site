@@ -1,7 +1,9 @@
 <div class="container">
 <div class="main-menu">
-	<ul class="conference-menu" id='conference_menu' years='<%= Conference.uniq.pluck(:year).sort %>'>
-		<% Conference.uniq.pluck(:year).sort.each do |year| %>
+	<% years = Conference.uniq.pluck(:year).sort %>
+	<% years = years[0...-1] %>
+	<ul class="conference-menu" id='conference_menu' years='<%= years %>'>
+		<% years.each do |year| %>
 			<li class="flag-image-container" id="flag-<%=year%>" year='<%=year%>'>
 				<%= image_tag('RED.png')%>
 				<p class='flag-text'> <%= year %> </p> 
@@ -13,7 +15,14 @@
 				</li>
 			<% end %>
 		<% end %>
-	</ul>
+		<% current_year = years[-1].to_i + 1 %>
+		<% Conference.where(year: current_year).each do |conference| %>
+			<li class="flag-image-container conference-<%= current_year %> conference-flag" >
+				<%= link_to(  image_tag('GREEN.png'), about_conference_path(conference.fullname) )%>
+				<p class='flag-text'> <%= link_to conference.fullname, about_conference_path(conference.fullname) %> </p> 
+			</li>
+		<% end %>
+</ul>
 </div>
 
 
