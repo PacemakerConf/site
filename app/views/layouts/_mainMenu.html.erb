@@ -3,11 +3,11 @@
 	<ul class="conference-menu" id='conference_menu' years='<%= Conference.uniq.pluck(:year).sort %>'>
 		<% Conference.uniq.pluck(:year).sort.each do |year| %>
 			<li class="flag-image-container" id="flag-<%=year%>" year='<%=year%>'>
-				<%= image_tag('GREY.png')%>
+				<%= image_tag('RED.png')%>
 				<p class='flag-text'> <%= year %> </p> 
 			</li>
 			<% Conference.where(year: year).each do |conference| %>
-				<li class="flag-image-container conference-<%= year %>" style="display:none;" >
+				<li class="flag-image-container conference-<%= year %> conference-flag" style="display:none;" >
 					<%= link_to(  image_tag('GREY.png'), about_conference_path(conference.fullname) )%>
 					<p class='flag-text'> <%= link_to conference.fullname, about_conference_path(conference.fullname) %> </p> 
 				</li>
