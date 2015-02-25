@@ -18,10 +18,12 @@ class Admin::ContactsController < Admin::ApplicationController
   def new
     @contact = Contact.new
     #2.times {@contact.telephones.build}
+
   end
 
   # GET /contacts/1/edit
   def edit
+
   end
 
   # POST /contacts
