@@ -22,5 +22,13 @@
 <br>
 
 <% if can? :create, Event %>
-<%= link_to 'New event', new_admin_event_path  %>
+  <% if @conference %>
+    <%= link_to 'New event', controller: 'admin/events', 
+                             action: 'new',
+                             conf_id: @conference.id,
+                             conf_fname: @conference.fullname %>
+  <% else %>
+      <%= link_to 'New event', controller: 'admin/events', 
+                             action: 'new' %>
+  <% end %>
 <% end %>
