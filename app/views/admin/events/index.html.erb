@@ -1,60 +1,23 @@
-<h1>Listing events</h1>
-<table id="event" class="display" width="100%" cellspacing="0">
-  <thead>
-    <tr>
-        <th>title</th>
-        <th>description</th>
-        <th>duration</th>
-        <th>type</th>
-        <th>conference</th>
-        <th>speaker</th>
-        <th>Show</th>
-        <th>Edit</th>
-        <th>Delete</th>
-    </tr>
-  </thead>
-  <tfoot>
-    <tr>
-        <th>title</th>
-        <th>descriptioin</th>
-        <th>duration</th>
-        <th>type</th>
-        <th>conference</th>
-        <th>speaker</th>
-        <th>Show</th>
-        <th>Edit</th>
-        <th>Delete</th>
-    </tr>
-  </tfoot>
+<h1>Listing events <%= if @conference then " - " + @conference.fullname end %> </h1>
 
-  <tbody>
-    <% @events.each do |event| %>
-      <tr>
-        <td><%= event.title %></td>
-        <td><%= event.description %></td>
-        <td><%= event.duration %></td>
-        <td><%= event.event_type.name %></td>
-        <td><%= event.conference.fullname%></td>
-        <td>
-          <% unless event.speaker.nil? %>
-            <%= event.speaker.fullname %>
-          <% end %>
-        </td>
-        <td><%= link_to 'Show', admin_event_path(event) %></td>
-        <td><%= link_to 'Edit', edit_admin_event_path(event) %></td>
-        <td><%= link_to 'Destroy', admin_event_path(event), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#all_events" data-toggle="tab" aria-expanded="true">All</a></li>
+  <li class=""><a href="#speaker_events" data-toggle="tab" aria-expanded="false">Speaker (<%= @speaker_events.count %>)</a></li>
+  <li class=""><a href="#non_speaker_events" data-toggle="tab" aria-expanded="false">Regular (<%= @non_speaker_events.count %>)</a></li>
+</ul>
 
-<script type="text/javascript">
-  $(document).ready(function() {
-    $('#event').dataTable({
-      paging: true
-    });
-  });
-</script>
+<div id="events_tabs" class="tab-content">
+  <div class="tab-pane fade active in" id="all_events">
+    <%= render 'all_events' %>
+  </div>
+  <div class="tab-pane fade" id="speaker_events">
+    <%= render 'speaker_events' %>
+  </div>
+  <div class="tab-pane fade" id="non_speaker_events">
+    <%= render 'non_speaker_events' %>
+  </div>
+</div>
+
 
 <br>
 

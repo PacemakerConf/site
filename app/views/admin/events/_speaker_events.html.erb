@@ -1,0 +1,37 @@
+<table class="table table-responsive">
+  <thead>
+    <tr>
+        <th>name</th>
+        <th>type</th>
+        <th>topic</th>
+        <th>material</th>
+        <th>video</th>
+        <th>publish</th>
+        <th>edit</th>
+        <th>delete</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <% @speaker_events.each do |event| %>
+      <tr>
+        <td><%= link_to event.speaker.fullname, speaker_path(event.speaker.id) %></td>
+        <td><%= event.event_type.name %></td>
+        <td><%= event.title %>
+        <td>
+          <%if event.materials.exists? %>
+            <%= link_to "Download", event.materials.url(:original, false) %>
+          <% end %>
+        </td>
+        <td>
+          <% unless event.video.nil? %>
+            <%= link_to 'Video', event.video %>
+          <% end %>
+        </td>
+        <td></td>
+        <td><%= link_to 'Edit', edit_admin_event_path(event) %></td>
+        <td><%= link_to 'Destroy', admin_event_path(event), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

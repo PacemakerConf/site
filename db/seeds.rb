@@ -117,7 +117,7 @@ js2012 = Conference.create(
 	attenders: 12
 	)
 Conference.create(
-	name: 'JAVA',
+	name: 'Java',
 	year: 2012,
 	date: '2012-05-22',
 	attenders: 12
@@ -167,7 +167,7 @@ webui2014 = Conference.create(
 	attenders: 372
 	)
 victory = Conference.create(
-	name: 'JAVA',
+	name: 'Java',
 	year: 2014,
 	date: '2014-12-12',
 	attenders: 79
@@ -187,7 +187,8 @@ onering.events.create(
 	event_type: registration,
 	duration: '2014-12-12 00:45:00',
 	position: 1,
-	video: "https://www.youtube.com/watch?v=Rn3JnBizsZ4"
+	video: "https://www.youtube.com/watch?v=Rn3JnBizsZ4",
+	responsable: 'somebody'
 	)
 
 onering.events.create(
@@ -204,7 +205,9 @@ onering.events.create(
 	title: 'Beer-break',
 	event_type: beerbreak,
 	duration: '2014-12-12 01:30:00',
-	position: 4
+	position: 4,
+	description: 'Relax, take it easy. For there is nothing that we can do. Relax, take it easy. Blame it on me or blame it on you',
+	responsable: 'Zenyk'
 	)
 
 onering.events.create(
@@ -250,7 +253,12 @@ onering.events.create(
 	event_type: lightning,
 	speaker: frodo,
 	duration: '2014-12-12 00:15:00',
-	position: 8
+	position: 8,
+	video: "https://www.youtube.com/watch?v=8Uee_mcxvrw", 
+	materials_file_name: "3_Ways_to_Walk_in_High_Heels_-_wikiHow.pdf", 
+	materials_content_type: "application/pdf", 
+	materials_file_size: 284407, 
+	materials_updated_at: "2015-02-25 16:54:38"
 	)
 
 victory.events.create(
