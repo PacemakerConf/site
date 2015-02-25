@@ -11,26 +11,26 @@
 		<% years.each do |year| %>
 
 			<% if year === active_year %>
-				<% flag_settings = {conf_display: ''} %>
+				<% flag_settings = {conf_display: '', year_flag_color: 'RED.png'} %>
 			<% else %>
-				<% flag_settings = {conf_display: "display:none;"} %>
+				<% flag_settings = {conf_display: "display:none;", year_flag_color: 'GREY.png'} %>
 			<% end %>
 
 			<li class="flag-year-image-container" id="flag-<%=year%>" year='<%=year%>'>
-				<%= image_tag('RED.png')%>
+				<%= image_tag(flag_settings[:year_flag_color])%>
 				<p class='flag-text'> <%= year %> </p> 
 			</li>
 
 			<% Conference.where(year: year).order(date: :asc).each do |conference| %>
 
 				<% if conference === @conference %>
-					<% flag_settings[:flag_color] = 'BLUE.png' %>
+					<% flag_settings[:conf_flag_color] = 'BLUE.png' %>
 				<% else %>
-					<% flag_settings[:flag_color] = 'GREY.png' %>
+					<% flag_settings[:conf_flag_color] = 'GREY.png' %>
 				<% end %>
 
 				<li class="flag-image-container conference-<%= year %> conference-flag" style="<%=flag_settings[:conf_display]%>" >
-					<%= link_to(  image_tag(flag_settings[:flag_color]), about_conference_path(conference.fullname) )%>
+					<%= link_to(  image_tag(flag_settings[:conf_flag_color]), about_conference_path(conference.fullname) )%>
 					<div class='flag-text'> <%= link_to  conference.name + " " + conference.year.to_s, about_conference_path(conference.fullname) %> </div>  
 
 				</li>
