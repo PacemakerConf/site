@@ -8,8 +8,20 @@ function conferencePageLoad(){
 		$('#' + active_button).addClass('active');
 	}
 	// if (typeof conference_menu != 'undefined'){
-	// 	var pastyear = years(years)
+	// 	var pastyear = years(years < Time.now.year)
 	// };
+   //    <% cur_year = Time.now.year %>
+   //    <% (cur_year-20).upto(cur_year) do |year| %>
+   //      <%= image_tag "RED.png" %>
+
+   //      if(pickedDate <=todaysDate){
+   //      	var pastyear = 
+			// return true;
+			// }
+			// else{
+			// return false;
+			// }
+
 
 	if( typeof conference_menu != 'undefined'){
 		var years = conference_menu.getAttribute('years');
@@ -27,6 +39,17 @@ function conferencePageLoad(){
 				// $('.confStyleCss').toggle();
 });
 
+$('.flag-2014').hover(function(){
+	    $(this).addClass('hovered');
+	},function(){
+	    $(this).removeClass('hovered');
+	});
+
+$( ".flag-2014" ).animate(
+   { backgroundColor: "black",
+      color: "white"
+   }
+);
 // $(document).ready(function () {
 // 	$( ".flag-2013" ).click(function() {
 // 		$( ".conference-2013" ).first().toggle( 100, function showNext() {

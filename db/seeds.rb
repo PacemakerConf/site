@@ -307,7 +307,11 @@ pasternaka = Location.create(
 	address: 'Pasternaka 5',
 	latitude: 49.8327337,
 	longitude: 23.9992261,
-	conference: onering
+	conference: onering,
+	how_to_find: 'Taxi: (0372) 585-111 or (050)-33-85-11,
+				 (0372) 585-999 or (050) 338-99-99 
+                 Trolleybus №3, №3а, №5 
+                 Stop station: 141 Golovna str. “Bukovyna” hotel'
 	)
 
 sadova = Location.create(
@@ -318,7 +322,10 @@ sadova = Location.create(
 	address: 'Sadova 2a',
 	latitude: 49.8210367,
 	longitude: 23.9875698,
-	conference: victory
+	conference: victory,
+	how_to_find: 'Bus: 101 (get out on Zhukovskiy Street) 
+                  Tram: 1 (across street from Railway Station) 
+                  Stop station: Atrium, Karla Marksa Av., 22 '
 	)
 
 
@@ -330,7 +337,6 @@ vad = Contact.create(
 	telephone: '0630620750',
 	email: 'hog_dubno@gmail.com',
 	skype: 'hog_dubno',
-	location: pasternaka
 	)
 
 uriy = Contact.create(
@@ -340,7 +346,6 @@ uriy = Contact.create(
 	telephone: '0630620751',
 	email: 'gnat_zv@gmail.com',
 	skype: 'gnat_zv',
-	location: sadova
 	)
 
 vova = Contact.create(
@@ -350,7 +355,6 @@ vova = Contact.create(
 	telephone: '0630750620',
 	email: 'vova_lviv@gmail.com',
 	skype: 'vova_lviv',
-	location: sadova
 	)
 
 andriy = Contact.create(
@@ -360,8 +364,13 @@ andriy = Contact.create(
 	telephone: '0630750676',
 	email: 'andr_loz@gmail.com',
 	skype: 'andr_loz',
-	location: pasternaka
 	)
+
+sadova.contacts << vad
+sadova.contacts << andriy
+pasternaka.contacts << uriy
+pasternaka.contacts << vova
+pasternaka.contacts << vad
 
 admin = Admin.new
 	admin.email = 'admin@example.com' 

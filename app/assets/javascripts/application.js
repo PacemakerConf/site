@@ -21,5 +21,8 @@
 //= require bootstrap-wysihtml5
 //= require jquery_nested_form
 //= require fileinput.min
+
 //= require moment
 //= require bootstrap-datetimepicker
+
+//= require ../../../vendor/assets/javascripts/nested_form

@@ -14,7 +14,7 @@
 <!-- 				<li class="flag-image-c conference-<%= year %>">
 					<%= link_to(  image_tag('GREEN.png'), conference.fullname )%>
 					<p class='flag-t'> <%= link_to conference.fullname, Conference.last_conference %> </p> 
-				</li> -->
+				</li>  -->
 			<% end %>
 		<% end %>
 	</ul>
@@ -22,9 +22,6 @@
 
 <script>
 $(document).ready(function () {
-	$('.old-other').hide();
-	$('.year-other').hide();
-	$('.future-other').hide();
 
 	$('li.conference-menu').hover(function(){
 	    $(this).addClass('hovered');
