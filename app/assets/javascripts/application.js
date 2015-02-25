@@ -21,3 +21,5 @@
 //= require bootstrap-wysihtml5
 //= require jquery_nested_form
 //= require fileinput.min
+//= require ../../../vendor/assets/javascripts/nested_form
+

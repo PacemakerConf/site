@@ -11,8 +11,11 @@
 </p>
 
 <p>
-  <strong>Telephone:</strong>
-  <%= @contact.telephone %>
+  <strong>Telephone:<br></strong>
+  <%= @contact.telephone %><br>
+  <% @contact.telephones.each do |telephones| %>
+    <%= telephones.number %><br>
+  <% end %>
 </p>
 
 <p>
@@ -25,12 +28,7 @@
   <%= @contact.skype %>
 </p>
 
-<h1>Numbers</h1>
-        <% @contact.telephones.each do |telephones| %>
-          <div>
-            <p><b>Tel:</b> <%= telephones.number %></p>
-          </div>
-        <% end %>
+        
 
 
 
