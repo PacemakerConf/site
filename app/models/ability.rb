@@ -17,12 +17,12 @@ class Ability
   private 
 
     def get_user(user_data)
-      #if user_data.blank?
-      #  User.new('role': User::GUEST) # guest user (not logged in)
       if user_data.is_a?(Hash)
         User.new(user_data)
-      else
+      elsif user_data.is_a?(Admin)
         Admin.new('role': User::ADMIN)
+      else  
+        User.new('role': User::GUEST)
       end     
     end 
 
