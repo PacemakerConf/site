@@ -30,12 +30,16 @@
     </div>
   </div>
     <div>
-      <% f.fields_for :telephones do |form| %>
-      <%= form.label :number, "Number" %><br />
-      <%= form.text_field :number%>
-      <%= form.link_to_remove "Remove" %>
-      <% end %>
       <div class="form-group">
+        <% f.fields_for :telephones do |form| %>
+        <%= form.label :number, class: "col-lg-2 control-label" %>
+        <div class="col-lg-7">
+          <%= form.text_field :number, class: "form-control" %>
+          <%= form.link_to_remove "Remove" %>
+        </div>
+        <% end %>
+    </div>
+    <div class="form-group">
         <div class="col-lg-10 col-lg-offset-2">
           <%= f.link_to_add "Add", :telephones, class: "btn-default btn-sm"%>
         </div> 
@@ -53,6 +57,7 @@
       <%= f.text_field :skype, class: "form-control" %>
     </div>
     </div>
+
   <div class="form-group">
     <div class="col-lg-10 col-lg-offset-2">
       <%= f.submit class: "btn btn-primary"%>

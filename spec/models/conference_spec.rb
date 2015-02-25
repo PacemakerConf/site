@@ -11,13 +11,9 @@ describe Conference do
 		expect(FactoryGirl.create(:conference)).to be_valid
 	end
 	
-	it 'is invalid without name' do
-		expect(FactoryGirl.build(:conference, name: nil)).not_to be_valid
-	end
-	
-	it 'is invalid without year' do
-		expect(FactoryGirl.build(:conference, year: nil)).not_to be_valid
-	end
+	it { should validate_presence_of(:name) }
+
+	it { should validate_presence_of(:year) }
 
 	it { should validate_inclusion_of(:year).in_range(2011..2100) }
 
