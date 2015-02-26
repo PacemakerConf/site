@@ -36,16 +36,20 @@
       <tr>
         <td><%= contact.name %></td>
         <td><%= contact.surname %></td>
-        <td><%= contact.telephone %><br>
-           <% contact.telephones.each do |telephones| %>
-             <%= telephones.number %><br>
-           <% end %>
-        </td>
-        <td><%= contact.email %></td>
+        <td><%= contact.telephone %></td>
+           
+
+         <td><%= contact.email %><br>
+             <% contact.emails.each do |emails| %>
+               <%= emails.email %><br>
+             <% end %>
+          </td>
+
+
         <td><%= contact.skype %></td>
-        <td><%= link_to 'Show', admin_contact_path(contact) %></td>
-        <td><%= link_to 'Edit', edit_admin_contact_path(contact) %></td>
-        <td><%= link_to 'Destroy', admin_contact_path(contact), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', admin_contact_path(contact), class: 'btn btn-xs btn-primary' %></td>
+        <td><%= link_to 'Edit', edit_admin_contact_path(contact), class: 'btn btn-xs btn-warning' %></td>
+        <td><%= link_to 'Destroy', admin_contact_path(contact), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger' %></td>
       </tr>
     <% end %>
   </tbody>
