@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  resources :reports
+
+  get 'report/report'
+
+  namespace :admin do
+  get 'event/index'
+  end
+
   root 'conferences#show', name: Conference.last_conference
 
   devise_for :admins, skip: :sessions
@@ -17,7 +25,14 @@ Rails.application.routes.draw do
       end
     end
     resources :contacts
-    resources :events
+    resources :events do
+      collection do
+        get 'position'
+      end
+      member do 
+        get 'position'
+      end
+    end
     resources :event_types 
     resources :locations  
     resources :speakers, param: :name do
@@ -28,11 +43,12 @@ Rails.application.routes.draw do
     end 
   end
 
-
   resources :speakers, param: :name
+  resources :events
   resources :conferences, param: :name
   resources :years
 
+  get ':name', to: 'conferences#show'
   get ':name/about', to: 'conferences#show', as: :about_conference
   get ':name/speakers', to: 'conferences#speakers', as: :speakers_conference
   get ':name/location', to: 'conferences#location', as: :location_conference

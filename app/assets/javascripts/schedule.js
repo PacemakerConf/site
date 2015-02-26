@@ -47,7 +47,6 @@ function parseTime(durationItem){
 }
 
 function sendAJAX(){
-	$.ajax({url: "/admin/events/" + 1 + ".json", method: "PUT"}).done(function(msg){alert(msg);});
     console.log('AJAX?');
 
     some_var = $('.okay');
@@ -63,8 +62,8 @@ function sendAJAX(){
 	    }
 	  
 	}
-
-	xmlhttp.open("PATCH", "/admin/events/" + 1 + ".json", true);
+	
+	xmlhttp.open("PATCH", "/admin/events/" + 1 + "/position.html", true);
 	xmlhttp.send();
 
 

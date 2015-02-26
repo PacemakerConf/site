@@ -12,7 +12,7 @@
         <th>Show</th>
         <th>Edit</th>
         <th>Delete</th>
-<!-- <th colspan="3"> <center>Actions</center></th> not working? -->
+<!-- <th colspan="3"> <center>Actions</center></th> not working with dataTable gem -->
     </tr>
   </thead>
   <tbody>
@@ -23,20 +23,24 @@
           <td><%= conference.date %></td>
           <td><%= conference.attenders %></td>
           <td><%= link_to 'Schedule', schedule_admin_conference_path(conference.fullname)%></td>
+          <% conf = conference.name.to_s + "-" + conference.year.to_s %>
           <td><%= unless(conference.location.nil?)
                     link_to "#{conference.location.address}, #{conference.location.city}", location_conference_path(conference.fullname)
                   else
                     link_to "Create Location", controller: 'admin/locations', action: 'new', conf_id: conference.id, conf_fname: conference.fullname
                   end %></td>
-          <td><%= link_to 'Report', conference.report %></td>
-          <td><%= link_to 'Show', admin_conference_path(conference.fullname) %></td>
-          <td><%= link_to 'Edit', edit_admin_conference_path(conference.fullname) %></td>
-          <td><%= link_to 'Destroy', admin_conference_path(conference.fullname), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= unless(conference.report.nil?)
+                    link_to "#{conference.report.address}", report_conference_path(conf)
+                  else
+                    link_to "Create", new_report_path()
+                  end %></td>
+          <td><%= link_to 'Publish', about_conference_path(conference.name.to_s + "-" + conference.year.to_s) %></td>
+          <td><%= link_to 'Edit', edit_admin_conference_path(conference.name.to_s + "-" + conference.year.to_s) %></td>
+          <td><%= link_to 'Destroy', admin_conference_path(conference.name.to_s + "-" + conference.year.to_s), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
 <script type="text/javascript">
   $(document).ready(function() {
     $('#conference').dataTable({
@@ -44,10 +48,6 @@
     });
   });
 </script>
-
 <br>
-
 <%= link_to 'New Conference', new_admin_conference_path %>
-
-
-
+<%= link_to 'New Conference', new_admin_conference_path, class: "btn btn-default btn-sm" %>

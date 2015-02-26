@@ -37,7 +37,7 @@
         <td><%= event.conference.fullname%></td>
         <td>
           <% unless event.speaker.nil? %>
-            <%= event.speaker.name%> <%= event.speaker.surname %>
+            <%= event.speaker.fullname %>
           <% end %>
         </td>
         <td><%= link_to 'Show', admin_event_path(event) %></td>
@@ -58,4 +58,6 @@
 
 <br>
 
+<% if can? :create, Event %>
 <%= link_to 'New event', new_admin_event_path  %>
+<% end %>

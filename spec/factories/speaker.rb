@@ -1,6 +1,8 @@
 FactoryGirl.define do 
 	factory :speaker do |f| 
-		f.name "A"
-		f.surname 'B'
+		f.name "Golum"
+		f.surname 'Goldy'
+		f.position 'ring keeper'
+		f.description 'funny creature'
  	end
 end

@@ -25,16 +25,14 @@
       <tr>
           <td><%= speaker.name %></td>
           <td><%= speaker.surname %></td>
-          <td><%= link_to 'Show', speaker_path(speaker.name) %></td>
+          <td><%= link_to 'Show', speaker_path(speaker.id) %></td>
           <td>
             <% if can? :update, @speaker %>
-            <%= link_to 'Edit', edit_speaker_path(speaker.name) %>
+            <%= link_to 'Edit', edit_speaker_path(speaker.id %>
             <% end %>
           </td>
           <td>
-            <% if can? :destroy, @speaker %>
             <%= link_to 'Destroy', speaker_path(speaker), method: :delete, data: { confirm: 'Are you sure?' } %>
-            <% end %>
           </td>
       </tr>
     <% end %>

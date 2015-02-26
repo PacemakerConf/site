@@ -10,14 +10,14 @@ describe Speaker do
 		expect(FactoryGirl.create(:speaker)).to be_valid
 	end
 
-	it 'is invalid without name' do
-		expect(FactoryGirl.build(:speaker, name: nil)).not_to be_valid
-	end 
+	it { should validate_presence_of(:name) }
 
-	it 'is invalid without surname' do
-		expect(FactoryGirl.build(:speaker, surname: nil)).not_to be_valid
-	end 
-
+	it { should validate_presence_of(:surname) }
+	
+	it { should validate_presence_of(:position) }
+	
+	it { should validate_presence_of(:description) }
+	
 	it 'return speakers full name ' do
 		speaker = FactoryGirl.build(:speaker)
 		expect( speaker.fullname ).to eq(speaker.name.to_s + ' ' + speaker.surname.to_s)

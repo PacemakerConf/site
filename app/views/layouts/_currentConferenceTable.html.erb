@@ -1,0 +1,29 @@
+	<% unless @conference.nil? || @conference.id.nil? %>
+		<div class="row first">
+				<div class="name-conteiner col-lg-9 col-md-9 col-sm-8 col-xs-12">
+					<div class="conference-name">
+						<h1> Pacemaker:
+							<% if @conference %>
+								<%= @conference.fullname%>
+							<% end %>
+						</h1>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 contacts">
+					<div class="conference-det-2">
+						<ul>
+							<% if @conference %>
+							<li>
+								This time <strong><%= @conference.attenders %> lucky people</strong> 
+							</li>
+							<li>
+								will meet on <strong><%=@conference.date.strftime('%B %d, %Y') %></strong>
+							</li>
+							<li>
+							in a beautiful city of <strong><%= if(@conference.location) then @conference.location.city end %></strong></li>
+							<% end %>	
+						</ul>
+					</div>
+				</div>
+		</div>
+	<% end %>

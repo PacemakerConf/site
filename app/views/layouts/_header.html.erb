@@ -1,58 +1,28 @@
-	<div class="container ">
-			<div class="row">
-				<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-					<ul class="nav nav-pills">
-						<% unless @conference.nil? || @conference.id.nil? %>
-							<li><%= link_to "About", about_conference_path %></a></li>
-							<li><%= link_to "Speakers", speakers_conference_path%></a></li>
-							<li><%= link_to "Schedule", schedule_conference_path%></a></li>
-							<li><%= link_to "Location", location_conference_path%></a></li>
-							<li><%= link_to "Report", '#' %></a></li>
-						<% end %>
-					</ul>
-				</div>
-				<div class="col-lg-6 col-md-6"></div>
-			</div>
-			
-				<div class="row slogo">
-					<div class="col-lg-9 col-md-9 col-sm-7 col-xs-8">
-						<div class="blockquotes-container">
-							<div class="pull-right">
-								<h4>It takes all the running you can do, to keep in the same place.<br>If you want to get somewhere else, you must run at least twice as fast as that!</h4>
-								<small>Red Queen</small>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-3 col-sm-5 col-xs-4 logo-img" >
-						<img alt="logo" src="/assets/pacemaker_logo.png">
-					</div>
-				</div>
-			
-			<div class="row first">
-				<div class="name-conteiner col-lg-9 col-md-9 col-sm-8 col-xs-12">
-					<div class="conference-name">
-						<h1> Pacemaker:
-							<% if @conference %>
-								<%= @conference.fullname%>
-							<% end %>
-						</h1>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 contacts">
-					<div class="conference-det-2">
-						<% if @conference %>
-						<span><%=@conference.date.strftime('%B %d, %Y') %></span>
-						<ul>
-							<li>
-								This time <strong><%= @conference.attenders %> lucky people</strong> 
-							</li>
-							<li>
-								will meet on <strong><%=@conference.date.strftime('%B %d, %Y') %></strong>
-							</li>
-							<li>
-							in a beautiful city of <strong><%= @conference.location.city %></strong></li>
-						</ul>
-						<% end %>	
-					</div>
+
+<div class="row">
+	<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+		<% unless @conference.nil? || @conference.id.nil? %>
+			<ul class="nav nav-pills" id='conference_nav_buttons' active='<%= yield :conference_active_button %>'>
+				<li id='about_button'><%= link_to "About", about_conference_path%></a></li>
+				<li id='speakers_button' ><%= link_to "Speakers", speakers_conference_path%></a></li>
+				<li id='schedule_button'><%= link_to "Schedule", schedule_conference_path%></a></li>
+				<li id='location_button'><%= link_to "Location", location_conference_path%></a></li>
+				<li id='report_button'><%= link_to "Report", '#' %></a></li>
+			</ul>
+		<% end %>
+	</div>
+	<div class="col-lg-6 col-md-6"></div>
+</div>		
+	<div class="row slogo">
+		<div class="col-lg-9 col-md-9 col-sm-7 col-xs-8">
+			<div class="blockquotes-container">
+				<div class="pull-right">
+					<h4>It takes all the running you can do, to keep in the same place.<br>If you want to get somewhere else, you must run at least twice as fast as that!</h4>
+					<small>Red Queen</small>
 				</div>
 			</div>
+		</div>
+		<div class="col-lg-3 col-md-3 col-sm-5 col-xs-4 logo-img" >
+			<img alt="logo" src="/assets/pacemaker_logo.png">
+		</div>
+	</div>
