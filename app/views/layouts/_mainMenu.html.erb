@@ -11,9 +11,9 @@
 		<% years.each do |year| %>
 
 			<% if year === active_year %>
-				<% flag_settings = {conf_display: '', year_flag_color: 'RED.png'} %>
+				<% flag_settings = {conf_display: '', year_flag_color: 'REDlight.png'} %>
 			<% else %>
-				<% flag_settings = {conf_display: "display:none;", year_flag_color: 'GREY.png'} %>
+				<% flag_settings = {conf_display: "display:none;", year_flag_color: 'GREYdark.png'} %>
 			<% end %>
 
 			<li class="flag-year-image-container" id="flag-<%=year%>" year='<%=year%>'>
@@ -24,9 +24,9 @@
 			<% Conference.where(year: year).order(date: :asc).each do |conference| %>
 
 				<% if conference === @conference %>
-					<% flag_settings[:conf_flag_color] = 'BLUE.png' %>
+					<% flag_settings[:conf_flag_color] = 'BLUElight.png' %>
 				<% else %>
-					<% flag_settings[:conf_flag_color] = 'GREY.png' %>
+					<% flag_settings[:conf_flag_color] = 'GREYlight.png' %>
 				<% end %>
 
 				<li class="flag-image-container conference-<%= year %> conference-flag" style="<%=flag_settings[:conf_display]%>" >
@@ -43,7 +43,7 @@
 
 		<% Conference.where(year: current_year).each do |conference| %>
 			<li class="flag-image-container conference-<%= current_year %> conference-flag" >
-				<%= link_to(  image_tag('GREEN.png'), about_conference_path(conference.route) )%>
+				<%= link_to(  image_tag('GREENlight.png'), about_conference_path(conference.route) )%>
 				<div class='flag-text'> <%= link_to  conference.name + " " + conference.year.to_s, about_conference_path(conference.route) %> </div> 
 			</li>
 		<% end %>
@@ -65,16 +65,6 @@
 // 	$( ".redBtn" ).click(function() {
 // 		$(this).parent().find( ".old-other" ).first().toggle( 100, function showNext() {
 // 			$( this ).next( ".old-other" ).toggle( 100, showNext );
-// 		});
-// 	});
-// 	$( ".blueBtn" ).click(function() {
-// 		$( ".year-other" ).first().toggle( 100, function showNext() {
-// 			$( this ).next( ".year-other" ).toggle( 100, showNext );
-// 		});
-// 	});
-// 	$( ".blueBtn2").click(function() {
-// 		$( ".future-other" ).first().toggle( 100, function showNext() {
-// 			$( this ).next( ".future-other" ).toggle( 100, showNext );
 // 		});
 // 	});
 // });
