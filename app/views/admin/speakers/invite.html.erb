@@ -1,4 +1,4 @@
-<h1>Invite speaker</h1>
+<legend>Invite speaker</legend>
 
 <%= form_tag("/admin/speakers/send", method: "post") do %>
 <div class="form-group">
@@ -11,7 +11,7 @@
 <div class="form-group">
   <%= label_tag(:message, "Message", class: "col-lg-2 control-label") %><br>
     <div class="col-lg-10">
-      <%= text_area_tag(:message, invite_message, size: "24x6", class: "form-control") %><br>
+      <%= text_area_tag(:message, invite_message, size: "15x6", class: "form-control") %><br>
 	</div>
 </div>
 
