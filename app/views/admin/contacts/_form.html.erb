@@ -30,12 +30,16 @@
     </div>
   </div>
     <div>
-      <% f.fields_for :telephones do |form| %>
-      <%= form.label :number, "Number" %><br />
-      <%= form.text_field :number%>
-      <%= form.link_to_remove "Remove" %>
-      <% end %>
       <div class="form-group">
+        <% f.fields_for :telephones do |form| %>
+        <%= form.label :number, class: "col-lg-2 control-label" %>
+        <div class="col-lg-7">
+          <%= form.text_field :number, class: "form-control" %>
+          <%= form.link_to_remove "Remove" %>
+        </div>
+        <% end %>
+    </div>
+    <div class="form-group">
         <div class="col-lg-10 col-lg-offset-2">
           <%= f.link_to_add "Add", :telephones, class: "btn-default btn-sm"%>
         </div> 
@@ -52,35 +56,7 @@
     <div class="col-lg-7">
       <%= f.text_field :skype, class: "form-control" %>
     </div>
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :surname %>
-    <%= f.text_field :surname %>
-  </div>
-
-  <div>
-    <% f.fields_for :telephones do |form| %>
-        <%= form.label :number, "Telephone" %><br />
-        <%= form.text_field :number%>
-        <%= form.link_to_remove "Remove" %>
-    <% end %>
-    <%= f.link_to_add "Add Telephone", :telephones %>
-  </div>
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :skype %>
-    <%= f.text_field :skype %>
-  </div>
-  <div class="field">
-    <%= f.label :location_id %>
-    <%= f.number_field :location_id %>
-  </div>
+    </div>
   <div class="form-group">
     <div class="col-lg-10 col-lg-offset-2">
       <%= f.submit class: "btn btn-primary"%>

@@ -1,57 +1,62 @@
-
-		.main-menu {
-	    	margin: 0 0 35px 0;
-	    	z-index: 1;
-
-		}
-		.main-menu ul div{
-	    display: inline-block;
-		}
-		.main-menu ul div li p a{
-		color: white;
-	    background-color: transparent;
-		}
-        ul.conference-menu {
-		padding-left: 25%;
-		background-color: rgb(0, 44, 58);
-        }
-        .conference-menu p{
-        font-style: 24px, bold;
-        text-align: center;	
-        text-decoration:underline,;
-        color: #white; 
-    	background: transparent; 
-    	margin: -40px 5px 0 5px; 
-    	z-index: 2;
-        }
-        a.year {
-    	margin: 0 5px 0 0; 
-    	color: #white;
-    	z-index: 2;
-        }
-
-ul.accordion {
-  list-style-type: none;
-  position: relative;
+.main-menu {
+	margin: 0 0 35px 0;
+  height: 35px;
+	z-index: 1;
+  background-color: #002c3a;
 }
 
-ul.accordion li {
-  float: center;
-  width: 50px;
-  height: 50px;
+.main-menu ul div{
   display: inline-block;
-  overflow: hidden;
-  cursor: pointer;
 }
 
+.main-menu ul div li p a{
+  color: white;
+  background-color: transparent;
+}
+
+ul.conference-menu {
+  padding-left: 25%;
+}
+
+.main-menu .conference-menu li img{
+  height: 70px;
+  width: 60px;
+}
+
+.conference-menu p{
+  text-align: center;	
+  text-decoration:underline,;
+  color: white; 
+  background: transparent; 
+  margin: -45px 0px 0 0px; 
+  z-index: 2;
+  font-weight: bolder;
+}
+
+.conference-menu li div{
+  margin: -52px 5px 0 5px; 
+  width:inherit;
+  text-align: center;
+}
+
+.conference-menu li div a{
+  color: #F6F6F6;
+  font-weight: bolder;
+}
 .description {
   display: none;
 }
 
-li.conference-menu {
-    opacity: 0.4;
+
+.flag-image-container, .flag-year-image-container {
+
+    position: relative;
+    height: 80px; 
 }
 
-ul li.hovered {
-    opacity: 1;
+.flag-text{
+  position: absolute; 
+   top: 65px; 
+   left: 0; 
+   width: 100%; 
 }

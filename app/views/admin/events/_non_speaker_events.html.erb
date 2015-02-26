@@ -1,0 +1,38 @@
+<table class="table table-responsive">
+  <thead>
+    <tr>
+        <th>name</th>
+        <th>duration</th>
+        <th>description</th>
+        <th>responable person</th>
+        <th>video</th>
+        <th>edit</th>
+        <th>delete</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <% @non_speaker_events.each do |event| %>
+      <tr>
+        <td><%= event.title %></td>
+        <td>
+          <% unless event.duration.hour.to_s === '0' %>
+            <%= event.duration.hour.to_s + 'h ' %>
+          <% end %>
+          <% unless event.duration.min.nil? %>
+            <%= event.duration.min.to_s + 'min' %>
+          <% end %>
+        </td>
+        <td><%= event.description %></td>
+        <td><%= event.responsable %></td>
+        <td>
+          <% unless event.video.nil? %>
+            <%= link_to 'Video', event.video %>
+          <% end %>
+        </td>
+        <td><%= link_to 'Edit', edit_admin_event_path(event) %></td>
+        <td><%= link_to 'Destroy', admin_event_path(event), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

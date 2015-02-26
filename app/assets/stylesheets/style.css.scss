@@ -16,8 +16,8 @@
 	height:100%;
 }
 
-.name-conteiner{
-	padding:0px 5px;
+.first .name-conteiner{
+	padding:0 0 0 0px;
 }
 
 .conference-name{
@@ -28,13 +28,10 @@
 	text-align: right;
 }
 
-.contacts{
-	padding: 0 5px;
-}
-
 .conference-det-2{
 	background-color: #002C3A;
 	margin: 5px;
+	margin-left:0;
 	padding: 20px 10px;
 }
 
@@ -70,6 +67,7 @@ footer{
 	height: 100px;
 	position: relative;
 	background-color: #eeeeee;
+	border: 1px solid #ebebeb;
 }
 
 .logoes .col-lg-12 .logo img{

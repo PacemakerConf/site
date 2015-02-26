@@ -1,6 +1,8 @@
 class Admin::SpeakersController < Admin::ApplicationController
   before_action :authenticate_admin!, except: [:new, :create, :index]
   before_action :set_speaker, only: [:show, :edit, :update, :destroy]
+
+  layout 'admin'
   
   # GET /speakers
   # GET /speakers.json
