@@ -41,9 +41,9 @@
       <% f.fields_for :emails do |form| %>
       <%= form.label :email, "Email" %><br>
       <%= form.text_field :email %>
-      <%= form.link_to_remove "Remove" %>
+      <%= form.link_to_remove "Remove" %><br><br>
       <% end %>
-    </div>
+  </div>
     <div class="form-group">
         <div class="col-lg-10 col-lg-offset-2">
          <%= f.link_to_add "Add", :emails, class: "btn-default btn-sm"%>
