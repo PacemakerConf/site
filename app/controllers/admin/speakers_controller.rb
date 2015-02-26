@@ -15,6 +15,7 @@ class Admin::SpeakersController < Admin::ApplicationController
 
   # GET /speakers/new
   def new
+    authorize! :create, Speaker
     @speaker = Speaker.new
   end
 
@@ -84,7 +85,7 @@ class Admin::SpeakersController < Admin::ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def speaker_params
-      params.require(:speaker).permit(:name, :surname, :photo, :description, :email, :facebook, :linkedin, :site)
+      params.require(:speaker).permit(:name, :surname, :position, :photo, :description, :email, :facebook, :linkedin, :site)
     end
 
 end

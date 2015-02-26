@@ -10,7 +10,7 @@ class Ability
       can :create, Speaker
     elsif user.role == User::GUEST
       can :read, :all
-      #can :create, Speaker
+      can :create, Speaker
     end
   end
 
@@ -20,9 +20,9 @@ class Ability
       if user_data.is_a?(Hash)
         User.new(user_data)
       elsif user_data.is_a?(Admin)
-        Admin.new('role': User::ADMIN)
+        Admin.new('role' => User::ADMIN)
       else  
-        User.new('role': User::GUEST)
+        User.new('role' => User::GUEST)
       end     
     end 
 

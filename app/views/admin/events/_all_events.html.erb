@@ -5,7 +5,7 @@
         <th>type</th>
         <th>responsable/speaker</th>
         <th>video</th>
-        <th>publish</th>
+        <!-- <th>publish</th> -->
         <th>edit</th>
         <th>delete</th>
     </tr>
@@ -29,7 +29,7 @@
             <%= link_to '', event.video, class:"btn btn-default btn-xs glyphicon glyphicon-play" %>
           <% end %>
         </td>
-        <td></td>
+        <!-- <td></td> -->
         <td><%= link_to 'Edit', edit_admin_event_path(event), class: 'btn btn-xs btn-warning' %></td>
         <td><%= link_to 'Destroy', admin_event_path(event), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger' %></td>
       </tr>
