@@ -8,22 +8,26 @@ describe Location do
  	end
 
  	it "should be invalid without an address" do
-	   @location.address = nil
- 	   expect(@location).not_to be_valid
+ 	   expect(FactoryGirl.build(:location, address: nil)).not_to be_valid
 	end
 
-	it "should be invalid without an conference_id" do
-	   @location.conference_id = nil
- 	   expect(@location).not_to be_valid
+	it "should be invalid without city" do
+ 	   expect(FactoryGirl.build(:location, city: nil)).not_to be_valid
 	end
 
-	it "should be valid without latitude and longitude" do
-	   @location.latitude = nil
-	   @location.longitude = nil
- 	   expect(@location).to be_valid
+	it "should be invalid without conference_id" do
+ 	   expect(FactoryGirl.build(:location, conference_id: nil)).not_to be_valid
 	end
+
+	it "should be valid without latitude" do
+ 	   expect(FactoryGirl.build(:location, latitude: nil)).to be_valid
+	end
+    
+    it "should be valid without longitude" do
+ 	   expect(FactoryGirl.build(:location, longitude: nil)).to be_valid
+	end 
 
  	it { should belong_to(:conference) }
-  	it { should has_and_belongs_to_many(:contacts) }
+  	it { should have_and_belong_to_many(:contacts) }
 	
 end
