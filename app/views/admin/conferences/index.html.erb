@@ -22,21 +22,20 @@
           <td><%= conference.year %></td>
           <td><%= conference.date %></td>
           <td><%= conference.attenders %></td>
-          <td><%= link_to 'Schedule', schedule_admin_conference_path(conference.fullname)%></td>
-          <% conf = conference.name.to_s + "-" + conference.year.to_s %>
+          <td><%= link_to 'Schedule', schedule_admin_conference_path(conference.route)%></td>
           <td><%= unless(conference.location.nil?)
-                    link_to "#{conference.location.address}, #{conference.location.city}", location_conference_path(conference.fullname)
+                    link_to "#{conference.location.address}, #{conference.location.city}", location_conference_path(conference.route)
                   else
                     link_to "Create Location", controller: 'admin/locations', action: 'new', conf_id: conference.id, conf_fname: conference.fullname
                   end %></td>
           <td><%= unless(conference.report.nil?)
-                    link_to "#{conference.report.address}", report_conference_path(conf)
+                    link_to "#{conference.report.address}", report_conference_path(conference.route)
                   else
                     link_to "Create", new_report_path()
                   end %></td>
-          <td><%= link_to 'Publish', about_conference_path(conference.name.to_s + "-" + conference.year.to_s) %></td>
-          <td><%= link_to 'Edit', edit_admin_conference_path(conference.name.to_s + "-" + conference.year.to_s) %></td>
-          <td><%= link_to 'Destroy', admin_conference_path(conference.name.to_s + "-" + conference.year.to_s), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Publish', about_conference_path(conference.route) %></td>
+          <td><%= link_to 'Edit', edit_admin_conference_path(conference.route) %></td>
+          <td><%= link_to 'Destroy', admin_conference_path(conference.route), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

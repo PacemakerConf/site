@@ -4,14 +4,17 @@ class ConferencesController < ApplicationController
 
   def location 
     @location = @conference.location
+    @active_button = 'location'
   end
 
   def speakers
     @speakers = @conference.speakers
+    @active_button = 'speakers'
   end
 
   def schedule
     @events = @conference.events
+    @active_button = 'schedule'
   end
 
   def index
@@ -23,6 +26,7 @@ class ConferencesController < ApplicationController
     lightning = EventType.where(name: 'lightning')
     @topics = @conference.events.where(event_type: topic)
     @lightnings = @conference.events.where(event_type: lightning)
+    @active_button = 'about'
   end
 
   
