@@ -87,14 +87,22 @@ gimli = Speaker.create(
 	name: 'Gimli',
 	surname: 'Grisli',
 	position: 'chief dwarf',
-	description: 'A dwarf with capital D'
+	description: 'A dwarf with capital D', 
+	photo_file_name: "zsssdads.png", 
+	photo_content_type: "image/png", 
+	photo_file_size: 131940, 
+	photo_updated_at: "2015-02-26 19:41:39"
 	)
 
 sam = Speaker.create(
 	name: 'Samwise',
 	surname: 'Gamgee',
 	position: 'chef cook',
-	description: 'Sam, just Sam'
+	description: 'Sam, just Sam', 
+	photo_file_name: "358196a.jpg", 
+	photo_content_type: "image/jpeg", 
+	photo_file_size: 7632, 
+	photo_updated_at: "2015-02-26 19:38:27"
 	)
 
 ent = Speaker.create(
@@ -102,10 +110,10 @@ ent = Speaker.create(
 	surname: 'Ent',
 	position: 'woodpeckers lover',
 	description: 'Hum-hum-hum', 
-	photo_file_name: "fangorn.jpg", 
+	photo_file_name: "064e28a.jpg", 
 	photo_content_type: "image/jpeg", 
-	photo_file_size: 7718, 
-	photo_updated_at: "2015-02-12 21:22:27"
+	photo_file_size: 2966, 
+	photo_updated_at: "2015-02-26 19:40:02"
 	)
 
 
