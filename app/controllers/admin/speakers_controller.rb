@@ -17,6 +17,7 @@ class Admin::SpeakersController < Admin::ApplicationController
 
   # GET /speakers/new
   def new
+    authorize! :create, Speaker
     @speaker = Speaker.new
   end
 
