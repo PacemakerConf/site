@@ -12,4 +12,7 @@ class Contact < ActiveRecord::Base
 
 	validates :name, presence: true
 	validates :surname, presence: true
+	validates :telephone, presence: true
+	validates :email, presence: true
+	validates :skype, presence: true
 end
