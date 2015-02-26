@@ -1,10 +1,10 @@
 <% content_for :title, @speaker.fullname %>
 <div class="row">
-	<div class='speaker-container one-speaker'>
-		<div class = 'speaker-photo col-lg-3'>
+	<div class='speaker-container one-speaker col-lg-offset-1'>
+		<div class = 'speaker-photo col-lg-3 col-md-3 col-xs-3'>
    			<%= image_tag( @speaker.photo.url(:thumb), class: 'photo', alt: @speaker.fullname) %>
   		</div>
-  	<div class="col-lg-8">
+  	<div class="col-lg-8 col-md-8 col-xs-12">
 		<div class='speaker-name'>
 			<%= @speaker.fullname %>
 		</div>
@@ -14,7 +14,7 @@
 	</div>
 	</div>
 </div>
-<ul class="speaker-contacts">
+<ul class="speaker-contacts col-lg-offset-1">
 	<li><a <%= @speaker.email %> > <img src="/assets/twitter13.svg"></a></li>
   		<li><a <%= @speaker.facebook %> > <img src="/assets/facebook29.svg"></a></li>
 	<li><a <%= @speaker.linkedin %> > <img src="/assets/linkedin12.svg"></a></li>
@@ -33,14 +33,21 @@
 			<!-- ongoing -->
 		
 			<div class='ongoings-speech-container row'>
-				<div class='speech-conference col-lg-3 col-md-4 col-sm-4 col-xs-12'>
+				<div class='speech-conference col-lg-3 col-lg-offset-1 col-md-4 col-sm-4 col-xs-12 '>
 	 				<div>
+<<<<<<< HEAD
+						<h3>
+							<%= link_to speech.conference.fullname , about_conference_path( speech.conference.fullname ) %> 
+							<sup>ongoing</sup>
+						</h3>
+=======
 						<h3><%= link_to speech.conference.fullname, about_conference_path( speech.conference.route )%> </h3>
 						<p>ongoing</p>
+>>>>>>> d394bbdc066a0a6b26b1bb81766ee77f61e92d3e
 					</div>
 				</div>
 
-				<div class='speech-details col-lg-8 col-md-7 col-sm-7 col-xs-12'>
+				<div class='speech-details col-lg-6 col-md-7 col-sm-7 col-xs-12'>
 					<h3> <%= speech.title %> </h3>
 					<p>
 						<%= speech.description %>
@@ -51,10 +58,15 @@
 
 		<!-- old speeches -->
 			<div class='speechs-container row'>
+<<<<<<< HEAD
+				<div class='speech-conference col-lg-3 col-lg-offset-1 col-md-4 col-sm-4 col-xs-12'>
+					<h3> <%= link_to speech.conference.fullname, about_conference_path(speech.conference.fullname) %> </h3>	
+=======
 				<div class='speech-conference col-lg-3 col-md-4 col-sm-4 col-xs-12'>
 					<h3> <%= link_to speech.conference.fullname, about_conference_path(speech.conference.route) %> </h3>	
+>>>>>>> d394bbdc066a0a6b26b1bb81766ee77f61e92d3e
 				</div>
-				<div class='speech-details col-lg-8 col-md-7 col-sm-7 col-xs-12'>
+				<div class='speech-details col-lg-7 col-md-7 col-sm-7 col-xs-12'>
 					<h3> <%= speech.title %> </h3>
 					<p>
 						<%= speech.description %>

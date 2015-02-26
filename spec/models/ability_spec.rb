@@ -16,13 +16,16 @@ describe Ability do
 
   describe "as guest" do
     before(:each) do
-      current_admin = nil
-      current_user = User.new('role': User::GUEST)
-      @current_ability = Ability.new(current_user||current_admin)
+      current_user = User.new('role' => User::GUEST)
+      @current_ability = Ability.new(current_user)
     end
     
     it "can read all" do
-      expect(@current_ability).to be_able_to(:read, :all)      
+      expect(@current_ability).to be_able_to(:read, :all)
+    end
+
+    it "can read all" do
+      expect(@current_ability).to be_able_to(:create, Speaker)
     end
   end
 end

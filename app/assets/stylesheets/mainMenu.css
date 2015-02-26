@@ -1,7 +1,6 @@
 .main-menu {
-	margin: 0 0 35px 0;
+	margin: 0 0 55px 0;
   height: 35px;
-	z-index: 1;
   background-color: #002c3a;
 }
 
@@ -16,10 +15,11 @@
 
 ul.conference-menu {
   padding-left: 25%;
+  padding-right: 15%;
 }
 
 .main-menu .conference-menu li img{
-  height: 70px;
+  height: 64px;
   width: 60px;
 }
 
@@ -28,21 +28,25 @@ ul.conference-menu {
   text-decoration:underline,;
   color: white; 
   background: transparent; 
-  margin: -45px 0px 0 0px; 
+  margin: -50px 0px 0 0px; 
   z-index: 2;
-  font-weight: bolder;
 }
 
 .conference-menu li div{
-  margin: -52px 5px 0 5px; 
+  margin: -56px 5px 0 5px; 
   width:inherit;
   text-align: center;
 }
 
 .conference-menu li div a{
   color: #F6F6F6;
-  font-weight: bolder;
 }
+
+.conference-menu li div a:hover{
+  color: #F6F6F6;
+  text-decoration: none;
+}
+
 .description {
   display: none;
 }
