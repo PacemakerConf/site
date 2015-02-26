@@ -5,7 +5,7 @@
     <tr>
         <th>Name</th>
         <th>Surname</th>
-        <th>Positioin</th>
+        <th>Position</th>
         <th>Description</th>
         <th>Show</th>
         <th>Edit</th>
@@ -47,9 +47,8 @@
   });
 </script>
 <br>
-<% if can? :create, Speaker %>
+
 <%= link_to 'Invite speaker', invite_admin_speakers_path %>|
-<% end %>
 
 <% if can? :create, Speaker %>
 <%= link_to 'New speaker', new_admin_speaker_path %>
