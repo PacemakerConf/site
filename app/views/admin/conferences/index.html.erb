@@ -9,7 +9,7 @@
         <th>Shedule</th>
         <th>Location</th>
         <th>Report</th>
-        <th>Publish</th>
+        <!-- <th>Publish</th> -->
         <th>Edit</th>
         <th>Delete</th>
 <!-- <th colspan="3"> <center>Actions</center></th> not working with dataTable gem -->
@@ -33,7 +33,7 @@
                   else
                     link_to "Create", new_report_path(), class: 'btn btn-xs btn-primary'
                   end %></td>
-          <td>Published</td>
+          <!-- <td>Published</td> -->
           <td><%= link_to 'Edit', edit_admin_conference_path(conference.route), class: 'btn btn-xs btn-warning' %></td>
           <td><%= link_to 'Destroy', admin_conference_path(conference.route), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger' %></td>
       </tr>
@@ -48,4 +48,4 @@
   });
 </script>
 <br>
-<%= link_to 'New Conference', new_admin_conference_path, class: "btn btn-default btn-xs" %>
+<%= link_to 'New Conference', new_admin_conference_path, class: "" %>

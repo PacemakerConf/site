@@ -198,7 +198,8 @@ onering.events.create(
 	event_type: topic,
 	speaker: frodo,
 	duration: '2014-12-12 01:00:00',
-	position: 2
+	position: 2,
+	video: "https://www.youtube.com/watch?v=2a4gyJsY0mc"
 	)
 
 onering.events.create(
@@ -216,7 +217,11 @@ onering.events.create(
 	description: 'When fatherland is calling you',
 	event_type: topic,
 	duration: '2014-12-12 01:00:00',
-	position: 3
+	position: 3,
+	materials_file_name: "Advice_to_Japanese_kamikaze_pilots_during_the_second_world_war___World_news___The_Guardian.pdf",
+	materials_content_type: "application/pdf",
+	materials_file_size: 103086, 
+	materials_updated_at: "2015-02-26 18:18:28"
 	)
 
 onering.events.create(
