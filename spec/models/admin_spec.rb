@@ -2,13 +2,9 @@ require 'rails_helper'
 require 'shoulda/matchers'
 
 describe Admin do
-  it 'validate that password is > 8' do
-    expect({Admin.new(username: 'adminstrator', password: 'v_secret',
-            email: 'adminstrator@example.com')}).to raise_error
-  end  
 
   before do
-	@admin = Admin.new(username: 'adminstrator', password: 'very_secret',
+	  @admin = Admin.new(username: 'adminstrator', password: 'very_secret',
 						email: 'adminstrator@example.com')
   end
 
@@ -16,9 +12,19 @@ describe Admin do
     expect(@admin).to be_valid
   end
 
-  #it 'is invalid without username, password and email' do
-   # @admin.username = nil
-   # expect(@admin).not_to be_valid
-  #end
+  it 'is invalid without an email address' do
+    @admin.email = nil
+    expect(@admin).not_to be_valid
+  end
+
+  it 'is invalid without username' do
+    @admin.username = nil
+    expect(@admin).not_to be_valid
+  end
+
+  it 'is invalid without password' do
+    @admin.password = nil
+    expect(@admin).not_to be_valid
+  end
 
 end
