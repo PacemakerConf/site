@@ -27,5 +27,9 @@ describe Ability do
     it "can read all" do
       expect(@current_ability).to be_able_to(:create, Speaker)
     end
+    
+    it "cannot manage all" do
+      expect(@current_ability).to_not be_able_to(:manage, :all)
+    end
   end
 end
