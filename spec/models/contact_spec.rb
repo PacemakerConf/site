@@ -4,35 +4,34 @@ require 'shoulda/matchers'
 
 describe Contact do
 
-	before do
-	  @contact = Contact.new(name: 'Vad', surname: 'Kirdan', email: 'vad_gmail.com', skype: 'vad', location_id: 1)
-	end
-
-	it "should be valid with name, surname and location_id" do
-      expect(@contact).to be_valid
+	it "should have valid factory" do
+   	   expect(FactoryGirl.create(:contact)).to be_valid
  	end
 
  	it "should be invalid without name" do
-	  @contact.name = nil
-      expect(@contact).not_to be_valid
+ 	   expect(FactoryGirl.build(:contact, name: nil)).not_to be_valid
 	end
 
 	it "should be invalid without surname" do
-	  @contact.surname = nil
-      expect(@contact).not_to be_valid
+ 	   expect(FactoryGirl.build(:contact, surname: nil)).not_to be_valid
 	end
 
-	it "should be invalid without location_id" do
-	  @contact.location_id = nil
-      expect(@contact).not_to be_valid
+	it "should be invalid without telephone" do
+ 	   expect(FactoryGirl.build(:contact, telephone: nil)).not_to be_valid
 	end
 
-	it "should be valid without email and skype" do
-	  @contact.email = nil
-	  @contact.skype = nil
- 	  expect(@contact).to be_valid
+	it "should be invalid without email" do
+ 	   expect(FactoryGirl.build(:contact, email: nil)).not_to be_valid
 	end
 
-	it { should belong_to(:location) }
- 	
+	it "should be invalid without skype" do
+ 	   expect(FactoryGirl.build(:contact, skype: nil)).not_to be_valid
+	end
+
+	it { should accept_nested_attributes_for(:telephones) }
+	it { should have_many(:telephones).dependent(:destroy) }
+
+	it { should have_and_belong_to_many(:locations) }
+	it { should have_many(:telephones) }
+
 end
