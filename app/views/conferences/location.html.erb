@@ -18,6 +18,9 @@
           <div>
             <p><b><%= contact.name %> <%= contact.surname %></b><p>
             <p><b>Mail:</b> <%= contact.email %></p>
+            <% contact.emails.each do |emails| %>
+               <p><b>Mail:</b> <%= emails.email %></p>
+             <% end %>
             <p><b>Tel:</b> <%= contact.telephone %></p>
           </div>
         <% end %>

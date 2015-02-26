@@ -13,14 +13,14 @@
 <p>
   <strong>Telephone:<br></strong>
   <%= @contact.telephone %><br>
-  <% @contact.telephones.each do |telephones| %>
-    <%= telephones.number %><br>
-  <% end %>
 </p>
 
 <p>
-  <strong>Email:</strong>
-  <%= @contact.email %>
+  <strong>Email:</strong><br>
+  <%= @contact.email %><br>
+  <% @contact.emails.each do |emails| %>
+    <%= emails.email %><br>
+  <% end %>
 </p>
 
 <p>
@@ -29,10 +29,6 @@
 </p>
 
         
-
-
-
-
 
 
 <%= link_to 'Edit', edit_admin_contact_path(@contact) %> |
