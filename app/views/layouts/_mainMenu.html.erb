@@ -3,7 +3,11 @@
 
 	<% years = Conference.uniq.pluck(:year).sort %>
 	<% years = years[0...-1] %>
-	<% active_year = @conference.year %>
+	<% if @conference %>
+		<% active_year = @conference.year %>
+	<% else %>
+		<% active_year = Conference.last.year %>
+	<% end %>
 
 
 	<ul class="conference-menu" id='conference_menu' years='<%= years %>' active='<%= yield :active_conference %>'>

@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   
   # redefine the current_ability method for CanCan.
   def current_ability
-#    raise "current_admin: #{current_admin.inspect}, current_user: #{current_user.inspect}"
+  #raise "current_admin: #{current_admin.inspect}, current_user: #{current_user.inspect}"
     @current_ability ||= Ability.new(current_admin || current_user) 
   end
  
