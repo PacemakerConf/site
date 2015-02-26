@@ -45,6 +45,7 @@ ul.conference-menu {
 .conference-menu li div a:hover{
   color: #F6F6F6;
   text-decoration: none;
+  background: inherit;
 }
 
 .description {
