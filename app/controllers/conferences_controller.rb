@@ -8,7 +8,8 @@ class ConferencesController < ApplicationController
   end
 
   def speakers
-    @speakers = @conference.speakers
+    speaker_event = EventType.where(speakerEvent: 1)
+    @events = @conference.events.where(event_type: speaker_event)
     @active_button = 'speakers'
   end
 

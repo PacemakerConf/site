@@ -4,6 +4,9 @@ class Location < ActiveRecord::Base
 
 	validates :address, presence: true
 	validates :city, presence: true
+	validates :conference_id, presence: true
+	validates :name, presence: true
+	validates :place_type, presence: true
 	
 	def full_address
     	"#{address}, #{city}"

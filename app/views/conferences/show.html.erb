@@ -6,7 +6,7 @@
 			<h4>Speakers</h4>
 			<div class="main-speakers-box">	
 				<% @topics.each do |topic| %>
-					<div class='speaker-container'>
+					<div class='speaker-container col-lg-5'>
 						<div class='speaker-photo'>
 							<% speaker = topic.speaker %>	
 							<%= image_tag( speaker.photo.url(:thumb), class: 'photo', alt: speaker.name ) %>
@@ -28,7 +28,7 @@
 			<h4>Lightning talks</h4>
 			<div>	
 				<% @lightnings.each do |lightning| %>
-						<div class='lightning-speaker-container'>
+						<div class='lightning-speaker-container col-lg-5'>
 							<div class='speaker-photo'>
 								<% speaker = lightning.speaker %>	
 								<%= image_tag( speaker.photo.url(:thumb), class: 'photo', alt: speaker.name ) %>

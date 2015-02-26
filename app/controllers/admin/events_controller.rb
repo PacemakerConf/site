@@ -25,6 +25,7 @@ class Admin::EventsController < Admin::ApplicationController
 
   # GET /events/new
   def new
+    authorize! :create, Event
     @event = Event.new
   end
 
