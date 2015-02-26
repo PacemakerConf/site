@@ -47,10 +47,9 @@
   });
 </script>
 <br>
-<% if can? :create, Speaker %>
-<%= link_to 'Invite speaker', invite_admin_speakers_path %>|
-<% end %>
+
+<%= link_to 'Invite speaker', invite_admin_speakers_path, class: "btn btn-default btn-sm" %>
 
 <% if can? :create, Speaker %>
-<%= link_to 'New speaker', new_admin_speaker_path %>
+<%= link_to 'New speaker', new_admin_speaker_path, class: "btn btn-default btn-sm" %>
 <% end %>

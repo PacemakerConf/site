@@ -29,14 +29,16 @@ Enjoy!
 		[name, surname].join ' '
 	end
 
-	def self.generate_link(email)
-		LinkHelper.new.link_to('Create Your Profile', Rails.application.routes.url_helpers.new_speaker_path(hash: "ASHAERHAEHADFHETHDFHAH"))
+	def self.generate_link(email, conf_id=1)
+		cost = 10
+		hash = ::BCrypt::Password.create("#{email}_#{conf_id}", :cost => cost).to_s
+		LinkHelper.new.link_to('Create Your Profile', 
+			Rails.application.routes.url_helpers.new_speaker_path(hash: hash))
 	end	
 	def self.invite_speaker(email, message)
-#	    if params[:message].match(INVITE_MESSAGE_REGEXP)
+        # if params[:message].match(INVITE_MESSAGE_REGEXP)
 		# insert link Speaker.generate_link(email), email, hash into invirations
 	    message = message.gsub!(INVITE_MESSAGE_REGEXP, Speaker.generate_link(email))
-
 	    InviteMailer.speaker_invite(email, message).deliver_later
 
 	end	
