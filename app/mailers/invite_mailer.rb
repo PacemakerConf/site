@@ -8,5 +8,5 @@ class InviteMailer < ActionMailer::Base
 			format.html { render 'mailers/speaker_invite' }
 		end	
 	end
-
+	
 end
