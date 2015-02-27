@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   root 'conferences#show', name: Conference.last_conference_route
 
+
   devise_for :admins, skip: :sessions
   as :admin do
     get 'login', to: 'devise/sessions#new', as: :new_admin_session
@@ -15,9 +16,16 @@ Rails.application.routes.draw do
       member do
         get 'schedule'
       end
+      member do
+        get 'publish'
+      end
     end
     resources :contacts
-    resources :events
+    resources :events do
+      member do
+        get 'publish'
+      end
+    end
     resources :event_types 
     resources :locations  
     resources :speakers, param: :name do
@@ -26,12 +34,13 @@ Rails.application.routes.draw do
         post 'send', to: 'speakers#send_invitation'
       end
     end 
+    resources :years
   end
 
-  resources :speakers, param: :name
-  resources :events
+
+  #userside
+  resources :speakers
   resources :conferences, param: :name
-  resources :years
 
   get ':name', to: 'conferences#show'
   get ':name/about', to: 'conferences#show', as: :about_conference

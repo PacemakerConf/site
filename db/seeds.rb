@@ -119,24 +119,28 @@ ent = Speaker.create(
 
 #conferences
 js2012 = Conference.create(
+	published: false,
 	name: 'JS',
 	year: 2012,
 	date: '2012-02-12',
 	attenders: 12
 	)
 Conference.create(
+	published: false,
 	name: 'Java',
 	year: 2012,
 	date: '2012-05-22',
 	attenders: 12
 	)
 Conference.create(
+	published: false,
 	name: 'LAMP',
 	year: 2012,
 	date: '2012-08-08',
 	attenders: 12
 	)
 Conference.create(
+	published: false,
 	name: 'OPS',
 	year: 2012,
 	date: '2012-11-12',
@@ -144,18 +148,21 @@ Conference.create(
 	)
 
 Conference.create(
+	published: false,
 	name: 'Java',
 	year: 2013,
 	date: '2013-01-12',
 	attenders: 22
 	)
 cloud2013 = Conference.create(
+	published: true,
 	name: 'Cloud',
 	year: 2013,
 	date: '2013-06-29',
 	attenders: 22
 	)
 Conference.create(
+	published: true,
 	name: 'Data',
 	year: 2013,
 	date: '2013-11-12',
@@ -163,18 +170,21 @@ Conference.create(
 	)
 
 Conference.create(
+	published: true,
 	name: 'Mobile',
 	year: 2014,
 	date: '2014-05-12',
 	attenders: 372
 	)
 webui2014 = Conference.create(
+	published: true,
 	name: 'WebUI',
 	year: 2014,
 	date: '2014-09-12',
 	attenders: 372
 	)
 victory = Conference.create(
+	published: false,
 	name: 'Java',
 	year: 2014,
 	date: '2014-12-12',
@@ -182,6 +192,7 @@ victory = Conference.create(
 	)
 
 onering = Conference.create(
+	published: false,
 	name: 'BigData',
 	year: 2015,
 	date: '2015-11-12',
@@ -191,6 +202,7 @@ onering = Conference.create(
 
 #events
 onering.events.create(
+	published: true,
 	title: 'registration',
 	event_type: registration,
 	duration: '2014-12-12 00:45:00',
@@ -200,6 +212,7 @@ onering.events.create(
 	)
 
 onering.events.create(
+	published: false,
 	title: 'How i get the Ring. History of success',
 	description: 'Evetything you need to know about One Ring,
 				  but afffraid to ask',
@@ -211,6 +224,7 @@ onering.events.create(
 	)
 
 onering.events.create(
+	published: true,
 	title: 'Beer-break',
 	event_type: beerbreak,
 	duration: '2014-12-12 01:30:00',
@@ -220,6 +234,7 @@ onering.events.create(
 	)
 
 onering.events.create(
+	published: false,
 	title: 'The challenge for kamikaze',
 	speaker: gandalf,
 	description: 'When fatherland is calling you',
@@ -233,6 +248,7 @@ onering.events.create(
 	)
 
 onering.events.create(
+	published: false,
 	title: 'How many orcs i\'ll kill',
 	description: 'I was drinking at the bar last night, so I took
 				  a bus home...That may not be a big deal to you,
@@ -244,6 +260,7 @@ onering.events.create(
 	)
 
 onering.events.create(
+	published: false,
 	title: 'How to cook Gollum',
 	description: 'awful dishes',
 	event_type: topic,
@@ -253,6 +270,7 @@ onering.events.create(
 	)
 
 onering.events.create(
+	published: true,
 	title: 'Houmm-arr-orghh',
 	event_type: lightning,
 	speaker: ent,
@@ -261,6 +279,7 @@ onering.events.create(
 	)
 
 onering.events.create(
+	published: true,
 	title: 'Little man with great potential',
 	description: 'History of the invention of the heel',
 	event_type: lightning,
@@ -275,6 +294,7 @@ onering.events.create(
 	)
 
 victory.events.create(
+	published: true,
 	title: 'A long way in the dunes',
 	speaker: frodo,
 	description: 'How to play piano, using only 9 fingers',
@@ -284,6 +304,7 @@ victory.events.create(
 	)
 
 victory.events.create(
+	published: true,
 	title: 'The Eagles',
 	speaker: gandalf,
 	description: 'Lightning, as a form of air defence',

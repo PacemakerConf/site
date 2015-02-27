@@ -2,7 +2,7 @@ class Admin::ConferencesController < Admin::ApplicationController
 
   layout 'admin', except: :show
   before_action :authenticate_admin!
-  before_action :set_conference, only: [:schedule, :date, :location, :speakers, :show, :edit, :update, :destroy]
+  before_action :set_conference, only: [:publish, :schedule, :date, :location, :speakers, :show, :edit, :update, :destroy]
  
   def location 
     @location = @conference.location
@@ -14,6 +14,12 @@ class Admin::ConferencesController < Admin::ApplicationController
 
   def schedule
     @events = @conference.events.order(:position)
+  end
+
+  def publish
+    @conference.published = true
+    @conference.save!
+    redirect_to admin_conferences_url
   end
 
   def index
@@ -93,6 +99,6 @@ class Admin::ConferencesController < Admin::ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def conference_params
-      params.require(:conference).permit(:name, :year, :date, :attenders, :group_event)
+      params.require(:conference).permit(:name, :year, :date, :attenders, :group_event, :published)
     end
 end
