@@ -11,7 +11,7 @@
 // about supported directives.
 //
 //= require event_types
-//= require jquery
+//= require jquery-1.11.2
 //= require jquery_ujs
 //= require jquery-ui
 //= require jquery.dataTables.js

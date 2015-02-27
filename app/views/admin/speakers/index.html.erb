@@ -32,12 +32,16 @@
           <td><%= speaker.position %></td>
           <td><%= speaker.description %></td>
           <td><%= link_to 'Show', admin_speaker_path(speaker.id), class: "btn btn-default btn-xs" %></td>
-        <% if can? :edit, @speaker %>
-          <td><%= link_to 'Edit', edit_admin_speaker_path(speaker.id), class: "btn btn-warning btn-xs" %></td>
-        <% end %>
-        <% if can? :destroy, @speaker %>
-          <td><%= link_to 'Destroy', admin_speaker_path(speaker), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" %></td>
-        <% end %>
+          <td>
+            <% if can? :edit, @speaker %>
+            <%= link_to 'Edit', edit_admin_speaker_path(speaker.id), class: "btn btn-warning btn-xs" %>
+            <% end %>
+          </td>
+          <td>
+            <% if can? :destroy, @speaker %>
+            <%= link_to 'Destroy', admin_speaker_path(speaker), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" %>
+            <% end %>
+          </td>
       </tr>
     <% end %>
   </tbody>
