@@ -19,6 +19,7 @@
     <span class="duration" style="position: relative;"><%= conferenceEventDurationReturn(event.duration) %></span>
     |
     <span style="position: relative;"><%= event.title %></span>
+    <span class="idItems" style= "display: none;"><%= event.id %></span>
     <% unless event.speaker_id.nil? %>
           <span style="position:relative;float:right;"><%= link_to "-" + event.speaker.name + " " + event.speaker.surname, event.speaker %></span>
     <% end %>
@@ -26,64 +27,9 @@
 <% end %>
 </ul>
 
-<input type='text' class="okay" value="3">
+<button onclick="sendAJAX()">Set Position</button><br>
 
-<button onclick="sendAJAX()">Go</button>
-<!-- 
-<h1>Conference <%= @conference.fullname %> schedule</h1>
-<table id="event" class="display" width="100%" cellspacing="0">
-  <thead>
-    <tr>
-        <th>title</th>
-        <th>type</th>
-        <th>conference</th>
-        <th>speaker</th>
-        <th>Show</th>
-        <th>Edit</th>
-        <th>Delete</th>
-    </tr>
-  </thead>
-  <tfoot>
-    <tr>
-        <th>title</th>
-        <th>type</th>
-        <th>conference</th>
-        <th>speaker</th>
-        <th>Show</th>
-        <th>Edit</th>
-        <th>Delete</th>
-    </tr>
-  </tfoot>
-
-  <tbody>
-    <% @events.each do |event| %>
-      <tr>
-        <td><%= event.title %></td> 
-        <td><%= event.event_type.name %></td>
-        <td><%= event.conference.name%>-<%= event.conference.year %></td>
-        <td>
-          <% unless event.speaker.nil? %>
-            <%= event.speaker.fullname%>
-          <% end %>
-        </td>
-        <td><%= link_to 'Show', admin_event_path(event) %></td>
-        <td><%= link_to 'Edit', edit_admin_event_path(event) %></td>
-        <td><%= link_to 'Destroy', admin_event_path(event), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<script type="text/javascript">
-  $(document).ready(function() {
-    $('#event').dataTable({
-      paging: true
-    });
-  });
-</script>
-
-<br> -->
-
-<%= link_to 'New event', controller: 'admin/events', action: 'new',
-                         conf_id: @conference.id, 
+<%= link_to 'New event', controller: 'admin/events', 
+                         action: 'new',
+                         conf_id: @conference.id,
                          conf_fname: @conference.fullname %>

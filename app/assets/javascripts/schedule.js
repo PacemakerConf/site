@@ -49,38 +49,15 @@ function parseTime(durationItem){
 function sendAJAX(){
     console.log('AJAX?');
 
-    some_var = $('.okay');
-    some_var = some_var[0].value;
-
-    xmlhttp = new XMLHttpRequest();
-	xmlhttp.onreadystatechange = function() {
-	    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-	    	var response =  JSON.parse( xmlhttp.responseText );
-	    	console.log( response.position );
-	    	response.position = some_var;
-	    	console.log(response.position);
-	    }
-	  
-	}
+    idItems = $('.idItems');
 	
-	xmlhttp.open("PATCH", "/admin/events/" + 1 + "/position.html", true);
-	xmlhttp.send();
-
-
- //  selected_event_type =  event_event_type_id.value;
- //  xmlhttp = new XMLHttpRequest();
- //  xmlhttp.onreadystatechange = function() {
- //    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
- //        var response = JSON.parse( xmlhttp.responseText );
- //        event_hours.value = response.durationHour;
- //        event_mins.value = response.durationMin;
- //        event_hours.onchange();
- //        event_mins.onchange();
-        
- //        toggleSpeakerDropdown(response.speakerEvent);
- //    }
- //  }
- //  xmlhttp.open("GET", "/admin/event_types/" + selected_event_type + ".json", true);
- //  xmlhttp.send();
+	for (var i = 0; i < idItems.length; i++){
+		var n = idItems[i].innerHTML;
+		console.log(n);
+		var line = "/admin/events/" + n + "/position.json?position=" + i;
+		var xmlhttp = new XMLHttpRequest();
+		xmlhttp.open("GET", line, true);
+		xmlhttp.send();
+	}
 
  }

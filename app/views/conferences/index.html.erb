@@ -23,7 +23,7 @@
           <td><%= conference.attenders %></td>
           <% conf = conference.name.to_s + "-" + conference.year.to_s %>
           <td><%= unless(conference.location.nil?)
-                    link_to "#{conference.location.address}", location_conference_path(conference.fullname)
+                    link_to "#{conference.location.address}", location_conference_path(conference.route)
                   else
                     link_to "Create Location", new_admin_location_path()
                   end %></td>

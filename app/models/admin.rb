@@ -6,5 +6,6 @@ class Admin < ActiveRecord::Base
   
   devise :database_authenticatable, :trackable, :validatable,
   		 :registerable,:recoverable, :rememberables
-           
+  
+  validates :username, :presence => true, :uniqueness => true      
 end

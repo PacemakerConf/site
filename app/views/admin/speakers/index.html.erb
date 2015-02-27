@@ -5,7 +5,7 @@
     <tr>
         <th>Name</th>
         <th>Surname</th>
-        <th>Positioin</th>
+        <th>Position</th>
         <th>Description</th>
         <th>Show</th>
         <th>Edit</th>
@@ -17,9 +17,9 @@
     <tr>
         <th>Name</th>
         <th>Show</th>
-        <th>Positioin</th>
+        <th>Position</th>
         <th>Description</th>
-        <th>Surname</th>
+        <th>Show</th>
         <th>Edit</th>
         <th>Delete</th>
    </tr>
@@ -31,9 +31,13 @@
           <td><%= speaker.surname %></td>
           <td><%= speaker.position %></td>
           <td><%= speaker.description %></td>
-          <td><%= link_to 'Show', admin_speaker_path(speaker.id) %></td>
-          <td><%= link_to 'Edit', edit_admin_speaker_path(speaker.id) %></td>
-          <td><%= link_to 'Destroy', admin_speaker_path(speaker), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Show', admin_speaker_path(speaker.id), class: "btn btn-default btn-xs" %></td>
+        <% if can? :edit, @speaker %>
+          <td><%= link_to 'Edit', edit_admin_speaker_path(speaker.id), class: "btn btn-warning btn-xs" %></td>
+        <% end %>
+        <% if can? :destroy, @speaker %>
+          <td><%= link_to 'Destroy', admin_speaker_path(speaker), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -47,10 +51,10 @@
   });
 </script>
 <br>
-<% if can? :create, Speaker %>
-<%= link_to 'Invite speaker', invite_admin_speakers_path %>
-<% end %>
+
+
+<%= link_to 'Invite speaker', invite_admin_speakers_path, class: "btn btn-default btn-sm" %>
 
 <% if can? :create, Speaker %>
-<%= link_to 'New speaker', new_admin_speaker_path %>
+<%= link_to 'New speaker', new_admin_speaker_path, class: "btn btn-default btn-sm" %>
 <% end %>
