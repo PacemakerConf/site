@@ -26,6 +26,6 @@ describe Conference do
 		first = FactoryGirl.create(:conference, name: 'first', year: 2013, date: '2013-12-12')
 		third = FactoryGirl.create(:conference, name: 'third', year: 2015, date: '2015-11-10')
 		second = FactoryGirl.create(:conference, name: 'second', year: 2015, date: '2015-01-12')
-		expect( Conference.last_conference).to eq('third-2015')
+		expect( Conference.last_conference_route).to eq('third-2015')
 	end
 end

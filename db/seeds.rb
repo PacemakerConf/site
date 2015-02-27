@@ -87,7 +87,7 @@ gimli = Speaker.create(
 	name: 'Gimli',
 	surname: 'Grisli',
 	position: 'chief dwarf',
-	description: 'A dwarf with capital D', 
+	description: 'Gimli - chief dwarf. Head dwarf. A dwarf with capital D', 
 	photo_file_name: "zsssdads.png", 
 	photo_content_type: "image/png", 
 	photo_file_size: 131940, 

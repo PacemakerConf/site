@@ -17,7 +17,7 @@ class Conference < ActiveRecord::Base
 		name.to_s + "-" + year.to_s
 	end
 
-	def self.last_conference
+	def self.last_conference_route
 		if Conference && Conference.first
 			last_conference = Conference.order(date: :desc)[0]
 			last_conference.name.to_s + '-' + last_conference.year.to_s
