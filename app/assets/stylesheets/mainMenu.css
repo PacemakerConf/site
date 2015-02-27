@@ -65,3 +65,17 @@ ul.conference-menu {
    left: 0; 
    width: 100%; 
 }
+
+/*DARKEN*/
+.flag-year-image-container img{
+  -webkit-filter: brightness(-65%);
+  -webkit-transition: all 1s ease;
+     -moz-transition: all 1s ease;
+       -o-transition: all 1s ease;
+      -ms-transition: all 1s ease;
+          transition: all 1s ease;
+}
+ 
+.flag-year-image-container img:hover {
+  -webkit-filter: brightness(0%);
+}

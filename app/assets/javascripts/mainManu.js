@@ -19,14 +19,19 @@ function conferencePageLoad(){
 			for(var i = 0; i < years.length; i++){
 				if(years[i] != year){
 					$('.conference-' + years[i]).hide();
-					$('#flag-' + years[i]).children('img').attr('src', '/assets/GREY.png');
+					$('#flag-' + years[i]).children('img').attr('src', '/assets/GREYdark.png');
 				}
 				else{
-					$('.conference-' + years[i]).toggle();
-					$('#flag-' + years[i]).children('img').attr('src', '/assets/RED.png');
+					$('.conference-' + years[i]).fadeToggle();
+					$('#flag-' + years[i]).children('img').attr('src', '/assets/REDlight.png');
 				}	
-			}
-		});
-	}
-
+// 	$('.flag-year-image-container').hover(function(){
+//     $(this).hover('.flag-year-image-container').children('img').animate({ boxShadow : "0 0 5px 3px rgba(100,100,200,0.4)" });
+//     }, function(){
+//     $('.flag-year-image-container').children('img');
+// }); 
+		// .css('background-image','url(background.png)');
 }
+});
+};
+};

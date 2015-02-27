@@ -11,11 +11,11 @@
 // about supported directives.
 //
 //= require event_types
-//= require jquery
+//= require jquery-1.11.2
 //= require jquery_ujs
 //= require jquery-ui
 //= require jquery.dataTables.js
-//= require ../../../vendor/assets/javascripts/jquery.datetimepicker
+
 //= require turbolinks
 //= require_tree .
 //= require bootstrap-wysihtml5
