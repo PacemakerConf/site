@@ -24,4 +24,4 @@
 //= require moment
 //= require bootstrap-datetimepicker
 
-//= require ../../../vendor/assets/javascripts/nested_form
+//= require nested_form
