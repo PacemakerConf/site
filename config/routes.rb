@@ -1,14 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :reports
-
-  get 'report/report'
-
-  namespace :admin do
-  get 'event/index'
-  end
-
-  root 'conferences#show', name: Conference.last_conference
+  root 'conferences#show', name: Conference.last_conference_route
 
   devise_for :admins, skip: :sessions
   as :admin do
@@ -46,5 +38,7 @@ Rails.application.routes.draw do
   get ':name/speakers', to: 'conferences#speakers', as: :speakers_conference
   get ':name/location', to: 'conferences#location', as: :location_conference
   get ':name/schedule', to: 'conferences#schedule', as: :schedule_conference
+
+  resources :reports
 
 end 
