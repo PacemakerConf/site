@@ -4,7 +4,7 @@ gem 'paperclip', '~> 4.2'
 
 gem 'bootstrap-wysihtml5-rails', :require => 'bootstrap-wysihtml5-rails',
                               :git => 'git://github.com/Nerian/bootstrap-wysihtml5-rails.git'
-
+gem 'email_validator'
 gem 'nested_form'
 gem 'geocoder'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
