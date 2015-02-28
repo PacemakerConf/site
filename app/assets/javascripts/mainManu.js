@@ -25,12 +25,17 @@ function conferencePageLoad(){
 					$('.conference-' + years[i]).fadeToggle();
 					$('#flag-' + years[i]).children('img').attr('src', '/assets/REDlight.png');
 				}	
-// 	$('.flag-year-image-container').hover(function(){
-//     $(this).hover('.flag-year-image-container').children('img').animate({ boxShadow : "0 0 5px 3px rgba(100,100,200,0.4)" });
-//     }, function(){
-//     $('.flag-year-image-container').children('img');
+
+// $('.flag-year-image-container').hover(function() {
+// $(this).hover('.flag-year-image-container').toggleClass( "hoverClass", 20 ), function(){
+// $('.flag-year-image-container').children('img').toggleClass( "nohoverClass", 20 )};
 // }); 
+		
 		// .css('background-image','url(background.png)');
+		// .css('box-shadow', '2px 2px 2px #555');
+		// .css({ boxShadow: '1px 3px 6px #444' })
+		// .toggleClass( "newClass", 200 ), function(){
+  //   $('.flag-year-image-container').children('img').css('box-shadow', '2px 2px 2px #555');
 }
 });
 };

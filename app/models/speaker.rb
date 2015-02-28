@@ -31,7 +31,7 @@ Enjoy!
 	def self.generate_link(email)
 		cost = 10
 		hash = ::BCrypt::Password.create("#{email}", :cost => cost).to_s
-		LinkHelper.new.link_to('Create Your Profile', 
+		LinkHelper.new.link_to('Click here to create profile', 
 			"http://localhost:3000/admin"+Rails.application.routes.url_helpers.new_speaker_path(hash: hash))
 	end	
 	def self.invite_speaker(email, message)

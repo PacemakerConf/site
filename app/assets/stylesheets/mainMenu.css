@@ -66,7 +66,7 @@ ul.conference-menu {
    width: 100%; 
 }
 
-/*DARKEN*/
+/*
 .flag-year-image-container img{
   -webkit-filter: brightness(-65%);
   -webkit-transition: all 1s ease;
@@ -78,4 +78,13 @@ ul.conference-menu {
  
 .flag-year-image-container img:hover {
   -webkit-filter: brightness(0%);
+}*/
+
+/* .hoverClass { 
+  background-image: url("background.png");
+  box-shadow: 15px 15px 5px -5px rgba(0,0,0,.2)
 }
+ .nohoverClass { 
+  background-image: url("");
+}
+*/
