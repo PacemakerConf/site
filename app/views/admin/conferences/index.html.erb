@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 <h1>Listing Conferences</h1>
-<table id="conference" class="display" width="100%" cellspacing="0">
+<table class="display data_table" width="100%" cellspacing="0">
   <thead>
     <tr>
         <th>Conference Name</th>
@@ -46,12 +46,6 @@
     <% end %>
   </tbody>
 </table>
-<script type="text/javascript">
-  $(document).ready(function() {
-    $('#conference').dataTable({
-      paging: true
-    });
-  });
-</script>
+
 <br>
 <%= link_to 'New Conference', new_admin_conference_path, class: "" %>
