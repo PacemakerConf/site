@@ -65,3 +65,26 @@ ul.conference-menu {
    left: 0; 
    width: 100%; 
 }
+
+/*
+.flag-year-image-container img{
+  -webkit-filter: brightness(-65%);
+  -webkit-transition: all 1s ease;
+     -moz-transition: all 1s ease;
+       -o-transition: all 1s ease;
+      -ms-transition: all 1s ease;
+          transition: all 1s ease;
+}
+ 
+.flag-year-image-container img:hover {
+  -webkit-filter: brightness(0%);
+}*/
+
+/* .hoverClass { 
+  background-image: url("background.png");
+  box-shadow: 15px 15px 5px -5px rgba(0,0,0,.2)
+}
+ .nohoverClass { 
+  background-image: url("");
+}
+*/

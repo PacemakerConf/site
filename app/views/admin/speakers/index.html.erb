@@ -1,6 +1,6 @@
 
 <h1>Listing Speakers</h1>
-<table id="speaker" class="display" width="100%" cellspacing="0">
+<table class="display data_table" width="100%" cellspacing="0">
   <thead>
     <tr>
         <th>Name</th>
@@ -19,7 +19,7 @@
         <th>Show</th>
         <th>Position</th>
         <th>Description</th>
-        <th>Surname</th>
+        <th>Show</th>
         <th>Edit</th>
         <th>Delete</th>
    </tr>
@@ -32,22 +32,22 @@
           <td><%= speaker.position %></td>
           <td><%= speaker.description %></td>
           <td><%= link_to 'Show', admin_speaker_path(speaker.id), class: "btn btn-default btn-xs" %></td>
-          <td><%= link_to 'Edit', edit_admin_speaker_path(speaker.id), class: "btn btn-warning btn-xs" %></td>
-          <td><%= link_to 'Destroy', admin_speaker_path(speaker), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" %></td>
+          <td>
+            <% if can? :edit, @speaker %>
+            <%= link_to 'Edit', edit_admin_speaker_path(speaker.id), class: "btn btn-warning btn-xs" %>
+            <% end %>
+          </td>
+          <td>
+            <% if can? :destroy, @speaker %>
+            <%= link_to 'Destroy', admin_speaker_path(speaker), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" %>
+            <% end %>
+          </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<script type="text/javascript">
-  $(document).ready(function() {
-    $('#speaker').dataTable({
-      paging: true
-    });
-  });
-</script>
 <br>
-
 
 <%= link_to 'Invite speaker', invite_admin_speakers_path, class: "btn btn-default btn-sm" %>
 
