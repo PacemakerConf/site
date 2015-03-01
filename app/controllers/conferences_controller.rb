@@ -1,10 +1,15 @@
 class ConferencesController < ApplicationController
 
-  before_action :set_conference, only: [:schedule, :location, :speakers, :show, :edit, :update, :destroy]
+  before_action :set_conference, only: [:schedule, :location, :speakers, :report, :show, :edit, :update, :destroy]
 
   def location 
     @location = @conference.location
     @active_button = 'location'
+  end
+
+  def report 
+    @report = @conference.report
+    @active_button = 'report'
   end
 
   def speakers
