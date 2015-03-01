@@ -34,7 +34,11 @@ Rails.application.routes.draw do
         post 'send', to: 'speakers#send_invitation'
       end
     end 
-    resources :years
+    resources :years do
+      member do
+        get 'publish'
+      end
+    end  
   end
 
 
