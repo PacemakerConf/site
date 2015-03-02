@@ -2,8 +2,8 @@ source 'https://rubygems.org'
 
 gem 'paperclip', '~> 4.2'
 
-gem 'bootstrap-wysihtml5-rails', :require => 'bootstrap-wysihtml5-rails',
-                              :git => 'git://github.com/Nerian/bootstrap-wysihtml5-rails.git'
+gem 'bootstrap-wysihtml5-rails'
+gem 'bootstrap-wysiwyg-rails'
 gem 'email_validator'
 gem 'nested_form'
 gem 'geocoder'

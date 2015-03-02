@@ -61,7 +61,7 @@
   <div class="form-group">
     <%= f.label :how_to_find, class: "col-lg-2 control-label" %>
     <div class="col-lg-7">
-      <%= f.text_area :how_to_find, class: "form-control" %>
+      <%= f.text_area :how_to_find, class: "form-control", class: 'wysihtml5' %>
     </div>
   </div>
   
@@ -71,3 +71,14 @@
     </div>
   </div>
 <% end %>
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+
+    $('.wysihtml5').each(function(i, elem) {
+      $(elem).wysihtml5();
+    });
+
+  })
+</script>
