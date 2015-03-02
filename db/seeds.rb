@@ -419,19 +419,19 @@ pasternaka.contacts << vad
 Year.create(
 	name: 2012,
 	content: 'Greate year. This is the first year of conference and so many evvents already ... blablabla',
-	publishe: true
+	published: true
 	)
 
 Year.create(
 	name: 2013,
 	content: 'Greate year2. This is the first year of conference and so many evvents already ... blablabla',
-	publishe: true
+	published: true
 	)
 
 Year.create(
 	name: 2014,
 	content: 'Greate year3. This is the first year of conference and so many evvents already ... blablabla',
-	publishe: false
+	published: false
 	)
 
 

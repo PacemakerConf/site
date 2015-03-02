@@ -9,7 +9,7 @@
 					<div class='speaker-container col-lg-5'>
 						<div class='speaker-photo'>
 							<% speaker = topic.speaker %>	
-							<%= image_tag( speaker.photo.url(:thumb), class: 'photo', alt: speaker.name ) %>
+							<%= link_to( image_tag( speaker.photo.url(:thumb), class: 'photo', alt: speaker.name), speaker ) %>
 						</div>
 						<div class='speaker-name speech-info'>
 							<%= link_to speaker.fullname, speaker_path(speaker) %>
@@ -31,7 +31,7 @@
 						<div class='lightning-speaker-container col-lg-5'>
 							<div class='speaker-photo'>
 								<% speaker = lightning.speaker %>	
-								<%= image_tag( speaker.photo.url(:thumb), class: 'photo', alt: speaker.name ) %>
+								<%= link_to( image_tag( speaker.photo.url(:thumb), class: 'photo', alt: speaker.name ), speaker ) %>
 							</div>
 							<div class='speaker-name speech-info'>
 								<%= link_to speaker.fullname, speaker_path(speaker) %>

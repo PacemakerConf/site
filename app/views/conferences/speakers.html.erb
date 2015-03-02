@@ -5,7 +5,7 @@
 	<div class="row speakers-det">
 		<div class = 'full-speaker-container col-lg-7 col-md-7 col-xs-7'>
 			<div class = 'speaker-photo'>
-				<%= image_tag( event.speaker.photo.url(:thumb), class: 'photo', alt: event.speaker.fullname ) %>
+				<%= link_to( image_tag( event.speaker.photo.url(:thumb), class: 'photo', alt: event.speaker.fullname ), event.speaker ) %>
 			</div>
 			<div class = 'speaker-about'>
 				<div class='speaker-name speech-info'>
