@@ -2,7 +2,6 @@
 $(document).ready(function(){scheduleChange(); $('#sortable').click(function(){ scheduleChange(); }); });
 
 function scheduleChange(){
-	console.log('ScheduleTime()');
 	
 	timestartItems = $('.timestart');
 	durationItems = $('.duration');
@@ -47,17 +46,21 @@ function parseTime(durationItem){
 }
 
 function sendAJAX(){
-    console.log('AJAX?');
 
     idItems = $('.idItems');
+    positionItems = $('.positionItems');
 	
 	for (var i = 0; i < idItems.length; i++){
-		var n = idItems[i].innerHTML;
-		console.log(n);
-		var line = "/admin/events/" + n + "/position.json?position=" + i;
-		var xmlhttp = new XMLHttpRequest();
-		xmlhttp.open("GET", line, true);
-		xmlhttp.send();
+		console.log("if");
+		if ( positionItems[i].innerHTML != i ) {
+			console.log( positionItems[i].innerHTML +"|"+ i );
+			positionItems[i].innerHTML = i;
+			var n = idItems[i].innerHTML;
+			var line = "/admin/events/" + n + "/position.json?position=" + i;
+			var xmlhttp = new XMLHttpRequest();
+			xmlhttp.open("GET", line, true);
+			xmlhttp.send();
+		};
 	}
 
  }

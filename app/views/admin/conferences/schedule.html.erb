@@ -13,6 +13,7 @@
 </script>
 
 <ul id="sortable" class="list-group">
+<% @@positionNumber = 0 %>
 <% @events.each do |event| %>
   <li class="ui-state-default list-group-item schedule-item" >
     <span class="timestart" style="position: relative;"></span>
@@ -20,6 +21,7 @@
     |
     <span style="position: relative;"><%= event.title %></span>
     <span class="idItems" style= "display: none;"><%= event.id %></span>
+    <span class="positionItems" style="display: none;"><%= @@positionNumber %><% @@positionNumber += 1 %></span>
     <% unless event.speaker_id.nil? %>
           <span style="position:relative;float:right;"><%= link_to "-" + event.speaker.name + " " + event.speaker.surname, event.speaker %></span>
     <% end %>
@@ -27,7 +29,7 @@
 <% end %>
 </ul>
 
-<button onclick="sendAJAX()">Set Position</button><br>
+<button onclick="sendAJAX()" class="btn btn-default">Set Position</button><br>
 
 <%= link_to 'New event', controller: 'admin/events', 
                          action: 'new',
