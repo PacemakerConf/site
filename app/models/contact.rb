@@ -8,10 +8,6 @@ class Contact < ActiveRecord::Base
   		email.split(';')
   	end
 
-	has_many :emails, :dependent => :destroy
-	accepts_nested_attributes_for :emails, :reject_if => lambda { |a| a[:email].blank? }
-
-
 	has_and_belongs_to_many :locations
 
 	validates :name, presence: true
