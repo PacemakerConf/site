@@ -1,7 +1,7 @@
 class Admin::EventsController < Admin::ApplicationController
   layout 'admin'
   before_action :authenticate_admin!, except: [:new, :create, :index]
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: [:publish, :show, :edit, :update, :destroy]
 
   # GET /events
   # GET /events.json
@@ -16,6 +16,12 @@ class Admin::EventsController < Admin::ApplicationController
     @non_speaker_event = EventType.where(speakerEvent: 0)
     @speaker_events = @events.where(event_type: @speaker_event)
     @non_speaker_events = @events.where(event_type: @non_speaker_event)
+  end
+
+  def publish 
+    @event.published = true
+    @event.save!
+    redirect_to controller: 'admin/events', action: 'index', conf_id: @event.conference.id
   end
 
   # GET /events/1
@@ -84,6 +90,6 @@ class Admin::EventsController < Admin::ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:title, :description, :event_type_id, :conference_id, :speaker_id, :duration, :position, :responsable, :video, :materials)
+      params.require(:event).permit(:published, :title, :description, :event_type_id, :conference_id, :speaker_id, :duration, :position, :responsable, :video, :materials)
     end
 end

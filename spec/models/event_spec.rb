@@ -19,10 +19,6 @@ describe Event do
 		expect(FactoryGirl.build(:event, conference_id: nil)).not_to be_valid
 	end
 
-	it 'is invalid without event_type_id' do
-		expect(FactoryGirl.build(:event, event_type_id: nil)).not_to be_valid
-	end
-
 	it 'is invalid with speakerEvent without speaker' do
 		event_type = FactoryGirl.create(:event_type, speakerEvent: 1)
 		expect(FactoryGirl.build(:event, event_type: event_type)).not_to be_valid

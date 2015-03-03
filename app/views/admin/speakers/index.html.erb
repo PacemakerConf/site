@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 <h1>Listing Speakers</h1>
-<table id="speaker" class="display" width="100%" cellspacing="0">
+<table class="display data_table" width="100%" cellspacing="0">
   <thead>
     <tr>
         <th>Name</th>
@@ -47,15 +47,7 @@
   </tbody>
 </table>
 
-<script type="text/javascript">
-  $(document).ready(function() {
-    $('#speaker').dataTable({
-      paging: true
-    });
-  });
-</script>
 <br>
-
 
 <%= link_to 'Invite speaker', invite_admin_speakers_path, class: "btn btn-default btn-sm" %>
 
