@@ -31,10 +31,10 @@
           <td><%= speaker.surname %></td>
           <td><%= speaker.position %></td>
           <td><%= speaker.description %></td>
-          <td><%= link_to 'Show', admin_speaker_path(speaker.id), class: "btn btn-default btn-xs" %></td>
+          <td><%= link_to 'Show', admin_speaker_path(speaker), class: "btn btn-default btn-xs" %></td>
           <td>
             <% if can? :edit, @speaker %>
-            <%= link_to 'Edit', edit_admin_speaker_path(speaker.id), class: "btn btn-warning btn-xs" %>
+            <%= link_to 'Edit', edit_admin_speaker_path(speaker), class: "btn btn-warning btn-xs" %>
             <% end %>
           </td>
           <td>

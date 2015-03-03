@@ -31,7 +31,7 @@ Rails.application.routes.draw do
     resources :locations
     resources :reports  
 
-    resources :speakers, param: :name do
+    resources :speakers do
       collection do
         get 'invite', to: 'speakers#invite'
         post 'send', to: 'speakers#send_invitation'
