@@ -36,7 +36,7 @@
       <%= f.label :email, class: "col-lg-2 control-label"%>
       <a class="btn-default btn-sm" id ="add_button" onclick="addMailRow(this);return false;">+</a>
       <div class="col-lg-7">
-        <input class="form-control mail-adress" >
+        <input class="form-control mail-adreess" >
       </div>
   </div>
 
@@ -65,9 +65,9 @@
     '<div class="form-group ">'+
      '<label class="col-lg-2 control-label label_contact">Email</label>'+
       '<div class="col-lg-6 contact_form">'+
-        '<input class="form-control mail-adress" type="text" >'+
+        '<input class="form-control mail-adreess" type="text" >'+
       '</div>'+
-      '<a class="remove_nested_fields btn-default btn-sm" id="remove_button" onclick="RemoveMail(this);return false;">-</a>'+
+      '<a class="remove_nested_fields btn-default btn-sm" id="remove_button_contact" onclick="RemoveMail(this);return false;">-</a>'+
     '</div>';
     $("#mail-area").append(divHTML);
 
@@ -80,7 +80,7 @@
 
 $('[name="commit"]').click(function(){
   var mails = '';
-  $('.mail-adress').each(function(index,obj){
+  $('.mail-adreess').each(function(index,obj){
       mails+=$(obj).val()+';';
   });
   $('[name="contact[email]"]').val(mails);

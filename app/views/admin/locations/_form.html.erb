@@ -63,26 +63,15 @@
     <div class="col-lg-7">
       
       <%= select_tag 'location[contact_ids][]', options_from_collection_for_select(@contacts, 'id', :full_name) %>
-      <a class="btn-default btn-sm" onclick="addContact(this);return false;">Add</a>
-      <div class="form-group" id="contact-area"></div>
+      <a class="btn-default btn-sm" id="add_contacts" onclick="addContact(this);return false;">+</a>
+      <div class="form-group" id="location-area"></div>
     </div>
   </div>
-
-
-
-
-
-
-
-
-
-
-
 
   <div class="form-group">
     <%= f.label :how_to_find, class: "col-lg-2 control-label" %>
     <div class="col-lg-7">
-      <%= f.text_area :how_to_find, class: "form-control", class: 'wysihtml5' %>
+      <%= f.text_area :how_to_find, class: "form-control wysihtml5" %>
     </div>
   </div>
   
@@ -98,8 +87,10 @@
 
     function addContact(){
       var divHTML = $('#location_contact_ids_')[0].outerHTML;
-      divHTML = "<div>" + "Contact" + divHTML + "</div>";
-      $("#contact-area").append(divHTML);
+      divHTML = '<div id="new_select">' + divHTML +
+      '<a class="remove_nested_fields btn-default btn-sm" id="remove_button_location" onclick="RemoveContact(this);return false;">-</a>'+
+      "</div>";
+      $("#location-area").append(divHTML);
 
 
   } 
@@ -109,6 +100,10 @@
   }
   
 
+
+    $('.wysihtml5').each(function(i, elem) {
+      $(elem).wysihtml5().html_safe();
+    });
 </script>
 
 

@@ -5834,7 +5834,7 @@ button.close {
   background-color: #006687;
 }
 .btn {
-  padding: 14px 28px;
+  /*padding: 14px 28px;*/
 }
 .btn-lg {
   padding: 16px 32px;
@@ -6103,12 +6103,39 @@ label,
   display: inline-block;
 }
 
-#remove_button{
+#remove_button_contact{
   display: inline-block;
+  padding-top: 9px;
+  padding-bottom: 8px;
+  padding-left: 18px;
+  padding-right: 17px;
+  margin-left: 55px;
   margin-left: 55px;
 }
 
-.mail-adress{
+.mail-adreess{
   width: 460px;
+}
+
+#add_contacts{
+  padding-top: 5px;
+  padding-bottom: 3px;
+  padding-left: 14px;
+  padding-rigth: 14px;
+}
+
+#remove_button_location{
+  margin-left: 4px;
+  padding-top: 5px;
+  padding-bottom: 3px;
+}
+
+#new_select{
+  margin-left: 15px;
+  margin-top: 7px;
+}
+
+#location-area{
+  margin-bottom:0; 
 }
 /* Bad Styles*/
