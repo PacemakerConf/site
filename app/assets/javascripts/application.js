@@ -26,10 +26,9 @@
 //= require_tree ./views
 //= require_tree ./routers
 //= require_tree .
+
 //= require bootstrap-wysihtml5
 //= require fileinput.min
-
 //= require moment
 //= require bootstrap-datetimepicker
-
 //= require nested_form

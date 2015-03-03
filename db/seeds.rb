@@ -408,6 +408,15 @@ andriy = Contact.create(
 	skype: 'andr_loz',
 	)
 
+first = Report.create(
+	id: 1,
+	responsable: 'Vadym Kirdan',
+	video: 'https://youtube.com/watch?',
+	title: 'best conference ever',
+	description: 'bla bla bla',
+	conference_id: 1
+	)
+
 sadova.contacts << vad
 sadova.contacts << andriy
 pasternaka.contacts << uriy
@@ -419,19 +428,19 @@ pasternaka.contacts << vad
 Year.create(
 	name: 2012,
 	content: 'Greate year. This is the first year of conference and so many evvents already ... blablabla',
-	publishe: true
+	published: true
 	)
 
 Year.create(
 	name: 2013,
 	content: 'Greate year2. This is the first year of conference and so many evvents already ... blablabla',
-	publishe: true
+	published: true
 	)
 
 Year.create(
 	name: 2014,
 	content: 'Greate year3. This is the first year of conference and so many evvents already ... blablabla',
-	publishe: false
+	published: false
 	)
 
 

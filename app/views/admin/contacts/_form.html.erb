@@ -34,29 +34,15 @@
   <div class="form-group">
       <%= f.label :email, class: "col-lg-2 control-label"%>
       <div class="col-lg-7">
-        <%= f.text_field :email, class: "form-control" %>
+        <input class="form-control mail-adreess" >
+        <a class="btn-default btn-sm" onclick="addMailRow(this);return false;">Add</a>
       </div>
   </div>
 
-    <% f.fields_for :emails do |form| %>
-    <div class="form-group"> 
-    <%= form.label :email, class: "col-lg-1 control-label" %>
-    <div class="col-lg-6">
-      <%= form.text_field :email, class: "form-control " %>
-    </div>
-    <%= form.link_to_remove "Remove" %>
-    </div>
-   
-    
-    <% end %>
-
-
-    <div class="form-group">
-        <div class="col-lg-10 col-lg-offset-2">
-         <%= f.link_to_add "Add", :emails, class: "btn-default btn-sm"%>
-        </div> 
-    </div> 
-
+  
+  <div class="form-group" id="mail-area"></div>
+  <input type="hidden" name="contact[email]" value="">
+  
       <div class="form-group">
     <%= f.label :skype, class: "col-lg-2 control-label"%>
     <div class="col-lg-7">
@@ -69,6 +55,38 @@
     </div>
   </div>
 <% end %>
+
+
+<script type="text/javascript">
+
+  function addMailRow(){
+    var divHTML = 
+    '<div class="form-group">'+
+     '<label class="col-lg-2 control-label">Email</label>'+
+      '<div class="col-lg-6">'+
+        '<input class="form-control mail-adreess" type="text" >'+
+      '</div>'+
+      '<a class="remove_nested_fields"  onclick="RemoveMail(this);return false;">Remove</a>'+
+    '</div>';
+    $("#mail-area").append(divHTML);
+
+  
+  } 
+
+  function RemoveMail(button){
+    $(button).parent().remove();
+  }
+
+$('[name="commit"]').click(function(){
+  var mails = '';
+  $('.mail-adreess').each(function(index,obj){
+      mails+=$(obj).val()+';';
+  });
+  $('[name="contact[email]"]').val(mails);
+});
+  
+  
+</script>
 
 
 

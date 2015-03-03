@@ -30,15 +30,9 @@
         <td><%= contact.name %></td>
         <td><%= contact.surname %></td>
         <td><%= contact.telephone %></td>
-           
-
-         <td><%= contact.email %><br>
-             <% contact.emails.each do |emails| %>
-               <%= emails.email %><br>
-             <% end %>
-          </td>
-
-
+         <td><% contact.splited_mail.each do |mail| %>
+             <%= mail %><br>
+            <% end %></td>
         <td><%= contact.skype %></td>
         <td><%= link_to 'Show', admin_contact_path(contact), class: 'btn btn-xs btn-primary' %></td>
         <td><%= link_to 'Edit', edit_admin_contact_path(contact), class: 'btn btn-xs btn-warning' %></td>
@@ -49,5 +43,6 @@
 </table>
 
 <br>
+
 
 <%= link_to 'New Contact', new_admin_contact_path %>

@@ -20,6 +20,7 @@ Rails.application.routes.draw do
         get 'publish'
       end
     end
+
     resources :contacts
     resources :events do
       member do
@@ -27,8 +28,10 @@ Rails.application.routes.draw do
       end
     end
     resources :event_types 
-    resources :locations  
-    resources :speakers, param: :name do
+    resources :locations
+    resources :reports  
+
+    resources :speakers do
       collection do
         get 'invite', to: 'speakers#invite'
         post 'send', to: 'speakers#send_invitation'
@@ -51,7 +54,8 @@ Rails.application.routes.draw do
   get ':name/speakers', to: 'conferences#speakers', as: :speakers_conference
   get ':name/location', to: 'conferences#location', as: :location_conference
   get ':name/schedule', to: 'conferences#schedule', as: :schedule_conference
+  get ':name/report', to: 'conferences#report', as: :report_conference
 
-  resources :reports
+  
 
 end 

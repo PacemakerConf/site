@@ -29,9 +29,9 @@
                     link_to "Create Location", {controller: 'admin/locations', action: 'new', conf_id: conference.id, conf_fname: conference.fullname}, class: 'btn btn-xs btn-primary'
                   end %></td>
           <td><%= unless(conference.report.nil?)
-                    link_to "#{conference.report.address}", report_conference_path(conference.route), class: 'btn btn-xs btn-info'
+                    link_to "#{conference.report.title}", report_conference_path(conference.route), class: 'btn btn-xs btn-info'
                   else
-                    link_to "Create", new_report_path(), class: 'btn btn-xs btn-primary'
+                    link_to "Create Report", {controller: 'admin/reports', action: 'new', conf_id: conference.id, conf_fname: conference.fullname}, class: 'btn btn-xs btn-primary'
                   end %></td>
           <td>
             <% if conference.published %>

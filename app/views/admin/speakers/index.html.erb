@@ -1,4 +1,4 @@
-
+<p id="notice"><%= notice %></p>
 <h1>Listing Speakers</h1>
 <table class="display data_table" width="100%" cellspacing="0">
   <thead>
@@ -31,10 +31,10 @@
           <td><%= speaker.surname %></td>
           <td><%= speaker.position %></td>
           <td><%= speaker.description %></td>
-          <td><%= link_to 'Show', admin_speaker_path(speaker.id), class: "btn btn-default btn-xs" %></td>
+          <td><%= link_to 'Show', admin_speaker_path(speaker), class: "btn btn-default btn-xs" %></td>
           <td>
             <% if can? :edit, @speaker %>
-            <%= link_to 'Edit', edit_admin_speaker_path(speaker.id), class: "btn btn-warning btn-xs" %>
+            <%= link_to 'Edit', edit_admin_speaker_path(speaker), class: "btn btn-warning btn-xs" %>
             <% end %>
           </td>
           <td>
@@ -49,8 +49,8 @@
 
 <br>
 
-<%= link_to 'Invite speaker', invite_admin_speakers_path, class: "btn btn-default btn-sm" %>
+<%= link_to 'Invite speaker', invite_admin_speakers_path, class: "btn btn-default btn-success" %>
 
 <% if can? :create, Speaker %>
-<%= link_to 'New speaker', new_admin_speaker_path, class: "btn btn-default btn-sm" %>
+<%= link_to 'New speaker', new_admin_speaker_path, class: "btn btn-default btn-success" %>
 <% end %>

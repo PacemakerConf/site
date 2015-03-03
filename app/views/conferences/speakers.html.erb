@@ -1,33 +1,35 @@
 <% content_for :title, @conference.fullname %>
 
 <% @events.each do |event| %>
+	<% if can? :read, event %>
 
-	<div class="row speakers-det">
-		<div class = 'full-speaker-container col-lg-7 col-md-7 col-xs-7'>
-			<div class = 'speaker-photo'>
-				<%= image_tag( event.speaker.photo.url(:thumb), class: 'photo', alt: event.speaker.fullname ) %>
-			</div>
-			<div class = 'speaker-about'>
-				<div class='speaker-name speech-info'>
-					<%= link_to event.speaker.fullname, speaker_path(event.speaker) %>
+		<div class="row speakers-det <%= event.published ? "" : "unpublished" %> ">
+			<div class = 'full-speaker-container col-lg-7 col-md-7 col-xs-7'>
+				<div class = 'speaker-photo'>
+					<%= link_to( image_tag( event.speaker.photo.url(:thumb), class: 'photo', alt: event.speaker.fullname ), event.speaker ) %>
 				</div>
-				<div><%= event.speaker.description %></div>
-			</div>	
-		</div>
+				<div class = 'speaker-about'>
+					<div class='speaker-name speech-info'>
+						<%= link_to event.speaker.fullname, speaker_path(event.speaker) %>
+					</div>
+					<div><%= event.speaker.description %></div>
+				</div>	
+			</div>
 
-		<div class = 'speech-about col-lg-5 col-md-5 col-xs-5'>
-			<div><strong><%= event.title %></strong></div>
-			<div><%= event.description %></div>
-			<div>
-				<br>
-				<% if event.materials.exists? %>
-          <%= link_to "", event.materials.url(:original, false), class:"btn btn-default btn-xs glyphicon glyphicon-download-alt" %>
-        <% end %>
-        <% unless event.video.nil? %>
-          <%= link_to '', event.video, class:"btn btn-default btn-xs glyphicon glyphicon-play" %>
-        <% end %>
+			<div class = 'speech-about col-lg-5 col-md-5 col-xs-5'>
+				<div><strong><%= event.title %></strong></div>
+				<div><%= event.description %></div>
+				<div>
+					<br>
+					<% if event.materials.exists? %>
+	          <%= link_to "", event.materials.url(:original, false), class:"btn btn-default btn-xs glyphicon glyphicon-download-alt" %>
+	        <% end %>
+	        <% unless event.video.nil? %>
+	          <%= link_to '', event.video, class:"btn btn-default btn-xs glyphicon glyphicon-play" %>
+	        <% end %>
+				</div>
 			</div>
 		</div>
-	</div>
 
+	<% end %>
 <% end %>

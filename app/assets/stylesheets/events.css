@@ -2,3 +2,7 @@
 	display: inline-block !important;
 	width: 35px !important;
 }
+
+.unpublished{
+	background-color: #ffffcc;
+}
