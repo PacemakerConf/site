@@ -35,14 +35,14 @@
       <%= f.label :email, class: "col-lg-2 control-label"%>
       <div class="col-lg-7">
         <input class="form-control mail-adreess" >
+        <a class="btn-default btn-sm" onclick="addMailRow(this);return false;">Add</a>
       </div>
   </div>
 
   
   <div class="form-group" id="mail-area"></div>
   <input type="hidden" name="contact[email]" value="">
-  <a class="btn-default btn-sm" onclick="addMailRow(this);return false;">Add</a>
-
+  
       <div class="form-group">
     <%= f.label :skype, class: "col-lg-2 control-label"%>
     <div class="col-lg-7">
@@ -76,10 +76,6 @@
   function RemoveMail(button){
     $(button).parent().remove();
   }
-
-  $('[name="commit"]').click(function(){
-    
-  })
 
 $('[name="commit"]').click(function(){
   var mails = '';
