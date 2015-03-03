@@ -1,4 +1,4 @@
-
+<p id="notice"><%= notice %></p>
 <h1>Listing Speakers</h1>
 <table class="display data_table" width="100%" cellspacing="0">
   <thead>
@@ -49,8 +49,8 @@
 
 <br>
 
-<%= link_to 'Invite speaker', invite_admin_speakers_path, class: "btn btn-default btn-sm" %>
+<%= link_to 'Invite speaker', invite_admin_speakers_path, class: "btn btn-default btn-success" %>
 
 <% if can? :create, Speaker %>
-<%= link_to 'New speaker', new_admin_speaker_path, class: "btn btn-default btn-sm" %>
+<%= link_to 'New speaker', new_admin_speaker_path, class: "btn btn-default btn-success" %>
 <% end %>

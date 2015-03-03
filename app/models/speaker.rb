@@ -5,7 +5,7 @@ class Speaker < ActiveRecord::Base
 	INVITE_MESSAGE_TOKEN = '$${link_invitation}' 
 	INVITE_MESSAGE_REGEXP = /\$\$\{\w+\}/
 	INVITE_MESSAGE = <<-MESSAGE
-Hi! You are invited for registration at our site! 
+Hi! You are invited for registration to the conference at our site! 
 Your link is #{INVITE_MESSAGE_TOKEN}
 Enjoy!
 	MESSAGE
