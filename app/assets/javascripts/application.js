@@ -18,10 +18,9 @@
 //= require jquery.datetimepicker
 //= require turbolinks
 //= require_tree .
+
 //= require bootstrap-wysihtml5
 //= require fileinput.min
-
 //= require moment
 //= require bootstrap-datetimepicker
-
 //= require nested_form

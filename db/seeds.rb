@@ -408,6 +408,15 @@ andriy = Contact.create(
 	skype: 'andr_loz',
 	)
 
+first = Report.create(
+	id: 1,
+	responsable: 'Vadym Kirdan',
+	video: 'https://youtube.com/watch?',
+	title: 'best conference ever',
+	description: 'bla bla bla',
+	conference_id: 1
+	)
+
 sadova.contacts << vad
 sadova.contacts << andriy
 pasternaka.contacts << uriy

@@ -5834,7 +5834,7 @@ button.close {
   background-color: #006687;
 }
 .btn {
-  padding: 14px 28px;
+  /*padding: 14px 28px;*/
 }
 .btn-lg {
   padding: 16px 32px;
@@ -5843,7 +5843,7 @@ button.close {
   padding: 8px 16px;
 }
 .btn-xs {
-  padding: 4px 8px;
+  padding: 4px 16px;
 }
 .btn-group .btn ~ .dropdown-toggle {
   padding-left: 16px;
