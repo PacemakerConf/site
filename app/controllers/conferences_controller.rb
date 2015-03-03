@@ -1,10 +1,15 @@
 class ConferencesController < ApplicationController
 
-  before_action :set_conference, only: [:schedule, :location, :speakers, :show, :edit, :update, :destroy]
+  before_action :set_conference, only: [:schedule, :location, :speakers, :report, :show, :edit, :update, :destroy]
 
   def location 
     @location = @conference.location
     @active_button = 'location'
+  end
+
+  def report 
+    @report = @conference.report
+    @active_button = 'report'
   end
 
   def speakers
@@ -97,6 +102,6 @@ class ConferencesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def conference_params
-      params.require(:conference).permit(:name, :year, :date, :attenders, :group_event)
+      params.require(:conference).permit(:name, :year, :date, :attenders)
     end
 end

@@ -1,29 +1,35 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Year Page</h1>
-
-<table>
+<h1>Listing Years</h1>
+<table class="display data_table" width="100%" cellspacing="0">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Content</th>
-      <th colspan="3"></th>
+        <th>Year</th>
+        <th>Description</th>
+        <th>Conference count</th>
+        <th>Publish</th>
+        <th>Edit</th>
+        <th>Delete</th>
     </tr>
   </thead>
-
   <tbody>
-    <% @years.each do |year| %>
+      <% @years.each do |year| %>
       <tr>
-        <td><%= year.name %></td>
-        <td><%= year.content %></td>
-        <td><%= link_to 'Show', admin_year_path(yaer) %></td>
-        <td><%= link_to 'Edit', edit_admin_year_path(year) %></td>
-        <td><%= link_to 'Destroy', admin_year_path(year), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= year.name %></td>
+          <td><%= year.content %>
+          <td><%= Conference.where(year: year.name.to_i).count %></td>
+         <td>
+            <% if year.published %>
+              Published
+            <% else %>
+              <%= link_to 'Publish', publish_admin_year_path(year), class: 'btn btn-xs btn-primary' %>              
+            <% end %>
+          </td>
+           <td><%= link_to 'Edit', edit_admin_year_path(year), class: 'btn btn-xs btn-warning' %></td>
+          <td><%= link_to 'Destroy', admin_year_path(year), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger' %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Year', new_admin_year_path %>
+<%= link_to 'New year', new_admin_year_path, class: "" %>

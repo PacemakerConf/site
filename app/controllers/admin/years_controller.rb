@@ -1,7 +1,13 @@
 class Admin::YearsController < Admin::ApplicationController
   layout 'admin'
 
-  before_action :set_year, only: [:show, :edit, :update, :destroy]
+  before_action :set_year, only: [:publish, :show, :edit, :update, :destroy]
+
+  def publish
+    @year.published = true
+    @year.save!
+    redirect_to admin_years_url
+  end
 
   # GET /years
   # GET /years.json
@@ -71,6 +77,6 @@ class Admin::YearsController < Admin::ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def year_params
-      params.require(:year).permit(:name, :content)
+      params.require(:year).permit(:name, :content, :published)
     end
 end

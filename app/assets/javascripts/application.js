@@ -15,13 +15,12 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require jquery.dataTables.js
-
+//= require jquery.datetimepicker
 //= require turbolinks
 //= require_tree .
+
 //= require bootstrap-wysihtml5
 //= require fileinput.min
-
 //= require moment
 //= require bootstrap-datetimepicker
-
-//= require ../../../vendor/assets/javascripts/nested_form
+//= require nested_form

@@ -4,9 +4,9 @@ class Contact < ActiveRecord::Base
     	"#{surname} #{name}"
   	end
 
-	has_many :emails, :dependent => :destroy
-	accepts_nested_attributes_for :emails, :reject_if => lambda { |a| a[:email].blank? }
-
+  	def splited_mail
+  		email.split(';')
+  	end
 
 	has_and_belongs_to_many :locations
 
@@ -14,5 +14,7 @@ class Contact < ActiveRecord::Base
 	validates :surname, presence: true
 	validates :telephone, presence: true
 	validates :email, presence: true
+	#validates :email, :email => true
 	validates :skype, presence: true
+	
 end
