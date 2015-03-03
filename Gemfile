@@ -20,7 +20,7 @@ gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
-gem 'twitter-bootstrap-rails'
+
 
 gem "mail"
 
@@ -33,6 +33,8 @@ end
 gem 'jquery-datetimepicker-rails'
 gem 'will_paginate'
 gem 'momentjs-rails', '>= 2.8.1'
+gem 'twitter-bootstrap-rails'
+gem 'backbone-on-rails'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.0.0'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
