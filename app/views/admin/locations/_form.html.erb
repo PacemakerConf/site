@@ -50,12 +50,33 @@
     </div>
   </div>
 
+
+
+
+
+
+
+
+
   <div class="form-group">
     <%= f.label :contact_id, 'Contact', class: "col-lg-2 control-label" %>
     <div class="col-lg-7">
-      <%= f.collection_select :contact_ids, @contacts, :id, :full_name, {}, {:multiple => true} %>
+      
+      <%= select_tag 'location[contact_ids][]', options_from_collection_for_select(@contacts, 'id', :full_name) %>
+      <a class="btn-default btn-sm" onclick="addContact(this);return false;">Add</a>
+      <div class="form-group" id="contact-area"></div>
     </div>
   </div>
+
+
+
+
+
+
+
+
+
+
 
 
   <div class="form-group">
@@ -74,11 +95,22 @@
 
 
 <script type="text/javascript">
-  $(document).ready(function(){
 
-    $('.wysihtml5').each(function(i, elem) {
-      $(elem).wysihtml5();
-    });
+    function addContact(){
+      var divHTML = $('#location_contact_ids_')[0].outerHTML;
+      divHTML = "<div>" + "Contact" + divHTML + "</div>";
+      $("#contact-area").append(divHTML);
 
-  })
+
+  } 
+
+  function RemoveContact(button){
+    $(button).parent().remove();
+  }
+  
+
 </script>
+
+
+
+

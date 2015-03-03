@@ -5834,7 +5834,7 @@ button.close {
   background-color: #006687;
 }
 .btn {
-  /*padding: 14px 28px;*/
+  padding: 14px 28px;
 }
 .btn-lg {
   padding: 16px 32px;
@@ -6085,3 +6085,30 @@ label,
   border-top-right-radius: 0;
   border-top-left-radius: 0;
 }
+
+/* Bad Styles*/
+.label_contact{
+  padding-right: 5px;
+}
+
+.contact_form{
+  margin-left: 10px;
+}
+
+#mail-area{
+  margin-bottom:0; 
+}
+
+#add_button{
+  display: inline-block;
+}
+
+#remove_button{
+  display: inline-block;
+  margin-left: 55px;
+}
+
+.mail-adress{
+  width: 460px;
+}
+/* Bad Styles*/
