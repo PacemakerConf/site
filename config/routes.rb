@@ -44,7 +44,7 @@ Rails.application.routes.draw do
   end
 
 
-  #userside
+  #userside 
   resources :speakers
   resources :conferences, param: :name
 
