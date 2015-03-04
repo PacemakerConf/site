@@ -17,15 +17,19 @@
 }
 
 .name-conteiner{
-	padding:0 0 0 5px;
+	padding:0px 5px;
 }
 
 .conference-name{
-	padding:2px 12px 28px 5px;
+	padding:13px 10px 24px 13px;
 	background-color: #006687;
-	margin: 5px 0px;
+	margin: 5px;
 	color: #F6F6F6;
 	text-align: right;
+}
+
+conference-name h1{
+	margin:10px;
 }
 
 .contacts{
@@ -35,8 +39,7 @@
 .conference-det-2{
 	background-color: #002C3A;
 	margin: 5px;
-	margin-left:0;
-	padding: 20px 10px;
+	padding: 20px 10px 10px 10px;
 }
 
 .conference-det-2 ul{
@@ -103,3 +106,4 @@ footer{
 .logoes .col-sm-12 li{
 	margin: 4px;
 }
+

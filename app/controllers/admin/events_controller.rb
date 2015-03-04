@@ -1,6 +1,5 @@
 class Admin::EventsController < Admin::ApplicationController
   layout 'admin'
-  before_action :authenticate_admin!, except: [:new, :create, :index]
   before_action :set_event, only: [:publish, :show, :edit, :update, :destroy]
 
   # GET /events
@@ -31,7 +30,6 @@ class Admin::EventsController < Admin::ApplicationController
 
   # GET /events/new
   def new
-    authorize! :create, Event
     @event = Event.new
   end
 
@@ -42,7 +40,6 @@ class Admin::EventsController < Admin::ApplicationController
   # POST /events
   # POST /events.json
   def create
-    authorize! :create, Event
     @event = Event.new(event_params)
     @conference = Conference.find(event_params[:conference_id])
     position = Event.where(conference: @conference).size + 1
