@@ -30,8 +30,14 @@ class Admin::SpeakersController < Admin::ApplicationController
 
   def send_invitation
     #render text: params[:email]
-    Speaker.invite_speaker(params[:email], params[:message])
-    redirect_to admin_speakers_path, notice: 'Invitation was successfully sent.'
+    @invite = Invitation.new
+    @invite.email= params[:email]
+    if @invite.save
+      Invitation.invite_speaker(params[:email], params[:message])
+      redirect_to admin_speakers_path, notice: 'Invitation was successfully sent.'
+    else
+      redirect_to admin_speakers_path, notice: 'Invitation was not sent.'
+    end
   end
 
   # POST /speakers

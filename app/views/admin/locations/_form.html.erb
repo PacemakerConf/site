@@ -1,84 +1,82 @@
-<%= form_for [:admin, @location],  html: {class: 'form-horizontal'}  do |f| %>
-  <% if @location.errors.any? %>
+<%= form_for( [:admin, @speaker],  html: {class: 'form-horizontal'} ) do |f| %>
+   
+  <% if @speaker.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@location.errors.count, "error") %> prohibited this location from being saved:</h2>
+      <h2><%= pluralize(@speaker.errors.count, "error") %> prohibited this speaker from being saved:</h2>
 
       <ul>
-      <% @location.errors.full_messages.each do |message| %>
+      <% @speaker.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
 
-    <div class="form-group">
-      <% if params['conf_id'] %>
-      <div class="col-lg-7">
-        <h4>Conference:  <%= params['conf_fname'] %> </h4>
-      </div>
-        <%= hidden_field( :location, :conference_id, value: params['conf_id']) %>
-      <% else %>
-        <%= f.label :conference_id, 'Conference', class: "col-lg-2 control-label" %>
-        <div class="col-lg-7">
-        <%= select_tag 'location[conference_id]', options_from_collection_for_select(Conference.all, 'id', 'fullname'), class: "form-control" %>
-        </div>
-      <% end %>
-   </div>
-
+  
   <div class="form-group">
-    <%= f.label :place_type, class: "col-lg-2 control-label" %>
+    <%= f.label :photo, 'Photo', class: "col-lg-2 control-label"%>
     <div class="col-lg-7">
-      <%= f.text_field :place_type, class: "form-control" %>
+      <%= f.file_field :photo, class: "btn btn-default" %>
+      <script>
+        $("#speaker_photo").fileinput({
+        maxFilesNum: 1,
+        allowedFileExtensions: ["jpg", "gif", "png", "txt"]
+        });
+      </script>
     </div>
   </div>
-   <div class="form-group">
-    <%= f.label :name, class: "col-lg-2 control-label" %>
+
+  <div class="form-group">
+    <%= f.label :name, 'Name*', class: "col-lg-2 control-label"%>
     <div class="col-lg-7">
       <%= f.text_field :name, class: "form-control" %>
     </div>
   </div>
-   <div class="form-group">
-    <%= f.label :city, class: "col-lg-2 control-label" %>
+  <div class="form-group">
+    <%= f.label :surname, 'Surname*', class: "col-lg-2 control-label"%>
     <div class="col-lg-7">
-      <%= f.text_field :city, class: "form-control" %>
+      <%= f.text_field :surname, class: "form-control" %>
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :address, class: "col-lg-2 control-label" %>
+    <%= f.label :position, 'Position*', class: "col-lg-2 control-label"%>
     <div class="col-lg-7">
-      <%= f.text_field :address, class: "form-control" %>
+      <%= f.text_field :position, class: "form-control" %>
     </div>
   </div>
-
   <div class="form-group">
-    <%= f.label :contact_id, 'Contact', class: "col-lg-2 control-label" %>
+    <%= f.label :description, 'Description*', class: "col-lg-2 control-label"%>
     <div class="col-lg-7">
-      <%= f.collection_select :contact_ids, @contacts, :id, :full_name, {}, {:multiple => true} %>
+      <%= f.text_area :description, class: "form-control", rows: 2 %>
     </div>
   </div>
-
-
   <div class="form-group">
-    <%= f.label :how_to_find, class: "col-lg-2 control-label" %>
+    <%= f.label :email, class: "col-lg-2 control-label"%>
     <div class="col-lg-7">
-      <%= f.text_area :how_to_find, class: "form-control", class: 'wysihtml5' %>
+      <%= f.text_field :email, class: "form-control" %>
     </div>
   </div>
-  
   <div class="form-group">
-    <div class="col-lg-10 col-lg-offset-2">
-      <%= f.submit class: "btn btn-primary"%>
+    <%= f.label :facebook, class: "col-lg-2 control-label"%>
+    <div class="col-lg-7">
+      <%= f.text_field :facebook, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :linkedin, class: "col-lg-2 control-label"%>
+    <div class="col-lg-7">
+      <%= f.text_field :linkedin, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :site, class: "col-lg-2 control-label"%>
+    <div class="col-lg-7">
+      <%= f.text_field :site, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-lg-7 col-lg-offset-2">
+      <%= f.submit %>
     </div>
   </div>
 <% end %>
-
-
-<script type="text/javascript">
-  $(document).ready(function(){
-
-    $('.wysihtml5').each(function(i, elem) {
-      $(elem).wysihtml5();
-    });
-
-  })
-</script>
