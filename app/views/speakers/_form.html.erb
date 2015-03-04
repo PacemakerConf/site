@@ -1,4 +1,5 @@
-<%= form_for @speaker do |f| %>
+<%= form_for( [:admin, @speaker],  html: {class: 'form-horizontal'} ) do |f| %>
+   
   <% if @speaker.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@speaker.errors.count, "error") %> prohibited this speaker from being saved:</h2>
@@ -11,40 +12,71 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :surname %><br>
-    <%= f.text_field :surname %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
-  </div>
-  <div class="field">
-  <%= f.label :photo %><br>
-  <%= f.file_field :photo %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :facebook %><br>
-    <%= f.text_field :facebook %>
-  </div>
-  <div class="field">
-    <%= f.label "linked-in" %><br>
-    <%= f.text_field :linkedin %>
-  </div>
-  <div class="field">
-    <%= f.label :site %><br>
-    <%= f.text_field :site %>
+  
+  <div class="form-group">
+    <%= f.label :photo, 'Photo', class: "col-lg-2 control-label"%>
+    <div class="col-lg-7">
+      <%= f.file_field :photo, class: "btn btn-default" %>
+      <script>
+        $("#speaker_photo").fileinput({
+        maxFilesNum: 1,
+        allowedFileExtensions: ["jpg", "gif", "png", "txt"]
+        });
+      </script>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group">
+    <%= f.label :name, 'Name*', class: "col-lg-2 control-label"%>
+    <div class="col-lg-7">
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :surname, 'Surname*', class: "col-lg-2 control-label"%>
+    <div class="col-lg-7">
+      <%= f.text_field :surname, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :position, 'Position*', class: "col-lg-2 control-label"%>
+    <div class="col-lg-7">
+      <%= f.text_field :position, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :description, 'Description*', class: "col-lg-2 control-label"%>
+    <div class="col-lg-7">
+      <%= f.text_area :description, class: "form-control", rows: 2 %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :email, class: "col-lg-2 control-label"%>
+    <div class="col-lg-7">
+      <%= f.text_field :email, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :facebook, class: "col-lg-2 control-label"%>
+    <div class="col-lg-7">
+      <%= f.text_field :facebook, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :linkedin, class: "col-lg-2 control-label"%>
+    <div class="col-lg-7">
+      <%= f.text_field :linkedin, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :site, class: "col-lg-2 control-label"%>
+    <div class="col-lg-7">
+      <%= f.text_field :site, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-lg-7 col-lg-offset-2">
+      <%= f.submit %>
+    </div>
   </div>
 <% end %>
