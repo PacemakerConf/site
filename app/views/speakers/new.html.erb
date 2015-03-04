@@ -2,7 +2,12 @@
 
 <legend>New Speaker</legend>
 
-
+<% Invitation.all.each do |invite|%>
+	<%= invite %>
+	<%= invite.email %>
+	<% cost=10 %>
+	<%=	hash = ::BCrypt::Password.create("#{invite.email}").to_s %>
+<% end %>
 
 <%= render 'form' %>
 
