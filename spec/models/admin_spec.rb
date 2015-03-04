@@ -4,7 +4,7 @@ require 'shoulda/matchers'
 describe Admin do
   
   it 'is valid with username, password and email' do
-    expect(FactoryGirl.create(:admin)).to be_valid
+    expect(FactoryGirl.build(:admin)).to be_valid
   end
 
   it 'is invalid without an email address' do
