@@ -13,14 +13,15 @@
   <% end %>
 <!-- <div class="container"> -->
 
+<div class="container">
+    <div class="row">
     <div class="form-group">
-
       <%= f.label :name, "Name*", class: "col-lg-2 control-label"%>
       <div class="col-lg-7">
         <%= f.text_field :name, class: "form-control" %>
       </div>
-      </div>
-        <div class="form-group">
+    </div>
+    <div class="form-group">
       <%= f.label :'year', "Year*", class: "col-lg-2 control-label" %>
     <div class="col-lg-7">
 
@@ -46,21 +47,29 @@
           <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
         </div>
       </div>
-
     </div>
 
     <div class="form-group">
       <%= f.label :attenders_count, class: "col-lg-2 control-label" %>
         <div class="col-lg-7">
       <%= f.number_field :attenders, value: "1", min: "1", class: "form-control" %>
+        </div>
+      </div>
+
+    <div class="form-group">
+      <%= f.label :group_event, class: "col-lg-2 control-label" %>
+        <div class="col-lg-7">
+      <%= check_box_tag :group_event, value: "" %>
       </div>
     </div>
-    </div>
+
     <div class="form-group">
     <div class="col-lg-7 col-lg-offset-2">
       <button type="reset" class="btn btn-default">Reset</button>
       <button type="submit" class="btn btn-primary">Create</button>
     </div>
+  </div>
+</div>
 </div>
 </form>
 <% end %>

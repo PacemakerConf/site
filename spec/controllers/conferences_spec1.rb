@@ -1,6 +1,4 @@
-require 'test_helper'
-
-describe ConferenceItemsController, "creating a new conference item" do
+describe ConferenceController, "creating a new conference item" do
   integrate_views
   fixtures :conference_items
   

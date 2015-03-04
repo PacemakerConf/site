@@ -19,11 +19,11 @@ function conferencePageLoad(){
 			for(var i = 0; i < years.length; i++){
 				if(years[i] != year){
 					$('.conference-' + years[i]).hide();
-					$('#flag-' + years[i]).children('img').attr('src', '/assets/GREYdark.png');
+					$('#flag-' + years[i]).children('img').attr('src', '/assets/GREY.png');
 				}
 				else{
 					$('.conference-' + years[i]).fadeToggle();
-					$('#flag-' + years[i]).children('img').attr('src', '/assets/REDlight.png');
+					$('#flag-' + years[i]).children('img').attr('src', '/assets/RED.png');
 				}	
 
 // $('.flag-year-image-container').hover(function() {

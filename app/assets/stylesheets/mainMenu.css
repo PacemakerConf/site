@@ -11,6 +11,7 @@
 .main-menu ul div li p a{
   color: white;
   background-color: transparent;
+
 }
 
 ul.conference-menu {
@@ -48,15 +49,10 @@ ul.conference-menu {
   background: inherit;
 }
 
-.description {
-  display: none;
-}
-
-
 .flag-image-container, .flag-year-image-container {
 
     position: relative;
-    height: 80px; 
+    height: 90px; 
 }
 
 .flag-text{

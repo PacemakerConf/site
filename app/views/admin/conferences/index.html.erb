@@ -30,7 +30,7 @@
                     link_to "Create Location", {controller: 'admin/locations', action: 'new', conf_id: conference.id, conf_fname: conference.fullname}, class: 'btn btn-xs btn-primary'
                   end %></td>
           <td><%= unless(conference.report.nil?)
-                    link_to "#{conference.report.address}", report_conference_path(conference.route), class: 'btn btn-xs btn-info'
+                    link_to "#{conference.report.address}", report_conference_path(conference.route), class: 'btn btn-xs btn-primary'
                   else
                     link_to "Create", new_report_path(), class: 'btn btn-xs btn-primary'
                   end %></td>
@@ -48,5 +48,4 @@
     });
   });
 </script>
-<br>
-<%= link_to 'New Conference', new_admin_conference_path, class: "" %>
+<%= link_to 'New Conference', new_admin_conference_path, class: "btn btn-default btn-sm" %>

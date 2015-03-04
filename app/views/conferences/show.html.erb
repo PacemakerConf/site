@@ -8,7 +8,7 @@
 				<% @topics.each do |topic| %>
 					<div class='speaker-container col-lg-5'>
 						<div class='speaker-photo'>
-							<% speaker = topic.speaker %>	
+							<% speaker = topic.speaker %>
 							<%= image_tag( speaker.photo.url(:thumb), class: 'photo', alt: speaker.name ) %>
 						</div>
 						<div class='speaker-name speech-info'>
