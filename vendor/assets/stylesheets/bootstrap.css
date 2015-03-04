@@ -6101,6 +6101,7 @@ label,
 
 #add_button{
   display: inline-block;
+  text-decoration: none;
 }
 
 #remove_button_contact{
@@ -6111,23 +6112,28 @@ label,
   padding-right: 17px;
   margin-left: 55px;
   margin-left: 55px;
+  text-decoration: none;
 }
 
 .mail-adreess{
   width: 460px;
 }
 
-#add_contacts{
+#add_location{
   padding-top: 5px;
   padding-bottom: 3px;
-  padding-left: 14px;
-  padding-rigth: 14px;
+  padding-left: 12px;
+  padding-right: 12px;
+  text-decoration: none;
 }
 
 #remove_button_location{
   margin-left: 4px;
   padding-top: 5px;
   padding-bottom: 3px;
+  padding-left: 13px;
+  padding-right: 14px;
+  text-decoration: none;
 }
 
 #new_select{

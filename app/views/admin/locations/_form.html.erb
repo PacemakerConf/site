@@ -63,7 +63,7 @@
     <div class="col-lg-7">
       
       <%= select_tag 'location[contact_ids][]', options_from_collection_for_select(@contacts, 'id', :full_name) %>
-      <a class="btn-default btn-sm" id="add_contacts" onclick="addContact(this);return false;">+</a>
+      <a class="btn-default btn-sm btn-warning" id="add_location" onclick="addContact(this);return false;">+</a>
       <div class="form-group" id="location-area"></div>
     </div>
   </div>
@@ -88,7 +88,7 @@
     function addContact(){
       var divHTML = $('#location_contact_ids_')[0].outerHTML;
       divHTML = '<div id="new_select">' + divHTML +
-      '<a class="remove_nested_fields btn-default btn-sm" id="remove_button_location" onclick="RemoveContact(this);return false;">-</a>'+
+      '<a class="remove_nested_fields btn-default btn-sm btn-danger" id="remove_button_location" onclick="RemoveContact(this);return false;">-</a>'+
       "</div>";
       $("#location-area").append(divHTML);
 
