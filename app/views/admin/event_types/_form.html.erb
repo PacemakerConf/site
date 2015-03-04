@@ -19,36 +19,36 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label :name, class: 'col-lg-2 control-label' %>
-    <div class="col-lg-7">
+    <%= f.label :name, class: 'col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label' %>
+    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
       <%= f.text_field :name, class: 'form-control'%>
     </div>
   </div>
   
   <div class="form-group">
-    <%= f.label :description, class: 'col-lg-2 control-label' %>
-    <div class="col-lg-7">
+    <%= f.label :description, class: 'col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label' %>
+    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
       <%= f.text_area :description, class: 'form-control' %>
     </div>
   </div>
   
   <div class="form-group">
-    <label class="col-lg-2 control-label" for="event_type_defaultDuration">Default Duration</label>
-    <div class="col-lg-7">
+    <label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label" for="event_type_defaultDuration">Default Duration</label>
+    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
       <%= f.time_select :defaultDuration, {start_hour: 0, end_hour: 4, minute_step: 5, time_separator: ''}, class: 'btn-default btn-xs' %>
     </div>
   </div>
   
   <div class="form-group">
-    <%= f.label :color, class: 'col-lg-2 control-label' %>
-    <div class="col-lg-7">
+    <%= f.label :color, class: 'col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label' %>
+    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
       <%= f.color_field :color, class: 'btn-default color-choose' %>
     </div>
   </div>
   
   <div class="form-group">
-    <%= f.label :image, class: 'col-lg-2 control-label' %>
-    <div class="col-lg-7">
+    <%= f.label :image, class: 'col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label' %>
+    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
       <div class="customDropDown">
             <div class="ddHead">
               <span id="DropDownMark" class=""></span>
@@ -67,8 +67,8 @@
   </div>
   
   <div class="form-group">
-    <label class="col-lg-2 control-label" for="event_type_speakerEvent">Speaker Event</label>
-    <div class="col-lg-7">
+    <label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label" for="event_type_speakerEvent">Speaker Event</label>
+    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
       <div class="checkbox">
         <label>
           <%= f.check_box :speakerEvent%>
@@ -78,8 +78,8 @@
   </div>
   
   <div class="form-group">
-    <%= f.label :groupable, class: 'col-lg-2 control-label' %>
-    <div class="col-lg-7">
+    <%= f.label :groupable, class: 'col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label' %>
+    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
       <div class="checkbox">
         <label>
           <%= f.check_box :groupable%>
@@ -88,70 +88,8 @@
     </div>
   </div>
 
-<!--   <table class="table table-responsive">
-    <colgroup class="new_event_type">
-      <col></col>
-      <col></col>
-    </colgroup>
-    <tr>
-      <td><%= f.label :name, class: 'control-label' %></td>
-      <td><%= f.text_field :name, class: ' form-control'%></td>
-    </tr>
-
-    <tr>
-      <td><%= f.label :description, class: 'control-label' %></td>
-      <td><%= f.text_area :description, class: 'form-control' %></td>
-    </tr>
-
-    <tr>
-      <td><label class="control-label" for="event_type_defaultDuration">Default Duration</label></td>
-      <td><%= f.time_select :defaultDuration, {start_hour: 0, end_hour: 4, minute_step: 15, time_separator: ''}, class: 'btn-default btn-xs' %></td>
-    </tr>
-
-    <tr>
-      <td><%= f.label :color, class: 'control-label' %></td>
-      <td><%= f.color_field :color, class: 'btn-default color-choose' %></td>
-    </tr>
-  
-    <tr>
-      <td>
-        <%= f.label :image, class: 'control-label' %>
-      </td>
-      <td>
-        <div class="customDropDown">
-            <div class="ddHead">
-              <span id="DropDownMark" class=""></span>
-                <ul class="bs-glyphicons bs-glyphicons-list">
-                <% @@i = 0 %>
-                <% takeGLYPHS().each do |className|%>
-                  <li><span  class="btn btn-default btn-sm glyphicon glyphicon-<%= className %>" onclick="imageToField(<%= @@i %>)"></span></li>
-                  <% @@i=@@i+1 %>
-                <% end %>
-                </ul>
-            </div>
-          </div>
-
-        <%= f.hidden_field :image %>
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        <label class="control-label" for="event_type_speakerEvent">Speaker Event</label> -->
-        <!-- <%#= f.label :speakerEvent %>  --><!--</td>
-      <td>
-        <%= f.check_box :speakerEvent%></td>
-    </tr>
-
-    <tr>
-      <td><%= f.label :groupable, class: 'control-label' %></td>
-      <td>
-        <%= f.check_box :groupable%></td>
-    </tr>
-
-  </table> -->
   <div class="form-group">
-    <div class="col-lg-7 col-lg-offset-2">
+    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 col-lg-offset-2 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
       <div class="actions">
         <%= f.submit 'Confirm', class: 'btn btn-primary'%>
       </div>
