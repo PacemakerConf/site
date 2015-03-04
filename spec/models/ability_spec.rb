@@ -5,7 +5,7 @@ describe Ability do
 
   describe "as admin" do
     it "can manage all" do
-      @current_admin = Ability.new(FactoryGirl.build(:admin))
+      @current_admin = Ability.new(FactoryGirl.create(:admin))
       expect(@current_admin).to be_able_to(:manage, :all)
     end
   end
