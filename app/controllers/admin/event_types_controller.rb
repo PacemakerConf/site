@@ -1,8 +1,8 @@
 class Admin::EventTypesController < Admin::ApplicationController
-  layout 'admin'
-
+  before_action :authenticate_admin!
   before_action :set_event_type, only: [:show, :edit, :update, :destroy]
 
+  layout 'admin'
   # GET /event_types
   # GET /event_types.json
   def index

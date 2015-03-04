@@ -1,7 +1,8 @@
 class Admin::YearsController < Admin::ApplicationController
-  layout 'admin'
-
+  before_action :authenticate_admin!
   before_action :set_year, only: [:publish, :show, :edit, :update, :destroy]
+
+  layout 'admin'
 
   def publish
     @year.published = true

@@ -1,7 +1,8 @@
 class Admin::EventsController < Admin::ApplicationController
-  layout 'admin'
+  before_action :authenticate_admin!
   before_action :set_event, only: [:publish, :show, :edit, :update, :destroy]
 
+  layout 'admin'
   # GET /events
   # GET /events.json
   def index
