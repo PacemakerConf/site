@@ -4,56 +4,82 @@ require 'cancan/matchers'
 describe Ability do
 
   describe "as admin" do
-	  before(:each) do
-      current_admin = Admin.create(username: 'adminstrator', password: 'very_secret',
-                                    email: 'adminstrator@example.com')
-      #current_user = {'role' => User::ADMIN}
-      @current_ability = Ability.new(current_admin)
-      @current_ability.send(:get_user, current_admin)
-    end
-    
     it "can manage all" do
-      expect(@current_ability).to be_able_to(:manage, :all)      
-    end
-  end
-
-  describe "as guest" do
-    before(:each) do
-      current_user = {'role' => User::GUEST}
-      @current_ability = Ability.new(current_user)
-      @current_ability.send(:get_user, current_user)
-    end
-    
-    it "can read all" do
-      expect(@current_ability).to be_able_to(:read, :all)
-    end
-
-    it "can create speaker" do
-      expect(@current_ability).to be_able_to(:create, Speaker)
-    end
-    
-    it "cannot manage all" do
-      expect(@current_ability).to_not be_able_to(:manage, :all)
+      @current_admin = Ability.new(FactoryGirl.build(:admin))
+      expect(@current_admin).to be_able_to(:manage, :all)
     end
   end
 
   describe "as speaker" do
     before(:each) do
-      current_user = {'role' => User::SPEAKER}
-      @current_ability = Ability.new(current_user)
-      @current_ability.send(:get_user, current_user)
+      @user = {'role' => User::SPEAKER}
+      @current_user = Ability.new(@user)
     end
 
     it "can create speaker" do
-      expect(@current_ability).to be_able_to(:create, Speaker)
+      expect(@current_user).to be_able_to(:create, Speaker)
     end
 
     it "can create event" do
-      expect(@current_ability).to be_able_to(:create, Event)
+      expect(@current_user).to be_able_to(:create, Event)
     end
 
     it "cannot manage all" do
-      expect(@current_ability).to_not be_able_to(:manage, :all)
+      expect(@current_user).to_not be_able_to(:manage, :all)
+    end
+  end
+
+  describe "as guest" do
+    before(:each) do
+      @user = {'role' => User::GUEST}
+      @current_user = Ability.new(@user)
+    end
+    
+    it "can read all" do
+      expect(@current_user).to be_able_to(:read, :all)
+    end
+
+    it "can create speaker" do
+      expect(@current_user).to be_able_to(:create, Speaker)
+    end
+    
+    it "cannot manage all" do
+      expect(@current_user).to_not be_able_to(:manage, :all)
+    end
+end
+
+  describe "depend on private method get_user with input" do
+    
+    it "array Admin" do
+      @current_admin = Ability.new(FactoryGirl.build(:admin))
+      @input = @current_admin.send(:get_user, FactoryGirl.build(:admin))
+      expect(@input.role).to eq(User::ADMIN)
+    end
+
+    it "hash(SPEAKER)" do
+      @user = {'role' => User::SPEAKER}
+      @current_user = Ability.new(@user)
+      @input = @current_user.send(:get_user, @user)
+      expect(@input.role).to eq(User::SPEAKER)
+    end
+
+    describe "hash (GUEST)" do
+      before(:each) do
+        @user = {'role' => User::GUEST}
+        @current_user = Ability.new(@user)
+      end
+
+      it "" do
+        @input = @current_user.send(:get_user, @user)
+        expect(@input.role).to eq(User::GUEST)
+      end
+
+      it "" do
+        @input = @current_user.send(:get_user, "some string")
+        expect(@input.role).to eq(User::GUEST)
+      end
     end
   end
 end
+
+

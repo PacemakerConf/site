@@ -6,6 +6,11 @@ class SpeakersController < ApplicationController
     @conference = Conference.all.order(date: :desc)[0]
   end
 
+def new
+    authorize! :create, Speaker
+    @speaker = Speaker.new
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_speaker
