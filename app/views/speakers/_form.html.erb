@@ -1,4 +1,4 @@
-<%= form_for( [:admin, @speaker],  html: {class: 'form-horizontal'} ) do |f| %>
+<%= form_for( @speaker,  html: {class: 'form-horizontal'} ) do |f| %>
    
   <% if @speaker.errors.any? %>
     <div id="error_explanation">
@@ -74,6 +74,9 @@
       <%= f.text_field :site, class: "form-control" %>
     </div>
   </div>
+
+  <%= f.hidden_field :email_hash, value: params[:hash] %> 
+
   <div class="form-group">
     <div class="col-lg-7 col-lg-offset-2">
       <%= f.submit %>

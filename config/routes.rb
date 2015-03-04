@@ -48,6 +48,7 @@ Rails.application.routes.draw do
   #userside
   resources :speakers
   resources :conferences, param: :name
+  resources :events
 
   get ':name', to: 'conferences#show'
   get ':name/about', to: 'conferences#show', as: :about_conference

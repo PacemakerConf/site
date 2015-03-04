@@ -31,10 +31,13 @@ class Admin::SpeakersController < Admin::ApplicationController
   def send_invitation
     #render text: params[:email]
     @invite = Invitation.new
-    @invite.email= params[:email]
+    @invite.email = params[:email]
+    cost = 10
+    @invite.email_hash = ::BCrypt::Password.create("#{@invite.email}", :cost => cost).to_s
+
     if @invite.save
-      Invitation.invite_speaker(params[:email], params[:message])
-      redirect_to admin_speakers_path, notice: 'Invitation was successfully sent.'
+      Invitation.invite_speaker(params[:email], @invite.email_hash, params[:message])
+      redirect_to admin_speakers_path, notice: 'Invitation was successfully sent'
     else
       redirect_to admin_speakers_path, notice: 'Invitation was not sent.'
     end
