@@ -2,7 +2,6 @@ Rails.application.routes.draw do
 
   root 'conferences#show', name: Conference.last_conference_route
 
-
   devise_for :admins, skip: :sessions
   as :admin do
     get 'login', to: 'devise/sessions#new', as: :new_admin_session
@@ -54,8 +53,6 @@ Rails.application.routes.draw do
   get ':name/speakers', to: 'conferences#speakers', as: :speakers_conference
   get ':name/location', to: 'conferences#location', as: :location_conference
   get ':name/schedule', to: 'conferences#schedule', as: :schedule_conference
-  get ':name/report', to: 'conferences#report', as: :report_conference
-
-  
+  get ':name/report', to: 'conferences#report', as: :report_conference 
 
 end 
