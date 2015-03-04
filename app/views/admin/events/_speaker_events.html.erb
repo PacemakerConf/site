@@ -15,7 +15,7 @@
   <tbody>
     <% @speaker_events.each do |event| %>
       <tr>
-        <td><%= link_to event.speaker.fullname, speaker_path(event.speaker.id), class: 'btn btn-xs btn-default btn-block' %></td>
+        <td><%= link_to event.speaker.fullname, speaker_path(event.speaker.id), class: '' %></td>
         <td><%= event.event_type.name %></td>
         <td><%= event.title %>
         <td>

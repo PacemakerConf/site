@@ -18,7 +18,7 @@
         <td><%= event.event_type.name %></td>
         <td>
           <% unless event.speaker.nil? %>
-            <%= link_to event.speaker.fullname, speaker_path(event.speaker.id), class: 'btn btn-xs btn-default btn-block' %>
+            <%= link_to event.speaker.fullname, speaker_path(event.speaker.id), class: '' %>
           <% end %>          
           <% unless event.responsable.nil? %>
             <%= event.responsable %>

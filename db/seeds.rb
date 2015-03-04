@@ -136,7 +136,7 @@ sam = Speaker.create(
 	surname: 'Gamgee',
 	position: 'chef cook',
 	description: 'Sam, just Sam', 
-	photo_file_name: "the-lord-of-the-rings-samwise-gamgee-sean-astin-ho...", 
+	photo_file_name: "sam.jpg", 
 	photo_content_type: "image/jpeg", 
 	photo_file_size: 156280, 
 	photo_updated_at: "2015-03-04 15:39:50"

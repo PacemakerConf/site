@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   end
   
   namespace :admin do
+  
     root 'conferences#index'
     resources :conferences, param: :name do
       member do
@@ -19,7 +20,6 @@ Rails.application.routes.draw do
         get 'publish'
       end
     end
-
     resources :contacts
     resources :events do
       member do
@@ -29,7 +29,6 @@ Rails.application.routes.draw do
     resources :event_types 
     resources :locations
     resources :reports  
-
     resources :speakers do
       collection do
         get 'invite', to: 'speakers#invite'
