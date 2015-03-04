@@ -1,3 +1,5 @@
+require 'faker'
+
 FactoryGirl.define do 
 	factory :admin do |f|
 		f.username Faker::Name.name 

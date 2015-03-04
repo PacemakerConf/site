@@ -1,5 +1,5 @@
 class Admin::SpeakersController < Admin::ApplicationController
-  before_action :authenticate_admin!, except: [:new, :create, :index]
+  
   before_action :set_speaker, only: [:show, :edit, :update, :destroy]
 
   layout 'admin'
@@ -17,7 +17,6 @@ class Admin::SpeakersController < Admin::ApplicationController
 
   # GET /speakers/new
   def new
-    authorize! :create, Speaker
     @speaker = Speaker.new
   end
 
@@ -29,7 +28,6 @@ class Admin::SpeakersController < Admin::ApplicationController
   end
 
   def send_invitation
-    #render text: params[:email]
     @invite = Invitation.new
     @invite.email= params[:email]
     if @invite.save
@@ -47,7 +45,6 @@ class Admin::SpeakersController < Admin::ApplicationController
     @speaker = Speaker.new(speaker_params)
     respond_to do |format|
       if @speaker.save
-        current_user['role'] = User::SPEAKER
         format.html { redirect_to admin_speakers_path, notice: 'Speaker was successfully created.' }
         format.json { render :show, status: :created, location: @speaker }
       else
