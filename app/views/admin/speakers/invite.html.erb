@@ -2,11 +2,19 @@
 
 <%= form_tag("/admin/speakers/send", method: "post") do %>
 <div class="form-group">
-  <%= label_tag(:email, "Email", class: "col-lg-2 control-label") %><br>
+  <%= label_tag(:email, "Email", class: "col-lg-2 control-label") %>
   <div class="col-lg-10">
-    <%= email_field( :email, "") %><br>
+    <%= email_field( :email, "") %><br><br>
   </div>
 </div>
+
+ <div class="form-group">
+      <%= label_tag(:conference_id, "Conference", class: "col-lg-2 control-label") %><br>
+    <div class="col-lg-10">
+        <%= select_tag 'location[conference_id]', options_from_collection_for_select(Conference.all, 'id', 'fullname'), class: "form-control" %><br>
+        </div>
+    </div>
+
 
 <div class="form-group">
   <%= label_tag(:message, "Message", class: "col-lg-2 control-label") %><br>

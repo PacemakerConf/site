@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 <h1>Listing Conferences</h1>
-<table id="conference" class="display" width="100%" cellspacing="0">
+<table class="display data_table" width="100%" cellspacing="0">
   <thead>
     <tr>
         <th>Conference Name</th>
@@ -10,10 +10,9 @@
         <th>Shedule</th>
         <th>Location</th>
         <th>Report</th>
-        <!-- <th>Publish</th> -->
+        <th>Publish</th>
         <th>Edit</th>
         <th>Delete</th>
-<!-- <th colspan="3"> <center>Actions</center></th> not working with dataTable gem -->
     </tr>
   </thead>
   <tbody>
@@ -25,22 +24,33 @@
           <td><%= conference.attenders %></td>
           <td><%= link_to 'Schedule', schedule_admin_conference_path(conference.route), class: 'btn btn-xs btn-default'%></td>
           <td><%= unless(conference.location.nil?)
-                    link_to "#{conference.location.address}, #{conference.location.city}", location_conference_path(conference.route), class: 'btn btn-xs btn-default'
+                    link_to "#{conference.location.address}, #{conference.location.city}", location_conference_path(conference.route), class: ''
                   else
                     link_to "Create Location", {controller: 'admin/locations', action: 'new', conf_id: conference.id, conf_fname: conference.fullname}, class: 'btn btn-xs btn-primary'
                   end %></td>
           <td><%= unless(conference.report.nil?)
+<<<<<<< HEAD
                     link_to "#{conference.report.address}", report_conference_path(conference.route), class: 'btn btn-xs btn-primary'
+=======
+                    link_to "#{conference.report.title}", report_conference_path(conference.route), class: 'btn btn-xs btn-info'
+>>>>>>> 0a1eb622027491e93073d5359ab287c01a0c4de7
                   else
-                    link_to "Create", new_report_path(), class: 'btn btn-xs btn-primary'
+                    link_to "Create Report", {controller: 'admin/reports', action: 'new', conf_id: conference.id, conf_fname: conference.fullname}, class: 'btn btn-xs btn-primary'
                   end %></td>
-          <!-- <td>Published</td> -->
+          <td>
+            <% if conference.published %>
+              Published
+            <% else %>
+              <%= link_to 'Publish', publish_admin_conference_path(conference.route), class: 'btn btn-xs btn-primary' %>              
+            <% end %>
+          </td>
           <td><%= link_to 'Edit', edit_admin_conference_path(conference.route), class: 'btn btn-xs btn-warning' %></td>
           <td><%= link_to 'Destroy', admin_conference_path(conference.route), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger' %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+<<<<<<< HEAD
 <script type="text/javascript">
   $(document).ready(function() {
     $('#conference').dataTable({
@@ -49,3 +59,8 @@
   });
 </script>
 <%= link_to 'New Conference', new_admin_conference_path, class: "btn btn-default btn-sm" %>
+=======
+
+<br>
+<%= link_to 'New Conference', new_admin_conference_path, class: "" %>
+>>>>>>> 0a1eb622027491e93073d5359ab287c01a0c4de7

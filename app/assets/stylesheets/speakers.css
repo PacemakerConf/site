@@ -38,9 +38,15 @@
 	margin-right: 5px;
 }
 .speaker-photo img.photo{
-  -webkit-filter: grayscale(1);
-   filter: grayscale(1); 
+  -webkit-filter: grayscale(0.6);
+   filter: grayscale(0.6); 
    float: left;
+}
+
+.speaker-photo img.photo:hover{
+	-webkit-filter: grayscale(0);
+	filter: grayscale(0); 
+
 }
 
 .speakers-det .speaker-photo, .one-speaker .speaker-photo{

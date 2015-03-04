@@ -4,8 +4,9 @@
 	<div class="main-speakers col-lg-9 col-md-9 col-sm-12 col-xs-12">
 		<div class='speakers-list'>
 			<h4>Speakers</h4>
-			<div class="main-speakers-box">	
+			<div class="main-speakers-box">
 				<% @topics.each do |topic| %>
+<<<<<<< HEAD
 					<div class='speaker-container col-lg-5'>
 						<div class='speaker-photo'>
 							<% speaker = topic.speaker %>
@@ -16,8 +17,22 @@
 						</div>
 						<div class='speech-info'>
 							<h3><%= topic.title %></h3>
+=======
+					<% if can? :read, topic %>
+						<div class='speaker-container col-lg-5 <%= topic.published ? "" : "unpublished" %> '>
+							<div class='speaker-photo'>
+								<% speaker = topic.speaker %>	
+								<%= link_to( image_tag( speaker.photo.url(:thumb), class: 'photo', alt: speaker.name), speaker ) %>
+							</div>
+							<div class='speaker-name speech-info'>
+								<%= link_to speaker.fullname, speaker_path(speaker) %>
+							</div>
+							<div class='speech-info'>
+								<h3><%= topic.title %></h3>
+							</div>
+>>>>>>> 0a1eb622027491e93073d5359ab287c01a0c4de7
 						</div>
-					</div>
+					<% end %>
 				<% end %>
 			</div>
 		</div>
@@ -28,10 +43,11 @@
 			<h4>Lightning talks</h4>
 			<div>	
 				<% @lightnings.each do |lightning| %>
-						<div class='lightning-speaker-container col-lg-5'>
+					<% if can? :read, lightning %>
+						<div class='lightning-speaker-container col-lg-5 <%= lightning.published ? "" : "unpublished" %> '>
 							<div class='speaker-photo'>
 								<% speaker = lightning.speaker %>	
-								<%= image_tag( speaker.photo.url(:thumb), class: 'photo', alt: speaker.name ) %>
+								<%= link_to( image_tag( speaker.photo.url(:thumb), class: 'photo', alt: speaker.name ), speaker ) %>
 							</div>
 							<div class='speaker-name speech-info'>
 								<%= link_to speaker.fullname, speaker_path(speaker) %>
@@ -40,6 +56,7 @@
 								<h3><%= lightning.title%></h3>
 							</div>
 						</div>
+					<% end %>
 				<% end %>
 			</div>
 		</div>

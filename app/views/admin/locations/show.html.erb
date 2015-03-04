@@ -15,16 +15,15 @@
         <% @location.contacts.each do |contact| %>
           <div>
             <p><b><%= contact.name %> <%= contact.surname %></b><p>
-            <p><b>Mail:</b> <%= contact.email %></p>
-            <% contact.emails.each do |emails| %>
-               <p><b>Mail:</b> <%= emails.email %></p>
-             <% end %>
+             <td><% contact.splited_mail.each do |mail| %>
+             <b>Mail:</b><%= mail %><br>
+            <% end %></td>
             <p><b>Tel:</b> <%= contact.telephone %></p>
           </div>
         <% end %>
         
         <h1>How To Find</h1>
-        <p><%= @location.how_to_find %></p>
+        <p><%= @location.how_to_find.html_safe %></p>
   </div>
 </div>
 

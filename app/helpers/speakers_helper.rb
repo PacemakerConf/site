@@ -1,7 +1,7 @@
 module SpeakersHelper
 
 	def invite_message
-		Speaker::INVITE_MESSAGE
+		Invitation::INVITE_MESSAGE
 	end
 
 end
