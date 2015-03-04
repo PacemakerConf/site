@@ -28,10 +28,7 @@ describe Contact do
  	   expect(FactoryGirl.build(:contact, skype: nil)).not_to be_valid
 	end
 
-	it { should accept_nested_attributes_for(:emails) }
-	it { should have_many(:emails).dependent(:destroy) }
-
 	it { should have_and_belong_to_many(:locations) }
-	it { should have_many(:emails) }
+
 
 end
