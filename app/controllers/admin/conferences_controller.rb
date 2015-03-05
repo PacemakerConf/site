@@ -1,8 +1,8 @@
 class Admin::ConferencesController < Admin::ApplicationController
-
-  layout 'admin', except: :show
+  before_action :authenticate_admin!
   before_action :set_conference, only: [:publish, :schedule, :date, :location, :report, :speakers, :show, :edit, :update, :destroy]
- 
+
+  layout 'admin' 
   def location 
     @location = @conference.location
   end
@@ -22,7 +22,10 @@ class Admin::ConferencesController < Admin::ApplicationController
   def publish
     @conference.published = true
     @conference.save!
-    redirect_to admin_conferences_url
+
+    respond_to do |format|
+      format.js {}
+    end
   end
 
   def index

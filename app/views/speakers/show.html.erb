@@ -8,6 +8,9 @@
 		<div class='speaker-name'>
 			<%= @speaker.fullname %>
 		</div>
+		<div class='speaker-position'>
+			<%= @speaker.position %>
+		</div>
 		<div class="speaker-description">
 			<p><%= @speaker.description %></p>
 		</div>
@@ -29,59 +32,62 @@
 
 	<% sorted_events.each do |obj| %>
 		<% speech = obj[:event] %>
-		<% if Time.now < obj[:date] %>	
-			<!-- ongoing -->
+		<% if can? :read, speech %>
 		
-			<div class='ongoings-speech-container row'>
-				<div class='speech-conference col-lg-3 col-lg-offset-1 col-md-4 col-sm-4 col-xs-12 '>
-	 				<div>
-						<h3>
-							<%= link_to speech.conference.fullname , about_conference_path( speech.conference.route ) %> 
-							<sup>ongoing</sup>
-						</h3>
+			<% if Time.now < obj[:date] %>	
+				<!-- ongoing -->
+			
+				<div class='ongoings-speech-container row <%= speech.published ? "" : "unpublished" %> '>
+					<div class='speech-conference col-lg-3 col-lg-offset-1 col-md-4 col-sm-4 col-xs-12 '>
+		 				<div>
+							<h3>
+								<%= link_to speech.conference.fullname , about_conference_path( speech.conference.route ) %> 
+								<sup>ongoing</sup>
+							</h3>
+						</div>
+					</div>
+
+					<div class='speech-details col-lg-6 col-md-7 col-sm-7 col-xs-12'>
+						<h3> <%= speech.title %> </h3>
+						<p>
+							<%= speech.description %>
+						</p>
+						<div>
+							<%if speech.materials.exists? %>
+			          <%= link_to "", speech.materials.url(:original, false), class:"btn btn-default btn-xs glyphicon glyphicon-download-alt" %>
+			        <% end %>
+			        <% unless speech.video.nil? %>
+			          <%= link_to '', speech.video, class:"btn btn-default btn-xs glyphicon glyphicon-play" %>
+			        <% end %>
+						</div>
 					</div>
 				</div>
+			<% else %>
 
-				<div class='speech-details col-lg-6 col-md-7 col-sm-7 col-xs-12'>
-					<h3> <%= speech.title %> </h3>
-					<p>
-						<%= speech.description %>
-					</p>
-					<div>
-						<%if speech.materials.exists? %>
-		          <%= link_to "", speech.materials.url(:original, false), class:"btn btn-default btn-xs glyphicon glyphicon-download-alt" %>
-		        <% end %>
-		        <% unless speech.video.nil? %>
-		          <%= link_to '', speech.video, class:"btn btn-default btn-xs glyphicon glyphicon-play" %>
-		        <% end %>
+			<!-- old speeches -->
+				<div class='speechs-container row row <%= speech.published ? "" : "unpublished" %> '>
+					<div class='speech-conference col-lg-3 col-lg-offset-1 col-md-4 col-sm-4 col-xs-12'>
+						<h3> <%= link_to speech.conference.fullname, about_conference_path(speech.conference.route) %> </h3>	
 					</div>
-				</div>
-			</div>
-		<% else %>
-
-		<!-- old speeches -->
-			<div class='speechs-container row'>
-				<div class='speech-conference col-lg-3 col-lg-offset-1 col-md-4 col-sm-4 col-xs-12'>
-					<h3> <%= link_to speech.conference.fullname, about_conference_path(speech.conference.route) %> </h3>	
-				</div>
-				<div class='speech-details col-lg-7 col-md-7 col-sm-7 col-xs-12'>
-					<h3> <%= speech.title %> </h3>
-					<p>
-						<%= speech.description %>
-					</p>
-					<div>
-						<br>
-						<%if speech.materials.exists? %>
-		          <%= link_to "", speech.materials.url(:original, false), class:"btn btn-default btn-xs glyphicon glyphicon-download-alt" %>
-		        <% end %>
-		        <% unless speech.video.nil? %>
-		          <%= link_to '', speech.video, class:"btn btn-default btn-xs glyphicon glyphicon-play" %>
-		        <% end %>
+					<div class='speech-details col-lg-7 col-md-7 col-sm-7 col-xs-12'>
+						<h3> <%= speech.title %> </h3>
+						<p>
+							<%= speech.description %>
+						</p>
+						<div>
+							<br>
+							<%if speech.materials.exists? %>
+			          <%= link_to "", speech.materials.url(:original, false), class:"btn btn-default btn-xs glyphicon glyphicon-download-alt" %>
+			        <% end %>
+			        <% unless speech.video.nil? %>
+			          <%= link_to '', speech.video, class:"btn btn-default btn-xs glyphicon glyphicon-play" %>
+			        <% end %>
+						</div>
 					</div>
+
 				</div>
 
-			</div>
-
+			<% end %>
 		<% end %>		
 	<% end %>		
 </div>

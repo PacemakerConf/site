@@ -1,7 +1,8 @@
 class Admin::EventsController < Admin::ApplicationController
-  layout 'admin'
+  before_action :authenticate_admin!
   before_action :set_event, only: [:publish, :show, :edit, :update, :destroy]
 
+  layout 'admin'
   # GET /events
   # GET /events.json
   def index
@@ -20,7 +21,10 @@ class Admin::EventsController < Admin::ApplicationController
   def publish 
     @event.published = true
     @event.save!
-    redirect_to controller: 'admin/events', action: 'index', conf_id: @event.conference.id
+
+    respond_to do |format|
+      format.js {}
+    end
   end
 
   # GET /events/1

@@ -43,8 +43,8 @@ frodo = Speaker.create(
 	position: 'lucky pathfinder',
 	description: 'A little but brave Hobbit. Love jewels very much',
 	email: 'frodo@ring.one',
-  facebook: 'fb/goldy',
-  site: 'http://the-best-jewels.com',
+	facebook: 'fb/goldy',
+  	site: 'http://the-best-jewels.com',
 	photo_file_name: "frodo.jpg",
 	photo_content_type: "image/jpeg",
 	photo_file_size: 8046,
@@ -83,15 +83,52 @@ gandalf = Speaker.create(
     photo_file_size: 1231
 	)
 
+dima = Speaker.create(
+	name: 'Dmytro',
+	surname: 'Panov',
+	position: 'SoftServe software engineer specialized on Ruby, JavaScript, Java, Oracle, PostgreSQL, etc.',
+	description: 'Lv137 UI/Ruby expert', 
+	photo_file_name: "zsssdads.png", 
+	photo_content_type: "image/png", 
+	photo_file_size: 131940, 
+	photo_updated_at: "2015-02-26 19:41:39"
+	)
+
+ivan = Speaker.create(
+	name: 'Ivan',
+	surname: 'Chyr',
+	position: 'Teacher Web UI direction',
+	description: 'Responsibilities:
+		+ coaching and mentoring of students
+		+ development of new directions ( Ruby on Rails, Angular.js )
+		+ teaching and training others
+		+ managing student group project as scrum master and product owner', 
+	photo_file_name: "358196a.jpg", 
+	photo_content_type: "image/jpeg", 
+	photo_file_size: 7632, 
+	photo_updated_at: "2015-02-26 19:38:27"
+	)
+
+koldovsky = Speaker.create(
+	name: 'Vyacheslav',
+	surname: 'Koldovsky',
+	position: 'Founder & CEO at Productivity Scientific',
+	description: ' strong ', 
+	photo_file_name: "064e28a.jpg", 
+	photo_content_type: "image/jpeg", 
+	photo_file_size: 2966, 
+	photo_updated_at: "2015-02-26 19:40:02"
+	)
+
 gimli = Speaker.create(
 	name: 'Gimli',
 	surname: 'Grisli',
 	position: 'chief dwarf',
 	description: 'Gimli - chief dwarf. Head dwarf. A dwarf with capital D', 
-	photo_file_name: "zsssdads.png", 
-	photo_content_type: "image/png", 
-	photo_file_size: 131940, 
-	photo_updated_at: "2015-02-26 19:41:39"
+	photo_file_name: "images_(1).jpg", 
+	photo_content_type: "image/jpeg", 
+	photo_file_size: 10267, 
+	photo_updated_at: "2015-03-04 15:38:07"
 	)
 
 sam = Speaker.create(
@@ -99,10 +136,10 @@ sam = Speaker.create(
 	surname: 'Gamgee',
 	position: 'chef cook',
 	description: 'Sam, just Sam', 
-	photo_file_name: "358196a.jpg", 
+	photo_file_name: "sam.jpg", 
 	photo_content_type: "image/jpeg", 
-	photo_file_size: 7632, 
-	photo_updated_at: "2015-02-26 19:38:27"
+	photo_file_size: 156280, 
+	photo_updated_at: "2015-03-04 15:39:50"
 	)
 
 ent = Speaker.create(
@@ -110,10 +147,10 @@ ent = Speaker.create(
 	surname: 'Ent',
 	position: 'woodpeckers lover',
 	description: 'Hum-hum-hum', 
-	photo_file_name: "064e28a.jpg", 
+	photo_file_name: "images.jpg", 
 	photo_content_type: "image/jpeg", 
-	photo_file_size: 2966, 
-	photo_updated_at: "2015-02-26 19:40:02"
+	photo_file_size: 6425, 
+	photo_updated_at: "2015-03-04 15:34:40"
 	)
 
 
@@ -212,7 +249,7 @@ onering.events.create(
 	)
 
 onering.events.create(
-	published: false,
+	published: true,
 	title: 'How i get the Ring. History of success',
 	description: 'Evetything you need to know about One Ring,
 				  but afffraid to ask',
@@ -234,7 +271,7 @@ onering.events.create(
 	)
 
 onering.events.create(
-	published: false,
+	published: true,
 	title: 'The challenge for kamikaze',
 	speaker: gandalf,
 	description: 'When fatherland is calling you',
@@ -253,10 +290,40 @@ onering.events.create(
 	description: 'I was drinking at the bar last night, so I took
 				  a bus home...That may not be a big deal to you,
 				  but I\'ve never driven a bus before.',
-	event_type: lightning,
+	event_type: topic,
 	speaker: gimli,
 	duration: '2014-12-12 01:05:00',
 	position: 5
+	)
+
+onering.events.create(
+	published: true,
+	title: 'Philosophical questions',
+	description: 'How to cook yammy code. Long story with pictores',
+	event_type: lightning,
+	speaker: ivan,
+	duration: '2014-12-12 00:15:00',
+	position: 6
+	)
+
+onering.events.create(
+	published: true,
+	title: 'Storage via iSCSI',
+	description: ' about project experience of usage iSCSI for storage data. What it is, why and how.',
+	event_type: lightning,
+	speaker: dima,
+	duration: '2014-12-12 00:15:00',
+	position: 7
+	)
+
+onering.events.create(
+	published: false,
+	title: '90% percent js everywhere',
+	description: 'how to make your application without server-side',
+	event_type: lightning,
+	speaker: koldovsky,
+	duration: '2014-12-12 00:15:00',
+	position: 8
 	)
 
 onering.events.create(
@@ -266,16 +333,16 @@ onering.events.create(
 	event_type: topic,
 	speaker: sam,
 	duration: '2014-12-12 00:15:00',
-	position: 6
+	position: 9
 	)
 
 onering.events.create(
 	published: true,
 	title: 'Houmm-arr-orghh',
-	event_type: lightning,
+	event_type: topic,
 	speaker: ent,
 	duration: '2014-12-12 00:25:00',
-	position: 7
+	position: 10
 	)
 
 onering.events.create(
@@ -285,7 +352,7 @@ onering.events.create(
 	event_type: lightning,
 	speaker: frodo,
 	duration: '2014-12-12 00:15:00',
-	position: 8,
+	position: 11,
 	video: "https://www.youtube.com/watch?v=8Uee_mcxvrw", 
 	materials_file_name: "3_Ways_to_Walk_in_High_Heels_-_wikiHow.pdf", 
 	materials_content_type: "application/pdf", 

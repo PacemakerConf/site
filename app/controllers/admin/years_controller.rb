@@ -1,12 +1,16 @@
 class Admin::YearsController < Admin::ApplicationController
-  layout 'admin'
-
+  before_action :authenticate_admin!
   before_action :set_year, only: [:publish, :show, :edit, :update, :destroy]
+
+  layout 'admin'
 
   def publish
     @year.published = true
     @year.save!
-    redirect_to admin_years_url
+
+    respond_to do |format|
+      format.js {}
+    end
   end
 
   # GET /years

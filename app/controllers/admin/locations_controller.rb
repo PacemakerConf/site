@@ -1,8 +1,8 @@
 class Admin::LocationsController < Admin::ApplicationController
-  layout 'admin'
-
+  before_action :authenticate_admin!
   before_action :set_location, only: [:show, :edit, :update, :destroy]
 
+  layout 'admin'
   # GET /locations
   # GET /locations.json
   def index

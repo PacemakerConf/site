@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'conferences#show', name: Conference.last_conference_route
-
+  get '/', to: redirect(Conference.last_conference_route)
 
   devise_for :admins, skip: :sessions
   as :admin do
@@ -11,6 +10,7 @@ Rails.application.routes.draw do
   end
   
   namespace :admin do
+  
     root 'conferences#index'
     resources :conferences, param: :name do
       member do
@@ -20,7 +20,6 @@ Rails.application.routes.draw do
         get 'publish'
       end
     end
-
     resources :contacts
     resources :events do
       member do
@@ -30,7 +29,6 @@ Rails.application.routes.draw do
     resources :event_types 
     resources :locations
     resources :reports  
-
     resources :speakers do
       collection do
         get 'invite', to: 'speakers#invite'
@@ -45,7 +43,7 @@ Rails.application.routes.draw do
   end
 
 
-  #userside
+  #userside 
   resources :speakers
   resources :conferences, param: :name
   resources :events
@@ -55,8 +53,6 @@ Rails.application.routes.draw do
   get ':name/speakers', to: 'conferences#speakers', as: :speakers_conference
   get ':name/location', to: 'conferences#location', as: :location_conference
   get ':name/schedule', to: 'conferences#schedule', as: :schedule_conference
-  get ':name/report', to: 'conferences#report', as: :report_conference
-
-  
+  get ':name/report', to: 'conferences#report', as: :report_conference 
 
 end 

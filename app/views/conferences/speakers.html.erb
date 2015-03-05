@@ -12,7 +12,14 @@
 					<div class='speaker-name speech-info'>
 						<%= link_to event.speaker.fullname, speaker_path(event.speaker) %>
 					</div>
-					<div><%= event.speaker.description %></div>
+					<div><i>position: </i><%= event.speaker.position %></div>
+					<div><i>about: </i><%= event.speaker.description %></div>
+					<ul class="speaker-contacts col-lg-offset-1">
+						<li><a <%= event.speaker.email %> > <img src="/assets/twitter13.svg"></a></li>
+					  		<li><a <%= event.speaker.facebook %> > <img src="/assets/facebook29.svg"></a></li>
+						<li><a <%= event.speaker.linkedin %> > <img src="/assets/linkedin12.svg"></a></li>
+					</ul>
+
 				</div>	
 			</div>
 
