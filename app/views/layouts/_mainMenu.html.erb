@@ -6,6 +6,8 @@
 	<% years = years[0...-1] %>
 	<% if @conference %>
 		<% active_year = @conference.year %>
+	<% elsif @year %>
+		<% active_year = @year.name.to_i %>
 	<% else %>
 		<% active_year = Conference.last.year %>
 	<% end %>
@@ -22,7 +24,7 @@
 			<% end %>
 
 			<li class="flag-year-image-container" id="flag-<%=year%>" year='<%=year%>'>
-				<%= image_tag(flag_settings[:year_flag_color])%>
+				<%= link_to( image_tag(flag_settings[:year_flag_color]), year_path(year))%>
 				<p class='flag-text'> <%= year %> </p> 
 			</li>
 

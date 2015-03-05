@@ -47,6 +47,7 @@ Rails.application.routes.draw do
   resources :speakers
   resources :conferences, param: :name
   resources :events
+  resources :years, param: :name, only: :show
 
   get ':name', to: 'conferences#show'
   get ':name/about', to: 'conferences#show', as: :about_conference
