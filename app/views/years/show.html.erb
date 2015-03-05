@@ -1,9 +1,14 @@
-<p>
-  <strong>Name:</strong>
-  <%= @year.name %>
-</p>
+<% content_for :title, "Pacemaker - " + @year.name %>
 
-<p>
-  <strong>Content:</strong>
+<div class='year-name'>
+  <%= @year.name %>
+</div>
+
+<div class='year-description'>
   <%= @year.content %>
-</p>
+</div>
+
+<div class='year-conference-count'>
+	<hr>
+	<small> <%= @conference_count %> conferences this year </small>
+</div>

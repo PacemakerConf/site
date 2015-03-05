@@ -10,11 +10,13 @@ class Ability
       can :create, Speaker
       cannot :read, Event, published: false
       cannot :read, Conference, published: false
+      cannot :read, Year, published: false
     elsif user.role == User::GUEST
       can :read, :all
       can :create, Speaker
       cannot :read, Event, published: false
       cannot :read, Conference, published: false
+      cannot :read, Year, published: false
     end
   end
 

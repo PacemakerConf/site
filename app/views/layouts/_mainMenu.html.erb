@@ -24,7 +24,11 @@
 			<% end %>
 
 			<li class="flag-year-image-container" id="flag-<%=year%>" year='<%=year%>'>
-				<%= link_to( image_tag(flag_settings[:year_flag_color]), year_path(year))%>
+				<% if Year.where(name: year)[0].published %>
+					<%= link_to( image_tag(flag_settings[:year_flag_color]), year_path(year))%>
+				<% else %>
+					<%= image_tag(flag_settings[:year_flag_color]) %>
+				<% end %>
 				<p class='flag-text'> <%= year %> </p> 
 			</li>
 

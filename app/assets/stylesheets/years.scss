@@ -1,3 +1,13 @@
-// Place all the styles related to the Years controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.year-name{
+	float: left;
+	padding-right: 10px;
+	margin-right: 20px;
+	border-right: 2px solid black;
+	font-size: 72pt;
+	line-height: 1em;
+}
+
+.year-description{
+	font-size: 22pt;
+	line-height: 1em;
+}
