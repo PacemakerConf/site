@@ -17,12 +17,12 @@
   </thead>
   <tbody>
       <% @conferences.each do |conference| %>
-      <tr>
-          <td><%= link_to conference.name, {controller: 'admin/events', action: 'index', conf_id: conference.id}, class: 'btn btn-xs btn-default btn-block'%></td>
+      <tr id='<%= conference.fullname %>_row' >
+          <td><%= link_to conference.name, {controller: 'admin/events', action: 'index', conf_id: conference.id}, class: ''%></td>
           <td><%= conference.year %></td>
           <td><%= conference.date %></td>
           <td><%= conference.attenders %></td>
-          <td><%= link_to 'Schedule', schedule_admin_conference_path(conference.route), class: 'btn btn-xs btn-default'%></td>
+          <td><%= link_to 'Schedule', schedule_admin_conference_path(conference.route), class: ''%></td>
           <td><%= unless(conference.location.nil?)
                     link_to "#{conference.location.address}, #{conference.location.city}", location_conference_path(conference.route), class: ''
                   else
@@ -34,11 +34,11 @@
                   else
                     link_to "Create Report", {controller: 'admin/reports', action: 'new', conf_id: conference.id, conf_fname: conference.fullname}, class: 'btn btn-xs btn-primary'
                   end %></td>
-          <td>
+          <td class='publish'>
             <% if conference.published %>
               Published
             <% else %>
-              <%= link_to 'Publish', publish_admin_conference_path(conference.route), class: 'btn btn-xs btn-primary' %>              
+              <%= link_to 'Publish', publish_admin_conference_path(conference.route),remote: true, class: 'btn btn-xs btn-primary' %>              
             <% end %>
           </td>
           <td><%= link_to 'Edit', edit_admin_conference_path(conference.route), class: 'btn btn-xs btn-warning' %></td>

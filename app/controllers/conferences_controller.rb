@@ -1,6 +1,7 @@
 class ConferencesController < ApplicationController
 
-  before_action :set_conference, only: [:schedule, :location, :speakers, :report, :show, :edit, :update, :destroy]
+  before_action :set_conference, only: [:check_visibility, :schedule, :location, :speakers, :report, :show, :edit, :update, :destroy]
+  before_action :check_visibility, only: [:schedule, :location, :speakers, :report, :show]
 
   def location 
     @location = @conference.location
@@ -87,6 +88,12 @@ class ConferencesController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def check_visibility
+      unless can? :read, @conference
+        not_found
+      end
+    end
+
     def set_conference
       
       if(params[:name].to_i.to_s === params[:name].to_s)
