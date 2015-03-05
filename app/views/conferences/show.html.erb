@@ -6,7 +6,6 @@
 			<h4>Speakers</h4>
 			<div class="main-speakers-box">
 				<% @topics.each do |topic| %>
-<<<<<<< HEAD
 					<div class='speaker-container col-lg-5'>
 						<div class='speaker-photo'>
 							<% speaker = topic.speaker %>
@@ -17,7 +16,6 @@
 						</div>
 						<div class='speech-info'>
 							<h3><%= topic.title %></h3>
-=======
 					<% if can? :read, topic %>
 						<div class='speaker-container col-lg-5 <%= topic.published ? "" : "unpublished" %> '>
 							<div class='speaker-photo'>
@@ -30,7 +28,6 @@
 							<div class='speech-info'>
 								<h3><%= topic.title %></h3>
 							</div>
->>>>>>> 0a1eb622027491e93073d5359ab287c01a0c4de7
 						</div>
 					<% end %>
 				<% end %>

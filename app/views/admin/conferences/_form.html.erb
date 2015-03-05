@@ -6,7 +6,7 @@
 
       <ul>
       <% @conference.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      <li><%= message %></li>
       <% end %>
       </ul>
     </div>
@@ -14,17 +14,16 @@
 <!-- <div class="container"> -->
 
 <div class="container">
-    <div class="row">
+  <div class="row">
     <div class="form-group">
       <%= f.label :name, "Name*", class: "col-lg-2 control-label"%>
       <div class="col-lg-7">
         <%= f.text_field :name, class: "form-control" %>
       </div>
     </div>
-    <div class="form-group">
+  <div class="form-group">
       <%= f.label :'year', "Year*", class: "col-lg-2 control-label" %>
-    <div class="col-lg-7">
-
+  <div class="col-lg-7">
       <% years_options = ''%>
       <% cur_year = Time.now.year %>
       <% (cur_year-2).upto(cur_year+2) do |year| %>
@@ -63,23 +62,16 @@
       </div>
     </div>
 
-<<<<<<< HEAD
-=======
     <%= f.hidden_field :published, value: false %>
 
     </div>
->>>>>>> 0a1eb622027491e93073d5359ab287c01a0c4de7
+
     <div class="form-group">
       <div class="col-lg-7 col-lg-offset-2">
         <button type="reset" class="btn btn-default">Reset</button>
         <button type="submit" class="btn btn-primary">Create</button>
       </div>
     </div>
-<<<<<<< HEAD
   </div>
-</div>
-</div>
-=======
->>>>>>> 0a1eb622027491e93073d5359ab287c01a0c4de7
 </form>
 <% end %>
