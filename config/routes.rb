@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'conferences#show', name: Conference.last_conference_route
+  get '/', to: redirect(Conference.last_conference_route)
 
   devise_for :admins, skip: :sessions
   as :admin do

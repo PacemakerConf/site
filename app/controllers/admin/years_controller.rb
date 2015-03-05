@@ -7,7 +7,10 @@ class Admin::YearsController < Admin::ApplicationController
   def publish
     @year.published = true
     @year.save!
-    redirect_to admin_years_url
+
+    respond_to do |format|
+      format.js {}
+    end
   end
 
   # GET /years

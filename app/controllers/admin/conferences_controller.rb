@@ -22,7 +22,10 @@ class Admin::ConferencesController < Admin::ApplicationController
   def publish
     @conference.published = true
     @conference.save!
-    redirect_to admin_conferences_url
+
+    respond_to do |format|
+      format.js {}
+    end
   end
 
   def index

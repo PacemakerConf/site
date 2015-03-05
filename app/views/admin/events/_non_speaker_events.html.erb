@@ -14,7 +14,7 @@
   
   <tbody>
     <% @non_speaker_events.each do |event| %>
-      <tr>
+      <tr class = 'event_<%= event.id %>_row'>
         <td><%= event.title %></td>
         <td>
           <% unless event.duration.hour.to_s === '0' %>
@@ -31,11 +31,11 @@
             <%= link_to '', event.video, class:"btn btn-default btn-xs glyphicon glyphicon-play" %>
           <% end %>
         </td>
-        <td>
+        <td class='publish'>
             <% if event.published %>
               Published
             <% else %>
-              <%= link_to 'Publish', publish_admin_event_path(event), class: 'btn btn-xs btn-primary'%>              
+              <%= link_to 'Publish', publish_admin_event_path(event), remote: true, class: 'btn btn-xs btn-primary'%>              
             <% end %>
         </td> 
         <td><%= link_to 'Edit', edit_admin_event_path(event), class: 'btn btn-xs btn-warning' %></td>
