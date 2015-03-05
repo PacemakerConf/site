@@ -36,7 +36,7 @@ function conferencePageLoad(){
 		// .css({ boxShadow: '1px 3px 6px #444' })
 		// .toggleClass( "newClass", 200 ), function(){
   //   $('.flag-year-image-container').children('img').css('box-shadow', '2px 2px 2px #555');
-}
-});
-};
+			}
+		});
+	};
 };

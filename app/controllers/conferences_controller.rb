@@ -1,6 +1,13 @@
 class ConferencesController < ApplicationController
 
-  before_action :set_conference, only: [:schedule, :location, :speakers, :report, :show, :edit, :update, :destroy]
+  before_action :set_conference, only: [:check_visibility, :schedule, :location, :speakers, :report, :show, :edit, :update, :destroy]
+  before_action :check_visibility, only: [:schedule, :location, :speakers, :report, :show]
+
+  def check_visibility
+    unless can? :read, @conference
+      not_found
+    end
+  end
 
   def location 
     @location = @conference.location
