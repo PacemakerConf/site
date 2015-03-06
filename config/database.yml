@@ -22,10 +22,10 @@ test:
 
 production: # example of postgres database
   adapter:  postgresql
-  database: pacemaker
-  host: localhost
-  username: pacemaker_production
-  password: $dkFo%9dmj4
+  database: dbgpno8g98hstu
+  host: ec2-107-20-244-39.compute-1.amazonaws.com
+  username: mvucfnuzeisech
+  password: 5O1VaOn-UpJBrJoLvFl4pPEI6u
   encoding: utf8
   pool: 12
   wait_timeout: 10
