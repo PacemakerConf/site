@@ -24,6 +24,7 @@ production: # example of postgres database
   adapter:  postgresql
   database: dbgpno8g98hstu
   host: ec2-107-20-244-39.compute-1.amazonaws.com
+  port: 5432
   username: mvucfnuzeisech
   password: 5O1VaOn-UpJBrJoLvFl4pPEI6u
   encoding: utf8
