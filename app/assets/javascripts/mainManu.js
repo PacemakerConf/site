@@ -3,11 +3,6 @@ $(document).on('page:load', setFlagColors);
 
 function setFlagColors(){
 	
-	if( typeof conference_nav_buttons != 'undefined'){
-		active_button = conference_nav_buttons.getAttribute('active') + '_button';
-		$('#' + active_button).addClass('active');
-	}
-	
 	if( typeof conference_menu != 'undefined'){
 		$('.flag-year-image-container').click(function(){
 			// $('#' + this.id.toString()).children('img').attr('src', '/assets/RED.png');

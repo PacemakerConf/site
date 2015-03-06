@@ -299,7 +299,7 @@ onering.events.create(
 onering.events.create(
 	published: true,
 	title: 'Philosophical questions',
-	description: 'How to cook yammy code. Long story with pictores',
+	description: 'How to cook yammy code. Long story with pictures',
 	event_type: lightning,
 	speaker: ivan,
 	duration: '2014-12-12 00:15:00',
@@ -400,7 +400,7 @@ Event.create(
 
 Event.create(
 	title: 'The last years of Middle-earth',
-	description: 'Why',
+	description: 'When hazard is only reason to stay',
 	speaker: frodo,
 	conference: webui2014,
 	event_type: topic,
