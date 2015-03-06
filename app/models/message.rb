@@ -1,5 +1,5 @@
 class Message < ActiveRecord::Base
 
-	belongs_to :invitation
+	has_many :invitation
 
 end

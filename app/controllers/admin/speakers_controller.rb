@@ -30,6 +30,8 @@ class Admin::SpeakersController < Admin::ApplicationController
   def send_invitation
     @invite = Invitation.new
     @invite.email = params[:email]
+    @invite.conference_id = params[:conference_id]
+
     cost = 10
     @invite.email_hash = ::BCrypt::Password.create("#{@invite.email}", :cost => cost).to_s
 
