@@ -7,7 +7,10 @@ class Admin::YearsController < Admin::ApplicationController
   def publish
     @year.published = true
     @year.save!
-    redirect_to admin_years_url
+
+    respond_to do |format|
+      format.js {}
+    end
   end
 
   # GET /years
@@ -78,6 +81,6 @@ class Admin::YearsController < Admin::ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def year_params
-      params.require(:year).permit(:name, :content, :published)
+      params.require(:year).permit(:name, :content)
     end
 end

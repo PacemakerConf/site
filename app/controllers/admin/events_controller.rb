@@ -21,7 +21,10 @@ class Admin::EventsController < Admin::ApplicationController
   def publish 
     @event.published = true
     @event.save!
-    redirect_to controller: 'admin/events', action: 'index', conf_id: @event.conference.id
+
+    respond_to do |format|
+      format.js {}
+    end
   end
 
   # GET /events/1

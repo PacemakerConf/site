@@ -136,7 +136,7 @@ sam = Speaker.create(
 	surname: 'Gamgee',
 	position: 'chef cook',
 	description: 'Sam, just Sam', 
-	photo_file_name: "the-lord-of-the-rings-samwise-gamgee-sean-astin-ho...", 
+	photo_file_name: "sam.jpg", 
 	photo_content_type: "image/jpeg", 
 	photo_file_size: 156280, 
 	photo_updated_at: "2015-03-04 15:39:50"
@@ -156,28 +156,28 @@ ent = Speaker.create(
 
 #conferences
 js2012 = Conference.create(
-	published: false,
+	published: true,
 	name: 'JS',
 	year: 2012,
 	date: '2012-02-12',
 	attenders: 12
 	)
 Conference.create(
-	published: false,
+	published: true,
 	name: 'Java',
 	year: 2012,
 	date: '2012-05-22',
 	attenders: 12
 	)
 Conference.create(
-	published: false,
+	published: true,
 	name: 'LAMP',
 	year: 2012,
 	date: '2012-08-08',
 	attenders: 12
 	)
 Conference.create(
-	published: false,
+	published: true,
 	name: 'OPS',
 	year: 2012,
 	date: '2012-11-12',
@@ -185,7 +185,7 @@ Conference.create(
 	)
 
 Conference.create(
-	published: false,
+	published: true,
 	name: 'Java',
 	year: 2013,
 	date: '2013-01-12',
@@ -199,7 +199,7 @@ cloud2013 = Conference.create(
 	attenders: 22
 	)
 Conference.create(
-	published: true,
+	published: false,
 	name: 'Data',
 	year: 2013,
 	date: '2013-11-12',
@@ -229,7 +229,7 @@ victory = Conference.create(
 	)
 
 onering = Conference.create(
-	published: false,
+	published: true,
 	name: 'BigData',
 	year: 2015,
 	date: '2015-11-12',
@@ -494,19 +494,19 @@ pasternaka.contacts << vad
 #years
 Year.create(
 	name: 2012,
-	content: 'Greate year. This is the first year of conference and so many evvents already ... blablabla',
+	content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut est facilisis, laoreet orci nec, faucibus nisi. Maecenas tristique ipsum eu ultricies cursus. Etiam eu cursus urna. Maecenas consequat at elit sed consequat. Morbi consectetur fermentum ipsum sit amet accumsan. Etiam rutrum posuere finibus. Fusce ac orci metus. Sed augue urna, volutpat quis dapibus ut, egestas quis ex. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce rutrum bibendum quam, at rutrum sapien hendrerit non. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut congue nisi neque, mattis gravida nulla euismod ac. Praesent congue venenatis auctor. Phasellus interdum eleifend feugiat.',
 	published: true
 	)
 
 Year.create(
 	name: 2013,
-	content: 'Greate year2. This is the first year of conference and so many evvents already ... blablabla',
+	content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut est facilisis, laoreet orci nec, faucibus nisi. Maecenas tristique ipsum eu ultricies cursus. Etiam eu cursus urna. Maecenas consequat at elit sed consequat. Morbi consectetur fermentum ipsum sit amet accumsan. Etiam rutrum posuere finibus. Fusce ac orci metus. Sed augue urna, volutpat quis dapibus ut, egestas quis ex. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce rutrum bibendum quam, at rutrum sapien hendrerit non. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut congue nisi neque, mattis gravida nulla euismod ac. Praesent congue venenatis auctor. Phasellus interdum eleifend feugiat.',
 	published: true
 	)
 
 Year.create(
 	name: 2014,
-	content: 'Greate year3. This is the first year of conference and so many evvents already ... blablabla',
+	content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut est facilisis, laoreet orci nec, faucibus nisi. Maecenas tristique ipsum eu ultricies cursus. Etiam eu cursus urna. Maecenas consequat at elit sed consequat. Morbi consectetur fermentum ipsum sit amet accumsan. Etiam rutrum posuere finibus. Fusce ac orci metus. Sed augue urna, volutpat quis dapibus ut, egestas quis ex. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce rutrum bibendum quam, at rutrum sapien hendrerit non. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut congue nisi neque, mattis gravida nulla euismod ac. Praesent congue venenatis auctor. Phasellus interdum eleifend feugiat.',
 	published: false
 	)
 
@@ -515,8 +515,8 @@ Year.create(
 
 admin = Admin.new
 	admin.email = 'admin@example.com' 
-    admin.username = 'admin' 
+  admin.username = 'admin' 
 	admin.password = '00000000'
 	admin.password_confirmation = '00000000'
 	admin.role = 'Admin'
-    admin.save!
+  admin.save!
