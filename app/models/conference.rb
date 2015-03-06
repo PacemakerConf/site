@@ -1,4 +1,5 @@
 class Conference < ActiveRecord::Base
+	require 'validators.rb'
   
 	has_many :events
 	has_many :speakers, through: :events
@@ -9,6 +10,7 @@ class Conference < ActiveRecord::Base
 	validates :name, presence: true
 	validates :year, presence: true,
 					 inclusion: { in: 2011..2100 }
+	validates_with Validators::ConferenceUniquenessValidator
 					 
 	def fullname
 		name.to_s + "-" + year.to_s

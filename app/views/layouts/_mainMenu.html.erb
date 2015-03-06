@@ -3,13 +3,14 @@
 <div class="main-menu">
 
 	<% years = Conference.uniq.pluck(:year).sort %>
+	<% last_year = years[-1] %>
 	<% years = years[0...-1] %>
 	<% if @conference %>
 		<% active_year = @conference.year %>
 	<% elsif @year %>
 		<% active_year = @year.name.to_i %>
 	<% else %>
-		<% active_year = Conference.last.year %>
+		<% active_year = last_year %>
 	<% end %>
 
 
