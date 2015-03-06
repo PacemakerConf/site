@@ -7,9 +7,10 @@
         <th>Year</th>
         <th>Date</th>
         <th>Attenders</th>
-        <th>Shedule</th>
+        <th>Schedule</th>
         <th>Location</th>
         <th>Report</th>
+        <th>Message</th>
         <th>Publish</th>
         <th>Edit</th>
         <th>Delete</th>
@@ -33,7 +34,7 @@
                   else
                     link_to "Create Report", {controller: 'admin/reports', action: 'new', conf_id: conference.id, conf_fname: conference.fullname}, class: 'btn btn-xs btn-primary'
                   end %></td>
-          <td>
+
             <% if conference.published %>
               Published
             <% else %>

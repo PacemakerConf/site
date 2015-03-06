@@ -29,6 +29,7 @@ Rails.application.routes.draw do
     end
     resources :event_types 
     resources :locations
+    resources :messages
     resources :reports  
 
     resources :speakers do
@@ -55,6 +56,7 @@ Rails.application.routes.draw do
   get ':name/location', to: 'conferences#location', as: :location_conference
   get ':name/schedule', to: 'conferences#schedule', as: :schedule_conference
   get ':name/report', to: 'conferences#report', as: :report_conference
+  get ':name/messages', to: 'conferences#messages', as: :messages_conference
 
   
 

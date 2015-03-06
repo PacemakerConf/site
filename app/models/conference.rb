@@ -5,6 +5,7 @@ class Conference < ActiveRecord::Base
 
 	has_one :location
 	has_one :report
+	
 
 	validates :name, presence: true
 	validates :year, presence: true,

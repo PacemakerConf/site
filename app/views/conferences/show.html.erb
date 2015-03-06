@@ -1,13 +1,13 @@
 <% content_for :title, @conference.fullname %>
 
 <div class="row">
-	<div class="main-speakers col-lg-8 col-md-7 col-sm-12 col-xs-12">
+	<div class="main-speakers col-lg-9 col-md-8 col-sm-12 col-xs-12">
 		<div class='speakers-list'>
 			<h4>Speakers</h4>
-			<div class="main-speakers-box">
+			<div class="main-speakers-box row">
 				<% @topics.each do |topic| %>
 					<% if can? :read, topic %>
-						<div class='speaker-container col-lg-5 <%= topic.published ? "" : "unpublished" %> '>
+						<div class='speaker-container col-lg-3 col-md-3 col-sm-4 col-xs-4 <%= topic.published ? "" : "unpublished" %> '>
 							<div class='speaker-photo'>
 								<% speaker = topic.speaker %>	
 								<%= link_to( image_tag( speaker.photo.url(:thumb), class: 'photo', alt: speaker.name), speaker ) %>
@@ -28,7 +28,7 @@
 			<div>	
 				<% @lightnings.each do |lightning| %>
 					<% if can? :read, lightning %>
-						<div class='lightning-speaker-container col-lg-5 <%= lightning.published ? "" : "unpublished" %> '>
+						<div class='lightning-speaker-container col-lg-3 col-md-3 col-sm4 col-xs-4 <%= lightning.published ? "" : "unpublished" %> '>
 							<div class='speaker-photo'>
 								<% speaker = lightning.speaker %>	
 								<%= link_to( image_tag( speaker.photo.url(:thumb), class: 'photo', alt: speaker.name ), speaker ) %>
@@ -45,7 +45,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="col-lg-4">
+	<div class="col-lg-3 col-md-4">
 				<h4>NEWS</h4>
 		<div class="list-group">
   			<div href="#" class="list-group-item">
@@ -53,6 +53,5 @@
     			<p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
 			</div>
 		</div>
-
 	</div>
 </div>
