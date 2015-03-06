@@ -1,7 +1,7 @@
-$(document).ready(conferencePageLoad);
-$(document).on('page:load', conferencePageLoad);
+$(document).ready(setFlagColors);
+$(document).on('page:load', setFlagColors);
 
-function conferencePageLoad(){
+function setFlagColors(){
 	
 	if( typeof conference_nav_buttons != 'undefined'){
 		active_button = conference_nav_buttons.getAttribute('active') + '_button';

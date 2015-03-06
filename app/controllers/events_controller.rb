@@ -11,6 +11,7 @@ class EventsController < ApplicationController
     @speaker = Speaker.new(speaker_params)
     respond_to do |format|
       if @speaker.save
+        current_user = {'role' => User::SPEAKER}
         format.html { redirect_to admin_speakers_path, notice: 'Speaker was successfully created.' }
         format.json { render :show, status: :created, location: @speaker }
       else
