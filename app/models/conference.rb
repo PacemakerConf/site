@@ -10,7 +10,7 @@ class Conference < ActiveRecord::Base
 	validates :name, presence: true
 	validates :year, presence: true,
 					 inclusion: { in: 2011..2100 }
-	# validates_with Validators::ConferenceUniquenessValidator
+	validates_with Validators::ConferenceUniquenessValidator, on: [:create, :update]
 					 
 	def fullname
 		name.to_s + "-" + year.to_s
