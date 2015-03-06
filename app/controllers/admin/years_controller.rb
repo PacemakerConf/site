@@ -81,6 +81,6 @@ class Admin::YearsController < Admin::ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def year_params
-      params.require(:year).permit(:name, :content, :published)
+      params.require(:year).permit(:name, :content)
     end
 end

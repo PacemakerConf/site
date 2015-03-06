@@ -1,12 +1,12 @@
 class Contact < ActiveRecord::Base
 
 	def full_name
-    	"#{surname} #{name}"
-  	end
+  	"#{surname} #{name}"
+	end
 
-  	def splited_mail
-  		email.split(';')
-  	end
+	def splited_mail
+		email.split(';')
+	end
 
 	has_and_belongs_to_many :locations
 
