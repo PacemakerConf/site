@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get '/', to: redirect(Conference.last_conference_route)
+  get '/', to: redirect(Conference.last_conference_route) if ActiveRecord::Base.connection.table_exists?('conferences')
 
   devise_for :admins, skip: :sessions
   as :admin do

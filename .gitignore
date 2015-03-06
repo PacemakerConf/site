@@ -38,5 +38,6 @@ build/
 db/development.sqlite3
 db/test.sqlite3
 db/schema.rb
-log/development.log
-log/test.log
+log/*
+public/assets/*
+public/system/*

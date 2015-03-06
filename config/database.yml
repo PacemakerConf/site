@@ -20,6 +20,12 @@ test:
   <<: *default
   database: db/test.sqlite3
 
-production:
-  <<: *default
-  database: db/production.sqlite3
+production: # example of postgres database
+  adapter:  postgresql
+  database: pacemaker
+  host: localhost
+  username: pacemaker_production
+  password: $dkFo%9dmj4
+  encoding: utf8
+  pool: 12
+  wait_timeout: 10
