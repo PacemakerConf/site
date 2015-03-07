@@ -80,10 +80,14 @@
 
 $('[name="commit"]').click(function(){
   var mails = '';
-  $('.mail-adreess').each(function(index,obj){
-      mails+=$(obj).val()+';';
-  });
-  $('[name="contact[email]"]').val(mails);
+  
+    $('.mail-adreess').each(function(index,obj){
+      if($(obj).val() != ''){
+        mails+=$(obj).val()+';';
+      }
+    });
+    $('[name="contact[email]"]').val(mails);
+
 });
   
   

@@ -51,19 +51,26 @@
   </div>
 
   <div class="form-group">
+    <iframe id="form_map" width="455" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?q=<%= @location.latitude %>,<%= @location.longitude %>&amp;z=15&amp;output=embed"></iframe>
+  </div>
+
+  <div class="form-group">
     <%= f.label :contact_id, 'Contact', class: "col-lg-2 control-label" %>
     <div class="col-lg-7">
       
       <%= select_tag 'location[contact_ids][]', options_from_collection_for_select(@contacts, 'id', :full_name) %>
-      <a class="btn-default btn-sm btn-warning" id="add_location" onclick="addContact(this);return false;">+</a>
+
+
+
       <div class="form-group" id="location-area"></div>
+
     </div>
   </div>
 
   <div class="form-group">
     <%= f.label :how_to_find, class: "col-lg-2 control-label" %>
     <div class="col-lg-7">
-      <%= f.text_area :how_to_find, class: "form-control wysihtml5" %>
+      <%= f.text_area :how_to_find, class: "form-control" %>
     </div>
   </div>
   
@@ -72,30 +79,32 @@
       <%= f.submit class: "btn btn-primary"%>
     </div>
   </div>
+
 <% end %>
 
 
 <script type="text/javascript">
 
-    function addContact(){
-      var divHTML = $('#location_contact_ids_')[0].outerHTML;
-      divHTML = '<div id="new_select">' + divHTML +
+    
+    jQuery(function($) {
+        $("select[multiple]").bsmSelect();
+    });
+
+    jQuery(function($) {
+    $("select[multiple]").bsmSelect({
+        addItemTarget: 'top'
+    });
+    });
+
+
+
+    $('#location_contact_ids_').removeAttr('id','none').addClass('azaza').attr("multiple", "multiple").attr("title","Select a contact");
+    var divHTML = $('.azaza')[0].outerHTML;
+      divHTML = '<div id="new_select" class="azaza">' + divHTML +
       '<a class="remove_nested_fields btn-default btn-sm btn-danger" id="remove_button_location" onclick="RemoveContact(this);return false;">-</a>'+
       "</div>";
-      $("#location-area").append(divHTML);
 
-
-  } 
-
-  function RemoveContact(button){
-    $(button).parent().remove();
-  }
-  
-
-
-    $('.wysihtml5').each(function(i, elem) {
-      $(elem).wysihtml5().html_safe();
-    });
+     
 </script>
 
 

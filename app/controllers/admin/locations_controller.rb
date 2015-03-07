@@ -6,8 +6,6 @@ class Admin::LocationsController < Admin::ApplicationController
   # GET /locations
   # GET /locations.json
   def index
-    #@conference = Conference.find(params[:conference_id])
-    #@location = @conference.location
     @location = Location.all
   end
 

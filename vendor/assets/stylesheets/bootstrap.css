@@ -6144,4 +6144,9 @@ label,
 #location-area{
   margin-bottom:0; 
 }
+
+#form_map{
+  margin-left: 138px;
+  margin-bottom: 10px;
+}
 /* Bad Styles*/

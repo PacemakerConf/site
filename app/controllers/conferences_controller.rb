@@ -7,7 +7,7 @@ class ConferencesController < ApplicationController
     @active_button = 'location'
   end
 
-  def report 
+  def report
     @report = @conference.report
     @active_button = 'report'
   end

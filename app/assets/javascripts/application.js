@@ -17,6 +17,8 @@
 //= require jquery.dataTables.js
 //= require jquery.datetimepicker
 //= require turbolinks
+//= require jquery.bsmselect.js
+
 //= require_tree .
 
 //= require bootstrap-wysihtml5
