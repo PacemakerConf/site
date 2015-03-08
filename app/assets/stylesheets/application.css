@@ -16,7 +16,7 @@
  *= require jquery.datetimepicker
  *= require jquery.dataTables.css
  *= require mainMenu.css
- *= require bootstrap-wysihtml5
+ * require bootstrap-wysihtml5
  *= require fileinput.min
  *= require bootstrap
  *= require bootstrap-datetimepicker

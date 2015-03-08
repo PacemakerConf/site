@@ -213,6 +213,13 @@ Conference.create(
 	date: '2014-05-12',
 	attenders: 372
 	)
+Conference.create(
+	published: true,
+	name: 'Mobile',
+	year: 2015,
+	date: '2015-09-12',
+	attenders: 100
+	)
 webui2014 = Conference.create(
 	published: true,
 	name: 'WebUI',

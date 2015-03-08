@@ -1,6 +1,6 @@
 class Invitation < ActiveRecord::Base
 
-	has_one :message 
+	belongs_to :message 
 
 	class LinkHelper
 		include  ActionView::Helpers::UrlHelper
