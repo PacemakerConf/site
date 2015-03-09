@@ -62,6 +62,15 @@ ul.conference-menu {
    width: 100%; 
 }
 
+.flag-year-image-container img {  
+}
+ 
+.flag-year-image-container img:hover{
+  box-shadow:0 0 15px #00aaff;
+  border:1px solid #00aaff;
+}
+
+
 /*
 .flag-year-image-container img{
   -webkit-filter: brightness(-65%);

@@ -15,7 +15,6 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require jquery.dataTables.js
-//= require jquery.datetimepicker
 //= require turbolinks
 //= require_tree .
 

@@ -1,0 +1,14 @@
+<div class="form-group">
+
+<%= form_for(:user,  :html => {:id => 'login_form'}, :remote => :true, :format => :json) do |f| %>
+	<%= link_to "SPEAKER", class: 'btn btn-xs btn-primary' %>
+	  <table class="table table-responsive">
+	    <tr>
+	      <td><%= f.label 'Registration Deadline', class: 'col-lg-2 control-label' %>
+      </td>
+	      <td><%= link_to 'CALL FOR SPEAKER', admin_speakers_path, class: "btn btn-primary"  %></td>
+	      <td><%= f.email_field :email, :autofocus => true, :placeholder => "email", :id => 'login_email' %></td>
+	    </tr>
+	    </table>
+<% end %>
+</div>		
