@@ -2,7 +2,7 @@ class Admin::ConferencesController < Admin::ApplicationController
 
   layout 'admin', except: :show
   before_action :authenticate_admin!
-  before_action :set_conference, only: [:publish, :schedule, :date, :location, :message, :report, :speakers, :show, :edit, :update, :destroy]
+  before_action :set_conference, only: [:publish, :schedule, :date, :location, :news, :report, :speakers, :show, :edit, :update, :destroy]
 
 
 
@@ -11,8 +11,8 @@ class Admin::ConferencesController < Admin::ApplicationController
     @location = @conference.location
   end
 
-  def messages
-    @message = @conference.message
+  def news
+    @news = @conference.news
   end
 
   def report 

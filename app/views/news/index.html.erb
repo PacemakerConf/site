@@ -1,0 +1,31 @@
+<h1>Listing News of
+  <%= if @conference 
+    @conference.fullname 
+   end %>
+</h1>
+<table class="display data_table" width="100%" cellspacing="0">
+  <thead>
+    <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Publish</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody> 
+    
+  </tbody>
+</table>
+
+<% if can? :create, News %>
+  <% if @conference %>
+    <%= link_to 'New news', controller: 'admin/news', 
+                             action: 'new',
+                             conf_id: @conference.id,
+                             conf_fname: @conference.fullname %>
+  <% else %>
+      <%= link_to 'New message', controller: 'admin/news', 
+                             action: 'new' %>
+  <% end %>
+<% end %>

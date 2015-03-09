@@ -1,0 +1,42 @@
+<%= form_for [:admin, @news], :html => { :class => "form-horizontal year" } do |f| %>
+ 
+
+  <% if @news.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@news.errors.count, "error") %> prohibited this report from being saved:
+      </h2>
+      <ul>
+        <% @news.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <div class="form-group">
+      <%= f.label :title, 'Title*', class: "col-lg-2 control-label"%>
+      <div class="col-lg-7">
+        <%= f.text_field :title, class: "form-control", rows: 2 %>
+      </div>
+    </div>
+
+  <div class="form-group">
+    <%= f.label :content, 'Description', class: "col-lg-2 control-label"%>
+    <div class="col-lg-7">
+      <%= f.text_area :content, class: "form-control", rows: 2 %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-lg-7 col-lg-offset-2">
+      <%= f.submit class: "btn btn-primary"%>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  {contoller: "admin/new", action: "index"}, :class => 'btn btn-default' %>
+    </div>
+  </div>
+
+
+<% end %>
+
+

@@ -2,6 +2,7 @@ class Conference < ActiveRecord::Base
   
 	has_many :events
 	has_many :speakers, through: :events
+	has_many :news
 
 	has_one :location
 	has_one :report

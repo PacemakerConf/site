@@ -10,7 +10,7 @@
         <th>Schedule</th>
         <th>Location</th>
         <th>Report</th>
-        <th>Message</th>
+        <th>News</th>
         <th>Publish</th>
         <th>Edit</th>
         <th>Delete</th>
@@ -33,7 +33,15 @@
                     link_to "#{conference.report.title}", report_conference_path(conference.route), class: 'btn btn-xs btn-info'
                   else
                     link_to "Create Report", {controller: 'admin/reports', action: 'new', conf_id: conference.id, conf_fname: conference.fullname}, class: 'btn btn-xs btn-primary'
-                  end %></td>
+                  end %>
+          </td>
+          <td><%= unless(conference.news.nil?)
+                    link_to "news", {controller: 'admin/news', action: 'index', conf_id: conference.id, conf_fname: conference.fullname}, class: 'btn btn-xs btn-default'
+                  else
+                    link_to "Create News", {controller: 'admin/news', action: 'new', conf_id: conference.id, conf_fname: conference.fullname}, class: 'btn btn-xs btn-default'
+                  end %>
+          </td>
+          <td>
 
             <% if conference.published %>
               Published

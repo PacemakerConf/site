@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   end
   
   namespace :admin do
+    resources :news
     root 'conferences#index'
     resources :conferences, param: :name do
       member do
@@ -20,6 +21,7 @@ Rails.application.routes.draw do
         get 'publish'
       end
     end
+    
 
     resources :contacts
     resources :events do
@@ -29,9 +31,8 @@ Rails.application.routes.draw do
     end
     resources :event_types 
     resources :locations
-    resources :messages
     resources :reports  
-
+    
     resources :speakers do
       collection do
         get 'invite', to: 'speakers#invite'
@@ -56,7 +57,7 @@ Rails.application.routes.draw do
   get ':name/location', to: 'conferences#location', as: :location_conference
   get ':name/schedule', to: 'conferences#schedule', as: :schedule_conference
   get ':name/report', to: 'conferences#report', as: :report_conference
-  get ':name/messages', to: 'conferences#messages', as: :messages_conference
+  get ':name/news' , to: 'conferences#news', as: :news_conference
 
   
 
