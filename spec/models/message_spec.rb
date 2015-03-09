@@ -1,5 +1,6 @@
 require 'rails_helper'
+require 'shoulda/matchers'
 
-RSpec.describe Message, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Message do
+  
 end
