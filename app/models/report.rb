@@ -1,6 +1,6 @@
 class Report < ActiveRecord::Base
 	belongs_to :conference
 
-	validate :title, presence: true
-	validate :description, presence: true
+	validates :title, presence: true
+	validates :description, presence: true
 end
