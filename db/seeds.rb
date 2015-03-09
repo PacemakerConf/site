@@ -213,6 +213,13 @@ Conference.create(
 	date: '2014-05-12',
 	attenders: 372
 	)
+Conference.create(
+	published: true,
+	name: 'Mobile',
+	year: 2015,
+	date: '2015-09-12',
+	attenders: 100
+	)
 webui2014 = Conference.create(
 	published: true,
 	name: 'WebUI',
@@ -299,7 +306,7 @@ onering.events.create(
 onering.events.create(
 	published: true,
 	title: 'Philosophical questions',
-	description: 'How to cook yammy code. Long story with pictores',
+	description: 'How to cook yammy code. Long story with pictures',
 	event_type: lightning,
 	speaker: ivan,
 	duration: '2014-12-12 00:15:00',
@@ -400,7 +407,7 @@ Event.create(
 
 Event.create(
 	title: 'The last years of Middle-earth',
-	description: 'Why',
+	description: 'When hazard is only reason to stay',
 	speaker: frodo,
 	conference: webui2014,
 	event_type: topic,
