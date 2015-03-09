@@ -1,12 +1,7 @@
-$(document).ready(conferencePageLoad);
-$(document).on('page:load', conferencePageLoad);
+$(document).ready(setFlagColors);
+$(document).on('page:load', setFlagColors);
 
-function conferencePageLoad(){
-	
-	if( typeof conference_nav_buttons != 'undefined'){
-		active_button = conference_nav_buttons.getAttribute('active') + '_button';
-		$('#' + active_button).addClass('active');
-	}
+function setFlagColors(){
 	
 	if( typeof conference_menu != 'undefined'){
 		$('.flag-year-image-container').click(function(){
@@ -36,7 +31,7 @@ function conferencePageLoad(){
 		// .css({ boxShadow: '1px 3px 6px #444' })
 		// .toggleClass( "newClass", 200 ), function(){
   //   $('.flag-year-image-container').children('img').css('box-shadow', '2px 2px 2px #555');
-}
-});
-};
+			}
+		});
+	};
 };

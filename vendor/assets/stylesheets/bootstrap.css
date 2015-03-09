@@ -6085,3 +6085,63 @@ label,
   border-top-right-radius: 0;
   border-top-left-radius: 0;
 }
+
+/* Bad Styles*/
+.label_contact{
+  padding-right: 5px;
+}
+
+.contact_form{
+  margin-left: 10px;
+}
+
+#mail-area{
+  margin-bottom:0; 
+}
+
+#add_button{
+  display: inline-block;
+  text-decoration: none;
+}
+
+#remove_button_contact{
+  display: inline-block;
+  padding-top: 9px;
+  padding-bottom: 8px;
+  padding-left: 18px;
+  padding-right: 17px;
+  margin-left: 55px;
+  margin-left: 55px;
+  text-decoration: none;
+}
+
+.mail-adreess{
+  width: 460px;
+}
+
+#add_location{
+  padding-top: 5px;
+  padding-bottom: 3px;
+  padding-left: 12px;
+  padding-right: 12px;
+  text-decoration: none;
+}
+
+#remove_button_location{
+  margin-left: 4px;
+  padding-top: 5px;
+  padding-bottom: 3px;
+  padding-left: 13px;
+  padding-right: 14px;
+  text-decoration: none;
+}
+
+#new_select{
+  margin-left: 15px;
+  margin-top: 7px;
+}
+
+#location-area{
+  margin-bottom:0; 
+}
+/* Bad Styles*/

@@ -1,5 +1,11 @@
 require 'rails_helper'
+require 'shoulda/matchers'
 
-RSpec.describe Report, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Report do
+	
+ 	it { should belong_to(:conference) }
+  
+	it { should validate_presence_of(:title) }
+	it { should validate_presence_of(:description) }
+
 end

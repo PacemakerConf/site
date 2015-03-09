@@ -12,7 +12,7 @@
   <div class="form-group">
       <%= label_tag(:conference_id, "Conference", class: "col-lg-2 control-label") %>
     <div class="col-lg-7">
-        <%= select_tag 'location[conference_id]', options_from_collection_for_select(Conference.all, 'id', 'fullname'), class: "form-control" %>
+        <%= select_tag :conference_id, options_from_collection_for_select(Conference.where(date: Time.now..'3000-12-12'), 'id', 'fullname'), class: "form-control" %>
         </div>
   </div>
 

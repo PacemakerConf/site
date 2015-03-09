@@ -1,5 +1,5 @@
 class Admin::SpeakersController < Admin::ApplicationController
-  before_action :authenticate_admin!, except: [:new, :create, :index]
+  before_action :authenticate_admin!
   before_action :set_speaker, only: [:show, :edit, :update, :destroy]
 
   layout 'admin'
@@ -17,7 +17,6 @@ class Admin::SpeakersController < Admin::ApplicationController
 
   # GET /speakers/new
   def new
-    authorize! :create, Speaker
     @speaker = Speaker.new
   end
 
@@ -29,9 +28,19 @@ class Admin::SpeakersController < Admin::ApplicationController
   end
 
   def send_invitation
-    #render text: params[:email]
-    Speaker.invite_speaker(params[:email], params[:message])
-    redirect_to admin_speakers_path, notice: 'Invitation was successfully sent.'
+    @invite = Invitation.new
+    @invite.email = params[:email]
+    @invite.conference_id = params[:conference_id]
+
+    cost = 10
+    @invite.email_hash = ::BCrypt::Password.create("#{@invite.email}", :cost => cost).to_s
+
+    if @invite.save
+      Invitation.invite_speaker(params[:email], @invite.email_hash, params[:message])
+      redirect_to admin_speakers_path, notice: 'Invitation was successfully sent'
+    else
+      redirect_to admin_speakers_path, notice: 'Invitation was not sent.'
+    end
   end
 
   # POST /speakers
@@ -41,7 +50,6 @@ class Admin::SpeakersController < Admin::ApplicationController
     @speaker = Speaker.new(speaker_params)
     respond_to do |format|
       if @speaker.save
-        current_user['role'] = User::SPEAKER
         format.html { redirect_to admin_speakers_path, notice: 'Speaker was successfully created.' }
         format.json { render :show, status: :created, location: @speaker }
       else
