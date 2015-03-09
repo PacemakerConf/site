@@ -2,9 +2,7 @@
 <div>
 <div class="main-menu">
 
-	<% years = Conference.uniq.pluck(:year).sort %>
-	<% last_year = years[-1] %>
-	<% years = years[0...-1] %>
+	<% conferences, years, last_year = MainMenu.params %>
 	<% if @conference %>
 		<% active_year = @conference.year %>
 	<% elsif @year %>
@@ -33,7 +31,7 @@
 				<p class='flag-text'> <%= year %> </p> 
 			</li>
 
-			<% Conference.where(year: year).order(date: :asc).each do |conference| %>
+			<% conferences.where(year: year).order(date: :asc).each do |conference| %>
 
 				<% if conference === @conference %>
 					<% flag_settings[:conf_flag_color] = 'BLUElight.png' %>
@@ -50,15 +48,6 @@
 
 			<% end %>
 
-		<% end %>
-
-		<% current_year = years[-1].to_i + 1 %>
-
-		<% Conference.where(year: current_year).each do |conference| %>
-			<li class="flag-image-container conference-<%= current_year %> conference-flag" >
-				<%= link_to(  image_tag('GREENlight.png'), about_conference_path(conference.route) )%>
-				<div class='flag-text'> <%= link_to  conference.name + " " + conference.year.to_s, about_conference_path(conference.route) %> </div> 
-			</li>
 		<% end %>
 
 </ul>
