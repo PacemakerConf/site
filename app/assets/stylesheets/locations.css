@@ -1,0 +1,14 @@
+#editor {
+  overflow:scroll;
+  min-height:200px;
+}
+
+#wisywyg_container{
+  margin-left: 129px;
+  width:56%;
+}
+
+#location-area{
+  margin-bottom:0; 
+}
+

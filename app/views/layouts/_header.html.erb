@@ -6,8 +6,12 @@
 				<li id='about_button'><%= link_to "About", about_conference_path(@conference.route)%></a></li>
 				<li id='speakers_button' ><%= link_to "Speakers", speakers_conference_path(@conference.route)%></a></li>
 				<li id='schedule_button'><%= link_to "Schedule", schedule_conference_path(@conference.route)%></a></li>
+				<% unless(@conference.location.nil?) %>
 				<li id='location_button'><%= link_to "Location", location_conference_path(@conference.route)%></a></li>
+				<% end %>
+				<% unless(@conference.report.nil?) %>
 				<li id='report_button'><%= link_to "Report", report_conference_path(@conference.route)%></a></li>
+				<% end %>
 			</ul>
 		<% end %>
 	</div>

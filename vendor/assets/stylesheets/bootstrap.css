@@ -6116,37 +6116,14 @@ label,
 }
 
 .mail-adreess{
-  width: 460px;
+ 
 }
 
-#add_location{
-  padding-top: 5px;
-  padding-bottom: 3px;
-  padding-left: 12px;
-  padding-right: 12px;
-  text-decoration: none;
-}
 
-#remove_button_location{
-  margin-left: 4px;
-  padding-top: 5px;
-  padding-bottom: 3px;
-  padding-left: 13px;
-  padding-right: 14px;
-  text-decoration: none;
-}
 
-#new_select{
-  margin-left: 15px;
-  margin-top: 7px;
-}
 
-#location-area{
-  margin-bottom:0; 
-}
 
-#form_map{
-  margin-left: 138px;
-  margin-bottom: 10px;
-}
+
+
+
 /* Bad Styles*/

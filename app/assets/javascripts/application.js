@@ -18,7 +18,7 @@
 //= require jquery.datetimepicker
 //= require turbolinks
 //= require jquery.bsmselect.js
-
+//= require bootstrap-wysiwyg.js
 //= require_tree .
 
 //= require bootstrap-wysihtml5
