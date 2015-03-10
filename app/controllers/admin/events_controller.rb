@@ -1,8 +1,8 @@
 class Admin::EventsController < Admin::ApplicationController
-  layout 'admin'
-  before_action :authenticate_admin!, except: [:new, :create, :index]
+  before_action :authenticate_admin!
   before_action :set_event, only: [:publish, :show, :edit, :update, :destroy]
 
+  layout 'admin'
   # GET /events
   # GET /events.json
   def index
@@ -21,7 +21,10 @@ class Admin::EventsController < Admin::ApplicationController
   def publish 
     @event.published = true
     @event.save!
-    redirect_to controller: 'admin/events', action: 'index', conf_id: @event.conference.id
+
+    respond_to do |format|
+      format.js {}
+    end
   end
 
   # GET /events/1
@@ -31,7 +34,6 @@ class Admin::EventsController < Admin::ApplicationController
 
   # GET /events/new
   def new
-    authorize! :create, Event
     @event = Event.new
   end
 
@@ -42,7 +44,6 @@ class Admin::EventsController < Admin::ApplicationController
   # POST /events
   # POST /events.json
   def create
-    authorize! :create, Event
     @event = Event.new(event_params)
     @conference = Conference.find(event_params[:conference_id])
     position = Event.where(conference: @conference).size + 1

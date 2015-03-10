@@ -16,4 +16,8 @@ class ApplicationController < ActionController::Base
     @current_ability ||= Ability.new(current_admin || current_user) 
   end
  
+  def not_found
+    raise ActionController::RoutingError.new('Not Found')
+  end
+
 end

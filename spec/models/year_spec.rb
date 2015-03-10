@@ -1,5 +1,12 @@
 require 'rails_helper'
+require 'shoulda/matchers'
 
-RSpec.describe Year, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Year do
+	
+	xit { should have_many(:conferences) }
+
+	it { should validate_presence_of(:name) }
+
+	it { should validate_uniqueness_of(:name) }
+
 end

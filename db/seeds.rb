@@ -1,3 +1,29 @@
+#years
+Year.create(
+	name: 2012,
+	content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut est facilisis, laoreet orci nec, faucibus nisi. Maecenas tristique ipsum eu ultricies cursus. Etiam eu cursus urna. Maecenas consequat at elit sed consequat. Morbi consectetur fermentum ipsum sit amet accumsan. Etiam rutrum posuere finibus. Fusce ac orci metus. Sed augue urna, volutpat quis dapibus ut, egestas quis ex. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce rutrum bibendum quam, at rutrum sapien hendrerit non. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut congue nisi neque, mattis gravida nulla euismod ac. Praesent congue venenatis auctor. Phasellus interdum eleifend feugiat.',
+	published: true
+	)
+
+Year.create(
+	name: 2013,
+	content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut est facilisis, laoreet orci nec, faucibus nisi. Maecenas tristique ipsum eu ultricies cursus. Etiam eu cursus urna. Maecenas consequat at elit sed consequat. Morbi consectetur fermentum ipsum sit amet accumsan. Etiam rutrum posuere finibus. Fusce ac orci metus. Sed augue urna, volutpat quis dapibus ut, egestas quis ex. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce rutrum bibendum quam, at rutrum sapien hendrerit non. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut congue nisi neque, mattis gravida nulla euismod ac. Praesent congue venenatis auctor. Phasellus interdum eleifend feugiat.',
+	published: true
+	)
+
+Year.create(
+	name: 2014,
+	content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut est facilisis, laoreet orci nec, faucibus nisi. Maecenas tristique ipsum eu ultricies cursus. Etiam eu cursus urna. Maecenas consequat at elit sed consequat. Morbi consectetur fermentum ipsum sit amet accumsan. Etiam rutrum posuere finibus. Fusce ac orci metus. Sed augue urna, volutpat quis dapibus ut, egestas quis ex. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce rutrum bibendum quam, at rutrum sapien hendrerit non. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut congue nisi neque, mattis gravida nulla euismod ac. Praesent congue venenatis auctor. Phasellus interdum eleifend feugiat.',
+	published: false
+	)
+
+Year.create(
+	name: 2015,
+	content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut est facilisis, laoreet orci nec, faucibus nisi. Maecenas tristique ipsum eu ultricies cursus. Etiam eu cursus urna. Maecenas consequat at elit sed consequat. Morbi consectetur fermentum ipsum sit amet accumsan. Etiam rutrum posuere finibus. Fusce ac orci metus. Sed augue urna, volutpat quis dapibus ut, egestas quis ex. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce rutrum bibendum quam, at rutrum sapien hendrerit non. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut congue nisi neque, mattis gravida nulla euismod ac. Praesent congue venenatis auctor. Phasellus interdum eleifend feugiat.',
+	published: false
+	)
+
+
 #eventtypes
 registration = EventType.create(
 	name: 'registration',
@@ -52,8 +78,8 @@ frodo = Speaker.create(
 	position: 'lucky pathfinder',
 	description: 'A little but brave Hobbit. Love jewels very much',
 	email: 'frodo@ring.one',
-  facebook: 'fb/goldy',
-  site: 'http://the-best-jewels.com',
+	facebook: 'fb/goldy',
+  	site: 'http://the-best-jewels.com',
 	photo_file_name: "frodo.jpg",
 	photo_content_type: "image/jpeg",
 	photo_file_size: 8046,
@@ -92,15 +118,52 @@ gandalf = Speaker.create(
     photo_file_size: 1231
 	)
 
+dima = Speaker.create(
+	name: 'Dmytro',
+	surname: 'Panov',
+	position: 'SoftServe software engineer specialized on Ruby, JavaScript, Java, Oracle, PostgreSQL, etc.',
+	description: 'Lv137 UI/Ruby expert', 
+	photo_file_name: "zsssdads.png", 
+	photo_content_type: "image/png", 
+	photo_file_size: 131940, 
+	photo_updated_at: "2015-02-26 19:41:39"
+	)
+
+ivan = Speaker.create(
+	name: 'Ivan',
+	surname: 'Chyr',
+	position: 'Teacher Web UI direction',
+	description: 'Responsibilities:
+		+ coaching and mentoring of students
+		+ development of new directions ( Ruby on Rails, Angular.js )
+		+ teaching and training others
+		+ managing student group project as scrum master and product owner', 
+	photo_file_name: "358196a.jpg", 
+	photo_content_type: "image/jpeg", 
+	photo_file_size: 7632, 
+	photo_updated_at: "2015-02-26 19:38:27"
+	)
+
+koldovsky = Speaker.create(
+	name: 'Vyacheslav',
+	surname: 'Koldovsky',
+	position: 'Founder & CEO at Productivity Scientific',
+	description: ' strong ', 
+	photo_file_name: "064e28a.jpg", 
+	photo_content_type: "image/jpeg", 
+	photo_file_size: 2966, 
+	photo_updated_at: "2015-02-26 19:40:02"
+	)
+
 gimli = Speaker.create(
 	name: 'Gimli',
 	surname: 'Grisli',
 	position: 'chief dwarf',
 	description: 'Gimli - chief dwarf. Head dwarf. A dwarf with capital D', 
-	photo_file_name: "zsssdads.png", 
-	photo_content_type: "image/png", 
-	photo_file_size: 131940, 
-	photo_updated_at: "2015-02-26 19:41:39"
+	photo_file_name: "images_(1).jpg", 
+	photo_content_type: "image/jpeg", 
+	photo_file_size: 10267, 
+	photo_updated_at: "2015-03-04 15:38:07"
 	)
 
 sam = Speaker.create(
@@ -108,10 +171,10 @@ sam = Speaker.create(
 	surname: 'Gamgee',
 	position: 'chef cook',
 	description: 'Sam, just Sam', 
-	photo_file_name: "358196a.jpg", 
+	photo_file_name: "sam.jpg", 
 	photo_content_type: "image/jpeg", 
-	photo_file_size: 7632, 
-	photo_updated_at: "2015-02-26 19:38:27"
+	photo_file_size: 156280, 
+	photo_updated_at: "2015-03-04 15:39:50"
 	)
 
 ent = Speaker.create(
@@ -119,37 +182,37 @@ ent = Speaker.create(
 	surname: 'Ent',
 	position: 'woodpeckers lover',
 	description: 'Hum-hum-hum', 
-	photo_file_name: "064e28a.jpg", 
+	photo_file_name: "images.jpg", 
 	photo_content_type: "image/jpeg", 
-	photo_file_size: 2966, 
-	photo_updated_at: "2015-02-26 19:40:02"
+	photo_file_size: 6425, 
+	photo_updated_at: "2015-03-04 15:34:40"
 	)
 
 
 #conferences
 js2012 = Conference.create(
-	published: false,
+	published: true,
 	name: 'JS',
 	year: 2012,
 	date: '2012-02-12',
 	attenders: 12
 	)
 Conference.create(
-	published: false,
+	published: true,
 	name: 'Java',
 	year: 2012,
 	date: '2012-05-22',
 	attenders: 12
 	)
 Conference.create(
-	published: false,
+	published: true,
 	name: 'LAMP',
 	year: 2012,
 	date: '2012-08-08',
 	attenders: 12
 	)
 Conference.create(
-	published: false,
+	published: true,
 	name: 'OPS',
 	year: 2012,
 	date: '2012-11-12',
@@ -157,7 +220,7 @@ Conference.create(
 	)
 
 Conference.create(
-	published: false,
+	published: true,
 	name: 'Java',
 	year: 2013,
 	date: '2013-01-12',
@@ -171,7 +234,7 @@ cloud2013 = Conference.create(
 	attenders: 22
 	)
 Conference.create(
-	published: true,
+	published: false,
 	name: 'Data',
 	year: 2013,
 	date: '2013-11-12',
@@ -184,6 +247,13 @@ Conference.create(
 	year: 2014,
 	date: '2014-05-12',
 	attenders: 372
+	)
+Conference.create(
+	published: true,
+	name: 'Mobile',
+	year: 2015,
+	date: '2015-09-12',
+	attenders: 100
 	)
 webui2014 = Conference.create(
 	published: true,
@@ -201,7 +271,7 @@ victory = Conference.create(
 	)
 
 onering = Conference.create(
-	published: false,
+	published: true,
 	name: 'BigData',
 	year: 2015,
 	date: '2015-11-12',
@@ -221,7 +291,7 @@ onering.events.create(
 	)
 
 onering.events.create(
-	published: false,
+	published: true,
 	title: 'How i get the Ring. History of success',
 	description: 'Evetything you need to know about One Ring,
 				  but afffraid to ask',
@@ -273,7 +343,7 @@ onering.events.create(
 	)
 
 onering.events.create(
-	published: false,
+	published: true,
 	title: 'The challenge for kamikaze',
 	speaker: gandalf,
 	description: 'When fatherland is calling you',
@@ -292,10 +362,40 @@ onering.events.create(
 	description: 'I was drinking at the bar last night, so I took
 				  a bus home...That may not be a big deal to you,
 				  but I\'ve never driven a bus before.',
-	event_type: lightning,
+	event_type: topic,
 	speaker: gimli,
 	duration: '2014-12-12 01:05:00',
 	position: 5
+	)
+
+onering.events.create(
+	published: true,
+	title: 'Philosophical questions',
+	description: 'How to cook yammy code. Long story with pictures',
+	event_type: lightning,
+	speaker: ivan,
+	duration: '2014-12-12 00:15:00',
+	position: 6
+	)
+
+onering.events.create(
+	published: true,
+	title: 'Storage via iSCSI',
+	description: ' about project experience of usage iSCSI for storage data. What it is, why and how.',
+	event_type: lightning,
+	speaker: dima,
+	duration: '2014-12-12 00:15:00',
+	position: 7
+	)
+
+onering.events.create(
+	published: false,
+	title: '90% percent js everywhere',
+	description: 'how to make your application without server-side',
+	event_type: lightning,
+	speaker: koldovsky,
+	duration: '2014-12-12 00:15:00',
+	position: 8
 	)
 
 onering.events.create(
@@ -305,16 +405,16 @@ onering.events.create(
 	event_type: topic,
 	speaker: sam,
 	duration: '2014-12-12 00:15:00',
-	position: 6
+	position: 9
 	)
 
 onering.events.create(
 	published: true,
 	title: 'Houmm-arr-orghh',
-	event_type: lightning,
+	event_type: topic,
 	speaker: ent,
 	duration: '2014-12-12 00:25:00',
-	position: 7
+	position: 10
 	)
 
 onering.events.create(
@@ -324,7 +424,7 @@ onering.events.create(
 	event_type: lightning,
 	speaker: frodo,
 	duration: '2014-12-12 00:15:00',
-	position: 8,
+	position: 11,
 	video: "https://www.youtube.com/watch?v=8Uee_mcxvrw", 
 	materials_file_name: "3_Ways_to_Walk_in_High_Heels_-_wikiHow.pdf", 
 	materials_content_type: "application/pdf", 
@@ -372,12 +472,13 @@ Event.create(
 
 Event.create(
 	title: 'The last years of Middle-earth',
-	description: 'Why',
+	description: 'When hazard is only reason to stay',
 	speaker: frodo,
 	conference: webui2014,
 	event_type: topic,
 	duration: '2014-12-12 01:00:00'
 	)
+
 
 #locations
 pasternaka = Location.create(
@@ -448,12 +549,11 @@ andriy = Contact.create(
 	)
 
 first = Report.create(
-	id: 1,
 	responsable: 'Vadym Kirdan',
 	video: 'https://youtube.com/watch?',
 	title: 'best conference ever',
 	description: 'bla bla bla',
-	conference_id: 1
+	conference: victory
 	)
 
 sadova.contacts << vad
@@ -463,32 +563,11 @@ pasternaka.contacts << vova
 pasternaka.contacts << vad
 
 
-#years
-Year.create(
-	name: 2012,
-	content: 'Greate year. This is the first year of conference and so many evvents already ... blablabla',
-	published: true
-	)
-
-Year.create(
-	name: 2013,
-	content: 'Greate year2. This is the first year of conference and so many evvents already ... blablabla',
-	published: true
-	)
-
-Year.create(
-	name: 2014,
-	content: 'Greate year3. This is the first year of conference and so many evvents already ... blablabla',
-	published: false
-	)
-
-
-
 
 admin = Admin.new
 	admin.email = 'admin@example.com' 
-    admin.username = 'admin' 
+  admin.username = 'admin' 
 	admin.password = '00000000'
 	admin.password_confirmation = '00000000'
 	admin.role = 'Admin'
-    admin.save!
+  admin.save!

@@ -20,6 +20,13 @@ test:
   <<: *default
   database: db/test.sqlite3
 
-production:
-  <<: *default
-  database: db/production.sqlite3
+production: # example of postgres database
+  adapter:  postgresql
+  database: dbgpno8g98hstu
+  host: localhost
+  port: 5432
+  username: mvucfnuzeisech
+  password: 5O1VaOn-UpJBrJoLvFl4pPEI6u
+  encoding: utf8
+  pool: 12
+  wait_timeout: 10

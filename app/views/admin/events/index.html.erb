@@ -21,7 +21,7 @@
 
 <br>
 
-<% if can? :create, Event %>
+
   <% if @conference %>
     <%= link_to 'New event', controller: 'admin/events', 
                              action: 'new',
@@ -31,4 +31,3 @@
       <%= link_to 'New event', controller: 'admin/events', 
                              action: 'new' %>
   <% end %>
-<% end %>
