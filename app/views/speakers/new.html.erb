@@ -1,5 +1,16 @@
-<h1>New Speaker</h1>
+<fieldset class='col-lg-8'>
+
+<legend>New Speaker</legend>
+
+<% Invitation.all.each do |invite|%>
+	<%= invite %>
+	<%= invite.email %>
+	<% cost=10 %>
+	<%=	hash = ::BCrypt::Password.create("#{invite.email}").to_s %>
+<% end %>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', speakers_path %>
+<%= link_to 'Back', admin_speakers_path %>
+
+</fieldset>

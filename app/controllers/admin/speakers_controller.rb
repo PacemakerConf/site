@@ -3,7 +3,7 @@ class Admin::SpeakersController < Admin::ApplicationController
   before_action :set_speaker, only: [:show, :edit, :update, :destroy]
 
   layout 'admin'
-  
+
   # GET /speakers
   # GET /speakers.json
   def index
@@ -17,6 +17,7 @@ class Admin::SpeakersController < Admin::ApplicationController
 
   # GET /speakers/new
   def new
+    authorize! :create, Speaker
     @speaker = Speaker.new
   end
 
@@ -29,8 +30,14 @@ class Admin::SpeakersController < Admin::ApplicationController
 
   def send_invitation
     #render text: params[:email]
-    Speaker.invite_speaker(params[:email], params[:message])
-    redirect_to admin_speakers_path, notice: 'Invitation was successfully sent.'
+    @invite = Invitation.new
+    @invite.email= params[:email]
+    if @invite.save
+      Invitation.invite_speaker(params[:email], params[:message])
+      redirect_to admin_speakers_path, notice: 'Invitation was successfully sent.'
+    else
+      redirect_to admin_speakers_path, notice: 'Invitation was not sent.'
+    end
   end
 
   # POST /speakers
@@ -77,11 +84,7 @@ class Admin::SpeakersController < Admin::ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_speaker
-      if(params[:name].to_i.to_s === params[:name].to_s)
-        @speaker = Speaker.find(params[:name])
-      else
-        @speaker = Speaker.where(name: params[:name])[0]
-      end
+      @speaker = Speaker.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

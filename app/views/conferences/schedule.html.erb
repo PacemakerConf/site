@@ -14,17 +14,51 @@
     </tr>
   </thead>
   <tbody>
-    <% @events.each do |event| %>
-	  <tr style="background-color: <%= scheduleColor(event.event_type.color) %>">
-	  	<td class="timestart" style="text-align: center;"></td>
-	  	<td class="duration" style="text-align: center;"><%= conferenceEventDurationReturn(event.duration) %></td>
-	  	<td><%= event.title %>
-        <% unless event.speaker_id.nil? %>
-	  	    <span style="float:right;"><%= link_to "-" + event.speaker.name + " " + event.speaker.surname, event.speaker %></span>
+
+  <% @@trigger = true %>
+  <% @eventsSingle.each do |event| %>
+    <% if (event.position > @eventsGroupable[1].position) && @@trigger %>
+      <% @@accessTrigger = 0 %>
+      <% @eventsGroupable.each do |access| %>
+        <% if can? :read, access%>
+          <% @@accessTrigger += 1 %>
         <% end %>
-      </td>
-	  </tr>
-	<% end %>
+      <% end %>
+      <% if @@accessTrigger > 0 %>
+        <tr style="background-color: <%= scheduleColor(@eventsGroupable[1].event_type.color) %>">
+        <td class="timestart" style="text-align: center;"></td>
+        <td class="duration" style="text-align: center;">
+          <%= conferenceEventGroupDurationReturn(@eventsGroupable) %>
+        </td>
+        <td>
+          <% @eventsGroupable.each do |eventGroup| %>
+            <% if can? :read, eventGroup %>
+              <%= eventGroup.title %>
+              <% unless eventGroup.speaker_id.nil? %>
+                <span style="float:right;"><%= link_to "-" + eventGroup.speaker.name + " " + eventGroup.speaker.surname, eventGroup.speaker %></span>
+              <% end %>
+              <br>
+            <% end %>
+          <% end %>
+        </td>
+      </tr>
+      <% end %>
+        <% @@trigger = false %>
+    <% end %>
+
+    <% if can? :read, event %>
+      <tr style="background-color: <%= scheduleColor(event.event_type.color) %>">
+        <td class="timestart" style="text-align: center;"></td>
+        <td class="duration" style="text-align: center;"><%= conferenceEventDurationReturn(event.duration) %></td>
+        <td><%= event.title %>
+          <% unless event.speaker_id.nil? %>
+            <span style="float:right;"><%= link_to "-" + event.speaker.name + " " + event.speaker.surname, event.speaker %></span>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  <% end %>
+
   </tbody>
   </table>
   <button class="btn btn-default" onclick="window.print();">Print schedule</button>

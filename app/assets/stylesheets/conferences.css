@@ -1,0 +1,55 @@
+@media screen
+{
+	.row.first span
+	{
+		display: none;
+	}
+
+}
+
+@media print
+{
+	button.btn
+	{
+		display: none;
+	}
+
+	.row, div.main-menu
+	{
+		display: none;
+	}
+	.row.first
+	{
+		display:inline;
+	}
+	.row.first ul
+	{
+		display: none;
+	}
+	.row.first h1
+	{
+		display: inline;
+		font-size: 20pt;
+		text-align: left;
+		left: 0px;
+		top: 0px;
+		position: absolute;
+	}
+	.row.first span
+	{
+		color: red;
+		display: inline;
+		font-size: 14pt;
+		text-align: right;
+		right: 0px;
+		top: 0px;
+		position: absolute;
+	}
+
+	.row.main-content
+	{
+		top: 100px;
+		display: inline;
+		position: absolute;
+	}
+}

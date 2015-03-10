@@ -15,26 +15,42 @@
     </div>
   <% end %> 
 
-  <div class="control-group">
-    <%= f.label :name, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :name, :class => 'form-control' %>
+  <div class="form-group">
+    <%= f.label :'year', "Year*", class: "col-lg-2 control-label" %>
+  <div class="col-lg-7">
+
+    <% years_options = ''%>
+    <% cur_year = Time.now.year %>
+    <% 2011.upto(cur_year) do |year| %>
+      <% if cur_year.to_s === year.to_s %>
+        <% selected = " selected='selected'" %>
+      <% else %>
+        <% selected = '' %>
+      <% end %>
+      <% years_options += " <option value=" + year.to_s + selected + " > " + year.to_s + "</option> "%>
+      <% end %>
+      <%= select_tag "year[name]", years_options.html_safe, class: "form-control"%>
     </div>
-    <%= error_span(@year[:name]) %>
   </div>
-  <div class="control-group">
-    <%= f.label :content, :class => 'control-label' %>
-    <div id='#'>
-      <%= f.text_area :content, as: :bootsy, :class => 'form-control' %>
+
+  <div class="form-group">
+    <%= f.label :content, 'Description*', class: "col-lg-2 control-label"%>
+    <div class="col-lg-7">
+      <%= f.text_area :content, class: "form-control", rows: 2 %>
     </div>
-    <%= error_span(@year[:content]) %>
   </div>
 
 
-  <%= f.submit nil, :class => 'btn btn-primary' %>
-  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-            years_path, :class => 'btn btn-default' %>
+  <%= f.hidden_field :published, value: false %>
 
+  
+  <div class="form-group">
+      <div class="col-lg-7 col-lg-offset-2">
+        <%= f.submit nil, :class => 'btn btn-primary' %>
+        <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  admin_years_path, :class => 'btn btn-default' %>
+        </div>
+    </div>
 
 <% end %>
 

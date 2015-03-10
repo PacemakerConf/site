@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe YearsController, :type => :routing do
+RSpec.describe Admin::YearsController, :type => :routing do
   describe "routing" do
 
     it "routes to #index" do

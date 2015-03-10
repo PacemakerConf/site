@@ -13,20 +13,50 @@
 </script>
 
 <ul id="sortable" class="list-group">
-<% @@positionNumber = 0 %>
-<% @events.each do |event| %>
-  <li class="ui-state-default list-group-item schedule-item" >
-    <span class="timestart" style="position: relative;"></span>
-    <span class="duration" style="position: relative;"><%= conferenceEventDurationReturn(event.duration) %></span>
-    |
-    <span style="position: relative;"><%= event.title %></span>
-    <span class="idItems" style= "display: none;"><%= event.id %></span>
-    <span class="positionItems" style="display: none;"><%= @@positionNumber %><% @@positionNumber += 1 %></span>
-    <% unless event.speaker_id.nil? %>
-          <span style="position:relative;float:right;"><%= link_to "-" + event.speaker.name + " " + event.speaker.surname, event.speaker %></span>
+  <% @@positionNumber = 0 %>
+  <% @@trigger = true %>
+  <% @eventsSingle.each do |event| %>
+    <% if (event.position > @eventsGroupable[1].position) && @@trigger %>
+      <% @@accessTrigger = 0 %>
+      <% @eventsGroupable.each do |access| %>
+        <% if can? :read, access%>
+          <% @@accessTrigger += 1 %>
+        <% end %>
+      <% end %>
+      <% if @@accessTrigger > 0 %>
+        <li class="ui-state-default list-group-item schedule-item" >
+          <span class="timestart" style="position: relative;"></span>
+          <span class="duration" style="position: relative;"><%= conferenceEventGroupDurationReturn(@eventsGroupable) %></span>
+          |
+          <span style="position: relative;">
+            <% @eventsGroupable.each do |eventGroup| %>
+                <%= eventGroup.title + " / " %>
+            <% end %>
+          </span>
+          <span class="idItems" style= "display: none;"><%= event.id %></span>
+          <span class="positionItems" style="display: none;"><%= @@positionNumber %><% @@positionNumber += 1 %></span>
+          <% @eventsGroupable.each do |eventGroup| %>
+            <% unless eventGroup.speaker_id.nil? %>
+              <span style="position:relative;float:right;"><%= link_to " -" + eventGroup.speaker.name + " " + eventGroup.speaker.surname + " / ", eventGroup.speaker %></span>
+            <% end %>
+          <% end %>
+        </li>
+      <% end %>
+        <% @@trigger = false %>
     <% end %>
-  </li>
-<% end %>
+
+    <li class="ui-state-default list-group-item schedule-item" >
+      <span class="timestart" style="position: relative;"></span>
+      <span class="duration" style="position: relative;"><%= conferenceEventDurationReturn(event.duration) %></span>
+      |
+      <span style="position: relative;"><%= event.title %></span>
+      <span class="idItems" style= "display: none;"><%= event.id %></span>
+      <span class="positionItems" style="display: none;"><%= @@positionNumber %><% @@positionNumber += 1 %></span>
+      <% unless event.speaker_id.nil? %>
+            <span style="position:relative;float:right;"><%= link_to "-" + event.speaker.name + " " + event.speaker.surname, event.speaker %></span>
+      <% end %>
+    </li>
+  <% end %>
 </ul>
 
 <button onclick="sendAJAX()" class="btn btn-default">Set Position</button><br>

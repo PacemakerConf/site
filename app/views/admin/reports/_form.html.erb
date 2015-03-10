@@ -1,0 +1,63 @@
+ <%= form_for( [:admin, @report],  html: {class: 'form-horizontal'} ) do |f| %>
+
+  <% if @report.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@report.errors.count, "error") %> prohibited this report from being saved:</h2>
+
+      <ul>
+      <% @report.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<form class="form-horizontal">
+  <fieldset>
+     <div class="form-group">
+      <% if params['conf_id'] %>
+      <div class="col-lg-7">
+        <h4>Conference:  <%= params['conf_fname'] %> </h4>
+      </div>
+        <%= hidden_field( :report, :conference_id, value: params['conf_id']) %>
+      <% else %>
+        <%= f.label :conference_id, 'Conference', class: "col-lg-2 control-label" %>
+        <div class="col-lg-7">
+        <%= select_tag 'report[conference_id]', options_from_collection_for_select(Conference.all, 'id', 'fullname'), class: "form-control" %>
+        </div>
+      <% end %>
+   </div> 
+    <div class="form-group">
+      <%= f.label "Responsable", class: "col-lg-2 control-label"%>
+      <div class="col-lg-10">
+        <%= f.text_field :responsable, class: "form-control" %>
+      </div>
+    </div>    
+    <div class="form-group">
+      <%= f.label "Video", class: "col-lg-2 control-label"%>
+      <div class="col-lg-10">
+        <%= f.text_field :video, class: "form-control" %>
+      </div>
+    </div>    
+    <div class="form-group">
+      <%= f.label "Title", class: "col-lg-2 control-label"%>
+      <div class="col-lg-10">
+        <%= f.text_field :title, class: "form-control" %>
+      </div>
+    </div>    
+    <div class="form-group">
+      <%= f.label "Description", class: "col-lg-2 control-label"%>
+      <div class="col-lg-10">
+        <%= f.text_field :description, class: "form-control" %>
+      </div>
+    </div>
+    </div>
+    <div class="form-group">
+    <div class="col-lg-10 col-lg-offset-2">
+      <button type="reset" class="btn btn-default">Cancel</button>
+      <button type="submit" class="btn btn-primary">Create</button>
+    </div>
+    </div>
+  </fieldset>
+</form>
+<% end %>

@@ -1,12 +1,5 @@
-<!-- DataTables CSS -->
-<link rel="stylesheet" type="text/css" href="vendor/assets/dataTables/css/jquery.dataTables.css">
-<!-- DataTables -->
-<script type="text/javascript" charset="utf8" src="vendor/assets/dataTables/js/jquery.dataTables.js"></script> 
-<!-- jQuery -->
-<script type="text/javascript" src="vendor/assets/javascripts/jquery-1.11.2.js"></script>
-
 <h1>Listing Contacts</h1>
-<table id="contact" class="display" width="100%" cellspacing="0">
+<table class="display data_table" width="100%" cellspacing="0">
   <thead>
     <tr>
         <th>Name</th>
@@ -37,15 +30,9 @@
         <td><%= contact.name %></td>
         <td><%= contact.surname %></td>
         <td><%= contact.telephone %></td>
-           
-
-         <td><%= contact.email %><br>
-             <% contact.emails.each do |emails| %>
-               <%= emails.email %><br>
-             <% end %>
-          </td>
-
-
+         <td><% contact.splited_mail.each do |mail| %>
+             <%= mail %><br>
+            <% end %></td>
         <td><%= contact.skype %></td>
         <td><%= link_to 'Show', admin_contact_path(contact), class: 'btn btn-xs btn-primary' %></td>
         <td><%= link_to 'Edit', edit_admin_contact_path(contact), class: 'btn btn-xs btn-warning' %></td>
@@ -55,14 +42,7 @@
   </tbody>
 </table>
 
-<script type="text/javascript">
-  $(document).ready(function() {
-    $('#contact').dataTable({
-      paging: true
-    });
-  });
-</script>
-
 <br>
+
 
 <%= link_to 'New Contact', new_admin_contact_path %>

@@ -35,6 +35,15 @@ lightning = EventType.create(
 	speakerEvent: 1
 	)
 
+groupLightning = EventType.create(
+	name: 'group lightning',
+	description: 'some description',
+	defaultDuration: '2014-12-12 00:45:00',
+	color: '#ffff00',
+	image: '4',
+	speakerEvent: 1,
+	groupable: 1
+	)
 
 #speakers
 frodo = Speaker.create(
@@ -87,7 +96,7 @@ gimli = Speaker.create(
 	name: 'Gimli',
 	surname: 'Grisli',
 	position: 'chief dwarf',
-	description: 'A dwarf with capital D', 
+	description: 'Gimli - chief dwarf. Head dwarf. A dwarf with capital D', 
 	photo_file_name: "zsssdads.png", 
 	photo_content_type: "image/png", 
 	photo_file_size: 131940, 
@@ -119,24 +128,28 @@ ent = Speaker.create(
 
 #conferences
 js2012 = Conference.create(
+	published: false,
 	name: 'JS',
 	year: 2012,
 	date: '2012-02-12',
 	attenders: 12
 	)
 Conference.create(
+	published: false,
 	name: 'Java',
 	year: 2012,
 	date: '2012-05-22',
 	attenders: 12
 	)
 Conference.create(
+	published: false,
 	name: 'LAMP',
 	year: 2012,
 	date: '2012-08-08',
 	attenders: 12
 	)
 Conference.create(
+	published: false,
 	name: 'OPS',
 	year: 2012,
 	date: '2012-11-12',
@@ -144,18 +157,21 @@ Conference.create(
 	)
 
 Conference.create(
+	published: false,
 	name: 'Java',
 	year: 2013,
 	date: '2013-01-12',
 	attenders: 22
 	)
 cloud2013 = Conference.create(
+	published: true,
 	name: 'Cloud',
 	year: 2013,
 	date: '2013-06-29',
 	attenders: 22
 	)
 Conference.create(
+	published: true,
 	name: 'Data',
 	year: 2013,
 	date: '2013-11-12',
@@ -163,18 +179,21 @@ Conference.create(
 	)
 
 Conference.create(
+	published: true,
 	name: 'Mobile',
 	year: 2014,
 	date: '2014-05-12',
 	attenders: 372
 	)
 webui2014 = Conference.create(
+	published: true,
 	name: 'WebUI',
 	year: 2014,
 	date: '2014-09-12',
 	attenders: 372
 	)
 victory = Conference.create(
+	published: false,
 	name: 'Java',
 	year: 2014,
 	date: '2014-12-12',
@@ -182,6 +201,7 @@ victory = Conference.create(
 	)
 
 onering = Conference.create(
+	published: false,
 	name: 'BigData',
 	year: 2015,
 	date: '2015-11-12',
@@ -191,6 +211,7 @@ onering = Conference.create(
 
 #events
 onering.events.create(
+	published: true,
 	title: 'registration',
 	event_type: registration,
 	duration: '2014-12-12 00:45:00',
@@ -200,6 +221,7 @@ onering.events.create(
 	)
 
 onering.events.create(
+	published: false,
 	title: 'How i get the Ring. History of success',
 	description: 'Evetything you need to know about One Ring,
 				  but afffraid to ask',
@@ -211,6 +233,37 @@ onering.events.create(
 	)
 
 onering.events.create(
+	published: false,
+	title: 'groupable 1',
+	description: 'some',
+	event_type: groupLightning,
+	speaker: frodo,
+	duration: '2014-12-12 01:00:00',
+	position: 3
+	)
+
+onering.events.create(
+	published: false,
+	title: 'groupable 2',
+	description: 'some',
+	event_type: groupLightning,
+	speaker: gimli,
+	duration: '2014-12-12 01:00:00',
+	position: 3
+	)
+
+onering.events.create(
+	published: false,
+	title: 'groupable 3',
+	description: 'some',
+	event_type: groupLightning,
+	speaker: gandalf,
+	duration: '2014-12-12 01:00:00',
+	position: 3
+	)
+
+onering.events.create(
+	published: true,
 	title: 'Beer-break',
 	event_type: beerbreak,
 	duration: '2014-12-12 01:30:00',
@@ -220,6 +273,7 @@ onering.events.create(
 	)
 
 onering.events.create(
+	published: false,
 	title: 'The challenge for kamikaze',
 	speaker: gandalf,
 	description: 'When fatherland is calling you',
@@ -233,6 +287,7 @@ onering.events.create(
 	)
 
 onering.events.create(
+	published: false,
 	title: 'How many orcs i\'ll kill',
 	description: 'I was drinking at the bar last night, so I took
 				  a bus home...That may not be a big deal to you,
@@ -244,6 +299,7 @@ onering.events.create(
 	)
 
 onering.events.create(
+	published: false,
 	title: 'How to cook Gollum',
 	description: 'awful dishes',
 	event_type: topic,
@@ -253,6 +309,7 @@ onering.events.create(
 	)
 
 onering.events.create(
+	published: true,
 	title: 'Houmm-arr-orghh',
 	event_type: lightning,
 	speaker: ent,
@@ -261,6 +318,7 @@ onering.events.create(
 	)
 
 onering.events.create(
+	published: true,
 	title: 'Little man with great potential',
 	description: 'History of the invention of the heel',
 	event_type: lightning,
@@ -275,6 +333,7 @@ onering.events.create(
 	)
 
 victory.events.create(
+	published: true,
 	title: 'A long way in the dunes',
 	speaker: frodo,
 	description: 'How to play piano, using only 9 fingers',
@@ -284,6 +343,7 @@ victory.events.create(
 	)
 
 victory.events.create(
+	published: true,
 	title: 'The Eagles',
 	speaker: gandalf,
 	description: 'Lightning, as a form of air defence',
@@ -387,11 +447,43 @@ andriy = Contact.create(
 	skype: 'andr_loz',
 	)
 
+first = Report.create(
+	id: 1,
+	responsable: 'Vadym Kirdan',
+	video: 'https://youtube.com/watch?',
+	title: 'best conference ever',
+	description: 'bla bla bla',
+	conference_id: 1
+	)
+
 sadova.contacts << vad
 sadova.contacts << andriy
 pasternaka.contacts << uriy
 pasternaka.contacts << vova
 pasternaka.contacts << vad
+
+
+#years
+Year.create(
+	name: 2012,
+	content: 'Greate year. This is the first year of conference and so many evvents already ... blablabla',
+	published: true
+	)
+
+Year.create(
+	name: 2013,
+	content: 'Greate year2. This is the first year of conference and so many evvents already ... blablabla',
+	published: true
+	)
+
+Year.create(
+	name: 2014,
+	content: 'Greate year3. This is the first year of conference and so many evvents already ... blablabla',
+	published: false
+	)
+
+
+
 
 admin = Admin.new
 	admin.email = 'admin@example.com' 

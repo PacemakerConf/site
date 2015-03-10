@@ -17,10 +17,9 @@
 
 <p>
   <strong>Email:</strong><br>
-  <%= @contact.email %><br>
-  <% @contact.emails.each do |emails| %>
-    <%= emails.email %><br>
-  <% end %>
+  <td><% @contact.splited_mail.each do |mail| %>
+             <%= mail %><br>
+            <% end %></td>
 </p>
 
 <p>
