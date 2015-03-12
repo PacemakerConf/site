@@ -28,4 +28,6 @@ describe Event do
 		expect(FactoryGirl.build(:event, speaker_id: 1)).not_to be_valid
 	end
 
+	it 'get new position (at least 3 examples)'
+
 end
