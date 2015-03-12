@@ -1,6 +1,8 @@
 class Invitation < ActiveRecord::Base
 
-	belongs_to :message 
+	belongs_to :message
+
+	validates :email, email_format: { message: "doesn't look like an email address" }
 
 	class LinkHelper
 		include  ActionView::Helpers::UrlHelper

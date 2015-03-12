@@ -18,6 +18,8 @@ gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 gem 'therubyracer', platforms: :ruby
 gem 'mail'
+#email validator
+gem 'validates_email_format_of'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
