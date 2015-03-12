@@ -60,7 +60,7 @@ class Admin::ConferencesController < Admin::ApplicationController
 
     respond_to do |format|
       if @conference.save
-        format.html { redirect_to [:admin, @conference], notice: 'Conference was successfully created.' }
+        format.html { redirect_to admin_conferences_path, notice: 'Conference was successfully created.' }
         format.json { render :show, status: :created, location: @conference }
       else
         format.html { render :new }
