@@ -52,7 +52,7 @@
     </div>
   <div class="form-group">
     <div class="col-lg-10 col-lg-offset-2">
-      <%= f.submit class: "btn btn-primary"%>
+      <%= f.submit onclick: "return checkIsValid();",class: "btn btn-primary"%>
     </div>
   </div>
 <% end %>
@@ -78,21 +78,25 @@
     $(button).parent().remove();
   }
 
-$('[name="commit"]').click(function(){
-  var mails = '';
-  var re = /[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}/igm;
-    $('.mail-adreess').each(function(index,obj){
-      if($(obj).val() != '' && re.test($(obj).val())){
-        mails+=$(obj).val()+';';
-      }
-      else{
-        alert('Please enter a valid email address.');
-        exit();
-      }
-    });
-    $('[name="contact[email]"]').val(mails);
 
-});
+  function checkIsValid(){
+    var mails = '';
+    var emailRegEx = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
+    var isPassed = true;
+      $('.mail-adreess').each(function(index,obj){
+        if($(obj).val() != '' && $(obj).val().search(emailRegEx) != -1)
+          mails+=$(obj).val()+';';
+        else
+          isPassed = false;
+      });
+
+      if(isPassed)
+        $('[name="contact[email]"]').val(mails);
+      else
+         alert('Please enter a valid email address.');
+
+      return isPassed;
+  }
   
   
 </script>
