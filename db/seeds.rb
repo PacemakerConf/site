@@ -523,7 +523,12 @@ pasternaka.contacts << uriy
 pasternaka.contacts << vova
 pasternaka.contacts << vad
 
-
+#Message
+msg = Message.create(
+	content: 'Hi! You are invited for registration to the conference at our site! Your link is $${link_invitation} Enjoy!',
+	version: 1,
+	name: first
+	)
 
 admin = Admin.new
 	admin.email = 'admin@example.com' 

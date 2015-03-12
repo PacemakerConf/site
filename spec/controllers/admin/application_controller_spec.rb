@@ -1,18 +1,20 @@
 require 'rails_helper'
 
-describe Admin::EventsController do
+describe Admin::ApplicationsController do
 	
 	before :each do	
 		@admin = FactoryGirl.create(:admin)
 		sign_in :admin, @admin
 	end 
 	
-	describe 'POST #show' do
-		it 'assigns requested event to @event' do
+	describe 'GET #show' do
+		it 'redirect to conferences list after sign_in' do
 			event = FactoryGirl.create(:event)
 			get :show, id: event
 			expect(assigns(:event)).to eq(event)
 		end
+
+		it 'render the :show template'
 
 	end
 

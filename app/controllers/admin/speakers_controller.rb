@@ -31,9 +31,17 @@ class Admin::SpeakersController < Admin::ApplicationController
     @invite = Invitation.new
     @invite.email = params[:email]
     @invite.conference_id = params[:conference_id]
-
     cost = 10
     @invite.email_hash = ::BCrypt::Password.create("#{@invite.email}", :cost => cost).to_s
+    
+# Checking version of invitation message
+    unless( Message.where(content: params[:message]).count > 0 )
+      version = Message.pluck(:version).sort[-1]
+      version += 1
+      Message.create(content: params[:message], version: version)
+    end
+    message = Message.last.id 
+    @invite.message_id = message
 
     if @invite.save
       Invitation.invite_speaker(params[:email], @invite.email_hash, params[:message])
