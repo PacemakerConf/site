@@ -24,8 +24,7 @@ class Invitation < ActiveRecord::Base
         # if params[:message].match(INVITE_MESSAGE_REGEXP)
 		# insert link Speaker.generate_link(email), email, hash into invirations
 	    message = message.gsub!(INVITE_MESSAGE_REGEXP, Invitation.generate_link(email, email_hash))
-	    InviteMailer.speaker_invite(email, message).deliver
-	    
+	    InviteMailer.speaker_invite(email, message).deliver  
 	end	
 
 
