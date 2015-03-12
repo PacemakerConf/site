@@ -8,11 +8,11 @@ class Invitation < ActiveRecord::Base
 
 	INVITE_MESSAGE_TOKEN = '$${link_invitation}' 
 	INVITE_MESSAGE_REGEXP = /\$\$\{\w+\}/
-	INVITE_MESSAGE = <<-MESSAGE
-Hi! You are invited for registration to the conference at our site! 
-Your link is #{INVITE_MESSAGE_TOKEN}
-Enjoy!
-	MESSAGE
+# 	INVITE_MESSAGE = <<-MESSAGE
+# Hi! You are invited for registration to the conference at our site! 
+# Your link is #{INVITE_MESSAGE_TOKEN}
+# Enjoy!
+# 	MESSAGE
 
 	def self.generate_link(email, email_hash)
 		LinkHelper.new.link_to('Click here to create profile', 

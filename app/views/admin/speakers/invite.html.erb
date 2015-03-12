@@ -13,7 +13,14 @@
       <%= label_tag(:conference_id, "Conference", class: "col-lg-2 control-label") %>
     <div class="col-lg-7">
         <%= select_tag :conference_id, options_from_collection_for_select(Conference.where(date: Time.now..'3000-12-12'), 'id', 'fullname'), class: "form-control" %>
-        </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+      <%= label_tag(:version, "Message version", class: "col-lg-2 control-label") %>
+    <div class="col-lg-7">
+        <%= select_tag :version, options_from_collection_for_select(Message.all, 'id', 'version'), class: "form-control" %>
+    </div>
   </div>
 
 <div class="form-group">
