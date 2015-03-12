@@ -3,18 +3,18 @@ require 'rails_helper'
 describe YearsController do
 	
 	describe 'GET #show' do
-		xit 'assign requested year to @year' do
+		it 'assign requested year to @year' do
 			year = FactoryGirl.create(:year)
 			get :show, name: year.name
-			expect(assign(:year)).to eq(year)
+			expect(assigns(:year)).to eq(year)
 		end
 
-		xit 'assign count of conf of this year to @conference_count' do
+		it 'render :show template' do
 			year = FactoryGirl.create(:year)
-			conference = FactoryGirl.create(:conference, year: year.name)
-			expect(assign(:conference_count)).to eq(1)
+			get :show, name: year.name
+			expect(response).to render_template :show
 		end
-
+		
 		it 'raise not found error if user cant read year'
 	end	
 

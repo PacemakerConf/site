@@ -1,7 +1,7 @@
 class ConferencesController < ApplicationController
 
   before_action :set_conference, only: [:check_visibility, :schedule, :location, :speakers, :report, :show]
-  before_action :check_visibility, only: [:schedule, :location, :speakers, :report, :show]
+  before_action :check_visibility
 
   def location 
     @location = @conference.location
@@ -18,10 +18,6 @@ class ConferencesController < ApplicationController
 
   def schedule
     @events = @conference.events
-  end
-
-  def index
-    @conferences = Conference.all
   end
 
   def show

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Admin::ApplicationsController do
+describe Admin::ApplicationController do
 	
 	before :each do	
 		@admin = FactoryGirl.create(:admin)
@@ -8,11 +8,7 @@ describe Admin::ApplicationsController do
 	end 
 	
 	describe 'GET #show' do
-		it 'redirect to conferences list after sign_in' do
-			event = FactoryGirl.create(:event)
-			get :show, id: event
-			expect(assigns(:event)).to eq(event)
-		end
+		it 'redirect to conferences list after sign_in'
 
 		it 'render the :show template'
 
