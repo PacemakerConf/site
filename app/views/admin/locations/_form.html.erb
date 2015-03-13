@@ -40,19 +40,28 @@
    <div class="form-group">
     <%= f.label :city, class: "col-lg-2 control-label" %>
     <div class="col-lg-7">
-      <%= f.text_field :city, class: "form-control" %>
+      <%= f.text_field :city, class: "form-control adr" %>
     </div>
   </div>
   <div class="form-group">
     <%= f.label :address, class: "col-lg-2 control-label" %>
     <div class="col-lg-7">
-      <%= f.text_field :address, class: "form-control" %>
+      <%= f.text_field :address, class: "form-control adr" %>
     </div>
   </div>
 
-  <div id="map">
-    Map
+
+
+  <div class="form-group">
+    <%= f.label "map", class: "col-lg-2 control-label" %>
+    <div class="col-lg-7">
+        <div id="map"></div>
+    </div>
   </div>
+
+  
+
+  
 
   <div class="form-group">
     <%= f.label :contact_id, 'Contact', class: "col-lg-2 control-label" %>
@@ -154,6 +163,42 @@ $('[name="commit"]').click(function(){
     info = $('#editor').html();
     $('[name="location[how_to_find]"]').val(info);
 
+});
+
+
+var map ;
+
+  if($("#map").length)
+    map = new GMaps({
+          div: '#map',
+          lng: 18.5009765625,
+          lat: 48.31242790407185,
+          zoom: 16
+      });
+
+$(".adr").keyup (function(){
+    var splitedResult = '';
+  $.each($(".adr"),function(index,obj){
+    splitedResult += $(obj).val();
+    if(!index)
+      splitedResult += ','; 
+    })
+
+
+  GMaps.geocode({
+    address: splitedResult,
+    callback: function(results, status) {
+      if (status == 'OK') {
+        var latlng = results[0].geometry.location;
+        map.setCenter(latlng.lat(), latlng.lng());
+        map.removeMarkers();
+        map.addMarker({
+          lat: latlng.lat(),
+          lng: latlng.lng()
+          });
+        }
+      }
+  });
 });
 
 

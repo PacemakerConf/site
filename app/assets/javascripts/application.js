@@ -10,6 +10,8 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+
+//= require gmaps.js
 //= require event_types
 //= require jquery-1.11.2
 //= require jquery_ujs
@@ -26,3 +28,4 @@
 //= require moment
 //= require bootstrap-datetimepicker
 //= require nested_form
+
