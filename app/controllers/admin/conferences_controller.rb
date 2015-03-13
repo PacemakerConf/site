@@ -104,6 +104,7 @@ class Admin::ConferencesController < Admin::ApplicationController
         border = input.rindex('-').to_i
         name = input.slice(0, border)
         year = input.slice(border+1, 4)
+        year = Year.where(name: year)[0]
         @conference = Conference.where(name: name).where(year: year)[0]
       end
     end

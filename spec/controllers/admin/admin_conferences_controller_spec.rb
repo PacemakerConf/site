@@ -17,7 +17,8 @@ describe Admin::ConferencesController do
 
 	describe 'GET schedule' do
 		it 'assigns to @event all events of this conf in order its positions' do
-			conference = FactoryGirl.create(:conference)
+			year = FactoryGirl.create(:year)
+			conference = FactoryGirl.create(:conference, year: year)
 			second_event = FactoryGirl.create(:event, conference: conference, position: 2)
 			first_event = FactoryGirl.create(:event, conference: conference, position: 1)
 			get :schedule, name: conference.route
@@ -27,7 +28,8 @@ describe Admin::ConferencesController do
 
 	describe 'GET #show' do
 		before :each do
-			@conference = FactoryGirl.create(:conference)
+			year = FactoryGirl.create(:year)
+			@conference = FactoryGirl.create(:conference, year: year)
 		end
 	
 		it 'assigns all events of this conf, which type is topic to @topics' do
@@ -90,7 +92,8 @@ describe Admin::ConferencesController do
 
 	describe 'GET #edit' do
 		before :each do
-			@conference = FactoryGirl.create(:conference)
+			year = FactoryGirl.create(:year)
+			@conference = FactoryGirl.create(:conference, year: year)
 		end
 	
 		it 'assigns requested conference to @conference' do
@@ -133,7 +136,8 @@ describe Admin::ConferencesController do
 
 	describe 'PATCH update' do
 		before :each do
-			@conference = FactoryGirl.create(:conference, year: 2020)
+			year = FactoryGirl.create(:year)
+			@conference = FactoryGirl.create(:conference, year: year)
 		end
 
 		context 'with valid attr' do
@@ -156,7 +160,6 @@ describe Admin::ConferencesController do
 				patch :update, name: @conference.route, conference: FactoryGirl.attributes_for(:conference, name: "BSOD", year: nil)
 				@conference.reload
 				expect(@conference.name).not_to eq("BSOD")
-				expect(@conference.year).to eq(2020)
 			end
 
 			it 're-render edit template' do
@@ -169,7 +172,8 @@ describe Admin::ConferencesController do
 
 	describe 'DELETE #destroy' do
 		before :each do
-			@conference = FactoryGirl.create(:conference)
+			year = FactoryGirl.create(:year)
+			@conference = FactoryGirl.create(:conference, year: year)
 		end
 
 		it 'delete the conference' do

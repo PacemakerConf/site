@@ -1,23 +1,23 @@
 #years
-Year.create(
+year2012 = Year.create(
 	name: 2012,
 	content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut est facilisis, laoreet orci nec, faucibus nisi. Maecenas tristique ipsum eu ultricies cursus. Etiam eu cursus urna. Maecenas consequat at elit sed consequat. Morbi consectetur fermentum ipsum sit amet accumsan. Etiam rutrum posuere finibus. Fusce ac orci metus. Sed augue urna, volutpat quis dapibus ut, egestas quis ex. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce rutrum bibendum quam, at rutrum sapien hendrerit non. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut congue nisi neque, mattis gravida nulla euismod ac. Praesent congue venenatis auctor. Phasellus interdum eleifend feugiat.',
 	published: true
 	)
 
-Year.create(
+year2013 = Year.create(
 	name: 2013,
 	content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut est facilisis, laoreet orci nec, faucibus nisi. Maecenas tristique ipsum eu ultricies cursus. Etiam eu cursus urna. Maecenas consequat at elit sed consequat. Morbi consectetur fermentum ipsum sit amet accumsan. Etiam rutrum posuere finibus. Fusce ac orci metus. Sed augue urna, volutpat quis dapibus ut, egestas quis ex. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce rutrum bibendum quam, at rutrum sapien hendrerit non. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut congue nisi neque, mattis gravida nulla euismod ac. Praesent congue venenatis auctor. Phasellus interdum eleifend feugiat.',
 	published: true
 	)
 
-Year.create(
+year2014 = Year.create(
 	name: 2014,
 	content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut est facilisis, laoreet orci nec, faucibus nisi. Maecenas tristique ipsum eu ultricies cursus. Etiam eu cursus urna. Maecenas consequat at elit sed consequat. Morbi consectetur fermentum ipsum sit amet accumsan. Etiam rutrum posuere finibus. Fusce ac orci metus. Sed augue urna, volutpat quis dapibus ut, egestas quis ex. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce rutrum bibendum quam, at rutrum sapien hendrerit non. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut congue nisi neque, mattis gravida nulla euismod ac. Praesent congue venenatis auctor. Phasellus interdum eleifend feugiat.',
 	published: false
 	)
 
-Year.create(
+year2015 = Year.create(
 	name: 2015,
 	content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut est facilisis, laoreet orci nec, faucibus nisi. Maecenas tristique ipsum eu ultricies cursus. Etiam eu cursus urna. Maecenas consequat at elit sed consequat. Morbi consectetur fermentum ipsum sit amet accumsan. Etiam rutrum posuere finibus. Fusce ac orci metus. Sed augue urna, volutpat quis dapibus ut, egestas quis ex. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce rutrum bibendum quam, at rutrum sapien hendrerit non. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut congue nisi neque, mattis gravida nulla euismod ac. Praesent congue venenatis auctor. Phasellus interdum eleifend feugiat.',
 	published: false
@@ -184,28 +184,28 @@ ent = Speaker.create(
 js2012 = Conference.create(
 	published: true,
 	name: 'JS',
-	year: 2012,
+	year: year2012,
 	date: '2012-02-12',
 	attenders: 12
 	)
 Conference.create(
 	published: true,
 	name: 'Java',
-	year: 2012,
+	year: year2012,
 	date: '2012-05-22',
 	attenders: 12
 	)
 Conference.create(
 	published: true,
 	name: 'LAMP',
-	year: 2012,
+	year: year2012,
 	date: '2012-08-08',
 	attenders: 12
 	)
 Conference.create(
 	published: true,
 	name: 'OPS',
-	year: 2012,
+	year: year2012,
 	date: '2012-11-12',
 	attenders: 12
 	)
@@ -213,21 +213,21 @@ Conference.create(
 Conference.create(
 	published: true,
 	name: 'Java',
-	year: 2013,
+	year: year2013,
 	date: '2013-01-12',
 	attenders: 22
 	)
 cloud2013 = Conference.create(
 	published: true,
 	name: 'Cloud',
-	year: 2013,
+	year: year2013,
 	date: '2013-06-29',
 	attenders: 22
 	)
 Conference.create(
 	published: false,
 	name: 'Data',
-	year: 2013,
+	year: year2013,
 	date: '2013-11-12',
 	attenders: 22
 	)
@@ -235,28 +235,28 @@ Conference.create(
 Conference.create(
 	published: true,
 	name: 'Mobile',
-	year: 2014,
+	year: year2014,
 	date: '2014-05-12',
 	attenders: 372
 	)
 Conference.create(
 	published: true,
 	name: 'Mobile',
-	year: 2015,
+	year: year2015,
 	date: '2015-09-12',
 	attenders: 100
 	)
 webui2014 = Conference.create(
 	published: true,
 	name: 'WebUI',
-	year: 2014,
+	year: year2014,
 	date: '2014-09-12',
 	attenders: 372
 	)
 victory = Conference.create(
 	published: false,
 	name: 'Java',
-	year: 2014,
+	year: year2014,
 	date: '2014-12-12',
 	attenders: 79
 	)
@@ -264,15 +264,16 @@ victory = Conference.create(
 onering = Conference.create(
 	published: true,
 	name: 'BigData',
-	year: 2015,
+	year: year2015,
 	date: '2015-11-12',
 	attenders: 72
 	)
 
 
 #events
-onering.events.create(
+Event.create(
 	published: true,
+	conference: onering,
 	title: 'registration',
 	event_type: registration,
 	duration: '2014-12-12 00:45:00',
@@ -281,7 +282,8 @@ onering.events.create(
 	responsable: 'somebody'
 	)
 
-onering.events.create(
+Event.create(
+	conference: onering,
 	published: true,
 	title: 'How i get the Ring. History of success',
 	description: 'Evetything you need to know about One Ring,
@@ -293,7 +295,8 @@ onering.events.create(
 	video: "https://www.youtube.com/watch?v=2a4gyJsY0mc"
 	)
 
-onering.events.create(
+Event.create(
+	conference: onering,
 	published: true,
 	title: 'Beer-break',
 	event_type: beerbreak,
@@ -303,7 +306,8 @@ onering.events.create(
 	responsable: 'Zenyk'
 	)
 
-onering.events.create(
+Event.create(
+	conference: onering,
 	published: true,
 	title: 'The challenge for kamikaze',
 	speaker: gandalf,
@@ -317,7 +321,8 @@ onering.events.create(
 	materials_updated_at: "2015-02-26 18:18:28"
 	)
 
-onering.events.create(
+Event.create(
+	conference: onering,
 	published: false,
 	title: 'How many orcs i\'ll kill',
 	description: 'I was drinking at the bar last night, so I took
@@ -329,7 +334,8 @@ onering.events.create(
 	position: 5
 	)
 
-onering.events.create(
+Event.create(
+	conference: onering,
 	published: true,
 	title: 'Philosophical questions',
 	description: 'How to cook yammy code. Long story with pictures',
@@ -339,7 +345,8 @@ onering.events.create(
 	position: 6
 	)
 
-onering.events.create(
+Event.create(
+	conference: onering,
 	published: true,
 	title: 'Storage via iSCSI',
 	description: ' about project experience of usage iSCSI for storage data. What it is, why and how.',
@@ -349,7 +356,8 @@ onering.events.create(
 	position: 7
 	)
 
-onering.events.create(
+Event.create(
+	conference: onering,
 	published: false,
 	title: '90% percent js everywhere',
 	description: 'how to make your application without server-side',
@@ -359,7 +367,8 @@ onering.events.create(
 	position: 8
 	)
 
-onering.events.create(
+Event.create(
+	conference: onering,
 	published: false,
 	title: 'How to cook Gollum',
 	description: 'awful dishes',
@@ -369,7 +378,8 @@ onering.events.create(
 	position: 9
 	)
 
-onering.events.create(
+Event.create(
+	conference: onering,
 	published: true,
 	title: 'Houmm-arr-orghh',
 	event_type: topic,
@@ -378,7 +388,8 @@ onering.events.create(
 	position: 10
 	)
 
-onering.events.create(
+Event.create(
+	conference: onering,
 	published: true,
 	title: 'Little man with great potential',
 	description: 'History of the invention of the heel',
@@ -393,7 +404,8 @@ onering.events.create(
 	materials_updated_at: "2015-02-25 16:54:38"
 	)
 
-victory.events.create(
+Event.create(
+	conference: victory,
 	published: true,
 	title: 'A long way in the dunes',
 	speaker: frodo,
@@ -403,7 +415,8 @@ victory.events.create(
 	position: 0
 	)
 
-victory.events.create(
+Event.create(
+	conference: victory,
 	published: true,
 	title: 'The Eagles',
 	speaker: gandalf,

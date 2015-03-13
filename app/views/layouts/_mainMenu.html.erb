@@ -4,11 +4,11 @@
 
 	<% conferences, years, last_year = MainMenu.params %>
 	<% if @conference %>
-		<% active_year = @conference.year %>
+		<% active_year = @conference.year.name.to_i %>
 	<% elsif @year %>
 		<% active_year = @year.name.to_i %>
 	<% else %>
-		<% active_year = last_year %>
+		<% active_year = last_year.name.to_i %>
 	<% end %>
 
 
@@ -16,14 +16,14 @@
 
 		<% years.each do |year| %>
 
-			<% if year === active_year %>
+			<% if year.name.to_i === active_year %>
 				<% flag_settings = {conf_display: '', year_flag_color: 'REDlight.png'} %>
 			<% else %>
 				<% flag_settings = {conf_display: "display:none;", year_flag_color: 'GREYdark.png'} %>
 			<% end %>
 
 			<li class="flag-year-image-container" id="flag-<%=year%>" year='<%=year%>'>
-				<% if Year.where(name: year)[0].published %>
+				<% if year.published %>
 					<%= link_to( image_tag(flag_settings[:year_flag_color]), year_path(year))%>
 				<% else %>
 					<%= image_tag(flag_settings[:year_flag_color]) %>
