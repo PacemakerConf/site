@@ -1,13 +1,23 @@
 class Invitation < ActiveRecord::Base
+	COST = 10
+	belongs_to :message
 
-	belongs_to :message 
+	delegate :content, to: :message, prefix: true
+
+	validates :email, presence: true
+	#validates_associated :message
 
 	class LinkHelper
 		include  ActionView::Helpers::UrlHelper
 	end	
 
-	INVITE_MESSAGE_TOKEN = '$${link_invitation}' 
-	INVITE_MESSAGE_REGEXP = /\$\$\{\w+\}/
+	def initialize(args = {})
+		super(args)
+		#email = args[:email]
+		email_hash = ::BCrypt::Password.create("#{email}", :cost => Invitation::COST).to_s if email
+		#raise email.inspect
+	end	
+
 # 	INVITE_MESSAGE = <<-MESSAGE
 # Hi! You are invited for registration to the conference at our site! 
 # Your link is #{INVITE_MESSAGE_TOKEN}
@@ -21,7 +31,7 @@ class Invitation < ActiveRecord::Base
 	def self.invite_speaker(email, email_hash, message)
         # if params[:message].match(INVITE_MESSAGE_REGEXP)
 		# insert link Speaker.generate_link(email), email, hash into invirations
-	    message = message.gsub!(INVITE_MESSAGE_REGEXP, Invitation.generate_link(email, email_hash))
+	    message = message.gsub!(Message::TOKEN_REGEXP, Invitation.generate_link(email, email_hash))
 	    InviteMailer.speaker_invite(email, message).deliver
 	    
 	end	
