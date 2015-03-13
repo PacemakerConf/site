@@ -46,6 +46,10 @@ class Admin::SpeakersController < Admin::ApplicationController
     end
   end
 
+  def list_invites
+    #@invitations = Invitation.all
+  end
+
   # POST /speakers
   # POST /speakers.json
   def create

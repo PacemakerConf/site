@@ -2,10 +2,14 @@ class Invitation < ActiveRecord::Base
 	COST = 10
 	belongs_to :message
 
+
 	delegate :content, to: :message, prefix: true
 
 	validates :email, presence: true
 	#validates_associated :message
+
+	#validates :email, email_format: { message: "doesn't look like an email address" }
+
 
 	class LinkHelper
 		include  ActionView::Helpers::UrlHelper
@@ -32,8 +36,7 @@ class Invitation < ActiveRecord::Base
         # if params[:message].match(INVITE_MESSAGE_REGEXP)
 		# insert link Speaker.generate_link(email), email, hash into invirations
 	    message = message.gsub!(Message::TOKEN_REGEXP, Invitation.generate_link(email, email_hash))
-	    InviteMailer.speaker_invite(email, message).deliver
-	    
+	    InviteMailer.speaker_invite(email, message).deliver 
 	end	
 
 

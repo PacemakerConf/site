@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'paperclip', '~> 4.2'
-
+gem 'wicked', '~> 1.1.1'
 gem 'bootstrap-wysihtml5-rails'
 gem 'bootstrap-wysiwyg-rails'
 gem 'email_validator'
@@ -17,10 +17,9 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 gem 'therubyracer', platforms: :ruby
-
-
-
-gem "mail"
+gem 'mail'
+#email validator
+gem 'validates_email_format_of'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
