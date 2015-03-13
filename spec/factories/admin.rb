@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 require 'faker'
 
 FactoryGirl.define do 
@@ -7,3 +8,5 @@ FactoryGirl.define do
 		f.email Faker::Internet.email 
 	end
 end
+=======
+>>>>>>> kirdan

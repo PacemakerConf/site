@@ -7,7 +7,7 @@ class ConferencesController < ApplicationController
     @location = @conference.location
   end
 
-  def report 
+  def report
     @report = @conference.report
   end
 
