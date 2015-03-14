@@ -22,4 +22,5 @@
 //= require fileinput.min
 //= require moment
 //= require bootstrap-datetimepicker
+//= require bootstrap-modal.js
 //= require nested_form
