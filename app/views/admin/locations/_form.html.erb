@@ -77,9 +77,9 @@
 <div class="form-group">
   <%= f.label :how_to_find, class: "col-lg-2 control-label" %>
   <div class="col-lg-7">
-  <div id="editor" class="well col-md-9 form-control"></div>
+    <div id="editor" class="well col-md-9 form-control"></div>
   </div>
-  <input type="hidden" name="location[how_to_find]" value="">
+    <%= hidden_field( :location, :how_to_find, value:"") %>
 </div>
 
 
@@ -119,7 +119,7 @@
 
 
   $('#editor').wysiwyg();
-  $('#editor').cleanHtml();
+ 
 
 
 

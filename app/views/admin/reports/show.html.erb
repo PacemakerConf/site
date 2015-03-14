@@ -6,18 +6,13 @@
 </p>
 
 <p>
-  <strong>Video:</strong>
-  <%= @report.video %>
-</p>
-
-<p>
-  <strong>Title:<br></strong>
+  <strong>Title:</strong>
   <%= @report.title %>
 </p>
 
 <p>
   <strong>Description:</strong>
-  <%= @report.description %>
+  <%= @report.description.html_safe %>
 </p>
 
         

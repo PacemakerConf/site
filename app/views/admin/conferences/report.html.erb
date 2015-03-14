@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
       <h1>Pacemaker<%= @short_report %>: <%= @conference.name%>, <%= @conference.location.city %>, <%= @conference.date %></h1>
-      <%= @report.description %>
+      <%= @report.description.html_safe %>
       
 
 
