@@ -30,7 +30,7 @@
                     link_to "Create Location", {controller: 'admin/locations', action: 'new', conf_id: conference.id, conf_fname: conference.fullname}, class: 'btn btn-xs btn-primary'
                   end %></td>
           <td><%= unless(conference.report.nil?)
-                    link_to "#{conference.report.title}", report_conference_path(conference.route), class: ''
+                    link_to "#{conference.report.short_report}", report_conference_path(conference.route), class: ''
                   else
                     link_to "Create Report", {controller: 'admin/reports', action: 'new', conf_id: conference.id, conf_fname: conference.fullname}, class: 'btn btn-xs btn-primary'
 
@@ -59,4 +59,5 @@
 </table>
 
 <br>
+
 <%= link_to 'New Conference', new_admin_conference_path, class: "" %>

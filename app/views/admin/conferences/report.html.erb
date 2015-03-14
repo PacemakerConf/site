@@ -1,27 +1,15 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Responsable:</strong>
-  <%= @report.responsable %>
-</p>
-
-<p>
-  <strong>Video:</strong>
-  <%= @report.video %>
-</p>
-
-<p>
-  <strong>Title:<br></strong>
-  <%= @report.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @report.description %>
-</p>
-
-        
+<div class="row">
+  <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+      <h1>Pacemaker<%= @short_report %>: <%= @conference.name%>, <%= @conference.location.city %>, <%= @conference.date %></h1>
+      <%= @report.description %>
+      
 
 
-<%= link_to 'Edit', edit_admin_report_path(@report) %> |
-<%= link_to 'Back', admin_reports_path %>
+  </div>
+  <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 address-box ">
+  	  <h1>Photos</h1>
+  	  <%= @conference.photo %>
+  	  <h1>Videos</h1>
+  	  <%= @conference.video %>
+  </div>
+</div>
