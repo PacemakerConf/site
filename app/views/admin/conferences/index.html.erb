@@ -20,7 +20,7 @@
       <% @conferences.each do |conference| %>
       <tr id='<%= conference.fullname %>_row' >
           <td><%= link_to conference.name, {controller: 'admin/events', action: 'index', conf_id: conference.id}, class: ''%></td>
-          <td><%= conference.year %></td>
+          <td><%= conference.year.name %></td>
           <td><%= conference.date %></td>
           <td><%= conference.attenders %></td>
           <td><%= link_to 'Schedule', schedule_admin_conference_path(conference.route), class: ''%></td>
