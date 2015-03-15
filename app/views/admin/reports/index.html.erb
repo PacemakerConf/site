@@ -10,7 +10,6 @@
   <thead>
     <tr>
         <th>Responsable</th>
-        <th>Video</th>
         <th>Title</th>
         <th>Description</th>
         <th>Show</th>
@@ -21,7 +20,6 @@
   <tfoot>
     <tr>
         <th>Responsable</th>
-        <th>Video</th>
         <th>Title</th>
         <th>Description</th>
         <th>Show</th>
@@ -33,7 +31,6 @@
        <% @reports.each do |report| %>
       <tr>
         <td><%= report.responsable %></td>
-        <td><%= report.video %></td>
         <td><%= report.title %></td>
         <td><%= report.description %></td>
         <td><%= link_to 'Show', admin_report_path(report) %></td>
