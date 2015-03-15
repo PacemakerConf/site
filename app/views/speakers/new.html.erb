@@ -2,11 +2,18 @@
 
 <legend>New Speaker</legend>
 
-<% Invitation.where(email_hash: hash) %>
+<% @invite = Invitation.where(email_hash: hash) %>
+<% if @invite.count > 0 %>
+		<% current_user = {'role' => User::SPEAKER}%>
+		<%= render 'speakers/form'%>
+		<%= render 'form' %>
+	<% else %>
+		
+	<% end %>
 
 		<% current_user = {'role' => User::SPEAKER}%>
 		<%= render 'form' %>
-	
+
 <%= link_to 'Back', admin_speakers_path %>
 
 </fieldset>
