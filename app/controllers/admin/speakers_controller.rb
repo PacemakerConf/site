@@ -47,7 +47,7 @@ class Admin::SpeakersController < Admin::ApplicationController
   end
 
   def list_invites
-    #@invitations = Invitation.all
+    @invites = Invitation.all
   end
 
   # POST /speakers

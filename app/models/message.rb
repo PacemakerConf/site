@@ -4,6 +4,8 @@ class Message < ActiveRecord::Base
 
 	has_many :invitation
 
+   
+
 	validates :content, format: { with: TOKEN_REGEXP,
     message: "%{value} should includes token #{TOKEN}" }
 
