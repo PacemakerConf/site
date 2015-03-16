@@ -1,6 +1,8 @@
-<h1>Editing Event Type</h1>
+<legend>Editing Event Type</legend>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', admin_event_type_path(@event_type), class: "btn btn-default btn-sm"  %>
-<%= link_to 'Back', admin_event_types_path, class: "btn btn-default btn-sm"  %>
+<ul class="pager">
+	<li class="previous"><%= link_to 'Back', admin_event_types_path %></li>
+	<li class="previous"><%= link_to 'Show', admin_event_types_path(@event_type) %></li>
+</ul>
