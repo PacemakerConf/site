@@ -4,8 +4,7 @@ class Message < ActiveRecord::Base
 
 	has_many :invitation
 
-    delegate :content, to: :message, prefix: true
-  validates_associated :message
+   
 
 	validates :content, format: { with: TOKEN_REGEXP,
     message: "%{value} should includes token #{TOKEN}" }
