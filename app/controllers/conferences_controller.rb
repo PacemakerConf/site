@@ -17,7 +17,11 @@ class ConferencesController < ApplicationController
   end
 
   def schedule
-    @events = @conference.events
+    groupable = EventType.where(groupable: 1)
+    @eventsGroupable = @conference.events.where(event_type: groupable).order(:position)
+    @eventsSingle = @conference.events.where.not(event_type: groupable).order(:position)
+    @events = @conference.events.order(:position)
+    @active_button = 'schedule'
   end
 
   def show

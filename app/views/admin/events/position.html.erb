@@ -1,0 +1,30 @@
+<% @@position = request.query_parameters['position'].split(',') %>
+<% @@id = request.query_parameters['id'].split(',') %>
+
+<% if @@position.length == @@id.length %>
+
+	<% for i in 1..@@id.length %> 
+		id:<%=  @eventAll[ @@id[i-1].to_i - 1 ].id %> - 
+		ps:<%=  @eventAll[ @@id[i-1].to_i - 1 ].position %>
+		<% @eventAll[ @@id[i-1].to_i - 1 ].position = @@position[i-1] %>
+		<br>
+	<% end %>
+	<br>
+	<% for i in 1..@@id.length %> 
+		id:<%=  @eventAll[ @@id[i-1].to_i - 1 ].id %> - 
+		ps:<%=  @eventAll[ @@id[i-1].to_i - 1 ].position %>
+		<%=  @eventAll[ @@id[i-1].to_i - 1 ].save %>
+		<br>
+	<% end %>
+	<br>
+
+<% else %>
+position length != id length
+<br>
+	<% for i in 1..@@id.length %> 
+		id:<%=  @eventAll[ @@id[i-1].to_i - 1 ].id %> - 
+		ps:<%=  @eventAll[ @@id[i-1].to_i - 1 ].position %>
+		<br>
+	<% end %>
+<br>
+<% end %>
