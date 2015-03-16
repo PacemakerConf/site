@@ -85,7 +85,8 @@ class Admin::EventsController < Admin::ApplicationController
 
   # GET /events/1/position?position=1
   def position
-    @event = Event.find(params[:id])
+    @eventAll = Event.all
+    # @event = Event.find(params[:id])
   end
 
   private

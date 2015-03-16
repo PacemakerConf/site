@@ -1,8 +1,14 @@
 // console.log('schedule.js');
-$(document).ready(function(){scheduleChange(); $('#sortable').click(function(){ scheduleChange(); }); });
+$(document).ready( function () { 
+	console.log("!");
+	scheduleChange();                    
+    $( "#sortable" ).sortable({
+		update: function( event, ui ) { scheduleChange(); sendAJAX(); }
+	});             
+});
 
 function scheduleChange(){
-	
+	// console.log('scheduleChange()');
 	timestartItems = $('.timestart');
 	durationItems = $('.duration');
 
@@ -47,20 +53,61 @@ function parseTime(durationItem){
 
 function sendAJAX(){
 
+	$('#AjaxButton').addClass('btn-warning');
+	$('#AjaxButton').html('Working');
+	$('.alert').removeClass('alert-info');
+	$('.alert').addClass('alert-warning');
+	$('.alert').html('Status: Working');
+
     idItems = $('.idItems');
     positionItems = $('.positionItems');
+    groupableItems = $('.groupableItems');
 	
+	var queryLine = "/admin/events/position.json";
+	var idString = "";
+	var posString = "";
 	for (var i = 0; i < idItems.length; i++){
-		console.log("if");
 		if ( positionItems[i].innerHTML != i ) {
-			console.log( positionItems[i].innerHTML +"|"+ i );
 			positionItems[i].innerHTML = i;
-			var n = idItems[i].innerHTML;
-			var line = "/admin/events/" + n + "/position.json?position=" + i;
-			var xmlhttp = new XMLHttpRequest();
-			xmlhttp.open("GET", line, true);
-			xmlhttp.send();
+
+			if(groupableItems[i].innerHTML > 0 ){
+				idString += idItems[i].innerHTML;
+				for (var j = 0; j < groupableItems[i].innerHTML; j++) {
+					posString += positionItems[i].innerHTML + ',';
+				};
+			}
+			else{
+				idString += idItems[i].innerHTML + ',';
+				posString += positionItems[i].innerHTML + ',';
+			}
+			
 		};
 	}
+	queryLine += "?position=" + posString + "&id=" + idString;
+	console.log(queryLine);
 
+	$.getJSON( queryLine, function( response ) {
+		$('#AjaxButton').removeClass('btn-warning');
+		$('.alert').removeClass('alert-warning');
+	    if( response.status == "Done" ){		
+   			$('#AjaxButton').addClass('btn-success');
+   			$('.alert').addClass('alert-success');
+        }
+        else{
+   			$('#AjaxButton').addClass('btn-danger');
+   			$('.alert').addClass('alert-danger');
+        }
+        $('#AjaxButton').html(response.status);
+        $('.alert').html('Status:' + response.status);
+	}).fail(function(){  
+			$('#AjaxButton').removeClass('btn-warning');
+   			$('#AjaxButton').addClass('btn-danger');
+	        $('#AjaxButton').html('FAIL');
+	        $('#AjaxButton').removeClass('btn-warning');
+	        $('.alert').addClass('alert-danger');
+	        $('.alert').html('FAIL');
+	        setTimeout(5000);
+    });
+	setTimeout(function(){ $('#AjaxButton').removeClass('btn-success btn-danger'); $('#AjaxButton').html('Set Position'); }, 3000);
+	setTimeout(function(){ $('.alert').removeClass('alert-success alert-danger'); $('.alert').addClass('alert-info'); $('.alert').html('Status: UpTime'); }, 3000);
  }
