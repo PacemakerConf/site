@@ -7,7 +7,6 @@ class Invitation < ActiveRecord::Base
 
 	validates :email, presence: true
 	#validates_associated :message
-
 	#validates :email, email_format: { message: "doesn't look like an email address" }
 
 
@@ -18,8 +17,8 @@ class Invitation < ActiveRecord::Base
 	def initialize(args = {})
 		super(args)
 		#email = args[:email]
-		email_hash = ::BCrypt::Password.create("#{email}", :cost => Invitation::COST).to_s if email
-		#raise email.inspect
+		self.email_hash = ::BCrypt::Password.create("#{email}", :cost => Invitation::COST).to_s if email
+
 	end	
 
 # 	INVITE_MESSAGE = <<-MESSAGE
