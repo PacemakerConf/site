@@ -7,7 +7,7 @@ class EventsController < ApplicationController
   end
 
   def create
-    authorize! :create, Event
+    #authorize! :create, Event
     @event = Event.new(event_params)
     respond_to do |format|
       if @event.save

@@ -2,12 +2,11 @@ class Invitation < ActiveRecord::Base
 	COST = 10
 	belongs_to :message
 
-
 	validates :email, presence: true,
 		email_format: { message: "doesn't look like an email address" }
 	
-	 delegate :content, to: :message, prefix: true
-  validates_associated :message
+	delegate :content, to: :message, prefix: true
+  		validates_associated :message
 
 	class LinkHelper
 		include  ActionView::Helpers::UrlHelper
