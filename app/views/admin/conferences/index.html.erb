@@ -30,7 +30,9 @@
                     link_to "Create Location", {controller: 'admin/locations', action: 'new', conf_id: conference.id, conf_fname: conference.fullname}, class: 'btn btn-xs btn-primary'
                   end %></td>
           <td><%= unless(conference.report.nil?)
+
                     link_to "#{conference.report.short_report}", edit_admin_report_path(conference.report), class: ''
+
                   else
                     link_to "Create Report", {controller: 'admin/reports', action: 'new', conf_id: conference.id, conf_fname: conference.fullname}, class: 'btn btn-xs btn-primary'
 
@@ -58,6 +60,11 @@
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Conference', new_admin_conference_path, class: "" %>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#conference').dataTable({
+      paging: true
+    });
+  });
+</script>
+<%= link_to 'New Conference', new_admin_conference_path, class: "btn btn-default btn-sm" %>

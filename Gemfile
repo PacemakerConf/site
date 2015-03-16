@@ -26,7 +26,6 @@ group :assets do
   #gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
   gem 'jquery-ui-rails'
 end
-gem 'jquery-datetimepicker-rails'
 gem 'will_paginate'
 gem 'momentjs-rails', '>= 2.8.1'
 gem 'twitter-bootstrap-rails'
@@ -70,12 +69,19 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 
-	gem 'rspec-rails'
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'watchr'
+  gem 'guard-rspec'
+  gem 'spork'
+  gem 'spork-rails'
+  gem 'guard-spork'
 	gem 'factory_girl_rails', '~> 4.0'
+  gem 'capybara'
+end
 end
 
 group :test do
 	gem 'shoulda-matchers', require: false
   gem 'faker'
 end
-

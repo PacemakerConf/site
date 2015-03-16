@@ -17,10 +17,7 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require jquery.dataTables.js
-//= require jquery.datetimepicker
 //= require turbolinks
-//= require underscore
-//= require backbone
 //= require playground
 //= require_tree ./models
 //= require_tree ./collections
@@ -32,6 +29,7 @@
 //= require fileinput.min
 //= require moment
 //= require bootstrap-datetimepicker
+//= require bootstrap-modal.js
 //= require nested_form
 
 //= require bootstrap-wysiwyg.js

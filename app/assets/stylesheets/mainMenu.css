@@ -11,6 +11,7 @@
 .main-menu ul div li p a{
   color: white;
   background-color: transparent;
+
 }
 
 ul.conference-menu {
@@ -48,15 +49,10 @@ ul.conference-menu {
   background: inherit;
 }
 
-.description {
-  display: none;
-}
-
-
 .flag-image-container, .flag-year-image-container {
 
     position: relative;
-    height: 80px; 
+    height: 90px; 
 }
 
 .flag-text{
@@ -65,6 +61,15 @@ ul.conference-menu {
    left: 0; 
    width: 100%; 
 }
+
+/*.flag-year-image-container img {  
+}*/
+ 
+/*.flag-year-image-container img:hover{
+  box-shadow:0 0 15px #00aaff;
+  border:1px solid #00aaff;
+}*/
+
 
 /*
 .flag-year-image-container img{
@@ -88,3 +93,63 @@ ul.conference-menu {
   background-image: url("");
 }
 */
+#confYear{
+    position: absolute;
+    padding: 25px 5px 5px 5px;
+    z-index: 1;
+    text-align:  center;
+}
+
+.flag1{
+  height: 70px;
+  width: 70px;
+  margin: 10px 0 0 10px;
+  position: absolute;
+  z-index: 0;
+  cursor: pointer;
+  /*    border-radius: 1em/.5em;*/
+  opacity: .65;
+  transition: opacity .5s;
+  color: black;
+  font-size: 16px;
+  letter-spacing: 0.1em;
+  box-shadow: 10px 25px 30px rgba(0,0,0,.5);
+  background: linear-gradient(red 25%, #bb6666, red);
+  
+/*   &::after {
+    position: absolute;
+    height: 70px;
+    width: 70px;
+    margin: 30px 0 0 100px;
+    position: absolute;
+    z-index: -1;
+    box-sizing: border-box;
+    border: 1em solid black;
+    transform-origin: 0 0;
+    transform: rotate(45deg);
+    box-shadow: 10px 25px 30px rgba(0,0,0,.5);
+  }*/
+}
+.flag1:hover {
+  opacity: 1;
+  color: white;
+}
+.flag1:after{
+    content: '';
+    position: absolute;
+    top: 70px;
+    border-top: 25px solid red;
+    border-right: 35px solid white;
+    border-left: 35px solid transparent;
+            /*    background: linear-gradient(90deg, 
+crimson 25%, black, dodgerblue 75%);
+border-image: linear-gradient(to bottom, #3acfd5 0%, #3a4ed5 100%);*/
+}
+.flag1:before{
+    content: '';
+    position: absolute;
+    top: 0px;
+    border-top: 10px solid white;
+    border-right: 35px solid red;
+    border-left: 35px solid red;
+}

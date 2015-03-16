@@ -1,5 +1,4 @@
 <div class="container">
-<div>
 <div class="main-menu">
 
 	<% conferences, years, last_year = MainMenu.params %>
@@ -18,13 +17,13 @@
 
 			<% if year == last_year %>
 				<% flag = Flag.new('display' => 'display: none', 
-					'image_path' => 'REDlight.png') %>
+					'image_path' => 'RED.png') %>
 				<% display = '' %>
 			<% elsif year.name.to_i === active_year%>
-				<% flag = Flag.new('image_path' => Flag::RED_LIGHT) %>
+				<% flag = Flag.new('image_path' => Flag::RED) %>
 				<% display = '' %>
 			<% else %>
-				<% flag = Flag.new('image_path' => Flag::GREY_DARK) %>	
+				<% flag = Flag.new('image_path' => Flag::GREY) %>	
 				<% display = 'display: none;' %>
 			<% end %>
 
@@ -41,13 +40,13 @@
 			<% conferences.where(year: year).order(date: :asc).each do |conference| %>
 
 				<% if conference === @conference && year === last_year%>
-					<% flag = Flag.new('image_path' => Flag::GREEN_LIGHT,
+					<% flag = Flag.new('image_path' => Flag::GREEN,
 						'display' => display) %>	
 				<% elsif conference === @conference %>
-					<% flag = Flag.new('image_path' => Flag::BLUE_LIGHT, 
+					<% flag = Flag.new('image_path' => Flag::BLUE, 
 						'display' => display) %>	
 				<% else %>
-					<% flag = Flag.new('image_path' => Flag::GREY_LIGHT, 
+					<% flag = Flag.new('image_path' => Flag::GREY, 
 						'display' => display) %>	
 				<% end %>
 
@@ -63,11 +62,8 @@
 						</div>  
 					</li>
 				<% end %>
-
 			<% end %>
-
 		<% end %>
 
 </ul>
-</div>
 </div>
