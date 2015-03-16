@@ -61,6 +61,15 @@ lightning = EventType.create(
 	speakerEvent: 1
 	)
 
+groupLightning = EventType.create(
+	name: 'group lightning',
+	description: 'some description',
+	defaultDuration: '2014-12-12 00:45:00',
+	color: '#ffff00',
+	image: '4',
+	speakerEvent: 1,
+	groupable: 1
+	)
 
 #speakers
 frodo = Speaker.create(
@@ -297,6 +306,40 @@ Event.create(
 
 Event.create(
 	conference: onering,
+	published: false,
+	title: 'groupable 1',
+	description: 'some',
+	event_type: groupLightning,
+	speaker: frodo,
+	duration: '2014-12-12 01:00:00',
+	position: 3
+	)
+
+Event.create(
+	conference: onering,
+	published: false,
+	title: 'groupable 2',
+	description: 'some',
+	event_type: groupLightning,
+	speaker: gandalf,
+	duration: '2014-12-12 01:00:00',
+	position: 3
+	)
+
+Event.create(
+	conference: onering,
+	published: false,
+	title: 'groupable 3',
+	description: 'some',
+	event_type: groupLightning,
+	speaker: gandalf,
+	duration: '2014-12-12 01:00:00',
+	position: 3
+	)
+
+
+Event.create(
+	conference: onering,
 	published: true,
 	title: 'Beer-break',
 	event_type: beerbreak,
@@ -524,7 +567,6 @@ andriy = Contact.create(
 
 first = Report.create(
 	responsable: 'Vadym Kirdan',
-	video: 'https://youtube.com/watch?',
 	title: 'best conference ever',
 	description: 'bla bla bla',
 	conference: victory

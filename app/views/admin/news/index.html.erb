@@ -26,7 +26,6 @@
   </tbody>
 </table>
 
-<% if can? :create, News %>
   <% if @conference %>
     <%= link_to 'New news', controller: 'admin/news', 
                              action: 'new',

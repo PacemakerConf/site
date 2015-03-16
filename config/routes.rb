@@ -22,6 +22,12 @@ Rails.application.routes.draw do
     end
     resources :contacts
     resources :events do
+      collection do
+        get 'position'
+      end
+      member do 
+        get 'position'
+      end
       member do
         get 'publish'
       end
@@ -39,9 +45,15 @@ Rails.application.routes.draw do
       member do
         get 'publish'
       end
-    end  
+    end
+    resources :messages  do
+      member do 
+        get 'switch_to', to: 'messages#switch_to'
+      end
+    end
+    resources :news
   end
-
+  
 
   #userside 
   resources :speakers

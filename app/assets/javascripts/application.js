@@ -24,12 +24,14 @@
 //= require_tree ./views
 //= require_tree ./routers
 //= require jquery.bsmselect.js
-//= require bootstrap-wysiwyg.js
+
 //= require_tree .
-// require bootstrap-wysihtml5
 //= require fileinput.min
 //= require moment
 //= require bootstrap-datetimepicker
 //= require bootstrap-modal.js
 //= require nested_form
+
+//= require bootstrap-wysiwyg.js
+//= require jquery.hotkeys.js
 
