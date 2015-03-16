@@ -5,11 +5,10 @@ class Admin::YearsController < Admin::ApplicationController
   layout 'admin'
 
   def publish
-    @year.published = true
-    @year.save!
-
-    respond_to do |format|
-      format.js {}
+    if @year.update(published: true)
+      respond_to do |format|
+        format.js {}
+      end
     end
   end
 

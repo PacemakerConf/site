@@ -19,11 +19,10 @@ class Admin::EventsController < Admin::ApplicationController
   end
 
   def publish 
-    @event.published = true
-    @event.save!
-
-    respond_to do |format|
-      format.js {}
+    if @event.update(published: true)
+      respond_to do |format|
+        format.js {}
+      end
     end
   end
 

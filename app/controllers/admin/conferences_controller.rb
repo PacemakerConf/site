@@ -29,11 +29,10 @@ class Admin::ConferencesController < Admin::ApplicationController
   end
 
   def publish
-    @conference.published = true
-    @conference.save!
-
-    respond_to do |format|
-      format.js {}
+    if @conference.update(published: true)
+      respond_to do |format|
+        format.js {}
+      end
     end
   end
 
