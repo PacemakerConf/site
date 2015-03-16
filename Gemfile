@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'paperclip', '~> 4.2'
-
+gem 'wicked', '~> 1.1.1'
 gem 'bootstrap-wysihtml5-rails'
 gem 'bootstrap-wysiwyg-rails'
 gem 'email_validator'
@@ -16,11 +16,10 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
- gem 'therubyracer', platforms: :ruby
-
-gem 'twitter-bootstrap-rails'
-
-gem "mail"
+gem 'therubyracer', platforms: :ruby
+gem 'mail'
+#email validator
+gem 'validates_email_format_of'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -30,6 +29,8 @@ group :assets do
 end
 gem 'will_paginate'
 gem 'momentjs-rails', '>= 2.8.1'
+gem 'twitter-bootstrap-rails'
+gem 'backbone-on-rails'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.0.0'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
@@ -45,6 +46,7 @@ gem 'autoprefixer-rails'
 gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
 gem 'cancan'
+gem 'simplecov', :require => false, :group => :test
 # Use Unicorn as the app server
 # gem 'unicorn'
 

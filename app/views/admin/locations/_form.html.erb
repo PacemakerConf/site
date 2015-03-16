@@ -40,62 +40,169 @@
    <div class="form-group">
     <%= f.label :city, class: "col-lg-2 control-label" %>
     <div class="col-lg-7">
-      <%= f.text_field :city, class: "form-control" %>
+      <%= f.text_field :city, class: "form-control adr" %>
     </div>
   </div>
   <div class="form-group">
     <%= f.label :address, class: "col-lg-2 control-label" %>
     <div class="col-lg-7">
-      <%= f.text_field :address, class: "form-control" %>
+      <%= f.text_field :address, class: "form-control adr" %>
     </div>
   </div>
+
+
+
+  <div class="form-group">
+    <%= f.label "map", class: "col-lg-2 control-label" %>
+    <div class="col-lg-7">
+        <div id="map"></div>
+    </div>
+  </div>
+
+  
+
+  
 
   <div class="form-group">
     <%= f.label :contact_id, 'Contact', class: "col-lg-2 control-label" %>
     <div class="col-lg-7">
-      
-      <%= select_tag 'location[contact_ids][]', options_from_collection_for_select(@contacts, 'id', :full_name) %>
-      <a class="btn-default btn-sm btn-warning" id="add_location" onclick="addContact(this);return false;">+</a>
+      <%= select_tag 'location[contact_ids][]', options_from_collection_for_select(@contacts, 'id', :full_name), class: "form-control" %>
       <div class="form-group" id="location-area"></div>
     </div>
   </div>
 
-  <div class="form-group">
-    <%= f.label :how_to_find, class: "col-lg-2 control-label" %>
-    <div class="col-lg-7">
-      <%= f.text_area :how_to_find, class: "form-control wysihtml5" %>
+
+    <div class="container" id="wisywyg_container">
+  <div class="row">
+  
+    <div class="btn-toolbar" data-role="editor-toolbar" data-target="#editor">
+      <div class="btn-group">
+        <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" title="" data-original-title="Font"><i class="glyphicon glyphicon-font"></i><b class="caret"></b></a>
+          <ul class="dropdown-menu">
+          <li><a data-edit="fontName Serif" style="font-family:'Serif'">Serif</a></li><li><a data-edit="fontName Sans" style="font-family:'Sans'">Sans</a></li><li><a data-edit="fontName Arial" style="font-family:'Arial'">Arial</a></li><li><a data-edit="fontName Arial Black" style="font-family:'Arial Black'">Arial Black</a></li><li><a data-edit="fontName Courier" style="font-family:'Courier'">Courier</a></li><li><a data-edit="fontName Courier New" style="font-family:'Courier New'">Courier New</a></li><li><a data-edit="fontName Comic Sans MS" style="font-family:'Comic Sans MS'">Comic Sans MS</a></li><li><a data-edit="fontName Helvetica" style="font-family:'Helvetica'">Helvetica</a></li><li><a data-edit="fontName Impact" style="font-family:'Impact'">Impact</a></li><li><a data-edit="fontName Lucida Grande" style="font-family:'Lucida Grande'">Lucida Grande</a></li><li><a data-edit="fontName Lucida Sans" style="font-family:'Lucida Sans'">Lucida Sans</a></li><li><a data-edit="fontName Tahoma" style="font-family:'Tahoma'">Tahoma</a></li><li><a data-edit="fontName Times" style="font-family:'Times'">Times</a></li><li><a data-edit="fontName Times New Roman" style="font-family:'Times New Roman'">Times New Roman</a></li><li><a data-edit="fontName Verdana" style="font-family:'Verdana'">Verdana</a></li></ul>
+      </div>
+     
+      <div class="btn-group">
+        <a class="btn btn-primary" data-edit="bold" title="" data-original-title="Bold (Ctrl/Cmd+B)"><i class="glyphicon glyphicon-bold"></i></a>
+        <a class="btn btn-primary" data-edit="italic" title="" data-original-title="Italic (Ctrl/Cmd+I)"><i class="glyphicon glyphicon-italic"></i></a>
+        <a class="btn btn-primary" data-edit="underline" title="" data-original-title="Underline (Ctrl/Cmd+U)"><i class="glyphicon glyphicon-text-width"></i></a>
+      </div>
+      
+      <div class="btn-group">
+        <a class="btn btn-primary" data-edit="justifyleft" title="" data-original-title="Align Left (Ctrl/Cmd+L)"><i class="glyphicon glyphicon-align-left"></i></a>
+        <a class="btn btn-primary" data-edit="justifycenter" title="" data-original-title="Center (Ctrl/Cmd+E)"><i class="glyphicon glyphicon-align-center"></i></a>
+        <a class="btn btn-primary" data-edit="justifyright" title="" data-original-title="Align Right (Ctrl/Cmd+R)"><i class="glyphicon glyphicon-align-right"></i></a>
+        <a class="btn btn-primary" data-edit="justifyfull" title="" data-original-title="Justify (Ctrl/Cmd+J)"><i class="glyphicon glyphicon-align-justify"></i></a>
+      </div>
+     
+
+      <div class="btn-group" id="last_button">
+        <a class="btn btn-primary" title="" id="pictureBtn" data-original-title="Insert picture (or just drag &amp; drop)"><i class="glyphicon glyphicon-picture"></i></a>
+        <input type="file" data-role="magic-overlay" data-target="#pictureBtn" data-edit="insertImage" style="opacity: 0; position: absolute; top: 0px; left: 0px; width: 37px; height: 30px;">
+      </div>
+     
     </div>
+    
   </div>
+
+</div> 
+
+<div class="form-group">
+  <%= f.label :how_to_find, class: "col-lg-2 control-label" %>
+  <div class="col-lg-7">
+  <div id="editor" class="well col-md-9 form-control"></div>
+  </div>
+  <input type="hidden" name="location[how_to_find]" value="">
+</div>
+
+
+
+    
+
+
+  
   
   <div class="form-group">
     <div class="col-lg-10 col-lg-offset-2">
       <%= f.submit class: "btn btn-primary"%>
     </div>
   </div>
+
 <% end %>
 
 
 <script type="text/javascript">
 
-    function addContact(){
-      var divHTML = $('#location_contact_ids_')[0].outerHTML;
-      divHTML = '<div id="new_select">' + divHTML +
-      '<a class="remove_nested_fields btn-default btn-sm btn-danger" id="remove_button_location" onclick="RemoveContact(this);return false;">-</a>'+
-      "</div>";
-      $("#location-area").append(divHTML);
-
-
-  } 
-
-  function RemoveContact(button){
-    $(button).parent().remove();
-  }
-  
-
-
-    $('.wysihtml5').each(function(i, elem) {
-      $(elem).wysihtml5().html_safe();
+    
+    jQuery(function($) {
+        $("select[multiple]").bsmSelect();
     });
+
+    jQuery(function($) {
+    $("select[multiple]").bsmSelect({
+        addItemTarget: 'top'
+    });
+    });
+
+
+
+    $('#location_contact_ids_').removeAttr('id','none').addClass('azaza').attr("multiple", "multiple").attr("title","Select a contact");
+   
+
+
+    $.getScript('http://mindmup.github.io/bootstrap-wysiwyg/external/jquery.hotkeys.js',function(){
+$.getScript('http://mindmup.github.io/bootstrap-wysiwyg/bootstrap-wysiwyg.js',function(){
+
+  $('#editor').wysiwyg();
+  $('#editor').cleanHtml();
+
+});
+});
+
+$('[name="commit"]').click(function(){
+    info = $('#editor').html();
+    $('[name="location[how_to_find]"]').val(info);
+
+});
+
+
+var map ;
+
+  if($("#map").length)
+    map = new GMaps({
+          div: '#map',
+          lng: 18.5009765625,
+          lat: 48.31242790407185,
+          zoom: 16
+      });
+
+$(".adr").keyup (function(){
+    var splitedResult = '';
+  $.each($(".adr"),function(index,obj){
+    splitedResult += $(obj).val();
+    if(!index)
+      splitedResult += ','; 
+    })
+
+
+  GMaps.geocode({
+    address: splitedResult,
+    callback: function(results, status) {
+      if (status == 'OK') {
+        var latlng = results[0].geometry.location;
+        map.setCenter(latlng.lat(), latlng.lng());
+        map.removeMarkers();
+        map.addMarker({
+          lat: latlng.lat(),
+          lng: latlng.lng()
+          });
+        }
+      }
+  });
+});
+
+
+     
 </script>
 
 

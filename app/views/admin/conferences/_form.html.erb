@@ -20,10 +20,11 @@
       <div class="col-lg-7">
         <%= f.text_field :name, class: "form-control" %>
       </div>
-    </div>
-  <div class="form-group">
+      </div>
+
+      <div class="form-group">
       <%= f.label :'year', "Year*", class: "col-lg-2 control-label" %>
-  <div class="col-lg-7">
+      <div class="col-lg-7">
       <% years_options = ''%>
       <% cur_year = Time.now.year %>
       <% (cur_year-2).upto(cur_year+2) do |year| %>
@@ -35,6 +36,12 @@
         <% years_options += " <option value=" + year.to_s + selected + " > " + year.to_s + "</option> "%>
         <% end %>
         <%= select_tag "conference[year]", years_options.html_safe, class: "form-control"%>
+
+    <div class="form-group">
+      <%= f.label :'year_id', "Year*", class: "col-lg-2 control-label" %>
+    <div class="col-lg-7">
+      <%= select_tag "conference[year_id]", options_from_collection_for_select(Year.all, 'id', 'name', Year.last.id), class: "form-control"%>
+
       </div>
     </div>
 

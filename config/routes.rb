@@ -56,6 +56,8 @@ Rails.application.routes.draw do
   get ':name/schedule', to: 'conferences#schedule', as: :schedule_conference
   get ':name/report', to: 'conferences#report', as: :report_conference 
 
-#send_request
-match '/send_mail', to: 'contact#send_mail', via: 'post'
 end 
+
+#send_request
+# resources :email
+# match '/send_mail', to: 'contact#send_mail', via: 'post'

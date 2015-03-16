@@ -4,11 +4,12 @@ $(document).on('page:load', setFlagColors);
 function setFlagColors(){
 	
 	if( typeof conference_menu != 'undefined'){
+		
 		$('.flag-year-image-container').click(function(){
 			// $('#' + this.id.toString()).children('img').attr('src', '/assets/RED.png');
 			var years = conference_menu.getAttribute('years');
+			years = years.split(', ');			
 			years = years.slice(1, years.length-1);
-			years = years.split(', ');
 			var year = this.getAttribute('year');
 
 			for(var i = 0; i < years.length; i++){

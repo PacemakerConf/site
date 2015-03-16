@@ -3,7 +3,6 @@ class SpeakersController < ApplicationController
   before_action :set_speaker, only: [:show, :edit, :update, :destroy]
  
   def show
-    @conference = Conference.all.order(date: :desc)[0]
   end
 
   def new
@@ -20,7 +19,7 @@ class SpeakersController < ApplicationController
         format.html { redirect_to controller: 'events', action: 'new', hash: params["speaker"]["email_hash"]}
         format.json { render :show, status: :created, location: @speaker }
       else
-        format.html { redirect_to @speaker}
+        format.html { render :new}
         format.json { render json: @speaker.errors, status: :unprocessable_entity }
       end
     end

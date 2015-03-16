@@ -1,6 +1,8 @@
+require 'faker'
+
 FactoryGirl.define do 
 	factory :conference do |f| 
-		f.name 'RoR' 
-		f.year 2020
+		f.name Faker::Lorem.word 
+		f.year_id 1
  	end
 end

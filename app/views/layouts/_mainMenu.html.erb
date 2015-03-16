@@ -3,59 +3,67 @@
 
 	<% conferences, years, last_year = MainMenu.params %>
 	<% if @conference %>
-		<% active_year = @conference.year %>
+		<% active_year = @conference.year.name.to_i %>
 	<% elsif @year %>
 		<% active_year = @year.name.to_i %>
 	<% else %>
-		<% active_year = last_year %>
+		<% active_year = last_year.name.to_i %>
 	<% end %>
 
 
-	<ul class="conference-menu" id='conference_menu' years='<%= years %>'>
+	<ul class="conference-menu" id='conference_menu' years='<%= years.pluck(:name).map do |year| year.to_i end %>'>
 
 		<% years.each do |year| %>
 
-			<% if year === active_year %>
-				<% flag_settings = {conf_display: '', year_flag_color: 'RED.png'} %>
+			<% if year == last_year %>
+				<% flag = Flag.new('display' => 'display: none', 
+					'image_path' => 'RED.png') %>
+				<% display = '' %>
+			<% elsif year.name.to_i === active_year%>
+				<% flag = Flag.new('image_path' => Flag::RED) %>
+				<% display = '' %>
 			<% else %>
-				<% flag_settings = {conf_display: "display:none;", year_flag_color: 'GREY.png'} %>
+				<% flag = Flag.new('image_path' => Flag::GREY) %>	
+				<% display = 'display: none;' %>
 			<% end %>
 
-			<li class="flag-year-image-container" id="flag-<%=year%>" year='<%=year%>'>
-				<% if Year.where(name: year)[0].published %>
-					<%= link_to( image_tag(flag_settings[:year_flag_color]), year_path(year))%>
+			<li class="flag-year-image-container" id="flag-<%=year.name.to_s%>" 
+				year='<%=year.name.to_s%>' style="<%=flag.display%>">
+				<% if year.published %>
+					<%= link_to( image_tag(flag.image_path), year_path(year.name))%>
 				<% else %>
-					<%= image_tag(flag_settings[:year_flag_color]) %>
+					<%= image_tag(flag.image_path) %>
 				<% end %>
-				<p class='flag-text'> <%= year %> </p> 
+				<p class='flag-text'> <%= year.name %> </p> 
 			</li>
 
 			<% conferences.where(year: year).order(date: :asc).each do |conference| %>
 
-				<% if conference === @conference %>
-					<% flag_settings[:conf_flag_color] = 'BLUE.png' %>
+				<% if conference === @conference && year === last_year%>
+					<% flag = Flag.new('image_path' => Flag::GREEN,
+						'display' => display) %>	
+				<% elsif conference === @conference %>
+					<% flag = Flag.new('image_path' => Flag::BLUE, 
+						'display' => display) %>	
 				<% else %>
-					<% flag_settings[:conf_flag_color] = 'GREY.png' %>
+					<% flag = Flag.new('image_path' => Flag::GREY, 
+						'display' => display) %>	
 				<% end %>
 
 				<% if can? :read, conference %>
-					<li class="flag-image-container conference-<%= year %> conference-flag <%= conference.published ? "" : "unpublished" %> " style="<%=flag_settings[:conf_display]%>" >
-						<%= link_to(  image_tag(flag_settings[:conf_flag_color]), about_conference_path(conference.route) )%>
-						<%#= link_to( about_conference_path(conference.route), class: flag_settings[:class_name] )%>
-						<div class='flag-text'> <%= link_to  conference.name + " " + conference.year.to_s, about_conference_path(conference.route) %> </div>  
+					<li class="flag-image-container conference-<%= year.name.to_s %> 
+						conference-flag <%= conference.published ? "" : "unpublished" %> "
+						style="<%=flag.display %>" >
+						<%= link_to(  image_tag(flag.image_path),
+							about_conference_path(conference.route) )%>
+						<div class='flag-text'> <%= link_to  conference.name + " " + 
+							conference.year.name.to_s, about_conference_path(
+							conference.route) %> 
+						</div>  
 					</li>
 				<% end %>
-
 			<% end %>
-
 		<% end %>
-		<% current_year = years[-1].to_i + 1 %>
 
-		<% Conference.where(year: current_year).each do |conference| %>
-			<li class="flag-image-container conference-<%= current_year %> conference-flag" >
-				<%= link_to(  image_tag('GREEN.png'), about_conference_path(conference.route) )%>
-				<div class='flag-text'> <%= link_to  conference.name + " " + conference.year.to_s, about_conference_path(conference.route) %> </div> 
-			</li>
-		<% end %>
 </ul>
 </div>

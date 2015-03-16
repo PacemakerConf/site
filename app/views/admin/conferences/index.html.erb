@@ -7,9 +7,10 @@
         <th>Year</th>
         <th>Date</th>
         <th>Attenders</th>
-        <th>Shedule</th>
+        <th>Schedule</th>
         <th>Location</th>
         <th>Report</th>
+        <th>News</th>
         <th>Publish</th>
         <th>Edit</th>
         <th>Delete</th>
@@ -19,7 +20,7 @@
       <% @conferences.each do |conference| %>
       <tr id='<%= conference.fullname %>_row' >
           <td><%= link_to conference.name, {controller: 'admin/events', action: 'index', conf_id: conference.id}, class: ''%></td>
-          <td><%= conference.year %></td>
+          <td><%= conference.year.name %></td>
           <td><%= conference.date %></td>
           <td><%= conference.attenders %></td>
           <td><%= link_to 'Schedule', schedule_admin_conference_path(conference.route), class: ''%></td>
@@ -29,11 +30,22 @@
                     link_to "Create Location", {controller: 'admin/locations', action: 'new', conf_id: conference.id, conf_fname: conference.fullname}, class: 'btn btn-xs btn-primary'
                   end %></td>
           <td><%= unless(conference.report.nil?)
-                    link_to "#{conference.report.title}", report_conference_path(conference.route), class: 'btn btn-xs btn-info'
+                     link_to "#{conference.report.short_report}", report_conference_path(conference.route), class: 'btn btn-xs btn-info'
+
                   else
                     link_to "Create Report", {controller: 'admin/reports', action: 'new', conf_id: conference.id, conf_fname: conference.fullname}, class: 'btn btn-xs btn-primary'
-                  end %></td>
+
+                  end %>
+          </td>
+          <td><%= unless(conference.news.nil?)
+                    link_to "news", {controller: 'admin/news', action: 'index', conf_id: conference.id, conf_fname: conference.fullname}, class: 'btn btn-xs btn-default'
+                  else
+                    link_to "Create News", {controller: 'admin/news', action: 'new', conf_id: conference.id, conf_fname: conference.fullname}, class: 'btn btn-xs btn-default'
+                  end %>
+          </td>
+
           <td class='publish'>
+
             <% if conference.published %>
               Published
             <% else %>
@@ -46,6 +58,7 @@
     <% end %>
   </tbody>
 </table>
+
 <script type="text/javascript">
   $(document).ready(function() {
     $('#conference').dataTable({
