@@ -24,6 +24,12 @@ Rails.application.routes.draw do
 
     resources :contacts
     resources :events do
+      collection do
+        get 'position'
+      end
+      member do 
+        get 'position'
+      end
       member do
         get 'publish'
       end

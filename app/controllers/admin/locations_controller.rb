@@ -22,6 +22,7 @@ class Admin::LocationsController < Admin::ApplicationController
 
   # GET /locations/1/edit
   def edit
+    @contacts = Contact.all
   end
 
   # POST /locations
@@ -43,6 +44,7 @@ class Admin::LocationsController < Admin::ApplicationController
   # PATCH/PUT /locations/1
   # PATCH/PUT /locations/1.json
   def update
+
     respond_to do |format|
       if @location.update(location_params)
         format.html { redirect_to [:admin, @location], notice: 'Location was successfully updated.' }

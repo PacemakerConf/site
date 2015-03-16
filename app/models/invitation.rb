@@ -4,8 +4,6 @@ class Invitation < ActiveRecord::Base
 
 	validates :email, presence: true,
 		email_format: { message: "doesn't look like an email address" }
-
-	#validates_associated :message
 	
 	class LinkHelper
 		include  ActionView::Helpers::UrlHelper
@@ -27,6 +25,5 @@ class Invitation < ActiveRecord::Base
 	    message = message.gsub!(Message::TOKEN_REGEXP, Invitation.generate_link(email, email_hash))
 	    InviteMailer.speaker_invite(email, message).deliver 
 	end	
-
 
 end

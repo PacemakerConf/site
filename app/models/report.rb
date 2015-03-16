@@ -3,7 +3,7 @@ class Report < ActiveRecord::Base
 
 
 	validates :title, presence: true
-	validates :description, presence: true
+
 
 	def short_report
 		title.truncate(18)

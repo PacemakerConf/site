@@ -6,9 +6,10 @@
 	
 	<% if invite.email_hash == params[:hash]%>
 		<% current_user = {'role' => User::SPEAKER}%>
+		<%= render 'speakers/form'%>
 		<%= render 'form' %>
 	<% else %>
-		<p> yanki go	 home	! </p>
+		
 	<% end %>
 
 <% end %>
