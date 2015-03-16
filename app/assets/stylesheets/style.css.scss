@@ -28,13 +28,16 @@
 	text-align: right;
 }
 
-conference-name h1{
-	margin:10px;
+.conference-name h1{
+	margin-top:8px;
 }
 
-.contacts{
-	padding: 0 5px;
+div.contacts{
+	padding: 0;
 }
+div.name-conteiner{
+	padding:0px;
+}	
 
 .conference-det-2{
 	background-color: #002C3A;
@@ -46,6 +49,7 @@ conference-name h1{
 	padding:0;
 	margin:10px;
 	margin-top:0;
+	margin-bottom:14px;
 }
 
 .conference-det-2 li{

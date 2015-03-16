@@ -12,10 +12,10 @@ class Admin::EventsController < Admin::ApplicationController
     else
       @events = Event.all
     end
-    @speaker_event = EventType.where(speakerEvent: 1)
-    @non_speaker_event = EventType.where(speakerEvent: 0)
-    @speaker_events = @events.where(event_type: @speaker_event)
-    @non_speaker_events = @events.where(event_type: @non_speaker_event)
+    @speaker_event_type = EventType.where(speakerEvent: 1)
+    @non_speaker_event_type = EventType.where(speakerEvent: 0)
+    @speaker_events = @events.where(event_type: @speaker_event_type)
+    @non_speaker_events = @events.where(event_type: @non_speaker_event_type)
   end
 
   def publish 
@@ -46,8 +46,6 @@ class Admin::EventsController < Admin::ApplicationController
   def create
     @event = Event.new(event_params)
     @conference = Conference.find(event_params[:conference_id])
-    position = Event.where(conference: @conference).size + 1
-    @event.position = position
     respond_to do |format|
       if @event.save
         format.html { redirect_to schedule_admin_conference_path(@conference), notice: 'event was successfully created.' }

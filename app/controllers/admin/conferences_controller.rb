@@ -1,11 +1,15 @@
 class Admin::ConferencesController < Admin::ApplicationController
   before_action :authenticate_admin!
-  before_action :set_conference, only: [:publish, :schedule, :date, :location, :report, :speakers, :show, :edit, :update, :destroy]
+  before_action :set_conference, only: [:publish, :schedule, :date, :location, :news, :report, :speakers, :show, :edit, :update, :destroy]
 
   layout 'admin' 
   
   def location 
     @location = @conference.location
+  end
+
+  def news
+    @news = @conference.news
   end
 
   def report 
@@ -60,7 +64,7 @@ class Admin::ConferencesController < Admin::ApplicationController
 
     respond_to do |format|
       if @conference.save
-        format.html { redirect_to [:admin, @conference], notice: 'Conference was successfully created.' }
+        format.html { redirect_to admin_conferences_path, notice: 'Conference was successfully created.' }
         format.json { render :show, status: :created, location: @conference }
       else
         format.html { render :new }
@@ -104,12 +108,13 @@ class Admin::ConferencesController < Admin::ApplicationController
         border = input.rindex('-').to_i
         name = input.slice(0, border)
         year = input.slice(border+1, 4)
+        year = Year.where(name: year)[0]
         @conference = Conference.where(name: name).where(year: year)[0]
       end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def conference_params
-      params.require(:conference).permit(:name, :year, :date, :attenders, :group_event)
+      params.require(:conference).permit(:name, :year_id, :date, :attenders, :group_event)
     end
 end

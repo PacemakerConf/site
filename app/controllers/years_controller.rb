@@ -3,7 +3,6 @@ class YearsController < ApplicationController
   before_action :check_visibility, only: :show
 
   def show
-  	@conference_count = Conference.where(year: @year.name).count
   end
 
   private

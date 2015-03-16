@@ -10,6 +10,8 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+
+//= require gmaps.js
 //= require event_types
 //= require jquery-1.11.2
 //= require jquery_ujs
@@ -17,10 +19,21 @@
 //= require jquery.dataTables.js
 //= require jquery.datetimepicker
 //= require turbolinks
-//= require_tree .
+//= require underscore
+//= require backbone
+//= require playground
+//= require_tree ./models
+//= require_tree ./collections
+//= require_tree ./views
+//= require_tree ./routers
+//= require jquery.bsmselect.js
 
-// require bootstrap-wysihtml5
+//= require_tree .
 //= require fileinput.min
 //= require moment
 //= require bootstrap-datetimepicker
 //= require nested_form
+
+//= require bootstrap-wysiwyg.js
+//= require jquery.hotkeys.js
+

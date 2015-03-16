@@ -39,7 +39,6 @@
         <input class="form-control mail-adreess" >
       </div>
   </div>
-
   
   <div class="form-group" id="mail-area"></div>
   <input type="hidden" name="contact[email]" value="">
@@ -52,7 +51,7 @@
     </div>
   <div class="form-group">
     <div class="col-lg-10 col-lg-offset-2">
-      <%= f.submit class: "btn btn-primary"%>
+      <%= f.submit onclick: "return checkIsValid();",class: "btn btn-primary"%>
     </div>
   </div>
 <% end %>
@@ -64,7 +63,7 @@
     var divHTML = 
     '<div class="form-group ">'+
      '<label class="col-lg-2 control-label label_contact">Email</label>'+
-      '<div class="col-lg-6 contact_form">'+
+      '<div class="col-lg-7 contact_form">'+
         '<input class="form-control mail-adreess" type="text" >'+
       '</div>'+
       '<a class="remove_nested_fields btn-default btn-sm btn-danger" id="remove_button_contact" onclick="RemoveMail(this);return false;">-</a>'+
@@ -78,13 +77,25 @@
     $(button).parent().remove();
   }
 
-$('[name="commit"]').click(function(){
-  var mails = '';
-  $('.mail-adreess').each(function(index,obj){
-      mails+=$(obj).val()+';';
-  });
-  $('[name="contact[email]"]').val(mails);
-});
+
+  function checkIsValid(){
+    var mails = '';
+    var emailRegEx = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
+    var isPassed = true;
+      $('.mail-adreess').each(function(index,obj){
+        if($(obj).val() != '' && $(obj).val().search(emailRegEx) != -1)
+          mails+=$(obj).val()+';';
+        else
+          isPassed = false;
+      });
+
+      if(isPassed)
+        $('[name="contact[email]"]').val(mails);
+      else
+         alert('Please enter a valid email address.');
+
+      return isPassed;
+  }
   
   
 </script>
