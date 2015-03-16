@@ -2,16 +2,21 @@ class Invitation < ActiveRecord::Base
 	COST = 10
 	belongs_to :message
 
+
 	validates :email, presence: true,
 		email_format: { message: "doesn't look like an email address" }
 	
+	 delegate :content, to: :message, prefix: true
+  validates_associated :message
+
 	class LinkHelper
 		include  ActionView::Helpers::UrlHelper
 	end	
 
 	def initialize(args = {})
 		super(args)
-		email_hash = ::BCrypt::Password.create("#{email}", :cost => Invitation::COST).to_s if email
+		#email = args[:email]
+		self.email_hash = ::BCrypt::Password.create("#{email}", :cost => Invitation::COST).to_s if email
 	end	
 
 	def self.generate_link(email, email_hash)
