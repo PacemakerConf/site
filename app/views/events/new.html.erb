@@ -1,16 +1,19 @@
 <fieldset class='col-lg-8'>
 
-<legend>Event</legend>
+<legend>Event at the conference  
 
-<% Invitation.all.each do |invite|%>
-	
-	<% if invite.email_hash == params[:hash]%>
-		<% current_user = {'role' => User::SPEAKER}%>
-		<%= render 'speakers/form'%>
-		<%= render 'form' %>
-	<% else %>
+<% if Invitation.where(email_hash: params[:hash]).count > 0 %>
+		<% invite = Invitation.where(email_hash: params[:hash])[0] %>
 		
-	<% end %>
+		<% @conference_id = invite.conference_id %>
+		<%= Conference.find(@conference_id).fullname %>
+	</legend>
+		<% current_user = {'role' => User::SPEAKER}%>
+		<%= render 'form' %>
+<% else %>
+	</legend>
+
+<p> Sorry! You are not welcome to register at this conference! </p>
 
 <% end %>
 
