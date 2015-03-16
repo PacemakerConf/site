@@ -1,0 +1,26 @@
+<h1>List of invitation messages</h1>
+<table class="display data_table" width="100%" cellspacing="0">
+  <thead>
+    <tr>
+      <th>Version</th>
+      <th>Content</th>
+      <th>Action</th> 
+    </tr>
+  </thead>
+  <tbody>
+    <%  @messages.each do |message| %>
+    <tr >
+      <td><%= message.version %></td>
+      <td><%= message.content %></td>
+      <td>
+        <% if message.id == Message.last.id %>
+          Should be invisible
+        <% else %>
+          <%= link_to 'SwitchTo', switch_to_admin_message_path(message), class: 'btn btn-xs btn-warning' %>
+        <% end %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+

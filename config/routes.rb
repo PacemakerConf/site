@@ -42,9 +42,14 @@ Rails.application.routes.draw do
       member do
         get 'publish'
       end
-    end  
+    end
+    resources :messages  do
+      member do 
+        get 'switch_to', to: 'messages#switch_to'
+      end
+    end
   end
-
+  
 
   #userside 
   resources :speakers
