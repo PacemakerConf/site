@@ -6,6 +6,7 @@ FactoryGirl.define do
 		f.surname Faker::Name.last_name
 		f.position Faker::Name.title
 		f.description Faker::Lorem.paragraph
+		f.email Faker::Internet.email
 
 		factory :invalid_speaker do 
 			name nil

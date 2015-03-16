@@ -40,62 +40,133 @@
    <div class="form-group">
     <%= f.label :city, class: "col-lg-2 control-label" %>
     <div class="col-lg-7">
-      <%= f.text_field :city, class: "form-control" %>
+      <%= f.text_field :city, class: "form-control adr" %>
     </div>
   </div>
   <div class="form-group">
     <%= f.label :address, class: "col-lg-2 control-label" %>
     <div class="col-lg-7">
-      <%= f.text_field :address, class: "form-control" %>
+      <%= f.text_field :address, class: "form-control adr" %>
     </div>
   </div>
+
+
+
+  <div class="form-group">
+    <%= f.label "map", class: "col-lg-2 control-label" %>
+    <div class="col-lg-7">
+        <div id="map"></div>
+    </div>
+  </div>
+
+  
+
+  
 
   <div class="form-group">
     <%= f.label :contact_id, 'Contact', class: "col-lg-2 control-label" %>
     <div class="col-lg-7">
-      
-      <%= select_tag 'location[contact_ids][]', options_from_collection_for_select(@contacts, 'id', :full_name) %>
-      <a class="btn-default btn-sm btn-warning" id="add_location" onclick="addContact(this);return false;">+</a>
+      <%= select_tag 'location[contact_ids][]', options_from_collection_for_select(@contacts, 'id', :full_name), class: "form-control" %>
       <div class="form-group" id="location-area"></div>
     </div>
   </div>
 
-  <div class="form-group">
-    <%= f.label :how_to_find, class: "col-lg-2 control-label" %>
-    <div class="col-lg-7">
-      <%= f.text_area :how_to_find, class: "form-control wysihtml5" %>
-    </div>
+
+<%= render "admin/partials/wysiwyg" %> 
+
+<div class="form-group">
+  <%= f.label :how_to_find, class: "col-lg-2 control-label" %>
+  <div class="col-lg-7">
+    <div id="editor" class="well col-md-9 form-control"></div>
   </div>
+    <%= hidden_field( :location, :how_to_find, value:"") %>
+</div>
+
+
+
+    
+
+
+  
   
   <div class="form-group">
     <div class="col-lg-10 col-lg-offset-2">
       <%= f.submit class: "btn btn-primary"%>
     </div>
   </div>
+
 <% end %>
 
 
 <script type="text/javascript">
 
-    function addContact(){
-      var divHTML = $('#location_contact_ids_')[0].outerHTML;
-      divHTML = '<div id="new_select">' + divHTML +
-      '<a class="remove_nested_fields btn-default btn-sm btn-danger" id="remove_button_location" onclick="RemoveContact(this);return false;">-</a>'+
-      "</div>";
-      $("#location-area").append(divHTML);
-
-
-  } 
-
-  function RemoveContact(button){
-    $(button).parent().remove();
-  }
-  
-
-
-    $('.wysihtml5').each(function(i, elem) {
-      $(elem).wysihtml5().html_safe();
+    $('#location_contact_ids_').removeAttr('id','none').addClass('azaza').attr("multiple", "multiple").attr("title","Select a contact");
+    jQuery(function($) {
+        $("select[multiple]").bsmSelect();
     });
+
+    jQuery(function($) {
+    $("select[multiple]").bsmSelect({
+        addItemTarget: 'top'
+    });
+    });
+
+
+
+    
+   
+
+
+
+  $('#editor').wysiwyg();
+ 
+
+
+
+$('[name="commit"]').click(function(){
+    info = $('#editor').html();
+    $('[name="location[how_to_find]"]').val(info);
+
+});
+
+
+var map ;
+
+  if($("#map").length)
+    map = new GMaps({
+          div: '#map',
+          lng: 18.5009765625,
+          lat: 48.31242790407185,
+          zoom: 16
+      });
+
+$(".adr").keyup (function(){
+    var splitedResult = '';
+  $.each($(".adr"),function(index,obj){
+    splitedResult += $(obj).val();
+    if(!index)
+      splitedResult += ','; 
+    })
+
+
+  GMaps.geocode({
+    address: splitedResult,
+    callback: function(results, status) {
+      if (status == 'OK') {
+        var latlng = results[0].geometry.location;
+        map.setCenter(latlng.lat(), latlng.lng());
+        map.removeMarkers();
+        map.addMarker({
+          lat: latlng.lat(),
+          lng: latlng.lng()
+          });
+        }
+      }
+  });
+});
+
+
+     
 </script>
 
 

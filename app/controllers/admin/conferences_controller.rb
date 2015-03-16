@@ -104,12 +104,13 @@ class Admin::ConferencesController < Admin::ApplicationController
         border = input.rindex('-').to_i
         name = input.slice(0, border)
         year = input.slice(border+1, 4)
+        year = Year.where(name: year)[0]
         @conference = Conference.where(name: name).where(year: year)[0]
       end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def conference_params
-      params.require(:conference).permit(:name, :year, :date, :attenders, :group_event)
+      params.require(:conference).permit(:name, :year_id, :date, :attenders, :group_event)
     end
 end

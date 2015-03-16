@@ -1,34 +1,40 @@
 <legend>Invite speaker</legend>
 
-<%= form_tag("/admin/speakers/send", method: "post", class: 'form-horizontal') do %>
+<%= form_for @invite, url: { action: "send_invitation"}, html: {method: "post", class: 'form-horizontal'}  do |f| %>
+  <% if @invite.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@invite.errors.count, "error") %> prohibited this invite from being saved:</h2>
+
+      <ul>
+      <% @invite.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
 <div class="form-group">
-  <%= label_tag(:email, "Email", class: "col-lg-2 control-label") %>
+  <%= f.label(:email, "Email", class: "col-lg-2 control-label") %>
   <div class="col-lg-7">
-    <%= text_field_tag(:email, class: "form-control")  %>
+    <%= f.text_field(:email, class: "form-control")  %>
   </div>
 </div>
 
   <div class="form-group">
-      <%= label_tag(:conference_id, "Conference", class: "col-lg-2 control-label") %>
+      <%= f.label(:conference_id, "Conference", class: "col-lg-2 control-label") %>
     <div class="col-lg-7">
-        <%= select_tag :conference_id, options_from_collection_for_select(Conference.where(date: Time.now..'3000-12-12'), 'id', 'fullname'), class: "form-control" %>
-    </div>
-  </div>
-
-  <div class="form-group">
-      <%= label_tag(:version, "Message version", class: "col-lg-2 control-label") %>
-    <div class="col-lg-7">
-        <%= select_tag :version, options_from_collection_for_select(Message.all, 'id', 'version'), class: "form-control" %>
+        <%= f.select :conference_id, options_from_collection_for_select(Conference.where(date: Time.now..'3000-12-12'), 'id', 'fullname'), class: "form-control" %>
     </div>
   </div>
 
 <div class="form-group">
-  <%= label_tag(:message, "Message", class: "col-lg-2 control-label") %>
+  <%= label_tag("invitation[message]", "Message", class: "col-lg-2 control-label") %>
     <div class="col-lg-7">
-      <%= text_area_tag(:message, invite_message, size: "15x6", class: "form-control") %>
+      <%= text_area_tag("invitation[message]", invite_message, size: "15x6", class: "form-control") %>
 	</div>
 </div>
+
+<%= f.hidden_field :status, value: 'sent' %> 
 
 <div class="form-group">
   <div class="col-lg-7 col-lg-offset-2">

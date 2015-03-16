@@ -8,7 +8,7 @@ describe Admin::ApplicationController do
 	end 
 	
 	describe 'GET #show' do
-		it 'redirect to conferences list after sign_in'
+		it 'redirect to conferences list after sign_in'	
 
 		it 'render the :show template'
 

@@ -25,35 +25,29 @@ class Admin::SpeakersController < Admin::ApplicationController
   end
 
   def invite
+    @invite = Invitation.new(conference_id: params[:conference_id])
   end
 
   def send_invitation
-    @invite = Invitation.new
-    @invite.email = params[:email]
-    @invite.conference_id = params[:conference_id]
-    cost = 10
-    @invite.email_hash = ::BCrypt::Password.create("#{@invite.email}", :cost => cost).to_s
-    #raise params.inspect
-
-# Checking version of invitation message
-    unless( Message.where(content: params[:message]).count > 0 )
-      version = Message.pluck(:version).sort[-1]
-      version += 1
-      Message.create(content: params[:message], version: version)
-    end
-    message = Message.last.id 
-    @invite.message_id = message
-
-    if @invite.save
-      Invitation.invite_speaker(params[:email], @invite.email_hash, params[:message])
-      redirect_to admin_speakers_path, notice: 'Invitation was successfully sent'
-    else
-      redirect_to admin_speakers_path, notice: 'Invitation was not sent.'
+    @invite = Invitation.new(
+      email: params[:invitation][:email], 
+      conference_id: params[:invitation][:conference_id]
+    )
+    message = Message.new(content: params[:invitation][:message]).create_if_new
+    @invite.message = message
+#    @invite.errors.add_error(message.errors.first) unless message.valid?
+    respond_to do |format|
+      if @invite.save && message.valid?
+        Invitation.invite_speaker(@invite.email, @invite.email_hash, @invite.message_content)
+        format.html { redirect_to admin_speakers_path, notice: 'Invitation was successfully sent.' }
+      else
+        format.html { render :invite, notice: 'Invitation was not sent.' }
+      end
     end
   end
 
   def list_invites
-    #@invitations = Invitation.all
+    @invites = Invitation.all
   end
 
   # POST /speakers
