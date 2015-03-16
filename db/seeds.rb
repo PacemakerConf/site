@@ -524,7 +524,6 @@ andriy = Contact.create(
 
 first = Report.create(
 	responsable: 'Vadym Kirdan',
-	video: 'https://youtube.com/watch?',
 	title: 'best conference ever',
 	description: 'bla bla bla',
 	conference: victory
