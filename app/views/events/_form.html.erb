@@ -11,8 +11,8 @@
     </div>
   <% end %>
 
-  <%= hidden_field( :event, :conference_id, value: params["conf_id"] || 
-      if( @event.conference ) then @event.conference.id end || Conference.last.id )%> 
+
+  <%= f.hidden_field :conference_id, value: @conference_id %> 
 
   <div class="form-group">
     <%= f.label :event_type_id, 'Event type*', class: "col-lg-2 control-label"%>
