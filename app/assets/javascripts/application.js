@@ -25,13 +25,12 @@
 //= require_tree ./views
 //= require_tree ./routers
 
-
 //= require_tree .
 //= require fileinput.min
 //= require moment
 //= require bootstrap-datetimepicker
 //= require bootstrap-modal.js
-//= require nested_form
+
 
 //= require bootstrap-wysiwyg.js
 //= require jquery.hotkeys.js

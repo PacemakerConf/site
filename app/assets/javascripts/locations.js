@@ -1,5 +1,16 @@
 $(document).on("page:change", function(){
 
+    $('#location_contact_ids_').removeAttr('id','none').attr("multiple", "multiple").attr("title","Select a contact");
+
+    jQuery(function($) {
+      $("select[multiple]").bsmSelect();
+    });
+
+    jQuery(function($) {
+    $("select[multiple]").bsmSelect({
+      addItemTarget: 'top'
+    });
+    });
   
 
     $('#editor').wysiwyg();
@@ -15,7 +26,7 @@ $(document).on("page:change", function(){
     if($("#map").length)
     map = new GMaps({
           div: '#map',
-         lng: 18.5009765625,
+          lng: 18.5009765625,
           lat: 48.31242790407185,
           zoom: 16
       });
@@ -43,18 +54,6 @@ $(document).on("page:change", function(){
       }
   });
 });
-
-  $('#location_contact_ids_').removeAttr('id','none').attr("multiple", "multiple").attr("title","Select a contact");
-
-    jQuery(function($) {
-      $("select[multiple]").bsmSelect();
-    });
-
-    jQuery(function($) {
-    $("select[multiple]").bsmSelect({
-      addItemTarget: 'top'
-    });
-    });
 
 
 });
