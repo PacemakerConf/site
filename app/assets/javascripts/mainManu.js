@@ -24,10 +24,29 @@ function setFlagColors(){
 		$('#flag-'+ last_year).hide();
 		$('#flag-'+ active_year).children('img').attr('src', '/assets/RED.png');
 
-		$('#' + active_conference + '-' + active_year).children().children('img').attr('src', '/assets/BLUE.png');
+		if (active_year == last_year){
+			$('#' + active_conference + '-' + active_year).children().children('img').attr('src', '/assets/GREEN.png');
+		}
+		else {
+			$('#' + active_conference + '-' + active_year).children().children('img').attr('src', '/assets/BLUE.png');
+		};
+		// $('ul.conference-menu li').hover().children('img').attr('src', '/assets/GREEN.png');
+
+		$('.flag-image-container').hover(function(){
+	    $(this).addClass('hovered');
+	    console.log('.flag-image-container');
+		},function(){
+		    $(this).removeClass('hovered');
+		});
+		$('.flag-year-image-container').hover(function(){
+	    $(this).addClass('hovered');
+	    console.log('.flag-year-image-container');
+		},function(){
+		    $(this).removeClass('hovered');
+		});
+
 	
 		$('.flag-year-image-container').click(function(){
-			console.log('click');	
 			var year = this.getAttribute('year'); 	
 			for(var i = 0; i < years.length; i++){
 				if(years[i] != year){
@@ -35,7 +54,6 @@ function setFlagColors(){
 					$('#flag-' + years[i]).children('img').attr('src', '/assets/GREY.png');
 				}
 				else{
-				console.log(years[i]);
 					$('.conference-' + years[i]).fadeToggle();
 					$('#flag-' + years[i]).children('img').attr('src', '/assets/RED.png');
 				}	
