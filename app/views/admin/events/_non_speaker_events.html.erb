@@ -35,7 +35,7 @@
             <% if event.published %>
               Published
             <% else %>
-              <%= link_to 'Publish', publish_admin_event_path(event), remote: true, class: 'btn btn-xs btn-primary'%>              
+              <%= link_to 'Publish', publish_admin_event_path(event), method: :patch, remote: true, class: 'btn btn-xs btn-primary'%>              
             <% end %>
         </td> 
         <td><%= link_to 'Edit', edit_admin_event_path(event), class: 'btn btn-xs btn-warning' %></td>
