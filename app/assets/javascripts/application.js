@@ -19,6 +19,7 @@
 //= require jquery-ui
 //= require jquery.dataTables.js
 //= require turbolinks
+//= require_tree .
 //= require fileinput.min
 //= require moment
 //= require bootstrap-datetimepicker
