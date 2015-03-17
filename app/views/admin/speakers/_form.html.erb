@@ -19,7 +19,6 @@
       <%= f.file_field :photo, class: "btn btn-default file_input" %>
     </div>
   </div>
-
   <div class="form-group">
     <%= f.label :name, 'Name*', class: "col-lg-2 control-label"%>
     <div class="col-lg-7">
@@ -38,12 +37,14 @@
       <%= f.text_field :position, class: "form-control" %>
     </div>
   </div>
+   <%= render "admin/share/wysiwyg" %> 
   <div class="form-group">
     <%= f.label :description, 'Description*', class: "col-lg-2 control-label"%>
     <div class="col-lg-7">
-      <%= f.text_area :description, class: "form-control", rows: 2 %>
+     <div id="editor" class="well col-md-9 form-control"></div>
     </div>
-  </div>
+      <%= hidden_field( :speaker, :description, value:"") %>
+  </div> 
   <div class="form-group">
     <%= f.label :email, class: "col-lg-2 control-label"%>
     <div class="col-lg-7">

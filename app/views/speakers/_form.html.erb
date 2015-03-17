@@ -17,12 +17,6 @@
     <%= f.label :photo, 'Photo', class: "col-lg-2 control-label"%>
     <div class="col-lg-7">
       <%= f.file_field :photo, class: "btn btn-default" %>
-      <script>
-        $("#speaker_photo").fileinput({
-        maxFilesNum: 1,
-        allowedFileExtensions: ["jpg", "gif", "png", "txt"]
-        });
-      </script>
     </div>
   </div>
 
@@ -50,7 +44,7 @@
     <div class="col-lg-7">
      <div id="editor" class="well col-md-9 form-control"></div>
     </div>
-      <%= hidden_field( :speaker, :desciption, value:"") %>
+      <%= hidden_field( :speaker, :description, value:"") %>
   </div> 
   <div class="form-group">
     <%= f.label :email, class: "col-lg-2 control-label"%>
@@ -76,8 +70,6 @@
       <%= f.text_field :site, class: "form-control" %>
     </div>
   </div>
-     
-
 
   <%= f.hidden_field :status, value: 'Registered' %> 
   <%= f.hidden_field :email_hash, value: params[:hash] %> 
