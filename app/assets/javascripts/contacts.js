@@ -1,4 +1,4 @@
-$(document).ready(eventFormLoad);
+$(document).on('page:change', eventFormLoad);
 
 function addMailRow(){
     var divHTML = 
