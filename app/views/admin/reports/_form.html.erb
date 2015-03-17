@@ -12,8 +12,7 @@
     </div>
   <% end %>
 
-<form class="form-horizontal">
-  <fieldset>
+
      <div class="form-group">
       <% if params['conf_id'] %>
       <div class="col-lg-7">
@@ -33,31 +32,56 @@
         <%= f.text_field :responsable, class: "form-control" %>
       </div>
     </div>    
-    <div class="form-group">
-      <%= f.label "Video", class: "col-lg-2 control-label"%>
-      <div class="col-lg-7">
-        <%= f.text_field :video, class: "form-control" %>
-      </div>
-    </div>    
+   
     <div class="form-group">
       <%= f.label "Title", class: "col-lg-2 control-label"%>
       <div class="col-lg-7">
         <%= f.text_field :title, class: "form-control" %>
       </div>
-    </div>    
+    </div> 
+
     <div class="form-group">
-      <%= f.label "Description", class: "col-lg-2 control-label"%>
+      <%= f.label "Video", class: "col-lg-2 control-label"%>
       <div class="col-lg-7">
-        <%= f.text_field :description, class: "form-control" %>
+        <%= f.text_field :video, class: "form-control" %>
       </div>
-    </div>
-    </div>
+    </div> 
+
     <div class="form-group">
-    <div class="col-lg-7 col-lg-offset-2">
-      <button type="reset" class="btn btn-default">Cancel</button>
-      <button type="submit" class="btn btn-primary">Create</button>
+      <%= f.label "Photo", class: "col-lg-2 control-label"%>
+      <div class="col-lg-7">
+        <%= f.text_field :photo, class: "form-control" %>
+      </div>
+    </div> 
+
+    <%= render "admin/share/wysiwyg" %> 
+    
+
+    <div class="form-group">
+      <%= f.label "Description", class: "col-lg-2 control-label" %>
+    <div class="col-lg-7">
+      <div id="editor" class="well col-md-9 form-control"></div>
     </div>
+       <%= hidden_field( :report, :description, value:"") %>
     </div>
-  </fieldset>
-</form>
+
+    <div class="form-group">
+    <div class="col-lg-10 col-lg-offset-2">
+      <%= f.submit class: "btn btn-primary"%>
+    </div>
+  </div>
+
 <% end %>
+
+<script type="text/javascript">
+ $('#editor').wysiwyg();
+ 
+
+
+
+$('[name="commit"]').click(function(){
+    info = $('#editor').html();
+    $('[name="report[description]"]').val(info);
+});
+
+</script>

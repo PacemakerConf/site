@@ -17,12 +17,6 @@
     <%= f.label :photo, 'Photo', class: "col-lg-2 control-label"%>
     <div class="col-lg-7">
       <%= f.file_field :photo, class: "btn btn-default" %>
-      <script>
-        $("#speaker_photo").fileinput({
-        maxFilesNum: 1,
-        allowedFileExtensions: ["jpg", "gif", "png", "txt"]
-        });
-      </script>
     </div>
   </div>
 
@@ -44,12 +38,14 @@
       <%= f.text_field :position, class: "form-control" %>
     </div>
   </div>
+   <%= render "admin/share/wysiwyg" %> 
   <div class="form-group">
     <%= f.label :description, 'Description*', class: "col-lg-2 control-label"%>
     <div class="col-lg-7">
-      <%= f.text_area :description, class: "form-control", rows: 2 %>
+     <div id="editor" class="well col-md-9 form-control"></div>
     </div>
-  </div>
+      <%= hidden_field( :speaker, :description, value:"") %>
+  </div> 
   <div class="form-group">
     <%= f.label :email, class: "col-lg-2 control-label"%>
     <div class="col-lg-7">
@@ -75,7 +71,10 @@
     </div>
   </div>
 
+  <%= f.hidden_field :status, value: 'Registered' %> 
   <%= f.hidden_field :email_hash, value: params[:hash] %> 
+  <%= f.hidden_field :conference_id, value: params[:conference_id] %> 
+
 
   <div class="form-group">
     <div class="col-lg-7 col-lg-offset-2">

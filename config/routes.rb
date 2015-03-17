@@ -10,28 +10,31 @@ Rails.application.routes.draw do
   end
   
   namespace :admin do
-
-    resources :news
+  
     root 'conferences#index'
     resources :conferences, param: :name do
       member do
         get 'schedule'
       end
       member do
-        get 'publish'
+        patch 'publish'
       end
     end
-
     resources :contacts
     resources :events do
+      collection do
+        get 'position'
+      end
+      member do 
+        get 'position'
+      end
       member do
-        get 'publish'
+        patch 'publish'
       end
     end
     resources :event_types 
     resources :locations
     resources :reports  
-
     resources :speakers do
       collection do
         get 'invite', to: 'speakers#invite'
@@ -40,11 +43,17 @@ Rails.application.routes.draw do
     end 
     resources :years do
       member do
-        get 'publish'
+        patch 'publish'
       end
-    end  
+    end
+    resources :messages  do
+      member do 
+        get 'switch_to', to: 'messages#switch_to'
+      end
+    end
+    resources :news
   end
-
+  
 
   #userside 
   resources :speakers
@@ -57,7 +66,10 @@ Rails.application.routes.draw do
   get ':name/speakers', to: 'conferences#speakers', as: :speakers_conference
   get ':name/location', to: 'conferences#location', as: :location_conference
   get ':name/schedule', to: 'conferences#schedule', as: :schedule_conference
-  get ':name/news' , to: 'conferences#news', as: :news_conference
   get ':name/report', to: 'conferences#report', as: :report_conference 
 
 end 
+
+#send_request
+# resources :email
+# match '/send_mail', to: 'contact#send_mail', via: 'post'

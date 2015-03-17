@@ -1,13 +1,13 @@
 class ConferencesController < ApplicationController
 
   before_action :set_conference, only: [:check_visibility, :schedule, :location, :speakers, :report, :show]
-  before_action :check_visibility, only: [:schedule, :location, :speakers, :report, :show]
+  before_action :check_visibility
 
   def location 
     @location = @conference.location
   end
 
-  def report 
+  def report
     @report = @conference.report
   end
 
@@ -17,11 +17,11 @@ class ConferencesController < ApplicationController
   end
 
   def schedule
-    @events = @conference.events
-  end
-
-  def index
-    @conferences = Conference.all
+    groupable = EventType.where(groupable: 1)
+    @eventsGroupable = @conference.events.where(event_type: groupable).order(:position)
+    @eventsSingle = @conference.events.where.not(event_type: groupable).order(:position)
+    @events = @conference.events.order(:position)
+    @active_button = 'schedule'
   end
 
   def show
@@ -49,6 +49,7 @@ class ConferencesController < ApplicationController
         border = input.rindex('-').to_i
         name = input.slice(0, border)
         year = input.slice(border+1, 4)
+        year = Year.where(name: year)[0]
         @conference = Conference.where(name: name).where(year: year)[0]
       end
     end

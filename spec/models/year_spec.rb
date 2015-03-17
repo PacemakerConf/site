@@ -3,7 +3,7 @@ require 'shoulda/matchers'
 
 describe Year do
 	
-	xit { should have_many(:conferences) }
+	it { should have_many(:conferences) }
 
 	it { should validate_presence_of(:name) }
 

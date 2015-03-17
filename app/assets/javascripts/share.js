@@ -1,11 +1,23 @@
-$(document).ready(pageLoad);
-$(document).on('page:load', pageLoad);
+$(document).on('page:change', pageLoad);
 
 function pageLoad(){
 
-    $('.data_table').dataTable({
-      paging: true
+	(function(){
+		if( !$('#dataTableLoaded')[0] ){
+			$('.data_table').dataTable({
+	      paging: true
+	    });
+
+	    $('body').append("<div id='dataTableLoaded'></div>");
+  	}
+	})();
+
+	(function(){
+		$(".file_input").fileinput({
+      maxFilesNum: 1,
+      allowedFileExtensions: ["jpg", "gif", "png", "txt"]
     });
+	})();
 
 }
 

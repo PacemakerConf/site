@@ -21,15 +21,18 @@ class Admin::ConferencesController < Admin::ApplicationController
   end
 
   def schedule
+    groupable = EventType.where(groupable: 1)
+    @eventsGroupable = @conference.events.where(event_type: groupable).order(:position)
+    @eventsSingle = @conference.events.where.not(event_type: groupable).order(:position)
     @events = @conference.events.order(:position)
+    @active_button = 'schedule'
   end
 
   def publish
-    @conference.published = true
-    @conference.save!
-
-    respond_to do |format|
-      format.js {}
+    if @conference.update(published: true)
+      respond_to do |format|
+        format.js {}
+      end
     end
   end
 
@@ -60,7 +63,7 @@ class Admin::ConferencesController < Admin::ApplicationController
 
     respond_to do |format|
       if @conference.save
-        format.html { redirect_to [:admin, @conference], notice: 'Conference was successfully created.' }
+        format.html { redirect_to admin_conferences_path, notice: 'Conference was successfully created.' }
         format.json { render :show, status: :created, location: @conference }
       else
         format.html { render :new }
@@ -74,7 +77,7 @@ class Admin::ConferencesController < Admin::ApplicationController
   def update
     respond_to do |format|
       if @conference.update(conference_params)
-        format.html { redirect_to [:admin, @conference], notice: 'Conference was successfully updated.' }
+        format.html { redirect_to admin_conferences_path, notice: 'Conference was successfully updated.' }
         format.json { render :show, status: :ok, location: @conference }
       else
         format.html { render :edit }
@@ -104,12 +107,13 @@ class Admin::ConferencesController < Admin::ApplicationController
         border = input.rindex('-').to_i
         name = input.slice(0, border)
         year = input.slice(border+1, 4)
+        year = Year.where(name: year)[0]
         @conference = Conference.where(name: name).where(year: year)[0]
       end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def conference_params
-      params.require(:conference).permit(:name, :year, :date, :attenders, :group_event)
+      params.require(:conference).permit(:name, :year_id, :date, :attenders, :group_event)
     end
 end

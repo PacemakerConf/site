@@ -12,18 +12,17 @@ class Admin::EventsController < Admin::ApplicationController
     else
       @events = Event.all
     end
-    @speaker_event = EventType.where(speakerEvent: 1)
-    @non_speaker_event = EventType.where(speakerEvent: 0)
-    @speaker_events = @events.where(event_type: @speaker_event)
-    @non_speaker_events = @events.where(event_type: @non_speaker_event)
+    @speaker_event_type = EventType.where(speakerEvent: 1)
+    @non_speaker_event_type = EventType.where(speakerEvent: 0)
+    @speaker_events = @events.where(event_type: @speaker_event_type)
+    @non_speaker_events = @events.where(event_type: @non_speaker_event_type)
   end
 
   def publish 
-    @event.published = true
-    @event.save!
-
-    respond_to do |format|
-      format.js {}
+    if @event.update(published: true)
+      respond_to do |format|
+        format.js {}
+      end
     end
   end
 
@@ -46,8 +45,6 @@ class Admin::EventsController < Admin::ApplicationController
   def create
     @event = Event.new(event_params)
     @conference = Conference.find(event_params[:conference_id])
-    position = Event.where(conference: @conference).size + 1
-    @event.position = position
     respond_to do |format|
       if @event.save
         format.html { redirect_to schedule_admin_conference_path(@conference), notice: 'event was successfully created.' }
@@ -64,7 +61,7 @@ class Admin::EventsController < Admin::ApplicationController
   def update
     respond_to do |format|
       if @event.update(event_params)
-        format.html { redirect_to [:admin, @event], notice: 'event was successfully updated.' }
+        format.html { redirect_to controller: 'admin/events', action: 'index', conf_id: @event.conference_id }
         format.json { render :show, status: :ok, location: @event }
       else
         format.html { render :edit }
@@ -81,6 +78,12 @@ class Admin::EventsController < Admin::ApplicationController
       format.html { redirect_to admin_events_url, notice: 'event was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  # GET /events/1/position?position=1
+  def position
+    @eventAll = Event.all
+    # @event = Event.find(params[:id])
   end
 
   private

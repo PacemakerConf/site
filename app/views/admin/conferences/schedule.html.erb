@@ -1,5 +1,3 @@
-<script src="../../../assets/jquery-ui.js"></script>
-
 <style>
   #sortable { list-style-type: none;}
   #sortable li {}
@@ -11,75 +9,60 @@
     $( "#sortable" ).disableSelection();
   });
 </script>
-
+<div class="alert alert-info" style="margin: 0px;">Status: UpTime</div>
 
 <ul id="sortable" class="list-group">
-<% @events.each do |event| %>
-  <li class="ui-state-default list-group-item schedule-item" >
-    <span class="timestart" style="position: relative;"></span>
-    <span class="duration" style="position: relative;"><%= conferenceEventDurationReturn(event.duration) %></span>
-    |
-    <span style="position: relative;"><%= event.title %></span>
-    <span class="badge" style="position: relative;">Speaker Name</span>
-  </li>
-<% end %>
+  <% @@positionNumber = 0 %>
+  <% @@trigger = true %>
+  <% @eventsSingle.each do |event| %>
+    <% if (event.position > @eventsGroupable[1].position) && @@trigger %>
+
+      <% @@groupSum = 0 %>
+      <% @@accessId = "" %>
+      <% @eventsGroupable.each do |item| %>
+          <% @@accessId += item.id.to_s + "," %>
+          <% @@groupSum += 1 %>
+      <% end %>
+
+      <li class="ui-state-default list-group-item schedule-item" >
+        <span class="timestart" style="position: relative;"></span>
+        <span class="duration" style="position: relative;"><%= conferenceEventGroupDurationReturn(@eventsGroupable) %></span>
+        |
+         <span style="position: relative;">
+          <% @eventsGroupable.each do |eventGroup| %>
+              <%= eventGroup.title + " / " %>
+          <% end %>
+        </span>
+        <span class="idItems" style= "display: none;"><%= @@accessId %></span>
+        <span class="positionItems" style="display: none;"><%= @@positionNumber %><% @@positionNumber += 1 %></span>
+        <span class="groupableItems" style="display: none;" ><%= @@groupSum %></span>
+        <% @eventsGroupable.each do |eventGroup| %>
+          <% unless eventGroup.speaker_id.nil? %>
+            <span style="position:relative;float:right;"><%= link_to " -" + eventGroup.speaker.name + " " + eventGroup.speaker.surname + " / ", eventGroup.speaker %></span>
+          <% end %>
+        <% end %>
+
+      </li>
+
+      <% @@trigger = false %>
+    <% end %>
+
+    <li class="ui-state-default list-group-item schedule-item" >
+      <span class="timestart" style="position: relative;"></span>
+      <span class="duration" style="position: relative;"><%= conferenceEventDurationReturn(event.duration) %></span>
+      |
+      <span style="position: relative;"><%= event.title %></span>
+      <span class="idItems" style= "display: none;"><%= event.id %></span>
+      <span class="positionItems" style="display: none;"><%= @@positionNumber %><% @@positionNumber += 1 %></span>
+      <span class="groupableItems" style="display: none;" >0</span>
+      <% unless event.speaker_id.nil? %>
+            <span style="position:relative;float:right;"><%= link_to "-" + event.speaker.name + " " + event.speaker.surname, event.speaker %></span>
+      <% end %>
+    </li>
+  <% end %>
 </ul>
 
-
-<!-- 
-<h1>Conference <%= @conference.route %> schedule</h1>
-<table id="event" class="display" width="100%" cellspacing="0">
-  <thead>
-    <tr>
-        <th>title</th>
-        <th>type</th>
-        <th>conference</th>
-        <th>speaker</th>
-        <th>Show</th>
-        <th>Edit</th>
-        <th>Delete</th>
-    </tr>
-  </thead>
-  <tfoot>
-    <tr>
-        <th>title</th>
-        <th>type</th>
-        <th>conference</th>
-        <th>speaker</th>
-        <th>Show</th>
-        <th>Edit</th>
-        <th>Delete</th>
-    </tr>
-  </tfoot>
-
-  <tbody>
-    <% @events.each do |event| %>
-      <tr>
-        <td><%= event.title %></td> 
-        <td><%= event.event_type.name %></td>
-        <td><%= event.conference.name%>-<%= event.conference.year %></td>
-        <td>
-          <% unless event.speaker.nil? %>
-            <%= event.speaker.fullname%>
-          <% end %>
-        </td>
-        <td><%= link_to 'Show', admin_event_path(event) %></td>
-        <td><%= link_to 'Edit', edit_admin_event_path(event) %></td>
-        <td><%= link_to 'Destroy', admin_event_path(event), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<script type="text/javascript">
-  $(document).ready(function() {
-    $('#event').dataTable({
-      paging: true
-    });
-  });
-</script>
-
-<br> -->
+<button onclick="sendAJAX()" class="btn btn-default" id="AjaxButton" >Set Position</button>
 
 <%= link_to 'New event', controller: 'admin/events', 
                          action: 'new',

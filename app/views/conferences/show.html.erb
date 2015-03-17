@@ -1,6 +1,6 @@
 <% content_for :title, @conference.fullname %>
-
 <div class="row">
+
 	<div class="main-speakers col-lg-9 col-md-8 col-sm-12 col-xs-12">
 		<div class='speakers-list'>
 			<h4>Speakers</h4>
@@ -12,7 +12,7 @@
 								<% speaker = topic.speaker %>	
 								<%= link_to( image_tag( speaker.photo.url(:thumb), class: 'photo', alt: speaker.name), speaker ) %>
 							</div>
-							<div class="col-lg-6">
+							<div class="speech-conteiner col-lg-6">
 								<div class='speech-info'>
 									<h4><%= topic.title %></h4>
 								</div>
@@ -35,7 +35,7 @@
 								<% speaker = lightning.speaker %>	
 								<%= link_to( image_tag( speaker.photo.url(:thumb), class: 'photo', alt: speaker.name ), speaker ) %>
 							</div>
-						<div class="col-lg-6">	
+						<div class="speech-conteiner col-lg-6">	
 							<div class='speech-info'>
 								<h4><%= lightning.title%></h4>
 							</div>
@@ -64,4 +64,8 @@
 		<% end %>	
 		</div>
 	</div>
+
+</div>
+<div>
+   <%= render 'layouts/registrationSpeaker' %>
 </div>

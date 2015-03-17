@@ -2,17 +2,15 @@
 
 <legend>New Speaker</legend>
 
-<% Invitation.all.each do |invite|%>
-	
-	<% if invite.email_hash == params[:hash]%>
+<% if Invitation.where(email_hash: params[:hash]).count > 0 %>
 		<% current_user = {'role' => User::SPEAKER}%>
 		<%= render 'form' %>
-	<% else %>
-		<p> yanki go	 home	! </p>
-	<% end %>
+<% else %>
+
+
+<p> Sorry! You are not welcome to register at this conference! </p>
 
 <% end %>
-
 
 <%= link_to 'Back', admin_speakers_path %>
 

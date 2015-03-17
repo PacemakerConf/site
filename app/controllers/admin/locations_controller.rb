@@ -1,13 +1,12 @@
 class Admin::LocationsController < Admin::ApplicationController
   before_action :authenticate_admin!
   before_action :set_location, only: [:show, :edit, :update, :destroy]
+  before_action :set_contacts, only: [:new, :edit]
 
   layout 'admin'
   # GET /locations
   # GET /locations.json
   def index
-    #@conference = Conference.find(params[:conference_id])
-    #@location = @conference.location
     @location = Location.all
   end
 
@@ -19,7 +18,6 @@ class Admin::LocationsController < Admin::ApplicationController
   # GET /locations/new
   def new
     @location = Location.new
-    @contacts = Contact.all
   end
 
   # GET /locations/1/edit
@@ -45,6 +43,7 @@ class Admin::LocationsController < Admin::ApplicationController
   # PATCH/PUT /locations/1
   # PATCH/PUT /locations/1.json
   def update
+
     respond_to do |format|
       if @location.update(location_params)
         format.html { redirect_to [:admin, @location], notice: 'Location was successfully updated.' }
@@ -70,6 +69,10 @@ class Admin::LocationsController < Admin::ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_location
       @location = Location.find(params[:id])
+    end
+
+    def set_contacts
+      @contacts = Contact.all
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

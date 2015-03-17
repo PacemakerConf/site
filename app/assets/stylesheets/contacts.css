@@ -1,0 +1,32 @@
+.label_contact{
+
+}
+
+.contact_form{
+
+}
+
+#mail-area{
+  margin-bottom:0; 
+}
+
+#add_button{
+  display: inline-block;
+  text-decoration: none;
+}
+
+#remove_button_contact{
+  display: inline-block;
+  padding-top: 9px;
+  padding-bottom: 8px;
+  padding-left: 18px;
+  padding-right: 17px;
+
+  text-decoration: none;
+}
+
+.mail-adreess{
+
+}
+
+
