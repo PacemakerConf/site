@@ -17,15 +17,7 @@
 //= require jquery.dataTables.js
 //= require jquery.datetimepicker
 //= require turbolinks
-//= require underscore
-//= require backbone
-//= require playground
-//= require_tree ../templates
-//= require_tree ./models
-//= require_tree ./collections
-//= require_tree ./views
-//= require_tree ./routers
-//= require_tree .
+
 
 // require bootstrap-wysihtml5
 //= require fileinput.min
