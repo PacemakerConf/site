@@ -4,8 +4,8 @@ require 'shoulda/matchers'
 describe MainMenu do
 
 	before  do
-		@year_1 = FactoryGirl.create(:year)
-		@year_2 = FactoryGirl.create(:year)
+		@year_1 = FactoryGirl.create(:year, name: 2017)
+		@year_2 = FactoryGirl.create(:year, name: 2018)
 		@conf_1 = FactoryGirl.create(:conference, date: '01-01-2017')
 		@conf_3 = FactoryGirl.create(:conference, date: '01-01-2018')
 		@conf_2 = FactoryGirl.create(:conference, date: '01-03-2017')

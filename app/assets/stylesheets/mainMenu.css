@@ -15,8 +15,12 @@
 }
 
 ul.conference-menu {
-  padding-left: 25%;
-  padding-right: 15%;
+  display: table;   /* Allow the centering to work */
+  margin: 0 auto;
+  padding: 0;
+}
+ul.conference-menu li {
+  margin: 0 2px;
 }
 
 .main-menu .conference-menu li img{
@@ -26,7 +30,7 @@ ul.conference-menu {
 
 .conference-menu p{
   text-align: center;	
-  text-decoration:underline,;
+  text-decoration:underline;
   color: white; 
   background: transparent; 
   margin: -50px 0px 0 0px; 
@@ -52,7 +56,6 @@ ul.conference-menu {
 .flag-image-container, .flag-year-image-container {
 
     position: relative;
-    height: 90px; 
 }
 
 .flag-text{
@@ -93,12 +96,12 @@ ul.conference-menu {
   background-image: url("");
 }
 */
-#confYear{
+/*#confYear{
     position: absolute;
     padding: 25px 5px 5px 5px;
     z-index: 1;
     text-align:  center;
-}
+}*/
 
 .flag1{
   height: 70px;

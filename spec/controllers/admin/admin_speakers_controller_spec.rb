@@ -118,7 +118,10 @@ describe Admin::SpeakersController do
 				expect(@speaker.name).to eq("Frodo")
 			end
 
-			it 'redirect somewhere'
+			it 'redirect to admin_speakers_path' do
+				patch :update, id: @speaker, speaker: FactoryGirl.attributes_for(:speaker)
+				expect(response).to redirect_to admin_speakers_path
+			end
 		end
 
 		context 'with invalid attr' do

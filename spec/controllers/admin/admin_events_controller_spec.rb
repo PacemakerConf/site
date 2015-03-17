@@ -87,17 +87,14 @@ describe Admin::EventsController do
 		end
 	end
 
-	describe 'GET #publish' do
+	describe 'PATCH #publish' do
 		before :each do
 			@event = FactoryGirl.create(:event)
 		end
 	
-		xit 'assigns requested event to @event' do 
-			get :publish, id: @event
-			expect(assigns(:event)).to eq(@event)	
+		xit 'mark the event as published' do 
+			patch :publish, id: @event, event: FactoryGirl.attributes_for(:event)
 		end
-		it 'change publish attribute to true'
-		it '?render? publish template'
 	end
 
 	describe 'GET #new' do
@@ -182,7 +179,10 @@ describe Admin::EventsController do
 				expect(@event.conference_id).to eq(2)
 			end
 
-			it 'redirect somewhere'
+			it 'redirect to admin_events_path' do
+				patch :update, id: @event, event: FactoryGirl.attributes_for(:event)
+				expect(response).to redirect_to controller: 'admin/events', action: 'index', conf_id: @event.conference_id
+			end
 		end
 
 		context 'with invalid attr' do
