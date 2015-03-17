@@ -33,6 +33,6 @@ function addMailRow(){
       if(isPassed)
         $('[name="contact[email]"]').val(mails);
       else
-         $('.mail-adreess').parent().addClass('has-error');
+        $('.mail-adreess').parent().addClass('has-error');
       return isPassed;
   }

@@ -1,7 +1,7 @@
 class Admin::LocationsController < Admin::ApplicationController
   before_action :authenticate_admin!
   before_action :set_location, only: [:show, :edit, :update, :destroy]
-  before_action :set_contacts, only: [:new, :edit, :create]
+  before_action :set_contacts, only: [:new, :edit]
 
   layout 'admin'
   # GET /locations
