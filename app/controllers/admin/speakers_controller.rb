@@ -31,7 +31,8 @@ class Admin::SpeakersController < Admin::ApplicationController
   def send_invitation
     @invite = Invitation.new(
       email: params[:invitation][:email], 
-      conference_id: params[:invitation][:conference_id]
+      conference_id: params[:invitation][:conference_id],
+      status: params[:invitation][:status] 
     )
     message = Message.new(content: params[:invitation][:message]).create_if_new
     @invite.message = message
@@ -55,6 +56,7 @@ class Admin::SpeakersController < Admin::ApplicationController
   def create
     authorize! :create, Speaker
     @speaker = Speaker.new(speaker_params)
+    
     respond_to do |format|
       if @speaker.save
         format.html { redirect_to admin_speakers_path, notice: 'Speaker was successfully created.' }
