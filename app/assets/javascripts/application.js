@@ -12,28 +12,30 @@
 //
 
 //= require gmaps.js
+
 //= require event_types
 //= require jquery-1.11.2
 //= require jquery_ujs
 //= require jquery-ui
 //= require jquery.dataTables.js
-//= require jquery.datetimepicker
 //= require turbolinks
-//= require underscore
-//= require backbone
 //= require playground
 //= require_tree ./models
 //= require_tree ./collections
 //= require_tree ./views
 //= require_tree ./routers
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
 
 //= require_tree .
 //= require fileinput.min
 //= require moment
 //= require bootstrap-datetimepicker
-//= require nested_form
+//= require bootstrap-modal.js
+
 
 //= require bootstrap-wysiwyg.js
 //= require jquery.hotkeys.js
-
+//= require jquery.bsmselect.js

@@ -13,7 +13,6 @@
  *= require_tree .
  *= require_self
  *= require jquery-ui
- *= require jquery.datetimepicker
  *= require jquery.dataTables.css
  *= require mainMenu.css
  * require bootstrap-wysihtml5

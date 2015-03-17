@@ -30,7 +30,9 @@
                     link_to "Create Location", {controller: 'admin/locations', action: 'new', conf_id: conference.id, conf_fname: conference.fullname}, class: 'btn btn-xs btn-primary'
                   end %></td>
           <td><%= unless(conference.report.nil?)
+
                     link_to "#{conference.report.short_report}", edit_admin_report_path(conference.report), class: ''
+
                   else
                     link_to "Create Report", {controller: 'admin/reports', action: 'new', conf_id: conference.id, conf_fname: conference.fullname}, class: 'btn btn-xs btn-primary'
 
@@ -48,7 +50,7 @@
             <% if conference.published %>
               Published
             <% else %>
-              <%= link_to 'Publish', publish_admin_conference_path(conference.route),remote: true, class: 'btn btn-xs btn-primary' %>              
+              <%= link_to 'Publish', publish_admin_conference_path(conference.route), method: :patch, remote: true, class: 'btn btn-xs btn-primary' %>              
             <% end %>
           </td>
           <td><%= link_to 'Edit', edit_admin_conference_path(conference.route), class: 'btn btn-xs btn-warning' %></td>
@@ -58,6 +60,4 @@
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Conference', new_admin_conference_path, class: "" %>
+<%= link_to 'New Conference', new_admin_conference_path, class: "btn btn-default btn-sm" %>

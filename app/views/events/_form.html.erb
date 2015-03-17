@@ -11,8 +11,8 @@
     </div>
   <% end %>
 
-  <%= hidden_field( :event, :conference_id, value: params["conf_id"] || 
-      if( @event.conference ) then @event.conference.id end || Conference.last.id )%> 
+
+  <%= f.hidden_field :conference_id, value: @conference_id %> 
 
   <div class="form-group">
     <%= f.label :event_type_id, 'Event type*', class: "col-lg-2 control-label"%>
@@ -39,13 +39,8 @@
   <div class="form-group" id='event_materials_group'>
     <%= f.label :materials, class: "col-lg-2 control-label"%>
     <div class="col-lg-10">
-      <%= f.file_field :materials, class: "btn btn-default" %>
-      <script>
-        $("#event_materials").fileinput({
-        maxFilesNum: 1
-        });
-      </script>
-     </div>
+      <%= f.file_field :materials, class: "btn btn-default file_input" %>
+    </div>
   </div>
 
   <%= f.hidden_field :published, value: false %>
