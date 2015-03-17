@@ -1,6 +1,6 @@
-class SwitchValidation 
+class StrictValidation 
 
-	@@enabled = false
+	@@enabled = true
 
 	def self.toggle
 		@@enabled = !@@enabled
