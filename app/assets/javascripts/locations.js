@@ -2,15 +2,12 @@ $(document).on("page:change", function(){
 
     $('#location_contact_ids_').removeAttr('id','none').attr("multiple", "multiple").attr("title","Select a contact");
 
-    jQuery(function($) {
+    if($("select[multiple]")){
       $("select[multiple]").bsmSelect();
-    });
-
-    jQuery(function($) {
-    $("select[multiple]").bsmSelect({
-      addItemTarget: 'top'
-    });
-    });
+      $("select[multiple]").bsmSelect({
+        addItemTarget: 'top'
+      });  
+    }
   
 
     $('#editor').wysiwyg();

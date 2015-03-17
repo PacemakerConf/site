@@ -24,10 +24,6 @@
 //= require_tree ./collections
 //= require_tree ./views
 //= require_tree ./routers
-<<<<<<< HEAD
-
-=======
->>>>>>> master
 
 //= require_tree .
 //= require fileinput.min
