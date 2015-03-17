@@ -4,10 +4,10 @@ class Invitation < ActiveRecord::Base
 
 	validates :email, presence: true,
 		email_format: { message: "doesn't look like an email address" }
+	validates_associated :message
 	
 	delegate :content, to: :message, prefix: true
-  		validates_associated :message
-
+  		
 	class LinkHelper
 		include  ActionView::Helpers::UrlHelper
 	end	
