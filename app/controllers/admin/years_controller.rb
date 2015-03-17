@@ -39,7 +39,7 @@ class Admin::YearsController < Admin::ApplicationController
 
     respond_to do |format|
       if @year.save
-        format.html { redirect_to admin_year_path(@year), notice: 'Year was successfully created.' }
+        format.html { redirect_to admin_years_path, notice: 'Year was successfully created.' }
         format.json { render :show, status: :created, location: @year }
       else
         format.html { render :new }
@@ -53,7 +53,7 @@ class Admin::YearsController < Admin::ApplicationController
   def update
     respond_to do |format|
       if @year.update(year_params)
-        format.html { redirect_to [:admin, @year], notice: 'Year was successfully updated.' }
+        format.html { redirect_to admin_years_path, notice: 'Year was successfully updated.' }
         format.json { render :show, status: :ok, location: @year }
       else
         format.html { render :edit }
