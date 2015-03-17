@@ -26,7 +26,7 @@
 //= require_tree ./collections
 //= require_tree ./views
 //= require_tree ./routers
-//= require jquery.bsmselect.js
+
 
 //= require_tree .
 //= require fileinput.min
