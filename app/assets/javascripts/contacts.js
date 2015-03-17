@@ -33,7 +33,6 @@ function addMailRow(){
       if(isPassed)
         $('[name="contact[email]"]').val(mails);
       else
-         alert('Please enter a valid email address.');
-
+         $('.mail-adreess').parent().addClass('has-error');
       return isPassed;
   }
