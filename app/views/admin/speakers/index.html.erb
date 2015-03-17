@@ -30,7 +30,7 @@
           <td><%= speaker.name %></td>
           <td><%= speaker.surname %></td>
           <td><%= speaker.position %></td>
-          <td><%= speaker.description %></td>
+          <td><%= speaker.description.html_safe %></td>
           <td><%= link_to 'Show', admin_speaker_path(speaker), class: "btn btn-default btn-xs" %></td>
           <td>
             <%= link_to 'Edit', edit_admin_speaker_path(speaker), class: "btn btn-warning btn-xs" %>

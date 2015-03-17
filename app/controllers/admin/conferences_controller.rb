@@ -77,7 +77,7 @@ class Admin::ConferencesController < Admin::ApplicationController
   def update
     respond_to do |format|
       if @conference.update(conference_params)
-        format.html { redirect_to [:admin, @conference], notice: 'Conference was successfully updated.' }
+        format.html { redirect_to admin_conferences_path, notice: 'Conference was successfully updated.' }
         format.json { render :show, status: :ok, location: @conference }
       else
         format.html { render :edit }

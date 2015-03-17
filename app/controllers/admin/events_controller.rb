@@ -61,7 +61,7 @@ class Admin::EventsController < Admin::ApplicationController
   def update
     respond_to do |format|
       if @event.update(event_params)
-        format.html { redirect_to [:admin, @event], notice: 'event was successfully updated.' }
+        format.html { redirect_to controller: 'admin/events', action: 'index', conf_id: @event.conference_id }
         format.json { render :show, status: :ok, location: @event }
       else
         format.html { render :edit }

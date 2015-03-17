@@ -39,13 +39,8 @@
   <div class="form-group" id='event_materials_group'>
     <%= f.label :materials, class: "col-lg-2 control-label"%>
     <div class="col-lg-10">
-      <%= f.file_field :materials, class: "btn btn-default" %>
-      <script>
-        $("#event_materials").fileinput({
-        maxFilesNum: 1
-        });
-      </script>
-     </div>
+      <%= f.file_field :materials, class: "btn btn-default file_input" %>
+    </div>
   </div>
 
   <%= f.hidden_field :published, value: false %>

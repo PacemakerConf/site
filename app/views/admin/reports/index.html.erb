@@ -1,12 +1,5 @@
-<!-- DataTables CSS -->
-<link rel="stylesheet" type="text/css" href="vendor/assets/dataTables/css/jquery.dataTables.css">
-<!-- DataTables -->
-<script type="text/javascript" charset="utf8" src="vendor/assets/dataTables/js/jquery.dataTables.js"></script> 
-<!-- jQuery -->
-<script type="text/javascript" src="vendor/assets/javascripts/jquery-1.11.2.js"></script>
-
 <h1>Listing Reports</h1>
-<table id="report" class="display" width="100%" cellspacing="0">
+<table id="report" class="display data_table" width="100%" cellspacing="0">
   <thead>
     <tr>
         <th>Responsable</th>
@@ -40,14 +33,6 @@
     <% end %>
   </tbody>
 </table>
-
-<script type="text/javascript">
-  $(document).ready(function() {
-    $('#report').dataTable({
-      paging: true
-    });
-  });
-</script>
 
 <br>
 <%= link_to 'New Report', new_admin_report_path %>
