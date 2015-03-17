@@ -12,6 +12,7 @@
 //
 
 //= require gmaps.js
+
 //= require event_types
 //= require jquery-1.11.2
 //= require jquery_ujs
@@ -23,7 +24,7 @@
 //= require_tree ./collections
 //= require_tree ./views
 //= require_tree ./routers
-//= require jquery.bsmselect.js
+
 
 //= require_tree .
 //= require fileinput.min
@@ -34,4 +35,4 @@
 
 //= require bootstrap-wysiwyg.js
 //= require jquery.hotkeys.js
-
+//= require jquery.bsmselect.js
