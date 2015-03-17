@@ -71,7 +71,7 @@ class Admin::SpeakersController < Admin::ApplicationController
   def update
     respond_to do |format|
       if @speaker.update(speaker_params)
-        format.html { redirect_to [:admin, @speaker], notice: 'Speaker was successfully updated.' }
+        format.html { redirect_to admin_speakers_path, notice: 'Speaker was successfully updated.' }
         format.json { render :show, status: :ok, location: @speaker }
       else
         format.html { render :edit }

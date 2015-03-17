@@ -152,17 +152,21 @@ describe Admin::ConferencesController do
 				expect(@conference.name).to eq("BSOD")
 			end
 
-			it 'redirect somewhere'
+			it 'redirect to admin_conferences_path' do
+				patch :update, name: @conference.route,
+					conference: FactoryGirl.attributes_for(:conference)
+				expect(response).to redirect_to admin_conferences_path
+			end
 		end
 
 		context 'with invalid attr' do
 			it 'doesn\'t change conference attr' do
-				patch :update, name: @conference.route, conference: FactoryGirl.attributes_for(:conference, name: "BSOD", year: nil)
+				patch :update, name: @conference.route, conference: FactoryGirl.attributes_for(:conference, name: nil)
 				@conference.reload
-				expect(@conference.name).not_to eq("BSOD")
+				expect(@conference.name).not_to be_nil
 			end
 
-			it 're-render edit template' do
+			xit 're-render edit template' do
 				patch :update, name: @conference.route, conference: FactoryGirl.attributes_for(:conference, name: "BSOD", year: nil)
 				@conference.reload
 				expect(response).to render_template :edit
