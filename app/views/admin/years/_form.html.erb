@@ -21,7 +21,7 @@
 
     <% years_options = ''%>
     <% cur_year = Time.now.year %>
-    <% 2011.upto(cur_year) do |year| %>
+    <% 2011.upto(cur_year+2) do |year| %>
       <% if cur_year.to_s === year.to_s %>
         <% selected = " selected='selected'" %>
       <% else %>
@@ -33,16 +33,16 @@
     </div>
   </div>
 
+  <%= render "admin/share/wysiwyg" %> 
   <div class="form-group">
-    <%= f.label :content, 'Description*', class: "col-lg-2 control-label"%>
+    <%= f.label :content, class: "col-lg-2 control-label" %>
     <div class="col-lg-7">
-      <%= f.text_area :content, class: "form-control", rows: 2 %>
+      <div id="editor" class="well col-md-9 col-lg-7 form-control"></div>
     </div>
+      <%= hidden_field( :year, :content, value:"", class: 'wysiwyg_textarea') %>
   </div>
 
-
   <%= f.hidden_field :published, value: false %>
-
   
   <div class="form-group">
       <div class="col-lg-7 col-lg-offset-2">

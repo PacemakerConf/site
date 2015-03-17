@@ -19,5 +19,14 @@ function pageLoad(){
     });
 	})();
 
+	if($('#editor')){
+    $('#editor').wysiwyg();
+ 
+    $('[name="commit"]').click(function(){
+      info = $('#editor').html();
+      $('.wysiwyg_textarea').val(info);
+    });
+  }
+
 }
 
