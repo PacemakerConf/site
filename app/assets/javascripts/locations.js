@@ -25,7 +25,7 @@ $(document).on("page:change", function(){
     if($("#map").length)
     map = new GMaps({
           div: '#map',
-s          lng: 18.5009765625,
+         lng: 18.5009765625,
           lat: 48.31242790407185,
           zoom: 16
       });

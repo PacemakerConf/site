@@ -1,4 +1,4 @@
-$(document).ready(eventFormLoad);
+$(document).on("page:change", function(){
 
 function addMailRow(){
     var divHTML = 
@@ -36,3 +36,5 @@ function addMailRow(){
         $('.mail-adreess').parent().addClass('has-error');
       return isPassed;
   }
+
+});
