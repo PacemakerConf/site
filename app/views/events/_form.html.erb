@@ -11,8 +11,6 @@
     </div>
   <% end %>
 
-  <%= f.hidden_field :conference_id, value: @conference_id %> 
-
   <div class="form-group">
     <%= f.label :event_type_id, 'Event type*', class: "col-lg-2 control-label"%>
     <div class="col-lg-10">
@@ -41,8 +39,10 @@
       <%= f.file_field :materials, class: "btn btn-default file_input" %>
     </div>
   </div>
-
+  
+  <%= f.hidden_field :conference_id, value: @conference_id %> 
   <%= f.hidden_field :published, value: false %>
+  <%= f.hidden_field :speaker_id, value: params[:speaker_id] %>
 
   <div class="form-group">
     <div class="col-lg-10 col-lg-offset-2">

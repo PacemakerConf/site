@@ -9,7 +9,6 @@ class EventsController < ApplicationController
   def create
     #authorize! :create, Event
     @event = Event.new(event_params)
-    raise speaker_params.inspect
     respond_to do |format|
       if @event.save
         current_user = {'role' => User::SPEAKER}
@@ -30,7 +29,7 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:event_type_id, :conference_id, :title, :description, :materials, :published)
+      params.require(:event).permit(:event_type_id, :speaker_id, :conference_id, :title, :description, :materials, :published)
     end
 
 end
