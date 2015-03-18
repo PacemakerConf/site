@@ -18,13 +18,16 @@ class SpeakersController < ApplicationController
     # invite = something
     # invite.status = 'registred'
     # invite.save!
+    @invite = Invitation.where(email_hash: params['speaker']['email_hash'])[0]
+    @invite.status = 'registred'
+    @invite.save
 
     respond_to do |format|
       if @speaker.save
         format.html { redirect_to controller: 'events', action: 'new', hash: params["speaker"]["email_hash"]}
         format.json { render :show, status: :created, location: @speaker }
       else
-        format.html { render :new}
+        format.html { render :new, hash: params['speaker']['email_hash']}
         format.json { render json: @speaker.errors, status: :unprocessable_entity }
       end
     end

@@ -5,7 +5,6 @@ $(document).on("page:change", function(){
         allowedFileExtensions: ["jpg", "gif", "png", "txt"]
         });
 
-
 		$('#editor').wysiwyg();
 		    $('[name="commit"]').click(function(){
 		      info = $('#editor').html();

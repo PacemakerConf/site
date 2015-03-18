@@ -31,7 +31,7 @@ registration = EventType.create(
 	defaultDuration: '2014-12-12 00:30:00',
 	color: '#44ff44',
 	image: '1',
-	speakerEvent: 0
+	speakerEvent: false
 	)
 
 beerbreak = EventType.create(
@@ -40,7 +40,7 @@ beerbreak = EventType.create(
 	defaultDuration: '2014-12-12 03:00:00',
 	color: '#666600',
 	image: '0',
-	speakerEvent: 0
+	speakerEvent: false
 	)
 
 topic = EventType.create(
@@ -49,7 +49,7 @@ topic = EventType.create(
 	defaultDuration: '2014-12-12 01:00:00',
 	color: '#222200',
 	image: '3',
-	speakerEvent: 1
+	speakerEvent: true
 	)
 
 lightning = EventType.create(
@@ -58,7 +58,7 @@ lightning = EventType.create(
 	defaultDuration: '2014-12-12 00:45:00',
 	color: '#ffff00',
 	image: '2',
-	speakerEvent: 1
+	speakerEvent: true
 	)
 
 groupLightning = EventType.create(
@@ -67,7 +67,7 @@ groupLightning = EventType.create(
 	defaultDuration: '2014-12-12 00:45:00',
 	color: '#ffff00',
 	image: '4',
-	speakerEvent: 1,
+	speakerEvent: true,
 	groupable: 1
 	)
 

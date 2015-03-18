@@ -9,47 +9,52 @@
 
 @media print
 {
-	button.btn
+
+	button.btn, .nav, div.main-menu, #admin_nav, .logo img
 	{
 		display: none;
 	}
 
-	.row, div.main-menu
+	a:after
 	{
 		display: none;
-	}
-	.row.first
-	{
-		display:inline;
-	}
-	.row.first ul
-	{
-		display: none;
-	}
-	.row.first h1
-	{
-		display: inline;
-		font-size: 20pt;
-		text-align: left;
-		left: 0px;
-		top: 0px;
-		position: absolute;
-	}
-	.row.first span
-	{
-		color: red;
-		display: inline;
-		font-size: 14pt;
-		text-align: right;
-		right: 0px;
-		top: 0px;
-		position: absolute;
 	}
 
-	.row.main-content
+	.conference-name h1
 	{
-		top: 100px;
+		float: left;
 		display: inline;
-		position: absolute;
+	}
+
+	.contacts div ul
+	{
+		margin: 0;
+		padding: 0;
+		list-style-type: none;
+	}
+	.contacts div ul li
+	{
+		display: inline;
+	}
+	.contacts div
+	{
+		float:right;
+		display: inline;
+	}
+
+
+	table tr td
+	{
+	    font-size: 1.25em;
+	    border-top: 3px solid #F00;
+	    border-bottom: 3px solid #F00;
+	    padding: 10px !important;
+  	}
+
+  	table
+	{
+		width: 100%;
+		margin: 0;
+		float: none;
 	}
 }

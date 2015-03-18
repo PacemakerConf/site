@@ -56,7 +56,7 @@ class Admin::SpeakersController < Admin::ApplicationController
   def create
     authorize! :create, Speaker
     @speaker = Speaker.new(speaker_params)
-    
+     
     respond_to do |format|
       if @speaker.save
         format.html { redirect_to admin_speakers_path, notice: 'Speaker was successfully created.' }
