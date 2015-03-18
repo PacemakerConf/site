@@ -21,12 +21,15 @@
       </div>
     </div>
 
+  <%= render "admin/share/wysiwyg" %> 
   <div class="form-group">
-    <%= f.label :content, 'Description', class: "col-lg-2 control-label"%>
+    <%= f.label :content, 'Description' , class: "col-lg-2 control-label" %>
     <div class="col-lg-7">
-      <%= f.text_area :content, class: "form-control", rows: 2 %>
+      <div id="editor" class="well col-md-9 form-control"></div>
     </div>
+      <%= hidden_field( :news, :content, value:"", class: 'wysiwyg_textarea') %>
   </div>
+
 
   <%= hidden_field( :news, :conference_id, value: params["conf_id"] || 
       if( @news.conference ) then @news.conference.id end || Conference.last.id )%> 
