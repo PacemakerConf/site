@@ -39,15 +39,18 @@ class Admin::SpeakersController < Admin::ApplicationController
     respond_to do |format|
       if @invite.save && message.valid?
         Invitation.invite_speaker(@invite.email, @invite.email_hash, @invite.message_content)
-        format.html { redirect_to admin_speakers_path, notice: 'Invitation was successfully sent.' }
+        format.html { redirect_to admin_invitations_path, notice: 'Invitation was successfully sent.' }
       else
         format.html { render :invite, notice: 'Invitation was not sent.' }
       end
     end
   end
 
-  def list_invites
-    @invites = Invitation.all
+  def list
+    @invites = Invitation.all(
+      email: params[:invitation][:email],
+      status: params[:invitation][:status] 
+    )
   end
 
   # POST /speakers

@@ -6,12 +6,10 @@ class SpeakersController < ApplicationController
   end
 
   def new
-    # authorize! :create, Speaker
     @speaker = Speaker.new
   end
 
   def create
-    # authorize! :create, Speaker
     @speaker = Speaker.new(speaker_params)
     @invite = Invitation.where(email_hash: params['speaker']['email_hash'])[0]
     @invite.status = 'registred'
