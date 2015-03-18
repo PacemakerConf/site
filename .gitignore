@@ -40,3 +40,4 @@ db/test.sqlite3
 db/schema.rb
 log/*
 public/assets/*
+public/system/*
