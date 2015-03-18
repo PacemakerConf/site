@@ -36,7 +36,6 @@ class Admin::SpeakersController < Admin::ApplicationController
     )
     message = Message.new(content: params[:invitation][:message]).create_if_new
     @invite.message = message
-#    @invite.errors.add_error(message.errors.first) unless message.valid?
     respond_to do |format|
       if @invite.save && message.valid?
         Invitation.invite_speaker(@invite.email, @invite.email_hash, @invite.message_content)

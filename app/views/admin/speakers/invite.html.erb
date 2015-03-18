@@ -1,12 +1,15 @@
 <legend>Invite speaker</legend>
 
 <%= form_for @invite, url: { action: "send_invitation"}, html: {method: "post", class: 'form-horizontal'}  do |f| %>
-  <% if @invite.errors.any? %>
+  <% if @invite.errors.any? || @invite.message.errors.any?%>
     <div id="error_explanation">
-      <h2><%= pluralize(@invite.errors.count, "error") %> prohibited this invite from being saved:</h2>
+      <h2><%= pluralize(@invite.errors.count + @invite.message.errors.count,  "error") %> prohibited this invite from being saved:</h2>
 
       <ul>
       <% @invite.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      <% @invite.message.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
