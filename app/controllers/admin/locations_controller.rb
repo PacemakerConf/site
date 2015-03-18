@@ -1,7 +1,7 @@
 class Admin::LocationsController < Admin::ApplicationController
   before_action :authenticate_admin!
   before_action :set_location, only: [:show, :edit, :update, :destroy]
-  before_action :set_contacts, only: [:new, :edit]
+  before_action :set_contacts, only: [:new, :edit, :create]
 
   layout 'admin'
   # GET /locations
@@ -27,11 +27,12 @@ class Admin::LocationsController < Admin::ApplicationController
   # POST /locations
   # POST /locations.json
   def create
+    # raise location_params.inspect
     @location = Location.new(location_params)
 
     respond_to do |format|
       if @location.save
-        format.html { redirect_to [:admin, @location], notice: 'Location was successfully created.' }
+        format.html { redirect_to admin_conferences_path, notice: 'Location was successfully created.' }
         format.json { render :show, status: :created, location: @location }
       else
         format.html { render :new }
@@ -46,7 +47,7 @@ class Admin::LocationsController < Admin::ApplicationController
 
     respond_to do |format|
       if @location.update(location_params)
-        format.html { redirect_to [:admin, @location], notice: 'Location was successfully updated.' }
+        format.html { redirect_to admin_conferences_path, notice: 'Location was successfully updated.' }
         format.json { render :show, status: :ok, location: @location }
       else
         format.html { render :edit }

@@ -4,7 +4,6 @@
 }
 
 #wisywyg_container{
-  margin-left: 137px;
   width:57%;
 }
 
@@ -22,4 +21,12 @@
 	width: 455px !important;
 
 }
-
+.address-container p{
+  margin-bottom:5px;
+}
+.contact-det{
+  margin-bottom:15px;
+}
+.contact-det p{
+  margin-bottom:5px;
+}

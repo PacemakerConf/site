@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 <h1>Listing Conferences</h1>
+
 <table class="display data_table" width="100%" cellspacing="0">
   <thead>
     <tr>
@@ -25,17 +26,14 @@
           <td><%= conference.attenders %></td>
           <td><%= link_to 'Schedule', schedule_admin_conference_path(conference.route), class: ''%></td>
           <td><%= unless(conference.location.nil?)
-                    link_to "#{conference.location.address}, #{conference.location.city}", edit_admin_location_path(conference.location), class: ''
+                    link_to "#{conference.location.address}, #{conference.location.city}", {controller: 'admin/locations', action: 'edit', id: conference.location.id, conf_id: conference.id, conf_fname: conference.fullname}, class: ''
                   else
                     link_to "Create Location", {controller: 'admin/locations', action: 'new', conf_id: conference.id, conf_fname: conference.fullname}, class: 'btn btn-xs btn-primary'
                   end %></td>
           <td><%= unless(conference.report.nil?)
-
-                    link_to "#{conference.report.short_report}", edit_admin_report_path(conference.report), class: ''
-
+                    link_to "#{conference.report.short_report}", {controller: 'admin/reports', action: 'edit', id: conference.report.id, conf_id: conference.id, conf_fname: conference.fullname}, class: ''
                   else
                     link_to "Create Report", {controller: 'admin/reports', action: 'new', conf_id: conference.id, conf_fname: conference.fullname}, class: 'btn btn-xs btn-primary'
-
                   end %>
           </td>
           <td><%= unless(conference.news.nil?)

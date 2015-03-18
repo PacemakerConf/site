@@ -14,10 +14,18 @@ function pageLoad(){
 
 	(function(){
 		$(".file_input").fileinput({
-      maxFilesNum: 1,
-      allowedFileExtensions: ["jpg", "gif", "png", "txt"]
+      maxFilesNum: 1
     });
 	})();
+
+	if($('#editor')){
+    $('#editor').wysiwyg();
+ 
+    $('[name="commit"]').click(function(){
+      info = $('#editor').html();
+      $('.wysiwyg_textarea').val(info);
+    });
+  }
 
 }
 

@@ -16,7 +16,7 @@ module EventTypesHelper
 	end
 
 	def trueEventCheck(check)
-		if check == 1  then
+		if check then
 			return '-ok'
 		else
 			return '-remove'			

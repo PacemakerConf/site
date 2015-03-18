@@ -69,13 +69,12 @@
   </div>
 
   <%= render "admin/share/wysiwyg" %> 
-
   <div class="form-group">
     <%= f.label :how_to_find, class: "col-lg-2 control-label" %>
     <div class="col-lg-7">
       <div id="editor" class="well col-md-9 form-control"></div>
     </div>
-      <%= hidden_field( :location, :how_to_find, value:"") %>
+      <%= hidden_field( :location, :how_to_find, value:"", class: 'wysiwyg_textarea') %>
   </div>
 
   <div class="form-group">
@@ -84,8 +83,6 @@
     </div>
   </div>
 <% end %>
-
-
 
 
 

@@ -1,56 +1,70 @@
 <% content_for :title, @conference.fullname %>
 
-<table class="table table-responsive  ">
+<%  @@GLYPHS = %w(list fire leaf music user asterisk plus minus cloud envelope pencil glass search heart 
+    star star-empty th th-large th-list ok remove cog trash home file time road download 
+    download-alt upload inbox repeat refresh lock qrcode barcode tag tags bookmark picture 
+    map-marker move play stop plus-sign minus-sign remove-sign ok-sign question-sign info-sign 
+    remove-circle ok-circle ban-circle gift eye-open calendar random comment magnet hdd bell 
+    bullhorn) %>
+<style>
+  table tr td{
+    font-size: 1.25em;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    padding: 12px !important;
+  };
+</style>
+
+<table class="table table-responsive table-hover " >
   <colgroup>
-	<col style = "width:5%;"></col>
-	<col style = "width:5%;"></col>
-	<col></col>
+  <col style = "width:7%;" ></col>
+  <col></col>
+  <col></col>
   </colgroup>
-  <thead>
-    <tr>
-      <th style="text-align: center;">Start</th>
-      <th style="text-align: center;">Duration</th>
-      <th>Title</th>
-    </tr>
-  </thead>
+  
   <tbody>
 
   <% @@trigger = true %>
   <% @eventsSingle.each do |event| %>
-    <% if (event.position > @eventsGroupable[1].position) && @@trigger %>
-      <% @@accessTrigger = 0 %>
-      <% @eventsGroupable.each do |access| %>
-        <% if can? :read, access%>
-          <% @@accessTrigger += 1 %>
-        <% end %>
-      <% end %>
-      <% if @@accessTrigger > 0 %>
-        <tr style="background-color: <%= scheduleColor(@eventsGroupable[1].event_type.color) %>">
-        <td class="timestart" style="text-align: center;"></td>
-        <td class="duration" style="text-align: center;">
-          <%= conferenceEventGroupDurationReturn(@eventsGroupable) %>
-        </td>
-        <td>
-          <% @eventsGroupable.each do |eventGroup| %>
-            <% if can? :read, eventGroup %>
-              <%= eventGroup.title %>
-              <% unless eventGroup.speaker_id.nil? %>
-                <span style="float:right;"><%= link_to "-" + eventGroup.speaker.name + " " + eventGroup.speaker.surname, eventGroup.speaker %></span>
-              <% end %>
-              <br>
-            <% end %>
+    <% if @eventsGroupable[0] %>
+      <% if (event.position > @eventsGroupable[1].position) && @@trigger %>
+        <% @@accessTrigger = 0 %>
+        <% @eventsGroupable.each do |access| %>
+          <% if can? :read, access%>
+            <% @@accessTrigger += 1 %>
           <% end %>
-        </td>
-      </tr>
+        <% end %>
+        <% if @@accessTrigger > 0 %>
+          <tr style="background-color: <%= scheduleColor(@eventsGroupable[1].event_type.color) %>">
+          <td class="timestart" style="text-align: center; font-size: 1.25em;"></td>
+          <td class="duration" style="text-align: center; display: none;">
+            <%= conferenceEventGroupDurationReturn(@eventsGroupable) %>
+          </td>
+          <td style="font-size: 1.25em;">
+          <span class="glyphicon glyphicon-<%= @@GLYPHS[@eventsGroupable[0].event_type.image.to_i] %>"></span> 
+            <span>
+            <% @eventsGroupable.each do |eventGroup| %>
+              <% if can? :read, eventGroup %>
+                <%= eventGroup.title %>
+                <% unless eventGroup.speaker_id.nil? %>
+                  <span style="float:right;"><%= link_to "-" + eventGroup.speaker.name + " " + eventGroup.speaker.surname, eventGroup.speaker %></span>
+                <% end %>
+                <br>
+              <% end %>
+            <% end %>
+            </span>
+          </td>
+        </tr>
+        <% end %>
+          <% @@trigger = false %>
       <% end %>
-        <% @@trigger = false %>
     <% end %>
 
     <% if can? :read, event %>
-      <tr style="background-color: <%= scheduleColor(event.event_type.color) %>">
-        <td class="timestart" style="text-align: center;"></td>
-        <td class="duration" style="text-align: center;"><%= conferenceEventDurationReturn(event.duration) %></td>
-        <td><%= event.title %>
+      <tr style="background-color: <%= scheduleColor(event.event_type.color) %>;">
+        <td class="timestart" style="text-align: center; font-size: 1.25em;"></td>
+        <td class="duration" style="text-align: center; display: none;"><%= conferenceEventDurationReturn(event.duration) %></td>
+        <td style="  font-size: 1.25em; "><span class="glyphicon glyphicon-<%= @@GLYPHS[event.event_type.image.to_i] %>"></span> <%= event.title %>
           <% unless event.speaker_id.nil? %>
             <span style="float:right;"><%= link_to "-" + event.speaker.name + " " + event.speaker.surname, event.speaker %></span>
           <% end %>
@@ -63,3 +77,6 @@
   </table>
   <button class="btn btn-default" onclick="window.print();">Print schedule</button>
 
+  <br>
+  -
+  <%= link_to 'PDF MW', schedule_conference_path( format: 'pdf') %>

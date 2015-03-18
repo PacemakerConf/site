@@ -2,13 +2,13 @@
 year2012 = Year.create(
 	name: 2012,
 	content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut est facilisis, laoreet orci nec, faucibus nisi. Maecenas tristique ipsum eu ultricies cursus. Etiam eu cursus urna. Maecenas consequat at elit sed consequat. Morbi consectetur fermentum ipsum sit amet accumsan. Etiam rutrum posuere finibus. Fusce ac orci metus. Sed augue urna, volutpat quis dapibus ut, egestas quis ex. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce rutrum bibendum quam, at rutrum sapien hendrerit non. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut congue nisi neque, mattis gravida nulla euismod ac. Praesent congue venenatis auctor. Phasellus interdum eleifend feugiat.',
-	published: true
+	published: false
 	)
 
 year2013 = Year.create(
 	name: 2013,
 	content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut est facilisis, laoreet orci nec, faucibus nisi. Maecenas tristique ipsum eu ultricies cursus. Etiam eu cursus urna. Maecenas consequat at elit sed consequat. Morbi consectetur fermentum ipsum sit amet accumsan. Etiam rutrum posuere finibus. Fusce ac orci metus. Sed augue urna, volutpat quis dapibus ut, egestas quis ex. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce rutrum bibendum quam, at rutrum sapien hendrerit non. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut congue nisi neque, mattis gravida nulla euismod ac. Praesent congue venenatis auctor. Phasellus interdum eleifend feugiat.',
-	published: true
+	published: false
 	)
 
 year2014 = Year.create(
@@ -31,7 +31,7 @@ registration = EventType.create(
 	defaultDuration: '2014-12-12 00:30:00',
 	color: '#44ff44',
 	image: '1',
-	speakerEvent: 0
+	speakerEvent: false
 	)
 
 beerbreak = EventType.create(
@@ -40,7 +40,7 @@ beerbreak = EventType.create(
 	defaultDuration: '2014-12-12 03:00:00',
 	color: '#666600',
 	image: '0',
-	speakerEvent: 0
+	speakerEvent: false
 	)
 
 topic = EventType.create(
@@ -49,16 +49,16 @@ topic = EventType.create(
 	defaultDuration: '2014-12-12 01:00:00',
 	color: '#222200',
 	image: '3',
-	speakerEvent: 1
+	speakerEvent: true
 	)
 
 lightning = EventType.create(
 	name: 'lightning',
 	description: 'some description',
-	defaultDuration: '2014-12-12 00:45:00',
+	defaultDuration: '2014-12-12 00:15:00',
 	color: '#ffff00',
 	image: '2',
-	speakerEvent: 1
+	speakerEvent: true
 	)
 
 groupLightning = EventType.create(
@@ -67,7 +67,7 @@ groupLightning = EventType.create(
 	defaultDuration: '2014-12-12 00:45:00',
 	color: '#ffff00',
 	image: '4',
-	speakerEvent: 1,
+	speakerEvent: true,
 	groupable: 1
 	)
 

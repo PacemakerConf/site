@@ -2,7 +2,7 @@
 	<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 		<% unless @conference.nil? || @conference.id.nil? %>
 			<% buttons_class = get_active_button %>
-			<ul class="nav nav-pills" id='conference_nav_buttons' active='<%= params[:action] %>'>
+			<ul class="nav nav-pills" id='conference_nav_buttons>'>
 				<li class='<%= buttons_class[0] %>' id='about_button' ><%= link_to "About", about_conference_path(@conference.route) %></li>
 				<li class='<%= buttons_class[1] %>' id='speakers_button' ><%= link_to "Speakers", speakers_conference_path(@conference.route)%></li>
 				<li class='<%= buttons_class[2] %>' id='schedule_button'><%= link_to "Schedule", schedule_conference_path(@conference.route)%></li>
@@ -20,11 +20,11 @@
 	<div class="row slogo">
 		<div class="col-lg-9 col-md-9 col-sm-7 col-xs-8">
 			<div class="blockquotes-container">
-				<div class="pull-right">
+				<blockquote class="pull-right">
 					<h4>It takes all the running you can do, to keep in the same place.<br>If you want to get somewhere else, you must run at least twice as fast as that!</h4>
 					<small>Red Queen</small>
 				</div>
-			</div>
+			</blockquote>
 		</div>
 		<div class="col-lg-3 col-md-3 col-sm-5 col-xs-4 logo-img" >
 			<%= image_tag("pacemaker_logo.png") %>

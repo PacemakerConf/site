@@ -30,7 +30,7 @@ class Admin::ReportsController < Admin::ApplicationController
 
     respond_to do |format|
       if @report.save
-        format.html { redirect_to [:admin, @report], notice: 'Report was successfully created.' }
+        format.html { redirect_to admin_conferences_path, notice: 'Report was successfully created.' }
         format.json { render :show, status: :created, location: @report }
       else
         format.html { render :new }
@@ -44,7 +44,7 @@ class Admin::ReportsController < Admin::ApplicationController
   def update
     respond_to do |format|
       if @report.update(report_params)
-        format.html { redirect_to [:admin, @report], notice: 'Report was successfully updated.' }
+        format.html { redirect_to admin_conferences_path, notice: 'Report was successfully updated.' }
         format.json { render :show, status: :ok, location: @report }
       else
         format.html { render :edit }
