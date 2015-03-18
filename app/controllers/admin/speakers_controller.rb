@@ -31,7 +31,8 @@ class Admin::SpeakersController < Admin::ApplicationController
   def send_invitation
     @invite = Invitation.new(
       email: params[:invitation][:email], 
-      conference_id: params[:invitation][:conference_id]
+      conference_id: params[:invitation][:conference_id],
+      status: params[:invitation][:status] 
     )
     message = Message.new(content: params[:invitation][:message]).create_if_new
     @invite.message = message
@@ -47,7 +48,7 @@ class Admin::SpeakersController < Admin::ApplicationController
   end
 
   def list_invites
-    #@invitations = Invitation.all
+    @invites = Invitation.all
   end
 
   # POST /speakers
@@ -55,6 +56,7 @@ class Admin::SpeakersController < Admin::ApplicationController
   def create
     authorize! :create, Speaker
     @speaker = Speaker.new(speaker_params)
+    
     respond_to do |format|
       if @speaker.save
         format.html { redirect_to admin_speakers_path, notice: 'Speaker was successfully created.' }
@@ -71,7 +73,7 @@ class Admin::SpeakersController < Admin::ApplicationController
   def update
     respond_to do |format|
       if @speaker.update(speaker_params)
-        format.html { redirect_to [:admin, @speaker], notice: 'Speaker was successfully updated.' }
+        format.html { redirect_to admin_speakers_path, notice: 'Speaker was successfully updated.' }
         format.json { render :show, status: :ok, location: @speaker }
       else
         format.html { render :edit }

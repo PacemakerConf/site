@@ -13,7 +13,12 @@ class SpeakersController < ApplicationController
   def create
     # authorize! :create, Speaker
     @speaker = Speaker.new(speaker_params)
-    #raise params["speaker"]["email_hash"]
+    #raise params["speaker"]["email_hash"]e
+    
+    # invite = something
+    # invite.status = 'registred'
+    # invite.save!
+
     respond_to do |format|
       if @speaker.save
         format.html { redirect_to controller: 'events', action: 'new', hash: params["speaker"]["email_hash"]}

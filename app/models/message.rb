@@ -1,8 +1,9 @@
 class Message < ActiveRecord::Base
 	TOKEN = '$${link_invitation}' 
-	TOKEN_REGEXP = /\$\$\{\w+\}/
-
-	has_many :invitation
+	TOKEN_REGEXP = /\$\$\{link_invitation\}/
+  #default_scope order('created_at DESC')
+	
+  has_many :invitation
 
 	validates :content, format: { with: TOKEN_REGEXP,
     message: "%{value} should includes token #{TOKEN}" }

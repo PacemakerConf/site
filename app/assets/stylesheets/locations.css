@@ -22,4 +22,12 @@
 	width: 455px !important;
 
 }
-
+.address-container p{
+  margin-bottom:5px;
+}
+.contact-det{
+  margin-bottom:15px;
+}
+.contact-det p{
+  margin-bottom:5px;
+}

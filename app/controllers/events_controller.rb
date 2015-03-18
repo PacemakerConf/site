@@ -2,15 +2,12 @@ class EventsController < ApplicationController
 
   before_action :set_event, only: [:edit, :update, :destroy]
 
-  def show
-  end
-
   def new
     @event = Event.new
   end
 
   def create
-    authorize! :create, Event
+    #authorize! :create, Event
     @event = Event.new(event_params)
     respond_to do |format|
       if @event.save

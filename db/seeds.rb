@@ -569,6 +569,8 @@ first = Report.create(
 	responsable: 'Vadym Kirdan',
 	title: 'best conference ever',
 	description: 'bla bla bla',
+	video: 'https://youtube.com',
+	photo: 'https://facebook.com',
 	conference: victory
 	)
 

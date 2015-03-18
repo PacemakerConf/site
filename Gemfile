@@ -26,11 +26,9 @@ group :assets do
   #gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
   gem 'jquery-ui-rails'
 end
-gem 'jquery-datetimepicker-rails'
 gem 'will_paginate'
 gem 'momentjs-rails', '>= 2.8.1'
 gem 'twitter-bootstrap-rails'
-gem 'backbone-on-rails'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.0.0'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
@@ -58,6 +56,7 @@ group :production do
 end
 
 group :development, :test do
+  gem 'letter_opener'
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -69,12 +68,19 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 
-	gem 'rspec-rails'
-	gem 'factory_girl_rails', '~> 4.0'
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'watchr'
+  gem 'guard-rspec'
+  gem 'spork'
+  gem 'spork-rails'
+  gem 'guard-spork'
+  gem 'factory_girl_rails', '~> 4.0'
+  gem 'capybara'
+end
 end
 
 group :test do
-	gem 'shoulda-matchers', require: false
+  gem 'shoulda-matchers', require: false
   gem 'faker'
 end
-
