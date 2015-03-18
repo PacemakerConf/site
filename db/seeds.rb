@@ -55,7 +55,7 @@ topic = EventType.create(
 lightning = EventType.create(
 	name: 'lightning',
 	description: 'some description',
-	defaultDuration: '2014-12-12 00:45:00',
+	defaultDuration: '2014-12-12 00:15:00',
 	color: '#ffff00',
 	image: '2',
 	speakerEvent: true

@@ -1,9 +1,22 @@
 <% content_for :title, @speaker.fullname %>
 <div class="row">
 	<div class='speaker-container one-speaker col-lg-10 col-lg-offset-1'>
-		<div class = 'speaker-photo col-lg-3 col-md-3 col-xs-3'>
+		<div class = 'photo-and-links'>
+			<div class = 'speaker-photo col-lg-3 col-md-3 col-xs-3'>
    			<%= image_tag( @speaker.photo.url(:thumb), class: 'photo', alt: @speaker.fullname) %>
+   			<ul class="speaker-contacts">
+					<% icons = ['facebook', 'linkedin', 'twitter', 'email', 'site'] %>
+
+					<% icons.each do |icon| %>
+						<% unless @speaker[icon].to_s === '' %>
+							<li>
+								<%= link_to( image_tag(icon + "0.svg"), @speaker.facebook ) %>
+							</li>
+						<% end %>
+					<% end %>
+				</ul>
   		</div>
+  	</div>
   	<div class="col-lg-8 col-md-8 col-xs-12">
 		<div class='speaker-name'>
 			<%= @speaker.fullname %>
@@ -12,16 +25,11 @@
 			<%= @speaker.position %>
 		</div>
 		<div class="speaker-description">
-			<p><%= @speaker.description %></p>
+			<p><%= @speaker.description.html_safe %></p>
 		</div>
 	</div>
 	</div>
 </div>
-<ul class="speaker-contacts col-lg-offset-1">
-	<li><a <%= @speaker.email %> > <img src="/assets/twitter13.svg"></a></li>
-  		<li><a <%= @speaker.facebook %> > <img src="/assets/facebook29.svg"></a></li>
-	<li><a <%= @speaker.linkedin %> > <img src="/assets/linkedin12.svg"></a></li>
-</ul>
 
 <div class = 'speeches-list '>
 	<% sorted_events = [] %>
@@ -50,13 +58,13 @@
 					<div class='speech-details col-lg-6 col-md-7 col-sm-7 col-xs-12'>
 						<h3> <%= speech.title %> </h3>
 						<p>
-							<%= speech.description %>
+							<%= speech.description.html_safe %>
 						</p>
 						<div>
 							<%if speech.materials.exists? %>
 			          <%= link_to "", speech.materials.url(:original, false), class:"btn btn-default btn-xs glyphicon glyphicon-download-alt" %>
 			        <% end %>
-			        <% unless speech.video.nil? %>
+			        <% unless speech.video.to_s === '' %>
 			          <%= link_to '', speech.video, class:"btn btn-default btn-xs glyphicon glyphicon-play" %>
 			        <% end %>
 						</div>

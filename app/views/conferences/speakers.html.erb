@@ -5,20 +5,28 @@
 
 		<div class="row speakers-det <%= event.published ? "" : "unpublished" %> ">
 			<div class = 'full-speaker-container col-lg-7 col-md-7 col-xs-7'>
-				<div class = 'speaker-photo'>
-					<%= link_to( image_tag( event.speaker.photo.url(:thumb), class: 'photo', alt: event.speaker.fullname ), event.speaker ) %>
+				<div class = 'photo-and-links'>
+					<div class = 'speaker-photo'>
+						<%= link_to( image_tag( event.speaker.photo.url(:thumb), class: 'photo', alt: event.speaker.fullname ), event.speaker ) %>
+						<ul class="speaker-contacts">
+							<% icons = ['facebook', 'linkedin', 'twitter', 'email', 'site'] %>
+
+							<% icons.each do |icon| %>
+								<% unless event.speaker[icon].to_s === '' %>
+									<li>
+										<%= link_to( image_tag(icon + "0.svg"), event.speaker.facebook ) %>
+									</li>
+								<% end %>
+							<% end %>
+						</ul>
+					</div>
 				</div>
 				<div class = 'speaker-about'>
 					<div class='speaker-name speech-info'>
 						<%= link_to event.speaker.fullname, speaker_path(event.speaker) %>
 					</div>
 					<div><i>position: </i><%= event.speaker.position %></div>
-					<div><i>about: </i><%= event.speaker.description %></div>
-					<ul class="speaker-contacts col-lg-offset-1">
-						<li><a <%= event.speaker.email %> > <img src="/assets/twitter13.svg"></a></li>
-					  		<li><a <%= event.speaker.facebook %> > <img src="/assets/facebook29.svg"></a></li>
-						<li><a <%= event.speaker.linkedin %> > <img src="/assets/linkedin12.svg"></a></li>
-					</ul>
+					<div><i>about: </i><%= event.speaker.description.html_safe %></div>
 
 				</div>	
 			</div>
@@ -31,7 +39,7 @@
 					<% if event.materials.exists? %>
 	          <%= link_to "", event.materials.url(:original, false), class:"btn btn-default btn-xs glyphicon glyphicon-download-alt" %>
 	        <% end %>
-	        <% unless event.video.nil? %>
+	        <% unless event.video.to_s === '' %>
 	          <%= link_to '', event.video, class:"btn btn-default btn-xs glyphicon glyphicon-play" %>
 	        <% end %>
 				</div>

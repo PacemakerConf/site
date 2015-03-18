@@ -21,7 +21,7 @@ function toggleEventFields(speakerEvent){
 }
 
 function eventFormLoad(){
-	if( typeof event_event_type_id != 'undefined'){
+	if( typeof event_event_type_id != 'undefined' && $('.admin_event_form').length ){
 		var speakerEvent = event_event_type_id.getAttribute("speakerEvent");
 	
 		toggleEventFields(speakerEvent == 'true'); 		
