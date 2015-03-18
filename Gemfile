@@ -29,7 +29,6 @@ end
 gem 'will_paginate'
 gem 'momentjs-rails', '>= 2.8.1'
 gem 'twitter-bootstrap-rails'
-gem 'backbone-on-rails'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.0.0'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'

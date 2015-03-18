@@ -113,9 +113,9 @@
 	margin-left: 5px;
 }
 
-
 .speaker-name a{
 	font-weight: bold;
+	color: #333;
 }
 .speaker-name a:hover{
 	text-decoration:none;
@@ -160,6 +160,7 @@
 	font-size: 16px;
 }
 
+
 .speech-details p{
 	font-size: 12pt;
 	font-weight: lighter;
@@ -175,5 +176,9 @@
 	margin-top: 10px;
 	margin-left: 5px;
 }
-
-
+.speech-info h4{
+	margin-top:0;
+}
+.speaker-container .speech-conteiner, .lightning-speaker-container .speech-conteiner{
+	padding-right: 0;
+}

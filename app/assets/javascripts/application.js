@@ -19,12 +19,6 @@
 //= require jquery-ui
 //= require jquery.dataTables.js
 //= require turbolinks
-//= require playground
-//= require_tree ./models
-//= require_tree ./collections
-//= require_tree ./views
-//= require_tree ./routers
-
 //= require_tree .
 //= require fileinput.min
 //= require moment

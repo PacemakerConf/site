@@ -9,15 +9,6 @@ $(document).on("page:change", function(){
       });  
     }
   
-
-    $('#editor').wysiwyg();
- 
-    $('[name="commit"]').click(function(){
-      info = $('#editor').html();
-      $('[name="location[how_to_find]"]').val(info);
-    });
-
-
     var map ;
 
     if($("#map").length)

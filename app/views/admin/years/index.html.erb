@@ -15,7 +15,7 @@
       <% @years.each do |year| %>
       <tr id='<%= year.name %>_row' >
           <td><%= year.name %></td>
-          <td><%= year.content %>
+          <td><%= year.content.html_safe %>
           <td><%= Conference.where(year: year.name.to_i).count %></td>
          <td class = 'publish'>
             <% if year.published %>
