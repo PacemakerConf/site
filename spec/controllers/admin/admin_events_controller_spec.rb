@@ -47,14 +47,14 @@ describe Admin::EventsController do
 		
 			it 'assigns all sperker events of this conference to @speaker_events' do
 				get :index, conf_id: 1
-				speaker_event_type = FactoryGirl.create(:event_type, speakerEvent: 1)
+				speaker_event_type = FactoryGirl.create(:event_type, speakerEvent: true)
 				speaker_event = FactoryGirl.create(:event, event_type: speaker_event_type, speaker_id: 1)
 				expect(assigns(:speaker_events)).to eq([speaker_event])
 			end
 		
 			it 'assigns all non-speaker events of this conference to @non_speaker_events' do
 				get :index, conf_id: 1
-				speaker_event_type = FactoryGirl.create(:event_type, speakerEvent: 1)
+				speaker_event_type = FactoryGirl.create(:event_type, speakerEvent: true)
 				speaker_event = FactoryGirl.create(:event, event_type: speaker_event_type, speaker_id: 1)
 				expect(assigns(:non_speaker_events)).to eq([@event])
 			end
@@ -69,7 +69,7 @@ describe Admin::EventsController do
 
 			it 'assigns all sperker events to @events' do 
 				get :index
-				speaker_event_type = FactoryGirl.create(:event_type, speakerEvent: 1)
+				speaker_event_type = FactoryGirl.create(:event_type, speakerEvent: true)
 				speaker_event = FactoryGirl.create(:event, event_type: speaker_event_type, speaker_id: 1, conference_id: 2)
 				expect(assigns(:speaker_events)).to eq([speaker_event])
 			end
