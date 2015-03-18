@@ -11,7 +11,6 @@
         <th>Show</th>
         <th>Edit</th>
         <th>Delete</th>
-<!-- <th colspan="3"> <center>Actions</center></th> not working with dataTable gem -->
     </tr>
   </thead>
   <tbody>
@@ -39,11 +38,5 @@
     <% end %>
   </tbody>
 </table>
-<script type="text/javascript">
-  $(document).ready(function() {
-    $('#conference').dataTable({
-      paging: true
-    });
-  });
-</script>
+
 <%= link_to 'New Conference', new_conference_path, class: "btn btn-default btn-sm"  %>

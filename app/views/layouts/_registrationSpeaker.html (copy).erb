@@ -22,25 +22,24 @@
         	<button type="submit" class="btn btn-primary" data-dismiss="modal" id="submit_btn" method="post">Send</button> 
 
             <%= submit_tag("Send", class: 'btn btn-primary', :controller => "speaker_request", :action => "send_mail") %>
+            <!-- :controller => "speaker_request", :action => "send_mail" -->
+
          </div>
       </div>
    </div>
 </div>
-<div>
-     <%= email_field_tag :email %>
-	 <%= submit_tag("Send", class: 'btn btn-primary', :controller => "speaker_request", :action => "send_mail") %>
-</div>
-           
 <script type="text/javascript">
 // $(document).on("click", "#submit_btn", function(event){
 //     alert( "GO" ); 
 // });
-$('#myModal').modal('show').css(z-index: 0);
+//    $('#myModal').click(function(){
+//    $('#myModal').modal()
+//    });
 
-//    $(document).ready(function(){
-//     $(".btn").click(function(){
-//         $("#myModal").modal('show');
-//     });
-// });
+   $(document).ready(function(){
+    $(".btn").click(function(){
+        $("#myModal").modal({show: 'false'});
+    });
+});
 </script>
 <% end %>

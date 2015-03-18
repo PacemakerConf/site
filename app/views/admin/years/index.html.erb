@@ -21,7 +21,7 @@
             <% if year.published %>
               Published
             <% else %>
-              <%= link_to 'Publish', publish_admin_year_path(year), remote: true, class: 'btn btn-xs btn-primary' %>              
+              <%= link_to 'Publish', publish_admin_year_path(year), method: :patch, remote: true, class: 'btn btn-xs btn-primary' %>              
             <% end %>
           </td>
            <td><%= link_to 'Edit', edit_admin_year_path(year), class: 'btn btn-xs btn-warning' %></td>

@@ -1,4 +1,4 @@
-class SpeakerRequest < ApplicationController
+class SpeakerRequest < ActionController::Base
   def send_mail
     data = params[:letter]
     name = params[:name]
@@ -9,20 +9,3 @@ class SpeakerRequest < ApplicationController
     notice: 'Message sent'
   # flash[:notice] = "Message has been sent."
   end
-
-UserMailer.newsletter(@user, @posts).method(:deliver).source_location
-=> ["gems/mail-2.5.4/lib/mail/message.rb", 229]
- 
-
-
-
-class SpeakerRequest < ActionController::Base
-def show
-# ...
-tags = view_context.generate_tags(@post)
-email_link = view_context.mail_to(@user.email)
-# ...
-end
-end 
-
-<% speaker_request(@user).deliver %> 

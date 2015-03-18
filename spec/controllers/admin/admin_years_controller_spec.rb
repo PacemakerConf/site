@@ -38,17 +38,12 @@ describe Admin::YearsController do
 		end
 	end
 
-	describe 'GET #publish' do
+	describe 'PATCH #publish' do
 		before :each do
 			@year = FactoryGirl.create(:year)
 		end
 	
-		xit 'assigns requested year to @year' do 
-			get :publish, id: @year
-			expect(assigns(:year)).to eq(@year)	
-		end
 		it 'change publish attribute to true'
-		it '?render? publish template'
 	end
 
 	describe 'GET #new' do
@@ -80,20 +75,28 @@ describe Admin::YearsController do
 	end
 
 	describe 'POST #create' do
-
 		context 'with valid parameters' do
-
 			it 'save new year to DB' do
 				expect{ post :create, year: FactoryGirl.attributes_for(:year)
 					}.to change(Year, :count).by(1)
 			end
 
-			it 'redirect somewhere'
+			it 'redirect to admin_years_path' do
+				post :create, year: FactoryGirl.attributes_for(:year)
+				expect(response).to redirect_to admin_years_path
+			end
 		end
 
 		context 'with invalid attr' do
-			it 'doesn\'t save new year to DB'
-			it 're-render :new template' 
+			it 'doesn\'t save new year to DB' do
+				expect{ post :create, year: FactoryGirl.attributes_for(:year, name: nil)
+					}.not_to change(Year, :count)
+			end
+
+			xit 're-render :new template' do
+				post :create, year: FactoryGirl.attributes_for(:year)
+				expect(response).to render_template :new
+			end
 		end
 	end
 
@@ -113,7 +116,11 @@ describe Admin::YearsController do
 				@year.reload
 				expect(@year.name).to eq("2017")
 			end
-			it 'redirect somewhere'
+
+			it 'redirect to admin_years_path' do
+				patch :update, id: @year, year: FactoryGirl.attributes_for(:year)
+				expect(response).to redirect_to admin_years_path
+			end
 		end
 
 		context 'with invalid attr' do
@@ -123,7 +130,10 @@ describe Admin::YearsController do
 				expect(@year.name).not_to eq(nil)
 			end
 
-			it 're-render edit template' 
+			it 're-render edit template' do
+				patch :update, id: @year, year: FactoryGirl.attributes_for(:year, name: nil)
+				expect(response).to render_template :edit
+			end
 		end
 	end
 

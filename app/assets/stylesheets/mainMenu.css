@@ -19,10 +19,9 @@ ul.conference-menu {
   margin: 0 auto;
   padding-left: 0px;
 }
-
-/*ul.conference-menu li {
-  margin: 0 0px;
-}*/
+ul.conference-menu li {
+  margin: 0 2px;
+}
 
 /*.main-menu */.conference-menu li img{
   height: 65px;
@@ -167,9 +166,8 @@ border-image: linear-gradient(to bottom, #3acfd5 0%, #3a4ed5 100%);*/
 .hovered{
   -webkit-filter: contrast(200%); 
   filter: contrast(200%);  
-  margin: -10px 0px;
-  height: 75px;
-  text-decoration:underline;
+/*  margin: -10px 0px;
+  height: 75px;*/
   letter-spacing: 0.1em;
   background: linear-gradient(#8E8D8D, black, transparent);
 /*  box-shadow: 10px 25px 30px rgba(0,0,0,.5);*/

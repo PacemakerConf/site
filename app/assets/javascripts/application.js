@@ -29,7 +29,7 @@
 //= require fileinput.min
 //= require moment
 //= require bootstrap-datetimepicker
-//= require bootstrap-modal.js
+//= require bootstrap
 //= require nested_form
 
 //= require bootstrap-wysiwyg.js

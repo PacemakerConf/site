@@ -17,7 +17,7 @@ Rails.application.routes.draw do
         get 'schedule'
       end
       member do
-        get 'publish'
+        patch 'publish'
       end
     end
     resources :contacts
@@ -29,7 +29,7 @@ Rails.application.routes.draw do
         get 'position'
       end
       member do
-        get 'publish'
+        patch 'publish'
       end
     end
     resources :event_types 
@@ -43,7 +43,7 @@ Rails.application.routes.draw do
     end 
     resources :years do
       member do
-        get 'publish'
+        patch 'publish'
       end
     end
     resources :messages  do
@@ -72,4 +72,4 @@ end
 
 #send_request
 # resources :email
-# match '/send_mail', to: 'contact#send_mail', via: 'post'
+# match 'send_mail', to: 'contact#send_mail', via: 'post'
