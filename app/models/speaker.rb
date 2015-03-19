@@ -12,7 +12,6 @@ class Speaker < ActiveRecord::Base
 	validates :surname, presence: true
 	validates :position, presence: true
 	validates :description, presence: true
-	# validates :email, email_format: { message: "doesn't look like an email address" }
 	validates_attachment_content_type :photo, content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
 	def fullname
