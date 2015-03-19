@@ -5,6 +5,7 @@ class ChangeSpeakerEventType < ActiveRecord::Migration
         alter table event_types
         alter column speakerEvent
         type integer using cast(speakerEvent as boolean)
+      })
     else
       add_column :event_types, :speakerEvent, :boolean
     end
@@ -16,6 +17,7 @@ class ChangeSpeakerEventType < ActiveRecord::Migration
         alter table event_types
         alter column speakerEvent
         type integer using cast(speakerEvent as integer)
+      })
     else
       add_column :event_types, :speakerEvent, :integer
     end
