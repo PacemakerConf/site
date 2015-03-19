@@ -39,7 +39,7 @@ Rails.application.routes.draw do
     resources :speakers do
       collection do
         get 'invite', to: 'speakers#invite'
-        get 'list', to: 'speakers#list'
+        #get 'list', to: 'speakers#list'
         post 'send', to: 'speakers#send_invitation'
       end
     end 
