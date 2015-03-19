@@ -14,8 +14,7 @@ function pageLoad(){
 
 	(function(){
 		$(".file_input").fileinput({
-      maxFilesNum: 1,
-      allowedFileExtensions: ["jpg", "gif", "png", "txt"]
+      maxFilesNum: 1
     });
 	})();
 

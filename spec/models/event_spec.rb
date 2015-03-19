@@ -20,7 +20,7 @@ describe Event do
 	end
 
 	it 'is invalid with speakerEvent without speaker' do
-		event_type = FactoryGirl.create(:event_type, speakerEvent: 1)
+		event_type = FactoryGirl.create(:event_type, speakerEvent: true)
 		expect(FactoryGirl.build(:event, event_type: event_type)).not_to be_valid
 	end
 	

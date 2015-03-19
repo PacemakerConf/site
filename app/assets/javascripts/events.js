@@ -1,7 +1,7 @@
 $(document).on('page:change', eventFormLoad);
 
 function toggleEventFields(speakerEvent){
-	if ( parseInt(speakerEvent) === 0 ){
+	if ( !(speakerEvent) ){
 		$('#event_speaker_id_group').hide();
 		event_speaker_id.value = "";
 	
@@ -10,7 +10,7 @@ function toggleEventFields(speakerEvent){
 	
 		$('#event_responsable_group').show();
 	}
-	else if( parseInt(speakerEvent) === 1 ){
+	else if( speakerEvent ){
 		$('#event_speaker_id_group').show();
 		
 		$('#event_materials_group').show();
@@ -21,10 +21,10 @@ function toggleEventFields(speakerEvent){
 }
 
 function eventFormLoad(){
-	if( typeof event_event_type_id != 'undefined'){
+	if( typeof event_event_type_id != 'undefined' && $('.admin_event_form').length ){
 		var speakerEvent = event_event_type_id.getAttribute("speakerEvent");
 	
-		toggleEventFields(speakerEvent); 		
+		toggleEventFields(speakerEvent == 'true'); 		
 		getDefaultDuration();
 	}
 }

@@ -3,8 +3,8 @@
 <div class="row">
   <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
       <h2>Direction map</h2>
-    <div class="map">
-      <iframe width="780" height="480" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?q=<%= @location.latitude %>,<%= @location.longitude %>&amp;z=15&amp;output=embed"></iframe>
+    <div class="map col-lg-12">
+      <iframe width="96%" height="480" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?q=<%= @location.latitude %>,<%= @location.longitude %>&amp;z=15&amp;output=embed"></iframe>
     </div>
   </div>
   <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 address-box ">
@@ -30,7 +30,7 @@
       </div>
 
         <h2>How To Find</h2>
-        <p><%= @location.how_to_find %></p>
+        <p><%= @location.how_to_find.html_safe %></p>
   </div>
 </div>
 

@@ -6,3 +6,4 @@ class SpeakerRequest < ActionController::Base
     SpeakerRequest.send_mail(:name, :email, :message).deliver_now
     flash[:notice] = "Message has been sent."
   end
+end

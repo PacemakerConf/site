@@ -3,8 +3,7 @@
 <legend>Event at the conference  
 
 <% if Invitation.where(email_hash: params[:hash]).count > 0 %>
-		<% invite = Invitation.where(email_hash: params[:hash])[0] %>
-		
+		<% invite = Invitation.where(email_hash: params[:hash])[0] %>	
 		<% @conference_id = invite.conference_id %>
 		<%= Conference.find(@conference_id).fullname %>
 	</legend>

@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   
     root 'conferences#index'
     resources :conferences, param: :name do
+
       member do
         get 'schedule'
       end
@@ -34,7 +35,8 @@ Rails.application.routes.draw do
     end
     resources :event_types 
     resources :locations
-    resources :reports  
+    resources :reports 
+    resources :invitations 
     resources :speakers do
       collection do
         get 'invite', to: 'speakers#invite'
@@ -66,9 +68,12 @@ Rails.application.routes.draw do
   get ':name/speakers', to: 'conferences#speakers', as: :speakers_conference
   get ':name/location', to: 'conferences#location', as: :location_conference
   get ':name/schedule', to: 'conferences#schedule', as: :schedule_conference
-  get ':name/report', to: 'conferences#report', as: :report_conference 
+  get ':name/report', to: 'conferences#report', as: :report_conference
 
 end 
 
-# get 'send_mail', to: 'SpeakerRequest#send_mail', via: 'post'
-get send_mail, to: 'speaker_request_controller#send_mail', as: :send_mail
+# get 'send_mail', to: 'speaker_request#send_mail', via: 'post'
+# get 'send_mail', to: 'speaker_request_controller#send_mail', as: :send_mail
+# member do
+#   post 'send_mail'
+# end

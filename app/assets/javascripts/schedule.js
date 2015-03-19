@@ -1,5 +1,5 @@
 // console.log('schedule.js');
-$(document).ready( function () { 
+$(document).on('page:change', function () { 
 	console.log("!");
 	scheduleChange();                    
     $( "#sortable" ).sortable({
@@ -26,7 +26,7 @@ function scheduleChange(){
 				stringTime += '0';
 			}
 			stringTime += currentTime[1];
-			timestartItems[i].innerHTML = stringTime;
+			timestartItems[i].innerHTML = '<span class="glyphicon glyphicon-time" style="position: relative;"></span> ' + stringTime;
 
 			tempTime = parseTime(durationItems[i]);
 			currentTime[0] += tempTime[0];

@@ -1,3 +1,4 @@
+<p id="notice"><%= notice %></p>
 <h1>Listing Contacts</h1>
 <table class="display data_table" width="100%" cellspacing="0">
   <thead>
@@ -7,7 +8,6 @@
         <th>Telephone</th>
         <th>Email</th>
         <th>Skype</th>
-        <th>Show</th>
         <th>Edit</th>
         <th>Delete</th>
     </tr>
@@ -19,7 +19,6 @@
         <th>Telephone</th>
         <th>Email</th>
         <th>Skype</th>
-        <th>Show</th>
         <th>Edit</th>
         <th>Delete</th>
    </tr>
@@ -34,7 +33,6 @@
              <%= mail %><br>
             <% end %></td>
         <td><%= contact.skype %></td>
-        <td><%= link_to 'Show', admin_contact_path(contact), class: 'btn btn-xs btn-primary' %></td>
         <td><%= link_to 'Edit', edit_admin_contact_path(contact), class: 'btn btn-xs btn-warning' %></td>
         <td><%= link_to 'Destroy', admin_contact_path(contact), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger' %></td>
       </tr>

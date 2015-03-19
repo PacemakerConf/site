@@ -41,7 +41,7 @@ function getDefaultDuration(){
         event_duration_4i.value = response.durationHour;
         event_duration_5i.value = response.durationMin;
         
-        toggleEventFields(response.speakerEvent);
+        toggleEventFields( response.speakerEvent == 'true');
     }
   }
   xmlhttp.open("GET", "/admin/event_types/" + selected_event_type + ".json", true);
