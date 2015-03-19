@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   get '/', to: redirect(Conference.last_conference_route) if ActiveRecord::Base.connection.table_exists?('conferences')
 
+  match 'send_mail', to: 'speaker_request#send_mail', via: 'post'
+
   devise_for :admins, skip: :sessions
   as :admin do
     get 'login', to: 'devise/sessions#new', as: :new_admin_session
@@ -71,10 +73,4 @@ Rails.application.routes.draw do
   get ':name/schedule', to: 'conferences#schedule', as: :schedule_conference
   get ':name/report', to: 'conferences#report', as: :report_conference
 
-end 
-
-# get 'send_mail', to: 'speaker_request#send_mail', via: 'post'
-# get 'send_mail', to: 'speaker_request_controller#send_mail', as: :send_mail
-# member do
-#   post 'send_mail'
-# end
+end
