@@ -1,6 +1,8 @@
 class Invitation < ActiveRecord::Base
 	COST = 10
 	belongs_to :message
+	validates :conference_id, presence: true 
+	validates :message_id, presence: true 
 	validates :email, presence: true,
 		email_format: { message: "doesn't look like an email address" }
 	# validates_associated :message
