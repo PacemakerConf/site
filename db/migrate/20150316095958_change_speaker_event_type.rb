@@ -4,7 +4,7 @@ class ChangeSpeakerEventType < ActiveRecord::Migration
       connection.execute(%q{
         alter table event_types
         alter column "speakerEvent"
-        type integer using cast("speakerEvent" as boolean)
+        type boolean using cast("speakerEvent" as boolean)
       })
     else
       add_column :event_types, :speakerEvent, :boolean
