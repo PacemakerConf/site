@@ -1,23 +1,23 @@
 $(document).on("page:change", function(){
 
-    $('#location_contact_ids_').removeAttr('id','none').attr("multiple", "multiple").attr("title","Select a contact");
+  $('#location_contact_ids_').removeAttr('id','none').attr("multiple", "multiple").attr("title","Select a contact");
 
-    if($("select[multiple]")){
-      $("select[multiple]").bsmSelect();
-      $("select[multiple]").bsmSelect({
-        addItemTarget: 'top'
-      });  
-    }
+  if($("select[multiple]")){
+    $("select[multiple]").bsmSelect();
+    $("select[multiple]").bsmSelect({
+      addItemTarget: 'top'
+    });  
+  }
   
-    var map ;
+  var map;
 
-    if($("#map").length)
-    map = new GMaps({
-          div: '#map',
-          lng: 18.5009765625,
-          lat: 48.31242790407185,
-          zoom: 16
-      });
+  if($("#map").length)
+  map = new GMaps({
+        div: '#map',
+        lng: 0,
+        lat: 0,
+        zoom: 16
+    });
 
   $(".adr").keyup (function(){
     var splitedResult = '';
