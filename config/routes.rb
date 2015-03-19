@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   
     root 'conferences#index'
     resources :conferences, param: :name do
+
       member do
         get 'schedule'
       end
@@ -39,6 +40,7 @@ Rails.application.routes.draw do
     resources :speakers do
       collection do
         get 'invite', to: 'speakers#invite'
+        #get 'list', to: 'speakers#list'
         post 'send', to: 'speakers#send_invitation'
       end
     end 
@@ -71,6 +73,8 @@ Rails.application.routes.draw do
 
 end 
 
-#send_request
-# resources :email
-# match '/send_mail', to: 'contact#send_mail', via: 'post'
+# get 'send_mail', to: 'speaker_request#send_mail', via: 'post'
+# get 'send_mail', to: 'speaker_request_controller#send_mail', as: :send_mail
+# member do
+#   post 'send_mail'
+# end

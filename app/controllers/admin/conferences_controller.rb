@@ -4,6 +4,10 @@ class Admin::ConferencesController < Admin::ApplicationController
 
   layout 'admin' 
   
+  # def initialize
+  #   puts self.methods.sort
+  # end
+
   def location 
     @location = @conference.location
   end

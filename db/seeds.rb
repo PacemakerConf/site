@@ -1,3 +1,14 @@
+EventType.create!([
+  {name: "registration", description: "some description", defaultDuration: "2014-12-12 00:30:00", color: "#d0e9c6", image: "1", speakerEvent: false, groupable: nil},
+  {name: "beer-break", description: "ho ho ho", defaultDuration: "2014-12-12 03:00:00", color: "#f2dede", image: "0", speakerEvent: false, groupable: nil},
+  {name: "topic", description: "some description", defaultDuration: "2014-12-12 01:00:00", color: "#fcf8e3", image: "3", speakerEvent: true, groupable: nil},
+  {name: "lightning", description: "some description", defaultDuration: "2014-12-12 00:45:00", color: "#d9edf7", image: "15", speakerEvent: true, groupable: nil},
+  {name: "group lightning", description: "some description", defaultDuration: "2014-12-12 00:45:00", color: "#d9edf7", image: "4", speakerEvent: true, groupable: 1},
+  {name: "Introduction", description: "introduction", defaultDuration: "2015-03-18 00:15:00", color: "#d0e9c6", image: "10", speakerEvent: false, groupable: nil},
+  {name: "Lunch", description: "Lunch", defaultDuration: "2015-03-18 00:50:00", color: "#fcf8e3", image: "2", speakerEvent: false, groupable: nil},
+  {name: "Pizza party", description: "", defaultDuration: "2015-03-18 02:00:00", color: "#fcf8e3", image: "11", speakerEvent: false, groupable: nil},
+  {name: "Excursion", description: "", defaultDuration: "2015-03-18 00:45:00", color: "#f2dede", image: "56", speakerEvent: false, groupable: nil}
+])
 Conference.create!([
   {name: "JS", year_id: 1, date: "2012-02-12", attenders: 12, report: nil, location: nil, published: true},
   {name: "Java", year_id: 1, date: "2012-05-22", attenders: 12, report: nil, location: nil, published: true},
@@ -75,17 +86,6 @@ Event.create!([
   {title: "Exursion", conference_id: 13, speaker_id: nil, event_type_id: 9, description: "", duration: "2015-03-18 00:45:00", position: 13, responsable: "", video: "", materials_file_name: nil, materials_content_type: nil, materials_file_size: nil, materials_updated_at: nil, published: true},
   {title: "Pizza party", conference_id: 13, speaker_id: nil, event_type_id: 8, description: "", duration: "2015-03-18 02:00:00", position: 14, responsable: "", video: "", materials_file_name: nil, materials_content_type: nil, materials_file_size: nil, materials_updated_at: nil, published: true}
 ])
-EventType.create!([
-  {name: "registration", description: "some description", defaultDuration: "2014-12-12 00:30:00", color: "#44ff44", image: "1", speakerEvent: false, groupable: nil},
-  {name: "beer-break", description: "ho ho ho", defaultDuration: "2014-12-12 03:00:00", color: "#666600", image: "0", speakerEvent: false, groupable: nil},
-  {name: "topic", description: "some description", defaultDuration: "2014-12-12 01:00:00", color: "#222200", image: "3", speakerEvent: true, groupable: nil},
-  {name: "lightning", description: "some description", defaultDuration: "2014-12-12 00:45:00", color: "#ffff00", image: "15", speakerEvent: true, groupable: nil},
-  {name: "group lightning", description: "some description", defaultDuration: "2014-12-12 00:45:00", color: "#ffff00", image: "4", speakerEvent: true, groupable: 1},
-  {name: "Introduction", description: "introduction", defaultDuration: "2015-03-18 00:15:00", color: "#d2e2e2", image: "10", speakerEvent: false, groupable: nil},
-  {name: "Lunch", description: "Lunch", defaultDuration: "2015-03-18 00:50:00", color: "#efeba9", image: "2", speakerEvent: false, groupable: nil},
-  {name: "Pizza party", description: "", defaultDuration: "2015-03-18 02:00:00", color: "#d6f6ff", image: "11", speakerEvent: false, groupable: nil},
-  {name: "Excursion", description: "", defaultDuration: "2015-03-18 00:45:00", color: "#fad1f8", image: "56", speakerEvent: false, groupable: nil}
-])
 Location.create!([
   {address: "Pasternaka 5", latitude: 49.8327337, longitude: 23.9992261, conference_id: 12, place_type: "Hotel", name: "California", city: "Lviv", how_to_find: "Taxi: (0372) 585-111 or (050)-33-85-11,\n\t\t\t\t (0372) 585-999 or (050) 338-99-99 \n                 Trolleybus №3, №3а, №5 \n                 Stop station: 141 Golovna str. “Bukovyna” hotel"},
   {address: "Sadova 2a", latitude: 49.8210367, longitude: 23.9875698, conference_id: 11, place_type: "Palace", name: "Best", city: "Lviv", how_to_find: "Bus: 101 (get out on Zhukovskiy Street) \n                  Tram: 1 (across street from Railway Station) \n                  Stop station: Atrium, Karla Marksa Av., 22 "},
@@ -113,7 +113,7 @@ Report.create!([
 Speaker.create!([
   {name: "Frodo", description: "A little but brave Hobbit. Love jewels very much", surname: "Baggins", email: "frodo@ring.one", facebook: "fb/goldy", linkedin: nil, site: "http://the-best-jewels.com", photo_file_name: "frodo.jpg", photo_content_type: "image/jpeg", photo_file_size: 8046, photo_updated_at: "2015-02-12 21:23:16", position: "lucky pathfinder", twitter: nil},
   {name: "Harry", description: "The bespactacled One", surname: "Potter", email: "harrypotter@mail.com", facebook: "fb/harrik", linkedin: "Havrentiy Potter", site: "http://potter-shop.com", photo_file_name: "colin_burns_144.jpg", photo_content_type: "image/jpeg", photo_file_size: 63840, photo_updated_at: "2015-02-24 10:05:52", position: "sitting position", twitter: nil},
-  {name: "Gandalf", description: "Wizard. The big nob. Oh, i mean the biggest wizard \n\t\t\t\t\tof the Middle-earth, leader of the army of the \n\t\t\t\t\tWest, also know as Mithrandir, The Grey Pilgrim,\n\t\t\t\t\tThe White Rider, Stormcrow etc", surname: "Grey", email: "gangan@mail.com", facebook: "fb/gandalfgrey", linkedin: "Gandalyk Gand", site: "http://gan-gan.com", photo_file_name: "1.png", photo_content_type: "image/png", photo_file_size: 1231, photo_updated_at: nil, position: "An awl in the ass", twitter: nil},
+  {name: "Gandalf", description: "Wizard. The big nob. Oh, i mean the biggest wizard \n\t\t\t\t\tof the Middle-earth, leader of the army of the \n\t\t\t\t\tWest, also know as Mithrandir, The Grey Pilgrim,\n\t\t\t\t\tThe White Rider, Stormcrow etc", surname: "Grey", email: "gangan@mail.com", facebook: "fb/gandalfgrey", linkedin: "Gandalyk Gand@gand.gand", site: "http://gan-gan.com", photo_file_name: "1.png", photo_content_type: "image/png", photo_file_size: 1231, photo_updated_at: nil, position: "An awl in the ass", twitter: nil},
   {name: "Dmytro", description: "Lv137 UI/Ruby expert", surname: "Panov", email: nil, facebook: nil, linkedin: nil, site: nil, photo_file_name: "zsssdads.png", photo_content_type: "image/png", photo_file_size: 131940, photo_updated_at: "2015-02-26 19:41:39", position: "SoftServe software engineer specialized on Ruby, JavaScript, Java, Oracle, PostgreSQL, etc.", twitter: nil},
   {name: "Ivan", description: "Responsibilities:\n\t\t+ coaching and mentoring of students\n\t\t+ development of new directions ( Ruby on Rails, Angular.js )\n\t\t+ teaching and training others\n\t\t+ managing student group project as scrum master and product owner", surname: "Chyr", email: nil, facebook: nil, linkedin: nil, site: nil, photo_file_name: "358196a.jpg", photo_content_type: "image/jpeg", photo_file_size: 7632, photo_updated_at: "2015-02-26 19:38:27", position: "Teacher Web UI direction", twitter: nil},
   {name: "Vyacheslav", description: " strong ", surname: "Koldovsky", email: nil, facebook: nil, linkedin: nil, site: nil, photo_file_name: "064e28a.jpg", photo_content_type: "image/jpeg", photo_file_size: 2966, photo_updated_at: "2015-02-26 19:40:02", position: "Founder & CEO at Productivity Scientific", twitter: nil},
