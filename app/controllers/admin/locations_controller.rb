@@ -1,7 +1,7 @@
 class Admin::LocationsController < Admin::ApplicationController
   before_action :authenticate_admin!
   before_action :set_location, only: [:show, :edit, :update, :destroy]
-  before_action :set_contacts, only: [:new, :edit]
+  before_action :set_contacts, only: [:new, :edit, :create]
 
   layout 'admin'
   # GET /locations
@@ -27,6 +27,7 @@ class Admin::LocationsController < Admin::ApplicationController
   # POST /locations
   # POST /locations.json
   def create
+    # raise location_params.inspect
     @location = Location.new(location_params)
 
     respond_to do |format|

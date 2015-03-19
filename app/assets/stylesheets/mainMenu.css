@@ -23,7 +23,7 @@ ul.conference-menu li {
   margin: 0 2px;
 }
 
-/*.main-menu */.conference-menu li img{
+.conference-menu li img{
   height: 65px;
   width: 60px;
 }
@@ -55,11 +55,11 @@ ul.conference-menu li {
 
 /*.conference-menu li img:hover{
   height: 100%;
-  width: 65px;
+  width: 75px;
   margin: -10px; 
-  box-shadow:0 0 15px #00aaff;
-  border:1px solid #00aaff;
 }*/
+/*  box-shadow:0 0 15px #00aaff;
+  border:1px solid #00aaff;*/
 
 .flag-image-container, .flag-year-image-container {
     position: relative;
@@ -94,21 +94,27 @@ ul.conference-menu li {
   -webkit-filter: brightness(0%);
 }*/
 
-/* .hoverClass { 
-  background-image: url("background.png");
-  box-shadow: 15px 15px 5px -5px rgba(0,0,0,.2)
-}
- .nohoverClass { 
-  background-image: url("");
-}
-*/
-/*#confYear{
-    position: absolute;
-    padding: 25px 5px 5px 5px;
-    z-index: 1;
-    text-align:  center;
-}*/
+.hovered{
+  -webkit-filter: contrast(200%); 
+  filter: contrast(200%);  
+/*  margin: -10px 0px;
+  height: 75px;*/
+  letter-spacing: 0.1em;
+  background: linear-gradient(#8E8D8D, black, transparent);
+/*  box-shadow: 10px 25px 30px rgba(0,0,0,.5);*/
+/*  width: 60px;*/
+/*  box-shadow:0 0 15px #00aaff;
+  border:1px solid #00aaff;*/
 
+/*    background: #e2e2e2;
+    background: -moz-linear-gradient(top, #e2e2e2 0%, #dbdbdb 50%, #d1d1d1 51%, #fefefe 100%);
+    background: -webkit-linear-gradient(top, #e2e2e2 0%,#dbdbdb 50%,#d1d1d1 51%,#fefefe 100%);
+    background: -o-linear-gradient(top, #e2e2e2 0%,#dbdbdb 50%,#d1d1d1 51%,#fefefe 100%);
+    background: -ms-linear-gradient(top, #e2e2e2 0%,#dbdbdb 50%,#d1d1d1 51%,#fefefe 100%);
+    background: linear-gradient(top, #e2e2e2 0%,#dbdbdb 50%,#d1d1d1 51%,#fefefe 100%);        */
+}
+
+/*
 .flag1{
   height: 70px;
   width: 70px;
@@ -116,7 +122,7 @@ ul.conference-menu li {
   position: absolute;
   z-index: 0;
   cursor: pointer;
-  /*    border-radius: 1em/.5em;*/
+  border-radius: 1em/.5em;
   opacity: .65;
   transition: opacity .5s;
   color: black;
@@ -125,7 +131,7 @@ ul.conference-menu li {
   box-shadow: 10px 25px 30px rgba(0,0,0,.5);
   background: linear-gradient(red 25%, #bb6666, red);
   
-/*   &::after {
+  &::after {
     position: absolute;
     height: 70px;
     width: 70px;
@@ -149,10 +155,10 @@ ul.conference-menu li {
     top: 70px;
     border-top: 25px solid red;
     border-right: 35px solid white;
-    border-left: 35px solid transparent;*/
-/*    background: linear-gradient(90deg, 
-crimson 25%, black, dodgerblue 75%);
-border-image: linear-gradient(to bottom, #3acfd5 0%, #3a4ed5 100%);*/
+    border-left: 35px solid transparent;
+    background: linear-gradient(90deg, 
+    crimson 25%, black, dodgerblue 75%);
+    border-image: linear-gradient(to bottom, #3acfd5 0%, #3a4ed5 100%);
 }
 /*.flag1:before{
     content: '';
@@ -162,23 +168,3 @@ border-image: linear-gradient(to bottom, #3acfd5 0%, #3a4ed5 100%);*/
     border-right: 35px solid red;
     border-left: 35px solid red;
 }*/
-
-.hovered{
-  -webkit-filter: contrast(200%); 
-  filter: contrast(200%);  
-/*  margin: -10px 0px;
-  height: 75px;*/
-  letter-spacing: 0.1em;
-  background: linear-gradient(#8E8D8D, black, transparent);
-/*  box-shadow: 10px 25px 30px rgba(0,0,0,.5);*/
-/*  width: 60px;*/
-/*  box-shadow:0 0 15px #00aaff;
-  border:1px solid #00aaff;*/
-
-/*    background: #e2e2e2;
-    background: -moz-linear-gradient(top, #e2e2e2 0%, #dbdbdb 50%, #d1d1d1 51%, #fefefe 100%);
-    background: -webkit-linear-gradient(top, #e2e2e2 0%,#dbdbdb 50%,#d1d1d1 51%,#fefefe 100%);
-    background: -o-linear-gradient(top, #e2e2e2 0%,#dbdbdb 50%,#d1d1d1 51%,#fefefe 100%);
-    background: -ms-linear-gradient(top, #e2e2e2 0%,#dbdbdb 50%,#d1d1d1 51%,#fefefe 100%);
-    background: linear-gradient(top, #e2e2e2 0%,#dbdbdb 50%,#d1d1d1 51%,#fefefe 100%);        */
-}

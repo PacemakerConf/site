@@ -6,11 +6,13 @@
     </div>
   </div>
   <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 address-box ">
-       
-        <h1>Address</h1>
+       <div class="address-container">
+          <h2>Address</h2>
           <p><b>Place Type: </b><%= @location.place_type %></p>
           <p><b>Name: </b><%= @location.name %></p>
           <p><b>Address: </b><%= @location.address %>, <%= @location.city %></p>
+      </div>
+      <div class="contacts-container">
         <h1>Contacts</h1>
         <% @location.contacts.each do |contact| %>
           <div>
@@ -21,6 +23,7 @@
             <p><b>Tel:</b> <%= contact.telephone %></p>
           </div>
         <% end %>
+      </div>
         
         <h1>How To Find</h1>
         <p><%= @location.how_to_find.html_safe %></p>

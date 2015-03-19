@@ -28,6 +28,9 @@
     </div>
   </div>
 
+  <%= hidden_field( :news, :conference_id, value: params["conf_id"] || 
+      if( @news.conference ) then @news.conference.id end || Conference.last.id )%> 
+
   <div class="form-group">
     <div class="col-lg-7 col-lg-offset-2">
       <%= f.submit class: "btn btn-primary"%>

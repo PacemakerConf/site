@@ -1,9 +1,9 @@
 <% if @conference.date > Time.now %>
-<div class="table table-responsive row col-md-9">
-   <%= label_tag 'Registration Deadline ' + @conference.date.to_s, nil, class: 'col-md-6', style: 'font-size: 18pt' %>
-   <!-- Button trigger modal -->
-   <button class="btn btn-primary btn-lg col-md-6" data-toggle="modal" data-target="#myModal"><strong>CALL FOR SPEAKER!</strong>
-   </button>
+<div class="table table-responsive row col-md-10">
+   		<%= label_tag 'Registration Deadline ' + @conference.date.to_s, nil, class: 'col-md-5', style: 'font-size: 18pt' %>
+ 		<!-- Button trigger modal -->
+  		<button type="button" class="btn btn-primary btn-lg col-md-5" data-toggle="modal" data-target="#myModal"><strong>CALL FOR SPEAKER!</strong>
+  		</button>
 </div>
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -14,8 +14,8 @@
             <h3 class="modal-title" id="myModalLabel">Request for speaker</h3>
          </div>
          <div class="modal-body form-group">
-            <%= label_tag 'Apply for Speaker', 'Email', class: 'col-lg-2 control-label' %>
-            <%= email_field_tag :email %>
+            <%= label_tag 'Apply for Speaker', nil, class: 'col-lg-3 control-label' %>
+            <%= email_field_tag :email, nil, placeholder: 'Email' %>
          </div>
          <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true">Close</button>
@@ -27,15 +27,17 @@
    </div>
 </div>
 <div>
-     <%= email_field_tag :email %>
-	 <%= submit_tag("Send", class: 'btn btn-primary', :controller => "speaker_request", :action => "send_mail") %>
+	<%= form_tag send_mail_path(@profile), method: :put do %>
+    <%= email_field_tag :email, nil, placeholder: 'Email', class: 'col-lg-3 control-label' %>
+	<%= submit_tag("Send", class: 'btn btn-primary', :controller => "speaker_request_controller", :action => "send_mail") %>
+	<%= link_to "Send Email", send_mail_path, class: 'btn btn-primary' %>
 </div>
            
 <script type="text/javascript">
 // $(document).on("click", "#submit_btn", function(event){
 //     alert( "GO" ); 
 // });
-$('#myModal').modal('show').css(z-index: 0);
+$('#myModal').modal('show').css(z-index: 0 !important);
 
 //    $(document).ready(function(){
 //     $(".btn").click(function(){
