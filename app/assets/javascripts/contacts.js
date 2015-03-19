@@ -1,4 +1,4 @@
-$(document).on('ready page:change', function () {
+$(document).on('ready page:load', function () {
 
 $("#add_button").click(function() {
    var divHTML = 
@@ -11,11 +11,6 @@ $("#add_button").click(function() {
     '</div>';
     $("#mail-area").append(divHTML);
 });
-
-
-
-
-
 
 
 $('[name="commit"]').click(function(){
@@ -36,6 +31,5 @@ $('[name="commit"]').click(function(){
       return isPassed;
     });
 
-  
-
 });
+
