@@ -1,6 +1,8 @@
 $(document).on('page:change', eventFormLoad);
 
 function toggleEventFields(speakerEvent){
+	console.log('----');
+	console.log(speakerEvent);
 	if( speakerEvent ){
 		$('#event_speaker_id_group').show();
 		$('#event_materials_group').show();
@@ -19,7 +21,7 @@ function toggleEventFields(speakerEvent){
 function eventFormLoad(){
 	if(typeof event_event_type_id != 'undefined' && $('.admin_event_form').length ){
 		var speakerEvent = event_event_type_id.getAttribute("speakerEvent");
-		toggleEventFields(speakerEvent == 'true'); 		
+		toggleEventFields(speakerEvent.toString() === 'true'); 		
 		getDefaultDuration();
 	}
 }
