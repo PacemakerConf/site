@@ -21,5 +21,26 @@ class Event < ActiveRecord::Base
 		new_position = positions.max + 1		
 	end
 
+	def self.change_position params
+		position = params[:position].to_s.split(',')
+    	id = params[:id].to_s.split(',')
+	    begin
+			if position.length == id.length
+	        for i in 1..id.length
+	          id_temp = id[i-1].to_i
+	          event_temp = Event.find(id_temp)
+	          event_temp.position = position[i-1]
+	          event_temp.save
+	        end
+	        return "Done"
+	      else
+	        return "Fail"
+	      end
+	    rescue
+	        return "Wrong"
+	    end
+
+	end
+
 end
 	
