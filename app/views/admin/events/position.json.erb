@@ -1,18 +1,1 @@
-<% begin %>
-	<% @@position = request.query_parameters['position'].split(',') %>
-	<% @@id = request.query_parameters['id'].split(',') %>
-<% rescue %>
-	{"status": "No changes"}
-<% else %>
-
-	<% if @@position.length == @@id.length %>
-		<% for i in 1..@@id.length %> 
-			<% @eventAll[ @@id[i-1].to_i - 1 ].position = @@position[i-1] %>
-			<% @eventAll[ @@id[i-1].to_i - 1 ].save %>
-		<% end %>
-		{"status": "Done"}
-	<% else %>
-		{"status": "Fail"}
-	<% end %>
-
-<% end %>
+{"status": "<%= @result%>"}

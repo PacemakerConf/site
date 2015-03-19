@@ -1,5 +1,4 @@
 <% content_for :title, @conference.fullname %>
-
 <div class="row">
   <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
       <h2>Direction map</h2>
@@ -16,7 +15,6 @@
       </div>
       <div class="contacts-container">
         <h2>Contacts</h2>
-        
           <% @location.contacts.each do |contact| %>
           <div class="contact-det">
             <p><b><%= contact.name %> <%= contact.surname %></b><p>
@@ -26,9 +24,7 @@
             <p><b>Tel:</b> <%= contact.telephone %></p>
           </div>
           <% end %>
-       
       </div>
-
         <h2>How To Find</h2>
         <p><%= @location.how_to_find.html_safe %></p>
   </div>
