@@ -5,7 +5,6 @@ class Invitation < ActiveRecord::Base
 	validates :message_id, presence: true 
 	validates :email, presence: true,
 		email_format: { message: "doesn't look like an email address" }
-	# validates_associated :message
 
 	delegate :content, to: :message, prefix: true
 	
