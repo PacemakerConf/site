@@ -15,10 +15,6 @@ describe Location do
  	   expect(FactoryGirl.build(:location, city: nil)).not_to be_valid
 	end
 
-	it "should be invalid without conference_id" do
- 	   expect(FactoryGirl.build(:location, conference_id: nil)).not_to be_valid
-	end
-
 	it "should be valid without latitude" do
  	   expect(FactoryGirl.build(:location, latitude: nil)).to be_valid
 	end

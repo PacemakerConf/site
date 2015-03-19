@@ -46,13 +46,6 @@ class Admin::SpeakersController < Admin::ApplicationController
     end
   end
 
-  def list
-    @invites = Invitation.all(
-      email: params[:invitation][:email],
-      status: params[:invitation][:status] 
-    )
-  end
-
   # POST /speakers
   # POST /speakers.json
   def create

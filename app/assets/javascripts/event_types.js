@@ -48,5 +48,4 @@ xmlhttp.onreadystatechange = function() {
 }
 xmlhttp.open("GET", "/admin/event_types/" + selected_event_type + ".json", true);
 xmlhttp.send();
-
 }
