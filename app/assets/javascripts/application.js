@@ -23,9 +23,8 @@
 //= require fileinput.min
 //= require moment
 //= require bootstrap-datetimepicker
+//= require bootstrap
 //= require bootstrap-modal.js
-
-
 //= require bootstrap-wysiwyg.js
 //= require jquery.hotkeys.js
 //= require jquery.bsmselect.js
