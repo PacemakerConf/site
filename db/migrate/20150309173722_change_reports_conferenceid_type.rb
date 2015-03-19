@@ -3,7 +3,7 @@ class ChangeReportsConferenceidType < ActiveRecord::Migration
     connection.execute(%q{
       alter table reports
       alter column conference_id
-      type integer using cast(number as integer)
+      type integer using cast(conference_id as integer)
     })
   end
 
@@ -11,7 +11,7 @@ class ChangeReportsConferenceidType < ActiveRecord::Migration
     connection.execute(%q{
       alter table reports
       alter column conference_id
-      type string using cast(number as string)
+      type string using cast(conference_id as string)
     })
   end
 
