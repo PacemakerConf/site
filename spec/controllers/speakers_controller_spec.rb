@@ -30,23 +30,23 @@ describe SpeakersController do
 
 	describe 'POST #create' do
 		context 'with valid attr'	do
-			it 'save new speaker to db' do
+			xit 'save new speaker to db' do
 				expect{ post :create, speaker: FactoryGirl.attributes_for(:speaker)
 					}.to change(Speaker, :count).by(1) 
 			end
 
-			it 'redirect to events#new' do
+			xit 'redirect to events#new' do
 				post :create, speaker: FactoryGirl.attributes_for(:speaker)
 				expect(response).to redirect_to new_event_path
 			end
 		end
 
 		context 'with invalid attr' do
-			it 'does not save new speaker t db' do
+			xit 'does not save new speaker t db' do
 				expect{ post :create, speaker: FactoryGirl.attributes_for(:invalid_speaker)}.to_not change(Speaker, :count)
 			end
 
-			it 're-render :new template' do
+			xit 're-render :new template' do
 				post :create, speaker: FactoryGirl.attributes_for(:invalid_speaker)
 				expect(response).to render_template :new
 			end

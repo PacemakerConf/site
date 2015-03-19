@@ -1,5 +1,5 @@
 // console.log('schedule.js');
-$(document).ready( function () { 
+$(document).on('page:change', function () { 
 	console.log("!");
 	scheduleChange();                    
     $( "#sortable" ).sortable({

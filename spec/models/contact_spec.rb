@@ -24,10 +24,6 @@ describe Contact do
  	   expect(FactoryGirl.build(:contact, email: nil)).not_to be_valid
 	end
 
-	it "should be invalid without skype" do
- 	   expect(FactoryGirl.build(:contact, skype: nil)).not_to be_valid
-	end
-
 	it { should have_and_belong_to_many(:locations) }
 
 

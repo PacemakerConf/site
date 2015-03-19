@@ -34,7 +34,8 @@ Rails.application.routes.draw do
     end
     resources :event_types 
     resources :locations
-    resources :reports  
+    resources :reports 
+    resources :invitations 
     resources :speakers do
       collection do
         get 'invite', to: 'speakers#invite'
@@ -66,7 +67,7 @@ Rails.application.routes.draw do
   get ':name/speakers', to: 'conferences#speakers', as: :speakers_conference
   get ':name/location', to: 'conferences#location', as: :location_conference
   get ':name/schedule', to: 'conferences#schedule', as: :schedule_conference
-  get ':name/report', to: 'conferences#report', as: :report_conference 
+  get ':name/report', to: 'conferences#report', as: :report_conference
 
 end 
 
