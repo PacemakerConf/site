@@ -36,7 +36,7 @@ class Admin::NewsController < Admin::ApplicationController
     @news = News.new(news_params)
     respond_to do |format|
       if @news.save
-        format.html { redirect_to [:admin, @news], notice: 'News was successfully created.' }
+        format.html { redirect_to controller: 'admin/news', aciton: 'index', conf_id: @news.conference }
         format.json { render :show, status: :created, location: @news }
       else
         format.html { render :new }
@@ -50,7 +50,7 @@ class Admin::NewsController < Admin::ApplicationController
   def update
     respond_to do |format|
       if @news.update(news_params)
-        format.html { redirect_to [:admin, @news], notice: 'News was successfully updated.' }
+        format.html { redirect_to controller: 'admin/news', aciton: 'index', conf_id: @news.conference }
         format.json { render :show, status: :ok, location: @news }
       else
         format.html { render :edit }

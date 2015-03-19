@@ -5,9 +5,9 @@
       <%= @report.description.html_safe %>
   </div>
   <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 address-box ">
-  	  <h1>Photos</h1>
-      <%= link_to image_tag("ico_photos.png"),  @report.photo %>
-  	  <h1>Videos</h1>
-      <%= link_to image_tag("ico_videos.png"),  @report.video %>
+  	  <h2>Photos</h2>
+      <%= link_to image_tag("ico_photos.png", class: "report_icons"),  @report.photo %>
+  	  <h2>Videos</h2>
+      <%= link_to image_tag("ico_videos.png", class: "report_icons"),  @report.video %>
   </div>
 </div>

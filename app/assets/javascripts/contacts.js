@@ -1,7 +1,7 @@
-$(document).on("page:change", function(){
+$(document).on('ready page:load', function () {
 
-function addMailRow(){
-    var divHTML = 
+$("#add_button").click(function() {
+   var divHTML = 
     '<div class="form-group ">'+
      '<label class="col-lg-2 control-label label_contact">Email</label>'+
       '<div class="col-lg-7 contact_form">'+
@@ -10,16 +10,10 @@ function addMailRow(){
       '<a class="remove_nested_fields btn-default btn-sm btn-danger" id="remove_button_contact" onclick="RemoveMail(this);return false;">-</a>'+
     '</div>';
     $("#mail-area").append(divHTML);
-
-  
-  } 
-
-  function RemoveMail(button){
-    $(button).parent().remove();
-  }
+});
 
 
-  function checkIsValid(){
+$('[name="commit"]').click(function(){
     var mails = '';
     var emailRegEx = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
     var isPassed = true;
@@ -35,6 +29,7 @@ function addMailRow(){
       else
         $('.mail-adreess').parent().addClass('has-error');
       return isPassed;
-  }
+    });
 
 });
+

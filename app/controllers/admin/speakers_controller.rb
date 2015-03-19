@@ -36,19 +36,21 @@ class Admin::SpeakersController < Admin::ApplicationController
     )
     message = Message.new(content: params[:invitation][:message]).create_if_new
     @invite.message = message
-#    @invite.errors.add_error(message.errors.first) unless message.valid?
     respond_to do |format|
       if @invite.save && message.valid?
         Invitation.invite_speaker(@invite.email, @invite.email_hash, @invite.message_content)
-        format.html { redirect_to admin_speakers_path, notice: 'Invitation was successfully sent.' }
+        format.html { redirect_to admin_invitations_path, notice: 'Invitation was successfully sent.' }
       else
         format.html { render :invite, notice: 'Invitation was not sent.' }
       end
     end
   end
 
-  def list_invites
-    @invites = Invitation.all
+  def list
+    @invites = Invitation.all(
+      email: params[:invitation][:email],
+      status: params[:invitation][:status] 
+    )
   end
 
   # POST /speakers
@@ -100,7 +102,7 @@ class Admin::SpeakersController < Admin::ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def speaker_params
-      params.require(:speaker).permit(:name, :surname, :position, :photo, :description, :email, :facebook, :linkedin, :site)
+      params.require(:speaker).permit(:name, :surname, :position, :photo, :description, :email, :facebook, :linkedin, :site, :twitter)
     end
 
 end
