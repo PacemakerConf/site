@@ -91,15 +91,7 @@ Location.create!([
   {address: "Sadova 2a", latitude: 49.8210367, longitude: 23.9875698, conference_id: 11, place_type: "Palace", name: "Best", city: "Lviv", how_to_find: "Bus: 101 (get out on Zhukovskiy Street) \n                  Tram: 1 (across street from Railway Station) \n                  Stop station: Atrium, Karla Marksa Av., 22 "},
   {address: "Golovna 141", latitude: 48.4871309, longitude: 26.5286565, conference_id: 13, place_type: "Hotel", name: "Bukovyna", city: "Chernivtsi", how_to_find: "<p><strong style=\"color: rgb(51, 51, 51); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: rgb(255, 255, 255);\">Taxi:</strong><span style=\"color: rgb(51, 51, 51); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: rgb(255, 255, 255);\">&nbsp;(0372) 585-111 or (050)-33-85-11,</span><br style=\"color: rgb(51, 51, 51); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: rgb(255, 255, 255);\"><span style=\"color: rgb(51, 51, 51); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: rgb(255, 255, 255);\">(0372) 585-999 or (050) 338-99-99&nbsp;</span><br style=\"color: rgb(51, 51, 51); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: rgb(255, 255, 255);\"><strong style=\"color: rgb(51, 51, 51); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: rgb(255, 255, 255);\">Trolleybus</strong><span style=\"color: rgb(51, 51, 51); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: rgb(255, 255, 255);\">&nbsp;№3, №3а, №5&nbsp;</span><br style=\"color: rgb(51, 51, 51); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: rgb(255, 255, 255);\"><strong style=\"color: rgb(51, 51, 51); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: rgb(255, 255, 255);\">Stop station:</strong><span style=\"color: rgb(51, 51, 51); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: rgb(255, 255, 255);\">&nbsp;141 Golovna str. “Bukovyna” hotel&nbsp;</span></p>"}
 ])
-Location::HABTM_Contacts.create!([
-  {contact_id: 1, location_id: 2},
-  {contact_id: 4, location_id: 2},
-  {contact_id: 2, location_id: 1},
-  {contact_id: 3, location_id: 1},
-  {contact_id: 1, location_id: 1},
-  {contact_id: 5, location_id: 3},
-  {contact_id: 6, location_id: 3}
-])
+
 Message.create!([
   {message: nil, content: "Hi! You are invited for registration to the conference at our site! Your link is $${link_invitation} Enjoy!", version: 1, name: "#<Report:0xe364c60>"}
 ])
