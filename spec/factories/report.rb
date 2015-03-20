@@ -1,8 +1,7 @@
-require 'faker'
-
 FactoryGirl.define do 
 	factory :report do |f| 
-		f.title Faker::Lorem.word
-		f.description Faker::Lorem.paragraphs
+		f.title "Second Report" 
+		f.description "bla bla bla"
+		f.responsable "Artem"
  	end
 end
