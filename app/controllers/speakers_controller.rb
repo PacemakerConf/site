@@ -12,7 +12,7 @@ class SpeakersController < ApplicationController
   def create
     @speaker = Speaker.new(speaker_params)
     @invite = Invitation.where(email_hash: params['speaker']['email_hash'])[0]
-    @invite.status = 'registred'
+    @invite.status = 'Registred'
     @invite.save
 
     respond_to do |format|
