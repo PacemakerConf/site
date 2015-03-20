@@ -3,7 +3,7 @@
 <div class="table table-responsive row col-md-10">
 	<%= label_tag 'Registration Deadline ' + @conference.date.to_s, nil, class: 'col-md-5', style: 'font-size: 18pt' %>
 	<!-- Button trigger modal -->
-	<button type="button" class="btn btn-primary btn-lg col-md-5" data-toggle="modal" data-target="#myModal"><strong>CALL FOR SPEAKER!</strong>
+	<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal"><strong>CALL FOR SPEAKER!</strong>
 	</button>
 </div>
 <!-- Modal -->
@@ -15,43 +15,26 @@
             <h3 class="modal-title" id="myModalLabel">Request for speaker</h3>
          </div>
          <div class="modal-body form-group">
-            <%= label_tag 'Apply for Speaker', nil, class: 'col-lg-3 control-label' %>
-            <%= email_field_tag :email, nil, placeholder: 'Email' %>
+            	<%= form_tag(send_mail_path) do %>
+            <div class="form-group">
+                <%= label_tag 'name', 'Name' %>
+                <%= text_field_tag 'name', nil, class: 'form-control col-lg-3 control-label', placeholder: 'Your Name' %>
+            </div>
+            <div class="form-group">
+                <%= label_tag 'email', 'Email' %>
+                <%= email_field_tag :email, nil, class: 'form-control col-lg-3 control-label', placeholder: 'Your Email Address' %>
+            </div>
+            <div>
+                <%= label_tag 'comment', 'Comment' %>
+                <%= text_area_tag 'comment', nil, class: 'form-control col-lg-3 control-label', rows: 1, placeholder: 'Comment...' %>
+            </div>
          </div>
          <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true">Close</button>
-        	<button type="submit" class="btn btn-primary" data-dismiss="modal" id="submit_btn" method="post">Send</button> 
-
-            <%= submit_tag("Send", class: 'btn btn-primary', :controller => "speaker_request", :action => "send_mail") %>
+			<%= submit_tag("Send", class: 'btn btn-primary', :controller => "speaker_request", :action => "send_mail") %>
+       <% end %>
          </div>
       </div>
    </div>
 </div>
-
-<div>
-	<%= form_tag (@conference), method: :put do %>
-    <%= email_field_tag :email, nil, placeholder: 'Email', class: 'col-lg-3 control-label' %>
-	<%= submit_tag("Send", class: 'btn btn-primary', :controller => "speaker_request", :action => "send_mail") %>
-	<%= link_to "Send Email", nil, class: 'btn btn-primary' %>
-</div>
 <% end %>
-<% end %> 
-
-<script type="text/javascript">
-// $("#myModal").modal("show");
-
-// $(document).ready(function() {
-// $('#mymodal').modal("show"); 
-// });
-
-// $("#myModal").css("z-index", "1500");
-// $(document).on("click", "#submit_btn", function(event){
-//     alert( "GO" ); 
-// });
-
-// $('#myModal').modal().css(z-index: 1500 !important);
-
-// $("#myModal").click(){
-//         $("#myModal").modal('show');
-//     });
-</script>

@@ -1,14 +1,3 @@
-<style>
-  #sortable { list-style-type: none;}
-  #sortable li {}
-  #sortable li span { position: absolute;}
-</style>
-<script>
-  $(function() {
-    $( "#sortable" ).sortable();
-    $( "#sortable" ).disableSelection();
-  });
-</script>
 <div class="alert alert-info" style="margin: 0px;">Status: UpTime</div>
 
 <ul id="sortable" class="list-group">
@@ -71,3 +60,10 @@
                          action: 'new',
                          conf_id: @conference.id,
                          conf_fname: @conference.fullname %>
+
+<script>
+  $(function() {
+    $( "#sortable" ).sortable();
+    $( "#sortable" ).disableSelection();
+  });
+</script>

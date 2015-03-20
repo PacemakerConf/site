@@ -69,3 +69,11 @@ div.customDropDown div.ddHead:hover ul li span {
 .bs-glyphicons li:hover{
     background-color:#563d7c;
     }
+
+li.selected{
+  border: 1px solid #563d7c;
+}
+
+li.non-selected{
+  border: 1px solid transparent;
+}
