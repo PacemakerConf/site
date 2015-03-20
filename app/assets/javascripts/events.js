@@ -1,8 +1,6 @@
 $(document).on('page:change', eventFormLoad);
 
 function toggleEventFields(speakerEvent){
-	console.log('----');
-	console.log(speakerEvent);
 	if( speakerEvent ){
 		$('#event_speaker_id_group').show();
 		$('#event_materials_group').show();

@@ -29,23 +29,23 @@ function imageToField(number) {
 
 
 function getDefaultDuration(){
-selected_event_type =  event_event_type_id.value;
-xmlhttp = new XMLHttpRequest();
-xmlhttp.onreadystatechange = function() {
-  if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-      var response = JSON.parse( xmlhttp.responseText );
-      if(response.durationHour < 10){
-        response.durationHour = '0' + response.durationHour 
-      }
-      if(response.durationMin < 10){
-        response.durationMin = '0' + response.durationMin 
-      }
-      event_duration_4i.value = response.durationHour;
-      event_duration_5i.value = response.durationMin;
-      
-      toggleEventFields( response.speakerEvent == 'true');
+  selected_event_type =  event_event_type_id.value;
+  xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        var response = JSON.parse( xmlhttp.responseText );
+        if(response.durationHour < 10){
+          response.durationHour = '0' + response.durationHour 
+        }
+        if(response.durationMin < 10){
+          response.durationMin = '0' + response.durationMin 
+        }
+        event_duration_4i.value = response.durationHour;
+        event_duration_5i.value = response.durationMin;
+        
+        toggleEventFields( response.speakerEvent.toString() === 'true');
+    }
   }
-}
-xmlhttp.open("GET", "/admin/event_types/" + selected_event_type + ".json", true);
-xmlhttp.send();
+  xmlhttp.open("GET", "/admin/event_types/" + selected_event_type + ".json", true);
+  xmlhttp.send();
 }

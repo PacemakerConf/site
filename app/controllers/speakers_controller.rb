@@ -20,7 +20,7 @@ class SpeakersController < ApplicationController
         format.html { redirect_to controller: 'events', action: 'new', hash: params["speaker"]["email_hash"], speaker_id: @speaker.id }
         format.json { render :show, status: :created, location: @speaker }
       else
-        format.html { render :new, hash: params['speaker']['email_hash']}
+        format.html { redirect_to controller: 'speakers', action: 'new', hash: params['speaker']['email_hash']}
         format.json { render json: @speaker.errors, status: :unprocessable_entity }
       end
     end
