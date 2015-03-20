@@ -25,7 +25,7 @@
           <% end %>
         </td>
         <td>
-          <% unless event.video.nil? %>
+          <% unless event.video.to_s === '' %>
             <%= link_to '', event.video, class:"btn btn-default btn-xs glyphicon glyphicon-play" %>
           <% end %>
         </td>
