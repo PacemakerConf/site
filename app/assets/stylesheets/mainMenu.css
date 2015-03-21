@@ -30,7 +30,7 @@ ul.conference-menu li {
 
 .conference-menu p{
   text-align: center;	
-  text-decoration:underline;
+  text-decoration:none;
   color: white; 
   background: transparent; 
   margin: -50px 0px 0 0px; 
