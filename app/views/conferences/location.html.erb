@@ -19,10 +19,10 @@
           <div class="contact-det">
             <p><b><%= contact.name %> <%= contact.surname %></b><p>
              <td><% contact.splited_mail.each do |mail| %>
-             <b>Mail:</b><%= mail %><br>
+             <p><b>Mail: </b><%= mail %><br></p>
             <% end %></td>
             <p><td><% contact.splited_telephone.each do |telephone| %>
-             <b>Telephone:</b><%= telephone %><br>
+            <p><b>Telephone: </b><%= telephone %><br></p>
             <% end %></td></p>
           </div>
           <% end %>
