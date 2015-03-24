@@ -19,7 +19,7 @@ $(document).on("page:change", function(){
       $('.mail-adreess').each(function(index, obj){
         if($(obj).val() != '' && $(obj).val().search(emailRegEx) != -1)
           mails+=$(obj).val()+';';
-        else
+        else 
           isCorrect = false;
       });
       if(isCorrect)
