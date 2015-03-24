@@ -28,7 +28,7 @@ function imageToField(number) {
 }
 
 
-function getDefaultDuration(){
+function setDefaultData(){
   selected_event_type =  event_event_type_id.value;
   xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function() {
@@ -40,10 +40,17 @@ function getDefaultDuration(){
         if(response.durationMin < 10){
           response.durationMin = '0' + response.durationMin 
         }
+        speakerEvent = response.speakerEvent.toString() === 'true';
+        if(speakerEvent){
+          event_title.value = '';
+        }
+        else{
+          event_title.value = response.defaultName;
+        }
         event_duration_4i.value = response.durationHour;
         event_duration_5i.value = response.durationMin;
         
-        toggleEventFields( response.speakerEvent.toString() === 'true');
+        toggleEventFields( speakerEvent );
     }
   }
   xmlhttp.open("GET", "/admin/event_types/" + selected_event_type + ".json", true);
