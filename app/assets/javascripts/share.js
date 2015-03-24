@@ -5,6 +5,7 @@ function pageLoad(){
 	//datatable
 	if( !$('#dataTableLoaded')[0] ){
 		$('.data_table').dataTable({
+			paging: false
     });
 
     $('body').append("<div id='dataTableLoaded'></div>");
