@@ -30,11 +30,7 @@
 
 			<li class="flag-year-image-container" id="flag-<%=year.name.to_s%>" 
 				year='<%=year.name.to_s%>' style="<%=flag.display%>">
-				<% if year.published %>
-					<%= link_to( image_tag(flag.image_path), year_path(year.name))%>
-				<% else %>
-					<%= image_tag(flag.image_path) %>
-				<% end %>
+				<%= image_tag(flag.image_path) %>
 				<p class='flag-text'> <%= year.name %> </p> 
 			</li>
 

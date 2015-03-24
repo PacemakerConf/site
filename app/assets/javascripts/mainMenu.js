@@ -41,6 +41,10 @@ function setFlagColors(){
 		// Show all conference flags of current year on click and hide other flags
 		$('.flag-year-image-container').click(function(){
 			var year = this.getAttribute('year'); 	
+			$('.year-box').addClass('unvisible');
+			$('.main-content').addClass('unvisible');
+			$('#year-' + year + '-box').removeClass('unvisible');
+
 			for(var i = 0; i < years.length; i++){
 				if(years[i] != year){
 					$('.conference-' + years[i]).hide();

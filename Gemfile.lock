@@ -102,7 +102,6 @@ GEM
       i18n (~> 0.5)
     ffi (1.9.8)
     formatador (0.2.5)
-    geocoder (1.2.7)
     globalid (0.3.3)
       activesupport (>= 4.1.0)
     guard (2.12.5)
@@ -159,7 +158,6 @@ GEM
       railties (>= 3.1)
     multi_json (1.10.1)
     nenv (0.2.0)
-    nested_form (0.3.2)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     notiffany (0.0.6)
@@ -328,7 +326,6 @@ DEPENDENCIES
   email_validator
   factory_girl_rails (~> 4.0)
   faker
-  geocoder
   guard-rspec
   guard-spork
   jbuilder (~> 2.0)
@@ -337,7 +334,6 @@ DEPENDENCIES
   letter_opener
   mail
   momentjs-rails (>= 2.8.1)
-  nested_form
   paperclip (~> 4.2)
   pg
   rails (= 4.2.0)

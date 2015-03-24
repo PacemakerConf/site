@@ -2,8 +2,16 @@
 
 .container{
 	background-color: #f6f6f6;
-
 }
+
+.unvisible{
+	display: none;
+}
+
+.unpublished{
+	border: 3px solid yellow;
+}
+
 .first{
 	margin-bottom:5%;
 }
