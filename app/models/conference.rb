@@ -1,6 +1,8 @@
 class Conference < ActiveRecord::Base
 	require 'validators.rb'
   
+
+
 	has_many :events
 	has_many :speakers, through: :events
 	has_many :news
@@ -12,7 +14,7 @@ class Conference < ActiveRecord::Base
 
 	validates :name, presence: true
 	validates :year_id, presence: true
-	validates :date, inclusion: { in: Time.now..Time.new(2100)} if 
+	validates :date, inclusion: { in: Time.now..Time.new(Year::LAST_YEAR)} if 
 		StrictValidation.enabled?
 					 
 	# validates_with Validators::ConferenceUniquenessValidator, on: [:create, :update]

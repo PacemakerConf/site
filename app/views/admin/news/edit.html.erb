@@ -2,5 +2,4 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', admin_news_path(@news) %> |
-<%= link_to 'Back', admin_news_path %>
+<%= link_to 'Back', controller: 'admin/news', aciton: 'index', conf_id: @news.conference %>

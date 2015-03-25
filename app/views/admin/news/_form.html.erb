@@ -1,33 +1,35 @@
 <%= form_for [:admin, @news], :html => { :class => "form-horizontal year" } do |f| %>
  
 
-  <% if @news.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@news.errors.count, "error") %> prohibited this report from being saved:
-      </h2>
-      <ul>
-        <% @news.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+ 
     <div class="form-group">
       <%= f.label :title, 'Title*', class: "col-lg-2 control-label"%>
       <div class="col-lg-7">
         <%= f.text_field :title, class: "form-control", rows: 2 %>
+           <% if @news.errors.any? %>
+             <div id="error_explanation">
+              <h2>
+                <%= pluralize(@news.errors.count, "error") %> prohibited this report from being saved:
+              </h2>
+            <ul>
+              <% @news.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+              <% end %>
+            </ul>
+            </div>
+            <% end %>
       </div>
     </div>
 
-  <%= render "admin/share/wysiwyg" %> 
+ 
   <div class="form-group">
+
     <%= f.label :content, 'Description' , class: "col-lg-2 control-label" %>
     <div class="col-lg-7">
+    <%= render "admin/share/wysiwyg" %> 
       <div id="editor" class="well col-md-9 form-control"></div>
     </div>
-      <%= hidden_field( :news, :content, value:"", class: 'wysiwyg_textarea') %>
+      <%= hidden_field( :news, :content, class: 'wysiwyg_textarea') %>
   </div>
 
 

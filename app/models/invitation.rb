@@ -1,20 +1,19 @@
 class Invitation < ActiveRecord::Base
 	COST = 10
 	belongs_to :message
-
+	validates :conference_id, presence: true 
+	validates :message_id, presence: true 
 	validates :email, presence: true,
 		email_format: { message: "doesn't look like an email address" }
-	validates_associated :message
-	
+
 	delegate :content, to: :message, prefix: true
-  		
+	
 	class LinkHelper
 		include  ActionView::Helpers::UrlHelper
 	end	
 
 	def initialize(args = {})
 		super(args)
-		#email = args[:email]
 		self.email_hash = ::BCrypt::Password.create("#{email}", :cost => Invitation::COST).to_s if email
 	end	
 
@@ -24,9 +23,7 @@ class Invitation < ActiveRecord::Base
 	end
 
 	def self.invite_speaker(email, email_hash, message)
-        # if params[:message].match(INVITE_MESSAGE_REGEXP)
-		# insert link Speaker.generate_link(email), email, hash into invirations
-	    message = message.gsub!(Message::TOKEN_REGEXP, Invitation.generate_link(email, email_hash))
+  	  message = message.gsub!(Message::TOKEN_REGEXP, Invitation.generate_link(email, email_hash))
 	    InviteMailer.speaker_invite(email, message).deliver 
 	end	
 

@@ -1,50 +1,42 @@
-<style>
-  #sortable { list-style-type: none;}
-  #sortable li {}
-  #sortable li span { position: absolute;}
-</style>
-<script>
-  $(function() {
-    $( "#sortable" ).sortable();
-    $( "#sortable" ).disableSelection();
-  });
-</script>
 <div class="alert alert-info" style="margin: 0px;">Status: UpTime</div>
 
 <ul id="sortable" class="list-group">
   <% @@positionNumber = 0 %>
   <% @@trigger = true %>
   <% @eventsSingle.each do |event| %>
-    <% if (event.position > @eventsGroupable[1].position) && @@trigger %>
+    <% if @eventsGroupable[1] %>
+      <% if (event.position > @eventsGroupable[1].position) && @@trigger %>
 
-      <% @@groupSum = 0 %>
-      <% @@accessId = "" %>
-      <% @eventsGroupable.each do |item| %>
-          <% @@accessId += item.id.to_s + "," %>
-          <% @@groupSum += 1 %>
-      <% end %>
-
-      <li class="ui-state-default list-group-item schedule-item" >
-        <span class="timestart" style="position: relative;"></span>
-        <span class="duration" style="position: relative;"><%= conferenceEventGroupDurationReturn(@eventsGroupable) %></span>
-        |
-         <span style="position: relative;">
-          <% @eventsGroupable.each do |eventGroup| %>
-              <%= eventGroup.title + " / " %>
-          <% end %>
-        </span>
-        <span class="idItems" style= "display: none;"><%= @@accessId %></span>
-        <span class="positionItems" style="display: none;"><%= @@positionNumber %><% @@positionNumber += 1 %></span>
-        <span class="groupableItems" style="display: none;" ><%= @@groupSum %></span>
-        <% @eventsGroupable.each do |eventGroup| %>
-          <% unless eventGroup.speaker_id.nil? %>
-            <span style="position:relative;float:right;"><%= link_to " -" + eventGroup.speaker.name + " " + eventGroup.speaker.surname + " / ", eventGroup.speaker %></span>
-          <% end %>
+        <% @@groupSum = 0 %>
+        <% @@accessId = "" %>
+        <% @eventsGroupable.each do |item| %>
+            <% @@accessId += item.id.to_s + "," %>
+            <% @@groupSum += 1 %>
         <% end %>
 
-      </li>
+        <li class="ui-state-default list-group-item schedule-item" >
+          <span class="timestart" style="position: relative;"></span>
+          <span class="duration" style="position: relative;"><%= conferenceEventGroupDurationReturn(@eventsGroupable) %></span>
+          |
+           <span style="position: relative;">
+            <% @eventsGroupable.each do |eventGroup| %>
+                <%= eventGroup.title + " / " %>
+            <% end %>
+          </span>
+          <span class="idItems" style= "display: none;"><%= @@accessId %></span>
+          <span class="positionItems" style="display: none;"><%= @@positionNumber %><% @@positionNumber += 1 %></span>
+          <span class="groupableItems" style="display: none;" ><%= @@groupSum %></span>
+          <% @eventsGroupable.each do |eventGroup| %>
+            <% unless eventGroup.speaker_id.nil? %>
+              <span style="position:relative;float:right;"><%= link_to " -" + eventGroup.speaker.name + " " + eventGroup.speaker.surname + " / ", eventGroup.speaker %></span>
+            <% end %>
+          <% end %>
 
-      <% @@trigger = false %>
+        </li>
+
+        <% @@trigger = false %>
+      <% end %>
+    
     <% end %>
 
     <li class="ui-state-default list-group-item schedule-item" >
@@ -68,3 +60,10 @@
                          action: 'new',
                          conf_id: @conference.id,
                          conf_fname: @conference.fullname %>
+
+<script>
+  $(function() {
+    $( "#sortable" ).sortable();
+    $( "#sortable" ).disableSelection();
+  });
+</script>

@@ -12,7 +12,7 @@ class ConferencesController < ApplicationController
   end
 
   def speakers
-    speaker_event = EventType.where(speakerEvent: 1)
+    speaker_event = EventType.where(speakerEvent: true)
     @events = @conference.events.where(event_type: speaker_event)
   end
 
@@ -22,12 +22,21 @@ class ConferencesController < ApplicationController
     @eventsSingle = @conference.events.where.not(event_type: groupable).order(:position)
     @events = @conference.events.order(:position)
     @active_button = 'schedule'
+    respond_to do |format|
+      format.pdf do
+        render :pdf    => "schedule",
+          :template    => "conferences/schedule.pdf.erb",
+          :layout      => "pdf_layout.html"
+      end 
+     
+      format.html
+    end
   end
 
   def show
     topic = EventType.where(name: 'topic')
     lightning = EventType.where(name: 'lightning')
-    @news = @conference.news
+    @news = @conference.news.order(created_at: :desc)
     @topics = @conference.events.where(event_type: topic)
     @lightnings = @conference.events.where(event_type: lightning)
   end

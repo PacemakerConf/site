@@ -1,32 +1,34 @@
-  function imageFromField(){
-      obj = document.getElementById('event_type_image');
-      if(obj.innerHTML){
-          imageToField(obj.innerHTML);
-      }
-      else{
-          imageToField('0');
-      }
-  }
+function imageFromField(){
+    obj = $('#event_type_image');
+    if(obj.html()){
+        imageToField(obj.html());
+    }
+    else{
+        imageToField('0');
+    }
+}
 
-  function imageToField(number) {
-    document.getElementById('event_type_image').innerHTML = number;
-    document.getElementById('event_type_image').value = number;
+function imageToField(number) {
+  $('#event_type_image').html(number);
+  $('#event_type_image').val(number);
 
-    classString = "btn btn-default btn-sm glyphicon glyphicon-";
-    classString += GLYPHSJS[number];
-    document.getElementById('DropDownMark').className = classString;
-      
-      spanObj = document.getElementsByClassName('ddHead');
-      spanObj = spanObj[0].getElementsByTagName('ul');
-      spanObj = spanObj[0].getElementsByTagName('li');
-      for (var i = spanObj.length - 1; i >= 0; i--) {
-          spanObj[i].style.border = "1px solid transparent";
-      };
-      spanObj[number].style.border = "1px solid #563d7c";
-  }
+  classString = "btn btn-default btn-sm glyphicon glyphicon-";
+  classString += GLYPHSJS[number];
+  obj = $('#DropDownMark');
+  document.getElementById('DropDownMark').className = classString;
+
+  spanObj = $('.ddHead');
+  spanObj = spanObj[0].getElementsByTagName('ul');
+  spanObj = spanObj[0].getElementsByTagName('li');
+
+  for (var i = spanObj.length - 1; i >= 0; i--) {
+    spanObj[i].className = 'non-selected';
+  };
+  spanObj[number].className = 'selected';
+}
 
 
-function getDefaultDuration(){
+function setDefaultData(){
   selected_event_type =  event_event_type_id.value;
   xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function() {
@@ -38,13 +40,19 @@ function getDefaultDuration(){
         if(response.durationMin < 10){
           response.durationMin = '0' + response.durationMin 
         }
+        speakerEvent = response.speakerEvent.toString() === 'true';
+        if(speakerEvent){
+          event_title.value = '';
+        }
+        else{
+          event_title.value = response.defaultName;
+        }
         event_duration_4i.value = response.durationHour;
         event_duration_5i.value = response.durationMin;
         
-        toggleEventFields(response.speakerEvent);
+        toggleEventFields( speakerEvent );
     }
   }
   xmlhttp.open("GET", "/admin/event_types/" + selected_event_type + ".json", true);
   xmlhttp.send();
-
 }

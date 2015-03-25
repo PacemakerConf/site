@@ -12,31 +12,31 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label :name, class: "col-lg-2 control-label"%>
+    <%= f.label :name, "Name*", class: "col-lg-2 control-label"%>
     <div class="col-lg-7">
       <%= f.text_field :name, class: "form-control" %>
     </div>
   </div>
 
   <div class="form-group">
-      <%= f.label :surname, class: "col-lg-2 control-label"%>
+      <%= f.label :surname,"Surname*", class: "col-lg-2 control-label"%>
       <div class="col-lg-7">
         <%= f.text_field :surname, class: "form-control" %>
       </div>
   </div>
 
   <div class="form-group">
-    <%= f.label :telephone, class: "col-lg-2 control-label"%>
+    <%= f.label :telephone, "Telephone*", class: "col-lg-2 control-label"%>
     <div class="col-lg-7">
       <%= f.text_field :telephone, class: "form-control" %>
     </div>
   </div>
 
   <div class="form-group">
-      <%= f.label :email, class: "col-lg-2 control-label"%>
-      <a class="btn-default btn-sm btn-warning" id ="add_button" onclick="addMailRow(this);return false;">+</a>
+      <%= f.label :email, "Email*", class: "col-lg-2 control-label"%>
+      <a class="btn-default btn-sm btn-warning" id ="add_button">+</a>
       <div class="col-lg-7">
-        <input class="form-control mail-adreess" >
+        <input class="form-control mail-adreess">
       </div>
   </div>
   
@@ -51,7 +51,16 @@
     </div>
   <div class="form-group">
     <div class="col-lg-10 col-lg-offset-2">
-      <%= f.submit onclick: "return checkIsValid();",class: "btn btn-primary"%>
+      <%= f.submit class: "btn btn-primary"%>
     </div>
   </div>
 <% end %>
+
+
+<script type = "text/javascript">
+
+  function RemoveMail(button){
+    $(button).parent().remove();
+  }
+
+</script>

@@ -9,16 +9,36 @@ class Event < ActiveRecord::Base
 	validates :title, presence: true
 	validates :conference_id, presence: true
 	validates :event_type_id, presence: true
-	#validates_with Validators::EventSpeakerValidator, on: [:create, :update]
+	validates_with Validators::EventSpeakerValidator, on: [:create, :update]
 
 	do_not_validate_attachment_file_type :materials
 
 	def self.get_new_position conference_id
 		return 0 unless conference_id
 		positions = Event.where(conference_id: conference_id).pluck(:position).compact
-		# raise "#{conference_id},#{positions}"
 		return 1 if positions.count == 0
 		new_position = positions.max + 1		
+	end
+
+	def self.change_position params
+		position = params[:position].to_s.split(',')
+    	id = params[:id].to_s.split(',')
+	    begin
+			if position.length == id.length
+	        for i in 1..id.length
+	          id_temp = id[i-1].to_i
+	          event_temp = Event.find(id_temp)
+	          event_temp.position = position[i-1]
+	          event_temp.save
+	        end
+	        return "Done"
+	      else
+	        return "Fail"
+	      end
+	    rescue
+	        return "Wrong"
+	    end
+
 	end
 
 end

@@ -12,8 +12,8 @@ class Admin::EventsController < Admin::ApplicationController
     else
       @events = Event.all
     end
-    @speaker_event_type = EventType.where(speakerEvent: 1)
-    @non_speaker_event_type = EventType.where(speakerEvent: 0)
+    @speaker_event_type = EventType.where(speakerEvent: true)
+    @non_speaker_event_type = EventType.where(speakerEvent: false)
     @speaker_events = @events.where(event_type: @speaker_event_type)
     @non_speaker_events = @events.where(event_type: @non_speaker_event_type)
   end
@@ -82,8 +82,7 @@ class Admin::EventsController < Admin::ApplicationController
 
   # GET /events/1/position?position=1
   def position
-    @eventAll = Event.all
-    # @event = Event.find(params[:id])
+    @result = Event.change_position params
   end
 
   private

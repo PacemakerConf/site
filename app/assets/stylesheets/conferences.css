@@ -4,52 +4,56 @@
 	{
 		display: none;
 	}
-
+	#sortable {
+		list-style-type: none;
+	}
+  	#sortable li span {
+  		position: absolute;
+  	}
 }
 
 @media print
 {
-	button.btn
+	button.btn, .nav, div.main-menu, #admin_nav, .logo img
 	{
 		display: none;
 	}
 
-	.row, div.main-menu
+	a:after
 	{
 		display: none;
 	}
-	.row.first
+	.conference-name h1
 	{
-		display:inline;
+		float: left;
+		display: inline;
 	}
-	.row.first ul
+	.contacts div ul
 	{
-		display: none;
+		margin: 0;
+		padding: 0;
+		list-style-type: none;
 	}
-	.row.first h1
+	.contacts div ul li
 	{
 		display: inline;
-		font-size: 20pt;
-		text-align: left;
-		left: 0px;
-		top: 0px;
-		position: absolute;
 	}
-	.row.first span
+	.contacts div
 	{
-		color: red;
+		float:right;
 		display: inline;
-		font-size: 14pt;
-		text-align: right;
-		right: 0px;
-		top: 0px;
-		position: absolute;
 	}
-
-	.row.main-content
+	table tr td
 	{
-		top: 100px;
-		display: inline;
-		position: absolute;
+	    font-size: 1.25em;
+	    border-top: 1px solid #AAF;
+	    border-bottom: 1px solid #AAF;
+	    padding: 10px !important;
+  	}
+  	table
+	{
+		width: 100%;
+		margin: 0;
+		float: none;
 	}
 }

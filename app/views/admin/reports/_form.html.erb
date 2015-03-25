@@ -27,14 +27,14 @@
       <% end %>
    </div> 
     <div class="form-group">
-      <%= f.label "Responsable", class: "col-lg-2 control-label"%>
+      <%= f.label :responsable, "Responsable*", class: "col-lg-2 control-label"%>
       <div class="col-lg-7">
         <%= f.text_field :responsable, class: "form-control" %>
       </div>
     </div>    
    
     <div class="form-group">
-      <%= f.label "Title", class: "col-lg-2 control-label"%>
+      <%= f.label :title, "Title*", class: "col-lg-2 control-label"%>
       <div class="col-lg-7">
         <%= f.text_field :title, class: "form-control" %>
       </div>
@@ -54,16 +54,15 @@
       </div>
     </div> 
 
+  
+  <div class="form-group">
     <%= render "admin/share/wysiwyg" %> 
-    
-
-    <div class="form-group">
-      <%= f.label "Description", class: "col-lg-2 control-label" %>
+    <%= f.label :description, class: "col-lg-2 control-label" %>
     <div class="col-lg-7">
       <div id="editor" class="well col-md-9 form-control"></div>
     </div>
-       <%= hidden_field( :report, :description, value:"") %>
-    </div>
+      <%= hidden_field( :report, :description, class: 'wysiwyg_textarea') %>
+  </div>
 
     <div class="form-group">
     <div class="col-lg-10 col-lg-offset-2">
@@ -72,16 +71,3 @@
   </div>
 
 <% end %>
-
-<script type="text/javascript">
- $('#editor').wysiwyg();
- 
-
-
-
-$('[name="commit"]').click(function(){
-    info = $('#editor').html();
-    $('[name="report[description]"]').val(info);
-});
-
-</script>

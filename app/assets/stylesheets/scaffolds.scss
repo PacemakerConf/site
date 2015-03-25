@@ -1,5 +1,5 @@
 body {
-  background-color: #fff;
+  background-color: #fff !important;
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
@@ -27,6 +27,9 @@ a {
     color: #fff;
     background-color:none;
   }
+}
+a.btn-primary:visited, a.btn-warning:visited, a.btn-danger:visited, a.btn-success:visited{
+  color:white;
 }
 
 div {
@@ -68,12 +71,7 @@ div {
 
 #error_explanation {
 
-  width: 450px;
-  border: 2px solid red;
-  padding: 7px;
-  padding-bottom: 0;
-  margin-bottom: 20px;
-  background-color: #f0f0f0;
+
   h2 {
     text-align: left;
     font-weight: bold;

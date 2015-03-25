@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'seed_dump'
+
 gem 'paperclip', '~> 4.2'
 gem 'wicked', '~> 1.1.1'
 gem 'bootstrap-wysiwyg-rails'

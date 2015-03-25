@@ -1,4 +1,4 @@
-<h1>Listing News
+<h1>News
   <%= if @conference 
    'of ' + @conference.fullname 
    end %>
@@ -35,9 +35,9 @@
     <%= link_to 'New news', controller: 'admin/news', 
                              action: 'new',
                              conf_id: @conference.id,
-                             conf_fname: @conference.fullname %>
+                             conf_fname: @conference.fullname , class: 'btn btn-default' %>
   <% else %>
       <%= link_to 'New news', controller: 'admin/news', 
-                             action: 'new' %>
+                             action: 'new', class: 'btn btn-default' %>
   <% end %>
 <% end %>

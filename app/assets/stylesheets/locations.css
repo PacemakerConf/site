@@ -3,10 +3,11 @@
   min-height:200px;
 }
 
-#wisywyg_container{
-
-  width:57%;
+#wisywyg_container
+{
+  background-color: white;
 }
+
 
 #location-area{
   margin-bottom:0; 

@@ -1,6 +1,6 @@
 // console.log('schedule.js');
-$(document).ready( function () { 
-	console.log("!");
+
+$(document).on('page:change', function () { 
 	scheduleChange();                    
     $( "#sortable" ).sortable({
 		update: function( event, ui ) { scheduleChange(); sendAJAX(); }
@@ -26,7 +26,7 @@ function scheduleChange(){
 				stringTime += '0';
 			}
 			stringTime += currentTime[1];
-			timestartItems[i].innerHTML = stringTime;
+			timestartItems[i].innerHTML = '<span class="glyphicon glyphicon-time" style="position: relative;"></span> ' + stringTime;
 
 			tempTime = parseTime(durationItems[i]);
 			currentTime[0] += tempTime[0];
@@ -103,7 +103,7 @@ function sendAJAX(){
 			$('#AjaxButton').removeClass('btn-warning');
    			$('#AjaxButton').addClass('btn-danger');
 	        $('#AjaxButton').html('FAIL');
-	        $('#AjaxButton').removeClass('btn-warning');
+	        $('.alert').removeClass('alert-warning');
 	        $('.alert').addClass('alert-danger');
 	        $('.alert').html('FAIL');
 	        setTimeout(5000);
