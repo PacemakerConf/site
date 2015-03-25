@@ -1,13 +1,12 @@
-class SpeakerRequest < ActionMailer::Base
+class SpeakerRequestMailer < ActionMailer::Base
 	default to: "markoshchutskyy@gmail.com"
-			# layout 'mailer'
-	def send_mail(name, email, message)
+	def send_mail(name, email, comment)
 		@name = name
 	    @email = email
-		@message = message
+		@comment = comment
 		mail(from: "sysstemtest@gmail.com", subject: "Request to be a speaker") do |format|
 		format.html { render 'mailers/speaker_request' }
-		# format.text { render 'mailers/speaker_request' }
+		format.text { render 'mailers/speaker_request' }
 		end	
 	end
 end

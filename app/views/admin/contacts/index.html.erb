@@ -28,7 +28,9 @@
       <tr>
         <td><%= contact.name %></td>
         <td><%= contact.surname %></td>
-        <td><%= contact.telephone %></td>
+        <td><% contact.splited_telephone.each do |telephone| %>
+             <%= telephone %><br>
+            <% end %></td>
          <td><% contact.splited_mail.each do |mail| %>
              <%= mail %><br>
             <% end %></td>

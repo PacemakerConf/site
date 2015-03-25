@@ -4,12 +4,16 @@
 	{
 		display: none;
 	}
-
+	#sortable {
+		list-style-type: none;
+	}
+  	#sortable li span {
+  		position: absolute;
+  	}
 }
 
 @media print
 {
-
 	button.btn, .nav, div.main-menu, #admin_nav, .logo img
 	{
 		display: none;
@@ -19,13 +23,11 @@
 	{
 		display: none;
 	}
-
 	.conference-name h1
 	{
 		float: left;
 		display: inline;
 	}
-
 	.contacts div ul
 	{
 		margin: 0;
@@ -41,16 +43,13 @@
 		float:right;
 		display: inline;
 	}
-
-
 	table tr td
 	{
 	    font-size: 1.25em;
-	    border-top: 3px solid #F00;
-	    border-bottom: 3px solid #F00;
+	    border-top: 1px solid #AAF;
+	    border-bottom: 1px solid #AAF;
 	    padding: 10px !important;
   	}
-
   	table
 	{
 		width: 100%;

@@ -1,6 +1,4 @@
 class Location < ActiveRecord::Base
-	geocoded_by :full_address
-	after_validation :geocode
 
 	validates :address, presence: true
 	validates :city, presence: true
