@@ -1,0 +1,1 @@
+rake RAILS_RELATIVE_URL_ROOT='/' assets:precompile  RAILS_ENV='production'
