@@ -5,7 +5,9 @@ function pageLoad(){
 	//datatable
 	if( !$('#dataTableLoaded')[0] ){
 		$('.data_table').dataTable({
-			paging: false
+			paging: true,
+			dom: 'Rlfrtip',
+			"order": [[ 0, "desc" ]]
     });
 
     $('body').append("<div id='dataTableLoaded'></div>");

@@ -13,8 +13,8 @@
       <td><%= message.version %></td>
       <td><%= message.content.html_safe %></td>
       <td>
-        <% if message.version == Message.last.version %>
-          Should be invisible
+        <% if message.version == Message.first.version%>
+          Activated
         <% else %>
           <%= link_to 'SwitchTo', switch_to_admin_message_path(message), class: 'btn btn-xs btn-warning' %>
         <% end %>

@@ -28,3 +28,4 @@
 //= require bootstrap-wysiwyg.js
 //= require jquery.hotkeys.js
 //= require jquery.bsmselect.js
+//= require dataTables.colReorder
