@@ -34,7 +34,7 @@
       <%= f.label :date, class: "col-lg-2 control-label" %>
       <div class="col-lg-7">
         <div class="input-group">
-          <%= f.text_field :date, id: "datetimepicker1", class: "form-control"%>
+          <%= f.text_field :date, id: "datetimepicker", class: "form-control"%>
           <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
         </div>
       </div>
@@ -42,14 +42,14 @@
 
     <div class="form-group">
       <%= f.label :attenders_count, class: "col-lg-2 control-label" %>
-        <div class="col-lg-7">
+        <div class="col-lg-7 col-md-7">
       <%= f.number_field :attenders, min: "1", class: "form-control" %>
         </div>
       </div>
 
     <div class="form-group">
-      <%= f.label :group_event, class: "col-lg-2 control-label" %>
-        <div class="col-lg-7">
+      <%= f.label :group_event, class: "col-lg-2 col-md-1 col-sm-1 col-xs-1 control-label" %>
+        <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 ">
       <%= check_box_tag :group_event, value: "" %>
       </div>
     </div>

@@ -11,26 +11,25 @@
 .main-menu ul div li p a{
   color: white;
   background-color: transparent;
-
 }
 
 ul.conference-menu {
   display: table;   /* Allow the centering to work */
   margin: 0 auto;
-  padding: 0;
+  padding-left: 0px;
 }
+
 ul.conference-menu li {
   margin: 0 2px;
 }
 
-.main-menu .conference-menu li img{
-  height: 64px;
+.conference-menu li img{
+  height: 65px;
   width: 60px;
 }
 
 .conference-menu p{
   text-align: center;	
-  text-decoration:underline;
   color: white; 
   background: transparent; 
   margin: -50px 0px 0 0px; 
@@ -48,13 +47,20 @@ ul.conference-menu li {
 }
 
 .conference-menu li div a:hover{
-  color: #F6F6F6;
+  color: white;
   text-decoration: none;
   background: inherit;
 }
 
-.flag-image-container, .flag-year-image-container {
+/*.conference-menu li img:hover{
+  height: 100%;
+  width: 75px;
+  margin: -10px; 
+}*/
+/*  box-shadow:0 0 15px #00aaff;
+  border:1px solid #00aaff;*/
 
+.flag-image-container, .flag-year-image-container {
     position: relative;
 }
 
@@ -63,6 +69,7 @@ ul.conference-menu li {
    top: 65px; 
    left: 0; 
    width: 100%; 
+   text-decoration: none;
 }
 
 /*.flag-year-image-container img {  
@@ -73,86 +80,16 @@ ul.conference-menu li {
   border:1px solid #00aaff;
 }*/
 
-
-/*
-.flag-year-image-container img{
-  -webkit-filter: brightness(-65%);
-  -webkit-transition: all 1s ease;
-     -moz-transition: all 1s ease;
-       -o-transition: all 1s ease;
-      -ms-transition: all 1s ease;
-          transition: all 1s ease;
-}
- 
-.flag-year-image-container img:hover {
-  -webkit-filter: brightness(0%);
-}*/
-
-/* .hoverClass { 
-  background-image: url("background.png");
-  box-shadow: 15px 15px 5px -5px rgba(0,0,0,.2)
-}
- .nohoverClass { 
-  background-image: url("");
-}
-*/
-/*#confYear{
-    position: absolute;
-    padding: 25px 5px 5px 5px;
-    z-index: 1;
-    text-align:  center;
-}*/
-
-.flag1{
-  height: 70px;
-  width: 70px;
-  margin: 10px 0 0 10px;
-  position: absolute;
-  z-index: 0;
-  cursor: pointer;
-  /*    border-radius: 1em/.5em;*/
-  opacity: .65;
-  transition: opacity .5s;
-  color: black;
-  font-size: 16px;
+.hovered{
+  -webkit-filter: contrast(200%); 
+  filter: contrast(200%);  
   letter-spacing: 0.1em;
-  box-shadow: 10px 25px 30px rgba(0,0,0,.5);
-  background: linear-gradient(red 25%, #bb6666, red);
+/*  margin: -10px 0px;
+  height: 75px;*/
   
-/*   &::after {
-    position: absolute;
-    height: 70px;
-    width: 70px;
-    margin: 30px 0 0 100px;
-    position: absolute;
-    z-index: -1;
-    box-sizing: border-box;
-    border: 1em solid black;
-    transform-origin: 0 0;
-    transform: rotate(45deg);
-    box-shadow: 10px 25px 30px rgba(0,0,0,.5);
-  }*/
-}
-.flag1:hover {
-  opacity: 1;
-  color: white;
-}
-.flag1:after{
-    content: '';
-    position: absolute;
-    top: 70px;
-    border-top: 25px solid red;
-    border-right: 35px solid white;
-    border-left: 35px solid transparent;
-            /*    background: linear-gradient(90deg, 
-crimson 25%, black, dodgerblue 75%);
-border-image: linear-gradient(to bottom, #3acfd5 0%, #3a4ed5 100%);*/
-}
-.flag1:before{
-    content: '';
-    position: absolute;
-    top: 0px;
-    border-top: 10px solid white;
-    border-right: 35px solid red;
-    border-left: 35px solid red;
+/*  background: linear-gradient(#8E8D8D, black, transparent);*/
+/*  box-shadow: 10px 25px 30px rgba(0,0,0,.5);*/
+/*  width: 60px;*/
+/*  box-shadow:0 0 15px #00aaff;
+  border:1px solid #00aaff;*/
 }

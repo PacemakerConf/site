@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   get '/', to: redirect(Conference.last_conference_route) if ActiveRecord::Base.connection.table_exists?('conferences')
 
+  match 'send_mail', to: 'speaker_request#send_mail', via: 'post'
+
   devise_for :admins, skip: :sessions
   as :admin do
     get 'login', to: 'devise/sessions#new', as: :new_admin_session
@@ -13,6 +15,7 @@ Rails.application.routes.draw do
   
     root 'conferences#index'
     resources :conferences, param: :name do
+
       member do
         get 'schedule'
       end
@@ -39,6 +42,7 @@ Rails.application.routes.draw do
     resources :speakers do
       collection do
         get 'invite', to: 'speakers#invite'
+        #get 'list', to: 'speakers#list'
         post 'send', to: 'speakers#send_invitation'
       end
     end 
@@ -69,8 +73,4 @@ Rails.application.routes.draw do
   get ':name/schedule', to: 'conferences#schedule', as: :schedule_conference
   get ':name/report', to: 'conferences#report', as: :report_conference
 
-end 
-
-#send_request
-# resources :email
-# match '/send_mail', to: 'contact#send_mail', via: 'post'
+end

@@ -3,6 +3,7 @@ class Report < ActiveRecord::Base
 
 
 	validates :title, presence: true
+	validates :responsable, presence: true
 
 
 	def short_report

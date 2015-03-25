@@ -1,6 +1,11 @@
-FactoryGirl.define do
-  factory :invitation do
-    
-  end
+require 'faker'
 
-end
+FactoryGirl.define do 
+	factory :invitation do |f|
+		f.email Faker::Internet.email
+		f.status "Sent"
+		f.conference_id 1
+		f.message_id 1
+
+ 	end
+end 

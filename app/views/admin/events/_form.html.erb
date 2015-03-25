@@ -18,7 +18,7 @@
     <%= f.label :event_type_id, 'Event type*', class: "col-lg-2 control-label"%>
     <div class="col-lg-10">
       <% event_type_id = @event.event_type_id || 1 %>
-      <%= select_tag 'event[event_type_id]', options_from_collection_for_select(EventType.all, 'id', 'name', event_type_id), class: "form-control ", onchange: 'getDefaultDuration()', speakerEvent: EventType.find(event_type_id).speakerEvent %>
+      <%= select_tag 'event[event_type_id]', options_from_collection_for_select(EventType.all, 'id', 'name', event_type_id), class: "form-control ", onchange: 'setDefaultData()', speakerEvent: EventType.find(event_type_id).speakerEvent %>
     </div>
   </div>
 

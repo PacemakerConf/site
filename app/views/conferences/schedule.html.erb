@@ -6,14 +6,6 @@
     map-marker move play stop plus-sign minus-sign remove-sign ok-sign question-sign info-sign 
     remove-circle ok-circle ban-circle gift eye-open calendar random comment magnet hdd bell 
     bullhorn) %>
-<style>
-  table tr td{
-    font-size: 1.25em;
-    border-top: 1px solid #000;
-    border-bottom: 1px solid #000;
-    padding: 12px !important;
-  };
-</style>
 
 <table class="table table-responsive table-hover " >
   <colgroup>
@@ -74,9 +66,17 @@
   <% end %>
 
   </tbody>
-  </table>
-  <button class="btn btn-default" onclick="window.print();">Print schedule</button>
+</table>
+<button class="btn btn-default" onclick="window.print();">Print schedule</button>
 
-  <br>
+<!--   <br>
   -
-  <%= link_to 'PDF MW', schedule_conference_path( format: 'pdf') %>
+  <%= link_to 'PDF MW', schedule_conference_path( format: 'pdf') %> -->
+<style type="text/css">
+  table tr td{
+      font-size: 1.25em;
+      border-top: 1px solid #000;
+      border-bottom: 1px solid #000;
+      padding: 12px !important;
+  };
+</style>
