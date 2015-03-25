@@ -101,7 +101,7 @@ Location::HABTM_Contacts.create!([
   {contact_id: 6, location_id: 3}
 ])
 Message.create!([
-  {message: nil, content: "Hi! You are invited for registration to the conference at our site! Your link is $${link_invitation} Enjoy!", version: 1, name: "#<Report:0xe364c60>"}
+  {content: "Hi! You are invited for registration to the conference at our site! Your link is $${link_invitation} Enjoy!", version: 1}
 ])
 Report.create!([
   {report: nil, responsable: "Vadym Kirdan", title: "best conference ever", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce commodo consectetur pretium. Vivamus rutrum viverra tortor quis blandit. Integer interdum urna sit amet eros maximus, quis tempor dolor tempus. Phasellus pharetra quis urna quis volutpat. Donec mauris massa, rutrum et suscipit sed, sagittis non nisi. Ut ac vulputate lectus. Proin turpis risus, lobortis et risus eu, fringilla dictum sapien. Integer ligula nisl, pulvinar sit amet rhoncus et, elementum et lacus. Aliquam id fringilla metus, ut placerat mi. Curabitur dignissim ligula vitae tempus imperdiet. Sed sit amet dolor vel velit ultrices pretium ut quis elit.

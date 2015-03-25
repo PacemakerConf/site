@@ -4,6 +4,7 @@ class Message < ActiveRecord::Base
 	
   has_many :invitation
   validate :content_message_presence
+  default_scope { order(:version => :asc) }
 
   def content_message_presence
     unless self.content =~ TOKEN_REGEXP
