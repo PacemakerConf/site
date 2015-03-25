@@ -1,8 +1,7 @@
 module SpeakersHelper
 
 	def invite_message
-		#Invitation::INVITE_MESSAGE
-		Message.last.content
+		Message.first.content
 	end
 
 end

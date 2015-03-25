@@ -30,7 +30,7 @@ $(document).on("page:change", function(){
       address: splittedResult,
       callback: function(results, status) {
         if (status === 'OK') {
-          var latlng = results[0].geometry.location;
+          latlng = results[0].geometry.location;
           map.setCenter(latlng.lat(), latlng.lng());
           map.removeMarkers();
           map.addMarker({
@@ -41,4 +41,10 @@ $(document).on("page:change", function(){
         }
     });
   });
+
+  $('[name="commit"]').click(function(){
+    $('[name="location[latitude]"]').val(latlng.k);
+    $('[name="location[longitude]"]').val(latlng.D);
+  });
+
 });

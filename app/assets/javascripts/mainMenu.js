@@ -26,21 +26,25 @@ function setFlagColors(){
 		else {
 			$('#' + active_conference + '-' + active_year).children().children('img').attr('src', '/assets/blueflag.png');
 		};
-// Add style to conference flag on hover
+		// Add style to conference flag on hover
 		$('.flag-image-container').hover(function(){
 	    $(this).addClass('hovered');
 		},function(){
 		    $(this).removeClass('hovered');
 		});
-// Add style to year flag on hover
+		// Add style to year flag on hover
 		$('.flag-year-image-container').hover(function(){
 	    $(this).addClass('hovered');
 		},function(){
 		    $(this).removeClass('hovered');
 		});
-// Show all conference flags of current year on click and hide other flags
+		// Show all conference flags of current year on click and hide other flags
 		$('.flag-year-image-container').click(function(){
 			var year = this.getAttribute('year'); 	
+			$('.year-box').addClass('unvisible');
+			$('.main-content').addClass('unvisible');
+			$('#year-' + year + '-box').removeClass('unvisible');
+
 			for(var i = 0; i < years.length; i++){
 				if(years[i] != year){
 					$('.conference-' + years[i]).hide();

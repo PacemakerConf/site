@@ -193,6 +193,11 @@
 .speaker-container .speech-conteiner, .lightning-speaker-container .speech-conteiner{
 	padding-right: 0;
 }
-a.btn.btn-default.btn-success:visited{
 
+.help-blocks {
+  display: none;
+}
+
+a.btn.btn-default.btn-success:visited{
+	color: white;
 }
