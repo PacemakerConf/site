@@ -43,7 +43,7 @@ class Admin::ConferencesController < Admin::ApplicationController
   def index
     @conferences = Conference.all
   end
-  
+
   def show
     topic = EventType.where(name: 'topic')
     lightning = EventType.where(name: 'lightning')
@@ -118,6 +118,6 @@ class Admin::ConferencesController < Admin::ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def conference_params
-      params.require(:conference).permit(:name, :year_id, :date, :attenders, :group_event)
+      params.require(:conference).permit(:name, :year_id, :date, :registration_deadline, :attenders, :group_event)
     end
 end

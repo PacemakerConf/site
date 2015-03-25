@@ -19,7 +19,7 @@
   </thead>
   <tbody>
       <% @conferences.each do |conference| %>
-      <tr id='<%= conference.fullname %>_row' >
+      <tr id='<%= conference.fullname %>_row'>
           <td><%= link_to conference.name, {controller: 'admin/events', action: 'index', conf_id: conference.id}, class: ''%></td>
           <td><%= conference.year.name %></td>
           <td><%= conference.date %></td>
@@ -52,7 +52,7 @@
             <% end %>
           </td>
           <td><%= link_to 'Edit', edit_admin_conference_path(conference.route), class: 'btn btn-xs btn-warning' %></td>
-          <td><%= link_to 'Destroy', admin_conference_path(conference.route), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger' %></td>
+          <td><%= link_to 'Delete', admin_conference_path(conference.route), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger' %></td>
       </tr>
     <% end %>
   </tbody>

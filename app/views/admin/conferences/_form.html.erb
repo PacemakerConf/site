@@ -1,4 +1,4 @@
-<%= form_for( [:admin, @conference],  html: {class: 'form-horizontal'} ) do |f| %>
+<%= form_for( [:admin, @conference], html: {class: 'form-horizontal'} ) do |f| %>
 
   <% if @conference.errors.any? %>
     <div id="error_explanation">
@@ -12,9 +12,6 @@
     </div>
   <% end %>
 
-
-<div class="container">
-  <div class="row">
     <div class="form-group">
       <%= f.label :name, "Name*", class: "col-lg-2 control-label"%>
       <div class="col-lg-7">
@@ -34,8 +31,28 @@
       <%= f.label :date, class: "col-lg-2 control-label" %>
       <div class="col-lg-7">
         <div class="input-group">
-          <%= f.text_field :date, id: "datetimepicker", class: "form-control"%>
-          <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+          <%= f.text_field :date, class: "form-control datetimepicker"%>
+          <span class="input-group-addon glyphicon glyphicon-calendar"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :registration_deadline, class: "col-lg-2 control-label" %>
+      <div class="col-lg-7">
+        <div class="input-group">
+          <%= f.text_field :registration_deadline, class: "form-control datetimepicker"%>
+          <span class="input-group-addon glyphicon glyphicon-calendar"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :registration_deadline, class: "col-lg-2 control-label" %>
+      <div class="col-lg-7">
+        <div class="input-group">
+          <%= f.text_field :registration_deadline, class: "form-control datetimepicker"%>
+          <span class="input-group-addon glyphicon glyphicon-calendar"></span>
         </div>
       </div>
     </div>
@@ -49,14 +66,12 @@
 
     <div class="form-group">
       <%= f.label :group_event, class: "col-lg-2 control-label" %>
-        <div class="col-lg-7">
+        <div class="col-lg-2">
       <%= check_box_tag :group_event, value: "" %>
       </div>
     </div>
 
     <%= f.hidden_field :published, value: false %>
-
-    </div>
 
     <div class="form-group">
       <div class="col-lg-7 col-lg-offset-2">
@@ -64,6 +79,5 @@
         <button type="submit" class="btn btn-primary">Create</button>
       </div>
     </div>
-  </div>
-</form>
+
 <% end %>

@@ -1,8 +1,6 @@
 class Conference < ActiveRecord::Base
 	require 'validators.rb'
   
-
-
 	has_many :events
 	has_many :speakers, through: :events
 	has_many :news
