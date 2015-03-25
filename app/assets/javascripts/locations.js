@@ -11,10 +11,10 @@ $(document).on("page:change", function(){
   $(".adr").bind("keypress", function () {
       var DivForMap = 
   '<div class="form-group">'+
-  '<label class="col-lg-2 control-label">Map</label>'+
-  '<div class="col-lg-7">'+
-  ' <div id="map"></div>'+
-  '</div>'+
+    '<label class="col-lg-2 control-label">Map</label>'+
+      '<div class="col-lg-7">'+
+        '<div id="map"></div>'+
+      '</div>'+
   '</div>'
   $("#map-area").append(DivForMap);
   $('.adr').unbind('keypress');
@@ -54,9 +54,9 @@ $(document).on("page:change", function(){
     });
   });
 
-  //$('[name="commit"]').click(function(){
-    //$('[name="location[latitude]"]').val(latlng.k);
-   // $('[name="location[longitude]"]').val(latlng.D);
-  //});
+  $('#maps_button').click(function(){
+    $('[name="location[latitude]"]').val(latlng.k);
+    $('[name="location[longitude]"]').val(latlng.D);
+  });
 
 });

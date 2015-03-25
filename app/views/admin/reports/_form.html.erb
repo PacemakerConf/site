@@ -56,9 +56,10 @@
 
   
   <div class="form-group">
-    <%= render "admin/share/wysiwyg" %> 
+    
     <%= f.label :description, class: "col-lg-2 control-label" %>
     <div class="col-lg-7">
+    <%= render "admin/share/wysiwyg" %> 
       <div id="editor" class="well col-md-9 form-control"></div>
     </div>
       <%= hidden_field( :report, :description, class: 'wysiwyg_textarea') %>
