@@ -15,8 +15,8 @@
 
 //= require event_types
 //= require jquery-1.11.2
-//= require jquery_ujs
 //= require jquery-ui
+//= require jquery_ujs
 //= require jquery.dataTables.js
 //= require turbolinks
 //= require_tree .
