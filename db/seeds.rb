@@ -1,5 +1,5 @@
 EventType.create!([
-  {name: "registration", description: "some description", defaultDuration: "2014-12-12 00:30:00", color: "#d0e9c6", image: "1", speakerEvent: false, groupable: nil},
+  {name: "registration", description: "registration", defaultDuration: "2014-12-12 00:30:00", color: "#d0e9c6", image: "1", speakerEvent: false, groupable: nil},
   {name: "beer-break", description: "ho ho ho", defaultDuration: "2014-12-12 03:00:00", color: "#f2dede", image: "0", speakerEvent: false, groupable: nil},
   {name: "topic", description: "some description", defaultDuration: "2014-12-12 01:00:00", color: "#fcf8e3", image: "3", speakerEvent: true, groupable: nil},
   {name: "lightning", description: "some description", defaultDuration: "2014-12-12 00:45:00", color: "#d9edf7", image: "15", speakerEvent: true, groupable: nil},
