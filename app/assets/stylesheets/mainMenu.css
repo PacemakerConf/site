@@ -37,7 +37,7 @@ ul.conference-menu li {
 }
 
 .conference-menu li div{
-  margin: -56px 5px 0 5px; 
+  margin: -56px 0 0 0; 
   width:inherit;
   text-align: center;
 }

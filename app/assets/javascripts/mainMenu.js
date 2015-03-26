@@ -1,4 +1,6 @@
-$(document).on('page:change', setFlagColors);
+$(document).ready(setFlagColors);
+$(document).on('page:load', setFlagColors);
+// $(document).on('page:change', setFlagColors);
 
 function setFlagColors(){
 	if( typeof conference_menu != 'undefined'){
