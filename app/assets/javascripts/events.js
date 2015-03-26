@@ -1,4 +1,5 @@
-$(document).on('page:change', eventFormLoad);
+$(document).ready(eventFormLoad);
+$(document).on('page:load', eventFormLoad);
 
 function toggleEventFields(speakerEvent){
 	if( speakerEvent ){
