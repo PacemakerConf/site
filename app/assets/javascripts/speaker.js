@@ -1,3 +1,7 @@
+window.onload = function(){
+	console.log('windiw onload');
+}
+
 $(document).ready(function(){
 	console.log('document ready');
 });
@@ -29,4 +33,3 @@ $(document).on('page:update', function(){
 $(document).on('page:load', function(){
 	console.log('page:load');
 });
-
