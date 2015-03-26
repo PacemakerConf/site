@@ -36,7 +36,7 @@
             <% end %></td>
         <td><%= contact.skype %></td>
         <td><%= link_to 'Edit', edit_admin_contact_path(contact), class: 'btn btn-xs btn-warning' %></td>
-        <td><%= link_to 'Destroy', admin_contact_path(contact), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger' %></td>
+        <td><%= link_to 'Delete', admin_contact_path(contact), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger' %></td>
       </tr>
     <% end %>
   </tbody>
