@@ -23,5 +23,8 @@ test:
 production: # example of postgres database
   adapter:  postgresql
   encoding: utf8
+  # database: postgres
+  # username: postgres_usr
+  # password: strong-password
   pool: 12
   wait_timeout: 10
