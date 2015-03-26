@@ -35,9 +35,9 @@
     <%= link_to 'New news', controller: 'admin/news', 
                              action: 'new',
                              conf_id: @conference.id,
-                             conf_fname: @conference.fullname , class: 'btn btn-default' %>
+                             conf_fname: @conference.fullname , :class => "btn btn-default btn-sm" %>
   <% else %>
       <%= link_to 'New news', controller: 'admin/news', 
-                             action: 'new', class: 'btn btn-default' %>
+                             action: 'new', :class => 'btn btn-default' %>
   <% end %>
 <% end %>

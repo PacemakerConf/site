@@ -1,16 +1,5 @@
 <%= form_for [:admin, @location],  html: {class: 'form-horizontal'}  do |f| %>
-  <% if @location.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@location.errors.count, "error") %> prohibited this location from being saved:</h2>
-
-      <ul>
-      <% @location.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+ 
   <div class="form-group">
     <% if params['conf_id'] %>
     <div class="col-lg-7">
@@ -67,11 +56,11 @@
       <div class="form-group" id="location-area"></div>
     </div>
   </div>
-
-  <%= render "admin/share/wysiwyg" %> 
+  
   <div class="form-group">
     <%= f.label :how_to_find, class: "col-lg-2 control-label" %>
     <div class="col-lg-7">
+      <%= render "admin/share/wysiwyg" %> 
       <div id="editor" class="well col-md-9 form-control"></div>
     </div>
       <%= hidden_field( :location, :how_to_find, class: 'wysiwyg_textarea') %>

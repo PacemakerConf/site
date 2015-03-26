@@ -33,10 +33,11 @@
     </div>
   </div>
 
-  <%= render "admin/share/wysiwyg" %> 
+  
   <div class="form-group">
     <%= f.label :content, class: "col-lg-2 control-label" %>
     <div class="col-lg-7">
+    <%= render "admin/share/wysiwyg" %> 
       <div id="editor" class="well col-md-9 col-lg-7 form-control"></div>
     </div>
       <%= hidden_field( :year, :content, class: 'wysiwyg_textarea') %>
