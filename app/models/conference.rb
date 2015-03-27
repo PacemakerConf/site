@@ -12,7 +12,6 @@ class Conference < ActiveRecord::Base
 	validates :year_id, presence: true
 	validates :date, inclusion: { in: Time.now..Time.new(Year::LAST_YEAR)} if 
 		StrictValidation.enabled?
-					 
 	# validates_with Validators::ConferenceUniquenessValidator, on: [:create, :update]
 					 
 	def fullname

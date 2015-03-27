@@ -80,10 +80,14 @@ class Admin::SpeakersController < Admin::ApplicationController
   # DELETE /speakers/1
   # DELETE /speakers/1.json
   def destroy
-    @speaker.destroy
-    respond_to do |format|
-      format.html { redirect_to admin_speakers_url, notice: 'Speaker was successfully destroyed.' }
-      format.json { head :no_content }
+    if @speaker.events.count === 0
+      @speaker.destroy
+      respond_to do |format|
+        format.html { redirect_to admin_speakers_url, notice: 'Speaker was successfully destroyed.' }
+        format.json { head :no_content }
+      end
+    else
+      redirect_to admin_speakers_path, notice: 'You can\'t delete speaker, if it has at least 1 event!'
     end
   end
 
