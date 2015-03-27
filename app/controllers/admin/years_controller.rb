@@ -1,6 +1,6 @@
 class Admin::YearsController < Admin::ApplicationController
   before_action :authenticate_admin!
-  before_action :set_year, only: [:publish, :show, :edit, :update, :destroy]
+  before_action :set_year, only: [:publish, :show, :edit, :update]
 
   layout 'admin'
 
@@ -59,16 +59,6 @@ class Admin::YearsController < Admin::ApplicationController
         format.html { render :edit }
         format.json { render json: @year.errors, status: :unprocessable_entity }
       end
-    end
-  end
-
-  # DELETE /years/1
-  # DELETE /years/1.json
-  def destroy
-    @year.destroy
-    respond_to do |format|
-      format.html { redirect_to admin_years_url, notice: 'Year was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
