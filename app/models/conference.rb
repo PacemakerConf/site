@@ -1,13 +1,11 @@
 class Conference < ActiveRecord::Base
 	require 'validators.rb'
 
-	has_many :events
 	has_many :speakers, through: :events
-	has_many :news
-
-	has_one :location
-	has_one :report
-
+	has_many :events, dependent: :destroy
+	has_many :news, dependent: :destroy
+	has_one :location, dependent: :destroy
+	has_one :report, dependent: :destroy
 	belongs_to :year	
 
 	validates :name, presence: true
