@@ -6,6 +6,8 @@ class Invitation < ActiveRecord::Base
 	validates :email, presence: true,
 		email_format: { message: "doesn't look like an email address" }
 
+	attr_accessor :host	
+
 	delegate :content, to: :message, prefix: true
 	
 	class LinkHelper
@@ -15,15 +17,16 @@ class Invitation < ActiveRecord::Base
 	def initialize(args = {})
 		super(args)
 		self.email_hash = ::BCrypt::Password.create("#{email}", :cost => Invitation::COST).to_s if email
+		@host = args[:host] || "http://localhost:3000"
 	end	
 
-	def self.generate_link(email, email_hash)
+	def self.generate_link
 		LinkHelper.new.link_to('Click here to create profile', 
-			"http://localhost:3000"+Rails.application.routes.url_helpers.new_speaker_path(hash: email_hash))
+	  @host + Rails.application.routes.url_helpers.new_speaker_path(hash: email_hash))
 	end
 
-	def self.invite_speaker(email, email_hash, message)
-  	  message = message.gsub!(Message::TOKEN_REGEXP, Invitation.generate_link(email, email_hash))
+	def invite_speaker
+  	  message = message_content.gsub!(Message::TOKEN_REGEXP, generate_link(host))
 	    InviteMailer.speaker_invite(email, message).deliver 
 	end	
 
