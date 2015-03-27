@@ -26,7 +26,7 @@ class Invitation < ActiveRecord::Base
 	end
 
 	def invite_speaker
-  	  message = message_content.gsub!(Message::TOKEN_REGEXP, generate_link(host))
+  	  message = message_content.gsub!(Message::TOKEN_REGEXP, generate_link)
 	    InviteMailer.speaker_invite(email, message).deliver 
 	end	
 
