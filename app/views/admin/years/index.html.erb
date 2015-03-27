@@ -8,24 +8,22 @@
         <th>Conference count</th>
         <th>Publish</th>
         <th>Edit</th>
-        <th>Delete</th>
     </tr>
   </thead>
   <tbody>
-      <% @years.each do |year| %>
-      <tr id='<%= year.name %>_row' >
-          <td><%= year.name %></td>
-          <td><%= year.content.html_safe %>
-          <td><%= Conference.where(year: year.name.to_i).count %></td>
-         <td class = 'publish'>
-            <% if year.published %>
-              Published
-            <% else %>
-              <%= link_to 'Publish', publish_admin_year_path(year), method: :patch, remote: true, class: 'btn btn-xs btn-primary' %>              
-            <% end %>
-          </td>
-           <td><%= link_to 'Edit', edit_admin_year_path(year), class: 'btn btn-xs btn-warning' %></td>
-          <td><%= link_to 'Destroy', admin_year_path(year), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger' %></td>
+    <% @years.each do |year| %>
+    <tr id='<%= year.name %>_row' >
+        <td><%= year.name %></td>
+        <td><%= year.content.html_safe %>
+        <td><%= Conference.where(year: year.name.to_i).count %></td>
+        <td class = 'publish'>
+          <% if year.published %>
+            Published
+          <% else %>
+            <%= link_to 'Publish', publish_admin_year_path(year), method: :patch, remote: true, class: 'btn btn-xs btn-primary' %>     
+          <% end %>
+        </td>
+         <td><%= link_to 'Edit', edit_admin_year_path(year), class: 'btn btn-xs btn-warning' %></td>
       </tr>
     <% end %>
   </tbody>
