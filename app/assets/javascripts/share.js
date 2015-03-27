@@ -5,14 +5,12 @@ function pageLoad(){
 
 	//datatable
 		(function(){
-		if( !$('#dataTableLoaded')[0] ){
+		if( $('.data_table') ){
 			$('.data_table').dataTable({
-        	paging: true,
-			dom: 'Rlfrtip',
-			"order": [[ 0, "desc" ]]
+       	paging: true,
+				dom: 'Rlfrtip',
+				"order": [[ 0, "desc" ]]
 	    });
-
-	    $('body').append("<div id='dataTableLoaded'></div>");
   	}
 	})();
 

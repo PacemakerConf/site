@@ -20,10 +20,6 @@ class Admin::ConferencesController < Admin::ApplicationController
     @report = @conference.report
   end
 
-  def speakers
-    @speakers = @conference.speakers
-  end
-
   def schedule
     groupable = EventType.where(groupable: 1)
     @eventsGroupable = @conference.events.where(event_type: groupable).order(:position)
@@ -42,13 +38,6 @@ class Admin::ConferencesController < Admin::ApplicationController
 
   def index
     @conferences = Conference.all
-  end
-
-  def show
-    topic = EventType.where(name: 'topic')
-    lightning = EventType.where(name: 'lightning')
-    @topics = @conference.events.where(event_type: topic)
-    @lightnings = @conference.events.where(event_type: lightning)
   end
 
   # GET /conferences/new
