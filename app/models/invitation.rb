@@ -20,7 +20,7 @@ class Invitation < ActiveRecord::Base
 		@host = args[:host] || "http://localhost:3000"
 	end	
 
-	def self.generate_link
+	def generate_link
 		LinkHelper.new.link_to('Click here to create profile', 
 	  @host + Rails.application.routes.url_helpers.new_speaker_path(hash: email_hash))
 	end
