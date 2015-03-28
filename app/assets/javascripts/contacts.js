@@ -1,7 +1,5 @@
 $(document).on("page:change", function(){
 
-  
-
   $('[name="commit"]').click(function(){
     var mails = '';
     var emailRegEx = /^\w+@\w+\.[a-z]+$/i;
