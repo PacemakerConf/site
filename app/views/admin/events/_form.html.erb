@@ -74,7 +74,7 @@
     </div>
   </div>
 
-  <%= f.hidden_field :published, value: false %>
+  <%= f.hidden_field :published %>
   <%= f.hidden_field :position, value: @event.position || Event.get_new_position(params[:conf_id]) %>
 
   <div class="form-group">

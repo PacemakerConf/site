@@ -4,9 +4,9 @@ class Event < ActiveRecord::Base
 	belongs_to :speaker
 	belongs_to :event_type
 
-	has_attached_file :materials,
-										storage: :dropbox,
-										dropbox_credentials: Rails.root.join("config/dropbox.yml")
+	has_attached_file :materials#,
+										#storage: :dropbox,
+										#dropbox_credentials: Rails.root.join("config/dropbox.yml")
 
 	validates :title, presence: true
 	validates :conference_id, presence: true
