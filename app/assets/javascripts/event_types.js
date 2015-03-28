@@ -40,11 +40,8 @@ function setDefaultData(){
         response.durationMin = '0' + response.durationMin 
       }
       speakerEvent = response.speakerEvent.toString() === 'true';
-      if(speakerEvent){
-        event_title.value = '';
-      }
-      else{
-        event_title.value = response.defaultName;
+      if(!speakerEvent){
+        event_title.value = response.defaultName;     
       }
       event_duration_4i.value = response.durationHour;
       event_duration_5i.value = response.durationMin;
