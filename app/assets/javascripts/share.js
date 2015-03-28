@@ -1,14 +1,20 @@
-$(document).on('page:change', pageLoad);
+$(document).ready(pageLoad);
+$(document).on('page:load', pageLoad);
 
 function pageLoad(){
 
 	//datatable
-	if( !$('#dataTableLoaded')[0] ){
-		$('.data_table').dataTable({
-    });
+		(function(){
+		if( !$('#dataTableLoaded')[0] ){
+			$('.data_table').dataTable({
+        	paging: true,
+			dom: 'Rlfrtip',
+			"order": [[ 0, "desc" ]]
+	    });
 
-    $('body').append("<div id='dataTableLoaded'></div>");
-	}
+	    $('body').append("<div id='dataTableLoaded'></div>");
+  	}
+	})();
 
 	// fileinput
 	if($('.file_input')){
@@ -31,13 +37,11 @@ function pageLoad(){
 	}
 
 	// data picker
-	if($('#datetimepicker')){
-		$('#datetimepicker').datetimepicker({
+	if($('.datetimepicker')){
+		$('.datetimepicker').datetimepicker({
 			stepping: 15
 			// minDate: 01/01/2010
 			// maxDate: 31/12/2050
 		});
 	}
-
 }
-

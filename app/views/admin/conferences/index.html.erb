@@ -1,10 +1,10 @@
 <p id="notice"><%= notice %></p>
-<h1>Listing Conferences</h1>
+<h1>Conferences</h1>
 
 <table class="display data_table" width="100%" cellspacing="0">
   <thead>
     <tr>
-        <th>Conference Name</th>
+        <th>Name</th>
         <th>Year</th>
         <th>Date</th>
         <th>Attenders</th>
@@ -19,14 +19,14 @@
   </thead>
   <tbody>
       <% @conferences.each do |conference| %>
-      <tr id='<%= conference.fullname %>_row' >
+      <tr id='<%= conference.fullname %>_row'>
           <td><%= link_to conference.name, {controller: 'admin/events', action: 'index', conf_id: conference.id}, class: ''%></td>
           <td><%= conference.year.name %></td>
           <td><%= conference.date %></td>
           <td><%= conference.attenders %></td>
           <td><%= link_to 'Schedule', schedule_admin_conference_path(conference.route), class: ''%></td>
           <td><%= unless(conference.location.nil?)
-                    link_to "#{conference.location.address}, #{conference.location.city}", {controller: 'admin/locations', action: 'edit', id: conference.location.id, conf_id: conference.id, conf_fname: conference.fullname}, class: ''
+                    link_to "#{conference.location.full_address}", {controller: 'admin/locations', action: 'edit', id: conference.location.id, conf_id: conference.id, conf_fname: conference.fullname}, class: ''
                   else
                     link_to "Create Location", {controller: 'admin/locations', action: 'new', conf_id: conference.id, conf_fname: conference.fullname}, class: 'btn btn-xs btn-primary'
                   end %></td>
@@ -52,7 +52,7 @@
             <% end %>
           </td>
           <td><%= link_to 'Edit', edit_admin_conference_path(conference.route), class: 'btn btn-xs btn-warning' %></td>
-          <td><%= link_to 'Destroy', admin_conference_path(conference.route), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger' %></td>
+          <td><%= link_to 'Delete', admin_conference_path(conference.route), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger' %></td>
       </tr>
     <% end %>
   </tbody>

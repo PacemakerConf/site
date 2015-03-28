@@ -44,7 +44,7 @@ class Admin::ContactsController < Admin::ApplicationController
   def update
     respond_to do |format|
       if @contact.update(contact_params)
-        format.html { redirect_to [:admin, @contact], notice: 'Contact was successfully updated.' }
+        format.html { redirect_to admin_contacts_path, notice: 'Contact was successfully updated.' }
         format.json { render :show, status: :ok, location: @contact }
       else
         format.html { render :edit }
@@ -71,6 +71,6 @@ class Admin::ContactsController < Admin::ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def contact_params
-      params.require(:contact).permit(:name, :surname, :telephone, :email, :skype, :location_ids => [], emails_attributes: [:id, :email, :_destroy])
+      params.require(:contact).permit(:name, :surname, :telephone, :email, :skype, :location_ids => [])
     end
 end

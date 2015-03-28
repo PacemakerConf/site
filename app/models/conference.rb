@@ -1,7 +1,5 @@
 class Conference < ActiveRecord::Base
 	require 'validators.rb'
-  
-
 
 	has_many :events
 	has_many :speakers, through: :events
@@ -24,7 +22,7 @@ class Conference < ActiveRecord::Base
 	end
 
 	def route
-		name.to_s + "-" + year.name.to_s
+		name.to_s + '-' + year.name.to_s
 	end
 
 	def self.last_conference_route
@@ -36,4 +34,3 @@ class Conference < ActiveRecord::Base
 		end
 	end		
 end
-

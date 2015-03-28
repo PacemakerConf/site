@@ -25,7 +25,7 @@ ul.conference-menu li {
 
 .conference-menu li img{
   height: 65px;
-  width: 60px;
+  width: 65px;
 }
 
 .conference-menu p{
@@ -33,12 +33,12 @@ ul.conference-menu li {
   text-decoration:none;
   color: white; 
   background: transparent; 
-  margin: -50px 0px 0 0px; 
+  margin: -45px 0px 0 0px; 
   z-index: 2;
 }
 
 .conference-menu li div{
-  margin: -56px 5px 0 5px; 
+  margin: -56px 0 0 0; 
   width:inherit;
   text-align: center;
 }
@@ -56,10 +56,13 @@ ul.conference-menu li {
 /*.conference-menu li img:hover{
   height: 100%;
   width: 75px;
-  margin: -10px; 
+  margin: -12px 0 0 0; 
 }*/
-/*  box-shadow:0 0 15px #00aaff;
-  border:1px solid #00aaff;*/
+
+/*.flag-year-image-container img:hover{
+  box-shadow:0 0 15px #00aaff;
+  border:1px solid #00aaff;
+}*/
 
 .flag-image-container, .flag-year-image-container {
     position: relative;
@@ -72,14 +75,6 @@ ul.conference-menu li {
    width: 100%; 
    text-decoration: none;
 }
-
-/*.flag-year-image-container img {  
-}*/
- 
-/*.flag-year-image-container img:hover{
-  box-shadow:0 0 15px #00aaff;
-  border:1px solid #00aaff;
-}*/
 
 .hovered{
   -webkit-filter: contrast(200%); 

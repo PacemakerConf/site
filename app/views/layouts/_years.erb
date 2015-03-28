@@ -1,0 +1,17 @@
+<% Year.all.each do |year| %>
+
+	<% if can? :read, year %>
+		<div id='year-<%= year.name %>-box' class='year-box 
+			<%= year.published ? '' : 'unpublished' %> unvisible'>
+			<div class='year-name'>
+				<%= year.name %>
+			</div>
+			<div class='year-description'>
+				<% if year.content %>
+					<%= year.content %>
+				<% end %>
+			</div>
+		</div>
+	<% end %>
+
+<% end %>

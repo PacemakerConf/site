@@ -12,12 +12,13 @@
 							<%= link_to( image_tag( speaker.photo.url(:thumb), class: 'photo', alt: speaker.name), speaker ) %>
 						</div>
 						<div class="speech-conteiner col-lg-6">
-							<div class='speech-info'>
-								<h4><%= topic.title %></h4>
-							</div>
 							<div class='speaker-name speech-info'>
 								<%= link_to speaker.fullname, speaker_path(speaker) %>
 							</div>
+							<div class='speech-info'>
+								<h4><%= topic.title %></h4>
+							</div>
+							
 						</div>
 					</div>
 				<% end %>
@@ -35,12 +36,12 @@
 							<%= link_to( image_tag( speaker.photo.url(:thumb), class: 'photo', alt: speaker.name ), speaker ) %>
 						</div>
 							<div class="speech-conteiner col-lg-6">
-								<div class='speech-info'>
-									<h4><%= lightning.title%></h4>
-								</div>
 								<div class='speaker-name speech-info'>
 									<%= link_to speaker.fullname, speaker_path(speaker) %>
 								</div>
+								<div class='speech-info'>
+									<h4><%= lightning.title%></h4>
+								</div>	
 							</div>
 						</div>
 				<% end %>

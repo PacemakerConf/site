@@ -6,8 +6,6 @@ gem 'paperclip', '~> 4.2'
 gem 'wicked', '~> 1.1.1'
 gem 'bootstrap-wysiwyg-rails'
 gem 'email_validator'
-gem 'nested_form'
-gem 'geocoder'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use SCSS for stylesheets
@@ -22,10 +20,12 @@ gem 'mail'
 #email validator
 gem 'validates_email_format_of'
 
+gem "paperclip-dropbox", ">= 1.1.7"
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 group :assets do 
-  #gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
+  gem 'jquery-datatables-rails'#, github: 'rweng/jquery-datatables-rails'
   gem 'jquery-ui-rails'
 end
 gem 'will_paginate'

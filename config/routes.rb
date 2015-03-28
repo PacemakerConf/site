@@ -15,7 +15,6 @@ Rails.application.routes.draw do
   
     root 'conferences#index'
     resources :conferences, param: :name do
-
       member do
         get 'schedule'
       end

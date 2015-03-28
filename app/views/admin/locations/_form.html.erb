@@ -42,12 +42,10 @@
     </div>
   </div>
 
-  <div class="form-group">
-    <%= f.label "map", class: "col-lg-2 control-label" %>
-    <div class="col-lg-7">
-      <div id="map"></div>
-    </div>
-  </div>
+  <input type="hidden" name="location[latitude]" value="">
+  <input type="hidden" name="location[longitude]" value="">
+
+  <div id="map-area"></div>
 
   <div class="form-group">
     <%= f.label :contact_id, 'Contact', class: "col-lg-2 control-label" %>
@@ -55,12 +53,11 @@
       <%= select_tag 'location[contact_ids][]', options_from_collection_for_select(@contacts, 'id', :full_name), class: "form-control" %>
       <div class="form-group" id="location-area"></div>
     </div>
-  </div>
-  
+  </div>  
   <div class="form-group">
     <%= f.label :how_to_find, class: "col-lg-2 control-label" %>
     <div class="col-lg-7">
-      <%= render "admin/share/wysiwyg" %> 
+    <%= render "admin/share/wysiwyg" %> 
       <div id="editor" class="well col-md-9 form-control"></div>
     </div>
       <%= hidden_field( :location, :how_to_find, class: 'wysiwyg_textarea') %>
@@ -68,7 +65,7 @@
 
   <div class="form-group">
     <div class="col-lg-10 col-lg-offset-2">
-      <%= f.submit class: "btn btn-primary"%>
+      <%= f.submit class: "btn btn-primary", id:"maps_button"%>
     </div>
   </div>
 <% end %>

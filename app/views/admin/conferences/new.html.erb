@@ -13,7 +13,6 @@
 <legend>New Conference</legend>
 
 <%= render 'form' %>
-<br>
-<ul class="pager">
-    <li class="previous"><%= link_to 'Back', admin_conferences_path %></li>
-</ul> 
+
+<%= link_to 'Back', admin_conferences_path, class: "btn btn-default" %> 
+</fieldset>

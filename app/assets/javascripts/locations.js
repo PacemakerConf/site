@@ -7,9 +7,19 @@ $(document).on("page:change", function(){
       addItemTarget: 'top'
     });  
   }
-  
-  var map;
-  if($("#map").length){
+
+  $(".adr").bind("keypress", function () {
+      var DivForMap = 
+  '<div class="form-group">'+
+    '<label class="col-lg-2 control-label">Map</label>'+
+      '<div class="col-lg-7">'+
+        '<div id="map"></div>'+
+      '</div>'+
+  '</div>'
+  $("#map-area").append(DivForMap);
+  $('.adr').unbind('keypress');
+
+   if($("#map").length){
     map = new GMaps({
           div: '#map',
           lng: 0,
@@ -18,6 +28,8 @@ $(document).on("page:change", function(){
     });
   }
 
+  });
+  
   $(".adr").keyup(function(){
     var splittedResult = '';
     $.each($(".adr"),function(index,obj){
@@ -30,7 +42,7 @@ $(document).on("page:change", function(){
       address: splittedResult,
       callback: function(results, status) {
         if (status === 'OK') {
-          var latlng = results[0].geometry.location;
+          latlng = results[0].geometry.location;
           map.setCenter(latlng.lat(), latlng.lng());
           map.removeMarkers();
           map.addMarker({
@@ -41,4 +53,10 @@ $(document).on("page:change", function(){
         }
     });
   });
+
+  $('#maps_button').click(function(){
+    $('[name="location[latitude]"]').val(latlng.k);
+    $('[name="location[longitude]"]').val(latlng.D);
+  });
+
 });

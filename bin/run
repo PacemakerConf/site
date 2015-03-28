@@ -1,0 +1,1 @@
+SECRET_KEY_BASE=fb0ec83cf25b5fee7f444fa99dafa4fc0695efe0414f8144a9a3737e2bd27eca4fd4cca90589adde33642ce43d2c893f9f0badf2d924aa64556ff22ac7a1b197 rails s -e production

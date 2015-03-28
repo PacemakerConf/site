@@ -2,13 +2,13 @@ class Flag
 
 	GREY_DARK = 'GREYdark.png'
 	GREY_LIGHT = 'GREYlight.png'
-	GREY = 'GREY.png'
+	GREY = 'greyflag.png'
 	RED_LIGHT = 'REDlight.png'
-	RED = 'RED.png'
+	RED = 'redflag.png'
 	GREEN_LIGHT = 'GREENlight.png'
-	GREEN = 'GREEN.png'
+	GREEN = 'greenflag.png'
 	BLUE_LIGHT = 'BLUElight.png'
-	BLUE = 'BLUE.png'
+	BLUE = 'blueflag.png'
 	
 	attr_accessor :display, :image_path
 
