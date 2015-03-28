@@ -1,3 +1,5 @@
+require 'socket'
+
 class Admin::SpeakersController < Admin::ApplicationController
   before_action :authenticate_admin!
   before_action :set_speaker, only: [:show, :edit, :update, :destroy]
@@ -32,13 +34,15 @@ class Admin::SpeakersController < Admin::ApplicationController
     @invite = Invitation.new(
       email: params[:invitation][:email], 
       conference_id: params[:invitation][:conference_id],
-      status: params[:invitation][:status] 
+      status: params[:invitation][:status],
+      host: get_host
     )
     message = Message.new(content: params[:invitation][:message]).create_if_new
     @invite.message = message
     respond_to do |format|
       if @invite.save && message.valid?
-        Invitation.invite_speaker(@invite.email, @invite.email_hash, @invite.message_content)
+        @invite.invite_speaker
+        #Invitation.invite_speaker(@invite.email, @invite.email_hash, @invite.message_content)
         format.html { redirect_to admin_invitations_path, notice: 'Invitation was successfully sent.' }
       else
         format.html { render :invite, notice: 'Invitation was not sent.' }
@@ -101,5 +105,9 @@ class Admin::SpeakersController < Admin::ApplicationController
     def speaker_params
       params.require(:speaker).permit(:name, :surname, :position, :photo, :description, :email, :facebook, :linkedin, :site, :twitter)
     end
+
+    def get_host
+      [80, 8080].include?(request.port) ? request.host : request.host_with_port
+    end  
 
 end
