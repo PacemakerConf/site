@@ -59,13 +59,17 @@ class Admin::EventTypesController < Admin::ApplicationController
   # DELETE /event_types/1
   # DELETE /event_types/1.json
   def destroy
-    @event_type.destroy
-    respond_to do |format|
-      format.html { redirect_to admin_event_types_url, notice: 'Event type was successfully destroyed.' }
-      format.json { head :no_content }
+    if @event_type.events.count === 0
+      @event_type.destroy
+      respond_to do |format|
+        format.html { redirect_to admin_event_types_url, notice: 'Event type was successfully destroyed.' }
+        format.json { head :no_content }
+      end
+    else
+      redirect_to admin_event_types_path, notice: 'You can\'t delete event type, if it has at least 1 event!'
     end
   end
-
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event_type

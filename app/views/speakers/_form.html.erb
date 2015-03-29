@@ -36,10 +36,10 @@
       <%= f.text_field :position, class: "form-control" %>
     </div>
   </div>
-    <%= render "admin/share/wysiwyg" %> 
   <div class="form-group">
     <%= f.label :description, 'Description*', class: "col-lg-2 control-label"%>
     <div class="col-lg-7">
+    <%= render "admin/share/wysiwyg" %> 
      <div id="editor" class="well col-md-9 form-control"></div>
     </div>
       <%= hidden_field( :speaker, :description, class: 'wysiwyg_textarea') %>
@@ -81,7 +81,7 @@
   
   <div class="form-group">
     <div class="col-lg-7 col-lg-offset-2">
-      <%= f.submit %>
+      <%= f.submit class: "btn btn-primary"%>
     </div>
   </div>
 <% end %>

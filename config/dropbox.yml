@@ -1,0 +1,12 @@
+dropbox_credentials: {
+	app_key: "omv150ywq56b5je"
+	app_secret: "7bfpnbwk936v7vv"
+	access_token: "j3ub78dlug7m9kcz"
+	access_token_secret: "8ytrt3sdeq4stsy"
+	user_id: "404305788"
+	access_type: "app_folder"
+}
+
+dropbox_options: {
+	path:  proc { |style| "materials/#{id}/#{style}/#{material.original_filename}" }
+}
