@@ -4,7 +4,7 @@ class SpeakerRequestMailer < ActionMailer::Base
 		@name = name
 	  	@email = email
 		@comment = comment
-		mail(from: "markoshchutskyy@gmail.com", subject: "Request to be a speaker") do |format|
+		mail(from: "sysstemtest@gmail.com", subject: "Request to be a speaker") do |format|
 		format.html { render 'mailers/speaker_request' }
 		format.text { render 'mailers/speaker_request' }
 		end	

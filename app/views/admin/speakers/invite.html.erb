@@ -35,8 +35,7 @@
     <div class="col-lg-7">
       <%= render "admin/share/wysiwyg" %> 
       <div id="editor" class="well col-md-9 form-control"></div>
-      <!-- <div class="help-blocks"> -->
-      <div>
+      <div class="help-blocks">
         <%= text_area_tag("invitation[message]", invite_message, size: "15x6", class: 'wysiwyg_textarea') %>
       </div>
       <div class="alert alert-dismissible alert-warning">

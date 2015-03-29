@@ -16,8 +16,6 @@ function pageLoad(){
   	}
 	})();
 
-
-
 	// fileinput
 	if($('.file_input')){
 		$(".file_input").fileinput({
