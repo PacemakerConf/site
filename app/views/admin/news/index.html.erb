@@ -8,7 +8,7 @@
     <tr>
         <th>Title</th>
         <th>Description</th>
-        <th>Conference_id</th>
+        <th>Conference name</th>
         <th>Edit</th>
         <th>Delete</th>
     </tr>
@@ -35,9 +35,9 @@
     <%= link_to 'New news', controller: 'admin/news', 
                              action: 'new',
                              conf_id: @conference.id,
-                             conf_fname: @conference.fullname %>
+                             conf_fname: @conference.fullname , :class => "btn btn-default btn-sm" %>
   <% else %>
       <%= link_to 'New news', controller: 'admin/news', 
-                             action: 'new' %>
+                             action: 'new', :class => 'btn btn-default' %>
   <% end %>
 <% end %>

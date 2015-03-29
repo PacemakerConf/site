@@ -1,8 +1,6 @@
 <%= form_for( [:admin, @conference], html: {class: 'form-horizontal'} ) do |f| %>
 
-  <% if @conference.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@conference.errors.count, "error") %> prohibited this conference from being saved:</h2>
+
 
       <ul>
       <% @conference.errors.full_messages.each do |message| %>

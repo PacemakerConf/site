@@ -1,16 +1,5 @@
 <%= form_for [:admin, @location],  html: {class: 'form-horizontal'}  do |f| %>
-  <% if @location.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@location.errors.count, "error") %> prohibited this location from being saved:</h2>
-
-      <ul>
-      <% @location.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+ 
   <div class="form-group">
     <% if params['conf_id'] %>
     <div class="col-lg-7">
@@ -64,9 +53,7 @@
       <%= select_tag 'location[contact_ids][]', options_from_collection_for_select(@contacts, 'id', :full_name), class: "form-control" %>
       <div class="form-group" id="location-area"></div>
     </div>
-  </div>
-
-  
+  </div>  
   <div class="form-group">
     <%= f.label :how_to_find, class: "col-lg-2 control-label" %>
     <div class="col-lg-7">
