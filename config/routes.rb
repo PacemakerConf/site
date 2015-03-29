@@ -43,6 +43,7 @@ Rails.application.routes.draw do
         get 'invite', to: 'speakers#invite'
         #get 'list', to: 'speakers#list'
         post 'send', to: 'speakers#send_invitation'
+        get 'search', to: 'speakers#search'
       end
     end 
     resources :years do
