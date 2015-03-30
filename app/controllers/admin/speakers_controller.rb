@@ -8,10 +8,10 @@ class Admin::SpeakersController < Admin::ApplicationController
 
   def search
     pattern = params[:pattern]
-    @speakers_list = '<ul class="">'
+    @speakers_list = '<ul class="speakers-list">'
     speakers = Speaker.where("name like '#{pattern}%' or surname like '#{pattern}%'").limit(5)
     speakers.each do |speaker|
-      @speakers_list += '<li onclick="chooseSpeaker(' + speaker.id.to_s + ', \'' + speaker.fullname.to_s + '\')">' + speaker.fullname + '</li>'
+      @speakers_list += '<li onclick="setSpeaker(' + speaker.id.to_s + ', \'' + speaker.fullname.to_s + '\')">' + speaker.fullname + '</li>'
     end
     @speakers_list == '</ul>'
     @speakers_list = '' if pattern == ''

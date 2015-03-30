@@ -34,7 +34,7 @@ function toggleEventFields(speakerEvent){
 	}
 }
 
-function chooseSpeaker(speaker_id, speaker_fullname){
+function setSpeaker(speaker_id, speaker_fullname){
 	$('#event_speaker_id').val(speaker_id);
 	$('#speaker_search').val(speaker_fullname );
 	$('#speakers-list').html('');
