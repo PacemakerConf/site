@@ -28,6 +28,8 @@
       <%= f.file_field :materials, class: "btn btn-default file_input" %>
     </div>
   </div>
+
+  <div id="form-area"></div>
   
   <%= f.hidden_field :conference_id, value: @conference_id %> 
   <%= f.hidden_field :published, value: false %>
@@ -40,22 +42,27 @@
   </div>
 <% end %>
 
+<a class="btn-default btn-sm btn-warning" id ="add_form">Add one more</a>
+
 <script type = "text/javascript">
 
-  $("#add_button").click(function() {
+  $("#add_form").click(function() {
      var divHTML = 
       '<div class="form-group ">'+
-       '<label class="col-lg-2 control-label label_contact">Form</label>'+
-        '<div class="col-lg-7 contact_form">'+
-          '<input class="form-control mail-adreess" type="text" >'+
+       '<label class= "col-lg-2 control-label">title</label>'+
+        '<div class="col-lg-10">'+
+          '<input class="form-control" type="text" >'+
         '</div>'+
-        '<a class="remove_nested_fields btn-default btn-sm btn-danger" id="remove_button_contact" onclick="RemoveMail(this);return false;">-</a>'+
+        // '<label class="col-lg-2 control-label label_contact">description</label>'+
+        // '<div class="col-lg-7 contact_form">'+
+        //   '<input class="form-control mail-adreess" type="text" >'+
+        // '</div>'+
+        '<a class="remove_nested_fields btn-default btn-sm btn-danger" id="remove_button_contact" onclick="RemoveForm(this);return false;">Remove</a>'+
       '</div>';
-      $("#mail-area").append(divHTML);
+      $("#form-area").append(divHTML);
   });
-
   
-  function RemoveMail(button){
+  function RemoveForm(button){
     $(button).parent().remove();
   }
 
