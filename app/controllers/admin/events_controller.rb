@@ -47,7 +47,7 @@ class Admin::EventsController < Admin::ApplicationController
     @conference = Conference.find(event_params[:conference_id])
     respond_to do |format|
       if @event.save
-        format.html { redirect_to schedule_admin_conference_path(@conference), notice: 'event was successfully created.' }
+        format.html { redirect_to controller: 'admin/events', action: 'index', conf_id: @conference.id }
         format.json { render :show, status: :created, location: @event }
       else
         format.html { render :new }
@@ -75,7 +75,7 @@ class Admin::EventsController < Admin::ApplicationController
   def destroy
     @event.destroy
     respond_to do |format|
-      format.html { redirect_to admin_events_url, notice: 'event was successfully destroyed.' }
+      format.html { redirect_to controller: 'admin/events', action: 'index', conf_id: @event.conference_id }
       format.json { head :no_content }
     end
   end

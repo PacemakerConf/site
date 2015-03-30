@@ -47,7 +47,7 @@
       <span class="idItems" style= "display: none;"><%= event.id %></span>
       <span class="positionItems" style="display: none;"><%= @@positionNumber %><% @@positionNumber += 1 %></span>
       <span class="groupableItems" style="display: none;" >0</span>
-      <% unless event.speaker_id.nil? %>
+      <% unless event.speaker.nil? %>
             <span style="position:relative;float:right;"><%= link_to "-" + event.speaker.name + " " + event.speaker.surname, event.speaker %></span>
       <% end %>
     </li>
