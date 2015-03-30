@@ -75,7 +75,7 @@ class Admin::EventsController < Admin::ApplicationController
   def destroy
     @event.destroy
     respond_to do |format|
-      format.html { redirect_to admin_events_url, notice: 'event was successfully destroyed.' }
+      format.html { redirect_to controller: 'admin/events', action: 'index', conf_id: @event.conference_id }
       format.json { head :no_content }
     end
   end
