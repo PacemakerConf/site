@@ -27,18 +27,41 @@ function setFlagColors(){
 		else {
 			$('#' + active_conference + '-' + active_year).children().children('img').attr('src', '/assets/blueflag.png');
 		};
-		// Add style to conference flag on hover
-		$('.flag-image-container').hover(function(){
-	    $(this).addClass('hovered');
-		},function(){
-		    $(this).removeClass('hovered');
-		});
-		// Add style to year flag on hover
-		$('.flag-year-image-container').hover(function(){
-	    $(this).addClass('hovered');
-		},function(){
-		    $(this).removeClass('hovered');
-		});
+		
+		// // Add style to conference flag on hover
+		// $('.flag-image-container').hover(function(){
+	 //    $(this).addClass('hovered');
+		// },function(){
+		//     $(this).removeClass('hovered');
+		// });
+		// // Add style to year flag on hover
+		// $('.flag-year-image-container').hover(function(){
+	 //    $(this).addClass('hovered');
+		// },function(){
+		//     $(this).removeClass('hovered');
+		// });
+////////////////////
+
+		// // Add style to conference flag on hover
+		// $('#' + active_conference + '-' + last_year).on('hover', function(){
+	 //    $(this).children().children('img').attr('src', '/assets/greenflag.png');
+		// }).on('hover', function(){
+	 //    $(this).children().children('img').attr('src', '/assets/greyflag.png');
+		// });
+
+		// $('#' + active_conference + '-' + active_year).on('click hover', function(){
+	 //    $(this).children().children('img').attr('src', '/assets/blueflag.png');
+		// }).on('click hover', function(){
+	 //    $(this).children().children('img').attr('src', '/assets/greyflag.png');
+		// });
+
+		// $('#flag-'+ active_year).on('click hover', function(){
+	 //    $(this).children().children('img').attr('src', '/assets/redflag.png');
+		// }).on('click hover', function(){
+	 //    $(this).children().children('img').attr('src', '/assets/greyflag.png');
+		// });
+
+/////////////////
 
 		// Show all conference flags of current year on click and hide other flags
 		$('.flag-year-image-container').click(function(){
@@ -50,11 +73,11 @@ function setFlagColors(){
 			for(var i = 0; i < years.length; i++){
 				if(years[i] != year){
 					$('.conference-' + years[i]).hide();
-					$('#flag-' + '&nbsp' + years[i]).children('img').attr('src', '/assets/greyflag.png');
+					$('#flag-' + years[i]).children('img').attr('src', '/assets/greyflag.png');
 				}
 				else{
 					$('.conference-' + years[i]).fadeToggle();
-					$('#flag-' + '&nbsp' + years[i]).children('img').attr('src', '/assets/redflag.png');
+					$('#flag-' + years[i]).children('img').attr('src', '/assets/redflag.png');
 				}	
 			}
 		});

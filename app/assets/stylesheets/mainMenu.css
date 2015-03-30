@@ -8,10 +8,10 @@
   display: inline-block;
 }
 
-/*.main-menu ul div li p a{
+.main-menu ul div li p a{
   color: white;
   background-color: transparent;
-}*/
+}
 
 ul.conference-menu {
   display: table;   /* Allow the centering to work */
@@ -25,7 +25,7 @@ ul.conference-menu li {
 
 .conference-menu li img{
   height: 65px;
-  width: 65px;
+  width: 60px;
 }
 
 .conference-menu p{
@@ -35,10 +35,6 @@ ul.conference-menu li {
   background: transparent; 
   margin: -45px 0px 0 0px; 
   z-index: 2;
-  word-spacing: 9999px;
-/*  white-space: nowrap;
-  word-break: break-all !important;*/
-/*  word-wrap:break-word;*/
 }
 
 .conference-menu li div{
@@ -47,48 +43,50 @@ ul.conference-menu li {
   text-align: center;
 }
 
-/*.conference-menu li div a{
-  color: #F6F6F6;
+.conference-menu li div a{
+  color: white;
 }
 
 .conference-menu li div a:hover{
   color: white;
   text-decoration: none;
   background: inherit;
-}*/
+}
 
 /*.conference-menu li img:hover{
   height: 100%;
   width: 75px;
   margin: -12px 0 0 0; 
-}*/
-
-/*.flag-year-image-container img:hover{
   box-shadow:0 0 15px #00aaff;
   border:1px solid #00aaff;
 }*/
 
-/*.flag-image-container, .flag-year-image-container {
+.flag-image-container, .flag-year-image-container {
     position: relative;
-}*/
+}
 
-/*.flag-text{
+.flag-text{
   position: absolute; 
    top: 65px; 
    left: 0; 
    width: 100%; 
+   color: white;
    text-decoration: none;
+   word-spacing: 9999px;
+}
+
+/*.hovered{
+  -webkit-filter: contrast(200%); 
+  filter: contrast(200%);  
+  letter-spacing: 0.1em;
+  font-weight: bold;
+  cursor: pointer;
 }*/
 
-.hovered{
-/*  -webkit-filter: contrast(200%); 
-  filter: contrast(200%);  */
-  letter-spacing: 0.1em;
 /*  font-size:1em;*/
-  font-weight: bold;
 
 /*  margin: -10px 0px;
-  height: 75px;*/
+    height: 75px;*/
 /*    word-wrap: break-word;*/
 /*  white-space: pre-wrap;*/
   
@@ -97,4 +95,3 @@ ul.conference-menu li {
 /*  width: 60px;*/
 /*  box-shadow:0 0 15px #00aaff;
   border:1px solid #00aaff;*/
-}
