@@ -8,6 +8,9 @@
   background-color: white;
 }
 
+.wisywyg-not-admin{
+  color: #f6f6f6;
+}
 
 #location-area{
   margin-bottom:0; 
@@ -32,3 +35,4 @@
 .contact-det p{
   margin-bottom:5px;
 }
+

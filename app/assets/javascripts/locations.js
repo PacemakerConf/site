@@ -55,8 +55,8 @@ $(document).on("page:change", function(){
   });
 
   $('#maps_button').click(function(){
-    $('[name="location[latitude]"]').val(latlng.k);
-    $('[name="location[longitude]"]').val(latlng.D);
+   $('[name="location[latitude]"]').val(latlng.k);
+   $('[name="location[longitude]"]').val(latlng.D);
   });
 
 });

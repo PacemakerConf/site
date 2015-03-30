@@ -26,10 +26,12 @@ gem "paperclip-dropbox", ">= 1.1.7"
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+
 group :assets do 
   gem 'jquery-datatables-rails'#, github: 'rweng/jquery-datatables-rails'
   gem 'jquery-ui-rails'
 end
+
 gem 'will_paginate'
 gem 'momentjs-rails', '>= 2.8.1'
 gem 'twitter-bootstrap-rails'
