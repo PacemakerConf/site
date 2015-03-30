@@ -1,7 +1,7 @@
 <div class="container">
 <div class="main-menu">
 
-	<% conferences, years, last_year = MainMenu.params %>
+	<% years, last_year = MainMenu.params %>
 	<% if @conference %>
 		<% active_year = @conference.year.name.to_i %>
 	<% elsif @year %>
@@ -34,7 +34,7 @@
 				<p class='flag-text'> <%= year.name %> </p> 
 			</li>
 
-			<% conferences.where(year: year).order(date: :asc).each do |conference| %>
+			<% year.conferences.order(date: :asc).each do |conference| %>
 
 				<% if conference === @conference && year === last_year%>
 					<% flag = Flag.new('image_path' => Flag::GREY,
