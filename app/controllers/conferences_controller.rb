@@ -12,8 +12,9 @@ class ConferencesController < ApplicationController
   end
 
   def speakers
-    speaker_event = EventType.where(speakerEvent: true)
-    @events = @conference.events.where(event_type: speaker_event)
+    @speakers = @conference.speakers.uniq
+    # speaker_event = EventType.where(speakerEvent: true)
+    # @events = @conference.events.where(event_type: speaker_event)
   end
 
   def schedule

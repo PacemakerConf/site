@@ -1,37 +1,36 @@
 <% content_for :title, @conference.fullname %>
+<% @speakers.each do |speaker| %>
+	<div class='row'>	
+		<div class = 'full-speaker-container col-lg-7 col-md-7 col-xs-7'>
+			<div class = 'photo-and-links'>
+				<div class = 'speaker-photo'>
+					<%= link_to( image_tag( speaker.photo.url(:thumb), class: 'photo', alt: speaker.fullname ), speaker ) %>
+					<ul class="speaker-contacts">
+						<% icons = ['facebook', 'linkedin', 'twitter', 'email', 'site'] %>
 
-<% @events.each do |event| %>
-	<% if can? :read, event %>
-
-		<div class="row speakers-det <%= event.published ? "" : "unpublished" %> ">
-			<div class = 'full-speaker-container col-lg-7 col-md-7 col-xs-7'>
-				<div class = 'photo-and-links'>
-					<div class = 'speaker-photo'>
-						<%= link_to( image_tag( event.speaker.photo.url(:thumb), class: 'photo', alt: event.speaker.fullname ), event.speaker ) %>
-						<ul class="speaker-contacts">
-							<% icons = ['facebook', 'linkedin', 'twitter', 'email', 'site'] %>
-
-							<% icons.each do |icon| %>
-								<% unless event.speaker[icon].to_s === '' %>
-									<li>
-										<%= link_to( image_tag(icon + "0.svg"), event.speaker[icon] ) %>
-									</li>
-								<% end %>
+						<% icons.each do |icon| %>
+							<% unless speaker[icon].to_s === '' %>
+								<li>
+									<%= link_to( image_tag(icon + "0.svg"), speaker[icon] ) %>
+								</li>
 							<% end %>
-						</ul>
-					</div>
+						<% end %>
+					</ul>
 				</div>
-				<div class = 'speaker-about'>
-					<div class='speaker-name speech-info'>
-						<%= link_to event.speaker.fullname, speaker_path(event.speaker) %>
-					</div>
-					<div><i>position: </i><%= event.speaker.position %></div>
-					<div><i>about: </i><%= event.speaker.description.html_safe %></div>
-
-				</div>	
 			</div>
+			<div class = 'speaker-about'>
+				<div class='speaker-name speech-info'>
+					<%= link_to speaker.fullname, speaker_path(speaker) %>
+				</div>
+				<div><i>position: </i><%= speaker.position %></div>
+				<div><i>about: </i><%= speaker.description.html_safe %></div>
 
-			<div class = 'speech-about col-lg-5 col-md-5 col-xs-5'>
+			</div>	
+		</div>
+
+		<% speaker.events.where(conference: @conference).each do |event| %>
+
+			<div class = 'speech-about col-lg-5 col-md-5 col-xs-5 '>
 				<div><strong><%= event.title %></strong></div>
 				<div><%= event.description %></div>
 				<div>
@@ -44,7 +43,6 @@
 	        <% end %>
 				</div>
 			</div>
-		</div>
-
-	<% end %>
+		<% end %>
+	</div>
 <% end %>
