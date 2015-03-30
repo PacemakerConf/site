@@ -8,8 +8,8 @@
   background-color: white;
 }
 
-.wisywyg-not-admin{
-  color: #f6f6f6;
+.container #wisywyg_container{
+  background-color: #f6f6f6;
 }
 
 #location-area{
