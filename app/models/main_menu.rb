@@ -1,11 +1,10 @@
 class MainMenu
 
 	def self.params
-		conferences = Conference.all.order(date: :asc)
-		years = Year.all.order(name: :asc)
+		years = Year.all.order(name: :asc).includes(:conferences)
 		last_year = years[-1]
 		
-		return conferences, years, last_year
+		return years, last_year
 	end
 
 end

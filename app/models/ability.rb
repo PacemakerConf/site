@@ -9,14 +9,20 @@ class Ability
       can :create, Event
       can :create, Speaker
       cannot :read, Event, published: false
-      cannot :read, Conference, published: false
-      cannot :read, Year, published: false
+      cannot :read, Conference, published: false 
+      cannot :read, Year, published: false 
+      cannot :read, Event, published: nil
+      cannot :read, Conference, published: nil 
+      cannot :read, Year, published: nil 
     elsif user.role == User::GUEST
       can :read, :all
       can :create, Speaker
-      cannot :read, Event, published: false
-      cannot :read, Conference, published: false
-      cannot :read, Year, published: false
+      cannot :read, Event, published: false 
+      cannot :read, Conference, published: false 
+      cannot :read, Year, published: false 
+      cannot :read, Event, published: nil 
+      cannot :read, Conference, published: nil 
+      cannot :read, Year, published: nil 
     end
   end
 
