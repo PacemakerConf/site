@@ -347,6 +347,7 @@ DEPENDENCIES
   paperclip (~> 4.2)
   paperclip-dropbox (>= 1.1.7)
   pg
+  pry
   rails (= 4.2.0)
   rails_12factor
   rspec-rails

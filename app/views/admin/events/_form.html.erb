@@ -35,13 +35,13 @@
   </div>
 
   <div class="form-group" id='event_speaker_id_group'>
-    <%= f.label :speaker_id, 'Speaker*', class: "col-lg-2 control-label"%>
+    <%= label_tag "speaker_search", 'Speaker*', class: "col-lg-2 control-label"%>
     <div class="col-lg-10">
-      <%= select_tag 'event[speaker_id]', content_tag(:option,'No speaker', value: "")+options_from_collection_for_select(Speaker.all, 'id', 'fullname', @event.speaker_id || ''), class: "form-control" %>
+      <%= text_field_tag "speaker_search", nil, class: 'form-control', autocomplete: "off"%>
+      <%= f.hidden_field :speaker_id, class: 'form-control' %>
     </div>
+    <div id='speakers-list' class='col-lg-10 col-lg-offset-2'></div>
   </div>
-
-  <div id='speakersList'> </div>
 
   <div class="form-group" id='event_materials_group'>
     <%= f.label :materials, class: "col-lg-2 control-label"%>
