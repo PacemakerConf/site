@@ -37,7 +37,7 @@
   <div class="form-group" id='event_speaker_id_group'>
     <%= label_tag "speaker_search", 'Speaker*', class: "col-lg-2 control-label"%>
     <div class="col-lg-10">
-      <%= text_field_tag "speaker_search", nil, class: 'form-control', autocomplete: "off"%>
+      <%= text_field_tag "speaker_search", @event.speaker ? @event.speaker.fullname : nil, class: 'form-control', autocomplete: "off"%>
       <%= f.hidden_field :speaker_id, class: 'form-control' %>
     </div>
     <div id='speakers-list' class='col-lg-10 col-lg-offset-2'></div>
