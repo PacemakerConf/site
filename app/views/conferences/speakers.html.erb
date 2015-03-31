@@ -1,20 +1,27 @@
 <% content_for :title, @conference.fullname %>
-
-<% @events.each do |event| %>
-	<% if can? :read, event %>
-
-		<div class="row speakers-det <%= event.published ? "" : "unpublished" %> ">
+<% @speakers.each do |speaker| %>
+	<div class='row'>	
+		<% visible_speaker = false %>
+		<% events = speaker.events.where(conference: @conference) %>
+		<% events.each do |e| %>
+			<% visible_speaker = true if can? :read, e %>
+		<% end %>
+		<% if visible_speaker %>
 			<div class = 'full-speaker-container col-lg-7 col-md-7 col-xs-7'>
 				<div class = 'photo-and-links'>
 					<div class = 'speaker-photo'>
-						<%= link_to( image_tag( event.speaker.photo.url(:thumb), class: 'photo', alt: event.speaker.fullname ), event.speaker ) %>
+						<%= link_to( image_tag( speaker.photo.url(:thumb), class: 'photo', alt: speaker.fullname ), speaker ) %>
 						<ul class="speaker-contacts">
-							<% icons = ['facebook', 'linkedin', 'twitter', 'email', 'site'] %>
+							<% icons = ['email', 'facebook', 'linkedin', 'twitter', 'site'] %>
 
 							<% icons.each do |icon| %>
-								<% unless event.speaker[icon].to_s === '' %>
+								<% unless speaker[icon].to_s === '' %>
 									<li>
-										<%= link_to( image_tag(icon + "0.svg"), event.speaker[icon] ) %>
+										<% if icon == 'email' %>
+											<%= link_to( image_tag(icon + "0.svg"), 'mailto:' + speaker[icon] ) %>
+										<% else %>
+											<%= link_to( image_tag(icon + "0.svg"), speaker[icon] ) %>
+										<% end %>
 									</li>
 								<% end %>
 							<% end %>
@@ -23,28 +30,31 @@
 				</div>
 				<div class = 'speaker-about'>
 					<div class='speaker-name speech-info'>
-						<%= link_to event.speaker.fullname, speaker_path(event.speaker) %>
+						<%= link_to speaker.fullname, speaker_path(speaker) %>
+						<i><%= speaker.position %></i>
 					</div>
-					<div><i>position: </i><%= event.speaker.position %></div>
-					<div><i>about: </i><%= event.speaker.description.html_safe %></div>
+					<div><%= speaker.description.html_safe %></div>
 
 				</div>	
 			</div>
+		<% end %>
 
-			<div class = 'speech-about col-lg-5 col-md-5 col-xs-5'>
-				<div><strong><%= event.title %></strong></div>
-				<div><%= event.description %></div>
-				<div>
-					<br>
-					<% if event.materials.exists? %>
-	          <%= link_to "", event.materials.url(:original, false), class:"btn btn-default btn-xs glyphicon glyphicon-download-alt" %>
-	        <% end %>
-	        <% unless event.video.to_s === '' %>
-	          <%= link_to '', event.video, class:"btn btn-default btn-xs glyphicon glyphicon-play" %>
-	        <% end %>
+		<% speaker.events.where(conference: @conference).each do |event| %>
+			<% if can? :read, event %>
+				<div class = 'speech-about <%= event.published ? "" : "unpublished" %> col-lg-5 col-md-5 col-xs-5 '>
+					<div><strong><%= event.title %></strong></div>
+					<div><%= event.description %></div>
+					<div>
+						<br>
+						<% if event.materials.exists? %>
+		          <%= link_to "", event.materials.url(:original, false), class:"btn btn-default btn-xs glyphicon glyphicon-download-alt" %>
+		        <% end %>
+		        <% unless event.video.to_s === '' %>
+		          <%= link_to '', event.video, class:"btn btn-default btn-xs glyphicon glyphicon-play" %>
+		        <% end %>
+					</div>
 				</div>
-			</div>
-		</div>
-
-	<% end %>
+			<% end %>
+		<% end %>
+	</div>
 <% end %>

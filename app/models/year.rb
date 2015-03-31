@@ -4,5 +4,6 @@ class Year < ActiveRecord::Base
 	has_many :conferences
 
 	validates :name, presence: true, 
-					 uniqueness: true
+	   				 uniqueness: true,
+	   				 inclusion: 2012..Year::LAST_YEAR
 end

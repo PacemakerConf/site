@@ -9,9 +9,7 @@ function eventFormLoad(){
 	}
 
 	if($('#speaker_search')[0]){
-		console.log('search field');
 		$('#speaker_search').keyup(function(){
-			console.log('key up');
 			$.ajax({
 				url: '/admin/speakers/search?pattern=' + $('#speaker_search').val()
 			})
