@@ -1,5 +1,5 @@
 $(document).on("page:change", function(){
-  $('#multiselect').attr("multiple", "multiple").attr("title","Select a contact");
+  $('#multiselect').attr("multiple", "multiple").attr("title","Select contact");
 
 
   if($("select[multiple]")){
@@ -8,8 +8,6 @@ $(document).on("page:change", function(){
   }
 
   $('#bsmSelectbsmContainer0').addClass('form-control');
-  $('.bsmListItem').addClass('list-group-item');
-
 
   $(".adr").bind("keypress", function () {
       var DivForMap = 

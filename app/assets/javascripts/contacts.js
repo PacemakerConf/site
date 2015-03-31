@@ -32,9 +32,11 @@ $(document).on("page:change", function(){
       });
       if(isCorrect)
         $('[name="contact[email]"]').val(mails);
-
-      return isCorrect;
+        return isCorrect;
     });
+
+    
+
 });
 
 var divError =
