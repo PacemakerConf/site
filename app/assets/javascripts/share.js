@@ -9,10 +9,12 @@ function pageLoad(){
 			$('.data_table').dataTable({
        	paging: true,
 				dom: 'Rlfrtip',
-				"order": [[ 0, "desc" ]]
+				"order": [[ 0, "desc" ]],
+				"aoColumnDefs": [{ "bSortable": false, "aTargets": [-1, -2] }]
 	    });
   	}
 	})();
+	
 
 	// fileinput
 	if($('.file_input')){
