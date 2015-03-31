@@ -1,11 +1,9 @@
 $(document).on("page:change", function(){
-  $('#location_contact_ids_').removeAttr('id','none').attr("multiple", "multiple").attr("title","Select a contact");
+  $('#multiselect').attr("multiple", "multiple").attr("title","Select a contact");
 
   if($("select[multiple]")){
     $("select[multiple]").bsmSelect();
-    $("select[multiple]").bsmSelect({
-      addItemTarget: 'top'
-    });  
+    $(".bsmListItemRemove").click();
   }
 
   $(".adr").bind("keypress", function () {
@@ -55,8 +53,8 @@ $(document).on("page:change", function(){
   });
 
   $('#maps_button').click(function(){
-    $('[name="location[latitude]"]').val(latlng.k);
-    $('[name="location[longitude]"]').val(latlng.D);
+   $('[name="location[latitude]"]').val(latlng.k);
+   $('[name="location[longitude]"]').val(latlng.D);
   });
 
 });

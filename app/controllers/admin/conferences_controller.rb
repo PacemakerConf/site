@@ -37,7 +37,7 @@ class Admin::ConferencesController < Admin::ApplicationController
   end
 
   def index
-    @conferences = Conference.all
+    @conferences = Conference.all.includes(:year, :location, :report, :news)
   end
 
   # GET /conferences/new
@@ -101,12 +101,12 @@ class Admin::ConferencesController < Admin::ApplicationController
         name = input.slice(0, border)
         year = input.slice(border+1, 4)
         year = Year.where(name: year)[0]
-        @conference = Conference.where(name: name).where(year: year)[0]
+        @conference = year.conferences.where(name: name)[0]
       end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def conference_params
-      params.require(:conference).permit(:name, :year_id, :date, :registration_deadline, :attenders, :group_event)
+      params.require(:conference).permit(:name, :year_id, :date, :registration_deadline, :attenders, :group_event, :video, :photo)
     end
 end

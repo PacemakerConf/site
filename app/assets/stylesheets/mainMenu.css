@@ -75,17 +75,16 @@ ul.conference-menu li {
     position: relative;
 }*/
 
-.flag-text :hover{
+/*.flag-text :hover{
   content:url("/assets/redflag.png");
   position: absolute;
-/*  border: 1px solid black;*/
-/*  margin-top: -25px;*/
+  border: 1px solid black;
+  margin-top: -25px;
   z-index: 1;
-}
+}*/
 
 .flag-year-image-container img:hover{
   content:url("/assets/redflag.png");
-    border: 1px solid black;
 }
 
 .flag-image-container img:hover{

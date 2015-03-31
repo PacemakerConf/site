@@ -27,7 +27,7 @@ function setFlagColors(){
 		else {
 			$('#' + active_conference + '-' + active_year).children().children('img').attr('src', '/assets/blueflag.png');
 		};
-/////////////	
+
 		// Add style to conference flag on hover
 		$('.flag-image-container').hover(function(){
 	    $(this).addClass('hovered');
@@ -40,35 +40,22 @@ function setFlagColors(){
 		},function(){
 		    $(this).removeClass('hovered');
 		});
-////////////////////
-
 
 		// .css('background-image','url(background.png)');
 		// .css('box-shadow', '2px 2px 2px #555');
 		// .css({ boxShadow: '1px 3px 6px #444' })
 		// .toggleClass( "newClass", 200 ), function(){
-  		// $('.flag-year-image-container').find('img').css('box-shadow', '2px 2px 2px #555');
 
-
-		// Add style to conference flag on hover
-
-		// $('.flag-image-container').hover(function(){
-		// 	console.log('.flag-image-container');
-	 //    	$(this).find('img').attr('src', '/assets/blueflag.png');
-		// },function(){
-	 //    	$(this).find('img').attr('src', '/assets/greyflag.png');
-		// });
+		$('#' + active_conference + '-' + last_year).hover(function(){
+			console.log('.flag-image-container');
+	    	$(this).find('img').attr('src', '/assets/greenflag.png');
+		},function(){
+	    	$(this).find('img').attr('src', '/assets/greyflag.png');
+		});
 
 // var today = new Date();
 //  if ('#' + conference + '-' + active_year > today){
 // 		$('#' + conference + '-' + active_year).hover(function(){
-
-// 			console.log('#' + conference + '-' + active_year);
-// 	    	$(this).find('img').attr('src', '/assets/greenflag.png');
-// 		},function(){
-// 	    	$(this).find('img').attr('src', '/assets/greyflag.png');
-// 		});
-// };
 
 		// Show all conference flags of current year on click and hide other flags
 		$('.flag-year-image-container').click(function(){

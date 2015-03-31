@@ -32,10 +32,10 @@
 
 <% if can? :create, News %>
   <% if @conference %>
-    <%= link_to 'New news', controller: 'admin/news', 
+    <%= link_to 'New news',{ controller: 'admin/news', 
                              action: 'new',
                              conf_id: @conference.id,
-                             conf_fname: @conference.fullname , :class => "btn btn-default btn-sm" %>
+                             conf_fname: @conference.fullname }, :class => "btn btn-default btn-sm" %>
   <% else %>
       <%= link_to 'New news', controller: 'admin/news', 
                              action: 'new', :class => 'btn btn-default' %>
