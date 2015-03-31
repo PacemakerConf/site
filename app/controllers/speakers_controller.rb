@@ -1,6 +1,6 @@
 class SpeakersController < ApplicationController
 
-  before_action :set_speaker, only: [:show, :edit, :update, :destroy]
+  before_action :set_speaker, only: [:show, :edit, :update]
  
   def show
   end
@@ -9,15 +9,30 @@ class SpeakersController < ApplicationController
     @speaker = Speaker.new
   end
 
+  def edit
+  end
+
   def create
     @speaker = Speaker.new(speaker_params)
     @invite = Invitation.where(email_hash: params['speaker']['email_hash'])[0]
-    @invite.status = 'Registred'
+    @invite.status = 'Complete'
     @invite.save
 
     respond_to do |format|
       if @speaker.save
         format.html { redirect_to controller: 'events', action: 'new', hash: params["speaker"]["email_hash"], speaker_id: @speaker.id }
+        format.json { render :show, status: :created, location: @speaker }
+      else
+        format.html { redirect_to controller: 'speakers', action: 'new', hash: params['speaker']['email_hash']}
+        format.json { render json: @speaker.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def update
+    respond_to do |format|
+      if @speaker.update(speaker_params)
+       format.html { redirect_to controller: 'events', action: 'new', hash: params["speaker"]["email_hash"], speaker_id: @speaker.id }
         format.json { render :show, status: :created, location: @speaker }
       else
         format.html { redirect_to controller: 'speakers', action: 'new', hash: params['speaker']['email_hash']}

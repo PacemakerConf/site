@@ -21,8 +21,13 @@ class Invitation < ActiveRecord::Base
 	end	
 
 	def generate_link
-		LinkHelper.new.link_to('Click here to create profile', 
-	  @host + Rails.application.routes.url_helpers.new_speaker_path(hash: email_hash))
+	  if speaker = Speaker.where(email: email)[0]
+	  	LinkHelper.new.link_to('Click here to create profile', 
+	  	@host + Rails.application.routes.url_helpers.edit_speaker_path(speaker, hash: email_hash))
+	  else
+	  	LinkHelper.new.link_to('Click here to create profile', 
+	  	@host + Rails.application.routes.url_helpers.new_speaker_path(hash: email_hash))
+	  end
 	end
 
 	def invite_speaker
