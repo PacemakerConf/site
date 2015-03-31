@@ -50,7 +50,7 @@
   <div class="form-group">
     <%= f.label :contact_id, 'Contact', class: "col-lg-2 control-label" %>
     <div class="col-lg-7">
-      <%= select_tag 'location[contact_ids][]', options_from_collection_for_select(@contacts, 'id', :full_name), class: "form-control" %>
+      <%= select_tag 'location[contact_ids][]', options_from_collection_for_select(@contacts, 'id', :full_name), class: "form-control", id: "multiselect" %>
       <div class="form-group" id="location-area"></div>
     </div>
   </div>  
@@ -69,6 +69,10 @@
     </div>
   </div>
 <% end %>
+
+<script type="text/javascript">
+
+</script>
 
 
 
