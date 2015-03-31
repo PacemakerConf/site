@@ -1,6 +1,6 @@
 $(document).on("page:change", function(){
 
-  $("#add_button").click(function() {
+    $("#add_button").click(function() {
      var divHTML = 
       '<div class="form-group ">'+
        '<label class="col-lg-2 control-label label_contact">Email</label>'+
