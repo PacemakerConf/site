@@ -16,11 +16,10 @@ class SpeakersController < ApplicationController
   def create
     @speaker = Speaker.new(speaker_params)
     @invite = Invitation.where(email_hash: params['speaker']['email_hash'])[0]
-    @invite.status = 'Complete'
-    @invite.save
-
     respond_to do |format|
       if @speaker.save
+        @invite.status = 'Complete'
+        @invite.save
         format.html { redirect_to controller: 'events', action: 'new', hash: params["speaker"]["email_hash"], speaker_id: @speaker.id }
         format.json { render :show, status: :created, location: @speaker }
       else
