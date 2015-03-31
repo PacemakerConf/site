@@ -22,7 +22,7 @@ class Speaker < ActiveRecord::Base
 
 	def self.search pattern
 		speakers_list = '<ul class="speakers-list">'
-    speakers = Speaker.where("name LIKE '#{pattern}%' or surname LIKE '#{pattern}%'").limit(5)
+    speakers = Speaker.where("name ILIKE '#{pattern}%' or surname ILIKE '#{pattern}%'").limit(5)
     speakers.each do |speaker|
       if speaker.name.to_s.downcase.index(pattern).to_s == '0'
         name = speaker.name.to_s
