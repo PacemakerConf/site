@@ -19,4 +19,6 @@ describe Invitation do
  	   expect(FactoryGirl.build(:invitation, message_id: nil)).not_to be_valid
 	end
 
+	it { should belong_to(:message) }
+
 end

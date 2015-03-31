@@ -17,6 +17,10 @@ describe Speaker do
 	it { should validate_presence_of(:position) }
 	
 	it { should validate_presence_of(:description) }
+
+	it { should validate_presence_of(:email) }
+
+	it { should validate_uniqueness_of(:email) }
 	
 	it 'return speakers full name ' do
 		speaker = FactoryGirl.build(:speaker)
