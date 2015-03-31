@@ -1,21 +1,17 @@
 // console.log('schedule.js');
-
 $(document).on('page:change', function () { 
 	scheduleChange();                    
     $( "#sortable" ).sortable({
 		update: function( event, ui ) { scheduleChange(); sendAJAX(); }
 	});             
 });
-
 function scheduleChange(){
 	// console.log('scheduleChange()');
 	timestartItems = $('.timestart');
 	durationItems = $('.duration');
-
 	if ( timestartItems.length === durationItems.length) {
 		var currentTime = [9,0];
 		var pause = 5;
-
 		for (var i = 0; i < timestartItems.length; i++) {
 			var stringTime = "";
 			if(currentTime[0] < 10){
@@ -43,71 +39,69 @@ function scheduleChange(){
 	};
 
 }
-
 function parseTime(durationItem){
 	durationArray = durationItem.innerHTML.split(":");
 	durationArray[0] = parseInt(durationArray[0]);
 	durationArray[1] = parseInt(durationArray[1]);
 	return durationArray;
 }
-
 function sendAJAX(){
-
 	$('#AjaxButton').addClass('btn-warning');
 	$('#AjaxButton').html('Working');
-	$('.alert').removeClass('alert-info');
+	$('.alert').removeClass('alert-info alert-success alert-danger');
 	$('.alert').addClass('alert-warning');
 	$('.alert').html('Status: Working');
-
     idItems = $('.idItems');
     positionItems = $('.positionItems');
     groupableItems = $('.groupableItems');
-	
 	var queryLine = "/admin/events/position.json";
 	var idString = "";
 	var posString = "";
 	for (var i = 0; i < idItems.length; i++){
 		if ( positionItems[i].innerHTML != i ) {
-			positionItems[i].innerHTML = i;
-
 			if(groupableItems[i].innerHTML > 0 ){
 				idString += idItems[i].innerHTML;
 				for (var j = 0; j < groupableItems[i].innerHTML; j++) {
-					posString += positionItems[i].innerHTML + ',';
+					posString += i + ',';
 				};
 			}
 			else{
 				idString += idItems[i].innerHTML + ',';
-				posString += positionItems[i].innerHTML + ',';
+				posString += i + ',';
 			}
 			
 		};
 	}
 	queryLine += "?position=" + posString + "&id=" + idString;
-	console.log(queryLine);
-
+	// console.log(queryLine);
 	$.getJSON( queryLine, function( response ) {
 		$('#AjaxButton').removeClass('btn-warning');
 		$('.alert').removeClass('alert-warning');
-	    if( response.status == "Done" ){		
+	    if( response.status === 'Done' ){		
    			$('#AjaxButton').addClass('btn-success');
    			$('.alert').addClass('alert-success');
+   			$('.alert').html('Status: Current schedule saved on the server.')
+   			for (var i = 0; i < idItems.length; i++){
+				positionItems[i].innerHTML = i;
+			}
         }
         else{
    			$('#AjaxButton').addClass('btn-danger');
    			$('.alert').addClass('alert-danger');
+   			var statusFail = 'Schedule has not been saved on server. Please try again later. If the error persists, contact your administrator.' + response.status;
+   			$('.alert').html(statusFail);
         }
         $('#AjaxButton').html(response.status);
-        $('.alert').html('Status:' + response.status);
-	}).fail(function(){  
+	}).fail(function( jqxhr, textStatus, error ){  
 			$('#AjaxButton').removeClass('btn-warning');
    			$('#AjaxButton').addClass('btn-danger');
-	        $('#AjaxButton').html('FAIL');
+	        $('#AjaxButton').html('Error' + error);
 	        $('.alert').removeClass('alert-warning');
 	        $('.alert').addClass('alert-danger');
-	        $('.alert').html('FAIL');
+	        var statusFail = "Problems with internet connection or server. Schedule has not been saved on server. Please try again later. If the error persists, contact your administrator. Error:" + error;
+	        $('.alert').html(statusFail);
 	        setTimeout(5000);
     });
 	setTimeout(function(){ $('#AjaxButton').removeClass('btn-success btn-danger'); $('#AjaxButton').html('Set Position'); }, 3000);
-	setTimeout(function(){ $('.alert').removeClass('alert-success alert-danger'); $('.alert').addClass('alert-info'); $('.alert').html('Status: UpTime'); }, 3000);
+	setTimeout(function(){ $('.alert').html( $('.alert').html() + ' - Waiting'); }, 3000);
  }
