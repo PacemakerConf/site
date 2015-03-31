@@ -123,6 +123,6 @@ Speaker.create!([
 ])
 
 Invitation.create!([
-  {email: "vkoldov123@gmail.com", status:"Registered", message_id: 1, conference_id: 1},
-  {email: "tolpachevlad@hotmail.com", status:"Registered", message_id: 1, conference_id: 3}
+  {email: "vkoldov123@gmail.com", status:"Complete", message_id: 1, conference_id: 1},
+  {email: "tolpachevlad@hotmail.com", status:"Complete", message_id: 1, conference_id: 3}
   ])

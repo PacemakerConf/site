@@ -47,7 +47,7 @@
   <div class="form-group">
     <%= f.label :email, class: "col-lg-2 control-label" %>
     <div class="col-lg-7">
-      <%= f.text_field :email, class: "form-control" %>
+      <%= f.text_field :email, class: "form-control", :disabled => true %>
     </div>
   </div>
   <div class="form-group">
@@ -75,7 +75,7 @@
     </div>
   </div>
 
-  <%= f.hidden_field :status, value: 'Registered' %> 
+  <%= f.hidden_field :status, value: 'Complete' %> 
   <%= f.hidden_field :email_hash, value: params[:hash] %> 
   <%= f.hidden_field :conference_id, value: params[:conference_id] %> 
   
