@@ -26,19 +26,19 @@ class Event < ActiveRecord::Base
 		position = params[:position].to_s.split(',')
     	id = params[:id].to_s.split(',')
 	    begin
-			if position.length == id.length
+		  if position.length == id.length
 	        for i in 1..id.length
 	          id_temp = id[i-1].to_i
 	          event_temp = Event.find(id_temp)
 	          event_temp.position = position[i-1]
 	          event_temp.save
 	        end
-	        return "Done"
+	        return "Done" # Work with schedule.js ~90 line
 	      else
-	        return "Fail"
+	        return "Error: position and id length do not match."
 	      end
 	    rescue
-	        return "Wrong"
+	        return "Error: Event change position don't work properly."
 	    end
 
 	end
