@@ -6,7 +6,8 @@ class SpeakersController < ApplicationController
   end
 
   def new
-    @speaker = Speaker.new
+    email = Invitation.where(email_hash: params[:hash])[0].email
+    @speaker = Speaker.new(email: email)
   end
 
   def edit
