@@ -12,7 +12,7 @@
 					<div class = 'speaker-photo'>
 						<%= link_to( image_tag( speaker.photo.url(:thumb), class: 'photo', alt: speaker.fullname ), speaker ) %>
 						<ul class="speaker-contacts">
-							<% icons = ['facebook', 'linkedin', 'twitter', 'email', 'site'] %>
+							<% icons = ['email', 'facebook', 'linkedin', 'twitter', 'site'] %>
 
 							<% icons.each do |icon| %>
 								<% unless speaker[icon].to_s === '' %>

@@ -56,10 +56,17 @@
 
 <button onclick="sendAJAX()" class="btn btn-default" id="AjaxButton" >Set Position</button>
 
-<%= link_to 'New event', controller: 'admin/events', 
-                         action: 'new',
-                         conf_id: @conference.id,
-                         conf_fname: @conference.fullname %>
+<%= link_to 'Events page', {controller: 'admin/events', 
+                       action: 'index',
+                       conf_id: @conference.id,
+                       conf_fname: @conference.fullname},
+                       class: "btn btn-default btn-sm" %>
+
+<%= link_to 'New event', {controller: 'admin/events', 
+                          action: 'new',
+                          conf_id: @conference.id,
+                          conf_fname: @conference.fullname},
+                          class: "btn btn-default btn-sm" %>
 
 <script>
   $(function() {
