@@ -6,16 +6,16 @@
     </div>
   </div>
   <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 address-box ">
-  <% unless @conference.nil? || @conference.id.nil? %>
-    <% unless(@conference.photo == "") %>
+
+    <% unless(@conference.photo.to_s === "") %>
   	  <h2>Photos</h2>
       <%= link_to image_tag("ico_photos.png", class: "report_icons"),  @conference.photo %>
     <% end %>
-    <% unless(@conference.video == "") %>
+    <% unless(@conference.video.to_s === "") %>
   	  <h2>Videos</h2>
       <%= link_to image_tag("ico_videos.png", class: "report_icons"),  @conference.video %>
     <% end %>
-  <% end %>
+
   </div>
 </div>
 
