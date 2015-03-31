@@ -148,6 +148,8 @@ describe Admin::SpeakersController do
 			expect{delete :destroy, id: @speaker}.to change(Speaker, :count).by(-1)
 		end
 
+		it 'doesn\'t delete the speaker if he has events'
+
 		it 'redirect to speakers#index' do
 			delete :destroy, id: @speaker
 			expect(response).to redirect_to admin_speakers_path

@@ -10,4 +10,3 @@ class SpeakerRequestMailer < ActionMailer::Base
 		end	
 	end
 end
-# sysstemtest@gmail.com

@@ -47,7 +47,7 @@ ul.conference-menu li {
   color: white;
 }
 
-.conference-menu li div a:hover{
+.conference-menu li div a :hover{
   color: white;
   text-decoration: none;
   background: inherit;
@@ -61,10 +61,6 @@ ul.conference-menu li {
   border:1px solid #00aaff;
 }*/
 
-.flag-image-container, .flag-year-image-container {
-    position: relative;
-}
-
 .flag-text{
   position: absolute; 
    top: 65px; 
@@ -75,23 +71,35 @@ ul.conference-menu li {
    word-spacing: 9999px;
 }
 
-/*.hovered{
-  -webkit-filter: contrast(200%); 
-  filter: contrast(200%);  
+/*.flag-image-container, .flag-year-image-container {
+    position: relative;
+}*/
+
+.flag-text :hover{
+  content:url("/assets/redflag.png");
+  position: absolute;
+/*  border: 1px solid black;*/
+/*  margin-top: -25px;*/
+  z-index: 1;
+}
+
+.flag-year-image-container img:hover{
+  content:url("/assets/redflag.png");
+    border: 1px solid black;
+}
+
+.flag-image-container img:hover{
+  content:url("/assets/blueflag.png");
+}
+
+.hovered{
+/*  -webkit-filter: contrast(120%); 
+  filter: contrast(120%);  */
   letter-spacing: 0.1em;
   font-weight: bold;
   cursor: pointer;
-}*/
+}
 
 /*  font-size:1em;*/
-
-/*  margin: -10px 0px;
-    height: 75px;*/
-/*    word-wrap: break-word;*/
-/*  white-space: pre-wrap;*/
-  
 /*  background: linear-gradient(#8E8D8D, black, transparent);*/
 /*  box-shadow: 10px 25px 30px rgba(0,0,0,.5);*/
-/*  width: 60px;*/
-/*  box-shadow:0 0 15px #00aaff;
-  border:1px solid #00aaff;*/

@@ -136,20 +136,4 @@ describe Admin::YearsController do
 			end
 		end
 	end
-
-	describe 'DELETE #destroy' do
-		before :each do
-			@year = FactoryGirl.create(:year)
-		end
-
-		it 'delete the year' do
-			expect{delete :destroy, id: @year}.to change(Year, :count).by(-1)
-		end
-
-		it 'redirect to years#index' do
-			delete :destroy, id: @year
-			expect(response).to redirect_to admin_years_path
-		end			
-	end
-
 end

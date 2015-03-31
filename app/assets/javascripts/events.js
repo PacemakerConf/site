@@ -1,6 +1,25 @@
 $(document).ready(eventFormLoad);
 $(document).on('page:load', eventFormLoad);
 
+function eventFormLoad(){
+	if(typeof event_event_type_id != 'undefined' && $('.admin_event_form').length ){
+		var speakerEvent = event_event_type_id.getAttribute("speakerEvent");
+		toggleEventFields(speakerEvent.toString() === 'true'); 		
+		setDefaultData();
+	}
+
+	if($('#speaker_search')[0]){
+		console.log('search field');
+		$('#speaker_search').keyup(function(){
+			console.log('key up');
+			$.ajax({
+				url: '/admin/speakers/search?pattern=' + $('#speaker_search').val()
+			})
+			$('#event_speaker_id').val('');		
+		})
+	}
+}
+
 function toggleEventFields(speakerEvent){
 	if( speakerEvent ){
 		$('#event_speaker_id_group').show();
@@ -17,10 +36,8 @@ function toggleEventFields(speakerEvent){
 	}
 }
 
-function eventFormLoad(){
-	if(typeof event_event_type_id != 'undefined' && $('.admin_event_form').length ){
-		var speakerEvent = event_event_type_id.getAttribute("speakerEvent");
-		toggleEventFields(speakerEvent.toString() === 'true'); 		
-		setDefaultData();
-	}
+function setSpeaker(speaker_id, speaker_fullname){
+	$('#event_speaker_id').val(speaker_id);
+	$('#speaker_search').val(speaker_fullname );
+	$('#speakers-list').html('');
 }

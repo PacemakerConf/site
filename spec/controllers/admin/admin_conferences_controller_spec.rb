@@ -26,44 +26,6 @@ describe Admin::ConferencesController do
 		end
 	end
 
-	describe 'GET #show' do
-		before :each do
-			year = FactoryGirl.create(:year)
-			@conference = FactoryGirl.create(:conference, year: year)
-		end
-	
-		it 'assigns all events of this conf, which type is topic to @topics' do
-			topic_event_type = FactoryGirl.create(:event_type, name: "topic")
-			lightning_event_type = FactoryGirl.create(:event_type, name: "lightning")
-			first_topic = FactoryGirl.create(:event, event_type: topic_event_type)
-			second_topic = FactoryGirl.create(:event, event_type: topic_event_type)
-			first_lightning = FactoryGirl.create(:event, event_type: lightning_event_type)
-			get :show, name: @conference.route
-			expect(assigns(:topics)).to eq([first_topic, second_topic])
-		end
-
-		it 'assigns all events of this conf, which type is lightning to @lightnings' do
-			topic_event_type = FactoryGirl.create(:event_type, name: "topic")
-			lightning_event_type = FactoryGirl.create(:event_type, name: "lightning")
-			first_lightning = FactoryGirl.create(:event, event_type: lightning_event_type)
-			second_lightning = FactoryGirl.create(:event, event_type: lightning_event_type)
-			first_topic = FactoryGirl.create(:event, event_type: topic_event_type)
-			get :show, name: @conference.route
-			expect(assigns(:lightnings)).to eq([first_lightning, second_lightning])
-		end
-
-		it 'assigns requested conference to @conference' do
-			get :show, name: @conference.route
-			expect(assigns(:conference)).to eq(@conference)
-		end
-
-		it 'render the :show template' do
-			get :show, name: @conference.route
-			expect(response).to render_template :show
-		end
-	end
-
-
 	describe 'GET #index' do
 		it 'assigns all conferences to @conferences' do
 			first = FactoryGirl.create(:conference)
@@ -183,6 +145,8 @@ describe Admin::ConferencesController do
 		it 'delete the conference' do
 			expect{delete :destroy, name: @conference.route}.to change(Conference, :count).by(-1)
 		end
+
+		it 'delete all events,news,report and location of this conference'
 
 		it 'redirect to conferences#index' do
 			delete :destroy, name: @conference.route

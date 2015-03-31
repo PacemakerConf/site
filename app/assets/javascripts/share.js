@@ -38,6 +38,8 @@ function pageLoad(){
 	if($('.datetimepicker')){
 		$('.datetimepicker').datetimepicker({
 			stepping: 15
+		});
+		$('.datetimepicker1').datetimepicker({
 			// minDate: 01/01/2010
 			// maxDate: 31/12/2050
 		});
