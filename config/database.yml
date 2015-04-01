@@ -20,11 +20,19 @@ test:
   <<: *default
   database: db/test.sqlite3
 
+#production: # example of postgres database
+#  adapter:  postgresql
+#  encoding: utf8
+#  pool: 12
+#  wait_timeout: 10
+
 production: # example of postgres database
   adapter:  postgresql
   encoding: utf8
-  # database: postgres
-  # username: postgres_usr
-  # password: strong-password
+  database: d7v1du40c3t4qs
+  username: pvvphfecavrozj
+  password: 0yFh5PBM-RGZBCKQlJMYRa6Goo
+  port: 5432
+  host: ec2-54-228-224-40.eu-west-1.compute.amazonaws.com
   pool: 12
   wait_timeout: 10

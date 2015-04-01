@@ -1,5 +1,5 @@
-<% deadline = @conference.registration_deadline || @conference.date z%>
-<% if deadline > Time.now %>
+<% deadline = @conference.registration_deadline || @conference.date %>
+<% if deadline && (deadline > Time.now) %>
 
 <div class="table table-responsive row col-md-10">
 	<%= label_tag 'Registration Deadline ' + @conference.registration_deadline.to_s, nil, class: 'col-md-5', style: 'font-size: 18pt' %>
