@@ -1,4 +1,6 @@
-$(document).on('ready page:load', setFlagColors);
+$(document).ready(setFlagColors);
+$(document).on('page:load', setFlagColors);
+// $(document).on('ready page:change', setFlagColors);
 
 function setFlagColors(){
 	if( typeof conference_menu != 'undefined'){
@@ -15,8 +17,8 @@ function setFlagColors(){
 			if(years[i] != active_year){
 				$('.conference-' + years[i]).hide();
 			}
-		}
-
+		}	
+	
 		$('#flag-'+ last_year).hide();
 		$('#flag-'+ active_year).children('img').attr('src', '/assets/redflag.png');
 
@@ -26,54 +28,35 @@ function setFlagColors(){
 		else {
 			$('#' + active_conference + '-' + active_year).children().children('img').attr('src', '/assets/blueflag.png');
 		};
-
-		// Add style to all flag on hover
-		for(var i = 0; i < years.length; i++){
-			$('.conference-' + years[i]).hover(function(){
-			$(this).find('img').addClass('blue-flag');
-			},function(){
-		    $(this).find('img').removeClass('blue-flag');
-		    });
-		}
-
-	    // Add style to last year flag on hover
-	    $('.conference' + '-' + last_year).hover(function(){
-		$(this).find('img').addClass('green-flag');
-		},function(){
-	    $(this).find('img').removeClass('green-flag');
-	    });
-
-		// Add style to year flag on hover
-		$('.flag-year-image-container').hover(function(){
-	    $(this).addClass('hovered').find('img').addClass('red-flag');
-		},function(){
-		$(this).removeClass('hovered').find('img').removeClass('red-flag');
-		});
-
 		// Add style to conference flag on hover
 		$('.flag-image-container').hover(function(){
 	    $(this).addClass('hovered');
 		},function(){
 		    $(this).removeClass('hovered');
 		});
-
+		// Add style to year flag on hover
+		$('.flag-year-image-container').hover(function(){
+	    $(this).addClass('hovered');
+		},function(){
+		    $(this).removeClass('hovered');
+		});
 		// Show all conference flags of current year on click and hide other flags
 		$('.flag-year-image-container').click(function(){
-		var year = this.getAttribute('year'); 	
-		$('.year-box').addClass('unvisible');
-		$('.main-content').addClass('unvisible');
-		$('#year-' + year + '-box').removeClass('unvisible');
+			var year = this.getAttribute('year'); 	
+			$('.year-box').addClass('unvisible');
+			$('.main-content').addClass('unvisible');
+			$('#year-' + year + '-box').removeClass('unvisible');
 
-		for(var i = 0; i < years.length; i++){
-			if(years[i] != year){
-			// 	$('.conference-' + years[i]).hide();
-			// 	$('#flag-' + years[i]).children('img').attr('src', '/assets/greyflag.png');
-			// }
-			// else{
-				$('.conference-' + years[i]).fadeToggle();
-				$('#flag-' + years[i]).children('img').attr('src', '/assets/redflag.png');
-			}	
-		}
+			for(var i = 0; i < years.length; i++){
+				if(years[i] != year){
+					$('.conference-' + years[i]).hide();
+					$('#flag-' + years[i]).children('img').attr('src', '/assets/greyflag.png');
+				}
+				else{
+					$('.conference-' + years[i]).fadeToggle();
+					$('#flag-' + years[i]).children('img').attr('src', '/assets/redflag.png');
+				}	
+			}
 		});
 	};
 };
