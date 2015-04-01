@@ -16,11 +16,13 @@
 							<li>
 								This time <strong><%= @conference.attenders %> lucky people</strong>
 							</li>
-							<li>
-								will meet on <strong><%=@conference.date.strftime('%B %d, %Y') %></strong>
-							</li>
-							<li>
-							in a beautiful city of <strong><%= if(@conference.location) then @conference.location.city end %></strong></li>
+								<% if @conference.date %>
+								<li>
+									will meet on <strong><%=@conference.date.strftime('%B %d, %Y') %></strong>
+								</li>
+								<li>
+								in a beautiful city of <strong><%= if(@conference.location) then @conference.location.city end %></strong></li>
+								<% end %>
 							<% end %>	
 						</ul>
 					</div>
