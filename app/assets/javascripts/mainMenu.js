@@ -30,24 +30,24 @@ function setFlagColors(){
 		// Add style to all flag on hover
 		for(var i = 0; i < years.length; i++){
 			$('.conference-' + years[i]).hover(function(){
-			$(this).find('img').addClass('blue-flag');
+				$(this).find('img').addClass('blue-flag');
 			},function(){
 		    $(this).find('img').removeClass('blue-flag');
-		    });
+		  });
 		}
 
 	    // Add style to last year flag on hover
-	    $('.conference' + '-' + last_year).hover(function(){
-		$(this).find('img').addClass('green-flag');
+	  $('.conference' + '-' + last_year).hover(function(){
+			$(this).find('img').addClass('green-flag');
 		},function(){
 	    $(this).find('img').removeClass('green-flag');
-	    });
+	  });
 
 		// Add style to year flag on hover
 		$('.flag-year-image-container').hover(function(){
 	    $(this).addClass('hovered').find('img').addClass('red-flag');
 		},function(){
-		$(this).removeClass('hovered').find('img').removeClass('red-flag');
+			$(this).removeClass('hovered').find('img').removeClass('red-flag');
 		});
 
 		// Add style to conference flag on hover
@@ -63,10 +63,10 @@ function setFlagColors(){
 
 		// Show all conference flags of current year on click and hide other flags
 		$('.flag-year-image-container').click(function(){
-		var year = this.getAttribute('year'); 	
-		$('.year-box').addClass('unvisible');
-		$('.main-content').addClass('unvisible');
-		$('#year-' + year + '-box').removeClass('unvisible');
+			var year = this.getAttribute('year'); 	
+			$('.year-box').addClass('unvisible');
+			$('.main-content').addClass('unvisible');
+			$('#year-' + year + '-box').removeClass('unvisible');
 
 		for(var i = 0; i < years.length; i++){
 			if(years[i] != year){

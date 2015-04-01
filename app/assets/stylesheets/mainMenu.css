@@ -1,5 +1,5 @@
 .main-menu {
-	margin: 0 0 55px 0;
+  margin: 0 0 55px 0;
   height: 35px;
   background-color: #002c3a;
 }
@@ -53,24 +53,32 @@ ul.conference-menu li {
   background: inherit;
 }
 
-.long-text{
-  width: 120%;
-  border: 1px solid black;
-/*  position: relative;*/
-}
-
 .flag-text{
   position: absolute; 
-/*   top: 65px; */
   color: white;
   word-spacing: 999px;
 /*   text-decoration: none;*/
 /*   background: linear-gradient(transparent, black, transparent);*/
 }
 
+.long-text{
+  width: 80px;
+  border: 1px solid black;
+/*  position: relative;*/
+}
+
 .flag-image-container, .flag-year-image-container {
     position: relative;
 }
+
+/*.flag-year-image-container img:hover{
+  width: 105%;
+  height: 75px;
+  margin: 0 20px 0 0;
+}*/
+
+/*.flag-image-container img:hover{
+}*/
 
 /*.flag-text :hover{
   background: linear-gradient(#8E8D8D, black, transparent);
@@ -91,13 +99,6 @@ ul.conference-menu li {
 .green-flag{
   content:url("/assets/greenflag.png");
 }
-
-/*.flag-year-image-container img:hover{
-  height: 80px;
-}*/
-
-/*.flag-image-container img:hover{
-}*/
 
 .hovered{
   letter-spacing: 0.1em;

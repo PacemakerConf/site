@@ -22,6 +22,7 @@
 		<%= Conference.find(@conference_id).fullname %>
 	</legend>
 		<% current_user = {'role' => User::SPEAKER}%>
+    <% @readonly = false %>
 		<%= render 'form' %>
 <% else %>
 	</legend>
