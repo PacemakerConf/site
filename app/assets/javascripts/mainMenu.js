@@ -1,3 +1,5 @@
+$(document).on('ready page:load', setFlagColors)
+
 function setFlagColors(){
 	console.log('load');
 	if( typeof conference_menu != 'undefined'){
