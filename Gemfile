@@ -8,6 +8,7 @@ gem 'paperclip', '~> 4.2'
 gem 'wicked', '~> 1.1.1'
 gem 'bootstrap-wysiwyg-rails'
 gem 'email_validator'
+gem 'client_side_validations'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use SCSS for stylesheets
