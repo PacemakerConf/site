@@ -8,11 +8,11 @@ class Speaker < ActiveRecord::Base
 		medium: '300x300>'
 	}
 
-	#validates :name, presence: true
-	#validates :surname, presence: true
-	#validates :position, presence: true
-	#validates :description, presence: true
-  #validates :email, presence: true, 
+	validates :name, presence: true
+	validates :surname, presence: true
+	validates :position, presence: true
+	validates :description, presence: true
+  validates :email, presence: true 
                     #uniqueness: true
 	#validates_format_of :email, :multiline => true, :with => /^(|(([A-Za-z0-9]+_+)|([A-Za-z0-9]+\-+)|([A-Za-z0-9]+\.+)|([A-Za-z0-9]+\++))*[A-Za-z0-9]+@((\w+\-+)|(\w+\.))*\w{1,63}\.[a-zA-Z]{2,6})$/i
 
