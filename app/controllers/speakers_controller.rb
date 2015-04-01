@@ -20,7 +20,7 @@ class SpeakersController < ApplicationController
       if @speaker.save
         @invite.status = 'Complete'
         @invite.save
-        format.html { redirect_to controller: 'events', action: 'new', hash: params["speaker"]["email_hash"], speaker_id: @speaker.id }
+        format.html { redirect_to controller: 'events', action: 'new', hash: params['speaker']['email_hash'], speaker_id: @speaker.id }
         format.json { render :show, status: :created, location: @speaker }
       else
         format.html { redirect_to controller: 'speakers', action: 'new', hash: params['speaker']['email_hash']}
@@ -32,7 +32,7 @@ class SpeakersController < ApplicationController
   def update
     respond_to do |format|
       if @speaker.update(speaker_params)
-       format.html { redirect_to controller: 'events', action: 'new', hash: params["speaker"]["email_hash"], speaker_id: @speaker.id }
+       format.html { redirect_to controller: 'events', action: 'new', hash: params['speaker']['email_hash'], speaker_id: @speaker.id }
         format.json { render :show, status: :created, location: @speaker }
       else
         format.html { redirect_to controller: 'speakers', action: 'new', hash: params['speaker']['email_hash']}

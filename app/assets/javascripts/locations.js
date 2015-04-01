@@ -1,10 +1,13 @@
 $(document).on("page:change", function(){
-  $('#multiselect').attr("multiple", "multiple").attr("title","Select a contact");
+  $('#multiselect').attr("multiple", "multiple").attr("title","Select contact");
+
 
   if($("select[multiple]")){
     $("select[multiple]").bsmSelect();
     $(".bsmListItemRemove").click();
   }
+
+  $('#bsmSelectbsmContainer0').addClass('form-control');
 
   $(".adr").bind("keypress", function () {
       var DivForMap = 
