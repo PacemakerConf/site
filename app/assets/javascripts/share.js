@@ -1,5 +1,4 @@
-$(document).ready(pageLoad);
-$(document).on('page:load', pageLoad);
+$(document).on('ready page:load', pageLoad);
 
 function pageLoad(){
 
@@ -14,7 +13,6 @@ function pageLoad(){
 	    });
   	}
 	})();
-	
 
 	// fileinput
 	if($('.file_input')){
@@ -47,5 +45,3 @@ function pageLoad(){
 		});
 	}
 }
-
-

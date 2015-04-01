@@ -1,5 +1,4 @@
 $(document).on('ready page:load', setFlagColors);
-// executing 2 times. $(document).on('ready page:change', setFlagColors);
 
 function setFlagColors(){
 	if( typeof conference_menu != 'undefined'){
@@ -16,11 +15,11 @@ function setFlagColors(){
 			if(years[i] != active_year){
 				$('.conference-' + years[i]).hide();
 			}
-		}	
-	
+		}
+
 		$('#flag-'+ last_year).hide();
 		$('#flag-'+ active_year).children('img').attr('src', '/assets/redflag.png');
-		
+
 		if (active_year === last_year){
 			$('#' + active_conference + '-' + active_year).children().children('img').attr('src', '/assets/greenflag.png');
 		}
@@ -29,11 +28,13 @@ function setFlagColors(){
 		};
 
 		// Add style to all flag on hover
-	    $('.conference' + '-' + active_year).hover(function(){
-		$(this).find('img').addClass('blue-flag');
-		},function(){
-	    $(this).find('img').removeClass('blue-flag');
-	    });
+		for(var i = 0; i < years.length; i++){
+			$('.conference-' + years[i]).hover(function(){
+			$(this).find('img').addClass('blue-flag');
+			},function(){
+		    $(this).find('img').removeClass('blue-flag');
+		    });
+		}
 
 	    // Add style to last year flag on hover
 	    $('.conference' + '-' + last_year).hover(function(){
@@ -58,21 +59,21 @@ function setFlagColors(){
 
 		// Show all conference flags of current year on click and hide other flags
 		$('.flag-year-image-container').click(function(){
-			var year = this.getAttribute('year'); 	
-			$('.year-box').addClass('unvisible');
-			$('.main-content').addClass('unvisible');
-			$('#year-' + year + '-box').removeClass('unvisible');
+		var year = this.getAttribute('year'); 	
+		$('.year-box').addClass('unvisible');
+		$('.main-content').addClass('unvisible');
+		$('#year-' + year + '-box').removeClass('unvisible');
 
-			for(var i = 0; i < years.length; i++){
-				if(years[i] != year){
-					$('.conference-' + years[i]).hide();
-					$('#flag-' + years[i]).children('img').attr('src', '/assets/greyflag.png');
-				}
-				else{
-					$('.conference-' + years[i]).fadeToggle();
-					$('#flag-' + years[i]).children('img').attr('src', '/assets/redflag.png');
-				}	
-			}
+		for(var i = 0; i < years.length; i++){
+			if(years[i] != year){
+			// 	$('.conference-' + years[i]).hide();
+			// 	$('#flag-' + years[i]).children('img').attr('src', '/assets/greyflag.png');
+			// }
+			// else{
+				$('.conference-' + years[i]).fadeToggle();
+				$('#flag-' + years[i]).children('img').attr('src', '/assets/redflag.png');
+			}	
+		}
 		});
 	};
 };
