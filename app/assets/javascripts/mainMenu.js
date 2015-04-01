@@ -20,7 +20,7 @@ function setFlagColors(){
 	
 		$('#flag-'+ last_year).hide();
 		$('#flag-'+ active_year).children('img').attr('src', '/assets/redflag.png');
-
+		
 		if (active_year === last_year){
 			$('#' + active_conference + '-' + active_year).children().children('img').attr('src', '/assets/greenflag.png');
 		}
@@ -28,34 +28,33 @@ function setFlagColors(){
 			$('#' + active_conference + '-' + active_year).children().children('img').attr('src', '/assets/blueflag.png');
 		};
 
+		// Add style to all flag on hover
+	    $('.conference' + '-' + active_year).hover(function(){
+		$(this).find('img').addClass('blue-flag');
+		},function(){
+	    $(this).find('img').removeClass('blue-flag');
+	    });
+
+	    // Add style to last year flag on hover
+	    $('.conference' + '-' + last_year).hover(function(){
+		$(this).find('img').addClass('green-flag');
+		},function(){
+	    $(this).find('img').removeClass('green-flag');
+	    });
+
+		// Add style to year flag on hover
+		$('.flag-year-image-container').hover(function(){
+	    $(this).addClass('hovered').find('img').addClass('red-flag');
+		},function(){
+		$(this).removeClass('hovered').find('img').removeClass('red-flag');
+		});
+
 		// Add style to conference flag on hover
 		$('.flag-image-container').hover(function(){
 	    $(this).addClass('hovered');
 		},function(){
 		    $(this).removeClass('hovered');
 		});
-		// Add style to year flag on hover
-		$('.flag-year-image-container').hover(function(){
-	    $(this).addClass('hovered');
-		},function(){
-		    $(this).removeClass('hovered');
-		});
-
-		// .css('background-image','url(background.png)');
-		// .css('box-shadow', '2px 2px 2px #555');
-		// .css({ boxShadow: '1px 3px 6px #444' })
-		// .toggleClass( "newClass", 200 ), function(){
-
-		$('#' + active_conference + '-' + last_year).hover(function(){
-			console.log('.flag-image-container');
-	    	$(this).find('img').attr('src', '/assets/greenflag.png');
-		},function(){
-	    	$(this).find('img').attr('src', '/assets/greyflag.png');
-		});
-
-// var today = new Date();
-//  if ('#' + conference + '-' + active_year > today){
-// 		$('#' + conference + '-' + active_year).hover(function(){
 
 		// Show all conference flags of current year on click and hide other flags
 		$('.flag-year-image-container').click(function(){

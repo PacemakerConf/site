@@ -76,29 +76,38 @@ ul.conference-menu li {
 }*/
 
 /*.flag-text :hover{
-  content:url("/assets/redflag.png");
+  background: linear-gradient(#8E8D8D, black, transparent);
   position: absolute;
   border: 1px solid black;
   margin-top: -25px;
   z-index: 1;
 }*/
 
-.flag-year-image-container img:hover{
+.red-flag{
   content:url("/assets/redflag.png");
 }
-
-.flag-image-container img:hover{
+.blue-flag{
   content:url("/assets/blueflag.png");
 }
+.green-flag{
+  content:url("/assets/greenflag.png");
+}
+
+/*.flag-year-image-container img:hover{
+  height: 80px;
+}*/
+
+/*.flag-image-container img:hover{
+}*/
 
 .hovered{
-/*  -webkit-filter: contrast(120%); 
-  filter: contrast(120%);  */
   letter-spacing: 0.1em;
   font-weight: bold;
   cursor: pointer;
 }
 
+/*  -webkit-filter: contrast(120%); 
+  filter: contrast(120%);  */
 /*  font-size:1em;*/
 /*  background: linear-gradient(#8E8D8D, black, transparent);*/
 /*  box-shadow: 10px 25px 30px rgba(0,0,0,.5);*/
