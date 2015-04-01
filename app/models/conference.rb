@@ -8,7 +8,8 @@ class Conference < ActiveRecord::Base
 	has_one :report, dependent: :destroy
 	belongs_to :year	
 
-	validates :name, presence: true
+	validates :name, presence: true,
+									 format: { with: /\A[\w& ]+\z/}
 	validates :year_id, presence: true
 	validates :date, inclusion: { in: Time.now..Time.new(Year::LAST_YEAR)} if 
 		StrictValidation.enabled?
