@@ -44,6 +44,6 @@ var divError =
       '<button type="button" class="close" data-dismiss="alert">×</button>'+
       '<strong>Oh snap!</strong>'+
       '<ul>'+
-          '<li>Email can\'t be blank</li>'+
+          '<li>Email invalid or can\'t be blank</li>'+
       '</ul>'+
 '</div>'
