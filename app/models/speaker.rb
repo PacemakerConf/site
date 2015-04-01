@@ -10,7 +10,6 @@ class Speaker < ActiveRecord::Base
 
 	validates :name, presence: true
 	validates :surname, presence: true
-	validates :position, presence: true
 	validates :description, presence: true
   validates :email, presence: true, 
                     uniqueness: true
