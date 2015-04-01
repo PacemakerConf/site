@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'seed_dump'
 gem 'pry'
-gem 'rails-erd'
+# gem 'rails-erd'
 
 gem 'paperclip', '~> 4.2'
 gem 'wicked', '~> 1.1.1'

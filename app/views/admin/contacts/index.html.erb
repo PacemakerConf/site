@@ -3,26 +3,18 @@
 <table class="display data_table" width="100%" cellspacing="0">
   <thead>
     <tr>
-        <th>Name</th>
-        <th>Surname</th>
-        <th>Telephone</th>
-        <th>Email</th>
-        <th>Skype</th>
-        <th>Edit</th>
-        <th>Delete</th>
+        <th rowspan='2'>Name</th>
+        <th rowspan='2'>Surname</th>
+        <th rowspan='2'>Telephone</th>
+        <th rowspan='2'>Email</th>
+        <th rowspan='2'>Skype</th>
+        <th colspan='2' class='center-align'>Actions</th>
+    </tr>
+    <tr>
+      <th class='unvisible'></th>
+      <th class='unvisible'></th>
     </tr>
   </thead>
-  <tfoot>
-    <tr>
-        <th>Name</th>
-        <th>Surname</th>
-        <th>Telephone</th>
-        <th>Email</th>
-        <th>Skype</th>
-        <th>Edit</th>
-        <th>Delete</th>
-   </tr>
-  </tfoot>
   <tbody>
     <% @contacts.each do |contact| %>
       <tr>
