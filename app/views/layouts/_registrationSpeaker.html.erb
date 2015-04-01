@@ -1,7 +1,8 @@
-<% if @conference.date > Time.now %>
+<% deadline = @conference.registration_deadline || @conference.date %>
+<% if deadline > Time.now %>
 
 <div class="table table-responsive row col-md-10">
-	<%= label_tag 'Registration Deadline ' + @conference.date.to_s, nil, class: 'col-md-5', style: 'font-size: 18pt' %>
+	<%= label_tag 'Registration Deadline ' + @conference.registration_deadline.to_s, nil, class: 'col-md-5', style: 'font-size: 18pt' %>
 	<!-- Button trigger modal -->
 	<button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal"><strong>CALL FOR SPEAKER!</strong>
 	</button>
@@ -31,7 +32,8 @@
          </div>
          <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true">Close</button>
-			<%= submit_tag("Send", class: 'btn btn-primary', :controller => "speaker_request", :action => "send_mail") %>
+            <button type="submit" class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Send</button>
+			   <%= submit_tag("Send", class: 'btn btn-primary', :controller => "speaker_request", :action => "send_mail") %>
        <% end %>
          </div>
       </div>

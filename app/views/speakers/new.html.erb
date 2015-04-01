@@ -1,3 +1,17 @@
+<% if @speaker.errors.any? %>
+    <div id="error_explanation">
+    	<div class="alert alert-dismissible alert-danger">
+      		<button type="button" class="close" data-dismiss="alert">×</button>
+      		<strong>Oh snap!</strong>
+      <ul>
+      <% @speaker.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+      </div>
+    </div>
+  <% end %>
+  
 <fieldset class='col-lg-8'>
 
 <legend>New Speaker</legend>
@@ -5,13 +19,12 @@
 <% if Invitation.where(email_hash: params[:hash], status: 'New').count > 0 %>
 		<% @invite = Invitation.where(email_hash: params[:hash])[0] %>
 		<% current_user = {'role' => User::SPEAKER}%>
+    <% readonly = false %>
 		<%= render 'form' %>
 <% else %>
 
 <p> Sorry! You are not welcome to register at this conference! </p>
 
 <% end %>
-
-<%= link_to 'Back', admin_speakers_path %>
 
 </fieldset>

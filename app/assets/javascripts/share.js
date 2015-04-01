@@ -1,5 +1,4 @@
-$(document).ready(pageLoad);
-$(document).on('page:load', pageLoad);
+$(document).on('ready page:load', pageLoad);
 
 function pageLoad(){
 
@@ -14,7 +13,6 @@ function pageLoad(){
 	    });
   	}
 	})();
-	
 
 	// fileinput
 	if($('.file_input')){
@@ -40,10 +38,10 @@ function pageLoad(){
 	if($('.datetimepicker')){
 		$('.datetimepicker').datetimepicker({
 			stepping: 15
+		});
+		$('.datetimepicker1').datetimepicker({
 			// minDate: 01/01/2010
 			// maxDate: 31/12/2050
 		});
 	}
 }
-
-

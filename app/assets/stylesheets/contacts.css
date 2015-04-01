@@ -1,11 +1,3 @@
-.label_contact{
-
-}
-
-.contact_form{
-
-}
-
 #mail-area{
   margin-bottom:0; 
 }
@@ -25,8 +17,7 @@
   text-decoration: none;
 }
 
-.mail-adreess{
-
+.bsmListItemLabel{
+	background-color: #FFFFFF;
 }
-
 

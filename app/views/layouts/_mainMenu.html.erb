@@ -10,12 +10,10 @@
 		<% active_year = last_year.name.to_i %>
 	<% end %>
 
-
 	<ul class="conference-menu" id='conference_menu' years='<%= years.pluck(:name).map do |year| year.to_i end %>' active_year = "<%= active_year %>" last_year = "<%= last_year.name %>" 
 	active_conference = "<%= @conference ? @conference.name : '' %>" >
 
 		<% years.each do |year| %>
-
 			<% if year == last_year %>
 				<% flag = Flag.new('display' => '', 
 					'image_path' => Flag::GREY) %>
@@ -54,7 +52,7 @@
 						id="<%= conference.route %>" >
 						<%= link_to(  image_tag(flag.image_path),
 							about_conference_path(conference.route) )%>
-						<div class='flag-text'> <%= link_to  conference.name + " " + 
+						<div class='flag-text'> <%= link_to conference.name + " " + 
 							conference.year.name.to_s, about_conference_path(
 							conference.route) %> 
 						</div>  

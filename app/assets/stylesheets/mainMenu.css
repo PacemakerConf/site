@@ -1,5 +1,5 @@
 .main-menu {
-	margin: 0 0 55px 0;
+  margin: 0 0 55px 0;
   height: 35px;
   background-color: #002c3a;
 }
@@ -25,11 +25,11 @@ ul.conference-menu li {
 
 .conference-menu li img{
   height: 65px;
-  width: 65px;
+  width: 60px;
 }
 
 .conference-menu p{
-  text-align: center;	
+  text-align: center; 
   text-decoration:none;
   color: white; 
   background: transparent; 
@@ -44,7 +44,7 @@ ul.conference-menu li {
 }
 
 .conference-menu li div a{
-  color: #F6F6F6;
+  color: white;
 }
 
 .conference-menu li div a:hover{
@@ -53,39 +53,53 @@ ul.conference-menu li {
   background: inherit;
 }
 
-/*.conference-menu li img:hover{
-  height: 100%;
-  width: 75px;
-  margin: -12px 0 0 0; 
-}*/
-
-/*.flag-year-image-container img:hover{
-  box-shadow:0 0 15px #00aaff;
-  border:1px solid #00aaff;
-}*/
+.flag-text{
+   position: absolute; 
+   top: 65px; 
+   left: 0; 
+   width: 100%; 
+   color: white;
+   text-decoration: none;
+   word-spacing: 9999px;
+}
 
 .flag-image-container, .flag-year-image-container {
     position: relative;
 }
 
-.flag-text{
-  position: absolute; 
-   top: 65px; 
-   left: 0; 
-   width: 100%; 
-   text-decoration: none;
+/*.flag-text :hover{
+  background: linear-gradient(#8E8D8D, black, transparent);
+  position: absolute;
+  border: 1px solid black;
+  margin-top: -25px;
+  z-index: 1;
+}*/
+
+.red-flag{
+  content:url("/assets/redflag.png");
+}
+.blue-flag{
+  content:url("/assets/blueflag.png");
+}
+.green-flag{
+  content:url("/assets/greenflag.png");
 }
 
+/*.flag-year-image-container img:hover{
+  height: 80px;
+}*/
+
+/*.flag-image-container img:hover{
+}*/
+
 .hovered{
-  -webkit-filter: contrast(200%); 
-  filter: contrast(200%);  
   letter-spacing: 0.1em;
-/*  margin: -10px 0px;
-  height: 75px;*/
-  
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/*  -webkit-filter: contrast(120%); 
+  filter: contrast(120%);  */
+/*  font-size:1em;*/
 /*  background: linear-gradient(#8E8D8D, black, transparent);*/
 /*  box-shadow: 10px 25px 30px rgba(0,0,0,.5);*/
-/*  width: 60px;*/
-/*  box-shadow:0 0 15px #00aaff;
-  border:1px solid #00aaff;*/
-}

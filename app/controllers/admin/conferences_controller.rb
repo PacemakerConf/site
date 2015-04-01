@@ -53,7 +53,6 @@ class Admin::ConferencesController < Admin::ApplicationController
   # POST /conferences.json
   def create
     @conference = Conference.new(conference_params)
-
     respond_to do |format|
       if @conference.save
         format.html { redirect_to admin_conferences_path, notice: 'Conference was successfully created.' }
