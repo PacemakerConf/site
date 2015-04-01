@@ -14,13 +14,30 @@
 						<ul>
 							<% if @conference %>
 							<li>
-								This time <strong><%= @conference.attenders %> lucky people</strong>
+								This time <strong>
+									<% if @conference.attenders %>
+										<%= @conference.attenders %> 
+									<% else %>
+										several 
+									<% end %> 
+								lucky people</strong>
 							</li>
 							<li>
-								will meet on <strong><%=@conference.date.strftime('%B %d, %Y') %></strong>
+								will meet 
+									<% if @conference.date %>
+										on <strong><%=@conference.date.strftime('%B %d, %Y') %>
+									<% else %>
+										<strong> soon
+									<% end %>
+								</strong>
 							</li>
 							<li>
-							in a beautiful city of <strong><%= if(@conference.location) then @conference.location.city end %></strong></li>
+								<% if @conference.location %>
+									in a beautiful city of <strong>	<%= @conference.location.city %> </strong>
+								<% else %>
+									<p>.</p>
+								<% end %>
+							</li>
 							<% end %>	
 						</ul>
 					</div>
