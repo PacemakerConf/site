@@ -5,5 +5,5 @@ class Year < ActiveRecord::Base
 
 	validates :name, presence: true, 
 	   				 uniqueness: true,
-	   				 inclusion: 2012..Year::LAST_YEAR
+	   				 inclusion: "2010"..Year::LAST_YEAR.to_s
 end
