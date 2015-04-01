@@ -29,7 +29,7 @@ ul.conference-menu li {
 }
 
 .conference-menu p{
-  text-align: center;	
+  text-align: center; 
   text-decoration:none;
   color: white; 
   background: transparent; 
@@ -47,33 +47,30 @@ ul.conference-menu li {
   color: white;
 }
 
-.conference-menu li div a :hover{
+.conference-menu li div a:hover{
   color: white;
   text-decoration: none;
   background: inherit;
 }
 
-/*.conference-menu li img:hover{
-  height: 100%;
-  width: 75px;
-  margin: -12px 0 0 0; 
-  box-shadow:0 0 15px #00aaff;
-  border:1px solid #00aaff;
-}*/
+.long-text{
+  width: 120%;
+  border: 1px solid black;
+/*  position: relative;*/
+}
 
 .flag-text{
   position: absolute; 
-   top: 65px; 
-   left: 0; 
-   width: 100%; 
-   color: white;
-   text-decoration: none;
-   word-spacing: 9999px;
+/*   top: 65px; */
+  color: white;
+  word-spacing: 999px;
+/*   text-decoration: none;*/
+/*   background: linear-gradient(transparent, black, transparent);*/
 }
 
-/*.flag-image-container, .flag-year-image-container {
+.flag-image-container, .flag-year-image-container {
     position: relative;
-}*/
+}
 
 /*.flag-text :hover{
   background: linear-gradient(#8E8D8D, black, transparent);
@@ -86,8 +83,10 @@ ul.conference-menu li {
 .red-flag{
   content:url("/assets/redflag.png");
 }
+
 .blue-flag{
   content:url("/assets/blueflag.png");
+
 }
 .green-flag{
   content:url("/assets/greenflag.png");
@@ -104,6 +103,12 @@ ul.conference-menu li {
   letter-spacing: 0.1em;
   font-weight: bold;
   cursor: pointer;
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  /* ...and now for the proper property */
+  transition:.5s;
 }
 
 /*  -webkit-filter: contrast(120%); 
