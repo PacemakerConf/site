@@ -1,7 +1,7 @@
 class Contact < ActiveRecord::Base
 
 	def full_name
-  		"#{surname} #{name}"
+  		surname.to_s + " " + name.to_s
 	end
 
 	def splited_mail
