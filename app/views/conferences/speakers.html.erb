@@ -17,7 +17,11 @@
 							<% icons.each do |icon| %>
 								<% unless speaker[icon].to_s === '' %>
 									<li>
-										<%= link_to( image_tag(icon + "0.svg"), speaker[icon] ) %>
+										<% if icon == 'email' %>
+											<%= link_to( image_tag(icon + "0.svg"), 'mailto:' + speaker[icon] ) %>
+										<% else %>
+											<%= link_to( image_tag(icon + "0.svg"), speaker[icon] ) %>
+										<% end %>
 									</li>
 								<% end %>
 							<% end %>
