@@ -4,6 +4,7 @@ function setFlagColors(){
 	console.log('load');
 	if( typeof conference_menu != 'undefined'){
 		active_conference = $('#conference_menu').attr('active_conference')
+		active_conference = active_conference.replace('&', '\\&');
 		active_year = $('#conference_menu').attr('active_year')
 		last_year = $('#conference_menu').attr('last_year')
 
