@@ -18,6 +18,13 @@ class Speaker < ActiveRecord::Base
 
 	validates_attachment_content_type :photo, content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
+  # scope :by_name_and_surname, (lambda do |search_phrase|
+  #   search_text = search_phrase.split(/\s/).collect{ |pattern| 
+  #     "name ILIKE '#{pattern}%' or surname IzLIKE '#{pattern}%'"
+  #   }.join(" OR ")  
+  #   where(search_text).limit(5)
+  # end)
+
 	def fullname
 		[name, surname].join ' '
 	end
