@@ -4,7 +4,8 @@ function setFlagColors(){
 	console.log('load');
 	if( typeof conference_menu != 'undefined'){
 		active_conference = $('#conference_menu').attr('active_conference')
-		active_conference = active_conference.replace('&', '\\&');
+		active_conference = active_conference.replace(/&/g, '\\&');
+		active_conference = active_conference.replace(/ /g, '\\ ');
 		active_year = $('#conference_menu').attr('active_year')
 		last_year = $('#conference_menu').attr('last_year')
 
@@ -38,7 +39,7 @@ function setFlagColors(){
 		  });
 		}
 
-	    // Add style to last year flag on hover
+	  // Add style to last year flag on hover
 	  $('.conference' + '-' + last_year).hover(function(){
 			$(this).find('img').addClass('green-flag');
 		},function(){
