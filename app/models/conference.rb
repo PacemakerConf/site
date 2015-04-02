@@ -16,7 +16,7 @@ class Conference < ActiveRecord::Base
 	validates_with Validators::ConferenceYearDateValidator, on: [:create, :update]
 	# validates_with Validators::ConferenceUniquenessValidator, on: [:create, :update]
   scope :by_date_asc, -> { order(date: :asc) }
-  scope :by_date_desc, -> { order("-date asc")}
+  scope :by_year_date_desc, -> { includes(:year).order("years.name desc", "-date asc")}
 					 
 	def fullname
 		name.to_s + "-" + year.name.to_s

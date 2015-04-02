@@ -1,4 +1,4 @@
-$(document).on("page:change", function(){
+$(document).on("ready page:load", function(){
 
     $("#add_button").click(function() {
      var divHTML = 
