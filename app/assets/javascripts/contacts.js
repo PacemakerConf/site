@@ -1,4 +1,4 @@
-$(document).on("page:change", function(){
+$(document).on("ready page:change", function(){
 
   $("#add_button").click(function() {
     $("#mail-area").append(INPUT_DIV);
@@ -16,7 +16,6 @@ $(document).on("page:change", function(){
         else {
           isCorrect = false;
           $(obj).parent().addClass('has-error')
-
           $("#error-area").html('');
           $("#error-area").append(ERROR_DIV);
         }
@@ -28,6 +27,10 @@ $(document).on("page:change", function(){
     });
 
 });
+
+function RemoveMail(button){
+  $(button).parent().remove();
+}
 
 var INPUT_DIV = 
   '<div class="form-group ">'+

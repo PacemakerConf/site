@@ -48,27 +48,20 @@
 
 <script type = "text/javascript">
 
-  function RemoveMail(button){
-    $(button).parent().remove();
-  }
-
   var savedMails = $(".allmails").val();
   var lastSymbol = savedMails.charAt(savedMails.length-1);
   if(lastSymbol == ";"){
     savedMails = savedMails.substring(0, savedMails.length-1);
   }
   var mailsArray = savedMails.split(";");
-  
-  if(mailsArray){
-  $.each(mailsArray,function(index, obj){
 
+  if(mailsArray){
+    $.each(mailsArray,function(index, obj){
       $("#mail-area").append(INPUT_DIV);
       $(".mail-adreess:eq("+index+")").val(mailsArray[index]);
     });
     $(".mail-adreess:last").parents(':eq(1)').remove();
-
-
-}
+  }
 </script>
 
 

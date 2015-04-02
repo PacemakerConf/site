@@ -1,7 +1,6 @@
 $(document).on("page:change", function(){
   $('#multiselect').attr("multiple", "multiple").attr("title","Select contact");
 
-
   if($("select[multiple]")){
     $("select[multiple]").bsmSelect();
     $(".bsmListItemRemove").click();
