@@ -58,6 +58,7 @@ function setFlagColors(){
 		},function(){
 		    $(this).removeClass('hovered');
 		});
+		
 		// Make a wide flag if long conference name
 		$('.flag-image-container').filter( function(){ 
 			return $(this).text().length>42;

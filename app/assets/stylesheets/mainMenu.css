@@ -33,14 +33,13 @@ ul.conference-menu li {
   text-decoration:none;
   color: white; 
   background: transparent; 
-  margin: -45px 0px 0 0px; 
+  margin: -45px 0px 0 17px; 
   z-index: 2;
 }
 
 .conference-menu li div{
   margin: -56px 0 0 0; 
   width:inherit;
-  text-align: center;
 }
 
 .conference-menu li div a{
@@ -55,13 +54,11 @@ ul.conference-menu li {
 
 .flag-text{
   position: absolute; 
+  top: 62px;
+  left: 0px;
   color: white;
   word-spacing: 999px;
-  display: table;   /* Allow the centering to work */
-  margin: 0 auto;
-  padding-left: 0px;
-/*   text-decoration: none;*/
-/*   background: linear-gradient(transparent, black, transparent);*/
+  text-align: center;
 }
 
 .long-text{
@@ -112,19 +109,19 @@ ul.conference-menu li {
 }
 
 .hovered{
-  letter-spacing: 0.1em;
+/*  letter-spacing: 1px;*/ /*shaking all menu*/
   font-weight: bold;
   cursor: pointer;
 /*  -o-transition:.5s;
   -ms-transition:.5s;
   -moz-transition:.5s;
   -webkit-transition:.5s;
-  /* ...and now for the proper property 
+  ...and now for the proper property 
   transition:.5s;*/
 }
 
 /*  -webkit-filter: contrast(120%); 
-  filter: contrast(120%);  */
+  filter: contrast(120%);  
 /*  font-size:1em;*/
 /*  background: linear-gradient(#8E8D8D, black, transparent);*/
 /*  box-shadow: 10px 25px 30px rgba(0,0,0,.5);*/
