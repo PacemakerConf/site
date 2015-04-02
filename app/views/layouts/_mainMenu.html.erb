@@ -33,7 +33,7 @@
 				<p class='flag-text'> <%= year.name %> </p> 
 			</li>
 
-			<% conferences.where(year: year).order(date: :asc).each do |conference| %>
+			<% conferences.where(year: year).by_date_asc.each do |conference| %>
 
 				<% if conference === @conference && year === last_year%>
 					<% flag = Flag.new('image_path' => Flag::GREY,

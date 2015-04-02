@@ -5,6 +5,8 @@ class Location < ActiveRecord::Base
 	validates :name, presence: true
 	validates :place_type, presence: true
 	
+  default_scope { order(id: :asc) }
+	
 	def full_address
     	"#{city}, #{address}".truncate(20)
   	end

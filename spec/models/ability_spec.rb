@@ -5,8 +5,8 @@ describe Ability do
 
   describe "as admin" do
     it "can manage all" do
-      @current_admin = Ability.new(FactoryGirl.create(:admin))
-      expect(@current_admin).to be_able_to(:manage, :all)
+      current_admin = Ability.new(FactoryGirl.create(:admin))
+      expect(current_admin).to be_able_to(:manage, :all)
     end
   end
 
@@ -46,7 +46,7 @@ describe Ability do
     it "cannot manage all" do
       expect(@current_user).to_not be_able_to(:manage, :all)
     end
-end
+  end
 
   describe "depend on private method get_user with input" do
     

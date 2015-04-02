@@ -15,8 +15,8 @@ class Conference < ActiveRecord::Base
 		StrictValidation.enabled?
 	validates_with Validators::ConferenceYearDateValidator, on: [:create, :update]
 	# validates_with Validators::ConferenceUniquenessValidator, on: [:create, :update]
-
-	# scope :by_date_asc 
+  default_scope { order(id: :asc) }
+	scope :by_date_asc, -> { order(date: :asc) }
 					 
 	def fullname
 		name.to_s + "-" + year.name.to_s
