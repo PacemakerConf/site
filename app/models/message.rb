@@ -23,7 +23,7 @@ class Message < ActiveRecord::Base
   end 
  
   def self.set_last_version
-    version = Message.pluck(:version).sort[-1]
-    version += 1
+    version = Message.pluck(:version).compact.sort[-1]
+    version.nil? ? verion = 0 : version += 1  
   end
 end
