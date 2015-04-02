@@ -5,7 +5,7 @@ function conferencePageLoad(){
 		$('.conference_data_table').dataTable({
      	paging: true,
 			dom: 'Rlfrtip',
-			"order": [[ 1, "desc" ]],
+				"order": [[ 1, "desc" ], [2,'asc'] ],
 			"aoColumnDefs": [{ "bSortable": false, "aTargets": [-1, -2] }]
     });
 	}
