@@ -24,11 +24,6 @@ class Speaker < ActiveRecord::Base
 		[name, surname].join ' '
 	end
 
-  def self
-    emails = Admin.all.pluck(:email)
-    emails.each do |email|
-  end
-
 	def self.search pattern
 		speakers_list = '<ul class="speakers-list">'
     speakers = Speaker.where("name ILIKE '#{pattern}%' or surname ILIKE '#{pattern}%'").limit(5)

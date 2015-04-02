@@ -8,19 +8,7 @@ function pageLoad(){
 			$('.data_table').dataTable({
        	paging: true,
 				dom: 'Rlfrtip',
-				"order": [[ 2, "desc" ]],
-				"aoColumnDefs": [{ "bSortable": false, "aTargets": [-1, -2] }]
-	    });
-  	}
-	})();
-
-	//datatable_massage
-		(function(){
-		if( $('.data_table_massage') ){
-			$('.data_table_massage').dataTable({
-       	paging: true,
-				dom: 'Rlfrtip',
-				"order": [[ 0, "desc" ]],
+				"order": [[ 1, "desc" ]],
 				"aoColumnDefs": [{ "bSortable": false, "aTargets": [-1, -2] }]
 	    });
   	}
