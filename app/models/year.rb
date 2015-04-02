@@ -5,8 +5,7 @@ class Year < ActiveRecord::Base
 
 	validates :name, presence: true, 
 	   				 uniqueness: true,
-	   				 inclusion: "2010"..Year::LAST_YEAR.to_s
+	   				 inclusion: "2010"..Year::LAST_YEAR.to_s  
 
-  default_scope { order(id: :asc) }
-  
+	scope :by_name, -> { order(name: :asc) }
 end

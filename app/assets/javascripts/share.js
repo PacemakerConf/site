@@ -1,14 +1,13 @@
 $(document).on('ready page:load', pageLoad);
 
 function pageLoad(){
-
 	//datatable
-		(function(){
+	(function(){
 		if( $('.data_table') ){
 			$('.data_table').dataTable({
        	paging: true,
 				dom: 'Rlfrtip',
-				"order": [[ 1, "desc" ]],
+				"order": [[ 0, "desc" ]],
 				"aoColumnDefs": [{ "bSortable": false, "aTargets": [-1, -2] }]
 	    });
   	}

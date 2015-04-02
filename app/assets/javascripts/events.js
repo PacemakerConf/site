@@ -1,5 +1,4 @@
-$(document).ready(eventFormLoad);
-$(document).on('page:load', eventFormLoad);
+$(document).on('ready page:load', eventFormLoad);
 
 function eventFormLoad(){
 	if(typeof event_event_type_id != 'undefined' && $('.admin_event_form').length ){

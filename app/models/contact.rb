@@ -7,8 +7,6 @@ class Contact < ActiveRecord::Base
 	validates :telephone, presence: true
 	validates :email, presence: true
 	
-  default_scope { order(id: :asc) }
-	
 	def full_name
   		"#{surname} #{name}"
 	end

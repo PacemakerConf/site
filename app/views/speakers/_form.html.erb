@@ -40,7 +40,7 @@
     <%= f.label :description, 'Description*', class: "col-lg-2 control-label" %>
     <div class="col-lg-7">
     <%= render "admin/share/wysiwyg" %> 
-     <div id="editor" class="well col-md-9 form-control"></div>
+     <div id="editor" class="well col-md-9 form-control" readonly='<%= @readonly %>'></div>
     </div>
       <%= hidden_field( :speaker, :description, class: 'wysiwyg_textarea') %>
   </div> 

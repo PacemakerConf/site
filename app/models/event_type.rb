@@ -5,6 +5,5 @@ class EventType < ActiveRecord::Base
 				 					 uniqueness: true
 	validates :defaultDuration, presence: true
 
-  default_scope { order(id: :asc) }
-  
+	scope :by_name, -> { order(name: :asc) }  
 end

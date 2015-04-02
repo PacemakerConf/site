@@ -6,8 +6,6 @@ class Invitation < ActiveRecord::Base
 	validates :email, presence: true,
 		email_format: { message: "doesn't look like an email address" }
 		
-  default_scope { order(id: :asc) }
-
 	attr_accessor :host	
 
 	delegate :content, to: :message, prefix: true

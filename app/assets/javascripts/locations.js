@@ -1,4 +1,4 @@
-$(document).on("page:change", function(){
+$(document).on("ready page:load", function(){
   $('#multiselect').attr("multiple", "multiple").attr("title","Select contact");
 
 

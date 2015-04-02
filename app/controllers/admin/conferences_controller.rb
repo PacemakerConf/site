@@ -37,7 +37,7 @@ class Admin::ConferencesController < Admin::ApplicationController
   end
 
   def index
-    @conferences = Conference.all.includes(:year, :location, :report, :news)
+    @conferences = Conference.all.includes(:year, :location, :report, :news).by_year_date_desc
   end
 
   # GET /conferences/new

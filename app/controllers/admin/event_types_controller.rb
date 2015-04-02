@@ -6,7 +6,7 @@ class Admin::EventTypesController < Admin::ApplicationController
   # GET /event_types
   # GET /event_types.json
   def index
-    @event_types = EventType.all
+    @event_types = EventType.all.by_name
   end
 
   # GET /event_types/1
