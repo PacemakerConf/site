@@ -57,13 +57,21 @@ ul.conference-menu li {
   position: absolute; 
   color: white;
   word-spacing: 999px;
+  display: table;   /* Allow the centering to work */
+  margin: 0 auto;
+  padding-left: 0px;
 /*   text-decoration: none;*/
 /*   background: linear-gradient(transparent, black, transparent);*/
 }
 
 .long-text{
-  width: 80px;
-  border: 1px solid black;
+  text-align: center;
+  font-size: 12px;
+  line-height: 95%;
+  padding: 0 4px 0 0;
+/*  font-weight: normal;*/
+/*  vertical-align: middle;
+  top: 50%;*/
 /*  position: relative;*/
 }
 
@@ -73,8 +81,11 @@ ul.conference-menu li {
 
 /*.flag-year-image-container img:hover{
   width: 105%;
-  height: 75px;
-  margin: 0 20px 0 0;
+  height: 73px;
+  margin: 0 0 0 0;
+  letter-spacing: -0.1em;
+  font-weight: normal;
+  transition:.5s;
 }*/
 
 /*.flag-image-container img:hover{
@@ -104,12 +115,12 @@ ul.conference-menu li {
   letter-spacing: 0.1em;
   font-weight: bold;
   cursor: pointer;
-  -o-transition:.5s;
+/*  -o-transition:.5s;
   -ms-transition:.5s;
   -moz-transition:.5s;
   -webkit-transition:.5s;
-  /* ...and now for the proper property */
-  transition:.5s;
+  /* ...and now for the proper property 
+  transition:.5s;*/
 }
 
 /*  -webkit-filter: contrast(120%); 

@@ -1,6 +1,7 @@
 $(document).on('ready page:load', setFlagColors);
 
 function setFlagColors(){
+	console.log('load');
 	if( typeof conference_menu != 'undefined'){
 		active_conference = $('#conference_menu').attr('active_conference')
 		active_year = $('#conference_menu').attr('active_year')
@@ -59,10 +60,21 @@ function setFlagColors(){
 
 		$('.flag-image-container').filter( function(){ 
 			return $(this).text().length>42;
-			 } ).find('img').addClass('long-text');
+			 } ).find('img').animate({
+			 	width: "70", 
+			 	height: "73"
+			 }, 0);
+
+		$('.flag-image-container').filter( function(){ 
+			return $(this).text().length>45;
+			} ).addClass('long-text').find('img').animate({
+				width: "106%", 
+				height: "73",
+			}, 0);
 
 		// Show all conference flags of current year on click and hide other flags
 		$('.flag-year-image-container').click(function(){
+			console.log('click');
 			var year = this.getAttribute('year'); 	
 			$('.year-box').addClass('unvisible');
 			$('.main-content').addClass('unvisible');

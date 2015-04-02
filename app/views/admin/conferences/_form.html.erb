@@ -35,7 +35,7 @@
     <%= f.label :registration_deadline, class: "col-lg-2 control-label" %>
     <div class="col-lg-7">
       <div class="input-group">
-        <%= f.text_field :registration_deadline, class: "form-control datetimepicker1"%>
+        <%= f.text_field :registration_deadline, class: "form-control datetimepicker_deadline"%>
         <span class="input-group-addon glyphicon glyphicon-calendar"></span>
       </div>
     </div>
@@ -74,7 +74,7 @@
   <div class="form-group">
     <div class="col-lg-7 col-lg-offset-2">
       <button type="reset" class="btn btn-default">Reset</button>
-      <button type="submit" class="btn btn-primary">Create</button>
+      <%= f.submit @button_name, class: "btn btn-primary"%>
     </div>
   </div>
 
