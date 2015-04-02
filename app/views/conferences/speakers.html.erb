@@ -39,7 +39,7 @@
 			</div>
 		<% end %>
 
-		<% speaker.events.where(conference: @conference).each do |event| %>
+		<% speaker.events.where(conference: @conference).by_position.each do |event| %>
 			<% if can? :read, event %>
 				<div class = 'speech-about <%= event.published ? "" : "unpublished" %> col-lg-5 col-md-5 col-xs-5 '>
 					<div><strong><%= event.title %></strong></div>
