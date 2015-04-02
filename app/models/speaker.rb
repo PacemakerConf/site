@@ -17,12 +17,8 @@ class Speaker < ActiveRecord::Base
 
 	validates_attachment_content_type :photo, content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
-  # scope :by_name_and_surname, (lambda do |search_phrase|
-  #   search_text = search_phrase.split(/\s/).collect{ |pattern| 
-  #     "name ILIKE '#{pattern}%' or surname IzLIKE '#{pattern}%'"
-  #   }.join(" OR ")  
-  #   where(search_text).limit(5)
-  # end)
+  default_scope { order(id: :asc) }
+  scope :by_name_and_surname, lambda{|input, splitted_input| where("name ILIKE '#{input}%' or surname ILIKE '#{input}%' or (name ILIKE '#{splitted_input[0]}%' and surname ILIKE '#{splitted_input[1]}%') or (surname ILIKE '#{splitted_input[0]}%' and name ILIKE '#{splitted_input[1]}%')").limit(5) } 
 
 	def fullname
 		[name, surname].join ' '
@@ -58,6 +54,11 @@ class Speaker < ActiveRecord::Base
     speakers_list == '</ul>'
     speakers_list = '' if pattern == ''
     speakers_list
+
+	def self.search input
+    splitted_input = input.split(' ')
+    speakers = Speaker.by_name_and_surname(input, splitted_input)
+    @speakers_list = Admin::SpeakersController.helpers.create_speaker_list(speakers, input)
   end
 
 end

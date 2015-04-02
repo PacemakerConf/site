@@ -23,7 +23,7 @@ gem 'mail'
 #email validator
 gem 'validates_email_format_of'
 
-gem "paperclip-dropbox", ">= 1.1.7"
+gem 'paperclip-dropbox', '>= 1.1.7'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

@@ -15,11 +15,7 @@
 							<% if @conference %>
 							<li>
 								This time <strong>
-									<% if @conference.attenders %>
-										<%= @conference.attenders %> 
-									<% else %>
-										several 
-									<% end %> 
+								<%= @conference.attenders || 'several' %> 
 								lucky people</strong>
 							</li>
 							<li>

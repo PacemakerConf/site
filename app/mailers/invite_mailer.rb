@@ -1,5 +1,5 @@
 class InviteMailer < ActionMailer::Base
-	default from: "sysstemtest@gmail.com",
+	default from: '"SoftServe" <sysstemtest@gmail.com>',
 		template_path: 'mailers'
 
 	def speaker_invite(email, message)
