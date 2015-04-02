@@ -16,7 +16,7 @@
             <h3 class="modal-title" id="myModalLabel">Request for speaker</h3>
          </div>
          <div class="modal-body form-group">
-            	<%= form_tag(send_mail_path) do %>
+            	<%= form_tag(send_mail_path, remote: true) do %>
             <div class="form-group">
                 <%= label_tag 'name', 'Name' %>
                 <%= text_field_tag 'name', nil, class: 'form-control col-lg-3 control-label', placeholder: 'Your Name' %>
@@ -32,8 +32,7 @@
          </div>
          <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true">Close</button>
-            <button type="submit" class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Send</button>
-			   <%= submit_tag("Send", class: 'btn btn-primary', :controller => "speaker_request", :action => "send_mail") %>
+			       <%= submit_tag("Send", class: 'btn btn-primary', :controller => "speaker_request", :action => "send_mail") %>
        <% end %>
          </div>
       </div>

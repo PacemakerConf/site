@@ -1,5 +1,5 @@
 class SpeakerRequestMailer < ActionMailer::Base
-	default to: "markoshchutskyy@gmail.com"
+	default to: Proc.new { Admin.pluck(:email) }
 	def send_mail(name, email, comment)
 		@name = name
 	  	@email = email

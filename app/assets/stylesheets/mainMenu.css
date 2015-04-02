@@ -54,18 +54,42 @@ ul.conference-menu li {
 }
 
 .flag-text{
-   position: absolute; 
-   top: 65px; 
-   left: 0; 
-   width: 100%; 
-   color: white;
-   text-decoration: none;
-   word-spacing: 9999px;
+  position: absolute; 
+  color: white;
+  word-spacing: 999px;
+  display: table;   /* Allow the centering to work */
+  margin: 0 auto;
+  padding-left: 0px;
+/*   text-decoration: none;*/
+/*   background: linear-gradient(transparent, black, transparent);*/
+}
+
+.long-text{
+  text-align: center;
+  font-size: 12px;
+  line-height: 95%;
+  padding: 0 4px 0 0;
+/*  font-weight: normal;*/
+/*  vertical-align: middle;
+  top: 50%;*/
+/*  position: relative;*/
 }
 
 .flag-image-container, .flag-year-image-container {
     position: relative;
 }
+
+/*.flag-year-image-container img:hover{
+  width: 105%;
+  height: 73px;
+  margin: 0 0 0 0;
+  letter-spacing: -0.1em;
+  font-weight: normal;
+  transition:.5s;
+}*/
+
+/*.flag-image-container img:hover{
+}*/
 
 /*.flag-text :hover{
   background: linear-gradient(#8E8D8D, black, transparent);
@@ -78,24 +102,25 @@ ul.conference-menu li {
 .red-flag{
   content:url("/assets/redflag.png");
 }
+
 .blue-flag{
   content:url("/assets/blueflag.png");
+
 }
 .green-flag{
   content:url("/assets/greenflag.png");
 }
 
-/*.flag-year-image-container img:hover{
-  height: 80px;
-}*/
-
-/*.flag-image-container img:hover{
-}*/
-
 .hovered{
   letter-spacing: 0.1em;
   font-weight: bold;
   cursor: pointer;
+/*  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  /* ...and now for the proper property 
+  transition:.5s;*/
 }
 
 /*  -webkit-filter: contrast(120%); 
