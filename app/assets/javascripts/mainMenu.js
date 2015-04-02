@@ -1,7 +1,6 @@
 $(document).on('ready page:load', setFlagColors)
 
 function setFlagColors(){
-	console.log('load');
 	if( typeof conference_menu != 'undefined'){
 		active_conference = $('#conference_menu').attr('active_conference')
 		active_conference = active_conference.replace(/&/g, '\\&');
