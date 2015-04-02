@@ -14,6 +14,8 @@ class Event < ActiveRecord::Base
 	validates_with Validators::EventSpeakerValidator, on: [:create, :update]
 
 	do_not_validate_attachment_file_type :materials
+	
+  default_scope { order(id: :asc) }
 
 	def self.get_new_position conference_id
 		return 0 unless conference_id

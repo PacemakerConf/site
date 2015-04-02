@@ -8,14 +8,15 @@ class Conference < ActiveRecord::Base
 	has_one :report, dependent: :destroy
 	belongs_to :year	
 
-	validates :name, presence: true
+	validates :name, presence: true,
+									 format: { with: /\A[\w& ]+\z/}
 	validates :year_id, presence: true
 	validates :date, inclusion: { in: Time.now..Time.new(Year::LAST_YEAR)} if 
 		StrictValidation.enabled?
 	validates_with Validators::ConferenceYearDateValidator, on: [:create, :update]
 	# validates_with Validators::ConferenceUniquenessValidator, on: [:create, :update]
-
-	# scope :by_date_asc 
+  default_scope { order(id: :asc) }
+	scope :by_date_asc, -> { order(date: :asc) }
 					 
 	def fullname
 		name.to_s + "-" + year.name.to_s
