@@ -15,6 +15,8 @@
             <button type="button" class="close" data-dismiss="modal" aria-label="Close" aria-hidden="true"><span>&times;</span></button>
             <h3 class="modal-title" id="myModalLabel">Request for speaker</h3>
          </div>
+     
+         <%= notice %>
          <div class="modal-body form-group">
             	<%= form_tag(send_mail_path, remote: true) do %>
             <div class="form-group">

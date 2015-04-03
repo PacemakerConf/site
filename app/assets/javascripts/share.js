@@ -36,11 +36,11 @@ function pageLoad(){
 	// data picker
 	if($('.datetimepicker')){
 		$('.datetimepicker').datetimepicker({
+			format: 'YYYY/MM/DD hh:mm',
 			stepping: 15
 		});
 		$('.datetimepicker_deadline').datetimepicker({
-			// minDate: 01/01/2010
-			// maxDate: 31/12/2050
+			format: 'YYYY/MM/DD'
 		});
 	}
 }
