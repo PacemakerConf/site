@@ -3,6 +3,7 @@ class SpeakersController < ApplicationController
   before_action :set_speaker, only: [:show, :edit, :update]
  
   def show
+    @sorted_events = @speaker.get_sorted_events
   end
 
   def new

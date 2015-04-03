@@ -20,6 +20,7 @@ class Admin::SpeakersController < Admin::ApplicationController
   # GET /speakers/1
   # GET /speakers/1.json
   def show
+    @sorted_events = @speaker.get_sorted_events
   end
 
   # GET /speakers/new

@@ -3,20 +3,9 @@
   <div class="form-group">
     <%= f.label :'year', "Year*", class: "col-lg-2 control-label" %>
   <div class="col-lg-7">
-
-    <% years_options = ''%>
-    <% cur_year = @year.name || Time.now.year %>
-    <% 2011.upto(cur_year.to_i+2) do |year| %>
-      <% if cur_year.to_s === year.to_s %>
-        <% selected = " selected='selected'" %>
-      <% else %>
-        <% selected = '' %>
-      <% end %>
-      <% years_options += " <option value=" + year.to_s + selected + " > " + year.to_s + "</option> "%>
-      <% end %>
-      <% @year.id.nil? ? disabled =  false : disabled = true %>
       
-      <%= select_tag "year[name]", years_options.html_safe, class: "form-control", disabled: disabled%>
+      <%= select_tag "year[name]", get_years_list.html_safe, 
+        class: "form-control", disabled: @disabled%>
     </div>
   </div>
 

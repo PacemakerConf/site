@@ -34,10 +34,14 @@ class Admin::EventsController < Admin::ApplicationController
   # GET /events/new
   def new
     @event = Event.new
+    @event_type = EventType.first
+    @speaker_event = @event_type.speakerEvent
   end
 
   # GET /events/1/edit
   def edit
+    @event_type = @event.event_type
+    @speaker_event = @event_type.speakerEvent
   end
 
   # POST /events

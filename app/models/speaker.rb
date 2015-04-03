@@ -28,4 +28,12 @@ class Speaker < ActiveRecord::Base
     @speakers_list = Admin::SpeakersController.helpers.create_speaker_list(speakers, input)
   end
 
+  def get_sorted_events
+    sorted_events = [] 
+    self.events.each do |event| 
+      sorted_events << {date: event.conference.date || Date.new(Year::LAST_YEAR), event: event} 
+    end 
+    sorted_events.sort_by!{|obj| obj[:date]}.reverse!
+  end
+
 end
