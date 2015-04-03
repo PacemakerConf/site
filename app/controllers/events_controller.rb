@@ -9,8 +9,11 @@ class EventsController < ApplicationController
   def create
     #authorize! :create, Event
     @event = Event.new(event_params)
+    @invite = Invitation.where(email_hash: params['event']['email_hash'])[0]
     respond_to do |format|
       if @event.save
+        @invite.status = 'Complete'
+        @invite.save
         current_user = {'role' => User::SPEAKER}
         format.html { redirect_to events_path, notice: 'event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
