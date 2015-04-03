@@ -9,7 +9,7 @@
         <th rowspan='2'>Title</th>
         <th rowspan='2'>Description</th>
         <th rowspan='2'>Conference name</th>
-        <th colspan='2' class='center-align'>Actions</th>
+        <th colspan='2' class='center-align'></th>
     </tr>
     <tr>      
       <th class='unvisible'></th>
@@ -27,7 +27,7 @@
       </td>
       <td><%= news.conference.fullname %></td>
       <td><%=  link_to 'Edit', edit_admin_news_path(news), class: 'btn btn-xs btn-warning' %></td>
-      <td><%= link_to 'Destroy', admin_news_path(news), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger' %></td>
+      <td><%= link_to 'Delete', admin_news_path(news), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger' %></td>
     </tr>
     <% end %>
   </tbody>

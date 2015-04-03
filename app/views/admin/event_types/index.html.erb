@@ -29,7 +29,7 @@
         <td><span class="glyphicon"><span class="glyphicon<%=trueEventCheck(event_type.groupable)%>"></span></span></td>
         <td><%= link_to 'Show', admin_event_type_path(event_type), class: "btn btn-default btn-xs" %></td>
         <td><%= link_to 'Edit', edit_admin_event_type_path(event_type), class: "btn btn-warning btn-xs"%></td>
-        <td><%= link_to 'Destroy', admin_event_type_path(event_type), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" %></td>
+        <td><%= link_to 'Delete', admin_event_type_path(event_type), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" %></td>
       </tr>
     <% end %>
   </tbody>
