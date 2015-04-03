@@ -1,4 +1,4 @@
-$(document).on("ready page:change", function(){
+$(document).on("ready page:load", function(){
 
   $("#add_button").click(function() {
     $("#mail-area").append(INPUT_DIV);
@@ -19,13 +19,11 @@ $(document).on("ready page:change", function(){
           $("#error-area").html('');
           $("#error-area").append(ERROR_DIV);
         }
-        
       });
       if(isCorrect)
         $('[name="contact[email]"]').val(mails);
         return isCorrect;
     });
-
 });
 
 function RemoveMail(button){
