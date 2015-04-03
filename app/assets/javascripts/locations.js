@@ -23,15 +23,15 @@ $(document).on("ready page:load", function(){
   });
   
   $(".adr").keyup(function(){
-    var splittedResult = '';
+    var joinedResult = '';
     $.each($(".adr"),function(index,obj){
-      splittedResult += $(obj).val();
+      joinedResult += $(obj).val();
         if(!index)
-          splittedResult += ','; 
+          joinedResult += ','; 
         })
 
     GMaps.geocode({
-      address: splittedResult,
+      address: joinedResult,
       callback: function(results, status) {
         if (status === 'OK') {
           latlng = results[0].geometry.location;
