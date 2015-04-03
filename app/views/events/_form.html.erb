@@ -37,7 +37,9 @@
   </div>
 
   <div id="form-area"></div>
-  
+
+  <%= f.hidden_field :status, value: 'Complete' %> 
+  <%= f.hidden_field :email_hash, value: params[:hash] %> 
   <%= f.hidden_field :conference_id, value: @conference_id %> 
   <%= f.hidden_field :published, value: false %>
   <%= f.hidden_field :speaker_id, value: params[:speaker_id] %>
