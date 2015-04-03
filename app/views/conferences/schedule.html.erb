@@ -7,9 +7,9 @@
     remove-circle ok-circle ban-circle gift eye-open calendar random comment magnet hdd bell 
     bullhorn) %>
 
-<table class="table table-responsive table-hover " >
+<table class="table table-responsive table-hover" >
   <colgroup>
-  <col style = "width:7%;" ></col>
+  <col style = "width:7%;"></col>
   <col></col>
   <col></col>
   </colgroup>
@@ -35,13 +35,12 @@
           <td style="font-size: 1.25em;">
           <span class="glyphicon glyphicon-<%= @@GLYPHS[@eventsGroupable[0].event_type.image.to_i] %>"></span> 
             <span>
+            <%= @eventsGroupable[0].title %>
             <% @eventsGroupable.each do |eventGroup| %>
               <% if can? :read, eventGroup %>
-                <%= eventGroup.title %>
-                <% unless eventGroup.speaker_id.nil? %>
-                  <span style="float:right;"><%= link_to "-" + eventGroup.speaker.name + " " + eventGroup.speaker.surname, eventGroup.speaker %></span>
+                <% if !(eventGroup.speaker_id.nil?) %>
+                  <span style="position:relative;">-<%= link_to eventGroup.speaker.name + " " + eventGroup.speaker.surname, eventGroup.speaker, :style => 'font-weight: bold;' %> /</span>
                 <% end %>
-                <br>
               <% end %>
             <% end %>
             </span>
@@ -57,9 +56,13 @@
         <td class="timestart" style="text-align: center; font-size: 1.25em;"></td>
         <td class="duration" style="text-align: center; display: none;"><%= conferenceEventDurationReturn(event.duration) %></td>
         <td style="  font-size: 1.25em; "><span class="glyphicon glyphicon-<%= @@GLYPHS[event.event_type.image.to_i] %>"></span> <%= event.title %>
-          <% unless event.speaker_id.nil? %>
-            <span style="float:right;"><%= link_to "-" + event.speaker.name + " " + event.speaker.surname, event.speaker %></span>
-          <% end %>
+          <span style="position:relative;">
+            <% if event.speaker.nil? %>
+              ><%= event.responsable %>
+            <% else %>  
+              -<%= link_to event.speaker.name + " " + event.speaker.surname, event.speaker, :style => 'font-weight: bold;'%>
+            <% end %>
+          </span>
         </td>
       </tr>
     <% end %>
