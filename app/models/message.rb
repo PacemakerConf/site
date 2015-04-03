@@ -2,7 +2,7 @@ class Message < ActiveRecord::Base
 	TOKEN = '$${link_invitation}' 
 	TOKEN_REGEXP = /\$\$\{link_invitation\}/
 	
-  has_many :invitation
+  has_many :invitation, dependent: :destroy
   validate :content_message_presence
   default_scope { order(:version => :desc) }
 

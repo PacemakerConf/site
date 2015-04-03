@@ -42,5 +42,29 @@ function pageLoad(){
 		$('.datetimepicker_deadline').datetimepicker({
 			format: 'YYYY/MM/DD'
 		});
+
+	//EMAIL
+  $('.mail_button').click(function(){
+  	console.log('click');
+    var mails = '';
+    var emailRegEx = /^\w+@\w+\.[a-z]+$/i;
+    var isCorrect = true;
+      $('#mail-address').each(function(index, obj){
+        if($(obj).val() != '' && $(obj).val().search(emailRegEx) != -1){
+           $(obj).parent().removeClass('has-error')
+        }
+        else {
+          isCorrect = false;
+          $(obj).parent().addClass('has-error')
+          $("#error-area").html('');
+          $("#error-area").append(ERROR_DIV);
+        }
+        
+      });
+      // if(isCorrect)
+      //   $('[name="contact[email]"]').val(mails);
+      //   return isCorrect;
+    });
+
 	}
 }

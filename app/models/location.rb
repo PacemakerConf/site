@@ -6,7 +6,7 @@ class Location < ActiveRecord::Base
 	validates :place_type, presence: true
 	
 	def full_address
-    	"#{city}, #{address}".truncate(20)
+    	(city.to_s + ", " + address.to_s).truncate(20)
   	end
 
 	belongs_to :conference

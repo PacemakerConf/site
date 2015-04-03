@@ -4,6 +4,7 @@ class Conference < ActiveRecord::Base
 	has_many :speakers, through: :events
 	has_many :events, dependent: :destroy
 	has_many :news, dependent: :destroy
+	has_many :invitations, dependent: :destroy
 	has_one :location, dependent: :destroy
 	has_one :report, dependent: :destroy
 	belongs_to :year	
@@ -15,8 +16,9 @@ class Conference < ActiveRecord::Base
 		StrictValidation.enabled?
 	validates_with Validators::ConferenceYearDateValidator, on: [:create, :update]
 	# validates_with Validators::ConferenceUniquenessValidator, on: [:create, :update]
+
 	scope :by_date_asc, -> { order(date: :asc) }
-	scope :by_year_date_desc, -> { order(date: :desc) }
+	scope :by_year_date_desc, -> { includes(:year).order('years.name desc', date: :desc) }
 					 
 	def fullname
 		name.to_s + "-" + year.name.to_s

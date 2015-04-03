@@ -30,9 +30,12 @@ class SpeakersController < ApplicationController
   end
 
   def update
+    @invite = Invitation.where(email_hash: params['speaker']['email_hash'])[0]
     respond_to do |format|
       if @speaker.update(speaker_params)
-       format.html { redirect_to controller: 'events', action: 'new', hash: params['speaker']['email_hash'], speaker_id: @speaker.id }
+        @invite.status = 'Complete'
+        @invite.save
+        format.html { redirect_to controller: 'events', action: 'new', hash: params['speaker']['email_hash'], speaker_id: @speaker.id }
         format.json { render :show, status: :created, location: @speaker }
       else
         format.html { redirect_to controller: 'speakers', action: 'new', hash: params['speaker']['email_hash']}

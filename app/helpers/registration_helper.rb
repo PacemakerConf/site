@@ -6,7 +6,7 @@
 # end
 
 module RegistrationHelper
-def generate_tags(post)
-"Generate Tags"
-end
+	def generate_tags(post)
+		"Generate Tags"
+	end
 end 

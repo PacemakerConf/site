@@ -77,26 +77,6 @@ ul.conference-menu li {
     position: relative;
 }
 
-/*.flag-year-image-container img:hover{
-  width: 105%;
-  height: 73px;
-  margin: 0 0 0 0;
-  letter-spacing: -0.1em;
-  font-weight: normal;
-  transition:.5s;
-}*/
-
-/*.flag-image-container img:hover{
-}*/
-
-/*.flag-text :hover{
-  background: linear-gradient(#8E8D8D, black, transparent);
-  position: absolute;
-  border: 1px solid black;
-  margin-top: -25px;
-  z-index: 1;
-}*/
-
 .red-flag{
   content:url("/assets/redflag.png");
 }
