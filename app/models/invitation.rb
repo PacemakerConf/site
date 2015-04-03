@@ -1,6 +1,7 @@
 class Invitation < ActiveRecord::Base
 	COST = 10
 	belongs_to :message
+	belongs_to :conference
 	validates :conference_id, presence: true 
 	validates :message_id, presence: true 
 	validates :email, presence: true,
