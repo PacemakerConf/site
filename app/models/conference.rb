@@ -4,6 +4,7 @@ class Conference < ActiveRecord::Base
 	has_many :speakers, through: :events
 	has_many :events, dependent: :destroy
 	has_many :news, dependent: :destroy
+	has_many :invitations, dependent: :destroy
 	has_one :location, dependent: :destroy
 	has_one :report, dependent: :destroy
 	belongs_to :year	
