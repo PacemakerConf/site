@@ -1,7 +1,8 @@
-<% if @conference.date > Time.now %>
+<% deadline = @conference.registration_deadline || @conference.date %>
+<% if deadline && (deadline > Time.now) %>
 
 <div class="table table-responsive row col-md-10">
-	<%= label_tag 'Registration Deadline ' + @conference.date.to_s, nil, class: 'col-md-5', style: 'font-size: 18pt' %>
+	<%= label_tag 'Registration Deadline ' + @conference.registration_deadline.to_s, nil, class: 'col-md-5', style: 'font-size: 18pt' %>
 	<!-- Button trigger modal -->
 	<button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal"><strong>CALL FOR SPEAKER!</strong>
 	</button>
@@ -15,7 +16,7 @@
             <h3 class="modal-title" id="myModalLabel">Request for speaker</h3>
          </div>
          <div class="modal-body form-group">
-            	<%= form_tag(send_mail_path) do %>
+            	<%= form_tag(send_mail_path, remote: true) do %>
             <div class="form-group">
                 <%= label_tag 'name', 'Name' %>
                 <%= text_field_tag 'name', nil, class: 'form-control col-lg-3 control-label', placeholder: 'Your Name' %>
@@ -31,7 +32,7 @@
          </div>
          <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true">Close</button>
-			<%= submit_tag("Send", class: 'btn btn-primary', :controller => "speaker_request", :action => "send_mail") %>
+			       <%= submit_tag("Send", class: 'btn btn-primary', :controller => "speaker_request", :action => "send_mail") %>
        <% end %>
          </div>
       </div>

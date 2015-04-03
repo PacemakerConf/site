@@ -1,4 +1,4 @@
-<%= form_for( @speaker,  html: {class: 'form-horizontal'} ) do |f| %>
+<%= form_for( @speaker, html: {class: 'form-horizontal'} ) do |f| %>
    
   <% if @speaker.errors.any? %>
     <div id="error_explanation">
@@ -21,33 +21,33 @@
   <div class="form-group">
     <%= f.label :name, 'Name*', class: "col-lg-2 control-label"%>
     <div class="col-lg-7">
-      <%= f.text_field :name, class: "form-control" %>
+      <%= f.text_field :name, class: "form-control", readonly: @readonly %>
     </div>
   </div>
   <div class="form-group">
     <%= f.label :surname, 'Surname*', class: "col-lg-2 control-label"%>
     <div class="col-lg-7">
-      <%= f.text_field :surname, class: "form-control" %>
+      <%= f.text_field :surname, class: "form-control", readonly: @readonly  %>
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :position, 'Position*', class: "col-lg-2 control-label"%>
+    <%= f.label :position, 'Position', class: "col-lg-2 control-label"%>
     <div class="col-lg-7">
-      <%= f.text_field :position, class: "form-control" %>
+      <%= f.text_field :position, class: "form-control", readonly: @readonly %>
     </div>
   </div>
   <div class="form-group">
     <%= f.label :description, 'Description*', class: "col-lg-2 control-label" %>
     <div class="col-lg-7">
     <%= render "admin/share/wysiwyg" %> 
-     <div id="editor" class="well col-md-9 form-control"></div>
+     <div id="editor" class="well col-md-9 form-control" readonly='<%= @readonly %>'></div>
     </div>
       <%= hidden_field( :speaker, :description, class: 'wysiwyg_textarea') %>
   </div> 
   <div class="form-group">
-    <%= f.label :email, class: "col-lg-2 control-label" %>
+    <%= f.label :email, 'Email*', class: "col-lg-2 control-label" %>
     <div class="col-lg-7">
-      <%= f.text_field :email, class: "form-control", :disabled => true %>
+      <%= f.text_field :email, class: "form-control", :readonly => true %>
     </div>
   </div>
   <div class="form-group">

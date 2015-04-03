@@ -2,12 +2,13 @@ source 'https://rubygems.org'
 
 gem 'seed_dump'
 gem 'pry'
-gem 'rails-erd'
+# gem 'rails-erd'
 
 gem 'paperclip', '~> 4.2'
 gem 'wicked', '~> 1.1.1'
 gem 'bootstrap-wysiwyg-rails'
 gem 'email_validator'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use SCSS for stylesheets
@@ -22,7 +23,7 @@ gem 'mail'
 #email validator
 gem 'validates_email_format_of'
 
-gem "paperclip-dropbox", ">= 1.1.7"
+gem 'paperclip-dropbox', '>= 1.1.7'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

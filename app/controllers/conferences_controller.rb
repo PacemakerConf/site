@@ -13,14 +13,12 @@ class ConferencesController < ApplicationController
 
   def speakers
     @speakers = @conference.speakers.uniq
-    # speaker_event = EventType.where(speakerEvent: true)
-    # @events = @conference.events.where(event_type: speaker_event)
   end
 
   def schedule
     groupable = EventType.where(groupable: 1)
-    @eventsGroupable = @conference.events.where(event_type: groupable).order(:position)
-    @eventsSingle = @conference.events.where.not(event_type: groupable).order(:position)
+    @eventsGroupable = @conference.events.where(event_type: groupable).by_position
+    @eventsSingle = @conference.events.where.not(event_type: groupable).by_position
     @events = @conference.events.order(:position)
     @active_button = 'schedule'
     respond_to do |format|
@@ -38,8 +36,8 @@ class ConferencesController < ApplicationController
     topic = EventType.where(name: 'topic')
     lightning = EventType.where(name: 'lightning')
     @news = @conference.news.order(created_at: :desc)
-    @topics = @conference.events.where(event_type: topic)
-    @lightnings = @conference.events.where(event_type: lightning)
+    @topics = @conference.events.where(event_type: topic).by_position
+    @lightnings = @conference.events.where(event_type: lightning).by_position
   end
 
   private

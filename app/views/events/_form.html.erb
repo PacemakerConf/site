@@ -9,20 +9,20 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :title, 'Name*', class: "col-lg-2 control-label"%>
-    <div class='col-lg-10'>
+    <%= f.label :title, "Name*", class: "col-lg-2 control-label" %>
+    <div class="col-lg-10">
       <%= f.text_field :title, class: "form-control" %>
     </div>
   </div>
 
   <div class="form-group">
-    <%= f.label :description, class: "col-lg-2 control-label"%>
+    <%= f.label :description, class: "col-lg-2 control-label" %>
     <div class="col-lg-10">
       <%= f.text_area :description, class: "form-control", rows: "2" %>
     </div>
   </div>
 
-  <div class="form-group" id='event_materials_group'>
+  <div class="form-group" id="event_materials_group" >
     <%= f.label :materials, class: "col-lg-2 control-label"%>
     <div class="col-lg-10">
       <%= f.file_field :materials, class: "btn btn-default file_input" %>
@@ -41,33 +41,3 @@
     </div>
   </div>
 <% end %>
-
-<a class="btn-default btn-sm btn-warning" id ="add_form">Add one more</a>
-
-<script type = "text/javascript">
-
-  $("#add_form").click(function() {
-     var divHTML = 
-      '<div class="form-group "><br>'+
-       '<label class= "col-lg-2 control-label">Name</label>'+
-        '<div class="col-lg-10">'+
-          '<input class="form-control" type="text" >'+
-        '</div><br><br>'+
-        '<label class="col-lg-2 control-label">Description</label>'+
-        '<div class="col-lg-10">'+
-          '<input class="form-control" type="text" >'+
-        '</div><br><br>'+
-       '<label class="col-lg-2 control-label">Materials</label>'+
-        '<div class="col-lg-10">'+
-          '<input class="btn btn-default file_input">'+
-        '</div>'
-        '<a class="remove_nested_fields btn-default btn-sm btn-danger" id="remove_button_contact" onclick="RemoveForm(this);return false;">Remove</a>'+
-      '</div>';
-      $("#form-area").append(divHTML);
-  });
-  
-  function RemoveForm(button){
-    $(button).parent().remove();
-  }
-
-</script>

@@ -1,18 +1,46 @@
 <p id="notice"><%= notice %></p>
-<h1>List of Invitations</h1>
-<table class="display data_table" width="100%" cellspacing="0">
+
+<div class="btn-toolbar">
+  <div class="btn-group">
+    <div class="btn-group">
+      <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+        Select conference
+        <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu">
+        <% @conferences.each do |conference| %>
+          <li>
+            <%= link_to conference.fullname, {controller: 'admin/invitations', action: 'index', conf_id: conference.id} %>
+          </li>
+        <% end %>
+       </ul>
+    </div>
+  </div>
+</div>
+  
+<h1>Invitations - <%= @conference.fullname %></h1>
+
+<table class="table table-responsive">
   <thead>
     <tr>
         <th>Email</th>
         <th>Status</th>
+        <th>Time</th>
+        <th>Speaker</th>
     </tr>
   </thead>
 
   <tbody>
-      <% @invites.each do |invite| %>
+      <% @invites.each_with_index do |invite, index| %>
       <tr>
           <td><%= invite.email %></td>
           <td><%= invite.status %></td>  
+          <td><%= invite.created_at %></td>  
+          <td>
+            <% if @speakers[index] %>
+              <%= link_to @speakers[index].fullname, admin_speaker_path(@speakers[index]) %>
+            <% end %>
+          </td>  
       </tr>
     <% end %>
   </tbody>
@@ -20,4 +48,4 @@
 
 <br>
 
-<%= link_to 'Invite speaker', invite_admin_speakers_path, class: "btn btn-default btn-sm"  %>
+<%= link_to "Invite speaker", invite_admin_speakers_path, class: "btn btn-default btn-sm"  %>

@@ -52,7 +52,7 @@
     <% end %>
 
     <% if can? :read, event %>
-      <tr style="background-color: <%= scheduleColor(event.event_type.color) %>;">
+      <tr style="background-color: <%= scheduleColor(event.event_type.color) %>;" class="<%= event.published ? '' : 'unpublished' %>" >
         <td class="timestart" style="text-align: center; font-size: 1.25em;"></td>
         <td class="duration" style="text-align: center; display: none;"><%= conferenceEventDurationReturn(event.duration) %></td>
         <td style="  font-size: 1.25em; "><span class="glyphicon glyphicon-<%= @@GLYPHS[event.event_type.image.to_i] %>"></span> <%= event.title %>

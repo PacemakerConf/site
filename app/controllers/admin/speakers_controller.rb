@@ -48,7 +48,7 @@ class Admin::SpeakersController < Admin::ApplicationController
       if @invite.save && message.valid?
         @invite.invite_speaker
         #Invitation.invite_speaker(@invite.email, @invite.email_hash, @invite.message_content)
-        format.html { redirect_to admin_invitations_path, notice: 'Invitation was successfully sent.' }
+        format.html { redirect_to controller: 'admin/invitations', action: 'index', conf_id: @invite.conference_id }
       else
         format.html { render :invite, notice: 'Invitation was not sent.' }
       end

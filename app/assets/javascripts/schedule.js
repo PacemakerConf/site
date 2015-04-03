@@ -1,5 +1,4 @@
-// console.log('schedule.js');
-$(document).on('page:change', function () { 
+$(document).on('ready page:load', function () { 
 	scheduleChange();                    
     $( "#sortable" ).sortable({
 		update: function( event, ui ) { scheduleChange(); sendAJAX(); }

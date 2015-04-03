@@ -15,7 +15,7 @@ class Admin::YearsController < Admin::ApplicationController
   # GET /years
   # GET /years.json
   def index
-    @years = Year.all
+    @years = Year.all.by_name
   end
 
   # GET /years/1

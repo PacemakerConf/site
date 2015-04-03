@@ -15,6 +15,8 @@ class Event < ActiveRecord::Base
 
 	do_not_validate_attachment_file_type :materials
 
+	scope :by_position, -> { order("-position desc") }
+	
 	def self.get_new_position conference_id
 		return 0 unless conference_id
 		positions = Event.where(conference_id: conference_id).pluck(:position).compact

@@ -1,15 +1,14 @@
-$(document).ready(pageLoad);
-$(document).on('page:load', pageLoad);
+$(document).on('ready page:load', pageLoad);
 
 function pageLoad(){
-
 	//datatable
-		(function(){
+	(function(){
 		if( $('.data_table') ){
 			$('.data_table').dataTable({
        	paging: true,
 				dom: 'Rlfrtip',
-				"order": [[ 0, "desc" ]]
+				"order": [[ 0, "desc" ]],
+				"aoColumnDefs": [{ "bSortable": false, "aTargets": [-1, -2] }]
 	    });
   	}
 	})();
@@ -38,10 +37,10 @@ function pageLoad(){
 	if($('.datetimepicker')){
 		$('.datetimepicker').datetimepicker({
 			stepping: 15
+		});
+		$('.datetimepicker_deadline').datetimepicker({
 			// minDate: 01/01/2010
 			// maxDate: 31/12/2050
 		});
 	}
 }
-
-

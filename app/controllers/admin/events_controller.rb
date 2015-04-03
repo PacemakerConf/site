@@ -7,10 +7,10 @@ class Admin::EventsController < Admin::ApplicationController
   # GET /events.json
   def index
     if(params[:conf_id])
-      @events = Event.where(conference_id: params[:conf_id])
+      @events = Event.where(conference_id: params[:conf_id]).by_position
       @conference = Conference.find(params[:conf_id])
     else
-      @events = Event.all
+      @events = Event.all.by_position
     end
     @speaker_event_type = EventType.where(speakerEvent: true)
     @non_speaker_event_type = EventType.where(speakerEvent: false)

@@ -1,20 +1,23 @@
 <p id="notice"><%= notice %></p>
 <h1>Conferences</h1>
 
-<table class="display data_table" width="100%" cellspacing="0">
+<table class="display conference_data_table" width="100%" cellspacing="0">
   <thead>
     <tr>
-        <th>Name</th>
-        <th>Year</th>
-        <th>Date</th>
-        <th>Attenders</th>
-        <th>Schedule</th>
-        <th>Location</th>
-        <th>Report</th>
-        <th>News</th>
-        <th>Publish</th>
-        <th>Edit</th>
-        <th>Delete</th>
+      <th rowspan='2'>Name</th>
+      <th rowspan='2'>Year</th>
+      <th rowspan='2'>Date</th>
+      <th rowspan='2'>Attenders</th>
+      <th rowspan='2'>Schedule</th>
+      <th rowspan='2'>Location</th>
+      <th rowspan='2'>Report</th>
+      <th rowspan='2'>News</th>  
+      <th colspan='3' class='center-align'>Actions</th>
+    </tr>
+    <tr>
+      <th class='unvisible'></th>
+      <th class='unvisible'></th>
+      <th class='unvisible'></th>
     </tr>
   </thead>
   <tbody>
@@ -36,10 +39,10 @@
                     link_to "Create Report", {controller: 'admin/reports', action: 'new', conf_id: conference.id, conf_fname: conference.fullname}, class: 'btn btn-xs btn-primary'
                   end %>
           </td>
-          <td><%= unless(conference.news.nil?)
-                    link_to "news", {controller: 'admin/news', action: 'index', conf_id: conference.id, conf_fname: conference.fullname}, class: 'btn btn-xs btn-default'
+          <td><%= if(conference.news.length > 0)
+                    link_to "News", {controller: 'admin/news', action: 'index', conf_id: conference.id, conf_fname: conference.fullname}
                   else
-                    link_to "Create News", {controller: 'admin/news', action: 'new', conf_id: conference.id, conf_fname: conference.fullname}, class: 'btn btn-xs btn-default'
+                    link_to "Create News", {controller: 'admin/news', action: 'new', conf_id: conference.id, conf_fname: conference.fullname}, class: 'btn btn-xs btn-primary'
                   end %>
           </td>
 

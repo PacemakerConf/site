@@ -37,7 +37,7 @@ class Admin::ConferencesController < Admin::ApplicationController
   end
 
   def index
-    @conferences = Conference.all.includes(:year, :location, :report, :news)
+    @conferences = Conference.all.includes(:year, :location, :report, :news).by_year_date_desc
   end
 
   # GET /conferences/new
@@ -53,7 +53,6 @@ class Admin::ConferencesController < Admin::ApplicationController
   # POST /conferences.json
   def create
     @conference = Conference.new(conference_params)
-
     respond_to do |format|
       if @conference.save
         format.html { redirect_to admin_conferences_path, notice: 'Conference was successfully created.' }

@@ -17,7 +17,11 @@
 							<% icons.each do |icon| %>
 								<% unless speaker[icon].to_s === '' %>
 									<li>
-										<%= link_to( image_tag(icon + "0.svg"), speaker[icon] ) %>
+										<% if icon == 'email' %>
+											<%= link_to( image_tag(icon + "0.svg"), 'mailto:' + speaker[icon] ) %>
+										<% else %>
+											<%= link_to( image_tag(icon + "0.svg"), speaker[icon] ) %>
+										<% end %>
 									</li>
 								<% end %>
 							<% end %>
@@ -35,7 +39,7 @@
 			</div>
 		<% end %>
 
-		<% speaker.events.where(conference: @conference).each do |event| %>
+		<% speaker.events.where(conference: @conference).by_position.each do |event| %>
 			<% if can? :read, event %>
 				<div class = 'speech-about <%= event.published ? "" : "unpublished" %> col-lg-5 col-md-5 col-xs-5 '>
 					<div><strong><%= event.title %></strong></div>

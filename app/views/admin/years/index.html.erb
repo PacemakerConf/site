@@ -3,11 +3,14 @@
 <table class="display data_table" width="100%" cellspacing="0">
   <thead>
     <tr>
-        <th>Year</th>
-        <th>Description</th>
-        <th>Conference count</th>
-        <th>Publish</th>
-        <th>Edit</th>
+        <th rowspan='2'>Year</th>
+        <th rowspan='2'>Description</th>
+        <th rowspan='2'>Conference count</th>
+        <th colspan='2' class='center-align'>Actions</th>
+    </tr>
+    <tr>
+      <th class='unvisible'></th>
+      <th class='unvisible'></th>
     </tr>
   </thead>
   <tbody>
@@ -15,7 +18,7 @@
     <tr id='<%= year.name %>_row' >
         <td><%= year.name %></td>
         <td><%= year.content.html_safe %>
-        <td><%= Conference.where(year: year.name.to_i).count %></td>
+        <td><%= year.conferences.count %></td>
         <td class = 'publish'>
           <% if year.published %>
             Published

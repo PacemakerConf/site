@@ -5,12 +5,13 @@
 			<div class = 'speaker-photo col-lg-3 col-md-3 col-xs-3'>
    			<%= image_tag( @speaker.photo.url(:thumb), class: 'photo', alt: @speaker.fullname) %>
    			<ul class="speaker-contacts">
-					<% icons = ['facebook', 'linkedin', 'twitter', 'email', 'site'] %>
+					<% icons = ['email', 'facebook', 'linkedin', 'twitter', 'site'] %>
 
 					<% icons.each do |icon| %>
 						<% unless @speaker[icon].to_s === '' %>
+							<% link = icon.to_s == 'email' ? 'mailto:' + @speaker[icon] : @speaker[icon] %>
 							<li>
-								<%= link_to( image_tag(icon + "0.svg"), @speaker.facebook ) %>
+								<%= link_to( image_tag(icon + "0.svg"), link ) %>
 							</li>
 						<% end %>
 					<% end %>
@@ -34,7 +35,7 @@
 <div class = 'speeches-list '>
 	<% sorted_events = [] %>
 	<% @speaker.events.each do |event| %>
-		<% sorted_events << {date: event.conference.date, event: event} %>
+		<% sorted_events << {date: event.conference.date || Date.new(Year::LAST_YEAR), event: event} %>
 	<% end %>
 	<% sorted_events.sort_by!{|obj| obj[:date]}.reverse! %>
 
@@ -87,7 +88,7 @@
 							<%if speech.materials.exists? %>
 			          <%= link_to "", speech.materials.url(:original, false), class:"btn btn-default btn-xs glyphicon glyphicon-download-alt" %>
 			        <% end %>
-			        <% unless speech.video.nil? %>
+			        <% unless speech.video.to_s === '' %>
 			          <%= link_to '', speech.video, class:"btn btn-default btn-xs glyphicon glyphicon-play" %>
 			        <% end %>
 						</div>
