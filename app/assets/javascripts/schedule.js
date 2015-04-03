@@ -46,8 +46,7 @@ function parseTime(durationItem){
 	return durationArray;
 }
 function sendAJAX(){
-	$('#AjaxButton').addClass('btn-warning');
-	$('#AjaxButton').html('Working');
+	$('#AjaxButton').addClass('hidden');
 	$('.alert').removeClass('alert-info alert-success alert-danger');
 	$('.alert').addClass('alert-warning');
 	$('.alert').html('Status: Working');
@@ -75,10 +74,8 @@ function sendAJAX(){
 	queryLine += "?position=" + posString + "&id=" + idString;
 	// console.log(queryLine);
 	$.getJSON( queryLine, function( response ) {
-		$('#AjaxButton').removeClass('btn-warning');
 		$('.alert').removeClass('alert-warning');
 	    if( response.status === 'Done' ){		
-   			$('#AjaxButton').addClass('btn-success');
    			$('.alert').addClass('alert-success');
    			$('.alert').html('Status: Current schedule saved on the server.')
    			for (var i = 0; i < idItems.length; i++){
@@ -86,22 +83,17 @@ function sendAJAX(){
 			}
         }
         else{
-   			$('#AjaxButton').addClass('btn-danger');
+   			$('#AjaxButton').removeClass('hidden');
    			$('.alert').addClass('alert-danger');
    			var statusFail = 'Schedule has not been saved on server. Please try again later. If the error persists, contact your administrator.' + response.status;
-   			$('.alert').html(statusFail);
+   			$('.alert').html(statusFail + '<button onclick="sendAJAX()" class="btn btn-warning" style="position: relative;float:right;">Try Again</button>');
         }
         $('#AjaxButton').html(response.status);
 	}).fail(function( jqxhr, textStatus, error ){  
-			$('#AjaxButton').removeClass('btn-warning');
-   			$('#AjaxButton').addClass('btn-danger');
-	        $('#AjaxButton').html('Error' + error);
+			$('#AjaxButton').removeClass('hidden');
 	        $('.alert').removeClass('alert-warning');
 	        $('.alert').addClass('alert-danger');
 	        var statusFail = "Problems with internet connection or server. Schedule has not been saved on server. Please try again later. If the error persists, contact your administrator. Error:" + error;
-	        $('.alert').html(statusFail);
-	        setTimeout(5000);
+	        $('.alert').html(statusFail + '<button onclick="sendAJAX()" class="btn btn-warning" style="position: relative;float:right;">Try Again</button>');
     });
-	setTimeout(function(){ $('#AjaxButton').removeClass('btn-success btn-danger'); $('#AjaxButton').html('Set Position'); }, 3000);
-	setTimeout(function(){ $('.alert').html( $('.alert').html() + ' - Waiting'); }, 3000);
  }
