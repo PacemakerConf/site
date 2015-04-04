@@ -25,9 +25,10 @@ def destroy
     format.json { head :no_content }
 end
 end
-  
-def set_invite
-  @invite = Invitation.find(params[:id])
-end
+
+  private
+    def set_invite
+      @invite = Invitation.find(params[:id])
+    end
 
 end
