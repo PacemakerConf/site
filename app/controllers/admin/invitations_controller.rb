@@ -1,7 +1,7 @@
 class Admin::InvitationsController < Admin::ApplicationController
   layout 'admin'
 	before_action :authenticate_admin!
-  before_action :set_speaker, only: [:destroy]
+  before_action :set_invite, only: [:destroy]
 	
 def index
   @conferences = Conference.all.by_year_date_desc
@@ -26,7 +26,7 @@ def destroy
 end
 end
   
-def set_speaker
+def set_invite
   @invite = Invitation.find(params[:id])
 end
 
