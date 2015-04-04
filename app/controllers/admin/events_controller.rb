@@ -54,6 +54,8 @@ class Admin::EventsController < Admin::ApplicationController
         format.html { redirect_to controller: 'admin/events', action: 'index', conf_id: @conference.id }
         format.json { render :show, status: :created, location: @event }
       else
+        @event_type = @event.event_type
+        @speaker_event = @event_type.speakerEvent
         format.html { render :new }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
