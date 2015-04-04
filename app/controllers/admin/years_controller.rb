@@ -44,6 +44,7 @@ class Admin::YearsController < Admin::ApplicationController
         format.html { redirect_to admin_years_path, notice: 'Year was successfully created.' }
         format.json { render :show, status: :created, location: @year }
       else
+        @disabled = false
         format.html { render :new }
         format.json { render json: @year.errors, status: :unprocessable_entity }
       end

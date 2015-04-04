@@ -16,10 +16,11 @@ class Conference < ActiveRecord::Base
 		StrictValidation.enabled?
 	validates_with Validators::ConferenceYearDateValidator, on: [:create, :update]
 	# validates_with Validators::ConferenceUniquenessValidator, on: [:create, :update]
-  scope :by_date_asc, -> { order(date: :asc) }
-  scope :by_year_date_desc, -> { includes(:year).order('years.name desc', date: :desc) }
-  scope :future, -> { where(date: Time.now..Time.new(Year::LAST_YEAR)) }
-					 
+
+	scope :by_date_asc, -> { order(date: :asc) }
+	scope :by_year_date_desc, -> { includes(:year).order('years.name desc', date: :desc) }
+	scope :future, -> { where(date: Time.now..Time.new(Year::LAST_YEAR)) }
+
 	def fullname
 		name.to_s + "-" + year.name.to_s
 	end

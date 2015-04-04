@@ -36,11 +36,32 @@ function pageLoad(){
 	// data picker
 	if($('.datetimepicker')){
 		$('.datetimepicker').datetimepicker({
+			format: 'YYYY/MM/DD hh:mm',
 			stepping: 15
 		});
 		$('.datetimepicker_deadline').datetimepicker({
-			// minDate: 01/01/2010
-			// maxDate: 31/12/2050
+			format: 'YYYY/MM/DD'
 		});
+
+	//EMAIL
+		// $('.mail_button').on('click', function(e){
+		// 	form = $('# form name');
+		// 	e.preventDefault();
+		// 	var email = $('#mail-address').val() ;
+		// 	regex = /\A\w+@\w+\.[a-z]\Z/i
+		// 	if( email.test(regex) ){
+		// 		form.submit()
+		// 	}
+
+  //   // validation code here
+  //   if(!valid) {
+  //     e.preventDefault();
+  //   }
+  // });
+
+		// 	$('#success-sent').html('your mail has been sent').addClass('alert alert-dismissible alert-success');
+	 //  		// $('#success-sent').append('your mail has been sent');
+	 //    });
+
 	}
 }

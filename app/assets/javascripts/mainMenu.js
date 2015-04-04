@@ -70,7 +70,7 @@ function setFlagColors(){
 		$('.flag-image-container').filter( function(){ 
 			return $(this).text().length>45;
 			} ).addClass('long-text').find('img').animate({
-				width: "106%", 
+				width: "80", 
 				height: "73",
 			}, 0);
 
