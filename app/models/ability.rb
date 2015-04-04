@@ -8,21 +8,11 @@ class Ability
     elsif user.role == User::SPEAKER 
       can :create, Event
       can :create, Speaker
-      cannot :read, Event, published: false
-      cannot :read, Conference, published: false 
-      cannot :read, Year, published: false 
-      cannot :read, Event, published: nil
-      cannot :read, Conference, published: nil 
-      cannot :read, Year, published: nil 
     elsif user.role == User::GUEST
       can :read, :all
-      can :create, Speaker
-      cannot :read, Event, published: false 
-      cannot :read, Conference, published: false 
-      cannot :read, Year, published: false 
-      cannot :read, Event, published: nil 
-      cannot :read, Conference, published: nil 
-      cannot :read, Year, published: nil 
+      cannot :read, Event, published: false||nil
+      cannot :read, Conference, published: false||nil 
+      cannot :read, Year, published: false||nil
     end
   end
 
@@ -37,23 +27,4 @@ class Ability
         User.new('role' => User::GUEST)
       end     
     end 
-
-    # The first argument to `can` is the action you are giving the user 
-    # permission to do.
-    # If you pass :manage it will apply to every action. Other common actions
-    # here are :read, :create, :update and :destroy.
-    #
-    # The second argument is the resource the user can perform the action on. 
-    # If you pass :all it will apply to every resource. Otherwise pass a Ruby
-    # class of the resource.
-    #
-    # The third argument is an optional hash of conditions to further filter the
-    # objects.
-    # For example, here the user can only update published articles.
-    #
-    #   can :update, Article, :published => true
-    #
-    # See the wiki for details:
-    # https://github.com/ryanb/cancan/wiki/Defining-Abilities
-  
 end

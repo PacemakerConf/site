@@ -40,7 +40,10 @@
             <% if @speakers[index] %>
               <%= link_to @speakers[index].fullname, admin_speaker_path(@speakers[index]) %>
             <% end %>
-          </td>  
+          </td>
+          <td>
+            <%= link_to 'Delete', admin_invitation_path(invite), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" %>
+          </td>
       </tr>
     <% end %>
   </tbody>
