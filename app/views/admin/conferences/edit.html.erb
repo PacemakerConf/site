@@ -1,6 +1,17 @@
+<% if @conference.errors.any? %>
+    <div class="alert alert-dismissible alert-danger">
+      <button type="button" class="close" data-dismiss="alert">×</button>
+      <strong>Oh snap!</strong> 
+      <ul>
+      	<% @conference.errors.full_messages.each do |message| %>
+      		<li><%= message %></li>
+      	<% end %>
+      </ul>
+    </div>
+  <% end %>
 <fieldset class='col-lg-8'>
-<legend>Editing Conference</legend>
-<% @button_name = 'Edit' %>
-<%= render 'form' %>
+	<legend>Editing Conference</legend>
+	<% @button_name = 'Edit' %>
+	<%= render 'form' %>
 
 </fieldset>
