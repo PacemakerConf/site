@@ -1,6 +1,7 @@
 class Admin::InvitationsController < Admin::ApplicationController
   layout 'admin'
 	before_action :authenticate_admin!
+  before_action :set_invite, only: [:destroy]
 	
 def index
   @conferences = Conference.all.by_year_date_desc
@@ -16,5 +17,18 @@ def index
   	@speakers.push Speaker.where(email: email)[0]
   end
 end
-  
+
+def destroy
+  @invite.destroy
+  respond_to do |format|
+    format.html { redirect_to admin_invitations_url, notice: 'Invitation was successfully destroyed.' }
+    format.json { head :no_content }
+end
+end
+
+  private
+    def set_invite
+      @invite = Invitation.find(params[:id])
+    end
+
 end
