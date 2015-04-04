@@ -25,8 +25,11 @@
 
 				<div id ="admin_nav">	
 					<% if admin_signed_in? %>
-	 				Logged in as <strong><%= current_admin.username%></strong>.
-		 			<%= link_to "Logout", destroy_admin_session_path, method: :delete %>	
+	 				Logged in as <strong> <%= current_admin.username%></strong>. 
+	 				<%= link_to "Go to admin part", admin_conferences_path %> |
+		 			<%= link_to "Logout", destroy_admin_session_path, method: :delete %>
+		 			<% else %>
+		 			<%= link_to "Login as admin", new_admin_session_path, class: 'login-button' %>
 					<% end %>
   			</div>	
 			</footer>

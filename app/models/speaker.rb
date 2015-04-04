@@ -13,7 +13,6 @@ class Speaker < ActiveRecord::Base
 	validates :description, presence: true
   validates :email, presence: true, 
                     uniqueness: true
-	#validates_format_of :email, :multiline => true, :with => /^(|(([A-Za-z0-9]+_+)|([A-Za-z0-9]+\-+)|([A-Za-z0-9]+\.+)|([A-Za-z0-9]+\++))*[A-Za-z0-9]+@((\w+\-+)|(\w+\.))*\w{1,63}\.[a-zA-Z]{2,6})$/i
 
 	validates_attachment_content_type :photo, content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
@@ -27,6 +26,14 @@ class Speaker < ActiveRecord::Base
     splitted_input = input.split(' ')
     speakers = Speaker.by_name_and_surname(input, splitted_input)
     @speakers_list = Admin::SpeakersController.helpers.create_speaker_list(speakers, input)
+  end
+
+  def get_sorted_events
+    sorted_events = [] 
+    self.events.each do |event| 
+      sorted_events << {date: event.conference.date || Date.new(Year::LAST_YEAR), event: event} 
+    end 
+    sorted_events.sort_by!{|obj| obj[:date]}.reverse!
   end
 
 end

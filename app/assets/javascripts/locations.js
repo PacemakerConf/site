@@ -1,7 +1,6 @@
 $(document).on("ready page:load", function(){
   $('#multiselect').attr("multiple", "multiple").attr("title","Select contact");
 
-
   if($("select[multiple]")){
     $("select[multiple]").bsmSelect();
     $(".bsmListItemRemove").click();
@@ -9,26 +8,18 @@ $(document).on("ready page:load", function(){
 
   $('#bsmSelectbsmContainer0').addClass('form-control');
 
-  $(".adr").bind("keypress", function () {
-      var DivForMap = 
-  '<div class="form-group">'+
-    '<label class="col-lg-2 control-label">Map</label>'+
-      '<div class="col-lg-7">'+
-        '<div id="map"></div>'+
-      '</div>'+
-  '</div>'
-  $("#map-area").append(DivForMap);
-  $('.adr').unbind('keypress');
+  $(".adr").bind("keypress", function(){
+    $("#map-area").append(DIV_FOR_MAP);
+    $('.adr').unbind('keypress');
 
-   if($("#map").length){
-    map = new GMaps({
+    if($("#map").length){
+      map = new GMaps({
           div: '#map',
           lng: 0,
           lat: 0,
           zoom: 16
-    });
-  }
-
+      });
+    }
   });
   
   $(".adr").keyup(function(){
@@ -56,8 +47,15 @@ $(document).on("ready page:load", function(){
   });
 
   $('#maps_button').click(function(){
-   $('[name="location[latitude]"]').val(latlng.k);
-   $('[name="location[longitude]"]').val(latlng.D);
+    $('[name="location[latitude]"]').val(latlng.k);
+    $('[name="location[longitude]"]').val(latlng.D);
   });
-
 });
+
+var DIV_FOR_MAP = 
+  '<div class="form-group">'+
+    '<label class="col-lg-2 control-label">Map</label>'+
+    '<div class="col-lg-7">'+
+      '<div id="map"></div>'+
+    '</div>'+
+  '</div>'

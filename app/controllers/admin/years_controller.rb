@@ -26,10 +26,12 @@ class Admin::YearsController < Admin::ApplicationController
   # GET /years/new
   def new
     @year = Year.new
+    @disabled =  false 
   end
 
   # GET /years/1/edit
   def edit
+    @disabled = true
   end
 
   # POST /years

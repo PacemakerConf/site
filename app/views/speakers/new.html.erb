@@ -19,7 +19,7 @@
 <% if Invitation.where(email_hash: params[:hash], status: 'New').count > 0 %>
 		<% @invite = Invitation.where(email_hash: params[:hash])[0] %>
 		<% current_user = {'role' => User::SPEAKER}%>
-    <% readonly = false %>
+    <% @readonly = false %>
 		<%= render 'form' %>
 <% else %>
 

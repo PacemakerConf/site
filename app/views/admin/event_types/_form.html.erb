@@ -55,7 +55,7 @@
     <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
       <div class="checkbox">
         <label>
-          <%= f.check_box :speakerEvent%>
+          <%= f.check_box :speakerEvent, disabled: @notEditable %>
         </label>
       </div>
     </div>

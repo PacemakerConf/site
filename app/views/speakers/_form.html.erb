@@ -1,21 +1,9 @@
 <%= form_for( @speaker, html: {class: 'form-horizontal'} ) do |f| %>
    
-  <% if @speaker.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@speaker.errors.count, "error") %> prohibited this speaker from being saved:</h2>
-
-      <ul>
-      <% @speaker.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  
   <div class="form-group">
     <%= f.label :photo, 'Photo', class: "col-lg-2 control-label" %>
     <div class="col-lg-7">
-      <%= f.file_field :photo, class: "btn btn-default file_input" %>
+      <%= f.file_field :photo, class: "btn btn-default file_input", readonly: @readonly %>
     </div>
   </div>
   <div class="form-group">
@@ -40,7 +28,7 @@
     <%= f.label :description, 'Description*', class: "col-lg-2 control-label" %>
     <div class="col-lg-7">
     <%= render "admin/share/wysiwyg" %> 
-     <div id="editor" class="well col-md-9 form-control" readonly='<%= @readonly %>'></div>
+     <div id="editor" class="well col-md-9 form-control" <%= @readonly ? 'readonly' : '' %> ></div>
     </div>
       <%= hidden_field( :speaker, :description, class: 'wysiwyg_textarea') %>
   </div> 
@@ -53,29 +41,29 @@
   <div class="form-group">
     <%= f.label :facebook, class: "col-lg-2 control-label" %>
     <div class="col-lg-7">
-      <%= f.text_field :facebook, class: "form-control" %>
+      <%= f.text_field :facebook, class: "form-control", readonly: @readonly %>
     </div>
   </div>
   <div class="form-group">
     <%= f.label :linkedin, class: "col-lg-2 control-label" %>
     <div class="col-lg-7">
-      <%= f.text_field :linkedin, class: "form-control" %>
+      <%= f.text_field :linkedin, class: "form-control", readonly: @readonly %>
     </div>
   </div>
   <div class="form-group">
     <%= f.label :twitter, class: "col-lg-2 control-label" %>
     <div class="col-lg-7">
-      <%= f.text_field :twitter, class: "form-control" %>
+      <%= f.text_field :twitter, class: "form-control", readonly: @readonly%>
     </div>
   </div>
   <div class="form-group">
     <%= f.label :site, class: "col-lg-2 control-label" %>
     <div class="col-lg-7">
-      <%= f.text_field :site, class: "form-control" %>
+      <%= f.text_field :site, class: "form-control", readonly: @readonly %>
     </div>
   </div>
 
-  <%= f.hidden_field :status, value: 'Complete' %> 
+  <%= f.hidden_field :status, value: 'Registered' %> 
   <%= f.hidden_field :email_hash, value: params[:hash] %> 
   <%= f.hidden_field :conference_id, value: params[:conference_id] %> 
   

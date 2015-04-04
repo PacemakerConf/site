@@ -10,6 +10,11 @@ def index
 	    @conference = @conferences[0]
 	  end
   @invites = @conference.invitations
+  @speakers = []
+  emails = @invites.pluck(:email)
+  emails.each do |email|
+  	@speakers.push Speaker.where(email: email)[0]
+  end
 end
   
 end

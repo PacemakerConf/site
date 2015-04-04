@@ -6,7 +6,7 @@ class Invitation < ActiveRecord::Base
 	validates :message_id, presence: true 
 	validates :email, presence: true,
 		email_format: { message: "doesn't look like an email address" }
-		
+
 	attr_accessor :host	
 
 	delegate :content, to: :message, prefix: true
@@ -35,5 +35,4 @@ class Invitation < ActiveRecord::Base
   	  message = message_content.gsub!(Message::TOKEN_REGEXP, generate_link)
 	    InviteMailer.speaker_invite(email, message).deliver
 	end	
-
 end

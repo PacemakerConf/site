@@ -3,8 +3,8 @@
 	<div class='row'>	
 		<% visible_speaker = false %>
 		<% events = speaker.events.where(conference: @conference) %>
-		<% events.each do |e| %>
-			<% visible_speaker = true if can? :read, e %>
+		<% events.each do |event| %>
+			<% visible_speaker = true if can? :read, event %>
 		<% end %>
 		<% if visible_speaker %>
 			<div class = 'full-speaker-container col-lg-7 col-md-7 col-xs-7'>
