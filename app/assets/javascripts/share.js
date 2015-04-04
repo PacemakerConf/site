@@ -42,26 +42,18 @@ function pageLoad(){
 		$('.datetimepicker_deadline').datetimepicker({
 			format: 'YYYY/MM/DD'
 		});
-
-	//EMAIL
-		// $('.mail_button').on('click', function(e){
-		// 	form = $('# form name');
-		// 	e.preventDefault();
-		// 	var email = $('#mail-address').val() ;
-		// 	regex = /\A\w+@\w+\.[a-z]\Z/i
-		// 	if( email.test(regex) ){
-		// 		form.submit()
-		// 	}
-
-  //   // validation code here
-  //   if(!valid) {
-  //     e.preventDefault();
-  //   }
-  // });
-
-		// 	$('#success-sent').html('your mail has been sent').addClass('alert alert-dismissible alert-success');
-	 //  		// $('#success-sent').append('your mail has been sent');
-	 //    });
-
-	}
+	};
+	//email validator
+	$('.mail_button').on('click', function(e){
+		e.preventDefault();
+		var form = $('#myModal').find('form');
+		var email = $('#mail-address').val() ;
+		var emailRegEx = /^\w+@\w+\.[a-z]+$/i;
+		if( email.match(emailRegEx) ){
+			form.submit()
+			$('#success-sent').html('<h4>Great!</h4><p>Your mail has been sent!</p>').removeClass().addClass('alert alert-dismissible alert-success');
+		} else {
+  			$('#success-sent').html('<h4>Warning!</h4><p>Enter correct value!</p>').addClass('alert alert-dismissible alert-warning');
+		}
+    });
 }
