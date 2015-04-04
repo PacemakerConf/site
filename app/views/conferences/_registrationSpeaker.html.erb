@@ -16,17 +16,11 @@
             <h3 class="modal-title" id="myModalLabel">Request for speaker</h3>
          </div>
 
-        <% if @conference.errors.any? %>
-          <div class="alert alert-dismissible alert-danger">
-            <button type="button" class="close" data-dismiss="alert">×</button>
-            <strong>Oh snap!</strong> 
-            <ul>
-              <% @conference.errors.full_messages.each do |notice| %>
-                <li><%= notice %></li>
-              <% end %>
-            </ul>
-          </div>
-        <% end %>
+
+<div id='success-sent' class = '' > 
+
+</div>
+
 
          <div class="modal-body form-group">
             	<%= form_tag(send_mail_path, remote: true) do %>
@@ -36,7 +30,7 @@
             </div>
             <div class="form-group">
                 <%= label_tag 'email', 'Email' %>
-                <%= email_field_tag :email, nil, class: 'form-control col-lg-3 control-label', id: '#mail-address', placeholder: 'Your Email Address' %>
+                <%= email_field_tag :email, nil, class: 'form-control col-lg-3 control-label', id: 'mail-address', placeholder: 'Your Email Address' %>
             </div>
             <div>
                 <%= label_tag 'comment', 'Comment' %>

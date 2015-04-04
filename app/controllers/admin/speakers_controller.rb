@@ -33,6 +33,7 @@ class Admin::SpeakersController < Admin::ApplicationController
 
   def invite
     @invite = Invitation.new(conference_id: params[:conference_id])
+    @conferences = Conference.future
   end
 
   def send_invitation

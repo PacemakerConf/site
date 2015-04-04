@@ -44,27 +44,24 @@ function pageLoad(){
 		});
 
 	//EMAIL
-  $('.mail_button').click(function(){
-  	console.log('click');
-    var mails = '';
-    var emailRegEx = /^\w+@\w+\.[a-z]+$/i;
-    var isCorrect = true;
-      $('#mail-address').each(function(index, obj){
-        if($(obj).val() != '' && $(obj).val().search(emailRegEx) != -1){
-           $(obj).parent().removeClass('has-error')
-        }
-        else {
-          isCorrect = false;
-          $(obj).parent().addClass('has-error')
-          $("#error-area").html('');
-          $("#error-area").append(ERROR_DIV);
-        }
-        
-      });
-      // if(isCorrect)
-      //   $('[name="contact[email]"]').val(mails);
-      //   return isCorrect;
-    });
+		// $('.mail_button').on('click', function(e){
+		// 	form = $('# form name');
+		// 	e.preventDefault();
+		// 	var email = $('#mail-address').val() ;
+		// 	regex = /\A\w+@\w+\.[a-z]\Z/i
+		// 	if( email.test(regex) ){
+		// 		form.submit()
+		// 	}
+
+  //   // validation code here
+  //   if(!valid) {
+  //     e.preventDefault();
+  //   }
+  // });
+
+		// 	$('#success-sent').html('your mail has been sent').addClass('alert alert-dismissible alert-success');
+	 //  		// $('#success-sent').append('your mail has been sent');
+	 //    });
 
 	}
 }
