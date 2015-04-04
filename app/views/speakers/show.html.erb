@@ -33,13 +33,8 @@
 </div>
 
 <div class = 'speeches-list '>
-	<% sorted_events = [] %>
-	<% @speaker.events.each do |event| %>
-		<% sorted_events << {date: event.conference.date || Date.new(Year::LAST_YEAR), event: event} %>
-	<% end %>
-	<% sorted_events.sort_by!{|obj| obj[:date]}.reverse! %>
 
-	<% sorted_events.each do |obj| %>
+	<% @sorted_events.each do |obj| %>
 		<% speech = obj[:event] %>
 		<% if can? :read, speech %>
 		

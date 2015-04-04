@@ -1,4 +1,5 @@
 class Year < ActiveRecord::Base
+	FIRST_YEAR = 2011	
 	LAST_YEAR = 5000
 
 	has_many :conferences

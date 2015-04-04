@@ -34,10 +34,14 @@ class Admin::EventsController < Admin::ApplicationController
   # GET /events/new
   def new
     @event = Event.new
+    @event_type = EventType.first
+    @speaker_event = @event_type.speakerEvent
   end
 
   # GET /events/1/edit
   def edit
+    @event_type = @event.event_type
+    @speaker_event = @event_type.speakerEvent
   end
 
   # POST /events
@@ -50,6 +54,8 @@ class Admin::EventsController < Admin::ApplicationController
         format.html { redirect_to controller: 'admin/events', action: 'index', conf_id: @conference.id }
         format.json { render :show, status: :created, location: @event }
       else
+        @event_type = @event.event_type
+        @speaker_event = @event_type.speakerEvent
         format.html { render :new }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end

@@ -20,6 +20,7 @@ class Admin::SpeakersController < Admin::ApplicationController
   # GET /speakers/1
   # GET /speakers/1.json
   def show
+    @sorted_events = @speaker.get_sorted_events
   end
 
   # GET /speakers/new
@@ -43,6 +44,7 @@ class Admin::SpeakersController < Admin::ApplicationController
       status: params[:invitation][:status],
       host: get_host
     )
+    @conferences = Conference.future
     message = Message.new(content: params[:invitation][:message]).create_if_new
     @invite.message = message
     respond_to do |format|

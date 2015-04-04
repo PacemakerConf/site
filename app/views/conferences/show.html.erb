@@ -1,6 +1,12 @@
+<% if @conference.news.length > 0 %>
+	<% width = [9, 8] %>
+<% else %>
+	<% width = [12, 12] %>
+<% end %>
+
 <% content_for :title, @conference.fullname %>
 <div class="row">
-	<div class="main-speakers col-lg-9 col-md-8 col-sm-12 col-xs-12">
+	<div class="main-speakers col-lg-<%= width[0] %> col-md-<%= width[1] %> col-sm-12 col-xs-12">
 		<div class='speakers-list'>
 			<h4>Speakers</h4>
 			<div class="main-speakers-box row">
