@@ -1,10 +1,13 @@
 $(document).on('ready page:load', eventFormLoad);
 
 function eventFormLoad(){
-	if(typeof event_event_type_id != 'undefined' && $('.admin_event_form').length ){
+	if(typeof event_event_type_id != 'undefined'){
+		setDefaultData();
+	}
+
+	if( $('.admin_event_form').length ){
 		var speakerEvent = event_event_type_id.getAttribute("speakerEvent");
 		toggleEventFields(speakerEvent.toString() === 'true'); 		
-		setDefaultData();
 	}
 
 	if($('#speaker_search')[0]){

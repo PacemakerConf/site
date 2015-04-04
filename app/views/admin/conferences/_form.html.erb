@@ -1,10 +1,4 @@
 <%= form_for( [:admin, @conference], html: {class: 'form-horizontal'} ) do |f| %>
-
-  <ul>
-    <% @conference.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
   
   <div class="form-group">
     <%= f.label :name, "Name*", class: "col-lg-2 control-label"%>
@@ -15,9 +9,8 @@
 
   <div class="form-group">
     <%= f.label :'year_id', "Year*", class: "col-lg-2 control-label" %>
-  <div class="col-lg-7">
+    <div class="col-lg-7">
     <%= select_tag "conference[year_id]", options_from_collection_for_select(Year.all, 'id', 'name', @conference.year_id || Year.last.id), class: "form-control"%>
-
     </div>
   </div>
 
@@ -35,7 +28,7 @@
     <%= f.label :registration_deadline, class: "col-lg-2 control-label" %>
     <div class="col-lg-7">
       <div class="input-group">
-        <%= f.text_field :registration_deadline, class: "form-control datetimepicker_deadline"%>
+        <%= f.text_field :registration_deadline, placeholder: @conference.registration_deadline, class: "form-control datetimepicker_deadline"%>
         <span class="input-group-addon glyphicon glyphicon-calendar"></span>
       </div>
     </div>
@@ -58,14 +51,14 @@
   <div class="form-group">
     <%= f.label "Video", class: "col-lg-2 control-label"%>
     <div class="col-lg-7">
-      <%= f.text_field :video, class: "form-control" %>
+      <%= f.text_field :video, placeholder: 'Insert url with video', class: "form-control" %>
     </div>
   </div> 
 
   <div class="form-group">
     <%= f.label "Photo", class: "col-lg-2 control-label"%>
     <div class="col-lg-7">
-      <%= f.text_field :photo, class: "form-control" %>
+      <%= f.text_field :photo, placeholder: 'Insert url with photo', class: "form-control" %>
     </div>
   </div>
 

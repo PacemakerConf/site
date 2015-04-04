@@ -1,3 +1,16 @@
+<% if @news.errors.any? %>
+  <div id="error_explanation">
+    <div class="alert alert-dismissible alert-danger">
+      <button type="button" class="close" data-dismiss="alert">×</button>
+      <strong>Oh snap!</strong> 
+      <ul>
+      <% @news.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+    </div> 
+  </div>
+<% end %>
 <h1>Editing News</h1>
 
 <%= render 'form' %>

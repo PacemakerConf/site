@@ -59,13 +59,14 @@ ul.conference-menu li {
   color: white;
   word-spacing: 999px;
   text-align: center;
+/*  word-wrap: break-word;*/
 }
 
 .long-text{
   text-align: center;
   font-size: 12px;
   line-height: 95%;
-  padding: 0 4px 0 0;
+  padding: 0 0 0 0;
 /*  font-weight: normal;*/
 /*  vertical-align: middle;
   top: 50%;*/
@@ -75,26 +76,6 @@ ul.conference-menu li {
 .flag-image-container, .flag-year-image-container {
     position: relative;
 }
-
-/*.flag-year-image-container img:hover{
-  width: 105%;
-  height: 73px;
-  margin: 0 0 0 0;
-  letter-spacing: -0.1em;
-  font-weight: normal;
-  transition:.5s;
-}*/
-
-/*.flag-image-container img:hover{
-}*/
-
-/*.flag-text :hover{
-  background: linear-gradient(#8E8D8D, black, transparent);
-  position: absolute;
-  border: 1px solid black;
-  margin-top: -25px;
-  z-index: 1;
-}*/
 
 .red-flag{
   content:url("/assets/redflag.png");
