@@ -24,6 +24,23 @@ $(document).on("ready page:load", function(){
         $('[name="contact[email]"]').val(mails);
         return isCorrect;
     });
+
+  if($(".allmails").val()){
+    var savedMails = $(".allmails").val();
+    var lastSymbol = savedMails.charAt(savedMails.length-1);
+    if(lastSymbol == ";"){
+      savedMails = savedMails.substring(0, savedMails.length-1);
+    }
+    var mailsArray = savedMails.split(";");
+
+    if(mailsArray){
+      $.each(mailsArray,function(index, obj){
+        $("#mail-area").append(INPUT_DIV);
+        $(".mail-address:eq("+index+")").val(mailsArray[index]);
+      });
+      $(".mail-address:last").parents(':eq(1)').remove();
+    }
+  }
 });
 
 function RemoveMail(button){
