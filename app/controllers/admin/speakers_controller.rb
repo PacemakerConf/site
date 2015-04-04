@@ -44,6 +44,7 @@ class Admin::SpeakersController < Admin::ApplicationController
       status: params[:invitation][:status],
       host: get_host
     )
+    @conferences = Conference.future
     message = Message.new(content: params[:invitation][:message]).create_if_new
     @invite.message = message
     respond_to do |format|

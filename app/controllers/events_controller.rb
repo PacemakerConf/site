@@ -1,7 +1,5 @@
 class EventsController < ApplicationController
 
-  before_action :set_event, only: [:edit, :update, :destroy]
-
   def new
     @event = Event.new
     @event_types = EventType.where(speakerEvent: true)
