@@ -8,11 +8,10 @@ $(document).on("ready page:load", function(){
   //Adding some styles for select
   $('#bsmSelectbsmContainer0').addClass('form-control');
   //Function for appending map only on first keypress
-  $(".adr").bind("keypress", function(){
+  $("#initial_map").one("keyup", function(){
     $("#map-area").append(DIV_FOR_MAP);
-    $('.adr').unbind('keypress');
     //Initial map
-    if($("#map").length){
+    if($("#map")){
       map = new GMaps({
           div: '#map',
           lng: 0,
