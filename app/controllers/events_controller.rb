@@ -17,7 +17,7 @@ class EventsController < ApplicationController
         @invite.status = 'Complete'
         @invite.save
         current_user = {'role' => User::SPEAKER}
-        format.html { redirect_to events_path, notice: 'event was successfully created.' }
+        format.html { redirect_to events_path, notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
       else
         format.html { redirect_to controller: 'events', action: 'new', hash: params['event']['email_hash'] }
