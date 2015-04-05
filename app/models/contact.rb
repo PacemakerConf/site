@@ -4,7 +4,8 @@ class Contact < ActiveRecord::Base
 
 	validates :name, presence: true
 	validates :surname, presence: true
-	validates :telephone, presence: true
+	validates :telephone, presence: true,
+	                                     format: { with: /\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})/, :message => "invalid format"}
 	validates :email, presence: true
 	
 	def full_name
