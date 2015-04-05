@@ -21,7 +21,7 @@ class EventsController < ApplicationController
         format.html { redirect_to events_path, notice: 'event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
       else
-        format.html { render :new }
+        format.html { redirect_to controller: 'events', action: 'new', hash: params['event']['email_hash'] }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
     end

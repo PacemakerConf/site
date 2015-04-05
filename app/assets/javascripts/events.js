@@ -10,7 +10,7 @@ function eventFormLoad(){
 	if($('#speaker_search')[0]){
 		$('#speaker_search').keyup(function(){
 			$.ajax({
-				url: '/admin/speakers/search?pattern=' + $('#speaker_search').val()
+				url: '/admin/speakers/search?input=' + $('#speaker_search').val()
 			})
 			$('#event_speaker_id').val('');		
 		})

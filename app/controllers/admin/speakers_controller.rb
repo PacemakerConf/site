@@ -7,8 +7,8 @@ class Admin::SpeakersController < Admin::ApplicationController
   layout 'admin'
 
   def search
-    pattern = params[:pattern].downcase
-    @speakers_list = Speaker.search pattern
+    input = params[:input].downcase
+    @speakers_list = Speaker.search input
   end
 
   # GET /speakers
