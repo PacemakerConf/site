@@ -23,7 +23,7 @@
 #map{
 	position: relative;
 	height: 200px !important;
-	width: 455px !important;
+	min-width: 300px !important;
 
 }
 .address-container p{

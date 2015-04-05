@@ -9,20 +9,15 @@
 </div>
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-   <div class="modal-dialog">
-      <div class="modal-content">
-      	 <div class="modal-header">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close" aria-hidden="true"><span>&times;</span></button>
             <h3 class="modal-title" id="myModalLabel">Request for speaker</h3>
-         </div>
-
-
-<div id='success-sent' class = '' > 
-
-</div>
-
-
-         <div class="modal-body form-group">
+            </div>
+            <div id='success-sent' class = '' > 
+            </div>
+            <div class="modal-body form-group">
             	<%= form_tag(send_mail_path, remote: true) do %>
             <div class="form-group">
                 <%= label_tag 'name', 'Name' %>
@@ -36,13 +31,13 @@
                 <%= label_tag 'comment', 'Comment' %>
                 <%= text_area_tag 'comment', nil, class: 'form-control col-lg-3 control-label', rows: 1, placeholder: 'Comment...' %>
             </div>
-         </div>
-         <div class="modal-footer">
+            </div>
+            <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true">Close</button>
 			       <%= submit_tag("Send", class: 'btn btn-primary mail_button', :controller => "speaker_request", :action => "send_mail") %>
-       <% end %>
-         </div>
-      </div>
-   </div>
+            <% end %>
+            </div>
+        </div>
+    </div>
 </div>
 <% end %>
