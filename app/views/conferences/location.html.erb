@@ -27,10 +27,12 @@
           </div>
           <% end %>
       </div>
-        <h2>How To Find</h2>
-        <div class="bckgrnd">
-          <p><%= @location.how_to_find.html_safe %></p>
-        </div>
+        <% unless(@location.how_to_find.to_s === "") %>
+          <h2>How To Find</h2>
+          <div class="bckgrnd">
+            <p><%= @location.how_to_find.html_safe %></p>
+          </div>
+        <% end %>
   </div>
 </div>
 
