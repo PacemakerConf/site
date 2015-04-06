@@ -1,6 +1,6 @@
 namespace :admin do
   task :create => :environment do
-  	puts "You will be prompted to enter username, an email address and password for the new admin"
+  	puts "You will be prompted to enter username, an email address and password in order to create new administrator"
   	puts "Please, enter username:"
   	username = STDIN.gets.strip
  		puts "Enter an email address:"
@@ -9,8 +9,9 @@ namespace :admin do
 		password = STDIN.gets.strip
 		puts "Confirm your password:"
 		password_confirmation = STDIN.gets.strip
-		raise ArgumentError.new("Confirmation pasword is not the same!") unless password == password_confirmation
-    unless username.blank?||email.blank? || password.blank?
+		raise ArgumentError,"Confirmation pasword is not the same!" unless 
+			password == password_confirmation
+    unless username.blank? || email.blank? || password.blank?
 			if Admin.create!(
 	    		username: username, 
 	    		email: email, 
@@ -18,9 +19,9 @@ namespace :admin do
 	    		password_confirmation: password_confirmation,
 	    		role: 'Admin'
 	  		)
-				puts "The admin was created successfully." 
+				puts "The admin was created successfully."
 			else
-				puts "Sorry, the admin was not created! Data are missing or valid!"
+				puts "Sorry, the admin was not created! Data are missing or invalid!"
 			end
 		end  
   end

@@ -22,7 +22,7 @@ def destroy
   if @invite.status == 'New'
   @invite.destroy
   respond_to do |format|
-    format.html { redirect_to admin_invitations_url, notice: 'Invitation was successfully destroyed.' }
+    format.html { redirect_to controller: 'admin/invitations', action: 'index', conf_id: @invite.conference_id}
     format.json { head :no_content }
       end
   else
