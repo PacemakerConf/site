@@ -14,7 +14,7 @@ class Speaker < ActiveRecord::Base
   validates :email, presence: true, 
                     uniqueness: true
 
-  validates_format_of :email, with: =>  /^\w+@\w+\.[a-z]+$/i;
+  validates_format_of :email, :multiline => true, :with => /^\w+@\w+\.[a-z]+$/i
 
 	validates_attachment_content_type :photo, content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
