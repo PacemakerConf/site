@@ -3,53 +3,9 @@
   <%= if @conference then @conference.fullname end %>
 </h3>
 <div class="alert alert-info" style="margin-top: 0px; margin-bottom: 0px; margin-left: auto; margin-right: auto;">Status: Schedule taken from server.<button onclick="sendAJAX()" class="btn btn-warning hidden" id="AjaxButton" >Try Again</button></div>
-<ul id="sortable" class="list-group" style="margin-bottom: 5px;">
-  <% @@positionNumber = 0 %>
-  <% @@trigger = true %>
-  <% @eventsSingle.each do |event| %>
-    <% if @eventsGroupable[1] %>
-      <% if (event.position > @eventsGroupable[1].position) && @@trigger %>
-        <% @@groupSum = 0 %>
-        <% @@accessId = "" %>
-        <% @eventsGroupable.each do |item| %>
-            <% @@accessId += item.id.to_s + "," %>
-            <% @@groupSum += 1 %>
-        <% end %>
-        <li class="ui-state-default list-group-item schedule-item" >
-          <span class="timestart" style="position: relative;"></span>
-          <span class="duration" style="position: relative;"><%= conferenceEventGroupDurationReturn(@eventsGroupable) %></span>
-          |
-           <span style="position: relative;"><%= @eventsGroupable[0].title %></span>
-          <span class="idItems" style= "display: none;"><%= @@accessId %></span>
-          <span class="positionItems" style="display: none;"><%= @@positionNumber %><% @@positionNumber += 1 %></span>
-          <span class="groupableItems" style="display: none;" ><%= @@groupSum %></span>
-          <% @eventsGroupable.each do |eventGroup| %>
-            <% if !(eventGroup.speaker_id.nil?) %>
-              <span style="position:relative;"> -<%= link_to eventGroup.speaker.name + " " + eventGroup.speaker.surname, eventGroup.speaker, :style => 'font-weight: bold;' %> /</span>
-            <% end %>
-          <% end %>
-        </li>
-        <% @@trigger = false %>
-      <% end %>
-    <% end %>
-    <li class="ui-state-default list-group-item schedule-item" <% if !event.published %>style="background-color: #FFA"<% end %>>
-      <span class="timestart" style="position: relative;"></span>
-      <span class="duration" style="position: relative;"><%= conferenceEventDurationReturn(event.duration) %></span>
-      |
-      <span style="position: relative;"><%= event.title %></span>
-      <span class="idItems" style= "display: none;"><%= event.id %></span>
-      <span class="positionItems" style="display: none;"><%= @@positionNumber %><% @@positionNumber += 1 %></span>
-      <span class="groupableItems" style="display: none;" >0</span>
-      <span style="position:relative;" style="font-weight:normal;">
-        <% if event.speaker.nil? %>
-           ><%= event.responsable %>
-        <% else %>
-          -<%= link_to event.speaker.name + " " + event.speaker.surname, event.speaker, :style => 'font-weight: bold;' %>
-        <% end %>
-      </span>
-    </li>
-  <% end %>
-</ul>
+
+<%=(admin_schedule @conference.group_event, @eventsSingle, @eventsGroupable).html_safe %>
+
 <div>
   <%= link_to 'Events page', {controller: 'admin/events', 
                               action: 'index',
