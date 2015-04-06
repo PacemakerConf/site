@@ -28,7 +28,7 @@ function setFlagColors() {
             $('#' + active_conference + '-' + active_year).children().children('img').attr('src', '/assets/blueflag.png');
         };
 
-        // Add style to all flag on hover
+        // Add style to all conference flag on hover
         for (var i = 0; i < years.length; i++) {
             $('.conference-' + years[i]).hover(function() {
                 $(this).find('img').addClass('blue-flag');
