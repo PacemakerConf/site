@@ -18,7 +18,7 @@
 
   <% @@trigger = true %>
   <% @eventsSingle.each do |event| %>
-    <% if @eventsGroupable[0] %>
+    <% if @eventsGroupable %>
       <% if (event.position > @eventsGroupable[1].position) && @@trigger %>
         <% @@accessTrigger = 0 %>
         <% @eventsGroupable.each do |access| %>

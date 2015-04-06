@@ -56,9 +56,9 @@ function pageLoad() {
         var emailRegEx = /^\w+@\w+\.[a-z]+$/i;
         if (email.match(emailRegEx)) {
             form.submit()
-            $('#success-sent').html('<h4>Great!</h4><p>Your mail has been sent!</p>').removeClass().addClass('alert alert-dismissible alert-success');
+            $('#success-sent').html('<h4>Great! Your email has been sent!</h4>').removeClass().addClass('alert alert-dismissible alert-success');
         } else {
-            $('#success-sent').html('<h4>Warning!</h4><p>Enter correct value!</p>').addClass('alert alert-dismissible alert-warning');
+            $('#success-sent').html('<h4>Warning! Enter correct value!</h4>').addClass('alert alert-dismissible alert-warning');
         }
     });
 }
