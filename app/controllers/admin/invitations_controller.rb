@@ -19,11 +19,15 @@ def index
 end
 
 def destroy
+  if @invite.status == 'New'
   @invite.destroy
   respond_to do |format|
     format.html { redirect_to admin_invitations_url, notice: 'Invitation was successfully destroyed.' }
     format.json { head :no_content }
-end
+      end
+  else
+    redirect_to admin_invitations_url, notice: 'You can\'t delete invitation, if it\'s status is Registered or Complete!'
+  end
 end
 
   private

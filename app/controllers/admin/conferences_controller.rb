@@ -21,10 +21,13 @@ class Admin::ConferencesController < Admin::ApplicationController
   end
 
   def schedule
-    groupable = EventType.where(groupable: 1)
-    @eventsGroupable = @conference.events.where(event_type: groupable).order(:position)
-    @eventsSingle = @conference.events.where.not(event_type: groupable).order(:position)
-    @events = @conference.events.order(:position)
+    if @conference.group_event then
+      groupable = EventType.where(groupable: 1)
+      @eventsGroupable = @conference.events.where(event_type: groupable).by_position
+      @eventsSingle = @conference.events.where.not(event_type: groupable).by_position     
+    else
+      @eventsSingle = @conference.events.order(:position)
+    end
     @active_button = 'schedule'
   end
 
