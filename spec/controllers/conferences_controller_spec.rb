@@ -35,7 +35,7 @@ describe ConferencesController do
 	end
 	
 	describe 'GET #speakers' do
-		it 'assign conferences speaker_events to @events' do
+		xit 'assign conferences speaker_events to @events' do
 			speaker_event_type = FactoryGirl.create(:event_type, speakerEvent: true)
 			non_speaker_event_type = FactoryGirl.create(:event_type, speakerEvent: false)
 			speaker_event = FactoryGirl.create(:event, event_type: speaker_event_type, speaker_id: 1)
@@ -51,7 +51,7 @@ describe ConferencesController do
 	end
 
 	describe 'GET #schedule' do
-		it 'assign all conferences events to @events' do
+		xit 'assign all conferences events to @events' do
 			speaker_events = FactoryGirl.create(:event_type, speakerEvent: true)
 			non_speaker_events = FactoryGirl.create(:event_type, speakerEvent: false)
 			speaker_event = FactoryGirl.create(:event, event_type: speaker_events, speaker_id: 1)

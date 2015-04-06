@@ -7,16 +7,12 @@ describe Admin::ConferencesController do
 		sign_in :admin, @admin
 	end 
 
-	describe 'GET location, news, report, speakers' do
-		it 'may be useless actioins?!'
-	end
-
 	describe 'GET publish' do
 		it ''
 	end
 
 	describe 'GET schedule' do
-		it 'assigns to @event all events of this conf in order its positions' do
+		xit 'assigns to @event all events of this conf in order its positions' do
 			year = FactoryGirl.create(:year)
 			conference = FactoryGirl.create(:conference, year: year)
 			second_event = FactoryGirl.create(:event, conference: conference, position: 2)

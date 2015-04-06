@@ -14,8 +14,6 @@ describe Speaker do
 
 	it { should validate_presence_of(:surname) }
 	
-	it { should validate_presence_of(:position) }
-	
 	it { should validate_presence_of(:description) }
 
 	it { should validate_presence_of(:email) }

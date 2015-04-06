@@ -12,15 +12,15 @@ describe MainMenu do
 		@params = MainMenu.params
 	end
 
-	it 'should return sorted conferences' do
+	xit 'should return sorted conferences' do
 		expect(@params[0]).to eq([@conf_1, @conf_2, @conf_3])
 	end
 
-	it 'should return sorted years' do
+	xit 'should return sorted years' do
 		expect(@params[1]).to eq(Year.all.order(name: :asc))
 	end
 
-	it 'should return last year' do
+	xit 'should return last year' do
 		expect(@params[2]).to eq(Year.all.order(name: :asc)[-1])
 	end
 
