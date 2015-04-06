@@ -15,7 +15,6 @@ class Conference < ActiveRecord::Base
 	validates :date, inclusion: { in: Time.now..Time.new(Year::LAST_YEAR)} if 
 		StrictValidation.enabled?
 	validates_with Validators::ConferenceYearDateValidator, on: [:create, :update]
-	# validates_with Validators::ConferenceUniquenessValidator, on: [:create, :update]
 
 	scope :by_date_asc, -> { order(date: :asc) }
 	scope :by_year_date_desc, -> { includes(:year).order('years.name desc', date: :desc) }
