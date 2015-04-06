@@ -2,7 +2,7 @@
 <% if deadline && (deadline > Time.now) %>
 
 <div class="table table-responsive row col-md-10">
-	<%= label_tag 'Registration Deadline ' + @conference.registration_deadline.to_s, nil, class: 'col-md-5', style: 'font-size: 18pt' %>
+	<%= label_tag 'Registration Deadline ' + @conference.registration_deadline.to_s, nil, class: 'col-md-5', style: 'font-size: 18pt, float: right' %>
 	<!-- Button trigger modal -->
 	<button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal"><strong>CALL FOR SPEAKER!</strong>
 	</button>
@@ -12,29 +12,29 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close" aria-hidden="true"><span>&times;</span></button>
-            <h3 class="modal-title" id="myModalLabel">Request for speaker</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" aria-hidden="true"><span>&times;</span></button>
+                <h3 class="modal-title" id="myModalLabel">Request for speaker</h3>
             </div>
             <div id='success-sent' class = '' > 
             </div>
             <div class="modal-body form-group">
             	<%= form_tag(send_mail_path, remote: true) do %>
-            <div class="form-group">
+                <div class="form-group">
                 <%= label_tag 'name', 'Name' %>
                 <%= text_field_tag 'name', nil, class: 'form-control col-lg-3 control-label', placeholder: 'Your Name' %>
-            </div>
-            <div class="form-group">
+                </div>
+                <div class="form-group">
                 <%= label_tag 'email', 'Email' %>
                 <%= email_field_tag :email, nil, class: 'form-control col-lg-3 control-label', id: 'mail-address', placeholder: 'Your Email Address' %>
-            </div>
-            <div>
+                </div>
+                <div>
                 <%= label_tag 'comment', 'Comment' %>
                 <%= text_area_tag 'comment', nil, class: 'form-control col-lg-3 control-label', rows: 1, placeholder: 'Comment...' %>
-            </div>
+                </div>
             </div>
             <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true">Close</button>
-			       <%= submit_tag("Send", class: 'btn btn-primary mail_button', :controller => "speaker_request", :action => "send_mail") %>
+                <button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true">Close</button>
+                <%= submit_tag("Send", class: 'btn btn-primary mail_button', :controller => "speaker_request", :action => "send_mail") %>
             <% end %>
             </div>
         </div>
