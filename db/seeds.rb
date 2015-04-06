@@ -1,9 +1,8 @@
 EventType.create!([
-  {name: "registration", description: "registration", defaultDuration: "2014-12-12 00:30:00", color: "#d0e9c6", image: "1", speakerEvent: false, groupable: nil},
-  {name: "beer-break", description: "ho ho ho", defaultDuration: "2014-12-12 03:00:00", color: "#f2dede", image: "0", speakerEvent: false, groupable: nil},
-  {name: "topic", description: "some description", defaultDuration: "2014-12-12 01:00:00", color: "#fcf8e3", image: "3", speakerEvent: true, groupable: nil},
-  {name: "lightning", description: "some description", defaultDuration: "2014-12-12 00:45:00", color: "#d9edf7", image: "15", speakerEvent: true, groupable: nil},
-  {name: "group lightning", description: "some description", defaultDuration: "2014-12-12 00:45:00", color: "#d9edf7", image: "4", speakerEvent: true, groupable: 1},
+  {name: "Registration", description: "registration", defaultDuration: "2014-12-12 00:30:00", color: "#d0e9c6", image: "1", speakerEvent: false, groupable: nil},
+  {name: "Beer-break", description: "ho ho ho", defaultDuration: "2014-12-12 03:00:00", color: "#f2dede", image: "0", speakerEvent: false, groupable: nil},
+  {name: "Topic", description: "some description", defaultDuration: "2014-12-12 01:00:00", color: "#fcf8e3", image: "3", speakerEvent: true, groupable: nil},
+  {name: "Lightning", description: "some description", defaultDuration: "2014-12-12 00:45:00", color: "#d9edf7", image: "15", speakerEvent: true, groupable: nil},
   {name: "Introduction", description: "introduction", defaultDuration: "2015-03-18 00:15:00", color: "#d0e9c6", image: "10", speakerEvent: false, groupable: nil},
   {name: "Lunch", description: "Lunch", defaultDuration: "2015-03-18 00:50:00", color: "#fcf8e3", image: "2", speakerEvent: false, groupable: nil},
   {name: "Pizza party", description: "", defaultDuration: "2015-03-18 02:00:00", color: "#fcf8e3", image: "11", speakerEvent: false, groupable: nil},
