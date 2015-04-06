@@ -22,7 +22,7 @@ class Admin::ConferencesController < Admin::ApplicationController
 
   def schedule
     if @conference.group_event then
-      groupable = EventType.where(groupable: 1)
+      groupable = EventType.where(groupable: true)
       @eventsGroupable = @conference.events.where(event_type: groupable).by_position
       @eventsSingle = @conference.events.where.not(event_type: groupable).by_position     
     else
@@ -109,6 +109,6 @@ class Admin::ConferencesController < Admin::ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def conference_params
-      params.require(:conference).permit(:name, :year_id, :date, :registration_deadline, :attenders, :group_event, :video, :photo)
+      params.require(:conference).permit(:name, :year_id, :date, :registration_deadline, :attenders, :group_event, :video, :photo, :group_event)
     end
 end
