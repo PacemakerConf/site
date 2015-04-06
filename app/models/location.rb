@@ -5,7 +5,7 @@ class Location < ActiveRecord::Base
 	validates :name, presence: true
 	validates :place_type, presence: true
 	
-	def full_address
+	def truncated_address
     	(city.to_s + ", " + address.to_s).truncate(20)
   	end
 

@@ -6,7 +6,7 @@ module Validators
 			end
 
 			if( record && record.event_type && record.event_type.speakerEvent && !record.speaker_id )
-				record.errors[:speaker_id] <<  'error: you have to choose speaker to TOPIC or LIGHTNING event'
+				record.errors[:speaker_id] <<  'error: please, start typing speakers name and select speaker from the list'
 			end
 		end
 	end

@@ -27,8 +27,8 @@ Conference.create!([
   {name: "Mobile", year_id: 4, date: "2015-09-12", attenders: 100, report: nil, location: nil, published: true},
   {name: "WebUI", year_id: 3, date: "2014-09-12", attenders: 372, report: nil, location: nil, published: true},
   {name: "Java", year_id: 3, date: "2014-12-12", attenders: 79, report: nil, location: nil, published: false},
-  {name: "BigData", year_id: 4, date: "2015-11-12", attenders: 72, report: nil, location: nil, published: true},
-  {name: "LAMP", year_id: 2, date: "2013-07-06", attenders: 50, report: nil, location: nil, published: true}
+  {name: "BigData", year_id: 4, date: "2015-11-12", attenders: 72, report: nil, location: nil, published: true, group_event: false},
+  {name: "LAMP", year_id: 2, date: "2013-07-06", attenders: 50, report: nil, location: nil, published: true, group_event: false}
 ])
 Admin.create!([
   {email: "admin@example.com", password: '00000000', password_confirmation: '00000000', current_sign_in_at: "2015-03-18 11:34:41", last_sign_in_at: "2015-03-18 10:56:24", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", username: "admin", role: 'Admin'}
@@ -38,8 +38,6 @@ Contact.create!([
   {name: "Uriy", surname: "Gnat", telephone: "0630620751", email: "gnat_zv@gmail.com", skype: "gnat_zv"},
   {name: "Vova", surname: "Kamin", telephone: "0630750620", email: "vova_lviv@gmail.com", skype: "vova_lviv"},
   {name: "Andriy", surname: "Lozuk", telephone: "0630750676", email: "andr_loz@gmail.com", skype: "andr_loz"},
-  {name: "Khrystyna", surname: "Paprotska", telephone: "+380 96 846 49 33 (int: 1772)", email: "kpap@softserveinc.com;", skype: ""},
-  {name: "Alex", surname: "Mekhovov", telephone: "+380 67 243 58 88", email: "omekh@softserveinc.com;", skype: "alex.mekhovov"}
 ])
 Contact::HABTM_Locations.create!([
   {contact_id: 1, location_id: 2},

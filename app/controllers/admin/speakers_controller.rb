@@ -7,8 +7,8 @@ class Admin::SpeakersController < Admin::ApplicationController
   layout 'admin'
 
   def search
-    pattern = params[:pattern].downcase
-    @speakers_list = Speaker.search pattern
+    input = params[:input].downcase
+    @speakers_list = Speaker.search input
   end
 
   # GET /speakers
@@ -44,6 +44,7 @@ class Admin::SpeakersController < Admin::ApplicationController
       status: params[:invitation][:status],
       host: get_host
     )
+    @conferences = Conference.future
     message = Message.new(content: params[:invitation][:message]).create_if_new
     @invite.message = message
     respond_to do |format|
