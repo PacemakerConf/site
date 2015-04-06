@@ -67,7 +67,7 @@ function setFlagColors() {
         }, 0);
 
         $('.flag-image-container').filter(function() {
-            return $(this).text().length > 45;
+            return $(this).text().length > 46;
         }).addClass('long-text').find('img').animate({
             width: "80",
             height: "73",

@@ -95,4 +95,4 @@ function sendAJAX(){
 	        var statusFail = "Problems with internet connection or server. Schedule has not been saved on server. Please try again later. If the error persists, contact your administrator. Error:" + error;
 	        $('.alert').html(statusFail + '<button onclick="sendAJAX()" class="btn btn-warning" style="position: relative;float:right;">Try Again</button>');
     });
- }
+ }	
