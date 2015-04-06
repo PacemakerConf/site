@@ -16,10 +16,13 @@ class ConferencesController < ApplicationController
   end
 
   def schedule
-    groupable = EventType.where(groupable: 1)
-    @eventsGroupable = @conference.events.where(event_type: groupable).by_position
-    @eventsSingle = @conference.events.where.not(event_type: groupable).by_position
-    @events = @conference.events.order(:position)
+    if @conference.group_event then
+      groupable = EventType.where(groupable: 1)
+      @eventsGroupable = @conference.events.where(event_type: groupable).by_position
+      @eventsSingle = @conference.events.where.not(event_type: groupable).by_position     
+    else
+      @eventsSingle = @conference.events.order(:position)
+    end
     @active_button = 'schedule'
     respond_to do |format|
       format.pdf do
@@ -27,14 +30,13 @@ class ConferencesController < ApplicationController
           :template    => "conferences/schedule.pdf.erb",
           :layout      => "pdf_layout.html"
       end 
-     
       format.html
     end
   end
 
   def show
-    topic = EventType.where(name: 'topic')
-    lightning = EventType.where(name: 'lightning')
+    topic = EventType.where(name: 'Topic')
+    lightning = EventType.where(name: 'Lightning')
     @news = @conference.news.order(created_at: :desc)
     @topics = @conference.events.where(event_type: topic).by_position
     @lightnings = @conference.events.where(event_type: lightning).by_position

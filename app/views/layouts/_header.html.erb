@@ -1,5 +1,6 @@
 <div class="row">
-	<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+	<div class="col-lg-8 col-md-8 col-sm-7 col-xs-8">
+	<div>
 		<% unless @conference.nil? || @conference.id.nil? %>
 			<% buttons_class = get_active_button %>
 			<ul class="nav nav-pills" id='conference_nav_buttons>'>
@@ -15,18 +16,14 @@
 			</ul>
 		<% end %>
 	</div>
-	<div class="col-lg-6 col-md-6"></div>
-</div>		
-	<div class="row slogo">
-		<div class="col-lg-9 col-md-9 col-sm-7 col-xs-8">
-			<div class="blockquotes-container">
+	<div class="blockquotes-container">
 				<blockquote class="pull-right">
 					<h4>It takes all the running you can do, to keep in the same place.<br>If you want to get somewhere else, you must run at least twice as fast as that!</h4>
 					<small>Red Queen</small>
-				</div>
-			</blockquote>
-		</div>
-		<div class="col-lg-3 col-md-3 col-sm-5 col-xs-4 logo-img" >
+				</blockquote>
+	</div>
+	</div>		
+		<div class="col-lg-4 col-md-4 col-sm-5 col-xs-4 logo-img" >
 			<%= image_tag("pacemaker_logo.png") %>
 		</div>
-	</div>
+</div>

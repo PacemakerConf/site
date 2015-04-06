@@ -1,9 +1,8 @@
 EventType.create!([
-  {name: "registration", description: "registration", defaultDuration: "2014-12-12 00:30:00", color: "#d0e9c6", image: "1", speakerEvent: false, groupable: nil},
-  {name: "beer-break", description: "ho ho ho", defaultDuration: "2014-12-12 03:00:00", color: "#f2dede", image: "0", speakerEvent: false, groupable: nil},
-  {name: "topic", description: "some description", defaultDuration: "2014-12-12 01:00:00", color: "#fcf8e3", image: "3", speakerEvent: true, groupable: nil},
-  {name: "lightning", description: "some description", defaultDuration: "2014-12-12 00:45:00", color: "#d9edf7", image: "15", speakerEvent: true, groupable: nil},
-  {name: "group lightning", description: "some description", defaultDuration: "2014-12-12 00:45:00", color: "#d9edf7", image: "4", speakerEvent: true, groupable: 1},
+  {name: "Registration", description: "registration", defaultDuration: "2014-12-12 00:30:00", color: "#d0e9c6", image: "1", speakerEvent: false, groupable: nil},
+  {name: "Beer-break", description: "ho ho ho", defaultDuration: "2014-12-12 03:00:00", color: "#f2dede", image: "0", speakerEvent: false, groupable: nil},
+  {name: "Topic", description: "some description", defaultDuration: "2014-12-12 01:00:00", color: "#fcf8e3", image: "3", speakerEvent: true, groupable: nil},
+  {name: "Lightning", description: "some description", defaultDuration: "2014-12-12 00:45:00", color: "#d9edf7", image: "15", speakerEvent: true, groupable: nil},
   {name: "Introduction", description: "introduction", defaultDuration: "2015-03-18 00:15:00", color: "#d0e9c6", image: "10", speakerEvent: false, groupable: nil},
   {name: "Lunch", description: "Lunch", defaultDuration: "2015-03-18 00:50:00", color: "#fcf8e3", image: "2", speakerEvent: false, groupable: nil},
   {name: "Pizza party", description: "", defaultDuration: "2015-03-18 02:00:00", color: "#fcf8e3", image: "11", speakerEvent: false, groupable: nil},
@@ -27,8 +26,8 @@ Conference.create!([
   {name: "Mobile", year_id: 4, date: "2015-09-12", attenders: 100, report: nil, location: nil, published: true},
   {name: "WebUI", year_id: 3, date: "2014-09-12", attenders: 372, report: nil, location: nil, published: true},
   {name: "Java", year_id: 3, date: "2014-12-12", attenders: 79, report: nil, location: nil, published: false},
-  {name: "BigData", year_id: 4, date: "2015-11-12", attenders: 72, report: nil, location: nil, published: true},
-  {name: "LAMP", year_id: 2, date: "2013-07-06", attenders: 50, report: nil, location: nil, published: true}
+  {name: "BigData", year_id: 4, date: "2015-11-12", attenders: 72, report: nil, location: nil, published: true, group_event: false},
+  {name: "LAMP", year_id: 2, date: "2013-07-06", attenders: 50, report: nil, location: nil, published: true, group_event: false}
 ])
 Admin.create!([
   {email: "admin@example.com", password: '00000000', password_confirmation: '00000000', current_sign_in_at: "2015-03-18 11:34:41", last_sign_in_at: "2015-03-18 10:56:24", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", username: "admin", role: 'Admin'}
@@ -38,8 +37,6 @@ Contact.create!([
   {name: "Uriy", surname: "Gnat", telephone: "0630620751", email: "gnat_zv@gmail.com", skype: "gnat_zv"},
   {name: "Vova", surname: "Kamin", telephone: "0630750620", email: "vova_lviv@gmail.com", skype: "vova_lviv"},
   {name: "Andriy", surname: "Lozuk", telephone: "0630750676", email: "andr_loz@gmail.com", skype: "andr_loz"},
-  {name: "Khrystyna", surname: "Paprotska", telephone: "+380 96 846 49 33 (int: 1772)", email: "kpap@softserveinc.com;", skype: ""},
-  {name: "Alex", surname: "Mekhovov", telephone: "+380 67 243 58 88", email: "omekh@softserveinc.com;", skype: "alex.mekhovov"}
 ])
 Contact::HABTM_Locations.create!([
   {contact_id: 1, location_id: 2},

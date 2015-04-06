@@ -17,13 +17,11 @@ class EventsController < ApplicationController
         @invite.status = 'Complete'
         @invite.save
         current_user = {'role' => User::SPEAKER}
-        format.html { redirect_to events_path, notice: 'event was successfully created.' }
+        format.html { redirect_to events_path, notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
-      else 
-        @event_types = EventType.where(speakerEvent: true)
-        @conference_name = Conference.find(@invite.conference_id).fullname
-        @conference_id = @invite.conference_id
-        format.html { render :new }
+      else
+        format.html { redirect_to controller: 'events', action: 'new', hash: params['event']['email_hash'] }
+
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
     end

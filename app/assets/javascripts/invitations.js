@@ -5,7 +5,8 @@ function invitationPageLoad(){
 		$('.invitation_data_table').dataTable({
      	paging: true,
 			dom: 'Rlfrtip',
-				"order": [[ 2, "desc" ] ]
+				"order": [ 2, "desc" ],
+				"aoColumnDefs": [{ "bSortable": false, "aTargets": [-1] }]
     });
 	}
 }
