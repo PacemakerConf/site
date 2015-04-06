@@ -7,7 +7,7 @@ class Location < ActiveRecord::Base
 	
 	def truncated_address
     	(city.to_s + ", " + address.to_s).truncate(20)
-  	end
+  end
 
 	belongs_to :conference
 	has_and_belongs_to_many :contacts
