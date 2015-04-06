@@ -35,8 +35,8 @@ class ConferencesController < ApplicationController
   end
 
   def show
-    topic = EventType.where(name: 'topic')
-    lightning = EventType.where(name: 'lightning')
+    topic = EventType.where(name: 'Topic')
+    lightning = EventType.where(name: 'Lightning')
     @news = @conference.news.order(created_at: :desc)
     @topics = @conference.events.where(event_type: topic).by_position
     @lightnings = @conference.events.where(event_type: lightning).by_position

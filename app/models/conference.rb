@@ -34,7 +34,7 @@ class Conference < ActiveRecord::Base
 		if last_conference
 			last_conference.name.to_s + '-' + last_conference.year.name.to_s + '/about'
 		else 
-			'fake_route'
+			'not found'
 		end
 	end
 end
