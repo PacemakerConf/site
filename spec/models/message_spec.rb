@@ -22,10 +22,9 @@ describe Message do
  		expect(Message.set_last_version).to eq(0) 
  	end
 
- 	# it "should ..." do
- 	# 	#msg1 = FactoryGirl.build(:message, content:"invalid withot token $${link_invitation}") 
- 	# 	#msg2 = FactoryGirl.create(:message, content:" $${link_invitation}",  version: 2)
- 	# 	expect((FactoryGirl.build(:message, content:"invalid withot token $${link_invitation}"))).create_if_new).to eq(msg1)
- 	# end
+ 	it "should ..." do
+ 		msg2 = FactoryGirl.create(:message, content:" $${link_invitation}")
+ 		expect(msg2.create_if_new).to eq(msg2)
+ 	end
 
 end
