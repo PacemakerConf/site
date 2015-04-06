@@ -17,7 +17,7 @@ class ConferencesController < ApplicationController
 
   def schedule
     if @conference.group_event then
-      groupable = EventType.where(groupable: 1)
+      groupable = EventType.where(groupable: true)
       @eventsGroupable = @conference.events.where(event_type: groupable).by_position
       @eventsSingle = @conference.events.where.not(event_type: groupable).by_position     
     else

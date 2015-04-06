@@ -1,4 +1,10 @@
 module ConferencesHelper
+	GLYPHS = %w(list fire leaf music user asterisk plus minus cloud envelope pencil glass search heart 
+    star star-empty th th-large th-list ok remove cog trash home file time road download 
+    download-alt upload inbox repeat refresh lock qrcode barcode tag tags bookmark picture 
+    map-marker move play stop plus-sign minus-sign remove-sign ok-sign question-sign info-sign 
+    remove-circle ok-circle ban-circle gift eye-open calendar random comment magnet hdd bell 
+    bullhorn)
 
 	def scheduleColor(color)
 		go = color.to_s
@@ -73,70 +79,143 @@ module ConferencesHelper
 	end
 
 	def admin_schedule( groupable, eventsSingle, eventsGroupable)
-		@@schedule = '<ul id="sortable" class="list-group" style="margin-bottom: 5px;">'
-		@@positionNumber = 0
-  		@@trigger = true
+		scheduleString = '<ul id="sortable" class="list-group" style="margin-bottom: 5px;">'
+		positionNumber = 0
+  		trigger = true
   		eventsSingle.each do |event|
     		if groupable then
-      			if (event.position > eventsGroupable[0].position) && @@trigger then
-		        	@@schedule += admin_schedule_groupable_part eventsGroupable
-		        	@@trigger = false
+      			if (event.position > eventsGroupable[0].position) && trigger then
+		        	scheduleString += admin_schedule_groupable_part eventsGroupable, positionNumber
+		        	positionNumber += 1
+		        	trigger = false
 		        end
 		    end
-			@@schedule += '<li class="ui-state-default list-group-item schedule-item" '
+			scheduleString += '<li class="ui-state-default list-group-item schedule-item" '
 			if !event.published
-				@@schedule += 'style="background-color: #FFA"'
+				scheduleString += 'style="background-color: #FFA"'
 			end
-			@@schedule += '><span class="timestart" style="position: relative;"></span> '
-			@@schedule += '<span class="duration" style="position: relative;">'
-			@@schedule += conferenceEventDurationReturn(event.duration) + '</span> | '
-			@@schedule += '<span style="position: relative;">' + event.title + '</span>'
-			@@schedule += '<span class="idItems" style= "display: none;">'
-			@@schedule += event.id.to_s + '</span>'
-			@@schedule += '<span class="positionItems" style="display: none;">'
-			@@schedule += @@positionNumber.to_s + '</span>'
-			@@positionNumber += 1
-			@@schedule += '<span class="groupableItems" style="display: none;" >0</span>'
-			@@schedule += '<span style="position:relative;" style="font-weight:normal;">'
+			scheduleString += '><span class="timestart" style="position: relative;"></span> '
+			scheduleString += '<span class="duration" style="position: relative;">'
+			scheduleString += conferenceEventDurationReturn(event.duration) + '</span> | '
+			scheduleString += '<span style="position: relative;">' + event.title + '</span>'
+			scheduleString += '<span class="idItems" style= "display: none;">'
+			scheduleString += event.id.to_s + '</span>'
+			scheduleString += '<span class="positionItems" style="display: none;">'
+			scheduleString += positionNumber.to_s + '</span>'
+			positionNumber += 1
+			scheduleString += '<span class="groupableItems" style="display: none;" >0</span>'
+			scheduleString += '<span style="position:relative;" style="font-weight:normal;">'
 			if event.speaker.nil? then
-			   @@schedule += ' >' + event.responsable
+			   scheduleString += ' >' + event.responsable
 			else
-			   @@schedule += ' -' + link_to(event.speaker.name + " " + event.speaker.surname, event.speaker, :style => 'font-weight: bold;')
+			   scheduleString += ' -' + link_to(event.speaker.name + " " + event.speaker.surname, event.speaker, :style => 'font-weight: bold;')
 			end
-			@@schedule += '</span></li>'
+			scheduleString += '</span></li>'
 	  	end
-		@@schedule += '</ul>'
-		return @@schedule
+		scheduleString += '</ul>'
+		return scheduleString
 	end
 
-	def admin_schedule_groupable_part (eventsGroupable)
-		@@groupSum = 0
-		@@accessId = ""
+	def admin_schedule_groupable_part (eventsGroupable, positionNumber)
+		groupSum = 0
+		accessId = ""
 		eventsGroupable.each do |item|
-			@@accessId += item.id.to_s + ","
-			@@groupSum += 1
+			accessId += item.id.to_s + ","
+			groupSum += 1
 		end
-		@@groupPart = ""
-		@@groupPart += '<li class="ui-state-default list-group-item schedule-item" >'
-        @@groupPart += '<span class="timestart" style="position: relative;"></span>'
-        @@groupPart += '<span class="duration" style="position: relative;"> '
-        @@groupPart += conferenceEventGroupDurationReturn(eventsGroupable) + '</span> | '
-        @@groupPart += '<span style="position: relative;">'
-        @@groupPart += eventsGroupable[0].title + '</span>'
-        @@groupPart += '<span class="idItems" style= "display: none;">' + @@accessId + '</span>'
-        @@groupPart += '<span class="positionItems" style="display: none;">'
-        @@groupPart += @@positionNumber.to_s + '</span>'
-        @@positionNumber += 1
-        @@groupPart += '<span class="groupableItems" style="display: none;" >'
-        @@groupPart += @@groupSum.to_s + '</span>'
+		groupPart = ""
+		groupPart += '<li class="ui-state-default list-group-item schedule-item" >'
+        groupPart += '<span class="timestart" style="position: relative;"></span>'
+        groupPart += '<span class="duration" style="position: relative;"> '
+        groupPart += conferenceEventGroupDurationReturn(eventsGroupable) + '</span> | '
+        groupPart += '<span style="position: relative;">'
+        groupPart += eventsGroupable[0].title + '</span>'
+        groupPart += '<span class="idItems" style= "display: none;">' + accessId + '</span>'
+        groupPart += '<span class="positionItems" style="display: none;">'
+        groupPart += positionNumber.to_s + '</span>'
+        groupPart += '<span class="groupableItems" style="display: none;" >'
+        groupPart += groupSum.to_s + '</span>'
         eventsGroupable.each do |eventGroup|
     	    if !(eventGroup.speaker_id.nil?)
-    	        @@groupPart += '<span style="position:relative;"> -'
-    	        @@groupPart += link_to(eventGroup.speaker.name + " " + eventGroup.speaker.surname, eventGroup.speaker, :style => 'font-weight: bold;')
-     	        @@groupPart += '/</span>'
+    	        groupPart += '<span style="position:relative;"> -'
+    	        groupPart += link_to(eventGroup.speaker.name + " " + eventGroup.speaker.surname, eventGroup.speaker, :style => 'font-weight: bold;')
+     	        groupPart += '/</span>'
     	    end
   	    end
-    	@@groupPart += '</li>'
-    	return @@groupPart
+    	groupPart += '</li>'
+    	return groupPart
+	end
+
+	def user_schedule( groupable, eventsSingle, eventsGroupable)
+		scheduleString = '<table class="table table-responsive table-hover" >'
+		scheduleString += '<colgroup><col style = "width:7%;"></col>'
+		scheduleString += '<col></col><col></col></colgroup>'
+		scheduleString += '<tbody>'
+		trigger = true
+		@eventsSingle.each do |event|
+			if groupable then
+		    	if (event.position > @eventsGroupable[0].position) && trigger then
+		        	accessTrigger = 0
+		        	@eventsGroupable.each do |access|
+		          		if can? :read, access
+		            		accessTrigger += 1
+		        		end
+		        	end
+		        	if accessTrigger > 0 then
+						scheduleString += user_schedule_groupable_part eventsGroupable
+			        end
+		        	trigger = false
+		    	end
+		    end
+			if can? :read, event
+		    	scheduleString += '<tr style="background-color:'
+		    	scheduleString += scheduleColor(event.event_type.color)+ ';" class="'
+		    	scheduleString += event.published ? '' : 'unpublished' 
+		    	scheduleString += '" >'
+		        scheduleString += '<td class="timestart" style="text-align: center; font-size: 1.25em;"></td>'
+		        scheduleString += '<td class="duration" style="text-align: center; display: none;">'
+		        scheduleString += conferenceEventDurationReturn(event.duration) + '</td>'
+		        scheduleString += '<td style="  font-size: 1.25em; "><span class="glyphicon glyphicon-'
+		        scheduleString += GLYPHS[event.event_type.image.to_i] + '"></span>'
+		        scheduleString += event.title
+		        scheduleString += '<span style="position:relative;">'
+		        if event.speaker.nil?
+		            scheduleString += ' >' + event.responsable
+		        else  
+		            scheduleString += ' -' + link_to( event.speaker.name + " " + event.speaker.surname, event.speaker, :style => 'font-weight: bold;')
+		        end
+		        scheduleString += '</span></td></tr>'
+		    end
+		end
+		scheduleString += '</tbody></table>'
+		return scheduleString
+	end
+
+	def user_schedule_groupable_part( eventsGroupable )
+		groupPart = '<tr style="background-color:'
+      	groupPart += scheduleColor(eventsGroupable[1].event_type.color)+'">'
+    	groupPart += '<td class="timestart" style="text-align: center; font-size: 1.25em;"></td>'
+      	groupPart += '<td class="duration" style="text-align: center; display: none;">'
+        groupPart += conferenceEventGroupDurationReturn(eventsGroupable)
+      	groupPart += '</td>'
+      	groupPart += '<td style="font-size: 1.25em;">'
+      	groupPart += '<span class="glyphicon glyphicon-'
+      	groupPart += GLYPHS[eventsGroupable[0].event_type.image.to_i]
+      	groupPart += '"></span>'
+      	groupPart += '<span>'
+        groupPart += eventsGroupable[0].title
+        	eventsGroupable.each do |eventGroup|
+        	if can? :read, eventGroup
+            	if !(eventGroup.speaker_id.nil?)
+              		groupPart += '<span style="position:relative;"> -'
+              		groupPart += link_to( eventGroup.speaker.name + " " + eventGroup.speaker.surname, eventGroup.speaker, :style => 'font-weight: bold;')
+              		groupPart += ' /</span>'
+            	end
+        	end
+        end
+        groupPart += '</span>'
+    	groupPart += '</td>'
+    	groupPart += '</tr>'
+    	return groupPart
 	end
 end
