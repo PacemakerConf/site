@@ -13,7 +13,7 @@ class Event < ActiveRecord::Base
 	validates_with Validators::EventSpeakerValidator, on: [:create, :update]
 	do_not_validate_attachment_file_type :materials
 
-	scope :by_position, -> { order("-position desc") }
+	scope :by_position, -> { order(position: :asc) }
 	
 	def self.get_new_position conference_id
 		return 0 unless conference_id
