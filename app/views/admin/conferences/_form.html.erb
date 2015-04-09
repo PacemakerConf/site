@@ -10,7 +10,7 @@
   <div class="form-group">
     <%= f.label :'year_id', "Year*", class: "col-lg-2 control-label" %>
     <div class="col-lg-7">
-    <%= select_tag "conference[year_id]", options_from_collection_for_select(Year.all, 'id', 'name', @conference.year_id || Year.last.id), class: "form-control"%>
+    <%= select_tag "conference[year_id]", options_from_collection_for_select(Year.all, 'id', 'name', @conference.year_id || Year.by_name[-1].id), class: "form-control"%>
     </div>
   </div>
 

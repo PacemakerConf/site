@@ -17,12 +17,12 @@ describe SpeakersController do
 	end
 
 	describe 'GET #new' do
-		it 'assign a new speaker to @speaker' do
+		xit 'assign a new speaker to @speaker' do
 			get :new
 			expect(assigns(:speaker)).to be_a_new(Speaker)
 		end
 
-		it 'render the :new template' do
+		xit 'render the :new template' do
 			get :new
 			expect(response).to render_template :new
 		end

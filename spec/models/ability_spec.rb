@@ -38,10 +38,6 @@ describe Ability do
     it "can read all" do
       expect(@current_user).to be_able_to(:read, :all)
     end
-
-    it "can create speaker" do
-      expect(@current_user).to be_able_to(:create, Speaker)
-    end
     
     it "cannot manage all" do
       expect(@current_user).to_not be_able_to(:manage, :all)

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   get '/', to: redirect(Conference.last_conference_route) if ActiveRecord::Base.connection.table_exists?('conferences')
 
-  match 'send_mail', to: 'speaker_request#send_mail', via: 'post'
+  post 'send_mail', to: 'speaker_request#send_mail'
 
   devise_for :admins, skip: :sessions
   as :admin do
@@ -71,5 +71,6 @@ Rails.application.routes.draw do
   get ':name/location', to: 'conferences#location', as: :location_conference
   get ':name/schedule', to: 'conferences#schedule', as: :schedule_conference
   get ':name/report', to: 'conferences#report', as: :report_conference
+  # get "about" to: "about#show"
 
 end

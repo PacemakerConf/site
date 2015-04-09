@@ -14,6 +14,8 @@ class Speaker < ActiveRecord::Base
   validates :email, presence: true, 
                     uniqueness: true
 
+  validates_format_of :email, :multiline => true, :with => /^\w+@\w+\.[a-z]+$/i
+
 	validates_attachment_content_type :photo, content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
   scope :by_name_and_surname, lambda{|input, splitted_input| where("name ILIKE '#{input}%' or surname ILIKE '#{input}%' or (name ILIKE '#{splitted_input[0]}%' and surname ILIKE '#{splitted_input[1]}%') or (surname ILIKE '#{splitted_input[0]}%' and name ILIKE '#{splitted_input[1]}%')").limit(5) } 

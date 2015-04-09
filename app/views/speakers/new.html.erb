@@ -14,16 +14,15 @@
   
 <fieldset class='col-lg-8'>
 
-<legend>New Speaker</legend>
-
 <% if Invitation.where(email_hash: params[:hash], status: 'New').count > 0 %>
 		<% @invite = Invitation.where(email_hash: params[:hash])[0] %>
 		<% current_user = {'role' => User::SPEAKER}%>
     <% @readonly = false %>
+    <legend>New Speaker</legend>
 		<%= render 'form' %>
 <% else %>
 
-<p> Sorry! You are not welcome to register at this conference! </p>
+<%= render 'sorry'%>
 
 <% end %>
 

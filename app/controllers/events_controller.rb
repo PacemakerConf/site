@@ -4,8 +4,13 @@ class EventsController < ApplicationController
     @event = Event.new
     @event_types = EventType.where(speakerEvent: true)
     @invite = Invitation.where(email_hash: params[:hash])[0]
-    @conference_name = Conference.find(@invite.conference_id).fullname
-    @conference_id = @invite.conference_id
+    if @invite
+      @conference_name = Conference.find(@invite.conference_id).fullname
+      @conference_id = @invite.conference_id
+    else
+      @conference_name = ''
+      @conference_id = ''
+    end  
   end
 
   def create
@@ -20,7 +25,7 @@ class EventsController < ApplicationController
         format.html { redirect_to events_path, notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
       else
-        format.html { redirect_to controller: 'events', action: 'new', hash: params['event']['email_hash'] }
+        format.html { redirect_to controller: 'events', action: 'new', hash: params['event']['email_hash'], speaker_id: @event.speaker_id  }
 
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end

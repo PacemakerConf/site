@@ -35,7 +35,7 @@ describe Admin::SpeakersController do
 	describe 'GET #index' do
 		it 'assigns all speakers to @speakers' do
 			first = FactoryGirl.create(:speaker)
-			second = FactoryGirl.create(:speaker)
+			second = FactoryGirl.create(:speaker, name: 'speaker', email: 'a@a.a')
 			get :index
 			expect(assigns(:speakers)).to eq([first, second])
 		end
