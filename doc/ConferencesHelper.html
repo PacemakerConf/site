@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module ConferencesHelper - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-get_active_button">#get_active_button</a>
+    
+    <li ><a href="#method-i-scheduleColor">#scheduleColor</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-ConferencesHelper">
+  <h1 id="module-ConferencesHelper" class="module">
+    module ConferencesHelper
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-get_active_button" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_active_button</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="get_active_button-source">
+            <pre><span class="ruby-comment"># File app/helpers/conferences_helper.rb, line 23</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_active_button</span>
+        <span class="ruby-identifier">buttons_order</span> = [<span class="ruby-string">&#39;show&#39;</span>, <span class="ruby-string">&#39;speakers&#39;</span>, <span class="ruby-string">&#39;schedule&#39;</span>, <span class="ruby-string">&#39;location&#39;</span>, <span class="ruby-string">&#39;report&#39;</span>]
+        <span class="ruby-identifier">index</span> = <span class="ruby-identifier">buttons_order</span>.<span class="ruby-identifier">index</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:action</span>])
+        <span class="ruby-identifier">buttons_class</span> = [<span class="ruby-string">&#39;&#39;</span>,<span class="ruby-string">&#39;&#39;</span>,<span class="ruby-string">&#39;&#39;</span>,<span class="ruby-string">&#39;&#39;</span>,<span class="ruby-string">&#39;&#39;</span>]
+        <span class="ruby-identifier">buttons_class</span>[<span class="ruby-identifier">index</span>] = <span class="ruby-string">&#39;active&#39;</span>
+        <span class="ruby-identifier">buttons_class</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-scheduleColor" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">scheduleColor</span><span
+            class="method-args">(color)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="scheduleColor-source">
+            <pre><span class="ruby-comment"># File app/helpers/conferences_helper.rb, line 3</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">scheduleColor</span>(<span class="ruby-identifier">color</span>)
+        <span class="ruby-identifier">go</span> = <span class="ruby-identifier">color</span>.<span class="ruby-identifier">to_s</span>
+        <span class="ruby-identifier">tr</span> = <span class="ruby-value">0</span>
+        <span class="ruby-identifier">cl</span> = []
+        <span class="ruby-identifier">endString</span> = <span class="ruby-string">&quot;&quot;</span>
+        <span class="ruby-keyword">for</span> <span class="ruby-identifier">i</span> <span class="ruby-keyword">in</span> <span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">3</span>
+                <span class="ruby-identifier">cl</span>[<span class="ruby-identifier">i</span>] = (<span class="ruby-identifier">go</span>[<span class="ruby-identifier">i</span><span class="ruby-operator">*</span><span class="ruby-value">2</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>].<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">go</span>[<span class="ruby-identifier">i</span><span class="ruby-operator">*</span><span class="ruby-value">2</span>].<span class="ruby-identifier">to_s</span>).<span class="ruby-identifier">to_i</span>(<span class="ruby-value">16</span>);
+        <span class="ruby-keyword">end</span>
+
+        <span class="ruby-keyword">if</span> (<span class="ruby-identifier">cl</span>[<span class="ruby-value">1</span>] <span class="ruby-operator">&lt;</span> <span class="ruby-value">40</span>) <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-identifier">cl</span>[<span class="ruby-value">2</span>] <span class="ruby-operator">&lt;</span> <span class="ruby-value">40</span>) <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-identifier">cl</span>[<span class="ruby-value">3</span>] <span class="ruby-operator">&lt;</span> <span class="ruby-value">40</span>)
+                <span class="ruby-identifier">endString</span> = <span class="ruby-node">&quot;#FFFFFF&quot;</span>
+        <span class="ruby-keyword">elsif</span>  (<span class="ruby-identifier">cl</span>[<span class="ruby-value">1</span>] <span class="ruby-operator">&lt;</span> <span class="ruby-value">200</span>) <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-identifier">cl</span>[<span class="ruby-value">2</span>] <span class="ruby-operator">&lt;</span> <span class="ruby-value">200</span>) <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-identifier">cl</span>[<span class="ruby-value">3</span>] <span class="ruby-operator">&lt;</span> <span class="ruby-value">200</span>)
+                <span class="ruby-identifier">endString</span> = <span class="ruby-identifier">go</span> <span class="ruby-operator">+</span> <span class="ruby-node">&quot;; color: #FFFFFF&quot;</span>
+        <span class="ruby-keyword">else</span>
+                <span class="ruby-identifier">endString</span> = <span class="ruby-identifier">go</span>
+        <span class="ruby-keyword">end</span>                   
+
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">endString</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

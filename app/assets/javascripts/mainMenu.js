@@ -2,11 +2,11 @@ $(document).on('ready page:load', setFlagColors);
 
 function setFlagColors() {
     if (typeof conference_menu != 'undefined') {
-        active_conference = $('#conference_menu').attr('active_conference')
+        var active_conference = $('#conference_menu').attr('active_conference')
         active_conference = active_conference.replace(/&/g, '\\&');
         active_conference = active_conference.replace(/ /g, '\\ ');
-        active_year = $('#conference_menu').attr('active_year')
-        last_year = $('#conference_menu').attr('last_year')
+        var active_year = $('#conference_menu').attr('active_year')
+        var last_year = $('#conference_menu').attr('last_year')
 
         var years = conference_menu.getAttribute('years');
         years = years.split(', ');
@@ -28,7 +28,7 @@ function setFlagColors() {
             $('#' + active_conference + '-' + active_year).children().children('img').attr('src', '/assets/blueflag.png');
         };
 
-        // Add style to all conference flag on hover
+        // Add style to all flag on hover
         for (var i = 0; i < years.length; i++) {
             $('.conference-' + years[i]).hover(function() {
                 $(this).find('img').addClass('blue-flag');

@@ -23,6 +23,8 @@
         <li><%= link_to 'Configurations', edit_admin_configurations_path %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to 'About', '../PacemakerUserGuide/PacemakerUserGuide.html' %></li>
+        <li><a href="../PacemakerUserGuide/PacemakerUserGuide.html">About</a></li>
         <li>
           <% if admin_signed_in? %>
     			 <%= link_to "#{current_admin.username} | Logout", destroy_admin_session_path, method: :delete %>

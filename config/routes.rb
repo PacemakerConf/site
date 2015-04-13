@@ -76,5 +76,6 @@ Rails.application.routes.draw do
   get ':name/location', to: 'conferences#location', as: :location_conference
   get ':name/schedule', to: 'conferences#schedule', as: :schedule_conference
   get ':name/report', to: 'conferences#report', as: :report_conference
+  # get "about" to: "about#show"
 
 end

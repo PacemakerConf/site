@@ -1,6 +1,7 @@
 <div class="container">
 <div class="main-menu">
 	<% conferences, years, last_year = MainMenu.params %>
+
 	<% if @conference %>
 		<% active_year = @conference.year.name.to_i %>
 		<% active_conference = @conference.name %>
@@ -15,41 +16,22 @@
 	<ul class="conference-menu" id='conference_menu' years='<%= years.pluck(:name).map do |year| year.to_i end %>' active_year = "<%= active_year %>" last_year = "<%= last_year.name %>"	active_conference = "<%= active_conference %>" >
 
 		<% years.each do |year| %>
-			<% if year == last_year %>
-				<% flag = Flag.new('display' => '', 
-					'image_path' => Flag::GREY) %>
-				<% display = '' %>
-			<% elsif year.name.to_i === active_year%>
-				<% flag = Flag.new('image_path' => Flag::GREY) %>
-				<% display = '' %>
-			<% else %>
-				<% flag = Flag.new('image_path' => Flag::GREY) %>	
-				<% display = '' %>
-			<% end %>
-
+			
+			<% flag = Flag.new('image_path' => Flag::GREY) %>
+			
 			<li class="flag-year-image-container" id="flag-<%=year.name.to_s%>" 
-				year='<%=year.name.to_s%>' style="<%=flag.display%>">
+				year='<%=year.name.to_s%>' >
 				<%= image_tag(flag.image_path) %>
 				<p class='flag-text'> <%= year.name %> </p> 
 			</li>
 
 			<% conferences.where(year: year).by_date_asc.each do |conference| %>
 
-				<% if conference === @conference && year === last_year%>
-					<% flag = Flag.new('image_path' => Flag::GREY,
-						'display' => display) %>	
-				<% elsif conference === @conference %>
-					<% flag = Flag.new('image_path' => Flag::GREY, 
-						'display' => display) %>	
-				<% else %>
-					<% flag = Flag.new('image_path' => Flag::GREY, 
-						'display' => display) %>	
-				<% end %>
-
+				<% flag = Flag.new('image_path' => Flag::GREY) %>	
+				
 				<% if can? :read, conference %>
 					<li class="flag-image-container conference-<%= year.name.to_s %> 
 						conference-flag <%= conference.published ? "" : "unpublished" %> "
-						style="<%=flag.display %>" 
 						id="<%= conference.route %>" >
 						<%= link_to(  image_tag(flag.image_path),
 							about_conference_path(conference.route) )%>
@@ -61,6 +43,5 @@
 				<% end %>
 			<% end %>
 		<% end %>
-
-</ul>
+	</ul>
 </div>
