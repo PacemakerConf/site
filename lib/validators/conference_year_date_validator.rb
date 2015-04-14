@@ -5,7 +5,7 @@ module Validators
 			year_id = record.year_id
 			
 			if date
-				if date.year.to_s != Year.find(year_id).name.to_s
+				unless date.year.to_s === Year.find(year_id).name.to_s
 					record.errors[:date] << 'must be in accordane with year'
 				end
 			end

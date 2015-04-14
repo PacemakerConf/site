@@ -12,13 +12,16 @@ class Conference < ActiveRecord::Base
 	validates :name, presence: true,
 									 format: { with: /\A[\w& ]+\z/}
 	validates :year_id, presence: true
-	validates :date, inclusion: { in: Time.now..Time.new(Year::LAST_YEAR)} if 
-		StrictValidation.enabled?
+	validates :date, inclusion: { in: Time.now..Time.new(Year::LAST_YEAR)}, if: :apply_date_validation?
 	validates_with Validators::ConferenceYearDateValidator, on: [:create, :update]
 
 	scope :by_date_asc, -> { order(date: :asc) }
 	scope :by_year_date_desc, -> { includes(:year).order('years.name desc', date: :desc) }
 	scope :future, -> { where(date: Time.now..Time.new(Year::LAST_YEAR)) }
+
+	def apply_date_validation?
+		Configuration.apply_date_validation?
+	end
 
 	def fullname
 		name.to_s + "-" + year.name.to_s

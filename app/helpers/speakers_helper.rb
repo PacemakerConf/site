@@ -15,8 +15,9 @@ module SpeakersHelper
   end
 
 	def create_speaker_list speakers, input = ''
-		speakers_list = '<ul class="speakers-list">'
-	  speakers.each do |speaker|
+    return speakers_list = '' if input == ''
+    speakers_list = '<ul class="speakers-list">'
+    speakers.each do |speaker|
       name = make_searched_part_bold(speaker.name, input)
       surname = make_searched_part_bold(speaker.surname, input)
       speakers_list += '<li onclick="setSpeaker(' + speaker.id.to_s + 
@@ -24,7 +25,6 @@ module SpeakersHelper
       surname + '</li>'
     end
     speakers_list += '</ul>'
-    speakers_list = '' if input == ''
     speakers_list
 	end
 end

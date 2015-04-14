@@ -56,6 +56,11 @@ Rails.application.routes.draw do
       end
     end
     resources :news
+    resources :configurations, only: :update do
+      collection do
+        get '', to: 'configurations#edit', as: :edit
+      end
+    end
   end
   
 
