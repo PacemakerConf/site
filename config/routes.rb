@@ -71,6 +71,11 @@ Rails.application.routes.draw do
   get ':name/location', to: 'conferences#location', as: :location_conference
   get ':name/schedule', to: 'conferences#schedule', as: :schedule_conference
   get ':name/report', to: 'conferences#report', as: :report_conference
-  # get "about" to: "about#show"
+
+  # get 'pages/about' => 'high_voltage/pages#about', id: 'about'
+  # get "/about", to: "pages#about", as: :about_page
+  # get "/authors", to: "pages#authors", as: :authors_page
+  get 'pages/about'
+  get 'pages/authors'
 
 end

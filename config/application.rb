@@ -28,7 +28,7 @@ module Playground
     config.serve_static_files = true
     config.assets.initialize_on_precompile = false
     config.generators do |g|
-       g.template_engine :haml
+       g.template_engine :erb
        g.test_framework :rspec, fixtures: true, views: false
        g.fixture_replacement :factory_girl, dir: "spec/factories"
     end 

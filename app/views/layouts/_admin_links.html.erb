@@ -22,8 +22,8 @@
         <li><%= link_to 'Invitations', admin_invitations_path %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to 'About', '../PacemakerUserGuide/PacemakerUserGuide.html' %></li>
-        <li><a href="../PacemakerUserGuide/PacemakerUserGuide.html">About</a></li>
+        <li><%= link_to 'About', page_path('about') %></li>
+        <li><%= link_to 'Authors', page_path('authors') %></li>
         <li>
           <% if admin_signed_in? %>
     			 <%= link_to "#{current_admin.username} | Logout", destroy_admin_session_path, method: :delete %>
