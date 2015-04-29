@@ -24,7 +24,7 @@ class Admin::ConfigurationsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_configuration
-      @configuration = Configuration.first || Configuration.new
+      @configuration = Admin::Configuration.first || Admin::Configuration.new
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
