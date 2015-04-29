@@ -90,7 +90,6 @@ class Admin::ConferencesController < Admin::ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_conference
-      
       if(params[:name].to_i.to_s === params[:name].to_s)
         @conference = Conference.find(params[:name])
       else
