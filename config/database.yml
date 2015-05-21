@@ -37,7 +37,7 @@ heroku: &heroku # example of postgres database
   pool: 12
   wait_timeout: 10
 
-herokudb: &heroku # example of postgres database
+herokudb: &herokudb # example of postgres database
   adapter:  postgresql
   encoding: utf8
   database: dbgpno8g98hstu
