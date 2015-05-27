@@ -24,11 +24,11 @@ class Admin::ConfigurationsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_configuration
-      @configuration = Admin::Configuration.first || Admin::Configuration.new
+      @configuration = Admin::Configuration.get_conf
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def configuration_params
-      params.require(:configuration).permit(:apply_date_validation)
+      params.require(:configuration).permit(:apply_date_validation, :admin_email)
     end
 end

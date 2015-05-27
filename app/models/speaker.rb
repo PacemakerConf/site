@@ -20,10 +20,10 @@ class Speaker < ActiveRecord::Base
     content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
   scope :by_name_and_surname, lambda { |input, splitted_input| 
-    where("name LIKE '#{input}%' or surname LIKE '#{input}%' or 
-      (name LIKE '#{splitted_input[0]}%' and surname LIKE 
-      '#{splitted_input[1]}%') or (surname LIKE '#{splitted_input[0]}%'
-      and name LIKE '#{splitted_input[1]}%')").limit(5) 
+    where("LOWER(name) LIKE '%#{input}%' or LOWER(surname) LIKE '#{input}%' or 
+      (LOWER(name) LIKE '%#{splitted_input[0]}%' and LOWER(surname) LIKE 
+      '%#{splitted_input[1]}%') or (LOWER(surname) LIKE '%#{splitted_input[0]}%'
+      and LOWER(name) LIKE '%#{splitted_input[1]}%')").limit(5) 
     } 
 
 	def fullname

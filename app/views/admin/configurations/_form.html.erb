@@ -8,6 +8,13 @@
   </div>
 
   <div class="form-group">
+    <%= f.label :admin_email, class: "col-lg-3 col-md-1 col-sm-1 col-xs-1 control-label" %>
+    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 ">
+    <%= f.text_field :admin_email %>
+    </div>
+  </div>
+
+  <div class="form-group">
     <div class="col-lg-7 col-lg-offset-3">
       <%= f.submit @button_name, class: "btn btn-primary"%>
     </div>
