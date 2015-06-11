@@ -24,6 +24,7 @@ gem 'mail'
 gem 'validates_email_format_of'
 
 gem 'paperclip-dropbox', '>= 1.1.7'
+gem 'paperclip-googledrive'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -75,7 +76,6 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 
-group :development, :test do
   gem 'rspec-rails'
   gem 'watchr'
   gem 'guard-rspec'
@@ -85,6 +85,11 @@ group :development, :test do
   gem 'factory_girl_rails', '~> 4.0'
   gem 'capybara'
 end
+group :profiling do
+  gem 'ruby-prof', require: false
+  gem 'gc_tracer', require: false
+  gem 'allocation_tracer', require: false
+  gem 'rack-mini-profiler', require: false
 end
 
 group :test do
