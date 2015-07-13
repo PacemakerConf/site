@@ -1,0 +1,4 @@
+client_id: <%= ENV["GD_CLIENT_ID"] %>
+client_secret: <%= ENV["GD_CLIENT_SECRET"] %>
+access_token: <%= ENV["GD_ACCESS_TOKEN"] %>
+refresh_token: <%= ENV["GD_REFRESH_TOKEN"] %>
