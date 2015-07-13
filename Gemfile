@@ -89,7 +89,6 @@ end
 group :profiling do
   gem 'ruby-prof', require: false
   gem 'gc_tracer', require: false
-  gem 'allocation_tracer', require: false
   gem 'rack-mini-profiler', require: false
 end
 

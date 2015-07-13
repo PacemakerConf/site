@@ -37,7 +37,6 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     addressable (2.3.8)
-    allocation_tracer (0.6.3)
     arel (6.0.0)
     autoparse (0.3.3)
       addressable (>= 2.3.1)
@@ -370,7 +369,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  allocation_tracer
   autoprefixer-rails
   bcrypt (~> 3.1.7)
   bootstrap-sass (~> 3.2.0)
