@@ -79,13 +79,29 @@ class Admin::SpeakersController < Admin::ApplicationController
   # PATCH/PUT /speakers/1.json
   def update
     respond_to do |format|
-      if @speaker.update(speaker_params)
-        format.html { redirect_to admin_speakers_path, notice: 'Speaker was successfully updated.' }
-        format.json { render :show, status: :ok, location: @speaker }
-      else
-        format.html { render :edit }
-        format.json { render json: @speaker.errors, status: :unprocessable_entity }
-      end
+      # workaround for paperclip-googledrive-new gem issue in file paperclip-googledrive-new-1.0/lib/paperclip/storage/google_drive.rb:95:in `block in flush_deletes'
+      # here result status is 204 that show content deleted, but it tryies to get result.data[] from nil, as deleted already 
+      # :TODO fix gem and do pull request
+      begin
+        update_result = false
+        n = 3
+        begin
+          update_result = @speaker.update(speaker_params)
+        rescue => e
+          n -= 1
+          retry if n >= 0
+          raise e
+        end  
+        if update_result
+          format.html { redirect_to admin_speakers_path, notice: 'Speaker was successfully updated.' }
+          format.json { render :show, status: :ok, location: @speaker }
+        else
+          format.html { render :edit }
+          format.json { render json: @speaker.errors, status: :unprocessable_entity }
+        end
+      rescue => e
+        raise "ERROR: #{e.message} \n #{e.backtrace.join("\n")}"
+      end  
     end
   end
 

@@ -3,10 +3,17 @@ class Speaker < ActiveRecord::Base
 	has_many :events
 	has_many :conferences, through: :events
 
-	has_attached_file :photo, styles: {
-		thumb: '150x150>',
-		medium: '300x300>'
-	}
+	has_attached_file :photo, 
+    storage: :google_drive,
+    google_drive_credentials: "#{Rails.root}/config/google_drive.yml",
+    google_drive_options: {
+      path: proc { |style| "#{style}_#{id}_#{photo.original_filename}" },
+      public_folder_id: '0BwGWoAkfcaADfmdTRm4zaVNQNWZjYlVrb09BeS1xN1dVRzZzUm1wdU5MOXdiQlBlMld3MTA'
+    },    
+    styles: {
+		  thumb: '150x150>',
+		  medium: '300x300>'
+	  }
 
 	validates :name, presence: true
 	validates :surname, presence: true
