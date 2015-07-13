@@ -86,12 +86,6 @@ group :development, :test do
   gem 'capybara'
 end
 
-group :profiling do
-  gem 'ruby-prof', require: false
-  gem 'gc_tracer', require: false
-  gem 'rack-mini-profiler', require: false
-end
-
 group :test do
   gem 'shoulda-matchers', require: false
   gem 'faker'
