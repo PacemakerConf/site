@@ -53,7 +53,7 @@ function pageLoad() {
         e.preventDefault();
         var form = $('#myModal').find('form');
         var email = $('#mail-address').val();
-        var emailRegEx = /^\w+@\w+\.[a-z]+$/i;
+        var emailRegEx = /^[\w\d\.\-]+@\w+\.[a-z]+$/i;
         if (email.match(emailRegEx)) {
             form.submit()
             $('#success-sent').html('<h4>Great! Your email has been sent!</h4>').removeClass().addClass('alert alert-dismissible alert-success');
