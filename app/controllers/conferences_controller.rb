@@ -43,24 +43,23 @@ class ConferencesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def check_visibility
-      unless can? :read, @conference
-        not_found
-      end
+  # Use callbacks to share common setup or constraints between actions.
+  def check_visibility
+    unless can? :read, @conference
+      not_found
     end
+  end
 
-    def set_conference
-      
-      if(params[:name].to_i.to_s === params[:name].to_s)
-        @conference = Conference.find(params[:name])
-      else
-        input = params[:name].to_s
-        border = input.rindex('-').to_i
-        name = input.slice(0, border)
-        year = input.slice(border+1, 4)
-        year = Year.where(name: year)[0]
-        @conference = Conference.where(name: name).where(year: year)[0]
-      end
+  def set_conference
+    if(params[:name].to_i.to_s === params[:name].to_s)
+      @conference = Conference.find(params[:name])
+    else
+      input = params[:name].to_s
+      border = input.rindex('-').to_i
+      name = input.slice(0, border)
+      year = input.slice(border+1, 4)
+      year = Year.where(name: year)[0]
+      @conference = Conference.where(name: name).where(year: year)[0]
     end
+  end
 end

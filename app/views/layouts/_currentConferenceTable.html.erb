@@ -1,42 +1,43 @@
-	<% unless @conference.nil? || @conference.id.nil? %>
-		<div class="row first">
-				<div class="name-conteiner col-lg-8 col-md-8 col-sm-12 col-xs-12">
-					<div class="conference-name">
-						<h1> Pacemaker:
-							<% if @conference %>
-								<%= @conference.fullname%>
-							<% end %>
-						</h1>
-					</div>
-				</div>
-				<div class="contacts col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
-					<div class="conference-det-2">
-						<ul>
-							<% if @conference %>
-							<li>
-								This time <strong>
-								<%= @conference.attenders || 'several' %> 
-								lucky people</strong>
-							</li>
-							<li>
-								will meet 
-									<% if @conference.date %>
-										on <strong><%=@conference.date.strftime('%B %d, %Y') %>
-									<% else %>
-										<strong> soon
-									<% end %>
-								</strong>
-							</li>
-							<li>
-								<% if @conference.location %>
-									in a beautiful city of <strong>	<%= @conference.location.city %> </strong>
-								<% else %>
-									<strong> somewhere </strong>
-								<% end %>
-							</li>
-							<% end %>	
-						</ul>
-					</div>
-				</div>
+<% unless @conference.nil? || @conference.id.nil? %>
+	<div class="first">
+		<div class="name-conteiner col-lg-8 col-md-8 col-sm-12 col-xs-12">
+			<div class="conference-name">
+				<h1> Pacemaker:
+					<% if @conference %>
+						<%= @conference.fullname%>
+					<% end %>
+				</h1>
+			</div>
 		</div>
-	<% end %>
+		
+		<div class="contacts col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
+			<div class="conference-det-2">
+				<ul>
+					<% if @conference %>
+						<li>
+							This time <strong>
+							<%= @conference.attenders || 'several' %> 
+							lucky people</strong>
+						</li>
+						<li>
+							will meet 
+							<% if @conference.date %>
+								on <strong><%=@conference.date.strftime('%B %d, %Y') %>
+							<% else %>
+								<strong> soon
+							<% end %>
+							</strong>
+						</li>
+						<li>
+							<% if @conference.location %>
+								in a beautiful city of <strong>	<%= @conference.location.city %> </strong>
+							<% else %>
+								<strong> somewhere </strong>
+							<% end %>
+						</li>
+					<% end %>	
+				</ul>
+			</div>
+		</div>
+	</div>
+<% end %>

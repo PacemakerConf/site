@@ -14,13 +14,54 @@
  *= require_self
  *= require jquery-ui
  *= require jquery.dataTables.css
- *= require mainMenu.css
+ * require mainMenu.css
  * require bootstrap-wysihtml5
  *= require fileinput.min
  *= require bootstrap
  *= require bootstrap-datetimepicker
  *= require jquery.bsmselect.css
- 
 */
- 
+$header-height: 150px;
 
+.header-title{
+	$header-height: 50px;
+	background-color: #006687;
+	color: #ffffff;
+	height: $header-height;
+	line-height: $header-height;
+	text-transform: uppercase;
+	font-size: 25px;
+	padding: 0 15px;
+}
+.header{
+	background-color: #f6f6f6;
+	height: 150px;
+}
+.devide-line{
+	background-color: #f6f6f6;
+	height: 2px;
+}
+.next-pacemaker{
+	$gap: 30px;
+	$next-pacemaker-height: $header-height - $gap;
+
+	height: $next-pacemaker-height;
+	margin-top: $gap/2;	
+	background-color: #ffffff;
+
+	.round{
+		$size: $header-height * 0.6;
+		height: $size;
+		width: $size;
+		background-color: #006687;
+		border-radius: $size/2;
+		margin-top: ($next-pacemaker-height - $size)/2;
+	}
+	.title{
+		display: block;
+		margin-top: 30px;
+	}
+	.body{
+		margin-top: 0;
+	}
+}

@@ -1,7 +1,7 @@
-@import "bootstrap";
+// @import "bootstrap";
 
 .container{
-	background-color: #f6f6f6;
+	background-color: #ffffff;
 }
 
 .unvisible{
@@ -26,12 +26,13 @@
 }
 
 .conference-name{
+	h1{
+	font-weight: bold;
+	}
 	padding:13px 10px 24px 13px;
-	background-color: #006687;
 	margin: 5px;
-	color: #F6F6F6;
-	text-align: right;
-
+	color: #000000;
+	text-align: left;
 }
 
 .conference-name h1{
@@ -46,7 +47,7 @@ div.name-conteiner{
 }	
 
 .conference-det-2{
-	background-color: #002C3A;
+	// background-color: #002C3A;
 	margin: 5px;
 	padding: 20px 10px 10px 10px;
 }
@@ -60,8 +61,9 @@ div.name-conteiner{
 
 .conference-det-2 li{
 	list-style: none;
-	color: #F6F6F6;
+	color: #CACACA;
 	font-size: 1em;
+	text-align: right;
 }
 
 .pull-right{
@@ -70,11 +72,8 @@ div.name-conteiner{
 }
 
 .logo-img img{
-	height:130px;
-	margin: 10px 32.2%; 
-}
-.logo-img{
-	margin-left:-20px;
+	height:100px;
+	margin: 10px 0; 
 }
 
 .main-content{
