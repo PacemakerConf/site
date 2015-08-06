@@ -43,6 +43,7 @@ class ConferencesController < ApplicationController
   end
 
   private
+  
   # Use callbacks to share common setup or constraints between actions.
   def check_visibility
     unless can? :read, @conference

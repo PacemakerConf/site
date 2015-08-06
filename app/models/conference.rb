@@ -39,4 +39,8 @@ class Conference < ActiveRecord::Base
 			'not found'
 		end
 	end
+
+	def has_news?
+		news.count > 0
+	end
 end

@@ -34,6 +34,7 @@ module ConferencesHelper
 		buttons_class
 	end
 
+  # TODO fix name of method
 	def conferenceEventDurationReturn (duration)
 		stringTime = ""
 		if (duration.hour.to_i > 0) then
@@ -51,6 +52,7 @@ module ConferencesHelper
 		return stringTime
 	end
 
+  # TODO fix name of method
 	def conferenceEventGroupDurationReturn ( events )
 		duration = 0;
 
@@ -218,4 +220,9 @@ module ConferencesHelper
     	groupPart += '</tr>'
     	return groupPart
 	end
+
+  # TODO move to wraper
+  def publishing_status(object)
+    object.published ? "" : "unpublished"
+  end
 end

@@ -65,3 +65,36 @@ $header-height: 150px;
 		margin-top: 0;
 	}
 }
+#conference_nav_buttons{
+	&:after{
+		margin-bottom: 25px;
+	}
+	li{
+		&.active > a{
+			background-color: #D18100;
+			color: white;
+			border: none;
+			padding: 10px 15px;
+			margin: 0px 10px;
+			&:hover{
+				background-color: #D18100;
+			}
+		}
+		> a{
+			color: #006687;
+			border-bottom: 2px dashed #006687;
+			padding: 0 0;
+			margin: 10px 10px;
+			&:hover{
+				background-color: transparent;
+			}
+		}
+	}
+}
+.btn.call-for-speaker{
+	$width: 200px;
+	position: relative;
+	left: 50%;
+	width: $width;
+	margin: 0 - $width/2;
+}

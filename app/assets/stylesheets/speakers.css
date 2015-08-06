@@ -15,10 +15,13 @@
 .speaker-container{
 	width: 40%;
 	font-size: 1em;
-	margin: 20px;
+	margin: 20px 20px 20px 0;
 }
-.speakers-list h4, .lightning-talks-list h4{
-	text-transform: uppercase;
+
+.speakers-list > h4, .lightning-talks-list > h4{
+	color: #999999;
+	font-weight: 500;
+	font-size: 25px;
 }
 
 .lightning-speaker-container{
@@ -121,11 +124,11 @@
 }
 
 .speaker-name a{
-	font-weight: bold;
-	color: #333;
+	font-weight: 500;
+	color: #428DA6;
 }
 .speaker-name a:hover{
-	text-decoration:none;
+	text-decoration: none;
 	color: #006687;
 	background-color: #F6F6F6;
 }
