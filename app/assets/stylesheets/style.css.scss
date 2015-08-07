@@ -1,5 +1,7 @@
 // @import "bootstrap";
 
+$footer-height: 50px;
+
 .container{
 	background-color: #ffffff;
 }
@@ -81,15 +83,20 @@ div.name-conteiner{
 }
 
 footer{
-	height: 100px;
-	position: relative;
+	height: $footer-height;
+	position: absolute;
+	left: 0;
+	right: 0;
 	background-color: #eeeeee;
-	border: 1px solid #ebebeb;
+	border-top: 1px solid #DBD0D0;
+	.container{
+		background-color: inherit;
+	}
 }
 
 .logoes .col-lg-12 .logo img{
-	height: 40px;
-	width: 40px;
+	height: 35px;
+	width: 35px;
 	color: #4E627A;
 }
 
@@ -103,18 +110,13 @@ footer{
 	padding: 20px 40px;
 }
 
-.social-network .soft {
-	position: relative;
-	left: 30%;
-}
-
 .logoes .col-sm-12 .logo img{
-	height: 45px;
-	width: 45px;
+	height: 35px;
+	width: 35px;
 }
 
 .logoes .col-sm-12 li{
-	margin: 4px;
+	margin: 0 4px;
 }
 
 .center-align{
@@ -123,4 +125,21 @@ footer{
 
 .login-button{
 	font-size: 4pt;
+}
+footer ul.social-network{
+	margin: 0;
+	padding: 0;
+	li{
+		line-height: $footer-height;
+	}
+}
+.softserve-copyright{
+	float: left; 
+	line-height: $footer-height;
+	a{
+		color: #999999;
+	}
+}
+.social{
+	float: right;
 }
