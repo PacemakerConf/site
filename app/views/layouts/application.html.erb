@@ -12,15 +12,12 @@
 		<div class="row">
 			<%= render 'layouts/header_title' %>
 			<%= render 'layouts/header' %>
-			<div style="height: 150px; background: #ffffff">
-				Menu
-			</div>
+			<%= render 'layouts/main_menu' %>
 			<div class="devide-line"></div>
 			<%= render 'layouts/currentConferenceTable' %>
 			<div class="row main-content">
 				<%= yield %>
 			</div>
-			<%= render 'layouts/years' %>
 			<%= render 'layouts/footer' %>
 		</div>
 	</div>

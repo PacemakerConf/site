@@ -67,7 +67,9 @@ Rails.application.routes.draw do
   #userside 
   resources :speakers
   resources :conferences, param: :name
-  resources :events
+  resources :events do
+    get ':year', action: :year, on: :collection, as: :year
+  end
   resources :years, param: :name, only: :show
 
   get ':name', to: 'conferences#show'

@@ -11,7 +11,8 @@ $footer-height: 50px;
 }
 
 .unpublished{
-	border: 3px solid yellow;
+	background-color: #FFF74D !important;
+	opacity: 0.7;
 }
 
 .conference-menu li{
@@ -89,6 +90,7 @@ footer{
 	right: 0;
 	background-color: #eeeeee;
 	border-top: 1px solid #DBD0D0;
+	box-sizing: content-box;
 	.container{
 		background-color: inherit;
 	}

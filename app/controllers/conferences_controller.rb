@@ -26,9 +26,11 @@ class ConferencesController < ApplicationController
     @active_button = 'schedule'
     respond_to do |format|
       format.pdf do
-        render :pdf    => "schedule",
-          :template    => "conferences/schedule.pdf.erb",
-          :layout      => "pdf_layout.html"
+        render(
+          :pdf        => "schedule",
+          :template   => "conferences/schedule.pdf.erb",
+          :layout     => "pdf_layout.html"
+        )
       end 
       format.html
     end

@@ -1,7 +1,9 @@
 <footer class="logoes">
 	<div class="container">
 		<div class="softserve-copyright">
-			<a href="//softserve.ua/" target="_blank">© SoftServe LTD, 2010-<%= Time.now.year %></a>
+			<a href="//softserve.ua/" target="_blank">
+				© SoftServe LTD, 2010-<%= Time.now.year %>
+			</a>
 		</div>
 		<div class="social">
 			<ul class="social-network col-lg-12 col-md-12 col-sm-12">
@@ -23,10 +25,9 @@
 			</ul>
 		</div>
 		
-
 		<div id ="admin_nav">
 			<% if admin_signed_in? %>
-				Logged in as <strong> <%= current_admin.username%> </strong>. 
+				Logged in as <strong> <%= current_admin.username %> </strong>. 
 				<%= link_to "Go to admin part", admin_conferences_path %> |
 				<%= link_to "Logout", destroy_admin_session_path, method: :delete %>
 			<% end %>
