@@ -45,9 +45,9 @@ $(document).on("ready page:load", function(){
     });
   });
   //Saving coordinates to DB
-  $('#maps_button').click(function(){
-    $('[name="location[latitude]"]').val(latlng.k);
-    $('[name="location[longitude]"]').val(latlng.D);
+  $('#maps_button').click(function(e){
+    $('[name="location[latitude]"]').val(latlng.K);
+    $('[name="location[longitude]"]').val(latlng.G);
   });
 });
 //CONSTANT
