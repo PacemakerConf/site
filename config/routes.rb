@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  conference_name_regex = /.*/
 
   get '/', to: redirect(Conference.last_conference_route) if ActiveRecord::Base.connection.table_exists?('conferences')
 
@@ -14,7 +15,7 @@ Rails.application.routes.draw do
   namespace :admin do
   
     root 'conferences#index'
-    resources :conferences, param: :name do
+    resources :conferences, param: :name, constraints: { :name => conference_name_regex } do
       member do
         get 'schedule'
       end
@@ -72,12 +73,14 @@ Rails.application.routes.draw do
   end
   resources :years, param: :name, only: :show
 
-  get ':name', to: 'conferences#show'
-  get ':name/about', to: 'conferences#show', as: :about_conference
-  get ':name/speakers', to: 'conferences#speakers', as: :speakers_conference
-  get ':name/location', to: 'conferences#location', as: :location_conference
-  get ':name/schedule', to: 'conferences#schedule', as: :schedule_conference
-  get ':name/report', to: 'conferences#report', as: :report_conference
+  constraints :name => conference_name_regex do
+    get ':name', to: 'conferences#show'
+    get ':name/about', to: 'conferences#show', as: :about_conference
+    get ':name/speakers', to: 'conferences#speakers', as: :speakers_conference
+    get ':name/location', to: 'conferences#location', as: :location_conference
+    get ':name/schedule', to: 'conferences#schedule', as: :schedule_conference
+    get ':name/report', to: 'conferences#report', as: :report_conference
+  end
 
   get 'pages/about' => 'high_voltage/pages#about', id: 'about'
   get 'pages/authors' => 'high_voltage/pages#authors', id: 'authors'
