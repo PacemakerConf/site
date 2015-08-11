@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  conference_name_regex = /.*/
+  conference_name_regex = /[^\/]+/
 
   get '/', to: redirect(Conference.last_conference_route) if ActiveRecord::Base.connection.table_exists?('conferences')
 
