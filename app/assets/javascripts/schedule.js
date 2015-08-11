@@ -5,7 +5,6 @@ $(document).on('ready page:load', function () {
 	});             
 });
 function scheduleChange(){
-	// console.log('scheduleChange()');
 	timestartItems = $('.timestart');
 	durationItems = $('.duration');
 	if ( timestartItems.length === durationItems.length) {
@@ -34,9 +33,8 @@ function scheduleChange(){
 		};
 	}
 	else{
-		console.log("some gone wrong: timestartItems.length != durationItems.length");
+		console.log("something went wrong: timestartItems.length != durationItems.length");
 	};
-
 }
 function parseTime(durationItem){
 	durationArray = durationItem.innerHTML.split(":");

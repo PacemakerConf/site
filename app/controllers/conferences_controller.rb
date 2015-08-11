@@ -16,10 +16,10 @@ class ConferencesController < ApplicationController
   end
 
   def schedule
-    if @conference.group_event then
+    if @conference.group_event
       groupable = EventType.where(groupable: true)
       @eventsGroupable = @conference.events.where(event_type: groupable).by_position
-      @eventsSingle = @conference.events.where.not(event_type: groupable).by_position     
+      @eventsSingle = @conference.events.where.not(event_type: groupable).by_position
     else
       @eventsSingle = @conference.events.order(:position)
     end

@@ -7,13 +7,10 @@
     remove-circle ok-circle ban-circle gift eye-open calendar random comment magnet hdd bell 
     bullhorn) %>
 
-<%=(user_schedule @conference.group_event, @eventsSingle, @eventsGroupable).html_safe %>
+<%= user_schedule(@conference, @eventsSingle, @eventsGroupable).html_safe %>
 
 <button class="btn btn-default" onclick="window.print();">Print schedule</button>
 
-<!--   <br>
-  -
-  <%#= link_to 'PDF MW', schedule_conference_path( format: 'pdf') %> -->
 <style type="text/css">
   table tr td{
       font-size: 1.25em;
