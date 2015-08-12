@@ -5,36 +5,18 @@ $(document).on('ready page:load', function () {
 	});             
 });
 function scheduleChange(){
-	timestartItems = $('.timestart');
-	durationItems = $('.duration');
-	if ( timestartItems.length === durationItems.length) {
-		var currentTime = [9,0];
-		var pause = 5;
-		for (var i = 0; i < timestartItems.length; i++) {
-			var stringTime = "";
-			if(currentTime[0] < 10){
-				stringTime = '0';
-			}
-			stringTime += currentTime[0] + ':';
-			if(currentTime[1] < 10){
-				stringTime += '0';
-			}
-			stringTime += currentTime[1];
-			timestartItems[i].innerHTML = '<span class="glyphicon glyphicon-time" style="position: relative;"></span> ' + stringTime;
-
-			tempTime = parseTime(durationItems[i]);
-			currentTime[0] += tempTime[0];
-			currentTime[1] += tempTime[1] + pause;
-			if(currentTime[1]>=60){
-				var overHours = parseInt(currentTime[1]/60);
-				currentTime[0] += overHours;
-				currentTime[1] -= overHours*60;
-			}
-		};
-	}
-	else{
-		console.log("something went wrong: timestartItems.length != durationItems.length");
-	};
+	$schedule = $('.schedule');
+	startDate = moment($schedule.data('start-time'), 'YYYY-MM-DD HH:mm:ss Z')._d;
+	break_time = 300; // in seconds
+	timeFormat = 'HH:mm';
+	$.each($schedule.find('.event'), function(i, eventElement) {
+		$eventElement = $(eventElement);
+		$timestart = $eventElement.find('.timestart')
+		$timestart.html('<span class="glyphicon glyphicon-time" style="position: relative;"></span>');
+		$timestart.append(moment(startDate).format(timeFormat));
+		eventDuration = $eventElement.data('event-duration');
+		startDate.setSeconds(startDate.getSeconds() + eventDuration + break_time);
+	})
 }
 function parseTime(durationItem){
 	durationArray = durationItem.innerHTML.split(":");

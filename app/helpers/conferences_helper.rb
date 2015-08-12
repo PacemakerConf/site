@@ -43,7 +43,7 @@ module ConferencesHelper
       stringTime += '0:'
     end
 
-    if (duration.min.to_i >10) then
+    if (duration.min.to_i > 10) then
       stringTime += duration.min.to_s
     else
       stringTime += '0' + duration.min.to_s
@@ -80,8 +80,9 @@ module ConferencesHelper
     return stringTime
   end
 
-  def admin_schedule( groupable, eventsSingle, eventsGroupable)
-    scheduleString = '<ul id="sortable" class="list-group" style="margin-bottom: 5px;">'
+  def admin_schedule(conference, eventsSingle, eventsGroupable)
+    groupable = conference.group_event
+    scheduleString = "<ul id='sortable' class='list-group schedule' style='margin-bottom: 5px;' data-start-time='#{ conference.date }'>"
     positionNumber = 0
     trigger = true
     eventsSingle.each do |event|
@@ -92,7 +93,7 @@ module ConferencesHelper
           trigger = false
         end
       end
-    scheduleString += '<li class="ui-state-default list-group-item schedule-item" '
+    scheduleString += "<li data-event-duration='#{ event.duration_in_sec }' class='event ui-state-default list-group-item schedule-item' "
     if !event.published
       scheduleString += 'style="background-color: #FFA"'
     end
@@ -152,7 +153,7 @@ module ConferencesHelper
 
   def user_schedule(conference, eventsSingle, eventsGroupable)
     groupable = conference.group_event
-    scheduleString = '<table class="table table-responsive table-hover schedule" >'
+    scheduleString = "<table class='table table-responsive table-hover schedule' data-start-time='#{ conference.date }'>"
     scheduleString += '<colgroup><col style = "width:7%;"></col>'
     scheduleString += '<col></col><col></col></colgroup>'
     scheduleString += '<tbody>'
@@ -172,9 +173,9 @@ module ConferencesHelper
       end
       if can? :read, event
         scheduleString += '<tr style="background-color:'
-        scheduleString += scheduleColor(event.event_type.color)+ ';" class="'
+        scheduleString += scheduleColor(event.event_type.color)+ ';" class="event '
         scheduleString += event.published ? '' : 'unpublished' 
-        scheduleString += '" >'
+        scheduleString += " \" data-event-duration='#{ event.duration_in_sec }' >"
         scheduleString += '<td class="timestart" style="text-align: center; font-size: 1.25em;"></td>'
         scheduleString += '<td class="duration" style="text-align: center; display: none;">'
         scheduleString += conferenceEventDurationReturn(event.duration) + '</td>'

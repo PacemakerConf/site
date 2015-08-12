@@ -44,7 +44,7 @@ function pageLoad() {
     // data picker
     if ($('.datetimepicker')) {
         $('.datetimepicker').datetimepicker({
-            format: 'YYYY/MM/DD hh:mm',
+            format: 'YYYY/MM/DD HH:mm',
             stepping: 15
         });
         $('.datetimepicker_deadline').datetimepicker({

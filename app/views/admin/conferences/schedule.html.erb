@@ -4,7 +4,7 @@
 </h3>
 <div class="alert alert-info" style="margin-top: 0px; margin-bottom: 0px; margin-left: auto; margin-right: auto;">Status: Schedule taken from server.<button onclick="sendAJAX()" class="btn btn-warning hidden" id="AjaxButton" >Try Again</button></div>
 
-<%=(admin_schedule @conference.group_event, @eventsSingle, @eventsGroupable).html_safe %>
+<%= (admin_schedule @conference, @eventsSingle, @eventsGroupable).html_safe %>
 
 <div>
   <%= link_to 'Events page', {controller: 'admin/events', 

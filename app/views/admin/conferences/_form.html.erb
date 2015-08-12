@@ -18,8 +18,8 @@
     <%= f.label :date, class: "col-lg-2 control-label" %>
     <div class="col-lg-7">
       <div class="input-group">
-        <%= f.text_field :date, placeholder: @conference.date, class: "form-control datetimepicker"%>
-        <span class="input-group-addon glyphicon glyphicon-calendar"></span>
+        <%= f.text_field :date, value: @conference.date, class: "form-control datetimepicker" %>
+       <span class="input-group-addon glyphicon glyphicon-calendar"></span>
       </div>
     </div>
   </div>
