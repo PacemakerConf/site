@@ -1,4 +1,7 @@
-$(document).on('ready page:load', pageLoad);
+$(document).on('ready page:load', function() {
+    pageLoad();
+    handleAjaxSpeackerForm();
+});
 
 function pageLoad() {
     //datatable
@@ -48,17 +51,20 @@ function pageLoad() {
             format: 'YYYY/MM/DD'
         });
     };
-    //email validator
-    $('.mail_button').on('click', function(e) {
-        e.preventDefault();
-        var form = $('#myModal').find('form');
-        var email = $('#mail-address').val();
-        var emailRegEx = /^[\w\d\.\-]+@\w+\.[a-z]+$/i;
-        if (email.match(emailRegEx)) {
-            form.submit()
-            $('#success-sent').html('<h4>Great! Your email has been sent!</h4>').removeClass().addClass('alert alert-dismissible alert-success');
-        } else {
-            $('#success-sent').html('<h4>Warning! Enter correct value!</h4>').addClass('alert alert-dismissible alert-warning');
-        }
-    });
+}
+
+function handleAjaxSpeackerForm() {
+    $('#myModal form').on('ajax:success', function(e, data, status, xhr) {
+        $successElement = $('#success-sent');
+        $successElement.html('<h4>Great! Your email has been sent!</h4>').removeClass().addClass('alert alert-dismissible alert-success');
+        this.reset();
+    }).on('ajax:error', function(e, xhr, status, error) {
+        $successElement = $('#success-sent');
+        $successElement.html('<h4>Error! Something went wrong, please try again or contac to the administrator</h4>').removeClass().addClass('alert alert-dismissible alert-warning');
+    }).on('ajax:complete', function() {
+        setTimeout(function() {
+            $successElement = $('#success-sent');
+            $successElement.html('').removeClass();
+        }, 8000);
+    })
 }
