@@ -1,34 +1,38 @@
 <%= form_for( @speaker, html: {class: 'form-horizontal'} ) do |f| %>
+
+  <%= f.hidden_field :email_hash, value: @invite.email_hash %>
+  <%= f.hidden_field :status, value: 'Registered' %> 
+  <%= f.hidden_field :conference_id, value: params[:conference_id] %>  
    
   <div class="form-group">
     <%= f.label :photo, 'Photo', class: "col-lg-2 control-label" %>
     <div class="col-lg-7">
-      <%= f.file_field :photo, class: "btn btn-default file_input", readonly: @readonly %>
+      <%= f.file_field :photo, class: "btn btn-default file_input", readonly: readonly %>
     </div>
   </div>
   <div class="form-group">
     <%= f.label :name, 'Name*', class: "col-lg-2 control-label"%>
     <div class="col-lg-7">
-      <%= f.text_field :name, class: "form-control", readonly: @readonly %>
+      <%= f.text_field :name, class: "form-control", readonly: readonly %>
     </div>
   </div>
   <div class="form-group">
     <%= f.label :surname, 'Surname*', class: "col-lg-2 control-label"%>
     <div class="col-lg-7">
-      <%= f.text_field :surname, class: "form-control", readonly: @readonly  %>
+      <%= f.text_field :surname, class: "form-control", readonly: readonly  %>
     </div>
   </div>
   <div class="form-group">
     <%= f.label :position, 'Position', class: "col-lg-2 control-label"%>
     <div class="col-lg-7">
-      <%= f.text_field :position, class: "form-control", readonly: @readonly %>
+      <%= f.text_field :position, class: "form-control", readonly: readonly %>
     </div>
   </div>
   <div class="form-group">
     <%= f.label :description, 'Description*', class: "col-lg-2 control-label" %>
     <div class="col-lg-7">
     <%= render "admin/share/wysiwyg" %> 
-     <div id="editor" class="well col-md-9 form-control" <%= @readonly ? 'readonly' : '' %> ></div>
+     <div id="editor" class="well col-md-9 form-control" <%= readonly ? 'readonly' : '' %> ></div>
     </div>
       <%= hidden_field( :speaker, :description, class: 'wysiwyg_textarea') %>
   </div> 
@@ -41,32 +45,27 @@
   <div class="form-group">
     <%= f.label :facebook, class: "col-lg-2 control-label" %>
     <div class="col-lg-7">
-      <%= f.text_field :facebook, class: "form-control", readonly: @readonly %>
+      <%= f.text_field :facebook, class: "form-control", readonly: readonly %>
     </div>
   </div>
   <div class="form-group">
     <%= f.label :linkedin, class: "col-lg-2 control-label" %>
     <div class="col-lg-7">
-      <%= f.text_field :linkedin, class: "form-control", readonly: @readonly %>
+      <%= f.text_field :linkedin, class: "form-control", readonly: readonly %>
     </div>
   </div>
   <div class="form-group">
     <%= f.label :twitter, class: "col-lg-2 control-label" %>
     <div class="col-lg-7">
-      <%= f.text_field :twitter, class: "form-control", readonly: @readonly%>
+      <%= f.text_field :twitter, class: "form-control", readonly: readonly%>
     </div>
   </div>
   <div class="form-group">
     <%= f.label :site, class: "col-lg-2 control-label" %>
     <div class="col-lg-7">
-      <%= f.text_field :site, class: "form-control", readonly: @readonly %>
+      <%= f.text_field :site, class: "form-control", readonly: readonly %>
     </div>
   </div>
-
-  <%= f.hidden_field :status, value: 'Registered' %> 
-  <%= f.hidden_field :email_hash, value: params[:hash] %> 
-  <%= f.hidden_field :conference_id, value: params[:conference_id] %> 
-  
   <div class="form-group">
     <div class="col-lg-7 col-lg-offset-2">
       <%= f.submit class: "btn btn-primary" %>

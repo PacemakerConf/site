@@ -1,5 +1,4 @@
-<%= form_for( [:admin, @speaker],  html: {class: 'form-horizontal'} ) do |f| %> 
-  
+<%= form_for( [:admin, @speaker],  html: {class: 'form-horizontal'} ) do |f| %>
   <div class="form-group">
     <%= f.label :photo, 'Photo', class: "col-lg-2 control-label" %>
     <div class="col-lg-7">
@@ -24,7 +23,6 @@
       <%= f.text_field :position, class: "form-control" %>
     </div>
   </div>
-  
   <div class="form-group">
     <%= f.label :description, 'Description*', class: "col-lg-2 control-label"%>
     <div class="col-lg-7">
@@ -62,7 +60,6 @@
       <%= f.text_field :site, class: "form-control" %>
     </div>
   </div>
-
   <div class="form-group">
     <div class="col-lg-7 col-lg-offset-2">
       <%= f.submit class: "btn btn-primary" %>

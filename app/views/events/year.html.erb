@@ -1,3 +1,4 @@
+<% @year ||= MainMenu.last_year %>
 <% if can? :read, @year %>
 	<div class='year-box <%= publishing_status(@year) %>'>
 		<div class='year-name'>

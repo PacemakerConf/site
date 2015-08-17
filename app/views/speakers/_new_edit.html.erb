@@ -1,0 +1,10 @@
+<%= render 'admin/speakers/speaker_errors' %>
+<fieldset class='col-lg-8'>
+  <% if @invite %>
+    <% current_user = { 'role' => User::SPEAKER }%>
+    <legend>New Speaker</legend>
+    <%= render 'form', readonly: readonly_form %>
+  <% else %>
+    <%= render 'sorry' %>
+  <% end %>
+</fieldset>

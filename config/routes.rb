@@ -68,7 +68,7 @@ Rails.application.routes.draw do
   resources :speakers
   resources :conferences, param: :name
   resources :events do
-    get ':year', action: :year, on: :collection, as: :year
+    get ':year', action: :year, constraints: { year: /\d{4}/ }, on: :collection, as: :year
   end
   resources :years, param: :name, only: :show
 

@@ -5,7 +5,7 @@ class EventsController < ApplicationController
   def new
     @event = Event.new
     @event_types = EventType.where(speakerEvent: true)
-    @invite = Invitation.where(email_hash: params[:hash])[0]
+    @invite = Invitation.find_by(email_hash: params[:hash])
     if @invite
       @conference_name = Conference.find(@invite.conference_id).fullname
       @conference_id = @invite.conference_id
@@ -18,17 +18,17 @@ class EventsController < ApplicationController
   def create
     #authorize! :create, Event
     @event = Event.new(event_params)
-    @invite = Invitation.where(email_hash: params['event']['email_hash'])[0]
+    @invite = Invitation.find_by(email_hash: params['hash'])
     respond_to do |format|
       if @event.save
-        @invite.status = 'Complete'
-        @invite.save
+        @invite.update_attribute(:status, 'Complete')
         current_user = {'role' => User::SPEAKER}
         format.html { redirect_to events_path, notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
       else
-        format.html { redirect_to controller: 'events', action: 'new', hash: params['event']['email_hash'], speaker_id: @event.speaker_id  }
-
+        @conference_id = @invite.conference_id
+        @event_types = EventType.where(speakerEvent: true)
+        format.html { render :new }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
     end

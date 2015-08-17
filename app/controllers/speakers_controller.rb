@@ -7,11 +7,17 @@ class SpeakersController < ApplicationController
   end
 
   def new
-    email = Invitation.where(email_hash: params[:hash])[0].email
-    @speaker = Speaker.new(email: email)
+    @invite = Invitation.find_by(email_hash: params[:hash])
+    if @invite.status != 'New'
+      @speaker = Speaker.find_by(email: @invite.email)
+      redirect_to edit_speaker_path(@speaker, params)
+    else
+      @speaker = Speaker.new(email: @invite.email)
+    end
   end
 
   def edit
+    @invite = Invitation.find_by(email_hash: params[:hash])
   end
 
   def create
@@ -24,7 +30,7 @@ class SpeakersController < ApplicationController
         format.html { redirect_to controller: 'events', action: 'new', hash: params['speaker']['email_hash'], speaker_id: @speaker.id }
         format.json { render :show, status: :created, location: @speaker }
       else
-        format.html { redirect_to controller: 'speakers', action: 'new', hash: params['speaker']['email_hash']}
+        format.html { render :new }
         format.json { render json: @speaker.errors, status: :unprocessable_entity }
       end
     end
@@ -39,7 +45,7 @@ class SpeakersController < ApplicationController
         format.html { redirect_to controller: 'events', action: 'new', hash: params['speaker']['email_hash'], speaker_id: @speaker.id }
         format.json { render :show, status: :created, location: @speaker }
       else
-        format.html { redirect_to controller: 'speakers', action: 'new', hash: params['speaker']['email_hash']}
+        format.html { render :edit }
         format.json { render json: @speaker.errors, status: :unprocessable_entity }
       end
     end

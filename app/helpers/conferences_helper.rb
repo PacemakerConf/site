@@ -93,27 +93,27 @@ module ConferencesHelper
           trigger = false
         end
       end
-    scheduleString += "<li data-event-duration='#{ event.duration_in_sec }' class='event ui-state-default list-group-item schedule-item' "
-    if !event.published
-      scheduleString += 'style="background-color: #FFA"'
-    end
-    scheduleString += '><span class="timestart" style="position: relative;"></span> '
-    scheduleString += '<span class="duration" style="position: relative;">'
-    scheduleString += conferenceEventDurationReturn(event.duration) + '</span> | '
-    scheduleString += '<span style="position: relative;">' + event.title + '</span>'
-    scheduleString += '<span class="idItems" style= "display: none;">'
-    scheduleString += event.id.to_s + '</span>'
-    scheduleString += '<span class="positionItems" style="display: none;">'
-    scheduleString += positionNumber.to_s + '</span>'
-    positionNumber += 1
-    scheduleString += '<span class="groupableItems" style="display: none;" >0</span>'
-    scheduleString += '<span style="position:relative;" style="font-weight:normal;">'
-    if event.speaker.nil? then
-       scheduleString += ' >' + event.responsable
-    else
-       scheduleString += ' -' + link_to(event.speaker.name + " " + event.speaker.surname, event.speaker, :style => 'font-weight: bold;')
-    end
-    scheduleString += '</span></li>'
+      scheduleString += "<li data-event-duration='#{ event.duration_in_sec }' class='event ui-state-default list-group-item schedule-item' "
+      if !event.published
+        scheduleString += 'style="background-color: #FFA"'
+      end
+      scheduleString += '><span class="timestart" style="position: relative;"></span> '
+      scheduleString += '<span class="duration" style="position: relative;">'
+      scheduleString += conferenceEventDurationReturn(event.duration) + '</span> | '
+      scheduleString += '<span style="position: relative;">' + event.title + '</span>'
+      scheduleString += '<span class="idItems" style= "display: none;">'
+      scheduleString += event.id.to_s + '</span>'
+      scheduleString += '<span class="positionItems" style="display: none;">'
+      scheduleString += positionNumber.to_s + '</span>'
+      positionNumber += 1
+      scheduleString += '<span class="groupableItems" style="display: none;" >0</span>'
+      scheduleString += '<span style="position:relative;" style="font-weight:normal;">'
+      if event.speaker.nil?
+        scheduleString += ' >' + (event.responsable || '')
+      else
+         scheduleString += ' -' + link_to(event.speaker.name + " " + event.speaker.surname, event.speaker, :style => 'font-weight: bold;')
+      end
+      scheduleString += '</span></li>'
     end
     scheduleString += '</ul>'
     return scheduleString
@@ -227,6 +227,7 @@ module ConferencesHelper
 
   # TODO move to wraper
   def publishing_status(object)
+    return nil unless object.respond_to? :published
     object.published ? "" : "unpublished"
   end
 
