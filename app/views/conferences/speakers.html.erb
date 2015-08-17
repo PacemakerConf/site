@@ -43,7 +43,7 @@
 			<% if can? :read, event %>
 				<div class = 'speech-about <%= event.published ? "" : "unpublished" %> col-lg-5 col-md-5 col-xs-5 '>
 					<div><strong><%= event.title %></strong></div>
-					<div><%= event.description %></div>
+					<div><%= event.description.html_safe %></div>
 					<div>
 						<br>
 						<% if event.materials.exists? %>
