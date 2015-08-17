@@ -64,7 +64,6 @@ Rails.application.routes.draw do
     end
   end
   
-
   #userside 
   resources :speakers
   resources :conferences, param: :name
@@ -73,13 +72,15 @@ Rails.application.routes.draw do
   end
   resources :years, param: :name, only: :show
 
-  constraints :name => conference_name_regex do
-    get ':name', to: 'conferences#show'
-    get ':name/about', to: 'conferences#show', as: :about_conference
-    get ':name/speakers', to: 'conferences#speakers', as: :speakers_conference
-    get ':name/location', to: 'conferences#location', as: :location_conference
-    get ':name/schedule', to: 'conferences#schedule', as: :schedule_conference
-    get ':name/report', to: 'conferences#report', as: :report_conference
+  constraints name: conference_name_regex do
+    constraints lambda{|req| Conference.find_by_route(req.params['name'])} do
+      get ':name', to: 'conferences#show'
+      get ':name/about', to: 'conferences#show', as: :about_conference
+      get ':name/speakers', to: 'conferences#speakers', as: :speakers_conference
+      get ':name/location', to: 'conferences#location', as: :location_conference
+      get ':name/schedule', to: 'conferences#schedule', as: :schedule_conference
+      get ':name/report', to: 'conferences#report', as: :report_conference
+    end
   end
 
   get 'pages/about' => 'high_voltage/pages#about', id: 'about'
@@ -89,5 +90,4 @@ Rails.application.routes.draw do
   # get "/authors", to: "pages#authors", as: :authors_page
   # get 'pages/about'
   # get 'pages/authors'
-
 end

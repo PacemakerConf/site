@@ -53,6 +53,14 @@ class Conference < ActiveRecord::Base
     where('date > ?', Time.current).order(date: :asc).first
   end
 
+  def self.find_by_route(route)
+    name, year = route.split('-')
+    Conference.find_by(
+      name: name, 
+      year: Year.find_by(name: year)
+    )
+  end
+
   def has_news?
     # TODO write tests
     news.count > 0

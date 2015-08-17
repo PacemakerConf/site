@@ -79,4 +79,11 @@ module ApplicationHelper
       )
     end
   end
+
+  def title
+    title_str = 'Pacemaker'
+    if content_for?(:title)
+      "#{title_str} | #{ content_for(:title) }"
+    end
+  end
 end

@@ -56,12 +56,7 @@ class ConferencesController < ApplicationController
     if(params[:name].to_i.to_s === params[:name].to_s)
       @conference = Conference.find(params[:name])
     else
-      input = params[:name].to_s
-      border = input.rindex('-').to_i
-      name = input.slice(0, border)
-      year = input.slice(border+1, 4)
-      year = Year.where(name: year)[0]
-      @conference = Conference.where(name: name).where(year: year)[0]
+      @conference = Conference.find_by_route(params[:name])
     end
   end
 end
