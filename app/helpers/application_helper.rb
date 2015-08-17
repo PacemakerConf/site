@@ -12,7 +12,7 @@ module ApplicationHelper
       if active_conference
         [
           next_conference_for(active_conference),
-          previous_conference = previous_conference_for(active_conference)
+          previous_conference_for(active_conference)
         ]
       else
         [nil, nil]
