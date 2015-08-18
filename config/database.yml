@@ -4,16 +4,27 @@
 #   Ensure the SQLite 3 gem is defined in your Gemfile
 #   gem 'sqlite3'
 #
-
-
 heroku: &heroku # example of postgres database
-  encoding: unicode
-  adapter: postgresql
-  username: pacemakerdb
+  adapter:  postgresql
+  encoding: utf8
+  database: d7v1du40c3t4qs
+  username: pvvphfecavrozj
+  password: 0yFh5PBM-RGZBCKQlJMYRa6Goo
   port: 5432
-  host: localhost
-  database: postgres
-  password: 
+  host: ec2-54-228-224-40.eu-west-1.compute.amazonaws.com
+  pool: 12
+  wait_timeout: 10
+
+herokudb: &herokudb # example of postgres database
+  adapter:  postgresql
+  encoding: utf8
+  database: dbgpno8g98hstu
+  username: mvucfnuzeisech
+  password: 5O1VaOn-UpJBrJoLvFl4pPEI6u
+  port: 5432
+  host: ec2-107-20-224-39.compute-1.amazonaws.com
+  pool: 12
+  wait_timeout: 10
 
 default: &default
   adapter: sqlite3
