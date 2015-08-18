@@ -1,34 +1,36 @@
-
-		<footer class="row logoes">
-				<ul class="social-network col-lg-12 col-md-12 col-sm-12">
-
-					<li class="logo fb">
-						<a href="//www.facebook.com/SoftServe.Career?fref=ts">
-								<%=image_tag("facebook-footer.svg")%>
-						</a>
-					</li> 
-					<li class="logo twit">
-						<a href="//twitter.com/SoftServeInc" target="_blank">
-							<%=image_tag("twitter-footer.svg")%>
-						</a>
-					</li>
-					<li class="logo lind">
-						<a href="//www.linkedin.com/company/softserve?trk=prof-following-company-logo" 
-							target="_blank">
-							<%=image_tag("linkedin-footer.svg")%>
-						</a>
-					</li>
-					<li class="soft">
-						<a href="//softserve.ua/" target="_blank">© SoftServe LTD, 2010-<%= Time.now.year %></a>
-					</li>
-				</ul>
-
-				<div id ="admin_nav">	
-					<% if admin_signed_in? %>
-	 				Logged in as <strong> <%= current_admin.username%></strong>. 
-	 				<%= link_to "Go to admin part", admin_conferences_path %> |
-		 			<%= link_to "Logout", destroy_admin_session_path, method: :delete %>
-		 			<% end %>
-  			</div>	
-			</footer>
+<footer class="logoes">
+	<div class="container">
+		<div class="softserve-copyright">
+			<a href="//softserve.ua/" target="_blank">
+				© SoftServe LTD, 2010-<%= Time.now.year %>
+			</a>
 		</div>
+		<div class="social">
+			<ul class="social-network col-lg-12 col-md-12 col-sm-12">
+				<li class="logo fb">
+					<a href="//www.facebook.com/SoftServe.Career?fref=ts">
+						<%=image_tag("facebook-footer.svg")%>
+					</a>
+				</li> 
+				<li class="logo twit">
+					<a href="//twitter.com/SoftServeInc" target="_blank">
+						<%=image_tag("twitter-footer.svg")%>
+					</a>
+				</li>
+				<li class="logo lind">
+					<a href="//www.linkedin.com/company/softserve?trk=prof-following-company-logo" target="_blank">
+						<%=image_tag("linkedin-footer.svg")%>
+					</a>
+				</li>
+			</ul>
+		</div>
+		
+		<div id ="admin_nav">
+			<% if admin_signed_in? %>
+				Logged in as <strong> <%= current_admin.username %> </strong>. 
+				<%= link_to "Go to admin part", admin_conferences_path %> |
+				<%= link_to "Logout", destroy_admin_session_path, method: :delete %>
+			<% end %>
+		</div>
+	</div>
+</footer>

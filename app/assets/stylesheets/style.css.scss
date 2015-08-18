@@ -1,7 +1,9 @@
-@import "bootstrap";
+// @import "bootstrap";
+
+$footer-height: 50px;
 
 .container{
-	background-color: #f6f6f6;
+	background-color: #ffffff;
 }
 
 .unvisible{
@@ -9,7 +11,8 @@
 }
 
 .unpublished{
-	border: 3px solid yellow;
+	background-color: #FFF74D !important;
+	opacity: 0.7;
 }
 
 .conference-menu li{
@@ -26,12 +29,13 @@
 }
 
 .conference-name{
+	h1{
+	font-weight: bold;
+	}
 	padding:13px 10px 24px 13px;
-	background-color: #006687;
 	margin: 5px;
-	color: #F6F6F6;
-	text-align: right;
-
+	color: #000000;
+	text-align: left;
 }
 
 .conference-name h1{
@@ -46,7 +50,6 @@ div.name-conteiner{
 }	
 
 .conference-det-2{
-	background-color: #002C3A;
 	margin: 5px;
 	padding: 20px 10px 10px 10px;
 }
@@ -60,8 +63,9 @@ div.name-conteiner{
 
 .conference-det-2 li{
 	list-style: none;
-	color: #F6F6F6;
+	color: #CACACA;
 	font-size: 1em;
+	text-align: right;
 }
 
 .pull-right{
@@ -70,11 +74,8 @@ div.name-conteiner{
 }
 
 .logo-img img{
-	height:130px;
-	margin: 10px 32.2%; 
-}
-.logo-img{
-	margin-left:-20px;
+	height:100px;
+	margin: 10px 0; 
 }
 
 .main-content{
@@ -83,15 +84,21 @@ div.name-conteiner{
 }
 
 footer{
-	height: 100px;
-	position: relative;
+	height: $footer-height;
+	position: absolute;
+	left: 0;
+	right: 0;
 	background-color: #eeeeee;
-	border: 1px solid #ebebeb;
+	border-top: 1px solid #DBD0D0;
+	box-sizing: content-box;
+	.container{
+		background-color: inherit;
+	}
 }
 
 .logoes .col-lg-12 .logo img{
-	height: 40px;
-	width: 40px;
+	height: 35px;
+	width: 35px;
 	color: #4E627A;
 }
 
@@ -105,18 +112,13 @@ footer{
 	padding: 20px 40px;
 }
 
-.social-network .soft {
-	position: relative;
-	left: 30%;
-}
-
 .logoes .col-sm-12 .logo img{
-	height: 45px;
-	width: 45px;
+	height: 35px;
+	width: 35px;
 }
 
 .logoes .col-sm-12 li{
-	margin: 4px;
+	margin: 0 4px;
 }
 
 .center-align{
@@ -125,4 +127,30 @@ footer{
 
 .login-button{
 	font-size: 4pt;
+}
+footer ul.social-network{
+	margin: 0;
+	padding: 0;
+	li{
+		line-height: $footer-height;
+	}
+}
+.softserve-copyright{
+	float: left; 
+	line-height: $footer-height;
+	a{
+		color: #999999;
+	}
+}
+.social{
+	float: right;
+}
+@media (max-width: 992px){
+	.header{
+		.blockquotes-container{
+			h4{
+				font-size: 16px;
+			}
+		}
+	}
 }

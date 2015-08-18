@@ -1,0 +1,14 @@
+<div class="row">
+	<div class='speaker-photo col-lg-4'>
+		<% speaker = topic.speaker %>	
+		<%= link_to( image_tag( speaker.photo.url(:thumb), class: 'photo', alt: speaker.name), speaker ) %>
+	</div>
+	<div class="speech-conteiner col-lg-6">
+		<div class='speech-info'>
+			<h4><%= topic.title %></h4>
+		</div>
+		<div class='speaker-name speech-info'>
+			<%= link_to speaker.fullname, speaker_path(speaker) %>
+		</div>
+	</div>
+</div>

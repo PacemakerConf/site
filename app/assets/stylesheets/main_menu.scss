@@ -1,0 +1,57 @@
+.main-menu{
+	$round-size: 80px;
+
+	height: 150px;
+	background: #ffffff;
+	margin: 15px 0;
+	ul li{
+		display: block;
+		float: left;
+	}
+	ul{
+		padding-left: 0px;
+	}
+	.conferences li{
+		width: $round-size;
+		height: $round-size;
+		background-color: #eeeeee;
+		margin: 0 10px;
+		border-radius: $round-size/2;
+		line-height: $round-size;
+		text-align: center;
+		color: #006687;
+		&.active{
+			color: #ffffff;
+			background-color: #006687;
+		}
+	}
+	.navigation{
+		$arrow-width: 40px;
+		$arrow-height: 60px;
+		@mixin arrow-style{
+			width: $arrow-width;
+			height: $arrow-height;
+			margin-top: ($round-size - $arrow-height)/2;
+			background-image: url(arrows.jpg);
+			opacity: 0.5;
+			&:hover{
+				opacity: 1;
+			}
+		}
+		.next{
+			float: right;
+		}
+		li.previous > a > div{
+			@include arrow-style;
+			background-position: $arrow-width;
+		}
+		li.next > a > div{
+			@include arrow-style;
+		}
+	}
+}
+.vertical-center{
+	display: inline-block;
+	line-height: normal;
+	vertical-align: middle;
+}

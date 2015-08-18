@@ -1,5 +1,7 @@
 class EventsController < ApplicationController
 
+  before_action :get_year!, only: [:year]
+
   def new
     @event = Event.new
     @event_types = EventType.where(speakerEvent: true)
@@ -32,15 +34,23 @@ class EventsController < ApplicationController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_event
-      @event = Event.find(params[:id])   
-    end
+  def year
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def event_params
-      params.require(:event).permit(:event_type_id, :speaker_id, :conference_id, :title, :description, :materials, :published, :duration)
-    end
+  private
+  
+  # Use callbacks to share common setup or constraints between actions.
+  def set_event
+    @event = Event.find(params[:id])   
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def event_params
+    params.require(:event).permit(:event_type_id, :speaker_id, :conference_id, :title, :description, :materials, :published, :duration)
+  end
+
+  def get_year!
+    @year = Year.find_by(name: params[:year])
+  end
 
 end

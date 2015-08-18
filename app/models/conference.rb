@@ -39,4 +39,32 @@ class Conference < ActiveRecord::Base
 			'not found'
 		end
 	end
+
+	def self.year(val)
+		# TODO write tests
+		if val.kind_of? Year
+			where(year: val)
+		else
+			joins(:year).where(years: { name: val.to_s })
+		end
+	end
+
+	def self.nearest
+		where('date > ?', Time.current).order(date: :asc).first
+	end
+
+	def has_news?
+		# TODO write tests
+		news.count > 0
+	end
+
+	def next_conference
+		# TODO write tests
+		self.class.where('date > ?', date).order(date: :asc).first
+	end
+
+	def previous_conference
+		# TODO write tests
+		self.class.where('date < ?', date).order(date: :desc).first
+	end
 end

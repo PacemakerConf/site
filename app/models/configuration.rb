@@ -30,5 +30,4 @@ class Configuration < ActiveRecord::Base
 				admin.save!
 			end	
 		end
-
 end

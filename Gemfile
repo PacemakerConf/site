@@ -58,6 +58,8 @@ gem 'simplecov', :require => false, :group => :test
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+gem 'slim'
 group :production do
   gem 'rails_12factor'
   gem 'pg'

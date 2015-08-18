@@ -34,6 +34,7 @@ module ConferencesHelper
 		buttons_class
 	end
 
+  # TODO fix name of method
 	def conferenceEventDurationReturn (duration)
 		stringTime = ""
 		if (duration.hour.to_i > 0) then
@@ -51,6 +52,7 @@ module ConferencesHelper
 		return stringTime
 	end
 
+  # TODO fix name of method
 	def conferenceEventGroupDurationReturn ( events )
 		duration = 0;
 
@@ -218,4 +220,44 @@ module ConferencesHelper
     	groupPart += '</tr>'
     	return groupPart
 	end
+
+  # TODO move to wraper
+  def publishing_status(object)
+    object.published ? "" : "unpublished"
+  end
+
+  def next_conference_for(conference)
+    _next_conference = conference.next_conference
+    return nil unless _next_conference
+    if can? :read, _next_conference
+      _next_conference
+    else
+      next_conference_for(_next_conference)
+    end
+  end
+
+  def previous_conference_for(conference)
+    _previous_conference = conference.previous_conference
+    return nil unless _previous_conference
+    if can? :read, _previous_conference
+      _previous_conference
+    else
+      previous_conference_for(_previous_conference)
+    end
+  end
+
+  def nearest_conference_path
+    conf = Conference.nearest
+    return '#' unless conf
+    if can? :read, conf
+      conference_path(conf)
+    else
+      conf = next_conference_for(conf)
+      conference_path(conf)
+    end
+  end
+
+  def conference_path(conf)
+    conf ? about_conference_path(conf.route) : '#'
+  end
 end
