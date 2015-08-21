@@ -1,0 +1,9 @@
+<div class="main-speakers-box row">
+	<% topics.each do |topic| %>
+		<% if can? :read, topic %>
+			<div class='speaker-container <%= grid_class_speacker_container %> <%= publishing_status(topic) %> '>
+				<%= render 'speaker_info', topic: topic, speaker: topic.speaker %>
+			</div>
+		<% end %>
+	<% end %>
+</div>

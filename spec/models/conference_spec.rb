@@ -3,6 +3,10 @@ require 'shoulda/matchers'
 
 describe Conference do 
 
+	before :each do
+		admin = FactoryGirl.create(:admin)
+	end
+
 	it { should have_many(:speakers) }
 	it { should have_many(:events) }
 	it { should have_one(:location) }
