@@ -40,3 +40,6 @@ db/schema.rb
 log/*
 public/assets/*
 public/system/*
+vendor/bundle/*
+bin/dev_run
+doc/PacemakerUserGuide.zip

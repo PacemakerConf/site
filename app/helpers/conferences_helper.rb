@@ -194,7 +194,6 @@ module ConferencesHelper
   end
 
   def user_schedule_groupable_part( eventsGroupable )
-#   raise eventsGroupable[0].event_type.inspect
     groupPart = '<tr style="background-color:'
     groupPart += scheduleColor(eventsGroupable[0].event_type.color)+'">'
     groupPart += '<td class="timestart" style="text-align: center; font-size: 1.25em;"></td>'

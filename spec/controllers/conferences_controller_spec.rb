@@ -4,6 +4,7 @@ describe ConferencesController do
 
 	before :each do
 		year = FactoryGirl.create(:year)
+		@admin = FactoryGirl.create(:admin)
 		@conference = FactoryGirl.create(:conference, year: year)
 	end
 	

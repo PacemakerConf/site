@@ -7,7 +7,7 @@ class Configuration < ActiveRecord::Base
 	DEFAULT_ADMIN_EMAIL = 'admin@example.com'
 
 	def self.apply_date_validation?
-		Configuration.new({admin_email: DEFAULT_ADMIN_EMAIL}).create! if Configuration.count === 0
+		Configuration.create!({admin_email: DEFAULT_ADMIN_EMAIL}) if Configuration.count === 0
 		self.first.apply_date_validation
 	end
 

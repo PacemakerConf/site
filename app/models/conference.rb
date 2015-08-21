@@ -32,7 +32,7 @@ class Conference < ActiveRecord::Base
 	end
 
 	def self.last_conference_route
-		last_conference = Conference.where(published: true).by_year_date_desc[0]
+		last_conference = Conference.where(published: true).by_year_date_desc[0]#order(year: :desc, date: :desc)[0] 
 		if last_conference
 			last_conference.name.to_s + '-' + last_conference.year.name.to_s + '/about'
 		else 
