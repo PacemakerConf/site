@@ -13,7 +13,7 @@ class Admin::ConfigurationsController < ApplicationController
     respond_to do |format|
       if @configuration.update(configuration_params)
         format.html { redirect_to edit_admin_configurations_path, notice: 'Configuration was successfully updated.' }
-        format.json { render :show, status: :ok, location: @configuration }
+        format.json { render :edit, status: :ok, location: @configuration }
       else
         format.html { render :edit }
         format.json { render json: @configuration.errors, status: :unprocessable_entity }

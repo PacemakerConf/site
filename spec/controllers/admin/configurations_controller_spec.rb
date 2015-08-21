@@ -36,28 +36,27 @@ RSpec.describe Admin::ConfigurationsController, type: :controller do
   # Admin::ConfigurationsController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
-  describe "GET #index" do
-    it "assigns all admin_configurations as @admin_configurations" do
-      configuration = Admin::Configuration.create! valid_attributes
-      get :index, {}, valid_session
-      expect(assigns(:admin_configurations)).to eq([configuration])
-    end
-  end
+  # describe "GET #index" do
+  #   it "assigns all admin_configurations as @admin_configurations" do
+  #     configuration = Admin::Configuration.create! valid_attributes
+  #     get :index, {}, valid_session
+  #     expect(assigns(:admin_configurations)).to eq([configuration])
+  #   end
+  # end
 
-  describe "GET #show" do
-    it "assigns the requested admin_configuration as @admin_configuration" do
-      configuration = Admin::Configuration.create! valid_attributes
-      get :show, {:id => configuration.to_param}, valid_session
-      expect(assigns(:admin_configuration)).to eq(configuration)
-    end
-  end
-
-  describe "GET #new" do
-    it "assigns a new admin_configuration as @admin_configuration" do
-      get :new, {}, valid_session
-      expect(assigns(:admin_configuration)).to be_a_new(Admin::Configuration)
-    end
-  end
+  # describe "GET #show" do
+  #   it "assigns the requested admin_configuration as @admin_configuration" do
+  #     configuration = Admin::Configuration.create! valid_attributes
+  #     get :show, {:id => configuration.to_param}, valid_session
+  #     expect(assigns(:admin_configuration)).to eq(configuration)
+  #   end
+  # end
+  # describe "GET #new" do
+  #   it "assigns a new admin_configuration as @admin_configuration" do
+  #     get :new, {}, valid_session
+  #     expect(assigns(:configuration)).to be_a_new(Admin::Configuration)
+  #   end
+  # end
 
   describe "GET #edit" do
     it "assigns the requested admin_configuration as @admin_configuration" do
@@ -67,38 +66,38 @@ RSpec.describe Admin::ConfigurationsController, type: :controller do
     end
   end
 
-  describe "POST #create" do
-    context "with valid params" do
-      it "creates a new Admin::Configuration" do
-        expect {
-          post :create, {:admin_configuration => valid_attributes}, valid_session
-        }.to change(Admin::Configuration, :count).by(1)
-      end
+  # describe "POST #create" do
+  #   context "with valid params" do
+  #     it "creates a new Admin::Configuration" do
+  #       expect {
+  #         post :create, {:admin_configuration => valid_attributes}, valid_session
+  #       }.to change(Admin::Configuration, :count).by(1)
+  #     end
 
-      it "assigns a newly created admin_configuration as @admin_configuration" do
-        post :create, {:admin_configuration => valid_attributes}, valid_session
-        expect(assigns(:admin_configuration)).to be_a(Admin::Configuration)
-        expect(assigns(:admin_configuration)).to be_persisted
-      end
+  #     it "assigns a newly created admin_configuration as @admin_configuration" do
+  #       post :create, {:admin_configuration => valid_attributes}, valid_session
+  #       expect(assigns(:admin_configuration)).to be_a(Admin::Configuration)
+  #       expect(assigns(:admin_configuration)).to be_persisted
+  #     end
 
-      it "redirects to the created admin_configuration" do
-        post :create, {:admin_configuration => valid_attributes}, valid_session
-        expect(response).to redirect_to(Admin::Configuration.last)
-      end
-    end
+  #     it "redirects to the created admin_configuration" do
+  #       post :create, {:admin_configuration => valid_attributes}, valid_session
+  #       expect(response).to redirect_to(Admin::Configuration.last)
+  #     end
+  #   end
 
-    context "with invalid params" do
-      it "assigns a newly created but unsaved admin_configuration as @admin_configuration" do
-        post :create, {:admin_configuration => invalid_attributes}, valid_session
-        expect(assigns(:admin_configuration)).to be_a_new(Admin::Configuration)
-      end
+  #   context "with invalid params" do
+  #     it "assigns a newly created but unsaved admin_configuration as @admin_configuration" do
+  #       post :create, {:admin_configuration => invalid_attributes}, valid_session
+  #       expect(assigns(:admin_configuration)).to be_a_new(Admin::Configuration)
+  #     end
 
-      it "re-renders the 'new' template" do
-        post :create, {:admin_configuration => invalid_attributes}, valid_session
-        expect(response).to render_template("new")
-      end
-    end
-  end
+  #     it "re-renders the 'new' template" do
+  #       post :create, {:admin_configuration => invalid_attributes}, valid_session
+  #       expect(response).to render_template("new")
+  #     end
+  #   end
+  # end
 
   describe "PUT #update" do
     context "with valid params" do
@@ -141,19 +140,19 @@ RSpec.describe Admin::ConfigurationsController, type: :controller do
     end
   end
 
-  describe "DELETE #destroy" do
-    it "destroys the requested admin_configuration" do
-      configuration = Admin::Configuration.create! valid_attributes
-      expect {
-        delete :destroy, {:id => configuration.to_param}, valid_session
-      }.to change(Admin::Configuration, :count).by(-1)
-    end
+  # describe "DELETE #destroy" do
+  #   it "destroys the requested admin_configuration" do
+  #     configuration = Admin::Configuration.create! valid_attributes
+  #     expect {
+  #       delete :destroy, {:id => configuration.to_param}, valid_session
+  #     }.to change(Admin::Configuration, :count).by(-1)
+  #   end
 
-    it "redirects to the admin_configurations list" do
-      configuration = Admin::Configuration.create! valid_attributes
-      delete :destroy, {:id => configuration.to_param}, valid_session
-      expect(response).to redirect_to(admin_configurations_url)
-    end
-  end
+  #   it "redirects to the admin_configurations list" do
+  #     configuration = Admin::Configuration.create! valid_attributes
+  #     delete :destroy, {:id => configuration.to_param}, valid_session
+  #     expect(response).to redirect_to(admin_configurations_url)
+  #   end
+  # end
 
 end
