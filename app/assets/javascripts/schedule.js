@@ -7,9 +7,9 @@ $(document).on('ready page:load', function () {
 function scheduleChange(){
 	$schedule = $('.schedule');
 	startDate = moment($schedule.data('start-time'), 'YYYY-MM-DD HH:mm:ss Z')._d;
-	break_time = 300; // in seconds
+	break_time = 0; // in seconds
 	timeFormat = 'HH:mm';
-	$.each($schedule.find('.event'), function(i, eventElement) {
+	$.each($schedule.find('.schedule-item'), function(i, eventElement) {
 		$eventElement = $(eventElement);
 		$timestart = $eventElement.find('.timestart')
 		$timestart.html('<span class="glyphicon glyphicon-time" style="position: relative;"></span>');

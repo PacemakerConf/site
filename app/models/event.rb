@@ -15,6 +15,8 @@ class Event < ActiveRecord::Base
   do_not_validate_attachment_file_type :materials
 
   scope :by_position, -> { order(position: :asc) }
+
+  before_save :set_position
   
   def self.get_new_position conference_id
     return 0 unless conference_id
@@ -22,6 +24,10 @@ class Event < ActiveRecord::Base
     return 1 if positions.count == 0
     new_position = positions.max + 1    
   end
+
+  def set_position
+    self.position = self.class.get_new_position(self.conference_id) if self.position.nil?
+  end  
 
   def duration_in_sec
     duration.to_i - duration.beginning_of_day.to_i
