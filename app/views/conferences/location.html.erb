@@ -3,7 +3,9 @@
   <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
       <h2>Direction map</h2>
     <div class="map col-lg-12">
-      <iframe width="96%" height="480" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="//maps.google.com/maps?q=<%= @location.longitude %>,<%= @location.latitude %>&z=15&output=embed"></iframe>
+      <div id="map-area" longitude="<%= @location.longitude %>" latitude="<%= @location.latitude %>" >
+        <div id="map" class="show_map"></div>
+      </div>
     </div>
   </div>
   <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 address-box ">
