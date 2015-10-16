@@ -19,56 +19,65 @@ colgroup.new_event_type col:nth-child(1){
 }
 
 div.customDropDown ul {
-        display: none;
-      }
+  display: none;
+}
 div.customDropDown div.ddHead:hover > ul {
-        display: block;
-      } 
+  display: block;
+} 
 
 div.customDropDown ,
 div.customDropDown div.ddHead:hover {
-        list-style: none;
-        position: relative;
-        display: inline-table;
-      }
+  list-style: none;
+  position: relative;
+  display: inline-table;
+}
+
+td.timestart{
+  width: 200px;
+}
+
 div.customDropDown div.ddHead:hover:after {
-        clear: both;
-        display: block;
-      }
+  clear: both;
+  display: block;
+}
 div.customDropDown div.ddHead:hover ul {
-        padding: 0;
-        top: 100%;
-      }
+  padding: 0;
+  top: 100%;
+}
 div.customDropDown div.ddHead:hover ul li {
-        list-style: none;
-      }
+  list-style: none;
+}
 div.customDropDown div.ddHead:hover ul li span {
-        color: #000;
-      }
+  color: #000;
+}
+
+table.schedule span.glyphicon{
+  padding:0px 10px 0px 0px;
+}
 
 .bs-glyphicons {
-    overflow:hidden;
-    }
+  overflow:hidden;
+}
 .bs-glyphicons-list{
-    padding-left:0;
-    list-style:none;
-    }
+  padding-left:0;
+  list-style:none;
+}
 .bs-glyphicons li{
-    float:left;
-    height:width;
-    line-height:1.4;
-    text-align:center;
-    background-color:#f9f9f9;
-    border:1px solid #fff;
-    }
+  float:left;
+  height:width;
+  line-height:1.4;
+  text-align:center;
+  background-color:#f9f9f9;
+  border:1px solid #fff;
+}
 .bs-glyphicons .glyphicon-class{
-    display:block;
-    text-align:center;
-    word-wrap:break-word;
-    }
+  display:block;
+  text-align:center;
+  word-wrap:break-word;
+}
 .bs-glyphicons li:hover{
-    background-color:#563d7c;
-    }
+  background-color:#563d7c;
+}
 
 li.selected{
   border: 1px solid #563d7c;

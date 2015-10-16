@@ -8,11 +8,11 @@
   <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 address-box ">
     <% unless(@conference.photo.to_s === "") %>
   	  <h2>Photos</h2>
-      <%= link_to image_tag("ico_photos.png", class: "report_icons"),  @conference.photo %>
+      <%= link_to image_tag("ico_photos.png", class: "report_icons"),  @conference.photo, :target => "_blank"%>
     <% end %>
     <% unless(@conference.video.to_s === "") %>
   	  <h2>Videos</h2>
-      <%= link_to image_tag("ico_videos.png", class: "report_icons"),  @conference.video %>
+      <%= link_to image_tag("ico_videos.png", class: "report_icons"),  @conference.video, :target => "_blank"%>
     <% end %>
   </div>
 </div>

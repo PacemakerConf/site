@@ -156,7 +156,7 @@ module ConferencesHelper
   def user_schedule(conference, eventsSingle, eventsGroupable)
     groupable = conference.group_event
     scheduleString = "<table class='table table-responsive table-hover schedule' data-start-time='#{ conference.date }'>"
-    scheduleString += '<colgroup><col style = "width:7%;"></col>'
+    scheduleString += '<colgroup><col style = "width: 10%;"></col>'
     scheduleString += '<col></col><col></col></colgroup>'
     scheduleString += '<tbody>'
     trigger = true
@@ -186,8 +186,8 @@ module ConferencesHelper
       scheduleString += GLYPHS[event.event_type.image.to_i] + '"></span>'
       scheduleString += event.title
       scheduleString += '<span style="position:relative;">'
-      if event.speaker.nil?
-          scheduleString += ' >' + event.responsable
+      if event.speaker.nil? 
+          scheduleString += " > #{event.responsable}" unless event.responsable.empty?
       else  
           scheduleString += ' - ' + link_to( event.speaker.name + " " + event.speaker.surname, event.speaker, :style => 'font-weight: bold;')
       end
