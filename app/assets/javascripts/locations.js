@@ -51,14 +51,11 @@ var pointGMapByAddress = function(map){
 }
 
 var setLocationFields = function(location_hash){
-  console.log('latlng');
-  console.log(location_hash);
   $('[name="location[latitude]"]').val(location_hash.lat);
   $('[name="location[longitude]"]').val(location_hash.lng);
 }
 
 $(document).on("ready page:load", function(){
-  console.log("HERE!!!!")
   $('#multiselect').attr("multiple", "multiple").attr("title","Select contact");
   //Adding bsmselect for select with attr "multiple"
   if($("select[multiple]")){
