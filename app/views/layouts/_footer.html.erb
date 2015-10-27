@@ -17,6 +17,11 @@
 						<%=image_tag("twitter-footer.svg")%>
 					</a>
 				</li>
+				<li class="logo youtube">
+					<a href="//www.youtube.com/channel/UCARnxsw8cR-dsuOG_2YMEjg" target="_blank">
+						<%=image_tag("youtube-footer.svg")%>
+					</a>
+				</li>
 			</ul>
 		</div>
 	</div>
@@ -27,6 +32,7 @@
 				Logged in as <strong> <%= current_admin.username %> </strong>. 
 				<%= link_to "Go to admin part", admin_conferences_path %> |
 				<%= link_to "Logout", destroy_admin_session_path, method: :delete %>
+
 			<% end %>
 		</div>
 	</div>

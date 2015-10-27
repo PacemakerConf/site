@@ -1,7 +1,6 @@
 class Report < ActiveRecord::Base
 	belongs_to :conference
 
-	validates :title, presence: true
 	validates :responsable, presence: true
 
 	def short_report

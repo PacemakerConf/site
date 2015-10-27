@@ -99,7 +99,6 @@
 .speech-conference a:hover{
 	text-decoration:none;
 	color: #006687;
-	background-color: #F6F6F6;
 }
 
 .speeches-list .speech-details{
@@ -130,7 +129,6 @@
 .speaker-name a:hover{
 	text-decoration: none;
 	color: #006687;
-	background-color: #F6F6F6;
 }
 
 .speech-about{

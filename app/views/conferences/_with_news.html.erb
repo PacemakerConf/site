@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="main-speakers col-lg-9 col-md-8 col-sm-12 col-xs-12">
 		<%= render 'speacker_list', topics: @topics %>
-		<%= render 'lightning_list', lightnings: @lightnings, grid_class: 'col-lg-5 col-md-3 col-sm-4 col-xs-4' %>
+		<%= render 'lightning_list', lightnings: @lightnings, grid_class: 'col-lg-5 col-md-3 col-sm-4 col-xs-4' unless @lightnings.blank? %>
 	</div>
 	<div class="news col-lg-3 col-md-4">
 		<h4>NEWS</h4>

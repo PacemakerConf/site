@@ -3,6 +3,6 @@
 		<%= render 'speacker_list', topics: @topics %>
 	</div>
 	<div class="main-speakers col-lg-4 col-md-4 col-sm-12 col-xs-12">
-		<%= render 'lightning_list', lightnings: @lightnings, grid_class: 'col-lg-12 col-md-12 col-sm-12 col-xs-12' %>
+		<%= render 'lightning_list', lightnings: @lightnings, grid_class: 'col-lg-12 col-md-12 col-sm-12 col-xs-12' unless @lightnings.blank? %>
 	</div>
 </div>
