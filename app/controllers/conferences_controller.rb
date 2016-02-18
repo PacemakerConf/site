@@ -2,7 +2,6 @@ class ConferencesController < ApplicationController
   before_action :set_conference, only: [:check_visibility, :schedule, :location, :speakers, :report, :show]
   before_action :check_visibility
 
-
   def old_index
     render :file => 'public/index.html', layout: false
   end

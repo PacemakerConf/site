@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   conference_name_regex = /[^\/]+/
 
-  #get '/', to: redirect(Conference.last_conference_route) if ActiveRecord::Base.connection.table_exists?('conferences')
-  root :controller => 'conferences', :action => 'old_index'
+  get '/', to: redirect(Conference.last_conference_route) if ActiveRecord::Base.connection.table_exists?('conferences')
+  #root :controller => 'conferences', :action => 'old_index'
 
   post 'send_mail', to: 'speaker_request#send_mail'
 
