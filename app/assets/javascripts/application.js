@@ -28,3 +28,4 @@
 //= require bootstrap-wysiwyg.js
 //= require turbolinks
 //= require_tree .
+//= require preloader
