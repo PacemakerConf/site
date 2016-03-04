@@ -13,6 +13,11 @@ Rails.application.configure do
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
+  config.cache_store = :redis_store, "redis://#{ENV['REDIS_SERVER']}/0/cache", { expires_in: 1.day }
+  config.action_dispatch.rack_cache = {
+      metastore: "redis://#{ENV['REDIS_SERVER']}/1/metastore",
+      entitystore: "redis://#{ENV['REDIS_SERVER']}/1/entitystore"
+  }
 
   # Enable Rack::Cache to put a simple HTTP cache in front of your application
   # Add `rack-cache` to your Gemfile before enabling this.

@@ -30,7 +30,12 @@ gem 'paperclip-googledrive-new'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
-group :assets do 
+# Caching
+gem 'redis-rails'
+gem 'actionpack-page_caching'
+gem 'actionpack-action_caching'
+
+group :assets do
   gem 'jquery-datatables-rails'#, github: 'rweng/jquery-datatables-rails'
   gem 'jquery-ui-rails'
 end
@@ -69,12 +74,11 @@ group :production do
   gem 'pg'
   gem 'unicorn'
   gem 'unicorn-rails'
+  gem 'redis-rack-cache'
 end
 
 group :development, :test do
   gem 'rspec-rails'
-  gem 'spork'
-  gem 'spork-rails'
   gem 'shoulda-matchers', require: false
   gem 'simplecov', require: false
   gem 'factory_girl_rails', '~> 4.0'
@@ -85,7 +89,6 @@ group :development, :test do
   gem 'sqlite3'
   gem 'spork'
   gem 'spork-rails'
-  gem 'shoulda-matchers', require: false
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   
