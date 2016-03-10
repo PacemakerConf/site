@@ -255,15 +255,18 @@ module ConferencesHelper
     end
   end
 
-  def nearest_conference_path
+  def nearest_conference
     conf = Conference.nearest
-    return '#' unless conf
+    return unless conf
     if can? :read, conf
-      conference_path(conf)
+      conf
     else
-      conf = next_conference_for(conf)
-      conference_path(conf)
+      next_conference_for(conf)
     end
+  end
+
+  def nearest_conference_path
+    conference_path(nearest_conference)
   end
 
   def conference_path(conf)
