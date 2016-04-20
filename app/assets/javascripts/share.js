@@ -51,6 +51,26 @@ function pageLoad() {
             format: 'YYYY/MM/DD'
         });
     };
+
+    $( "#but" ).click(function() {
+      $( "#save" ).show();
+      $( "#but" ).hide();
+      $( "#wisywyg_container" ).hide();
+      var htmlString = $( "#editor" ).html();
+      $( "#editor" ).text( htmlString );
+    });
+
+    $( "#savecode" ).click(function() {
+      $( "#but" ).show();
+      $( "#save" ).hide();
+      $( "#wisywyg_container" ).show();
+      var htmlString = $( "#editor" ).text();
+      $( "#editor" ).html( htmlString );
+    });
+
+    $("#nostyle").click(function(){
+      $("#editor").html($("#editor").text());
+    });
 }
 
 function handleAjaxSpeackerForm() {
