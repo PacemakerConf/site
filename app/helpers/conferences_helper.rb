@@ -1,9 +1,9 @@
 module ConferencesHelper
-  GLYPHS = %w(list fire leaf music user asterisk plus minus cloud envelope pencil glass search heart 
-    star star-empty th th-large th-list ok remove cog trash home file time road download 
-    download-alt upload inbox repeat refresh lock qrcode barcode tag tags bookmark picture 
-    map-marker move play stop plus-sign minus-sign remove-sign ok-sign question-sign info-sign 
-    remove-circle ok-circle ban-circle gift eye-open calendar random comment magnet hdd bell 
+  GLYPHS = %w(list fire leaf music user asterisk plus minus cloud envelope pencil glass search heart
+    star star-empty th th-large th-list ok remove cog trash home file time road download
+    download-alt upload inbox repeat refresh lock qrcode barcode tag tags bookmark picture
+    map-marker move play stop plus-sign minus-sign remove-sign ok-sign question-sign info-sign
+    remove-circle ok-circle ban-circle gift eye-open calendar random comment magnet hdd bell
     bullhorn)
 
   def scheduleColor(color)
@@ -21,7 +21,7 @@ module ConferencesHelper
       endString = go + "; color: #FFFFFF"
     else
       endString = go
-    end     
+    end
 
     return endString
   end
@@ -177,7 +177,7 @@ module ConferencesHelper
       end
       scheduleString += '<tr style="background-color:'
       scheduleString += scheduleColor(event.event_type.color)+ ';" class="event schedule-item '
-      scheduleString += event.published ? '' : 'unpublished' 
+      scheduleString += event.published ? '' : 'unpublished'
       scheduleString += " \" data-event-duration='#{ event.duration_in_sec }' >"
       scheduleString += '<td class="timestart" style="text-align: center; font-size: 1.25em;"></td>'
       scheduleString += '<td class="duration" style="text-align: center; display: none;">'
@@ -186,10 +186,10 @@ module ConferencesHelper
       scheduleString += GLYPHS[event.event_type.image.to_i] + '"></span>'
       scheduleString += event.title
       scheduleString += '<span style="position:relative;">'
-      if event.speaker.nil? 
-          scheduleString += " > #{event.responsable}" unless event.responsable.empty?
-      else  
-          scheduleString += ' - ' + link_to( event.speaker.name + " " + event.speaker.surname, event.speaker, :style => 'font-weight: bold;')
+      if event.speaker.nil?
+        scheduleString += ' > ' + '&nbsp;&nbsp;&nbsp;&nbsp;' + "#{event.responsable}" unless event.responsable.empty?
+      else
+        scheduleString += ' - ' + '&nbsp;&nbsp;&nbsp;&nbsp;' + link_to( event.speaker.name + ' ' + event.speaker.surname, event.speaker, :style => 'font-weight: bold;')
       end
       scheduleString += '</span></td></tr>'
     end
