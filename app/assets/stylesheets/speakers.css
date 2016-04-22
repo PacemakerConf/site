@@ -173,6 +173,7 @@
 }
 .speaker-contacts img{
 	width:16px;
+	height: 16px;
 }
 
 .ongoings-speech-container .speech-conference sup{
@@ -210,3 +211,4 @@
 a.btn.btn-default.btn-success:visited{
 	color: white;
 }
+
