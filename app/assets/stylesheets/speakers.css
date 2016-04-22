@@ -42,13 +42,13 @@
 }
 .speaker-photo img.photo{
   -webkit-filter: grayscale(0.6);
-   filter: grayscale(0.6); 
+   filter: grayscale(0.6);
    float: left;
 }
 
 .speaker-photo img.photo:hover{
 	-webkit-filter: grayscale(0);
-	filter: grayscale(0); 
+	filter: grayscale(0);
 
 }
 
@@ -129,6 +129,10 @@
 .speaker-name a:hover{
 	text-decoration: none;
 	color: #006687;
+}
+
+.speaker-container.one-speaker .speaker-name {
+	margin-left: 5px;
 }
 
 .speech-about{
