@@ -20,7 +20,7 @@
           <div class="contact-det">
             <p><b><%= contact.name %> <%= contact.surname %></b><p>
             <td><% contact.splited_mail.each do |mail| %>
-              <p><b>Mail: </b><%= mail %><br></p>
+              <p><b>Mail: </b><a href="mailto:<%= mail %>"><%= mail %></a><br></p>
             <% end %></td>
             <p><td><% contact.splited_telephone.each do |telephone| %>
             <p><b>Telephone: </b><%= telephone %><br></p>
