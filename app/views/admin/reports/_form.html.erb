@@ -7,10 +7,9 @@
             </div>
             <%= hidden_field( :report, :conference_id, value: params['conf_id']) %>
           <% else %>
-            <%= f.label :conference_id, 'Conference', class: "col-lg-2 control-label" %>
-              <div class="col-lg-7">
-                <%= select_tag 'report[conference_id]', options_from_collection_for_select(Conference.all, 'id', 'fullname'), class: "form-control" %>
-              </div>
+            <div class="col-lg-7">
+              <h4>Conference:  <%= @report.conference.name %> </h4>
+            </div>
           <% end %>
         </div> 
     <div class="form-group">
