@@ -1,3 +1,6 @@
+Admin.create!([
+  {email: Configuration::DEFAULT_ADMIN_EMAIL, password: '00000000', password_confirmation: '00000000', current_sign_in_at: "2015-03-18 11:34:41", last_sign_in_at: "2015-03-18 10:56:24", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", username: "admin", role: 'Admin'}
+])
 EventType.create!([
   {name: "Registration", description: "registration", defaultDuration: "2014-12-12 00:30:00", color: "#d0e9c6", image: "1", speakerEvent: false, groupable: nil},
   {name: "Beer-break", description: "ho ho ho", defaultDuration: "2014-12-12 03:00:00", color: "#f2dede", image: "0", speakerEvent: false, groupable: nil},
@@ -28,9 +31,6 @@ Conference.create!([
   {name: "Java", year_id: 3, date: "2014-12-12", attenders: 79, report: nil, location: nil, published: false},
   {name: "BigData", year_id: 4, date: "2015-11-12", attenders: 72, report: nil, location: nil, published: true, group_event: false},
   {name: "LAMP", year_id: 2, date: "2013-07-06", attenders: 50, report: nil, location: nil, published: true, group_event: false}
-])
-Admin.create!([
-  {email: Configuration::DEFAULT_ADMIN_EMAIL, password: '00000000', password_confirmation: '00000000', current_sign_in_at: "2015-03-18 11:34:41", last_sign_in_at: "2015-03-18 10:56:24", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", username: "admin", role: 'Admin'}
 ])
 Contact.create!([
   {name: "Vad", surname: "Kirdan", telephone: "0630620750", email: "hog_dubno@gmail.com", skype: "hog_dubno"},
