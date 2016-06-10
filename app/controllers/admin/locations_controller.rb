@@ -72,7 +72,7 @@ class Admin::LocationsController < Admin::ApplicationController
     end
 
     def set_contacts
-      @contacts = Contact.all
+      @contacts = Contact.order("surname")
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
