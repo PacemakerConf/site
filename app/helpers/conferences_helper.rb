@@ -216,9 +216,9 @@ module ConferencesHelper
     eventsGroupable.each do |eventGroup|
       if can? :read, eventGroup
         if !(eventGroup.speaker_id.nil?)
-          groupPart += '<span style="position:relative;"> -'
+          groupPart += '<span style="position:relative;">- '
           groupPart += link_to( eventGroup.speaker.name + " " + eventGroup.speaker.surname, eventGroup.speaker, :style => 'font-weight: bold;')
-          groupPart += ' /</span>'
+          groupPart += ' ,</span>'
         end
       end
     end
