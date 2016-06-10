@@ -59,7 +59,7 @@
   <div class="form-group">
     <%= f.label :contact_id, 'Contact', class: "col-lg-2 control-label" %>
     <div class="col-lg-7">
-      <%= select_tag 'location[contact_ids][]', options_from_collection_for_select(@contacts, 'id', :full_name), class: "form-control dropdown-menu", id: "multiselect" %>
+      <%= select_tag 'location[contact_ids][]', options_from_collection_for_select(@contacts, 'id', :full_name, @location.contacts.collect(&:id)), class: "form-control dropdown-menu", id: "multiselect", multiple: true %>
       <div class="form-group" id="location-area"></div>
     </div>
   </div>  
