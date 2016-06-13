@@ -76,15 +76,13 @@ function pageLoad() {
 function handleAjaxSpeackerForm() {
     $('#myModal form').on('ajax:success', function(e, data, status, xhr) {
         $successElement = $('#success-sent');
-        $successElement.html('<h4>Great! Your email has been sent!</h4>').removeClass().addClass('alert alert-dismissible alert-success');
         this.reset();
-    }).on('ajax:error', function(e, xhr, status, error) {
-        $successElement = $('#success-sent');
-        $successElement.html('<h4>Error! Something went wrong, please try again or contac to the administrator</h4>').removeClass().addClass('alert alert-dismissible alert-warning');
-    }).on('ajax:complete', function() {
+    });
+    $('#myModal form').on('ajax:complete', function() {
         setTimeout(function() {
             $successElement = $('#success-sent');
-            $successElement.html('').removeClass();
-        }, 8000);
+            $successElement.html('<h4>Great! Your email has been sent!</h4>').removeClass().addClass('alert alert-dismissible alert-success');
+            }, 8000);
+        $('.data_input').val('');
     })
 }
