@@ -2,7 +2,7 @@
   <div class="form-group">
     <%= f.label :photo, 'Photo', class: "col-lg-2 control-label" %>
     <div class="col-lg-7">
-      <%= f.file_field :photo, "data-show-upload" => "false", class: "btn btn-default file_input" %>
+      <%= f.file_field :photo, "data-show-upload" => "false", "data-show-remove" => "false", class: "btn btn-default speaker file_input" %>
     </div>
   </div>
   <div class="form-group">
@@ -66,3 +66,18 @@
     </div>
   </div>
 <% end %>
+<script type="text/javascript">
+  if ($('.speaker.file_input')) {
+    $(".speaker.file_input").fileinput({
+      maxFilesNum: 1,
+      <% if @speaker.photo.present? %>
+        initialPreview: [
+          "<img src='<%= @speaker.photo.url %>' class='file-preview-image' style='width:auto;height:160px;' alt='<%= @speaker.photo_file_name %>'>"
+        ],
+        initialPreviewAsData: true,
+        overwriteInitial: true,
+        initialCaption: "<%= @speaker.photo_file_name %>"
+      <% end %>
+    });
+  }
+</script>
