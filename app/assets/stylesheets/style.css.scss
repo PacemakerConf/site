@@ -47,7 +47,7 @@ div.contacts{
 }
 div.name-conteiner{
 	padding:0px;
-}	
+}
 
 .conference-det-2{
 	margin: 5px;
@@ -75,7 +75,7 @@ div.name-conteiner{
 
 .logo-img img{
 	height:100px;
-	margin: 10px 0; 
+	margin: 10px 0;
 }
 
 .main-content{
@@ -129,7 +129,7 @@ footer ul.social-network{
 	}
 }
 .softserve-copyright{
-	float: left; 
+	float: left;
 	line-height: $footer-height;
 	a{
 		color: #999999;
@@ -138,17 +138,19 @@ footer ul.social-network{
 .social{
 	float: right;
 }
-
 .blockquotes-container{
 	h4{
 		font-size: 19px;
 		i {
-			color: #6F6F6F;				
-		}	
+			color: #6F6F6F;
+		}
 	}
 }
-
 @media (max-width: 992px){
 	.header{
 	}
+}
+#inscription {
+	padding-left: 200px;
+	color: #6F6F6F;
 }
