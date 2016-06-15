@@ -46,7 +46,7 @@
   <div class="form-group" id='event_materials_group'>
     <%= f.label :materials, class: "col-lg-2 control-label"%>
     <div class="col-lg-10">
-      <%= f.file_field :materials, class: "btn btn-default file_input" %>
+      <%= f.file_field :materials, "data-show-preview" => "false", class: "btn btn-default event file_input" %>
     </div>
   </div>
   
@@ -78,4 +78,15 @@
 <script type="text/javascript">
   var is_editing_event = <%= @event.persisted? %>;
   $("#event_event_type_id").on("change", setDefaultData)
+
+  if ($('.event')) {
+    $(".event").fileinput({
+      maxFilesNum: 1,
+      <% if @event.materials.present? %>
+        initialPreviewAsData: true,
+        overwriteInitial: true,
+        initialCaption: "<%= materials_url(@event.materials.url) %>"
+      <% end %>
+    });
+  }
 </script>
