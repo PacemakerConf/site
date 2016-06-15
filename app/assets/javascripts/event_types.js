@@ -1,13 +1,3 @@
-function imageFromField(){
-    obj = $('#event_type_image');
-    if(obj.html()){
-        imageToField(obj.html());
-    }
-    else{
-        imageToField('0');
-    }
-}
-
 function imageToField(number) {
   $('#event_type_image').html(number);
   $('#event_type_image').val(number);
