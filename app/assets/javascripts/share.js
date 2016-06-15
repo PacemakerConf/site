@@ -42,15 +42,6 @@ function pageLoad() {
     }
 
     // data picker
-    if ($('.datetimepicker')) {
-        $('.datetimepicker').datetimepicker({
-            format: 'YYYY/MM/DD HH:mm',
-            stepping: 15
-        });
-        $('.datetimepicker_deadline').datetimepicker({
-            format: 'YYYY/MM/DD'
-        });
-    };
 
     $( "#but" ).click(function() {
       $( "#save" ).show();
@@ -86,3 +77,13 @@ function handleAjaxSpeackerForm() {
         $('.data_input').val('');
     })
 }
+
+$(function () {
+  $('#datetimepicker').datetimepicker({
+    format: 'YYYY/MM/DD HH:mm',
+    stepping: 15
+  });
+  $('#datetimepicker_deadline').datetimepicker({
+    format: 'YYYY/MM/DD'
+  });
+});
