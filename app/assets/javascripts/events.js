@@ -1,7 +1,7 @@
 $(document).on('ready page:load', eventFormLoad);
 
 function eventFormLoad(){
-	if(typeof event_event_type_id != 'undefined'){
+	if(typeof event_event_type_id != 'undefined' && is_editing_event != true){
 		setDefaultData();
 	}
 
