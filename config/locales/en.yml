@@ -24,3 +24,6 @@ en:
     attributes:
       event:
         responsable: "Responsible"
+  events:
+    form:
+      materials_link: "Link to materials"

@@ -49,6 +49,13 @@
       <%= f.file_field :materials, "data-show-preview" => "false", class: "btn btn-default event file_input" %>
     </div>
   </div>
+
+  <div class="form-group" id='event_materials_link'>
+    <%= f.label :materials_link, t('events.form.materials_link'), class: "col-lg-2 control-label"%>
+    <div class="col-lg-10">
+      <%= f.text_field :materials_link, class: 'form-control' %>
+    </div>
+  </div>
   
   <div class="form-group" id='event_responsable_group'>
     <%= f.label :responsable, class: "col-lg-2 control-label"%>
