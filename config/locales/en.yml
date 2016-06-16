@@ -21,3 +21,7 @@
 
 en:
   hello: "Hello world"
+
+  events:
+    form:
+      responsable: "Responsible"
