@@ -108,9 +108,9 @@ module ConferencesHelper
       scheduleString += '<span class="groupableItems" style="display: none;" >0</span>'
       scheduleString += '<span style="position:relative;" style="font-weight:normal;">'
       if event.speaker.nil?
-        scheduleString += ' >' + (event.responsable || '')
+        scheduleString += '&nbsp;&nbsp;&nbsp;' + ' > ' + '&nbsp;&nbsp;&nbsp;' + "#{event.responsable}" unless event.responsable.empty?
       else
-         scheduleString += ' -' + link_to(event.speaker.name + " " + event.speaker.surname, event.speaker, :style => 'font-weight: bold;')
+         scheduleString += '&nbsp;&nbsp;&nbsp;' + ' - ' + '&nbsp;&nbsp;&nbsp;' + link_to( event.speaker.name + ' ' + event.speaker.surname, event.speaker, :style => 'font-weight: bold;')
       end
       scheduleString += '</span></li>'
     end
@@ -187,9 +187,9 @@ module ConferencesHelper
       scheduleString += event.title
       scheduleString += '<span style="position:relative;">'
       if event.speaker.nil?
-        scheduleString += ' > ' + '&nbsp;&nbsp;&nbsp;&nbsp;' + "#{event.responsable}" unless event.responsable.empty?
+        scheduleString += '&nbsp;&nbsp;&nbsp;' + ' > ' + '&nbsp;&nbsp;&nbsp;' + "#{event.responsable}" unless event.responsable.empty?
       else
-        scheduleString += ' - ' + '&nbsp;&nbsp;&nbsp;&nbsp;' + link_to( event.speaker.name + ' ' + event.speaker.surname, event.speaker, :style => 'font-weight: bold;')
+        scheduleString += '&nbsp;&nbsp;&nbsp;' + ' - ' + '&nbsp;&nbsp;&nbsp;' + link_to( event.speaker.name + ' ' + event.speaker.surname, event.speaker, :style => 'font-weight: bold;')
       end
       scheduleString += '</span></td></tr>'
     end
