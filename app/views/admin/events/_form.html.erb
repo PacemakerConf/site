@@ -1,9 +1,5 @@
-<script type="text/javascript">
-  var is_editing_event = <%= @event.persisted? %>;
-</script>
 
 <%= form_for [:admin, @event],  html: {class: 'form-horizontal admin_event_form'}  do |f| %>
-  
 
   <%= hidden_field( :event, :conference_id, value: params["conf_id"] || 
       if( @event.conference ) then @event.conference.id end || Conference.last.id )%> 
@@ -11,7 +7,7 @@
   <div class="form-group">
     <%= f.label :event_type_id, 'Event type*', class: "col-lg-2 control-label"%>
     <div class="col-lg-10">
-      <%= select_tag 'event[event_type_id]', options_from_collection_for_select(EventType.all, 'id', 'name', @event_type.id), class: "form-control ", onchange: 'if (!is_editing_event) { setDefaultData() };', speakerEvent: @speaker_event %>
+      <%= select_tag 'event[event_type_id]', options_from_collection_for_select(EventType.all, 'id', 'name', @event_type.id), class: "form-control ", speakerEvent: @speaker_event %>
     </div>
   </div>
 
@@ -78,3 +74,8 @@
     </div>
   </div>
 <% end %>
+
+<script type="text/javascript">
+  var is_editing_event = <%= @event.persisted? %>;
+  $("#event_event_type_id").on("change", setDefaultData)
+</script>
