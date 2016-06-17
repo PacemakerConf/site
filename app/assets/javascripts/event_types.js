@@ -19,27 +19,24 @@ function imageToField(number) {
 
 
 function setDefaultData(){
-  selected_event_type =  event_event_type_id.value;
-  if ($('input[name=_method]').val() !== 'patch' ) {
-    $.ajax({
-      url: "/admin/event_types/" + selected_event_type,
-      dataType: 'json',
-      success: function(response){
-        if(response.durationHour < 10){
-          response.durationHour = '0' + response.durationHour
-        }
-        if(response.durationMin < 10){
-          response.durationMin = '0' + response.durationMin
-        }
-        speakerEvent = response.speakerEvent.toString() === 'true';
-        event_title.value = response.defaultName;
-        event_duration_4i.value = response.durationHour;
-        event_duration_5i.value = response.durationMin;
-
-        toggleEventFields( speakerEvent );
+  selected_event_type = $('#event_event_type_id').val();
+  $.ajax({
+    url: "/admin/event_types/" + selected_event_type + ".json",
+    success: function(response){
+      if(response.durationHour < 10){
+        response.durationHour = '0' + response.durationHour 
       }
-    })
-  }
+      if(response.durationMin < 10){
+        response.durationMin = '0' + response.durationMin 
+      }
+      speakerEvent = response.speakerEvent.toString() === 'true';
+      $('#event_title').val(response.defaultName);     
+      $('#event_duration_4i').val(response.durationHour);
+      $('#event_duration_5i').val(response.durationMin);
+      
+      toggleEventFields( speakerEvent );
+    }
+  })
 }
 
 $(document).on('ready page:load', eventTypePageLoad);

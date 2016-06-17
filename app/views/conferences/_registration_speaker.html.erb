@@ -1,5 +1,5 @@
 <% deadline = @conference.registration_deadline || @conference.date %>
-<% if deadline && (deadline > Time.now) %>
+<% if deadline && (deadline >= Time.now.to_date) %>
   <div class="table table-responsive col-md-10">
     <!--<%= label_tag '', nil, class: 'col-md-5' %>-->
     <!-- Button trigger modal -->
