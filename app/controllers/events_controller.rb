@@ -4,7 +4,7 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
-    @event_types = EventType.where(speakerEvent: true)
+    @event_types = EventType.where(speaker_event: true)
     @invite = Invitation.find_by(email_hash: params[:hash])
     if @invite
       @conference_name = Conference.find(@invite.conference_id).fullname
@@ -27,7 +27,7 @@ class EventsController < ApplicationController
         format.json { render :show, status: :created, location: @event }
       else
         @conference_id = @invite.conference_id
-        @event_types = EventType.where(speakerEvent: true)
+        @event_types = EventType.where(speaker_event: true)
         format.html { render :new }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end

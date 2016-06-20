@@ -6,8 +6,8 @@ function eventFormLoad(){
 	}
 
 	if( $('.admin_event_form').length ){
-		var speakerEvent = event_event_type_id.getAttribute("speakerEvent");
-		toggleEventFields(speakerEvent.toString() === 'true'); 		
+		var speakerEvent = event_event_type_id.getAttribute("speaker_event");
+		toggleEventFields(speakerEvent.toString() === 'true');
 	}
 
 	if($('#speaker_search')[0]){
@@ -15,7 +15,7 @@ function eventFormLoad(){
 			$.ajax({
 				url: '/admin/speakers/search?input=' + $('#speaker_search').val()
 			})
-			$('#event_speaker_id').val('');		
+			$('#event_speaker_id').val('');
 		})
 	}
 }

@@ -23,9 +23,9 @@
         <td><span class="glyphicon"><span class="glyphicon<%=classImage(event_type.image)%>"></span></span></td>
         <td><%= event_type.name %></td>
         <td><%= event_type.description %></td>
-        <td><%= durationReturn(event_type.defaultDuration) %></td>
+        <td><%= durationReturn(event_type.default_duration) %></td>
         <td ><span class="btn-xs" style="background-color:<%= event_type.color %>"></span></td>
-        <td><span class="glyphicon"><span class="glyphicon<%=trueEventCheck(event_type.speakerEvent)%>"></span></span></td>
+        <td><span class="glyphicon"><span class="glyphicon<%=trueEventCheck(event_type.speaker_event)%>"></span></span></td>
         <td><span class="glyphicon"><span class="glyphicon<%=trueEventCheck(event_type.groupable)%>"></span></span></td>
         <td><%= link_to 'Show', admin_event_type_path(event_type), class: "btn btn-default btn-xs" %></td>
         <td><%= link_to 'Edit', edit_admin_event_type_path(event_type), class: "btn btn-warning btn-xs"%></td>

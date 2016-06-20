@@ -7,7 +7,7 @@
   <div class="form-group">
     <%= f.label :event_type_id, 'Event type*', class: "col-lg-2 control-label"%>
     <div class="col-lg-10">
-      <%= select_tag 'event[event_type_id]', options_from_collection_for_select(EventType.all, 'id', 'name', @event_type.id), class: "form-control ", speakerEvent: @speaker_event %>
+      <%= select_tag 'event[event_type_id]', options_from_collection_for_select(EventType.all, 'id', 'name', @event_type.id), class: "form-control ", speaker_event: @speaker_event %>
     </div>
   </div>
 

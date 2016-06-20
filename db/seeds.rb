@@ -2,14 +2,14 @@ Admin.create!([
   {email: Configuration::DEFAULT_ADMIN_EMAIL, password: '00000000', password_confirmation: '00000000', current_sign_in_at: "2015-03-18 11:34:41", last_sign_in_at: "2015-03-18 10:56:24", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", username: "admin", role: 'Admin'}
 ])
 EventType.create!([
-  {name: "Registration", description: "registration", defaultDuration: "2014-12-12 00:30:00", color: "#d0e9c6", image: "1", speakerEvent: false, groupable: nil},
-  {name: "Beer-break", description: "ho ho ho", defaultDuration: "2014-12-12 03:00:00", color: "#f2dede", image: "0", speakerEvent: false, groupable: nil},
-  {name: "Topic", description: "some description", defaultDuration: "2014-12-12 01:00:00", color: "#fcf8e3", image: "3", speakerEvent: true, groupable: nil},
-  {name: "Lightning", description: "some description", defaultDuration: "2014-12-12 00:45:00", color: "#d9edf7", image: "15", speakerEvent: true, groupable: nil},
-  {name: "Introduction", description: "introduction", defaultDuration: "2015-03-18 00:15:00", color: "#d0e9c6", image: "10", speakerEvent: false, groupable: nil},
-  {name: "Lunch", description: "Lunch", defaultDuration: "2015-03-18 00:50:00", color: "#fcf8e3", image: "2", speakerEvent: false, groupable: nil},
-  {name: "Pizza party", description: "", defaultDuration: "2015-03-18 02:00:00", color: "#fcf8e3", image: "11", speakerEvent: false, groupable: nil},
-  {name: "Excursion", description: "", defaultDuration: "2015-03-18 00:45:00", color: "#f2dede", image: "56", speakerEvent: false, groupable: nil}
+  {name: "Registration", description: "registration", default_duration: "2014-12-12 00:30:00", color: "#d0e9c6", image: "1", speaker_event: false, groupable: nil},
+  {name: "Beer-break", description: "ho ho ho", default_duration: "2014-12-12 03:00:00", color: "#f2dede", image: "0", speaker_event: false, groupable: nil},
+  {name: "Topic", description: "some description", default_duration: "2014-12-12 01:00:00", color: "#fcf8e3", image: "3", speaker_event: true, groupable: nil},
+  {name: "Lightning", description: "some description", default_duration: "2014-12-12 00:45:00", color: "#d9edf7", image: "15", speaker_event: true, groupable: nil},
+  {name: "Introduction", description: "introduction", default_duration: "2015-03-18 00:15:00", color: "#d0e9c6", image: "10", speaker_event: false, groupable: nil},
+  {name: "Lunch", description: "Lunch", default_duration: "2015-03-18 00:50:00", color: "#fcf8e3", image: "2", speaker_event: false, groupable: nil},
+  {name: "Pizza party", description: "", default_duration: "2015-03-18 02:00:00", color: "#fcf8e3", image: "11", speaker_event: false, groupable: nil},
+  {name: "Excursion", description: "", default_duration: "2015-03-18 00:45:00", color: "#f2dede", image: "56", speaker_event: false, groupable: nil}
 ])
 Year.create!([
   {name: "2012", content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut est facilisis, laoreet orci nec, faucibus nisi. Maecenas tristique ipsum eu ultricies cursus. Etiam eu cursus urna. Maecenas consequat at elit sed consequat. Morbi consectetur fermentum ipsum sit amet accumsan. Etiam rutrum posuere finibus. Fusce ac orci metus. Sed augue urna, volutpat quis dapibus ut, egestas quis ex. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce rutrum bibendum quam, at rutrum sapien hendrerit non. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut congue nisi neque, mattis gravida nulla euismod ac. Praesent congue venenatis auctor. Phasellus interdum eleifend feugiat.", published: true},
