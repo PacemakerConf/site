@@ -24,7 +24,7 @@ function toggleEventFields(speakerEvent){
 	if( speakerEvent ){
 		$('#event_speaker_id_group').show();
 		$('#event_materials_group').show();
-		$('#event_materials_link').show();
+		$('#event_materials_link_group').show();
 		$('#event_responsable_group').hide();
 		event_responsable.value = '';
 	}	
@@ -33,7 +33,7 @@ function toggleEventFields(speakerEvent){
 		event_speaker_id.value = "";
 		$('#event_materials_group').hide();
 		event_materials.value = "";
-		$('#event_materials_link').hide();
+		$('#event_materials_link_group').hide();
 		event_materials_link.value = "";
 		$('#event_responsable_group').show();
 	}

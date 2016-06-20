@@ -43,12 +43,15 @@
 			<% if can? :read, event %>
 				<div class = 'speech-about <%= event.published ? "" : "unpublished" %> col-lg-5 col-md-5 col-xs-5 '>
 					<div><strong><%= event.title %></strong></div>
-					<div><%= event.description.html_safe %></div>
+					<div><%= event.description.to_s.html_safe %></div>
 					<div>
 						<br>
 						<% if event.materials.exists? %>
 		          <%= link_to "", event.materials.url(:original, false), class:"btn btn-default btn-xs glyphicon glyphicon-download-alt" %>
 		        <% end %>
+		        <%if event.materials_link.present? %>
+	            <%= link_to "", event.materials_link, class:"btn btn-default btn-xs glyphicon glyphicon-pushpin" %>
+	          <% end %>
 		        <% unless event.video.to_s === '' %>
 		          <%= link_to '', event.video, class:"btn btn-default btn-xs glyphicon glyphicon-play" %>
 		        <% end %>

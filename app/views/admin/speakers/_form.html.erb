@@ -1,74 +1,74 @@
 <%= form_for( [:admin, @speaker],  html: {class: 'form-horizontal'} ) do |f| %>
-  <div class="form-group">
-    <%= f.label :photo, 'Photo', class: "col-lg-2 control-label" %>
-    <div class="col-lg-7">
-      <%= f.file_field :photo, "data-show-upload" => "false", "data-show-remove" => "false", class: "btn btn-default speaker file_input" %>
+  <div class='form-group'>
+    <%= f.label :photo, 'Photo', class: 'col-lg-2 control-label' %>
+    <div class='col-lg-7'>
+      <%= f.file_field :photo, 'data-show-upload' => 'false', 'data-show-remove' => 'false', class: 'btn btn-default speaker file_input' %>
     </div>
   </div>
-  <div class="form-group">
-    <%= f.label :name, 'Name*', class: "col-lg-2 control-label" %>
-    <div class="col-lg-7">
-      <%= f.text_field :name, class: "form-control" %>
+  <div class='form-group'>
+    <%= f.label :name, 'Name*', class: 'col-lg-2 control-label' %>
+    <div class='col-lg-7'>
+      <%= f.text_field :name, class: 'form-control' %>
     </div>
   </div>
-  <div class="form-group">
-    <%= f.label :surname, 'Surname*', class: "col-lg-2 control-label" %>
-    <div class="col-lg-7">
-      <%= f.text_field :surname, class: "form-control" %>
+  <div class='form-group'>
+    <%= f.label :surname, 'Surname*', class: 'col-lg-2 control-label' %>
+    <div class='col-lg-7'>
+      <%= f.text_field :surname, class: 'form-control' %>
     </div>
   </div>
-  <div class="form-group">
-    <%= f.label :position, 'Position', class: "col-lg-2 control-label" %>
-    <div class="col-lg-7">
-      <%= f.text_field :position, class: "form-control" %>
+  <div class='form-group'>
+    <%= f.label :position, 'Position', class: 'col-lg-2 control-label' %>
+    <div class='col-lg-7'>
+      <%= f.text_field :position, class: 'form-control' %>
     </div>
   </div>
-  <div class="form-group">
-    <%= f.label :description, 'Description*', class: "col-lg-2 control-label"%>
-    <div class="col-lg-7">
-     <%= render "admin/share/wysiwyg" %> 
-     <div id="editor" class="well col-md-9 form-control"></div>
+  <div class='form-group'>
+    <%= f.label :description, 'Description*', class: 'col-lg-2 control-label'%>
+    <div class='col-lg-7'>
+     <%= render 'admin/share/wysiwyg' %> 
+     <div id='editor' class='well col-md-9 form-control'></div>
     </div>
       <%= hidden_field( :speaker, :description, class: 'wysiwyg_textarea') %>
   </div> 
-  <div class="form-group">
-    <%= f.label :email, 'Email*', class: "col-lg-2 control-label" %>
-    <div class="col-lg-7">
-      <%= f.text_field :email, class: "form-control" %>
+  <div class='form-group'>
+    <%= f.label :email, 'Email*', class: 'col-lg-2 control-label' %>
+    <div class='col-lg-7'>
+      <%= f.text_field :email, class: 'form-control' %>
     </div>
   </div>
-  <div class="form-group">
-    <%= f.label :facebook, class: "col-lg-2 control-label" %>
-    <div class="col-lg-7">
-      <%= f.text_field :facebook, class: "form-control" %>
+  <div class='form-group'>
+    <%= f.label :facebook, class: 'col-lg-2 control-label' %>
+    <div class='col-lg-7'>
+      <%= f.text_field :facebook, class: 'form-control' %>
     </div>
   </div>
-  <div class="form-group">
-    <%= f.label :linkedin, class: "col-lg-2 control-label" %>
-    <div class="col-lg-7">
-      <%= f.text_field :linkedin, class: "form-control" %>
+  <div class='form-group'>
+    <%= f.label :linkedin, class: 'col-lg-2 control-label' %>
+    <div class='col-lg-7'>
+      <%= f.text_field :linkedin, class: 'form-control' %>
     </div>
   </div>
-  <div class="form-group">
-    <%= f.label :twitter, class: "col-lg-2 control-label" %>
-    <div class="col-lg-7">
-      <%= f.text_field :twitter, class: "form-control" %>
+  <div class='form-group'>
+    <%= f.label :twitter, class: 'col-lg-2 control-label' %>
+    <div class='col-lg-7'>
+      <%= f.text_field :twitter, class: 'form-control' %>
     </div>
-  </div><div class="form-group">
-    <%= f.label :site, class: "col-lg-2 control-label" %>
-    <div class="col-lg-7">
-      <%= f.text_field :site, class: "form-control" %>
+  </div><div class='form-group'>
+    <%= f.label :site, class: 'col-lg-2 control-label' %>
+    <div class='col-lg-7'>
+      <%= f.text_field :site, class: 'form-control' %>
     </div>
   </div>
-  <div class="form-group">
-    <div class="col-lg-7 col-lg-offset-2">
-      <%= f.submit class: "btn btn-primary" %>
+  <div class='form-group'>
+    <div class='col-lg-7 col-lg-offset-2'>
+      <%= f.submit class: 'btn btn-primary' %>
     </div>
   </div>
 <% end %>
-<script type="text/javascript">
+<script type='text/javascript'>
   if ($('.speaker.file_input')) {
-    $(".speaker.file_input").fileinput({
+    $('.speaker.file_input').fileinput({
       maxFilesNum: 1,
       <% if @speaker.photo.present? %>
         initialPreview: [
@@ -76,7 +76,7 @@
         ],
         initialPreviewAsData: true,
         overwriteInitial: true,
-        initialCaption: "<%= @speaker.photo_file_name %>"
+        initialCaption: '<%= @speaker.photo_file_name %>'
       <% end %>
     });
   }
