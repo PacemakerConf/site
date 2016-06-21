@@ -1,15 +1,16 @@
  <%= form_for( [:admin, @report],  html: {class: 'form-horizontal'} ) do |f| %>
 
         <div class="form-group">
-          <% if params['conf_id'] %>
+          <% if @report.conference.present? %>
             <div class="col-lg-7">
-              <h4>Conference:  <%= params['conf_fname'] %> </h4>
+              <h4>Conference: <%= @report.conference.fullname %> </h4>
             </div>
             <%= hidden_field( :report, :conference_id, value: params['conf_id']) %>
           <% else %>
-            <div class="col-lg-7">
-              <h4>Conference:  <%= @report.conference.name %> </h4>
-            </div>
+            <%= f.label :conference_id, 'Conference', class: "col-lg-2 control-label" %>
+              <div class="col-lg-7">
+                <%= select_tag 'report[conference_id]', options_from_collection_for_select(Conference.all, 'id', 'fullname'), class: "form-control" %>
+              </div>
           <% end %>
         </div> 
     <div class="form-group">
