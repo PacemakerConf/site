@@ -1,6 +1,6 @@
 function imageToField(number) {
-  $('#event_type_image').html(number);
-  $('#event_type_image').val(number);
+  $('#event_type_image').html(number).val(number);
+
 
   classString = "btn btn-default btn-sm glyphicon glyphicon-";
   classString += GLYPHSJS[number];
@@ -22,7 +22,8 @@ function setDefaultData(){
   selected_event_type =  event_event_type_id.value;
   if ($('input[name=_method]').val() !== 'patch' ) {
     $.ajax({
-      url: "/admin/event_types/" + selected_event_type + ".json",
+      url: "/admin/event_types/" + selected_event_type,
+      dataType: 'json',
       success: function(response){
         if(response.durationHour < 10){
           response.durationHour = '0' + response.durationHour
@@ -31,9 +32,7 @@ function setDefaultData(){
           response.durationMin = '0' + response.durationMin
         }
         speakerEvent = response.speakerEvent.toString() === 'true';
-        if(!speakerEvent || speakerEvent){
-          event_title.value = response.defaultName;
-        }
+        event_title.value = response.defaultName;
         event_duration_4i.value = response.durationHour;
         event_duration_5i.value = response.durationMin;
 

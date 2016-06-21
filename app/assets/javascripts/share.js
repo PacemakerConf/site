@@ -4,64 +4,76 @@ $(document).on('ready page:load', function() {
 });
 
 function pageLoad() {
-    //datatable
-    (function() {
-        if ($('.data_table')) {
-            $('.data_table').dataTable({
-                paging: true,
-                dom: 'Rlfrtip',
-                "order": [
-                    [0, "desc"]
-                ],
-                "aoColumnDefs": [{
-                    "bSortable": false,
-                    "aTargets": [-1, -2]
-                }]
-            });
-        }
-    })();
+  var but = $( "#but" );
+  var save = $( "#save" );
+  var editor = $( "#editor" );
+  var wisywyg_container = $( "#wisywyg_container" );
 
-    // fileinput
-    if ($('.file_input')) {
-        $(".file_input").fileinput({
-            maxFilesNum: 1
-        });
-    }
+  //datatable
+  (function() {
+      if ($('.data_table')) {
+          $('.data_table').dataTable({
+              paging: true,
+              dom: 'Rlfrtip',
+              "order": [
+                  [0, "desc"]
+              ],
+              "aoColumnDefs": [{
+                  "bSortable": false,
+                  "aTargets": [-1, -2]
+              }]
+          });
+      }
+  })();
 
-    // wysiwyg
-    if ($('#editor')) {
-        $('#editor').wysiwyg();
+  // fileinput
+  if ($('.file_input')) {
+      $(".file_input").fileinput({
+          maxFilesNum: 1
+      });
+  }
 
-        var innerwysiwyg = $('.wysiwyg_textarea').val();
-        $('#editor').append(innerwysiwyg);
+  // wysiwyg
+  if (editor) {
+      editor.wysiwyg();
 
-        $('[name="commit"]').click(function() {
-            info = $('#editor').html();
-            $('.wysiwyg_textarea').val(info);
-        });
-    }
+      var innerwysiwyg = $('.wysiwyg_textarea').val();
+      editor.append(innerwysiwyg);
 
-    // data picker
+      $('[name="commit"]').click(function() {
+          info = editor.html();
+          $('.wysiwyg_textarea').val(info);
+      });
+  }
 
-    $( "#but" ).click(function() {
-      $( "#save" ).show();
-      $( "#but" ).hide();
-      $( "#wisywyg_container" ).hide();
-      var htmlString = $( "#editor" ).html();
-      $( "#editor" ).text( htmlString );
+  // data picker
+  but.click(function() {
+    save.show();
+    but.hide();
+    wisywyg_container.hide();
+    editor.text( editor.html() );
+  });
+
+  $( "#savecode" ).click(function() {
+    but.show();
+    save.hide();
+    wisywyg_container.show();
+    editor.html( editor.text() );
+  });
+
+  $("#nostyle").click(function(){
+    editor.html(editor.text());
+  });
+
+  $(function () {
+    $('#datetimepicker').datetimepicker({
+      format: 'YYYY/MM/DD HH:mm',
+      stepping: 15
     });
-
-    $( "#savecode" ).click(function() {
-      $( "#but" ).show();
-      $( "#save" ).hide();
-      $( "#wisywyg_container" ).show();
-      var htmlString = $( "#editor" ).text();
-      $( "#editor" ).html( htmlString );
+    $('#datetimepicker_deadline').datetimepicker({
+      format: 'YYYY/MM/DD'
     });
-
-    $("#nostyle").click(function(){
-      $("#editor").html($("#editor").text());
-    });
+  });
 }
 
 function handleAjaxSpeackerForm() {
@@ -78,12 +90,3 @@ function handleAjaxSpeackerForm() {
     })
 }
 
-$(function () {
-  $('#datetimepicker').datetimepicker({
-    format: 'YYYY/MM/DD HH:mm',
-    stepping: 15
-  });
-  $('#datetimepicker_deadline').datetimepicker({
-    format: 'YYYY/MM/DD'
-  });
-});

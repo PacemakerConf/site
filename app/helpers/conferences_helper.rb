@@ -4,7 +4,7 @@ module ConferencesHelper
     download-alt upload inbox repeat refresh lock qrcode barcode tag tags bookmark picture
     map-marker move play stop plus-sign minus-sign remove-sign ok-sign question-sign info-sign
     remove-circle ok-circle ban-circle gift eye-open calendar random comment magnet hdd bell
-    bullhorn)
+    bullhorn).freeze
 
   def scheduleColor(color)
     go = color.to_s
@@ -258,11 +258,7 @@ module ConferencesHelper
   def nearest_conference
     conf = Conference.nearest
     return unless conf
-    if can? :read, conf
-      conf
-    else
-      next_conference_for(conf)
-    end
+    can?(:read, conf) ? conf : next_conference_for(conf)
   end
 
   def nearest_conference_path

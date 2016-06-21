@@ -99,7 +99,6 @@ $header-height: 150px;
 	width: $width;
 	margin: 0 - $width/2;
 }
-
 div#preloader{
 	position: fixed;
 	left: 0; top: 0;
@@ -109,5 +108,5 @@ div#preloader{
 	overflow: visible;
 	/* Fall-back for browsers that don't support rgba */
 	background: rgb(156, 199, 213) url('preloader.gif') no-repeat center center;
-    background: rgba(156, 199, 213, .5) url('preloader.gif') no-repeat center center;
+	background: rgba(156, 199, 213, .5) url('preloader.gif') no-repeat center center;
 }
