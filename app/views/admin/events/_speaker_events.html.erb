@@ -20,6 +20,9 @@
           <%if event.materials.exists? %>
             <%= link_to "", event.materials.url(:original, false), class:"btn btn-default btn-xs glyphicon glyphicon-download-alt" %>
           <% end %>
+          <%if event.materials_link.present? %>
+            <%= link_to "", event.materials_link, class:"btn btn-default btn-xs glyphicon glyphicon-pushpin" %>
+          <% end %>
         </td>
         <td>
           <% unless event.video.to_s === '' %>

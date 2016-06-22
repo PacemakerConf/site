@@ -5,7 +5,12 @@ class Event < ActiveRecord::Base
   belongs_to :speaker
   belongs_to :event_type
 
-  has_attached_file :materials
+  has_attached_file :materials,
+    storage: :google_drive,
+      google_drive_credentials: "#{Rails.root}/config/google_drive.yml",
+      google_drive_options: {
+        public_folder_id: '0BwGWoAkfcaADcW01NUY5SVR0dXc'
+      }
 
   validates :title, presence: true
   validates :conference_id, presence: true

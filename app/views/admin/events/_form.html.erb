@@ -1,65 +1,72 @@
 
 <%= form_for [:admin, @event],  html: {class: 'form-horizontal admin_event_form'}  do |f| %>
 
-  <%= hidden_field( :event, :conference_id, value: params["conf_id"] || 
+  <%= hidden_field( :event, :conference_id, value: params['conf_id'] || 
       if( @event.conference ) then @event.conference.id end || Conference.last.id )%> 
 
   <div class="form-group">
-    <%= f.label :event_type_id, 'Event type*', class: "col-lg-2 control-label"%>
+    <%= f.label :event_type_id, 'Event type*', class: 'col-lg-2 control-label'%>
     <div class="col-lg-10">
       <%= select_tag 'event[event_type_id]', options_from_collection_for_select(EventType.all, 'id', 'name', @event_type.id), class: "form-control ", speaker_event: @speaker_event %>
     </div>
   </div>
 
-  <div class="form-group">
-    <%= f.label :duration, class: "col-lg-2 control-label" %>
+  <div class='form-group'>
+    <%= f.label :duration, class: 'col-lg-2 control-label' %>
     <div class='col-lg-10'>
     <%= f.time_select :duration, {start_hour: 0, end_hour: 4, minute_step: 5, time_separator: ''}, class: 'btn-default btn-xs' %>
     </div>
   </div>
 
-  <div class="form-group">
-    <%= f.label :title, 'Name*', class: "col-lg-2 control-label"%>
+  <div class='form-group'>
+    <%= f.label :title, 'Name*', class: 'col-lg-2 control-label'%>
     <div class='col-lg-10'>
-      <%= f.text_field :title, class: "form-control" %>
+      <%= f.text_field :title, class: 'form-control' %>
     </div>
   </div>
 
-  <div class="form-group">
-    <%= f.label :description, class: "col-lg-2 control-label" %>
-    <div class="col-lg-10">
-      <%= render "admin/share/wysiwyg" %> 
-      <div id="editor" class="well col-md-9 col-lg-7 form-control"></div>
+  <div class='form-group'>
+    <%= f.label :description, class: 'col-lg-2 control-label' %>
+    <div class='col-lg-10'>
+      <%= render 'admin/share/wysiwyg' %>
+      <div id='editor' class='well col-md-9 col-lg-7 form-control'></div>
     </div>
     <%= f.hidden_field :description, class: 'wysiwyg_textarea' %>
   </div>
 
-  <div class="form-group" id='event_speaker_id_group'>
-    <%= label_tag "speaker_search", 'Speaker*', class: "col-lg-2 control-label"%>
-    <div class="col-lg-10">
-      <%= text_field_tag "speaker_search", @event.speaker ? @event.speaker.fullname : nil, class: 'form-control', autocomplete: "off"%>
+  <div class='form-group' id='event_speaker_id_group'>
+    <%= label_tag 'speaker_search', 'Speaker*', class: 'col-lg-2 control-label'%>
+    <div class='col-lg-10'>
+      <%= text_field_tag 'speaker_search', @event.speaker ? @event.speaker.fullname : nil, class: 'form-control', autocomplete: 'off'%>
       <%= f.hidden_field :speaker_id, class: 'form-control' %>
     </div>
     <div id='speakers-list' class='col-lg-10 col-lg-offset-2'></div>
   </div>
 
-  <div class="form-group" id='event_materials_group'>
-    <%= f.label :materials, class: "col-lg-2 control-label"%>
-    <div class="col-lg-10">
-      <%= f.file_field :materials, class: "btn btn-default file_input" %>
+  <div class='form-group' id='event_materials_group'>
+    <%= f.label :materials, class: 'col-lg-2 control-label'%>
+    <div class='col-lg-10'>
+      <%= f.file_field :materials, 'data-show-preview' => 'false', class: 'btn btn-default event file_input' %>
+    </div>
+  </div>
+
+  <div class='form-group' id='event_materials_link_group'>
+    <%= f.label :materials_link, t('events.form.materials_link'), class: 'col-lg-2 control-label'%>
+    <div class='col-lg-10'>
+      <%= f.text_field :materials_link, class: 'form-control' %>
     </div>
   </div>
   
-  <div class="form-group" id='event_responsable_group'>
-    <%= f.label :responsable, class: "col-lg-2 control-label"%>
-    <div class="col-lg-10">
+  <div class='form-group' id='event_responsable_group'>
+    <%= f.label :responsable, class: 'col-lg-2 control-label'%>
+    <div class='col-lg-10'>
       <%= f.text_field :responsable, class: 'form-control' %>
     </div>
   </div>
 
-  <div class="form-group" >
-    <%= f.label :video, class: "col-lg-2 control-label"%>
-    <div class="col-lg-10">
+  <div class='form-group' >
+    <%= f.label :video, class: 'col-lg-2 control-label'%>
+    <div class='col-lg-10'>
       <%= f.text_field :video, class: 'form-control' %>
     </div>
   </div>
@@ -78,4 +85,15 @@
 <script type="text/javascript">
   var is_editing_event = <%= @event.persisted? %>;
   $("#event_event_type_id").on("change", setDefaultData)
+
+  if ($('.event')) {
+    $('.event').fileinput({
+      maxFilesNum: 1,
+      <% if @event.materials.present? %>
+        initialPreviewAsData: true,
+        overwriteInitial: true,
+        initialCaption: '<%= materials_url(@event.materials.url) %>'
+      <% end %>
+    });
+  }
 </script>
