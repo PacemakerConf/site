@@ -41,3 +41,22 @@ function setDefaultData(){
     })
   }
 }
+
+$(document).on('ready page:load', eventTypePageLoad);
+
+function eventTypePageLoad() {
+    if ($('.event_type_data_table')) {
+        $('.event_type_data_table').dataTable({
+            paging: true,
+            dom: 'Rlfrtip',
+            "order": [
+                [1, "desc"],
+                [2, 'asc']
+            ],
+            "aoColumnDefs": [{
+                "bSortable": false,
+                "aTargets": [-1, -2]
+            }]
+        });
+    }
+}
