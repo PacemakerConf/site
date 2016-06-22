@@ -7,7 +7,7 @@ class Conference < ActiveRecord::Base
   has_many :invitations, dependent: :destroy
   has_one :location, dependent: :destroy
   has_one :report, dependent: :destroy
-  belongs_to :year  
+  belongs_to :year
 
   validates :name, presence: true,
                    format: { with: /\A[\.\w& ]+\z/ }
@@ -33,12 +33,8 @@ class Conference < ActiveRecord::Base
 
 
 	def self.last_conference_route
-		last_conference = Conference.where(published: true).by_year_date_desc[0]#order(year: :desc, date: :desc)[0] 
-		if last_conference
-			last_conference.name.to_s + '-' + last_conference.year.name.to_s + '/about'
-		else 
-			'not found'
-		end
+		last_conference = Conference.where(published: true).by_year_date_desc[0]#order(year: :desc, date: :desc)[0]
+		last_conference ? last_conference.name.to_s + '-' + last_conference.year.name.to_s + '/about' : 'not found'
 	end
 
   def self.year(val)
@@ -57,7 +53,7 @@ class Conference < ActiveRecord::Base
   def self.find_by_route(route)
     name, year = route.split('-')
     Conference.find_by(
-      name: name, 
+      name: name,
       year: Year.find_by(name: year)
     )
   end

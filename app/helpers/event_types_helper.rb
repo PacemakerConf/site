@@ -1,10 +1,10 @@
 module EventTypesHelper
-	GLYPHS = %w(list fire leaf music user asterisk plus minus cloud envelope pencil glass search heart 
-		star star-empty th th-large th-list ok remove cog trash home file time road download 
-		download-alt upload inbox repeat refresh lock qrcode barcode tag tags bookmark picture 
-		map-marker move play stop plus-sign minus-sign remove-sign ok-sign question-sign info-sign 
-		remove-circle ok-circle ban-circle gift eye-open calendar random comment magnet hdd bell 
-		bullhorn)
+	GLYPHS = %w(list fire leaf music user asterisk plus minus cloud envelope pencil glass search heart
+		star star-empty th th-large th-list ok remove cog trash home file time road download
+		download-alt upload inbox repeat refresh lock qrcode barcode tag tags bookmark picture
+		map-marker move play stop plus-sign minus-sign remove-sign ok-sign question-sign info-sign
+		remove-circle ok-circle ban-circle gift eye-open calendar random comment magnet hdd bell
+		bullhorn).freeze
 	require 'json'
 
 	def classImage(imageNumber)
@@ -19,7 +19,7 @@ module EventTypesHelper
 		if check then
 			return '-ok'
 		else
-			return '-remove'			
+			return '-remove'
 		end
 	end
 

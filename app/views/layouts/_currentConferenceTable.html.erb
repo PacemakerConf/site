@@ -7,20 +7,25 @@
 						<%= @conference.fullname%>
 					<% end %>
 				</h1>
+				<h5>
+				  <i id="inscription">
+						made by “SoftServers for SoftServers”
+						</i>
+				</h5>
 			</div>
 		</div>
-		
+
 		<div class="contacts col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
 			<div class="conference-det-2">
 				<ul>
 					<% if @conference %>
 						<li>
 							This time <strong>
-							<%= @conference.attenders || 'several' %> 
+							<%= @conference.attenders || 'several' %>
 							lucky people</strong>
 						</li>
 						<li>
-							will meet 
+							will meet
 							<% if @conference.date %>
 								on <strong><%=@conference.date.strftime('%B %d, %Y') %>
 							<% else %>
@@ -35,7 +40,7 @@
 								<strong> somewhere </strong>
 							<% end %>
 						</li>
-					<% end %>	
+					<% end %>
 				</ul>
 			</div>
 		</div>

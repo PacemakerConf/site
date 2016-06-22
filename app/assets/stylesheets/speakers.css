@@ -42,13 +42,13 @@
 }
 .speaker-photo img.photo{
   -webkit-filter: grayscale(0.6);
-   filter: grayscale(0.6); 
+   filter: grayscale(0.6);
    float: left;
 }
 
 .speaker-photo img.photo:hover{
 	-webkit-filter: grayscale(0);
-	filter: grayscale(0); 
+	filter: grayscale(0);
 
 }
 
@@ -131,6 +131,10 @@
 	color: #006687;
 }
 
+.speaker-container.one-speaker .speaker-name {
+	margin-left: 5px;
+}
+
 .speech-about{
 	float: right !important;
 	clear: right;
@@ -169,6 +173,7 @@
 }
 .speaker-contacts img{
 	width:16px;
+	height: 16px;
 }
 
 .ongoings-speech-container .speech-conference sup{
@@ -206,3 +211,4 @@
 a.btn.btn-default.btn-success:visited{
 	color: white;
 }
+

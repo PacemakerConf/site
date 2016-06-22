@@ -1,0 +1,59 @@
+@media screen
+{
+	.row.first span
+	{
+		display: none;
+	}
+	#sortable {
+		list-style-type: none;
+	}
+  	#sortable li span {
+  		position: absolute;
+  	}
+}
+
+@media print
+{
+	button.btn, .nav, div.main-menu, #admin_nav, .logo img
+	{
+		display: none;
+	}
+
+	a:after
+	{
+		display: none;
+	}
+	.conference-name h1
+	{
+		float: left;
+		display: inline;
+	}
+	.contacts div ul
+	{
+		margin: 0;
+		padding: 0;
+		list-style-type: none;
+	}
+	.contacts div ul li
+	{
+		display: inline;
+	}
+	.contacts div
+	{
+		float:right;
+		display: inline;
+	}
+	table tr td
+	{
+	    font-size: 1.25em;
+	    border-top: 1px solid #AAF;
+	    border-bottom: 1px solid #AAF;
+	    padding: 10px !important;
+  	}
+  	table
+	{
+		width: 100%;
+		margin: 0;
+		float: none;
+	}
+}
