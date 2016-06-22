@@ -16,7 +16,7 @@ class Admin::ReportsController < Admin::ApplicationController
 
   # GET /reports/new
   def new
-    @report = Report.new
+    @report = Report.new(conference_id: params[:conf_id])
   end
 
   # GET /reports/1/edit

@@ -12,7 +12,6 @@
 //
 
 //= require gmaps.js
-//= require event_types
 //= require jquery-1.11.2
 //= require jquery_ujs
 //= require jquery-ui
@@ -27,5 +26,17 @@
 //= require bootstrap-modal.js
 //= require bootstrap-wysiwyg.js
 //= require turbolinks
-//= require_tree .
+//= require event_types
+//= require speaker
+//= require locations
+//= require mainMenu
+//= require conferences
+//= require events
+//= require schedule
+//= require invitations
+//= require share
+//= require application
+//= require pages.coffee
+//= require message
+//= require contacts
 //= require preloader

@@ -1,9 +1,9 @@
  <%= form_for( [:admin, @report],  html: {class: 'form-horizontal'} ) do |f| %>
 
         <div class="form-group">
-          <% if params['conf_id'] %>
+          <% if @report.conference.present? %>
             <div class="col-lg-7">
-              <h4>Conference:  <%= params['conf_fname'] %> </h4>
+              <h4>Conference: <%= @report.conference.fullname %> </h4>
             </div>
             <%= hidden_field( :report, :conference_id, value: params['conf_id']) %>
           <% else %>

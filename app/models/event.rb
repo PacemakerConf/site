@@ -52,4 +52,8 @@ class Event < ActiveRecord::Base
           return "Error: Event change position don't work properly."
       end
   end
+
+  def confirmation_message
+    published? ? 'Are you sure? This event has been published.' : 'Are you sure?'
+  end
 end

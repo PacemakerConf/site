@@ -35,7 +35,7 @@
             <% end %>
         </td> 
         <td><%= link_to 'Edit', edit_admin_event_path(event), class: 'btn btn-xs btn-warning' %></td>
-        <td><%= link_to 'Delete', admin_event_path(event), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger' %></td>
+        <td><%= link_to 'Delete', admin_event_path(event), method: :delete, data: { confirm: event.confirmation_message }, class: 'btn btn-xs btn-danger' %></td>
       </tr>
     <% end %>
   </tbody>

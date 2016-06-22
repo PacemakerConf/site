@@ -37,8 +37,8 @@ describe ConferencesController do
 	
 	describe 'GET #speakers' do
 		xit 'assign conferences speaker_events to @events' do
-			speaker_event_type = FactoryGirl.create(:event_type, speakerEvent: true)
-			non_speaker_event_type = FactoryGirl.create(:event_type, speakerEvent: false)
+			speaker_event_type = FactoryGirl.create(:event_type, speaker_event: true)
+			non_speaker_event_type = FactoryGirl.create(:event_type, speaker_event: false)
 			speaker_event = FactoryGirl.create(:event, event_type: speaker_event_type, speaker_id: 1)
 			non_speaker_event = FactoryGirl.create(:event, event_type: non_speaker_event_type)
 			get :speakers, name: @conference.route
@@ -53,8 +53,8 @@ describe ConferencesController do
 
 	describe 'GET #schedule' do
 		xit 'assign all conferences events to @events' do
-			speaker_events = FactoryGirl.create(:event_type, speakerEvent: true)
-			non_speaker_events = FactoryGirl.create(:event_type, speakerEvent: false)
+			speaker_events = FactoryGirl.create(:event_type, speaker_event: true)
+			non_speaker_events = FactoryGirl.create(:event_type, speaker_event: false)
 			speaker_event = FactoryGirl.create(:event, event_type: speaker_events, speaker_id: 1)
 			non_speaker_event = FactoryGirl.create(:event, event_type: non_speaker_events)
 			get :schedule, name: @conference.route

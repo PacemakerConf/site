@@ -12,8 +12,8 @@ class Admin::EventsController < Admin::ApplicationController
     else
       @events = Event.all.by_position
     end
-    @speaker_event_type = EventType.where(speakerEvent: true)
-    @non_speaker_event_type = EventType.where(speakerEvent: false)
+    @speaker_event_type = EventType.where(speaker_event: true)
+    @non_speaker_event_type = EventType.where(speaker_event: false)
     @speaker_events = @events.where(event_type: @speaker_event_type)
     @non_speaker_events = @events.where(event_type: @non_speaker_event_type)
   end
@@ -35,13 +35,13 @@ class Admin::EventsController < Admin::ApplicationController
   def new
     @event = Event.new
     @event_type = EventType.first
-    @speaker_event = @event_type.speakerEvent
+    @speaker_event = @event_type.speaker_event
   end
 
   # GET /events/1/edit
   def edit
     @event_type = @event.event_type
-    @speaker_event = @event_type.speakerEvent
+    @speaker_event = @event_type.speaker_event
   end
 
   # POST /events
@@ -55,7 +55,7 @@ class Admin::EventsController < Admin::ApplicationController
         format.json { render :show, status: :created, location: @event }
       else
         @event_type = @event.event_type
-        @speaker_event = @event_type.speakerEvent
+        @speaker_event = @event_type.speaker_event
         format.html { render :new }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
@@ -70,6 +70,8 @@ class Admin::EventsController < Admin::ApplicationController
         format.html { redirect_to controller: 'admin/events', action: 'index', conf_id: @event.conference_id }
         format.json { render :show, status: :ok, location: @event }
       else
+        @event_type = @event.event_type
+        @speaker_event = @event_type.speaker_event
         format.html { render :edit }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end

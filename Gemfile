@@ -71,6 +71,8 @@ group :production do
   gem 'unicorn-rails'
 end
 
+gem 'quiet_assets', group: :development
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'spork'
@@ -83,9 +85,6 @@ group :development, :test do
   gem 'letter_opener', require: false
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
-  gem 'spork'
-  gem 'spork-rails'
-  gem 'shoulda-matchers', require: false
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   

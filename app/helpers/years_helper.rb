@@ -2,7 +2,7 @@ module YearsHelper
 	def get_years_list
 	  years_options = ''
     current_year = @year.name || Time.now.year 
-    Year::FIRST_YEAR.upto(current_year.to_i+2) do |year| 
+    Year::FIRST_YEAR.upto(current_year.to_i+9) do |year| 
       if current_year.to_s === year.to_s 
         selected = " selected='selected'" 
       else 

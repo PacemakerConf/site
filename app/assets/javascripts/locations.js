@@ -58,10 +58,10 @@ var setLocationFields = function(location_hash){
 $(document).on("ready page:load", function(){
   $('#multiselect').attr("multiple", "multiple").attr("title","Select contact");
   //Adding bsmselect for select with attr "multiple"
-  if($("select[multiple]")){
-    $("select[multiple]").bsmSelect();
-    $(".bsmListItemRemove").click();
+  if($("#multiselect")){
+    $("#multiselect").bsmSelect();
   }
+  
   //Adding some styles for select
   $('#bsmSelectbsmContainer0').addClass('form-control');
 

@@ -98,13 +98,13 @@ describe Admin::EventTypesController do
 
 		context 'with invalid attr' do
 			it 'doesn\'t change event types attr' do
-				patch :update, id: @eventType, event_type: FactoryGirl.attributes_for(:event_type, name: 'la', defaultDuration: nil)
+				patch :update, id: @eventType, event_type: FactoryGirl.attributes_for(:event_type, name: 'la', default_duration: nil)
 				@eventType.reload
 				expect(@eventType.name).not_to eq('la')
 			end
 
 			it 're-render edit template' do
-				patch :update, id: @eventType, event_type: FactoryGirl.attributes_for(:event_type, name: 'la', defaultDuration: nil)
+				patch :update, id: @eventType, event_type: FactoryGirl.attributes_for(:event_type, name: 'la', default_duration: nil)
 				expect(response).to  render_template :edit
 			end
 		end
