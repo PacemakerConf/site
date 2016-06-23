@@ -212,16 +212,13 @@ module ConferencesHelper
     groupPart += '"></span>'
     groupPart += '<span>'
     groupPart += eventsGroupable[0].title
+    groupPart += '&nbsp;&nbsp;&nbsp;' + ' - ' + '&nbsp;&nbsp;&nbsp;'
 
-    eventsGroupable.each do |eventGroup|
-      if can? :read, eventGroup
-        if !(eventGroup.speaker_id.nil?)
-          groupPart += '<span style="position:relative;">- '
-          groupPart += link_to( eventGroup.speaker.name + " " + eventGroup.speaker.surname, eventGroup.speaker, :style => 'font-weight: bold;')
-          groupPart += ' ,</span>'
-        end
+    groupPart += eventsGroupable.select { |eventGroup| can?(:read, eventGroup) && eventGroup.speaker.present? }.map do |eventGroup|
+      content_tag(:span,  style: "position:relative;") do
+        link_to( eventGroup.speaker.name + " " + eventGroup.speaker.surname, eventGroup.speaker, :style => 'font-weight: bold;')
       end
-    end
+    end.join(", ")
 
     groupPart += '</span>'
     groupPart += '</td>'
