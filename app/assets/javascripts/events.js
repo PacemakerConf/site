@@ -6,8 +6,8 @@ function eventFormLoad(){
 	}
 
 	if( $('.admin_event_form').length ){
-		var speakerEvent = event_event_type_id.getAttribute("speaker_event");
-		toggleEventFields(speakerEvent.toString() === 'true');
+		var speakerEvent = $('#event_event_type_id').attr("speaker_event");
+		toggleEventFields(speakerEvent.toString() === 'true'); 		
 	}
 
 	if($('#speaker_search')[0]){
@@ -26,15 +26,15 @@ function toggleEventFields(speakerEvent){
 		$('#event_materials_group').show();
 		$('#event_materials_link_group').show();
 		$('#event_responsable_group').hide();
-		event_responsable.value = '';
+		$('#event_responsable').val('');
 	}	
 	else {
 		$('#event_speaker_id_group').hide();
-		event_speaker_id.value = "";
+		$('#event_speaker_id').val('');
 		$('#event_materials_group').hide();
-		event_materials.value = "";
+		$('#event_materials').val('');
 		$('#event_materials_link_group').hide();
-		event_materials_link.value = "";
+		$('#event_materials_link').val('');
 		$('#event_responsable_group').show();
 	}
 }
