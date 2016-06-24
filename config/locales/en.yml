@@ -24,6 +24,10 @@ en:
     attributes:
       event:
         responsable: "Responsible"
+  activerecord:
+    attributes:
+      report:
+        responsable: "Responsible"
   events:
     form:
       materials_link: "Link to materials"

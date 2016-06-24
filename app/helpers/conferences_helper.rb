@@ -212,7 +212,7 @@ module ConferencesHelper
     groupPart += '"></span>'
     groupPart += '<span>'
     groupPart += eventsGroupable[0].title
-    groupPart += '&nbsp;&nbsp;&nbsp;' + ' - ' + '&nbsp;&nbsp;&nbsp;'
+    groupPart += '&nbsp;&nbsp;' + ' - ' + '&nbsp;&nbsp;'
 
     groupPart += eventsGroupable.select { |eventGroup| can?(:read, eventGroup) && eventGroup.speaker.present? }.map do |eventGroup|
       content_tag(:span,  style: "position:relative;") do

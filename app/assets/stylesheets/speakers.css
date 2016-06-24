@@ -13,9 +13,13 @@
 }
 
 .speaker-container{
-	width: 40%;
 	font-size: 1em;
 	margin: 20px 20px 20px 0;
+}
+
+.speaker-container-3-columns{
+	font-size: 1em;
+	margin: 20px 0 20px 0;
 }
 
 .speakers-list > h4, .lightning-talks-list > h4{
@@ -108,7 +112,6 @@
 }
 
 .full-speaker-container{
-	width: 100%;
 	float: left;
 	padding: 10px;
 }

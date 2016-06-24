@@ -14,16 +14,16 @@
           <% end %>
         </div> 
     <div class="form-group">
-      <%= f.label :responsable, "Responsable*", class: "col-lg-2 control-label"%>
+      <%= f.label :responsable, class: "col-lg-2 control-label"%>
       <div class="col-lg-7">
-        <%= f.text_field :responsable, class: "form-control" %>
+        <%= f.text_field :responsable, required: true, class: "form-control" %>
       </div>
     </div>    
    
     <div class="form-group">
-      <%= f.label :title, "Title*", class: "col-lg-2 control-label"%>
+      <%= f.label :title, class: "col-lg-2 control-label"%>
       <div class="col-lg-7">
-        <%= f.text_field :title, class: "form-control" %>
+        <%= f.text_field :title, required: true, class: "form-control" %>
       </div>
     </div> 
   

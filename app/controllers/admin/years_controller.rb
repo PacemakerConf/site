@@ -1,6 +1,6 @@
 class Admin::YearsController < Admin::ApplicationController
   before_action :authenticate_admin!
-  before_action :set_year, only: [:publish, :show, :edit, :update]
+  before_action :set_year, only: [:publish, :show, :edit, :update, :destroy]
 
   layout 'admin'
 
@@ -62,6 +62,15 @@ class Admin::YearsController < Admin::ApplicationController
         format.html { render :edit }
         format.json { render json: @year.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def destroy
+    unless @year.conferences.any?
+      @year.destroy
+      redirect_to :back
+    else
+      redirect_to :back, notice: 'You can not destroy year with conferences.'
     end
   end
 
