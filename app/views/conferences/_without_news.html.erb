@@ -1,5 +1,5 @@
-<div class="row">
-	<div class="main-speakers col-lg-8 col-md-8 col-sm-12 col-xs-12">
+<div class="row">  
+	<div class="main-speakers col-sm-12 col-xs-12 <%= @lightnings.any? ? 'col-lg-8 col-md-8' : 'col-lg-12' %>">
 		<%= render 'speacker_list', topics: @topics %>
 	</div>
 	<div class="main-speakers col-lg-4 col-md-4 col-sm-12 col-xs-12">
