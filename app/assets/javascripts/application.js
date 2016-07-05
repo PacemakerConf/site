@@ -35,8 +35,37 @@
 //= require schedule
 //= require invitations
 //= require share
-//= require application
 //= require pages.coffee
 //= require message
 //= require contacts
 //= require preloader
+//= require_self
+
+$(document).on("ready page:load", function() {
+  $('.preload-photo').each(function(index, obj){
+    $.ajax({
+      url: $(obj).data('image-link'),
+      success: function(response){
+        $(obj).attr('src', response.url).addClass('photo');
+      }
+    });
+  });
+
+  $('.download-materials').each(function(index, obj){
+    $(obj).on('click', function(e){
+      e.preventDefault();
+      $.ajax({
+        url: $(obj).data('materials-link'),
+        dataType: "json",
+        success: function(response){
+          window.location.href = response.url;
+          stopPreloader();
+        },
+        error: function(){
+          alert('This file does not exist!');
+          stopPreloader();
+        }
+      });
+    });
+  });
+});

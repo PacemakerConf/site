@@ -46,7 +46,7 @@
   <div class='form-group' id='event_materials_group'>
     <%= f.label :materials, class: 'col-lg-2 control-label'%>
     <div class='col-lg-10'>
-      <%= f.file_field :materials, 'data-show-preview' => 'false', class: 'btn btn-default event file_input' %>
+      <%= f.file_field :materials, data: { show_preview: 'false', show_upload: 'false', show_remove: 'false' }, class: 'btn btn-default event file_input' %>
     </div>
   </div>
 

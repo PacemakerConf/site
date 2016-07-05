@@ -3,6 +3,7 @@ var preloaderPageLoaded = function(){
 	$('#preloader').fadeOut('slow',function(){$(this).hide();});
 	handleAnchorClick();
 }
+window.stopPreloader = preloaderPageLoaded;
 
 var preloaderShow = function(){
 	$('#preloader').fadeIn();
