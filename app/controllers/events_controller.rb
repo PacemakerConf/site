@@ -37,11 +37,21 @@ class EventsController < ApplicationController
   def year
   end
 
+  def materials_download
+    set_event
+    materials_url = @event.materials.url(:original, false)
+    if materials_url.match(/No picture/)
+      render json: { error: "No picture" }, status: 404
+    else
+      render json: { url: materials_url }
+    end
+  end
+
   private
   
   # Use callbacks to share common setup or constraints between actions.
   def set_event
-    @event = Event.find(params[:id])   
+    @event = Event.find(params[:id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

@@ -51,6 +51,11 @@ class SpeakersController < ApplicationController
     end
   end
 
+  def photo_download
+    @speaker = Speaker.find params[:id]
+    render json: { url: @speaker.photo.url(:thumb) }
+  end
+
   private
   
   # Use callbacks to share common setup or constraints between actions.

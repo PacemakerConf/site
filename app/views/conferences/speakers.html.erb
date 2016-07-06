@@ -10,7 +10,7 @@
 			<div class = 'full-speaker-container col-lg-7 col-md-7 col-xs-7 bckgrnd'>
 				<div class = 'photo-and-links'>
 					<div class = 'speaker-photo'>
-						<%= link_to( image_tag( speaker.photo.url(:thumb), class: 'photo', alt: speaker.fullname ), speaker ) %>
+						<%= link_to( image_tag( 'preloader.gif', class: 'preload-photo', data: { image_link: photo_download_speaker_path(speaker.id)}, alt: speaker.fullname), speaker ) %>
 						<ul class="speaker-contacts">
 							<% icons = ['email', 'facebook', 'linkedin', 'twitter', 'site'] %>
 
@@ -46,8 +46,8 @@
 					<div><%= event.description.to_s.html_safe %></div>
 					<div>
 						<br>
-						<% if event.materials.exists? %>
-		          <%= link_to "", event.materials.url(:original, false), class:"btn btn-default btn-xs glyphicon glyphicon-download-alt" %>
+						<% if event.materials.present? %>
+		          <%= link_to "", "#", data: { materials_link: materials_download_event_path(event.id) }, class:"btn btn-default btn-xs glyphicon glyphicon-download-alt download-materials" %>
 		        <% end %>
 		        <%if event.materials_link.present? %>
 	            <%= link_to "", event.materials_link, class:"btn btn-default btn-xs glyphicon glyphicon-pushpin" %>

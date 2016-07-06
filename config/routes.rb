@@ -66,10 +66,19 @@ Rails.application.routes.draw do
   end
   
   #userside 
-  resources :speakers
+  resources :speakers do
+    member do
+      get 'photo_download', to: 'speakers#photo_download'
+    end
+  end
+
   resources :conferences, param: :name
+
   resources :events do
     get ':year', action: :year, constraints: { year: /\d{4}/ }, on: :collection, as: :year
+    member do
+      get 'materials_download', to: 'events#materials_download'
+    end
   end
   resources :years, param: :name, only: :show
 

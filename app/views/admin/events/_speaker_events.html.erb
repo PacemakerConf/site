@@ -17,8 +17,8 @@
         <td><%= event.event_type.name %></td>
         <td><%= event.title %>
         <td>
-          <%if event.materials.exists? %>
-            <%= link_to "", event.materials.url(:original, false), class:"btn btn-default btn-xs glyphicon glyphicon-download-alt" %>
+          <%if event.materials.present? %>
+            <%= link_to "", "#", data: { materials_link: materials_download_event_path(event.id) }, class:"btn btn-default btn-xs glyphicon glyphicon-download-alt download-materials" %>
           <% end %>
           <%if event.materials_link.present? %>
             <%= link_to "", event.materials_link, class:"btn btn-default btn-xs glyphicon glyphicon-pushpin" %>
@@ -30,13 +30,13 @@
           <% end %>
         </td>
         <td class='publish'>
-            <% if event.published %>
-              Published
-            <% else %>
-              <%= link_to 'Publish', publish_admin_event_path(event), method: :patch, remote: true, class: 'btn btn-xs btn-primary' %>
-            <% end %>
+          <% if event.published %>
+            Published
+          <% else %>
+            <%= link_to 'Publish', publish_admin_event_path(event), method: :patch, remote: true, class: 'btn btn-xs btn-primary' %>
+          <% end %>
         </td> 
-           <td><%= link_to 'Edit', edit_admin_event_path(event), class: 'btn btn-xs btn-warning' %></td>
+        <td><%= link_to 'Edit', edit_admin_event_path(event), class: 'btn btn-xs btn-warning' %></td>
         <td><%= link_to 'Delete', admin_event_path(event), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger' %></td>
       </tr>
     <% end %>
