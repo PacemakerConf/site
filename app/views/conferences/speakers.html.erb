@@ -47,7 +47,7 @@
 					<div>
 						<br>
 						<% if event.materials.present? %>
-		          <%= link_to "", "#", data: { materials_link: materials_download_event_path(event.id) }, class:"btn btn-default btn-xs glyphicon glyphicon-download-alt download-materials" %>
+		          <%= link_to "", event.materials.url, data: { materials_link: materials_download_event_path(event.id) }, class:"btn btn-default btn-xs glyphicon glyphicon-download-alt download-materials" %>
 		        <% end %>
 		        <%if event.materials_link.present? %>
 	            <%= link_to "", event.materials_link, class:"btn btn-default btn-xs glyphicon glyphicon-pushpin" %>
