@@ -9,25 +9,26 @@ var getFullLocation = function(){
 }
 
 var initGMap = function(map_area){
-    var longitude = map_area.getAttribute('longitude') ? map_area.getAttribute('longitude') : 0;
-    var latitude = map_area.getAttribute('latitude')? map_area.getAttribute('latitude') : 0;
+  var longitude = map_area.getAttribute('longitude') ? map_area.getAttribute('longitude') : 0;
+  var latitude = map_area.getAttribute('latitude')? map_area.getAttribute('latitude') : 0;
 
-    var  map = new GMaps({
-      div: '#map',
-      lng: longitude ? longitude : 0,
-      lat: latitude? latitude : 0,
-      zoom: 16
-    });
-    if(longitude != 0 && latitude != 0){
-        var location_hash = {
-          lat: latitude,
-          lng: longitude
-        };
-        map.addMarker(location_hash);
-        map.setCenter(latitude, longitude);
-    } else {
-      pointGMapByAddress(map)
-    }  
+  var map = new GMaps({
+    div: '#map',
+    lng: longitude ? longitude : 0,
+    lat: latitude? latitude : 0,
+    zoom: 16
+  });
+  if(longitude != 0 && latitude != 0){
+      var location_hash = {
+        lat: latitude,
+        lng: longitude
+      };
+      map.addMarker(location_hash);
+      map.setCenter(latitude, longitude);
+  } else {
+    pointGMapByAddress(map)
+  }
+  return map;
 }
 
 var pointGMapByAddress = function(map){
@@ -68,11 +69,11 @@ $(document).on("ready page:load", function(){
   var map_area = $("#map-area")[0];
 
   if(map_area != undefined){
-    initGMap(map_area);
+    var googleMap = initGMap(map_area);
   }  
   //Function for joining values from two fields on every keyup
   $(".adr").keyup(function(){
-    pointGMapByAddress(map);
+    pointGMapByAddress(googleMap);
   });
 });
 
