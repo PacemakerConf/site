@@ -21,7 +21,7 @@ module SpeakersHelper
       name = make_searched_part_bold(speaker.name, input)
       surname = make_searched_part_bold(speaker.surname, input)
       speakers_list += '<li onclick="setSpeaker(' + speaker.id.to_s + 
-      ', \'' + speaker.fullname + '\')">' + name.to_s + ' ' + 
+      ', \'' + speaker.fullname.gsub("'", "\\'").gsub('"', '\\"')  + '\')">' + name.to_s + ' ' + 
       surname + '</li>'
     end
     speakers_list += '</ul>'
