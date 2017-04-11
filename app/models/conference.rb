@@ -31,10 +31,9 @@ class Conference < ActiveRecord::Base
     name.to_s + '-' + year.name.to_s
   end
 
-
 	def self.last_conference_route
-		last_conference = Conference.where(published: true).by_year_date_desc[0]#order(year: :desc, date: :desc)[0]
-		last_conference ? last_conference.name.to_s + '-' + last_conference.year.name.to_s + '/about' : 'not found'
+    last_conference = Conference.where(published: true).by_year_date_desc.first#order(year: :desc, date: :desc)[0]
+		last_conference ?  URI.encode(last_conference.name.to_s + '-' + last_conference.year.name.to_s + '/about') : URI.encode('not found')
 	end
 
   def self.year(val)
