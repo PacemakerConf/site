@@ -90,7 +90,7 @@ class Admin::ConferencesController < Admin::ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_conference
-      @conference = Conference.find_by_route(params[:name])
+      @conference = Conference.find_by_route(params[:name]) || Conference.find(params[:name])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -54,7 +54,7 @@
               <%= link_to 'Publish', publish_admin_conference_path(conference.route), method: :patch, remote: true, class: 'btn btn-xs btn-primary' %>              
             <% end %>
           </td>
-          <td><%= link_to 'Edit', edit_admin_conference_path(conference.route), class: 'btn btn-xs btn-warning' %></td>
+          <td><%= link_to 'Edit', URI.encode(edit_admin_conference_path(conference.route)), class: 'btn btn-xs btn-warning' %></td>
           <td><%= link_to 'Delete', admin_conference_path(conference.route), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger' %></td>
       </tr>
     <% end %>

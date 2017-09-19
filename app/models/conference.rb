@@ -50,6 +50,7 @@ class Conference < ActiveRecord::Base
   end
 
   def self.find_by_route(route)
+    route.gsub!('%20', ' ')
     name, year = route.split('-')
     Conference.find_by(
       name: name,
